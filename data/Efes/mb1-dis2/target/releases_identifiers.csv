@@ -1,0 +1,47 @@
+release_id,type,description,value
+9552,Barcode,Text,5 032781 260163
+9552,Barcode,Scan,5032781260163
+141057,Matrix / Runout,Run-out Side A (stamped),POSP 292 A//2∇E 1 1
+141057,Matrix / Runout,Run-out Side A (etched),YD JMJARRE A GB4
+141057,Matrix / Runout,Run-out Side B (stamped),POSP 292 B//1∇E 1 1
+141057,Matrix / Runout,Run-out Side B (etched),YD JMJARRE B GB3
+176915,Barcode,Text,7 314-570189-2 7
+176915,Barcode,Scan,731457018927
+221785,Barcode,,0 1371- 17023-2 3
+221785,Other,Label Code,LC 8878
+221785,Other,Rights Society,GEMA
+221785,Matrix / Runout,,SONO/P-8708-FOR023 SA8147
+294280,Matrix / Runout,,C5236-01
+294280,Matrix / Runout,,82876530042
+294280,Other,Mastering SID Code,IFPI L028
+294280,Other,Mould SID Code,IFPI 1022
+317610,Barcode,,5021392055862
+414262,Barcode,Text,8 28708 50122 9
+414262,Barcode,Scanned,828708501229
+414262,Matrix / Runout,,CTX CD 5012 10-80624-LJ21
+414262,Other,Mould SID Code,IFPI V502
+414262,Other,Variant Mould SID Code,IFPI V504
+468517,Barcode,,0 7599-26599-2
+468517,Matrix / Runout,,759926599-2 RSA
+468517,Label Code,,LC 0392
+468517,Rights Society,,GEMA / BIEM
+468517,Other,France Distribution Code,WE 833
+468517,Other,SPARS Code,AAD
+529327,Matrix / Runout,,C7518 XLS 90 CD : 1:0
+529327,Other,Mastering SID Code,IFPI L123
+547563,Matrix / Runout,Run Out Info Side A,10949 A-6/76S
+547563,Matrix / Runout,Run Out Info Side B,WIPX 1142-1U 10 949-B
+547563,Other,Rights Society,GEMA
+547563,Other,Label Code,LC 0407
+547563,Matrix / Runout,Side A,C 10 949 A
+547563,Matrix / Runout,Side B,C 10 949 B
+698248,Rights Society,,GEMA
+729335,Rights Society,,NCB
+729971,Rights Society,,GEMA
+729971,Label Code,Back cover,LC 1626
+729971,Label Code,Labels,LC 6879
+729971,Matrix / Runout,Label A,S 203 958 A
+729971,Matrix / Runout,Label B,S 203 958 B
+729971,Matrix / Runout,Runout A,203958 A-1/81S III Ⅲ Made in Germany
+729971,Matrix / Runout,Runout B,203958 B-1/81S III Ⅱ Made in Germany
+729971,Other,Inner sleeve,203 985/97053

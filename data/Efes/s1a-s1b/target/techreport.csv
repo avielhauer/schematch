@@ -1,0 +1,5 @@
+techid,title,inst,year,month,pages,vol,num,loc,class,note,annote
+Accetta1980,The Design of a Network Based Central File System,CMU TR.80-123.,1980,Aug,,,,,> DBDdist> DBFsyseval>,,
+Atzeni1983,Computer Aided Tool for Conceptual Data Base Design,Un.Studi Inst.Automatica TR.,1983,,,,,Un.Studi Roma Inst.Automatica,> DBDmodel><DBfile,,
+Baeck1985,Evaluation of Open Source Literature Databases,SRI Project ESU 7801 Contract -D-3323.,1985,,,,84,,> DBDQuery><DBfile,,
+Batini1982:1,Methodology and Tools for Data Base,Un.Roma Inst.Automatica,1982,Jun,,,,,> DBDmodel.6><DBfile,,

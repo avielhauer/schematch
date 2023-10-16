@@ -1,0 +1,6 @@
+id,iso_code,iso_number,name,frequency
+11,Hebr,125,Hebrew,4
+22,Grek,200,Greek,4
+28,Latn,215,Latin,4
+31,Cyrl,220,Cyrillic,4
+43,Kore,287,Korean,4

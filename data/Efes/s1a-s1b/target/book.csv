@@ -1,0 +1,10 @@
+bookid,title,publisher,year,month,pages,vol,num,loc,class,note,annote
+Alagic1989,Object-Oriented Database Programming,Springer Verlag (Heidelberg FRG and NewYork NY USA) 320pp.,1989,,,,,,> DBDobject><x,,
+Brownston1985,Programming Expert Systems In {OPS5}; An Introduction to Rule-Based Programming,.,1985,,,,,,> DBDkb><QA76.9.E96P76,,
+Buckingham1986,Information Systems Education: Recommensations and Implementation,Cambridge Un.Press 256pp. (British CS); ACM Computing Reviews 8807-0497.,1986,,,,,Un.London,> DBDintro>,,IFIP/BCS curriculum in three levels. The five introductory modules are computer quantitative business social studies and conceptul foundations (information data knowledge; systems design; technology and society).
+Capron1986,Computers and Data Processing Second Edition,.,1986,,,,,,> DBFintro><QA76.C357,,Special Software Version
+Ceri1980:2,Structured Methodology for Designing Static and Dynamic Aspects of Database Applications,Pergamon.,1980,,,,,Polit.Milano,> DBDdesign> DBappl><DBfile,,
+Cuadra1966,{ARIST}: Annual Review of Information Science and Technology,John Wiley Wiley Sons Publishers (New York NY) --1970 --4 Encyclopedia Brittanica 1971--1973 Vol.5--7. (Vols.7-11 published by ASIS itself),1966,,,1,,American Documentation Inst. later ASIS,> DBFintro> DBDquery> %Cuadra66--73,,Compendium of various articles oriented towards library and other information systems see also individual references. Later years see Williams(ed).
+Date1984:3,A Guide to the {SQL} Standard,Addison-Wesley (Reading MA) 205pp.,1984,,,,,,> DBDrel>,,It is a reference and provides condensed treatment of SQL and X/OPEN SQL dialect ---Artz.
+Ellzey1982,Data Structures for Computer Information Systems,.,1982,,,,,,> DBDmodel.0><CSDlibr.QA76.9D35E44,,
+Ferrari1983,Measurement and Tuning of Computer Systems,Prentice-Hall publishers.,1983,,,,,,> DBFmethods.0> DBFhard.2><x,,Only two small sections on IMS databases more on disks and channels.
