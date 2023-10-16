@@ -1,7 +1,0 @@
-collid,title,bktitle,year,month,pages,vol,num,loc,class,note,annote
-Biller1982,On the Architecture of a System Integrating Database Management and Information Retrieval,Research and Development in Information Retrieval Proc.Intl. Conf. Berlin FRG Salton and Schneider(eds) Springer Verlag (Heidelberg FRG and NewYork NY USA) 1983.,1982,May,80--97,,,SIETEC (Berlin FRG),> DBDquery.2>,,
-Brachman1984,What makes a Knowledge Base Knowledgeable? {A} view of Databases from the Knowledge Level,Workshop on Expert Database Systems Un.South Carolina.,1984,Oct,,1,,Fairchild Lab.for AI Research (Palo Alto CA),> DBDkb>,,
-Burstall1969,Formal Description of Program Structure and Semantics in First-order Logic,Machine Intelligence eds: Meltzer o.o. and Michie vars. Publishers 5 Meltzer and Michie (eds) Edinburgh Un. Press.,1969,,79--98,,,,> DBDdesign>,,
-Eliot1989,Object orientation as catalyst for language-database integration,In: Object-oriented concepts databases and applications (Ed. by Won Kim and F.H. Lochovsky) Addison-Wesley (Reading MA).,1989,,,,,,> DBDobject> DBDlang>,,
-ElMasri1980:4,A User-Friendly Interface for Specifying Hierarchical Queries on an {ER} Graph Database,End User Facilities in the 's J.Larson (ed.) IEEE CS Press 1982.,1980,,,,,,> DBDquery>,,
-Fox1984,Experiences with {SRL}: An Analysis of Frame-Based Knowledge Representation,Workshop on Expert Database Systems Un.South Carolina.,1984,Oct,,1,,,> DBDkb>,,
