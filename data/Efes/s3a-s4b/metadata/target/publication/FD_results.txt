@@ -1,0 +1,10 @@
+[] --> publication.csv.abstractind, publication.csv.titleext
+[publication.csv.abstract] --> publication.csv.book, publication.csv.category, publication.csv.confinfo, publication.csv.journal, publication.csv.journalann, publication.csv.language, publication.csv.title
+[publication.csv.book, publication.csv.category, publication.csv.journal] --> publication.csv.journalann
+[publication.csv.book, publication.csv.category, publication.csv.journalann] --> publication.csv.confinfo
+[publication.csv.book, publication.csv.journal, publication.csv.language] --> publication.csv.journalann
+[publication.csv.book, publication.csv.journal] --> publication.csv.confinfo
+[publication.csv.category] --> publication.csv.language
+[publication.csv.journal, publication.csv.journalann] --> publication.csv.language
+[publication.csv.pid] --> publication.csv.abstract, publication.csv.book, publication.csv.category, publication.csv.confinfo, publication.csv.journal, publication.csv.journalann, publication.csv.language, publication.csv.title
+[publication.csv.title] --> publication.csv.abstract, publication.csv.book, publication.csv.category, publication.csv.confinfo, publication.csv.journal, publication.csv.journalann, publication.csv.language

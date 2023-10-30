@@ -1,0 +1,2 @@
+[location.csv.lid]
+[location.csv.countryorigin, location.csv.countrypub]

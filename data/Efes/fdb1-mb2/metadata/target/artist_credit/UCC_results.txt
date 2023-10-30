@@ -1,0 +1,2 @@
+[artist_credit.csv.id]
+[artist_credit.csv.name, artist_credit.csv.ref_count]

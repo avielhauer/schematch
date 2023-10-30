@@ -1,0 +1,4 @@
+[artist_credit_name.csv.artist] --> artist_credit_name.csv.artist_credit, artist_credit_name.csv.join_phrase, artist_credit_name.csv.name, artist_credit_name.csv.position
+[artist_credit_name.csv.artist_credit, artist_credit_name.csv.join_phrase] --> artist_credit_name.csv.artist, artist_credit_name.csv.name, artist_credit_name.csv.position
+[artist_credit_name.csv.artist_credit, artist_credit_name.csv.position] --> artist_credit_name.csv.artist, artist_credit_name.csv.join_phrase, artist_credit_name.csv.name
+[artist_credit_name.csv.name] --> artist_credit_name.csv.artist, artist_credit_name.csv.artist_credit, artist_credit_name.csv.join_phrase, artist_credit_name.csv.position

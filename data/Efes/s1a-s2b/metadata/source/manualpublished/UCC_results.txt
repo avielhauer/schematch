@@ -1,0 +1,2 @@
+[manualpublished.csv.manid]
+[manualpublished.csv.authid]

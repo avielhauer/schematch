@@ -1,0 +1,2 @@
+[author.csv.aid] --> author.csv.affiliations, author.csv.name
+[author.csv.name] --> author.csv.affiliations, author.csv.aid

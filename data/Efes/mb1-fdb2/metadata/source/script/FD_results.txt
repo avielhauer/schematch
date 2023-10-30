@@ -1,0 +1,5 @@
+[] --> script.csv.frequency
+[script.csv.id] --> script.csv.iso_code, script.csv.iso_number, script.csv.name
+[script.csv.iso_code] --> script.csv.id, script.csv.iso_number, script.csv.name
+[script.csv.iso_number] --> script.csv.id, script.csv.iso_code, script.csv.name
+[script.csv.name] --> script.csv.id, script.csv.iso_code, script.csv.iso_number

@@ -1,0 +1,52 @@
+# State-of-the-Art matchers
+---
+name: "RandomMatcher"
+packageName: "sota"
+params:
+  seed: [42, 2023]
+
+# Metadata matchers
+---
+name: "DatatypeMatcher"
+packageName: "metadata"
+
+# Similarity matchers
+---
+name: "LevenshteinMatcher"
+packageName: "similarity.label"
+---
+name: "CosineMatcher"
+packageName: "similarity.label"
+---
+name: "HammingMatcher"
+packageName: "similarity.label"
+---
+name: "JaroWinklerMatcher"
+packageName: "similarity.label"
+---
+name: "LongestCommonSubsequenceMatcher"
+packageName: "similarity.label"
+---
+name: "JaccardInstanceMatcher"
+packageName: "similarity.tokenizedinstance"
+---
+name: "DiceInstanceMatcher"
+packageName: "similarity.tokenizedinstance"
+---
+name: "OverlapInstanceMatcher"
+packageName: "similarity.tokenizedinstance"
+---
+name: "SetCosineInstanceMatcher"
+packageName: "similarity.tokenizedinstance"
+---
+name: "JaccardLabelMatcher"
+packageName: "similarity.tokenizedlabel"
+---
+name: "DiceLabelMatcher"
+packageName: "similarity.tokenizedlabel"
+---
+name: "OverlapLabelMatcher"
+packageName: "similarity.tokenizedlabel"
+---
+name: "SetCosineLabelMatcher"
+packageName: "similarity.tokenizedlabel"

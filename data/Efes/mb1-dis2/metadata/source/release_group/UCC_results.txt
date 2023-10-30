@@ -1,0 +1,4 @@
+[release_group.csv.id]
+[release_group.csv.gid]
+[release_group.csv.name]
+[release_group.csv.artist_credit, release_group.csv.last_updated]

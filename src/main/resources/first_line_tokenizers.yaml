@@ -1,0 +1,8 @@
+---
+"name": "CharBasedTokenizer"
+"params":
+  "splitChar": " "
+---
+"name": "nGramTokenizer"
+"params":
+  "n": [2,4]

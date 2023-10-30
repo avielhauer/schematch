@@ -1,0 +1,3 @@
+[masters.csv.id] --> masters.csv.data_quality, masters.csv.main_release, masters.csv.notes, masters.csv.title, masters.csv.year
+[masters.csv.main_release] --> masters.csv.data_quality, masters.csv.id, masters.csv.notes, masters.csv.title, masters.csv.year
+[masters.csv.title] --> masters.csv.data_quality, masters.csv.id, masters.csv.main_release, masters.csv.notes, masters.csv.year

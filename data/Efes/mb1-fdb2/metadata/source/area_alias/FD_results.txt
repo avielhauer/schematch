@@ -1,0 +1,29 @@
+[] --> area_alias.csv.begin_date_day, area_alias.csv.begin_date_month, area_alias.csv.edits_pending
+[area_alias.csv.area, area_alias.csv.locale, area_alias.csv.name, area_alias.csv.primary_for_locale] --> area_alias.csv.id, area_alias.csv.type
+[area_alias.csv.area, area_alias.csv.locale, area_alias.csv.name, area_alias.csv.type] --> area_alias.csv.id
+[area_alias.csv.area, area_alias.csv.locale, area_alias.csv.name] --> area_alias.csv.last_updated
+[area_alias.csv.area, area_alias.csv.locale, area_alias.csv.primary_for_locale, area_alias.csv.sort_name] --> area_alias.csv.id, area_alias.csv.type
+[area_alias.csv.area, area_alias.csv.locale, area_alias.csv.sort_name, area_alias.csv.type] --> area_alias.csv.id
+[area_alias.csv.area, area_alias.csv.locale, area_alias.csv.sort_name] --> area_alias.csv.last_updated
+[area_alias.csv.area] --> area_alias.csv.begin_date_year, area_alias.csv.end_date_day, area_alias.csv.end_date_month, area_alias.csv.end_date_year, area_alias.csv.ended
+[area_alias.csv.begin_date_year, area_alias.csv.end_date_day] --> area_alias.csv.end_date_year, area_alias.csv.ended
+[area_alias.csv.begin_date_year, area_alias.csv.end_date_month] --> area_alias.csv.end_date_year, area_alias.csv.ended
+[area_alias.csv.begin_date_year, area_alias.csv.ended] --> area_alias.csv.end_date_day, area_alias.csv.end_date_month, area_alias.csv.end_date_year
+[area_alias.csv.end_date_day, area_alias.csv.ended] --> area_alias.csv.begin_date_year, area_alias.csv.end_date_year
+[area_alias.csv.end_date_day, area_alias.csv.locale, area_alias.csv.primary_for_locale] --> area_alias.csv.end_date_year, area_alias.csv.ended
+[area_alias.csv.end_date_day] --> area_alias.csv.end_date_month
+[area_alias.csv.end_date_month, area_alias.csv.ended] --> area_alias.csv.begin_date_year, area_alias.csv.end_date_year
+[area_alias.csv.end_date_month, area_alias.csv.locale, area_alias.csv.primary_for_locale] --> area_alias.csv.end_date_year, area_alias.csv.ended
+[area_alias.csv.end_date_month] --> area_alias.csv.end_date_day
+[area_alias.csv.end_date_year] --> area_alias.csv.begin_date_year, area_alias.csv.end_date_day, area_alias.csv.end_date_month, area_alias.csv.ended
+[area_alias.csv.ended, area_alias.csv.locale] --> area_alias.csv.begin_date_year, area_alias.csv.end_date_day, area_alias.csv.end_date_month, area_alias.csv.end_date_year
+[area_alias.csv.id] --> area_alias.csv.area, area_alias.csv.begin_date_year, area_alias.csv.end_date_day, area_alias.csv.end_date_month, area_alias.csv.end_date_year, area_alias.csv.ended, area_alias.csv.last_updated, area_alias.csv.locale, area_alias.csv.name, area_alias.csv.primary_for_locale, area_alias.csv.sort_name, area_alias.csv.type
+[area_alias.csv.last_updated, area_alias.csv.name, area_alias.csv.type] --> area_alias.csv.id
+[area_alias.csv.last_updated, area_alias.csv.primary_for_locale] --> area_alias.csv.id, area_alias.csv.name, area_alias.csv.sort_name, area_alias.csv.type
+[area_alias.csv.last_updated, area_alias.csv.sort_name, area_alias.csv.type] --> area_alias.csv.id
+[area_alias.csv.last_updated] --> area_alias.csv.area, area_alias.csv.begin_date_year, area_alias.csv.end_date_day, area_alias.csv.end_date_month, area_alias.csv.end_date_year, area_alias.csv.ended, area_alias.csv.locale
+[area_alias.csv.locale, area_alias.csv.primary_for_locale] --> area_alias.csv.begin_date_year
+[area_alias.csv.name, area_alias.csv.type] --> area_alias.csv.primary_for_locale
+[area_alias.csv.name] --> area_alias.csv.begin_date_year, area_alias.csv.end_date_day, area_alias.csv.end_date_month, area_alias.csv.end_date_year, area_alias.csv.ended, area_alias.csv.sort_name
+[area_alias.csv.sort_name, area_alias.csv.type] --> area_alias.csv.primary_for_locale
+[area_alias.csv.sort_name] --> area_alias.csv.begin_date_year, area_alias.csv.end_date_day, area_alias.csv.end_date_month, area_alias.csv.end_date_year, area_alias.csv.ended, area_alias.csv.name

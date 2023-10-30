@@ -1,0 +1,4 @@
+[releases_tracklist.csv.duration, releases_tracklist.csv.release_id, releases_tracklist.csv.title] --> releases_tracklist.csv.position, releases_tracklist.csv.track_id
+[releases_tracklist.csv.position, releases_tracklist.csv.release_id] --> releases_tracklist.csv.duration, releases_tracklist.csv.title, releases_tracklist.csv.track_id
+[releases_tracklist.csv.position, releases_tracklist.csv.title] --> releases_tracklist.csv.duration, releases_tracklist.csv.release_id, releases_tracklist.csv.track_id
+[releases_tracklist.csv.track_id] --> releases_tracklist.csv.duration, releases_tracklist.csv.position, releases_tracklist.csv.release_id, releases_tracklist.csv.title

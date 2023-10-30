@@ -1,0 +1,2 @@
+[labels_images.csv.uri150] --> labels_images.csv.height, labels_images.csv.label_id, labels_images.csv.type, labels_images.csv.uri, labels_images.csv.width
+[labels_images.csv.uri] --> labels_images.csv.height, labels_images.csv.label_id, labels_images.csv.type, labels_images.csv.uri150, labels_images.csv.width

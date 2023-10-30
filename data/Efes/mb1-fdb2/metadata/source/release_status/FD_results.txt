@@ -1,0 +1,2 @@
+[release_status.csv.id] --> release_status.csv.name
+[release_status.csv.name] --> release_status.csv.id

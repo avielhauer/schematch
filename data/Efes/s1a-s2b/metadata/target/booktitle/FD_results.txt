@@ -1,0 +1,2 @@
+[booktitle.csv.bktitleid] --> booktitle.csv.bktitlenm
+[booktitle.csv.bktitlenm] --> booktitle.csv.bktitleid

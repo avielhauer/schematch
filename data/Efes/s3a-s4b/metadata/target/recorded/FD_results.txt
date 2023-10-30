@@ -1,0 +1,2 @@
+[recorded.csv.pid] --> recorded.csv.recordtype, recorded.csv.rid
+[recorded.csv.rid] --> recorded.csv.pid, recorded.csv.recordtype

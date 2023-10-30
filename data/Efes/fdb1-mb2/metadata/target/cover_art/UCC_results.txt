@@ -1,0 +1,4 @@
+[cover_art.csv.id]
+[cover_art.csv.edit]
+[cover_art.csv.date_uploaded]
+[cover_art.csv.ordering, cover_art.csv.release]

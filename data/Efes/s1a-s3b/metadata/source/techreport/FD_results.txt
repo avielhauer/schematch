@@ -1,0 +1,1 @@
+[] --> techreport.csv.annote, techreport.csv.class, techreport.csv.inst, techreport.csv.loc, techreport.csv.month, techreport.csv.note, techreport.csv.num, techreport.csv.pages, techreport.csv.techid, techreport.csv.title, techreport.csv.vol, techreport.csv.year

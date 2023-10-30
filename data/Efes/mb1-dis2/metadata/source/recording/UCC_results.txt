@@ -1,0 +1,5 @@
+[recording.csv.id]
+[recording.csv.gid]
+[recording.csv.length, recording.csv.name]
+[recording.csv.last_updated, recording.csv.name]
+[recording.csv.comment, recording.csv.name]

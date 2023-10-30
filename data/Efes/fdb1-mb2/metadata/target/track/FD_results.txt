@@ -1,0 +1,21 @@
+[] --> track.csv.edits_pending
+[track.csv.artist_credit, track.csv.length, track.csv.number] --> track.csv.name, track.csv.recording
+[track.csv.artist_credit, track.csv.length, track.csv.position] --> track.csv.name, track.csv.recording
+[track.csv.artist_credit, track.csv.number] --> track.csv.position
+[track.csv.artist_credit, track.csv.position] --> track.csv.number
+[track.csv.gid] --> track.csv.artist_credit, track.csv.id, track.csv.last_updated, track.csv.length, track.csv.medium, track.csv.name, track.csv.number, track.csv.position, track.csv.recording
+[track.csv.id] --> track.csv.artist_credit, track.csv.gid, track.csv.last_updated, track.csv.length, track.csv.medium, track.csv.name, track.csv.number, track.csv.position, track.csv.recording
+[track.csv.last_updated, track.csv.number] --> track.csv.position
+[track.csv.last_updated, track.csv.position] --> track.csv.number
+[track.csv.length, track.csv.medium] --> track.csv.last_updated
+[track.csv.length, track.csv.name, track.csv.number] --> track.csv.recording
+[track.csv.length, track.csv.name, track.csv.position] --> track.csv.recording
+[track.csv.length, track.csv.name] --> track.csv.artist_credit
+[track.csv.length, track.csv.number] --> track.csv.position
+[track.csv.medium, track.csv.name] --> track.csv.artist_credit, track.csv.last_updated
+[track.csv.medium, track.csv.number] --> track.csv.artist_credit, track.csv.gid, track.csv.id, track.csv.last_updated, track.csv.length, track.csv.name, track.csv.position, track.csv.recording
+[track.csv.medium, track.csv.position] --> track.csv.artist_credit, track.csv.gid, track.csv.id, track.csv.last_updated, track.csv.length, track.csv.name, track.csv.number, track.csv.recording
+[track.csv.medium, track.csv.recording] --> track.csv.gid, track.csv.id, track.csv.last_updated, track.csv.length
+[track.csv.name, track.csv.number] --> track.csv.artist_credit, track.csv.position
+[track.csv.name, track.csv.position] --> track.csv.artist_credit, track.csv.number
+[track.csv.recording] --> track.csv.artist_credit, track.csv.name, track.csv.number, track.csv.position

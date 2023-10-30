@@ -1,0 +1,27 @@
+package de.uni_marburg.schematch.matchtask.tablepair.generators;
+
+import de.uni_marburg.schematch.data.Database;
+import de.uni_marburg.schematch.data.Scenario;
+import de.uni_marburg.schematch.data.Table;
+import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
+import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@NoArgsConstructor
+public class NaiveTablePairsGenerator implements TablePairsGenerator {
+    @Override
+    public List<TablePair> generateCandidates(Scenario scenario) {
+        Database sourceDatabase = scenario.getSourceDatabase();
+        Database targetDatabase = scenario.getTargetDatabase();
+
+        List<TablePair> tablePairs = new ArrayList<>();
+        for (Table sourceTable : sourceDatabase.getTables().values()) {
+            for (Table targetTable : targetDatabase.getTables().values()) {
+                tablePairs.add(new TablePair(sourceTable, targetTable));
+            }
+        }
+        return tablePairs;
+    }
+}

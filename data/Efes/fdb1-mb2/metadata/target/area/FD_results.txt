@@ -1,0 +1,16 @@
+[] --> area.csv.edits_pending
+[area.csv.begin_date_day] --> area.csv.begin_date_month
+[area.csv.begin_date_month] --> area.csv.begin_date_day
+[area.csv.begin_date_year, area.csv.end_date_day, area.csv.end_date_month] --> area.csv.end_date_year
+[area.csv.begin_date_year, area.csv.end_date_day] --> area.csv.begin_date_day, area.csv.begin_date_month, area.csv.ended
+[area.csv.begin_date_year, area.csv.end_date_month] --> area.csv.begin_date_day, area.csv.begin_date_month, area.csv.ended
+[area.csv.begin_date_year, area.csv.end_date_year] --> area.csv.begin_date_day, area.csv.begin_date_month, area.csv.end_date_day, area.csv.end_date_month
+[area.csv.end_date_day, area.csv.end_date_year] --> area.csv.end_date_month
+[area.csv.end_date_month, area.csv.end_date_year] --> area.csv.end_date_day
+[area.csv.end_date_year, area.csv.type] --> area.csv.end_date_day, area.csv.end_date_month
+[area.csv.end_date_year] --> area.csv.ended
+[area.csv.gid] --> area.csv.begin_date_day, area.csv.begin_date_month, area.csv.begin_date_year, area.csv.comment, area.csv.end_date_day, area.csv.end_date_month, area.csv.end_date_year, area.csv.ended, area.csv.id, area.csv.last_updated, area.csv.name, area.csv.sort_name, area.csv.type
+[area.csv.id] --> area.csv.begin_date_day, area.csv.begin_date_month, area.csv.begin_date_year, area.csv.comment, area.csv.end_date_day, area.csv.end_date_month, area.csv.end_date_year, area.csv.ended, area.csv.gid, area.csv.last_updated, area.csv.name, area.csv.sort_name, area.csv.type
+[area.csv.last_updated] --> area.csv.begin_date_day, area.csv.begin_date_month, area.csv.begin_date_year, area.csv.comment, area.csv.end_date_day, area.csv.end_date_month, area.csv.end_date_year, area.csv.ended, area.csv.gid, area.csv.id, area.csv.name, area.csv.sort_name, area.csv.type
+[area.csv.name] --> area.csv.begin_date_day, area.csv.begin_date_month, area.csv.begin_date_year, area.csv.end_date_day, area.csv.end_date_month, area.csv.end_date_year, area.csv.ended, area.csv.sort_name
+[area.csv.sort_name] --> area.csv.begin_date_day, area.csv.begin_date_month, area.csv.begin_date_year, area.csv.end_date_day, area.csv.end_date_month, area.csv.end_date_year, area.csv.ended, area.csv.name

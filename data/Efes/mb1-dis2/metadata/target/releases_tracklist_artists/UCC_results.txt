@@ -1,0 +1,3 @@
+[releases_tracklist_artists.csv.id, releases_tracklist_artists.csv.track_id]
+[releases_tracklist_artists.csv.name, releases_tracklist_artists.csv.track_id]
+[releases_tracklist_artists.csv.join_, releases_tracklist_artists.csv.track_id]

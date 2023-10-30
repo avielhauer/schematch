@@ -1,0 +1,4 @@
+[language.csv.id]
+[language.csv.name]
+[language.csv.iso_code_2t, language.csv.iso_code_3]
+[language.csv.iso_code_2b, language.csv.iso_code_3]

@@ -1,0 +1,28 @@
+Configuration:
+  status: INFO
+
+  appenders:
+    Console:
+      name: LogToConsole
+      PatternLayout:
+        Pattern: "[%-5level] %d{HH:mm:ss.SSS} [%t] %c - %msg%n"
+
+    File:
+      - name: LogToFile
+        fileName: "logs/schematch_${date:yyyy-MM-dd_HH-mm-ss}.log"
+        PatternLayout:
+          pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+
+  Loggers:
+    logger:
+      - name: de.uni_marburg.schematch
+        level: INFO
+        additivity: false
+        AppenderRef:
+          - ref: LogToConsole
+          - ref: LogToFile
+
+    Root:
+      level: ERROR
+      AppenderRef:
+        ref: LogToConsole

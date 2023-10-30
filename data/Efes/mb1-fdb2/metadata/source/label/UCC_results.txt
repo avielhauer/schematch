@@ -1,0 +1,6 @@
+[label.csv.id]
+[label.csv.gid]
+[label.csv.name]
+[label.csv.sort_name]
+[label.csv.area, label.csv.begin_date_year]
+[label.csv.area, label.csv.type]

@@ -1,0 +1,2 @@
+[series.csv.seriesid] --> series.csv.seriesnm
+[series.csv.seriesnm] --> series.csv.seriesid

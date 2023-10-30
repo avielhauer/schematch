@@ -1,0 +1,1 @@
+[cover_art_type.csv.id, cover_art_type.csv.type_id]

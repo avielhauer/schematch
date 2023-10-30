@@ -1,0 +1,4 @@
+[] --> masters_videos.csv.embed
+[masters_videos.csv.description] --> masters_videos.csv.duration, masters_videos.csv.master_id, masters_videos.csv.title
+[masters_videos.csv.src] --> masters_videos.csv.description, masters_videos.csv.duration, masters_videos.csv.master_id, masters_videos.csv.title
+[masters_videos.csv.title] --> masters_videos.csv.description, masters_videos.csv.duration, masters_videos.csv.master_id

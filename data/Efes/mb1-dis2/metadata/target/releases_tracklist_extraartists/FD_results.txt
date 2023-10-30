@@ -1,0 +1,3 @@
+[] --> releases_tracklist_extraartists.csv.join_, releases_tracklist_extraartists.csv.tracks
+[releases_tracklist_extraartists.csv.id] --> releases_tracklist_extraartists.csv.anv, releases_tracklist_extraartists.csv.name, releases_tracklist_extraartists.csv.role
+[releases_tracklist_extraartists.csv.name] --> releases_tracklist_extraartists.csv.anv, releases_tracklist_extraartists.csv.id, releases_tracklist_extraartists.csv.role
