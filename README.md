@@ -253,7 +253,7 @@ Team members: TODO
 #### Topic 2: Metadata Matchers
 Team members: TODO
 #### Topic 3: Similarity Matrix Boosting (Similarity Flooding)
-Mustafa Miresh "Hello World"
+Team members: TODO
 #### Topic 4: Similarity Matrix Boosting (Other)
 Team members: TODO
 #### Topic 5: Ensemble Matchers
@@ -262,5 +262,3 @@ Team members: TODO
 ### HPI | COSMA: Constraint-based Schema Matching (Master Project)
 
 TBA
-
-
