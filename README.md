@@ -254,8 +254,6 @@ Team members: TODO
 Team members: TODO
 #### Topic 3: Similarity Matrix Boosting (Similarity Flooding)
 Mustafa Miresh "Hello World"
-
-
 #### Topic 4: Similarity Matrix Boosting (Other)
 Team members: TODO
 #### Topic 5: Ensemble Matchers
