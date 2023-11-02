@@ -249,7 +249,7 @@ or to `INFO` to only get error, warn, and info logs.
 
 ### UMR | StructureMatch: Schema Matching with Data Profiling (Seminar)
 #### Topic 1: State-of-the-Art Matchers
-Team members: TODO
+Team members: Jonathan Püschel, Julius Scheffler, Lukas Junk
 #### Topic 2: Metadata Matchers
 Team members: TODO
 #### Topic 3: Similarity Matrix Boosting (Similarity Flooding)
