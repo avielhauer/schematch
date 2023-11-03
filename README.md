@@ -251,7 +251,7 @@ or to `INFO` to only get error, warn, and info logs.
 #### Topic 1: State-of-the-Art Matchers
 Team members: TODO
 #### Topic 2: Metadata Matchers
-Team members: TODO
+Team members: Leif Reuter, Lars Reuter
 #### Topic 3: Similarity Matrix Boosting (Similarity Flooding)
 Team members: TODO
 #### Topic 4: Similarity Matrix Boosting (Other)
