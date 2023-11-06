@@ -1,0 +1,20 @@
+[titles.csv.advance, titles.csv.price] --> titles.csv.royalty, titles.csv.ytd_sales
+[titles.csv.advance, titles.csv.pub_id, titles.csv.pubdate] --> titles.csv.ytd_sales
+[titles.csv.advance, titles.csv.pub_id] --> titles.csv.royalty
+[titles.csv.advance, titles.csv.pubdate, titles.csv.royalty] --> titles.csv.ytd_sales
+[titles.csv.advance, titles.csv.pubdate, titles.csv.type] --> titles.csv.notes, titles.csv.price, titles.csv.title, titles.csv.title_id, titles.csv.ytd_sales
+[titles.csv.advance, titles.csv.type] --> titles.csv.pub_id, titles.csv.royalty
+[titles.csv.notes] --> titles.csv.advance, titles.csv.price, titles.csv.pub_id, titles.csv.pubdate, titles.csv.royalty, titles.csv.title, titles.csv.title_id, titles.csv.type, titles.csv.ytd_sales
+[titles.csv.price, titles.csv.pub_id, titles.csv.pubdate] --> titles.csv.notes, titles.csv.title, titles.csv.title_id
+[titles.csv.price, titles.csv.pub_id] --> titles.csv.advance, titles.csv.royalty, titles.csv.type, titles.csv.ytd_sales
+[titles.csv.price, titles.csv.pubdate, titles.csv.type] --> titles.csv.notes, titles.csv.title, titles.csv.title_id
+[titles.csv.price, titles.csv.pubdate] --> titles.csv.royalty
+[titles.csv.price, titles.csv.type] --> titles.csv.advance, titles.csv.pub_id, titles.csv.royalty, titles.csv.ytd_sales
+[titles.csv.price, titles.csv.ytd_sales] --> titles.csv.advance
+[titles.csv.pub_id, titles.csv.pubdate, titles.csv.ytd_sales] --> titles.csv.advance
+[titles.csv.pubdate, titles.csv.type, titles.csv.ytd_sales] --> titles.csv.notes, titles.csv.title, titles.csv.title_id
+[titles.csv.pubdate, titles.csv.type] --> titles.csv.pub_id
+[titles.csv.title] --> titles.csv.advance, titles.csv.notes, titles.csv.price, titles.csv.pub_id, titles.csv.pubdate, titles.csv.royalty, titles.csv.title_id, titles.csv.type, titles.csv.ytd_sales
+[titles.csv.title_id] --> titles.csv.advance, titles.csv.notes, titles.csv.price, titles.csv.pub_id, titles.csv.pubdate, titles.csv.royalty, titles.csv.title, titles.csv.type, titles.csv.ytd_sales
+[titles.csv.type, titles.csv.ytd_sales] --> titles.csv.advance, titles.csv.price, titles.csv.pub_id
+[titles.csv.ytd_sales] --> titles.csv.royalty

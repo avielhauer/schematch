@@ -1,24 +1,38 @@
 package de.uni_marburg.schematch.matchtask.matchstep;
 
 import de.uni_marburg.schematch.boosting.SimMatrixBoosting;
+import de.uni_marburg.schematch.evaluation.Evaluator;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.Configuration;
-import de.uni_marburg.schematch.utils.ResultsWriter;
-import lombok.RequiredArgsConstructor;
+import de.uni_marburg.schematch.utils.EvalWriter;
+import de.uni_marburg.schematch.utils.OutputWriter;
+import de.uni_marburg.schematch.utils.ResultsUtils;
+import lombok.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
-@RequiredArgsConstructor
-public class SimMatrixBoostingStep implements MatchStep {
+@Getter
+@EqualsAndHashCode(callSuper = true)
+public class SimMatrixBoostingStep extends MatchStep {
     final static Logger log = LogManager.getLogger(SimMatrixBoostingStep.class);
 
+    @Getter
     private final int line;
+    @Getter
     private final SimMatrixBoosting simMatrixBoosting;
+
+    public SimMatrixBoostingStep(boolean doRun, boolean doSave, boolean doEvaluate, int line, SimMatrixBoosting simMatrixBoosting) {
+        super(doRun, doSave, doEvaluate);
+        this.line = line;
+        this.simMatrixBoosting = simMatrixBoosting;
+    }
 
     @Override
     public void run(MatchTask matchTask) {
@@ -46,8 +60,8 @@ public class SimMatrixBoostingStep implements MatchStep {
         }
         log.debug("Saving similarity matrix boosting (line=" + this.line + ") output for scenario: " + matchTask.getScenario().getPath());
 
-        String basePath = ResultsWriter.getBaseResultsPathForScenario(matchTask);
-        basePath += File.separator + this.getClass().getSimpleName() + "Line" + this.line + File.separator + Configuration.getInstance().getOutputDir();
+        String basePath = ResultsUtils.getBaseResultsPathForScenario(matchTask);
+        basePath += File.separator + ResultsUtils.getDirNameForMatchStep(this) + File.separator + Configuration.getInstance().getOutputDir();
         for (TablePair tablePair : matchTask.getTablePairs()) {
             Map<Matcher, float[][]> boostedResults;
             if (this.line == 1) {
@@ -60,7 +74,7 @@ public class SimMatrixBoostingStep implements MatchStep {
                 float[][] simMatrix = boostedResults.get(matcher);
                 String path = basePath + File.separator + matcherInfo + File.separator +
                         tablePair.toString() + ".csv";
-                ResultsWriter.writeSimMatrix(path, simMatrix);
+                OutputWriter.writeSimMatrix(path, simMatrix);
             }
         }
     }
@@ -72,5 +86,33 @@ public class SimMatrixBoostingStep implements MatchStep {
             return;
         }
         log.debug("Evaluating similarity matrix boosting (line=" + this.line + ") output for scenario: " + matchTask.getScenario().getPath());
+
+        List<TablePair> tablePairs = matchTask.getTablePairs();
+
+        Set<Matcher> matchers = switch (this.line) {
+            case 1 -> tablePairs.get(0).getFirstLineMatcherPerformances().keySet();
+            case 2 -> tablePairs.get(0).getSecondLineMatcherResults().keySet();
+            default -> throw new RuntimeException("Illegal matcher line set for similarity matrix boosting");
+        };
+
+        for (TablePair tablePair : tablePairs) {
+            int[][] gtMatrix = tablePair.getGroundTruth();
+            for (Matcher matcher : matchers) {
+                float[][] simMatrix;
+                switch (this.line) {
+                    case 1:
+                        simMatrix = tablePair.getBoostedResultsForFirstLineMatcher(matcher);
+                        tablePair.addBoostedPerformanceForFirstLineMatcher(matcher, Evaluator.evaluateMatrix(simMatrix, gtMatrix));
+                        break;
+                    case 2:
+                        simMatrix = tablePair.getBoostedResultsForSecondLineMatcher(matcher);
+                        tablePair.addBoostedPerformanceForSecondLineMatcher(matcher, Evaluator.evaluateMatrix(simMatrix, gtMatrix));
+                        break;
+                }
+            }
+        }
+
+        EvalWriter evalWriter = new EvalWriter(matchTask, this);
+        evalWriter.writeMatchStepPerformance();
     }
 }

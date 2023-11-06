@@ -1,0 +1,4 @@
+[target_discounts.csv.discounttype]
+[target_discounts.csv.discount]
+[target_discounts.csv.lowqty, target_discounts.csv.stor_id]
+[target_discounts.csv.highqty, target_discounts.csv.stor_id]
