@@ -1,8 +1,7 @@
 # Schematch
 
 This is a research prototype for automated schema matching, mainly developed by [Alexander Vielhauer](mailto:avielhauer@informatik.uni-marburg.de)
-at the Big Data Analytics group of Thorsten Papenbrock at Marburg University.
-Data dependencies as well as code for loading and handling them is developed by [Marcian Seeger](mailto:marcian.seeger@uni-marburg.de) (same research group).
+at the Big Data Analytics group of Thorsten Papenbrock at Marburg University. Data dependencies as well as code for loading and handling them is developed by [Marcian Seeger](mailto:marcian.seeger@uni-marburg.de) (same research group).
 
 **Please do not publish the code or data elsewhere.** This repository is only for teaching at Marburg University and Hasso-Plattner-Institut (Potsdam).
 
