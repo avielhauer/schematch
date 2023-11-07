@@ -1,0 +1,4 @@
+[publishers.csv.pub_id]
+[publishers.csv.pub_name]
+[publishers.csv.city]
+[publishers.csv.country, publishers.csv.state]

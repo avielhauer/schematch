@@ -1,0 +1,9 @@
+[sales.csv.ord_date, sales.csv.payterms, sales.csv.qty] --> sales.csv.ord_num, sales.csv.stor_id
+[sales.csv.ord_date, sales.csv.payterms, sales.csv.title_id] --> sales.csv.ord_num, sales.csv.qty, sales.csv.stor_id
+[sales.csv.ord_date, sales.csv.qty, sales.csv.stor_id] --> sales.csv.ord_num
+[sales.csv.ord_date, sales.csv.stor_id] --> sales.csv.payterms
+[sales.csv.ord_num, sales.csv.title_id] --> sales.csv.qty
+[sales.csv.ord_num] --> sales.csv.ord_date, sales.csv.payterms, sales.csv.stor_id
+[sales.csv.payterms, sales.csv.qty, sales.csv.stor_id] --> sales.csv.ord_date, sales.csv.ord_num
+[sales.csv.qty, sales.csv.title_id] --> sales.csv.ord_date, sales.csv.ord_num, sales.csv.payterms, sales.csv.stor_id
+[sales.csv.stor_id, sales.csv.title_id] --> sales.csv.ord_date, sales.csv.ord_num, sales.csv.payterms, sales.csv.qty

@@ -25,9 +25,9 @@ public abstract class TokenizedInstanceSimilarityMatcher extends TokenizedMatche
         Table targetTable = tablePair.getTargetTable();
         float[][] simMatrix = tablePair.getEmptySimMatrix();
         for (int i = 0; i < sourceTable.getNumberOfColumns(); i++) {
-            Set<String> sourceTokens_i = sourceTable.getColumn(i).getValuesTokens(this.getTokenizer());
+            Set<String> sourceTokens_i = new HashSet<>(sourceTable.getColumn(i).getValuesTokens(this.getTokenizer()));
             for (int j = 0; j < targetTable.getNumberOfColumns(); j++) {
-                Set<String> targetTokens_j = targetTable.getColumn(j).getValuesTokens(this.getTokenizer());
+                Set<String> targetTokens_j = new HashSet<>(targetTable.getColumn(j).getValuesTokens(this.getTokenizer()));
                 simMatrix[i][j] = similarityMeasure.compare(sourceTokens_i, targetTokens_j);
             }
         }

@@ -1,0 +1,7 @@
+[titles.csv.title_id]
+[titles.csv.title]
+[titles.csv.notes]
+[titles.csv.pubdate, titles.csv.type, titles.csv.ytd_sales]
+[titles.csv.price, titles.csv.pubdate, titles.csv.type]
+[titles.csv.price, titles.csv.pub_id, titles.csv.pubdate]
+[titles.csv.advance, titles.csv.pubdate, titles.csv.type]

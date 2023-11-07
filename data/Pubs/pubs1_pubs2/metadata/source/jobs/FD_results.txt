@@ -1,0 +1,2 @@
+[jobs.csv.job_desc] --> jobs.csv.job_id, jobs.csv.max_lvl, jobs.csv.min_lvl
+[jobs.csv.job_id] --> jobs.csv.job_desc, jobs.csv.max_lvl, jobs.csv.min_lvl

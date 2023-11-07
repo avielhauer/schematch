@@ -4,6 +4,9 @@ import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.matching.Matcher;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
@@ -12,6 +15,8 @@ import java.util.Set;
  * TODO: determine datatypes first (at the moment everything is a String)
  * TODO: find heuristic to give a score 1>s>0 for unequal but similar datatypes
  */
+@Data
+@NoArgsConstructor
 public class DatatypeMatcher extends Matcher {
     @Override
     public float[][] match(TablePair tablePair) {
