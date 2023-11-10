@@ -21,6 +21,9 @@ This project requires Java JDK 17 and Maven >=3.9.2. We suggest developing and r
 For setup, IntelliJ should guide you to install the correct Java JDK and download the Maven dependencies for you.
 In case of problems with Maven dependencies, try to [reload the project](https://www.jetbrains.com/help/idea/delegate-build-and-run-actions-to-maven.html#maven_reimport).
 
+To also be able to run State-of-the-Art matchers written in Python, install `python3`. 
+Run `python3 -m pip install -r requirements.txt` from this project's basedir to install all required dependencies.
+
 You can run the project out of the box, as it comes with data and default configurations.
 For a successful run, you should see this log line at the end of your console:
 ```

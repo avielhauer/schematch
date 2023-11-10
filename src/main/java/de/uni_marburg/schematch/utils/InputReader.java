@@ -99,7 +99,7 @@ public class InputReader {
             throw new RuntimeException(e);
         }
 
-        return new Table(fileName, labels, columns);
+        return new Table(fileName, labels, columns, inputPath);
     }
 
     public static List<String> fetchGroundTruthTablePairNames(String inputPath) {
