@@ -1,0 +1,2 @@
+,id___cover_art,ordering___cover_art,release___cover_art,edits_pending___cover_art,comment___cover_art,mime_type___cover_art,date_uploaded___cover_art,edit___cover_art
+datatype,FLOAT,INTEGER,INTEGER,INTEGER,STRING,STRING,STRING,INTEGER

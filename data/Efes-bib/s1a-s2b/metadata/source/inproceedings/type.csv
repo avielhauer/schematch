@@ -1,0 +1,2 @@
+,note___inproceedings,bktitle___inproceedings,inprocid___inproceedings,title___inproceedings,pages___inproceedings,class___inproceedings,vol___inproceedings,num___inproceedings,month___inproceedings,annote___inproceedings,year___inproceedings,loc___inproceedings
+datatype,STRING,TEXT,STRING,STRING,STRING,STRING,STRING,STRING,STRING,TEXT,INTEGER,STRING

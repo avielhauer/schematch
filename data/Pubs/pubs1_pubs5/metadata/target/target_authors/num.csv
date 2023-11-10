@@ -1,0 +1,4 @@
+,city___target_authors,au_lname___target_authors,au_fname___target_authors,phone___target_authors,contract___target_authors,zip___target_authors,au_id___target_authors,state___target_authors,address___target_authors
+mean,7.521739,10.695652,11.0,10.391304,0.82608694,82796.39,11.0,1.5217391,10.434783
+maximum,15.0,21.0,22.0,20.0,1.0,97330.0,22.0,7.0,20.0
+minimum,0.0,0.0,0.0,0.0,0.0,20853.0,0.0,0.0,0.0

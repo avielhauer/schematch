@@ -1,0 +1,2 @@
+,release_id___releases_formats,qty___releases_formats,format_id___releases_formats,name___releases_formats,text___releases_formats
+datatype,INTEGER,INTEGER,INTEGER,STRING,STRING

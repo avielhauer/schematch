@@ -1,0 +1,2 @@
+,sort_name___area,type___area,gid___area,name___area,ended___area,edits_pending___area,end_date_year___area,id___area,end_date_day___area,begin_date_year___area,last_updated___area,end_date_month___area,begin_date_day___area,begin_date_month___area,comment___area
+datatype,STRING,STRING,STRING,STRING,STRING,INTEGER,STRING,INTEGER,STRING,STRING,STRING,STRING,STRING,STRING,STRING

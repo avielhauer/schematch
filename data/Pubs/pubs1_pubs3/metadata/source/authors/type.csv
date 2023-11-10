@@ -1,0 +1,2 @@
+,au_id___authors,state___authors,city___authors,phone___authors,zip___authors,address___authors,au_fname___authors,au_lname___authors,contract___authors
+datatype,STRING,STRING,STRING,STRING,INTEGER,STRING,STRING,STRING,INTEGER

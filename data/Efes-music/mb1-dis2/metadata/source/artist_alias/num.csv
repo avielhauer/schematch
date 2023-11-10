@@ -1,0 +1,5 @@
+,artist___artist_alias,begin_date_day___artist_alias,type___artist_alias,end_date_month___artist_alias,edits_pending___artist_alias,end_date_year___artist_alias,begin_date_month___artist_alias,end_date_day___artist_alias,locale___artist_alias,begin_date_year___artist_alias,primary_for_locale___artist_alias,ended___artist_alias,name___artist_alias,last_updated___artist_alias,id___artist_alias,sort_name___artist_alias
+mean,43771.25,,,,0.0,,,,,,,,,,46821.895,
+mean_length,,0.009456265,0.32387707,0.0023640662,,0.009456265,0.0047281324,0.0047281324,0.59101653,0.01891253,1.0,1.0,13.62175,28.94799,,13.666667
+maximum,632902.0,,,,1.4E-45,,,,,,,,,,138934.0,
+minimum,1.0,,,,0.0,,,,,,,,,,314.0,

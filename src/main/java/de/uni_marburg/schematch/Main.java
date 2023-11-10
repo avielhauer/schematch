@@ -1,6 +1,7 @@
 package de.uni_marburg.schematch;
 
 import de.uni_marburg.schematch.boosting.IdentitySimMatrixBoosting;
+import de.uni_marburg.schematch.boosting.SimFloodingSimMatrixBoosting;
 import de.uni_marburg.schematch.boosting.SimMatrixBoosting;
 import de.uni_marburg.schematch.matching.ensemble.RandomEnsembleMatcher;
 import de.uni_marburg.schematch.matchtask.matchstep.*;
@@ -36,7 +37,7 @@ public class Main {
         TablePairsGenerator tablePairsGenerator = new GroundTruthTablePairsGenerator();
         List<Matcher> secondLineMatchers = new ArrayList<>();
         secondLineMatchers.add(new RandomEnsembleMatcher(42));
-        SimMatrixBoosting firstLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
+        SimMatrixBoosting firstLineSimMatrixBoosting = new SimFloodingSimMatrixBoosting();
         SimMatrixBoosting secondLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
 
         log.info("Setting up matching steps as specified in config");

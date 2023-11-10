@@ -1,0 +1,2 @@
+,royalty___titles,notes___titles,title_id___titles,type___titles,pubdate___titles,title___titles,advance___titles,price___titles,ytd_sales___titles,pub_id___titles
+datatype,STRING,TEXT,STRING,STRING,STRING,STRING,STRING,STRING,STRING,INTEGER

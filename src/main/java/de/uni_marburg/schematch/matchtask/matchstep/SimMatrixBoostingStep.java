@@ -40,13 +40,11 @@ public class SimMatrixBoostingStep extends MatchStep {
         for (TablePair tablePair : matchTask.getTablePairs()) {
             if (this.line == 1) {
                 for (Matcher matcher : tablePair.getFirstLineMatcherResults().keySet()) {
-                    float[][] simMatrix = tablePair.getResultsForFirstLineMatcher(matcher);
-                    tablePair.addBoostedResultsForFirstLineMatcher(matcher, this.simMatrixBoosting.run(simMatrix));
+                    tablePair.addBoostedResultsForFirstLineMatcher(matcher, this.simMatrixBoosting.run(this.line, matchTask, tablePair, matcher));
                 }
             } else {
                 for (Matcher matcher : tablePair.getSecondLineMatcherResults().keySet()) {
-                    float[][] simMatrix = tablePair.getResultsForSecondLineMatcher(matcher);
-                    tablePair.addBoostedResultsForSecondLineMatcher(matcher, this.simMatrixBoosting.run(simMatrix));
+                    tablePair.addBoostedResultsForSecondLineMatcher(matcher, this.simMatrixBoosting.run(this.line, matchTask, tablePair, matcher));
                 }
             }
         }

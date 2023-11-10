@@ -1,0 +1,2 @@
+,pub_id___publishers,city___publishers,country___publishers,state___publishers,pub_name___publishers
+datatype,INTEGER,STRING,STRING,STRING,STRING

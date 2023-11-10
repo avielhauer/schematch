@@ -1,0 +1,2 @@
+,numref___record,updatecode___record,notes___record,subfile___record,series___record,rid___record,contractnum___record,issn___record,availability___record,isbn___record,source___record,accessionnum___record
+datatype,STRING,INTEGER,STRING,STRING,STRING,INTEGER,STRING,STRING,STRING,STRING,STRING,STRING

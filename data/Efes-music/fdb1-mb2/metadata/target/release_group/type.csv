@@ -1,0 +1,2 @@
+,name___release_group,artist_credit___release_group,id___release_group,last_updated___release_group,comment___release_group,edits_pending___release_group,type___release_group,gid___release_group
+datatype,TEXT,INTEGER,INTEGER,STRING,STRING,INTEGER,INTEGER,STRING

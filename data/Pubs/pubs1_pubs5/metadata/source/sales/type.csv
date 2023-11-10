@@ -1,0 +1,2 @@
+,stor_id___sales,ord_date___sales,qty___sales,title_id___sales,payterms___sales,ord_num___sales
+datatype,INTEGER,STRING,INTEGER,STRING,STRING,STRING
