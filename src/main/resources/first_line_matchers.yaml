@@ -4,6 +4,9 @@ name: "RandomMatcher"
 packageName: "sota"
 params:
   seed: [42, 2023]
+---
+name: "EmbdiMatcher"
+packageName: "embdi"
 
 # Metadata matchers
 ---
