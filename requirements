@@ -1,0 +1,9 @@
+EmbDI # download from https://gitlab.eurecom.fr/cappuzzo/embdi and execute pip install .
+pandas
+numpy
+gensim==4.2.0
+tqdm
+nltk
+similarity
+datasketch
+jellyfish==0.9
