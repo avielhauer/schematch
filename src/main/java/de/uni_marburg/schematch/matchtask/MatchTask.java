@@ -2,13 +2,8 @@ package de.uni_marburg.schematch.matchtask;
 
 import de.uni_marburg.schematch.data.Dataset;
 import de.uni_marburg.schematch.data.Scenario;
-import de.uni_marburg.schematch.evaluation.Evaluator;
-import de.uni_marburg.schematch.evaluation.performance.MatcherPerformance;
-import de.uni_marburg.schematch.evaluation.performance.Performance;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
-import de.uni_marburg.schematch.matchtask.tablepair.generators.TablePairsGenerator;
-import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.utils.Configuration;
 import de.uni_marburg.schematch.utils.InputReader;
 import lombok.Data;
@@ -17,10 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Central class for the schema matching process. For each scenario, there is a match task which

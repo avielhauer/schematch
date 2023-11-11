@@ -1,11 +1,15 @@
 package de.uni_marburg.schematch.utils;
 
 import org.apache.commons.lang3.time.DateFormatUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.util.Date;
 
 public class StringUtils {
+    private final static Logger log = LogManager.getLogger(StringUtils.class);
+
     public static String truncateExact(String s, int length) {
         if (s.length() > length) {
             return s.substring(0, length);

@@ -1,0 +1,6 @@
+[target_discounts.csv.cessbvdh] --> target_discounts.csv.gsdknule, target_discounts.csv.jfilxpja, target_discounts.csv.jmerpgiw, target_discounts.csv.kzngavlt
+[target_discounts.csv.gsdknule, target_discounts.csv.jmerpgiw] --> target_discounts.csv.cessbvdh, target_discounts.csv.jfilxpja
+[target_discounts.csv.gsdknule] --> target_discounts.csv.kzngavlt
+[target_discounts.csv.jfilxpja] --> target_discounts.csv.cessbvdh, target_discounts.csv.gsdknule, target_discounts.csv.jmerpgiw, target_discounts.csv.kzngavlt
+[target_discounts.csv.jmerpgiw, target_discounts.csv.kzngavlt] --> target_discounts.csv.cessbvdh, target_discounts.csv.jfilxpja
+[target_discounts.csv.kzngavlt] --> target_discounts.csv.gsdknule

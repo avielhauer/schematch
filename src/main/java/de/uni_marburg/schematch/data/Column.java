@@ -2,8 +2,6 @@ package de.uni_marburg.schematch.data;
 
 import de.uni_marburg.schematch.preprocessing.tokenization.Tokenizer;
 import lombok.Data;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,8 +10,6 @@ import java.util.Set;
 
 @Data
 public class Column {
-    private static final Logger log = LogManager.getLogger(Column.class);
-
     public enum Datatype {
         STRING,
         INTEGER,
@@ -49,7 +45,7 @@ public class Column {
 
     @Override
     public String toString() {
-        return null;
+        return this.label + "___" + this.table.getName();
     }
 
     public Set<String> getLabelTokens(Tokenizer tokenizer) {

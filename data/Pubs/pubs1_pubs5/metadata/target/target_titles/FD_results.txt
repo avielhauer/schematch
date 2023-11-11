@@ -1,0 +1,20 @@
+[target_titles.csv.advance, target_titles.csv.price] --> target_titles.csv.royalty, target_titles.csv.ytd_sales
+[target_titles.csv.advance, target_titles.csv.pub_id, target_titles.csv.pubdate] --> target_titles.csv.ytd_sales
+[target_titles.csv.advance, target_titles.csv.pub_id] --> target_titles.csv.royalty
+[target_titles.csv.advance, target_titles.csv.pubdate, target_titles.csv.royalty] --> target_titles.csv.ytd_sales
+[target_titles.csv.advance, target_titles.csv.pubdate, target_titles.csv.type] --> target_titles.csv.notes, target_titles.csv.price, target_titles.csv.title, target_titles.csv.title_id, target_titles.csv.ytd_sales
+[target_titles.csv.advance, target_titles.csv.type] --> target_titles.csv.pub_id, target_titles.csv.royalty
+[target_titles.csv.notes] --> target_titles.csv.advance, target_titles.csv.price, target_titles.csv.pub_id, target_titles.csv.pubdate, target_titles.csv.royalty, target_titles.csv.title, target_titles.csv.title_id, target_titles.csv.type, target_titles.csv.ytd_sales
+[target_titles.csv.price, target_titles.csv.pub_id, target_titles.csv.pubdate] --> target_titles.csv.notes, target_titles.csv.title, target_titles.csv.title_id
+[target_titles.csv.price, target_titles.csv.pub_id] --> target_titles.csv.advance, target_titles.csv.royalty, target_titles.csv.type, target_titles.csv.ytd_sales
+[target_titles.csv.price, target_titles.csv.pubdate, target_titles.csv.type] --> target_titles.csv.notes, target_titles.csv.title, target_titles.csv.title_id
+[target_titles.csv.price, target_titles.csv.pubdate] --> target_titles.csv.royalty
+[target_titles.csv.price, target_titles.csv.type] --> target_titles.csv.advance, target_titles.csv.pub_id, target_titles.csv.royalty, target_titles.csv.ytd_sales
+[target_titles.csv.price, target_titles.csv.ytd_sales] --> target_titles.csv.advance
+[target_titles.csv.pub_id, target_titles.csv.pubdate, target_titles.csv.ytd_sales] --> target_titles.csv.advance
+[target_titles.csv.pubdate, target_titles.csv.type, target_titles.csv.ytd_sales] --> target_titles.csv.notes, target_titles.csv.title, target_titles.csv.title_id
+[target_titles.csv.pubdate, target_titles.csv.type] --> target_titles.csv.pub_id
+[target_titles.csv.title] --> target_titles.csv.advance, target_titles.csv.notes, target_titles.csv.price, target_titles.csv.pub_id, target_titles.csv.pubdate, target_titles.csv.royalty, target_titles.csv.title_id, target_titles.csv.type, target_titles.csv.ytd_sales
+[target_titles.csv.title_id] --> target_titles.csv.advance, target_titles.csv.notes, target_titles.csv.price, target_titles.csv.pub_id, target_titles.csv.pubdate, target_titles.csv.royalty, target_titles.csv.title, target_titles.csv.type, target_titles.csv.ytd_sales
+[target_titles.csv.type, target_titles.csv.ytd_sales] --> target_titles.csv.advance, target_titles.csv.price, target_titles.csv.pub_id
+[target_titles.csv.ytd_sales] --> target_titles.csv.royalty

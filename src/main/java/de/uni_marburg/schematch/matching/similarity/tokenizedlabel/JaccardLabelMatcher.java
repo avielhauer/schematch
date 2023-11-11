@@ -9,6 +9,6 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class JaccardLabelMatcher extends TokenizedLabelSimilarityMatcher {
     public JaccardLabelMatcher() {
-        super(new Jaccard<>());
+        super(new Jaccard<String>());
     }
 }

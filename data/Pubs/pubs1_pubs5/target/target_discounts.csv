@@ -1,0 +1,4 @@
+discounttype,stor_id,lowqty,highqty,discount
+1,,,,10.5
+2,,100.0,1000.0,6.7
+0,8042.0,,,5.0
