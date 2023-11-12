@@ -1,4 +1,4 @@
-,fname___target_employee,emp_id___target_employee,job_id___target_employee,pub_id___target_employee,job_lvl___target_employee,lname___target_employee,hire_date___target_employee,minit___target_employee
+,fname,emp_id,job_id,pub_id,job_lvl,lname,hire_date,minit
 mean,20.511627,21.0,8.488372,3329.0232,132.67442,21.0,21.0,10.046512
 maximum,41.0,42.0,14.0,9999.0,246.0,42.0,42.0,19.0
 minimum,0.0,0.0,2.0,736.0,32.0,0.0,0.0,0.0

@@ -1,2 +1,2 @@
-,inst___techreport,loc___techreport,class___techreport,note___techreport,techid___techreport,month___techreport,pages___techreport,title___techreport,year___techreport,annote___techreport,vol___techreport,num___techreport
+,inst,loc,class,note,techid,month,pages,title,year,annote,vol,num
 datatype,STRING,STRING,STRING,STRING,STRING,STRING,STRING,STRING,INTEGER,STRING,STRING,STRING

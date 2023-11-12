@@ -1,2 +1,2 @@
-,abstract___publication,abstractind___publication,language___publication,pid___publication,title___publication,titleext___publication,journalann___publication,category___publication,journal___publication,confinfo___publication,book___publication
+,abstract,abstractind,language,pid,title,titleext,journalann,category,journal,confinfo,book
 datatype,TEXT,STRING,STRING,INTEGER,TEXT,STRING,STRING,STRING,STRING,TEXT,TEXT

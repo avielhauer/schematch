@@ -1,2 +1,2 @@
-,discount___discounts,highqty___discounts,discounttype___discounts,stor_id___discounts,lowqty___discounts
+,discount,highqty,discounttype,stor_id,lowqty
 datatype,FLOAT,STRING,STRING,STRING,STRING

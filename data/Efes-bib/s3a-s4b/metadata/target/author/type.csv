@@ -1,2 +1,2 @@
-,aid___author,affiliations___author,name___author
+,aid,affiliations,name
 datatype,INTEGER,STRING,STRING

@@ -1,2 +1,2 @@
-,num___manual,loc___manual,vol___manual,manid___manual,year___manual,class___manual,org___manual,annote___manual,title___manual,pages___manual,note___manual,month___manual
+,num,loc,vol,manid,year,class,org,annote,title,pages,note,month
 datatype,STRING,STRING,STRING,STRING,INTEGER,STRING,STRING,STRING,STRING,STRING,STRING,STRING

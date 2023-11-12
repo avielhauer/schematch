@@ -1,2 +1,2 @@
-,artist_id___artists_namevariations,name___artists_namevariations
+,artist_id,name
 datatype,INTEGER,STRING

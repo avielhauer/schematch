@@ -1,2 +1,2 @@
-,fname___target_employee,emp_id___target_employee,job_id___target_employee,pub_id___target_employee,job_lvl___target_employee,lname___target_employee,hire_date___target_employee,minit___target_employee
+,fname,emp_id,job_id,pub_id,job_lvl,lname,hire_date,minit
 datatype,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER

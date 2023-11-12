@@ -1,2 +1,2 @@
-,pub_id___publishers,city___publishers,country___publishers,state___publishers,pub_name___publishers
+,pub_id,city,country,state,pub_name
 datatype,INTEGER,STRING,STRING,STRING,STRING

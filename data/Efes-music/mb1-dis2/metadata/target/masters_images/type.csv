@@ -1,2 +1,2 @@
-,master_id___masters_images,uri___masters_images,uri150___masters_images,width___masters_images,height___masters_images,type___masters_images
+,master_id,uri,uri150,width,height,type
 datatype,INTEGER,STRING,STRING,INTEGER,INTEGER,STRING

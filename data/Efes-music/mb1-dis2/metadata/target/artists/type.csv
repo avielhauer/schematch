@@ -1,2 +1,2 @@
-,data_quality___artists,name___artists,realname___artists,profile___artists,id___artists
+,data_quality,name,realname,profile,id
 datatype,STRING,STRING,STRING,TEXT,INTEGER

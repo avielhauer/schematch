@@ -1,2 +1,2 @@
-,artist_credit___recording,last_updated___recording,edits_pending___recording,comment___recording,gid___recording,id___recording,video___recording,name___recording,length___recording
+,artist_credit,last_updated,edits_pending,comment,gid,id,video,name,length
 datatype,INTEGER,STRING,INTEGER,STRING,STRING,INTEGER,STRING,TEXT,STRING

@@ -1,4 +1,4 @@
-,country___release_country,date_day___release_country,date_month___release_country,release___release_country,date_year___release_country
+,country,date_day,date_month,release,date_year
 mean,155.375,,,689806.0,2001.25
 mean_length,,0.875,0.625,,
 maximum,222.0,,,1255746.0,2012.0

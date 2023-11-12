@@ -1,2 +1,2 @@
-,month___incollection,title___incollection,num___incollection,pages___incollection,bktitle___incollection,collid___incollection,year___incollection,note___incollection,loc___incollection,class___incollection,vol___incollection,annote___incollection
+,month,title,num,pages,bktitle,collid,year,note,loc,class,vol,annote
 datatype,STRING,STRING,STRING,STRING,TEXT,STRING,INTEGER,STRING,STRING,STRING,STRING,STRING

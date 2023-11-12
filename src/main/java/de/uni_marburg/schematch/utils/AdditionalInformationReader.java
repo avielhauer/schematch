@@ -29,7 +29,7 @@ public class AdditionalInformationReader {
         List<String> headerNames = csvParser.getHeaderNames();
         for (String header : headerNames){
             if (header == ""){
-                break;
+                continue;
             }
             resultMap.put(extractColumnFromString(header, table), new HashMap<>());
         }
@@ -37,6 +37,9 @@ public class AdditionalInformationReader {
         for (CSVRecord record : csvParser) {
             String rowKey = record.get(0); // Get the first column for the row key
             for (int i = 1; i < record.size(); i++){
+                if(record.get(i) == ""){
+                    continue;
+                }
                 resultMap.get(extractColumnFromString(headerNames.get(i), table)).put(rowKey, Float.parseFloat(record.get(i)));
             }
         }
@@ -44,14 +47,46 @@ public class AdditionalInformationReader {
         return resultMap;
     }
 
+    public static Map<Column, Map<String, String>> readTYPEFile(String path, Table table) throws IOException{
+        char separator = Configuration.getInstance().getDefaultSeparator();
+        CSVFormat csvFormat = CSVFormat.DEFAULT.builder()
+                .setHeader()
+                .setDelimiter(separator)
+                .setAllowMissingColumnNames(true)
+                .build();
+
+        Reader reader = new FileReader(path);
+        CSVParser csvParser = new CSVParser(reader, csvFormat);
+
+        Map<Column, Map<String, String>> resultMap = new HashMap<>();
+        List<String> headerNames = csvParser.getHeaderNames();
+        for (String header : headerNames){
+            if (header == ""){
+                continue;
+            }
+            resultMap.put(extractColumnFromString(header, table), new HashMap<>());
+        }
+
+        for (CSVRecord record : csvParser) {
+            String rowKey = record.get(0); // Get the first column for the row key
+            for (int i = 1; i < record.size(); i++){
+                if(record.get(i) == ""){
+                    continue;
+                }
+                resultMap.get(extractColumnFromString(headerNames.get(i), table)).put(rowKey, record.get(i));
+            }
+        }
+        csvParser.close();
+        return resultMap;
+    }
     private static Column extractColumnFromString(String input, Table table) {
         try{
             return  table.getColumn(table.getLabels().indexOf(input));
         }
         catch(Exception e)
         {
-            log.debug(input);
+            log.error("Failed to extract column label  " + input);
+            throw new RuntimeException("Failed to extract column label  " + input);
         }
-        return  table.getColumn(table.getLabels().indexOf(input));
     }
 }

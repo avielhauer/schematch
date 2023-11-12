@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 import static de.uni_marburg.schematch.utils.AdditionalInformationReader.readNUMFile;
+import static de.uni_marburg.schematch.utils.AdditionalInformationReader.readTYPEFile;
 
 /**
  * Similarity Flooding Matrix Boosting
@@ -61,19 +62,31 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
         Collection<InclusionDependency> sourceToTargetInds = scenarioMetadata.getSourceToTargetMetadata();
         Collection<InclusionDependency> TargetToSourceInds = scenarioMetadata.getTargetToSourceMetadata();
         // Extract numeric metadata
-        String sourcePath = source.getPath();
-        String targetPath = target.getPath();
+        String sourceNumPath = source.getPath() + "/../metadata/source/" + sourceTable.getName() + "/num.csv";
+        String targetNumPath = target.getPath() + "/../metadata/target/" + targetTable.getName() + "/num.csv";
+        String sourceTypePath = source.getPath() + "/../metadata/source/" + sourceTable.getName() + "/type.csv";
+        String targetTypePath = target.getPath() + "/../metadata/target/" + targetTable.getName() + "/type.csv";
         Map<Column, Map<String, Float>> sourceNumMetadata;
         Map<Column, Map<String, Float>> targetNumMetadata;
+        Map<Column, Map<String, String>> sourceTypeMetadata;
+        Map<Column, Map<String, String>> targetTypeMetadata;
         try{
-            sourceNumMetadata = readNUMFile(sourcePath+"/../metadata/source/" + sourceTable.getName() + "/num.csv", sourceTable);
-            targetNumMetadata = readNUMFile(targetPath+"/../metadata/target/" + targetTable.getName() + "/num.csv", targetTable);
-            log.debug(sourceNumMetadata.get(sourceColumns.get(0)));
+            sourceNumMetadata = readNUMFile(sourceNumPath, sourceTable);
+            targetNumMetadata = readNUMFile(targetNumPath, targetTable);
         }
         catch(IOException e){
             log.info("Numeric metadata could not be loaded: " + e.getMessage());
         }
-
+        try{
+            sourceTypeMetadata = readTYPEFile(sourceTypePath, sourceTable);
+            targetTypeMetadata = readTYPEFile(targetTypePath, targetTable);
+            for(Column column : sourceColumns){
+                log.debug(column.toString() + " datatype: " + sourceTypeMetadata.get(column).get("datatype"));
+            }
+        }
+        catch(IOException e){
+            log.info("Type metadata could not be loaded: " + e.getMessage());
+        }
 
 
         // Dummy return

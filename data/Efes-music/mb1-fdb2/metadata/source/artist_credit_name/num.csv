@@ -1,4 +1,4 @@
-,join_phrase___artist_credit_name,name___artist_credit_name,position___artist_credit_name,artist___artist_credit_name,artist_credit___artist_credit_name
+,join_phrase,name,position,artist,artist_credit
 mean,,,0.016949153,109799.234,146942.58
 mean_length,0.10169491,12.491526,,,
 maximum,,,1.0,927645.0,1052069.0

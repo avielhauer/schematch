@@ -1,2 +1,2 @@
-,payterms___target_sales,qty___target_sales,ord_num___target_sales,stor_id___target_sales,title_id___target_sales,ord_date___target_sales
+,payterms,qty,ord_num,stor_id,title_id,ord_date
 datatype,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER

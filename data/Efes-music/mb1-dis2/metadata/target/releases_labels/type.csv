@@ -1,2 +1,2 @@
-,name___releases_labels,release_id___releases_labels,catno___releases_labels
+,name,release_id,catno
 datatype,STRING,INTEGER,STRING

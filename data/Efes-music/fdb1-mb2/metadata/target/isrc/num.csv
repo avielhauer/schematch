@@ -1,4 +1,4 @@
-,id___isrc,created___isrc,recording___isrc,source___isrc,isrc___isrc,edits_pending___isrc
+,id,created,recording,source,isrc,edits_pending
 mean,200219.64,,6611901.5,,,0.0
 mean_length,,29.0,,0.5294118,12.0,
 maximum,269472.0,,1.2152631E7,,,1.4E-45

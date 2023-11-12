@@ -1,2 +1,2 @@
-,au_id___titleauthor,au_ord___titleauthor,royaltyper___titleauthor,title_id___titleauthor
+,au_id,au_ord,royaltyper,title_id
 datatype,STRING,INTEGER,INTEGER,STRING

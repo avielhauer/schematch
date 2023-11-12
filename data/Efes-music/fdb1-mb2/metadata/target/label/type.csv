@@ -1,2 +1,2 @@
-,ended___label,end_date_year___label,label_code___label,id___label,begin_date_year___label,area___label,end_date_day___label,end_date_month___label,comment___label,gid___label,begin_date_day___label,last_updated___label,begin_date_month___label,type___label,edits_pending___label,name___label,sort_name___label
+,ended,end_date_year,label_code,id,begin_date_year,area,end_date_day,end_date_month,comment,gid,begin_date_day,last_updated,begin_date_month,type,edits_pending,name,sort_name
 datatype,STRING,STRING,STRING,INTEGER,STRING,STRING,STRING,STRING,STRING,STRING,STRING,STRING,STRING,STRING,INTEGER,STRING,STRING

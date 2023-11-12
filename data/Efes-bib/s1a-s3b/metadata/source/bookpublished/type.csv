@@ -1,2 +1,2 @@
-,authid___bookpublished,bookid___bookpublished
+,authid,bookid
 datatype,INTEGER,STRING

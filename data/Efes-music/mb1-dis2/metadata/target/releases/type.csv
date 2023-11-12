@@ -1,2 +1,2 @@
-,master_id___releases,status___releases,title___releases,released___releases,id___releases,data_quality___releases,notes___releases,country___releases
+,master_id,status,title,released,id,data_quality,notes,country
 datatype,INTEGER,STRING,STRING,STRING,INTEGER,STRING,TEXT,STRING

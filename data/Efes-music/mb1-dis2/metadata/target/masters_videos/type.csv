@@ -1,2 +1,2 @@
-,src___masters_videos,master_id___masters_videos,description___masters_videos,title___masters_videos,duration___masters_videos,embed___masters_videos
+,src,master_id,description,title,duration,embed
 datatype,STRING,INTEGER,STRING,STRING,INTEGER,STRING

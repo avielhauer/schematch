@@ -1,2 +1,2 @@
-,countryorigin___location,lid___location,countrypub___location
+,countryorigin,lid,countrypub
 datatype,STRING,INTEGER,STRING

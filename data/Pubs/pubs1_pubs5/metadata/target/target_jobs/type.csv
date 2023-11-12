@@ -1,2 +1,2 @@
-,job_id___target_jobs,max_lvl___target_jobs,min_lvl___target_jobs,job_desc___target_jobs
+,job_id,max_lvl,min_lvl,job_desc
 datatype,INTEGER,INTEGER,INTEGER,INTEGER

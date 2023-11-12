@@ -1,4 +1,4 @@
-,sort_name___area,type___area,gid___area,name___area,ended___area,edits_pending___area,end_date_year___area,id___area,end_date_day___area,begin_date_year___area,last_updated___area,end_date_month___area,begin_date_day___area,begin_date_month___area,comment___area
+,sort_name,type,gid,name,ended,edits_pending,end_date_year,id,end_date_day,begin_date_year,last_updated,end_date_month,begin_date_day,begin_date_month,comment
 mean,,,,,,0.0,,15276.264,,,,,,,
 mean_length,10.713339,0.99983263,36.0,10.712536,1.0,,0.0013389122,,2.6778242E-4,0.0020083683,28.889273,2.0083682E-4,3.6820082E-4,3.6820082E-4,0.009740585
 maximum,,,,,,1.4E-45,,30628.0,,,,,,,

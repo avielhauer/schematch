@@ -1,2 +1,2 @@
-,date_month___release_unknown_country,date_day___release_unknown_country,release___release_unknown_country,date_year___release_unknown_country
+,date_month,date_day,release,date_year
 datatype,INTEGER,INTEGER,INTEGER,INTEGER

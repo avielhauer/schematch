@@ -1,4 +1,4 @@
-,pub_id___employee,lname___employee,fname___employee,minit___employee,job_id___employee,job_lvl___employee,emp_id___employee,hire_date___employee
+,pub_id,lname,fname,minit,job_id,job_lvl,emp_id,hire_date
 mean,3329.0232,,,,8.488372,132.67442,,
 mean_length,,6.5348835,5.837209,0.76744187,,,9.0,19.0
 maximum,9999.0,,,,14.0,246.0,,

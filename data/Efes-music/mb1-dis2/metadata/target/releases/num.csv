@@ -1,4 +1,4 @@
-,master_id___releases,status___releases,title___releases,released___releases,id___releases,data_quality___releases,notes___releases,country___releases
+,master_id,status,title,released,id,data_quality,notes,country
 mean,100072.52,,,,436822.3,,,
 mean_length,,8.0,16.24,5.12,,8.3,17.1,4.18
 maximum,527061.0,,,,827356.0,,,

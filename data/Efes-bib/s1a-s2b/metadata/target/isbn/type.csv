@@ -1,2 +1,2 @@
-,isbnnum___isbn,citkey___isbn
+,isbnnum,citkey
 datatype,INTEGER,INTEGER

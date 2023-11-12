@@ -1,2 +1,2 @@
-,id___script,iso_number___script,iso_code___script,name___script,frequency___script
+,id,iso_number,iso_code,name,frequency
 datatype,INTEGER,INTEGER,STRING,STRING,INTEGER

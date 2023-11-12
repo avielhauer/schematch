@@ -1,2 +1,2 @@
-,last_updated___artist_tag,tag___artist_tag,artist___artist_tag,count___artist_tag
+,last_updated,tag,artist,count
 datatype,STRING,INTEGER,INTEGER,INTEGER

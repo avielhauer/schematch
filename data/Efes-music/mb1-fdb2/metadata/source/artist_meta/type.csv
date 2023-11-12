@@ -1,2 +1,2 @@
-,id___artist_meta,rating___artist_meta,rating_count___artist_meta
+,id,rating,rating_count
 datatype,INTEGER,STRING,STRING

@@ -1,2 +1,2 @@
-,artist_credit___release,script___release,quality___release,barcode___release,last_updated___release,status___release,release_group___release,id___release,gid___release,language___release,edits_pending___release,packaging___release,comment___release,name___release
+,artist_credit,script,quality,barcode,last_updated,status,release_group,id,gid,language,edits_pending,packaging,comment,name
 datatype,INTEGER,INTEGER,INTEGER,STRING,STRING,INTEGER,INTEGER,INTEGER,STRING,STRING,INTEGER,STRING,STRING,STRING

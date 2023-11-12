@@ -1,4 +1,4 @@
-,end_date_year___area_alias,begin_date_year___area_alias,begin_date_month___area_alias,ended___area_alias,area___area_alias,end_date_month___area_alias,name___area_alias,id___area_alias,end_date_day___area_alias,begin_date_day___area_alias,last_updated___area_alias,locale___area_alias,type___area_alias,edits_pending___area_alias,sort_name___area_alias,primary_for_locale___area_alias
+,end_date_year,begin_date_year,begin_date_month,ended,area,end_date_month,name,id,end_date_day,begin_date_day,last_updated,locale,type,edits_pending,sort_name,primary_for_locale
 mean,,,,,2086.504,,,5821.3853,,,,,,0.0,,
 mean_length,6.873443E-4,3.4367215E-4,0.0,1.0,,1.7183607E-4,12.112553,,1.7183607E-4,0.0,28.888823,1.995704,0.77412146,,12.116247,1.0
 maximum,,,,,22602.0,,,12314.0,,,,,,1.4E-45,,

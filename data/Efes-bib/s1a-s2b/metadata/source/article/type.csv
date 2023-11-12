@@ -1,2 +1,2 @@
-,num___article,title___article,class___article,annote___article,articleid___article,journal___article,loc___article,pages___article,note___article,month___article,year___article,vol___article
+,num,title,class,annote,articleid,journal,loc,pages,note,month,year,vol
 datatype,STRING,TEXT,TEXT,TEXT,STRING,TEXT,STRING,STRING,STRING,STRING,STRING,STRING

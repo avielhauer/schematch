@@ -1,2 +1,2 @@
-,country___target_publishers,pub_name___target_publishers,pub_id___target_publishers,state___target_publishers,city___target_publishers
+,country,pub_name,pub_id,state,city
 datatype,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER

@@ -1,2 +1,2 @@
-,remarks___article,refkey___article,xxxreferences___article,number___article,note___article,month___article,volume___article,year___article,fullxxxreferences___article,title___article,abstract___article,preliminary___article,articleid___article,pages___article,oldkey___article,references____article
+,remarks,refkey,xxxreferences,number,note,month,volume,year,fullxxxreferences,title,abstract,preliminary,articleid,pages,oldkey,references_
 datatype,TEXT,STRING,TEXT,STRING,STRING,STRING,INTEGER,INTEGER,TEXT,STRING,TEXT,STRING,STRING,STRING,STRING,TEXT

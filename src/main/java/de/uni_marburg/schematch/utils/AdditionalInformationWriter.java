@@ -27,11 +27,17 @@ public class AdditionalInformationWriter {
                 CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT);
                 ) {
             csvPrinter.print(null);
-            csvPrinter.printRecord(output.keySet());
+
+            Column[] columns = output.keySet().toArray(new Column[0]);
+
+            for (Column columnKey : columns){
+                csvPrinter.print(columnKey.getLabel());
+            }
+            csvPrinter.println();
 
             for (String rowKey : allRows){
                 csvPrinter.print(rowKey);
-                for (Column columnKey : output.keySet()){
+                for (Column columnKey : columns){
                     Map<String, String> column = output.get(columnKey);
                     csvPrinter.print(column.getOrDefault(rowKey, null));
                 }

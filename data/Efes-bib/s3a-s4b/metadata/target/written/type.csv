@@ -1,2 +1,2 @@
-,pid___written,publisher___written,pubyear___written,aid___written
+,pid,publisher,pubyear,aid
 datatype,INTEGER,STRING,INTEGER,INTEGER

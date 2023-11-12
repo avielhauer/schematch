@@ -1,2 +1,2 @@
-,city___target_authors,au_lname___target_authors,au_fname___target_authors,phone___target_authors,contract___target_authors,zip___target_authors,au_id___target_authors,state___target_authors,address___target_authors
+,city,au_lname,au_fname,phone,contract,zip,au_id,state,address
 datatype,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER

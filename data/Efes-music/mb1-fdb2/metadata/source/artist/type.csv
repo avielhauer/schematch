@@ -1,2 +1,2 @@
-,begin_area___artist,name___artist,sort_name___artist,begin_date_month___artist,ended___artist,type___artist,comment___artist,id___artist,area___artist,gender___artist,edits_pending___artist,end_area___artist,gid___artist,end_date_year___artist,begin_date_year___artist,end_date_month___artist,end_date_day___artist,last_updated___artist,begin_date_day___artist
+,begin_area,name,sort_name,begin_date_month,ended,type,comment,id,area,gender,edits_pending,end_area,gid,end_date_year,begin_date_year,end_date_month,end_date_day,last_updated,begin_date_day
 datatype,STRING,STRING,STRING,STRING,STRING,STRING,STRING,INTEGER,STRING,STRING,INTEGER,STRING,STRING,STRING,STRING,STRING,STRING,STRING,STRING

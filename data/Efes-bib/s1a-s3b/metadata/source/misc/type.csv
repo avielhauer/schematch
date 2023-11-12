@@ -1,2 +1,2 @@
-,annote___misc,vol___misc,note___misc,pages___misc,num___misc,miscid___misc,year___misc,title___misc,confloc___misc,class___misc,howpub___misc,month___misc,loc___misc
+,annote,vol,note,pages,num,miscid,year,title,confloc,class,howpub,month,loc
 datatype,STRING,STRING,STRING,STRING,STRING,STRING,INTEGER,STRING,STRING,STRING,STRING,STRING,STRING

@@ -1,2 +1,2 @@
-,title_id___roysched,lorange___roysched,hirange___roysched,royalty___roysched
+,title_id,lorange,hirange,royalty
 datatype,STRING,INTEGER,INTEGER,INTEGER

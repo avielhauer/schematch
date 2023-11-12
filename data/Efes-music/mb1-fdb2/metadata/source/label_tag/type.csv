@@ -1,2 +1,2 @@
-,count___label_tag,label___label_tag,last_updated___label_tag,tag___label_tag
+,count,label,last_updated,tag
 datatype,INTEGER,INTEGER,STRING,INTEGER

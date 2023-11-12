@@ -1,2 +1,2 @@
-,iso_code_2t___language,name___language,id___language,iso_code_1___language,frequency___language,iso_code_2b___language,iso_code_3___language
+,iso_code_2t,name,id,iso_code_1,frequency,iso_code_2b,iso_code_3
 datatype,STRING,STRING,INTEGER,STRING,INTEGER,STRING,STRING

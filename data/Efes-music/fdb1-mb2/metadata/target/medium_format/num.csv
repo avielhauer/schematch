@@ -1,4 +1,4 @@
-,id___medium_format,child_order___medium_format,year___medium_format,has_discids___medium_format,parent___medium_format,name___medium_format
+,id,child_order,year,has_discids,parent,name
 mean,17.5,2.9411764,,,,
 mean_length,,,1.7647059,1.0,0.9411765,7.0
 maximum,34.0,13.0,,,,

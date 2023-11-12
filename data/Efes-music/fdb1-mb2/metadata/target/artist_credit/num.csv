@@ -1,4 +1,4 @@
-,ref_count___artist_credit,id___artist_credit,created___artist_credit,artist_count___artist_credit,name___artist_credit
+,ref_count,id,created,artist_count,name
 mean,2231.7065,278713.7,,1.0658683,
 mean_length,,,28.988024,,12.556887
 maximum,239728.0,1206709.0,,3.0,

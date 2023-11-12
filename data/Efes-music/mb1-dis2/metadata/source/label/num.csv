@@ -1,4 +1,4 @@
-,ended___label,end_date_year___label,label_code___label,id___label,begin_date_year___label,area___label,end_date_day___label,end_date_month___label,comment___label,gid___label,begin_date_day___label,last_updated___label,begin_date_month___label,type___label,edits_pending___label,name___label,sort_name___label
+,ended,end_date_year,label_code,id,begin_date_year,area,end_date_day,end_date_month,comment,gid,begin_date_day,last_updated,begin_date_month,type,edits_pending,name,sort_name
 mean,,,,4916.375,,,,,,,,,,,0.125,,
 mean_length,1.0,0.5,0.375,,2.5,2.375,0.0,0.0,11.375,36.0,0.0,7.25,0.0,0.75,,12.0,12.0
 maximum,,,,18357.0,,,,,,,,,,,1.0,,

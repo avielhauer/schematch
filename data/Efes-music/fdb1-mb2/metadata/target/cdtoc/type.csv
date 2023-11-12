@@ -1,2 +1,2 @@
-,leadout_offset___cdtoc,track_offset___cdtoc,freedb_id___cdtoc,created___cdtoc,track_count___cdtoc,id___cdtoc,discid___cdtoc,degraded___cdtoc
+,leadout_offset,track_offset,freedb_id,created,track_count,id,discid,degraded
 datatype,INTEGER,TEXT,STRING,STRING,INTEGER,INTEGER,STRING,STRING

@@ -1,2 +1,2 @@
-,authorid___articleauthor,articleid___articleauthor
+,authorid,articleid
 datatype,INTEGER,STRING

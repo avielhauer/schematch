@@ -1,4 +1,4 @@
-,artist_credit___release,script___release,quality___release,barcode___release,last_updated___release,status___release,release_group___release,id___release,gid___release,language___release,edits_pending___release,packaging___release,comment___release,name___release
+,artist_credit,script,quality,barcode,last_updated,status,release_group,id,gid,language,edits_pending,packaging,comment,name
 mean,300612.2,34.0,-1.0,,,1.0,661541.9,739575.0,,,0.0,,,
 mean_length,,,,3.8,20.3,,,,36.0,2.7,,0.2,0.0,14.6
 maximum,632902.0,85.0,1.4E-45,,,1.0,1241447.0,1255746.0,,,1.4E-45,,,

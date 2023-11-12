@@ -1,2 +1,2 @@
-,number___track,length___track,last_updated___track,name___track,recording___track,position___track,id___track,medium___track,edits_pending___track,gid___track,artist_credit___track
+,number,length,last_updated,name,recording,position,id,medium,edits_pending,gid,artist_credit
 datatype,INTEGER,STRING,STRING,STRING,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER,STRING,INTEGER

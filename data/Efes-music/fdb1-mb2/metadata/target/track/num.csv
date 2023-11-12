@@ -1,4 +1,4 @@
-,number___track,length___track,last_updated___track,name___track,recording___track,position___track,id___track,medium___track,edits_pending___track,gid___track,artist_credit___track
+,number,length,last_updated,name,recording,position,id,medium,edits_pending,gid,artist_credit
 mean,,,,,7073515.5,7.477143,7090944.0,637503.56,0.0,,250017.03
 mean_length,1.3128572,5.32,28.998571,24.852858,,,,,,36.0,
 maximum,,,,,1.5194515E7,26.0,1.5255153E7,1362825.0,1.4E-45,,1206709.0

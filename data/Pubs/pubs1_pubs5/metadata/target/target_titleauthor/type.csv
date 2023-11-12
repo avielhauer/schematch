@@ -1,2 +1,2 @@
-,title_id___target_titleauthor,au_ord___target_titleauthor,au_id___target_titleauthor,royaltyper___target_titleauthor
+,title_id,au_ord,au_id,royaltyper
 datatype,INTEGER,INTEGER,INTEGER,INTEGER

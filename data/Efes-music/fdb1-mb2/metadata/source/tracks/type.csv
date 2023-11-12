@@ -1,2 +1,2 @@
-,n___tracks,discid___tracks,ttitle___tracks,extt___tracks
+,n,discid,ttitle,extt
 datatype,INTEGER,STRING,STRING,STRING

@@ -1,2 +1,2 @@
-,rating_count___recording_meta,id___recording_meta,rating___recording_meta
+,rating_count,id,rating
 datatype,STRING,INTEGER,STRING

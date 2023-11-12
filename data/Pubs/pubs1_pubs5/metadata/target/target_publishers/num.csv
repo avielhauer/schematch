@@ -1,4 +1,4 @@
-,country___target_publishers,pub_name___target_publishers,pub_id___target_publishers,state___target_publishers,city___target_publishers
+,country,pub_name,pub_id,state,city
 mean,1.625,3.5,4529.0,3.375,3.5
 maximum,2.0,7.0,9999.0,6.0,7.0
 minimum,0.0,0.0,736.0,0.0,0.0

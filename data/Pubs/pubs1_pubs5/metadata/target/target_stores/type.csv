@@ -1,2 +1,2 @@
-,state___target_stores,zip___target_stores,stor_name___target_stores,city___target_stores,stor_address___target_stores,stor_id___target_stores
+,state,zip,stor_name,city,stor_address,stor_id
 datatype,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER

@@ -1,2 +1,2 @@
-,value___releases_identifiers,description___releases_identifiers,release_id___releases_identifiers,type___releases_identifiers
+,value,description,release_id,type
 datatype,STRING,STRING,INTEGER,STRING

@@ -1,2 +1,2 @@
-,genre___masters_genres,master_id___masters_genres
+,genre,master_id
 datatype,STRING,INTEGER

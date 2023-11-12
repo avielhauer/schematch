@@ -1,2 +1,2 @@
-,join____releases_artists,id___releases_artists,tracks___releases_artists,anv___releases_artists,release_id___releases_artists,role___releases_artists,name___releases_artists
+,join_,id,tracks,anv,release_id,role,name
 datatype,STRING,INTEGER,STRING,STRING,INTEGER,STRING,STRING

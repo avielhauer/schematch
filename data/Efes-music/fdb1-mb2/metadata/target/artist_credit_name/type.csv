@@ -1,2 +1,2 @@
-,join_phrase___artist_credit_name,name___artist_credit_name,position___artist_credit_name,artist___artist_credit_name,artist_credit___artist_credit_name
+,join_phrase,name,position,artist,artist_credit
 datatype,STRING,STRING,INTEGER,INTEGER,INTEGER
