@@ -14,6 +14,7 @@ import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jgrapht.graph.SimpleDirectedGraph;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -61,7 +62,7 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
         // Extract INDs
         Collection<InclusionDependency> sourceToTargetInds = scenarioMetadata.getSourceToTargetMetadata();
         Collection<InclusionDependency> TargetToSourceInds = scenarioMetadata.getTargetToSourceMetadata();
-        // Extract numeric metadata
+        // Extract additional metadata
         String sourceNumPath = source.getPath() + "/../metadata/source/" + sourceTable.getName() + "/num.csv";
         String targetNumPath = target.getPath() + "/../metadata/target/" + targetTable.getName() + "/num.csv";
         String sourceTypePath = source.getPath() + "/../metadata/source/" + sourceTable.getName() + "/type.csv";
@@ -80,9 +81,6 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
         try{
             sourceTypeMetadata = readTYPEFile(sourceTypePath, sourceTable);
             targetTypeMetadata = readTYPEFile(targetTypePath, targetTable);
-            for(Column column : sourceColumns){
-                log.debug(column.toString() + " datatype: " + sourceTypeMetadata.get(column).get("datatype"));
-            }
         }
         catch(IOException e){
             log.info("Type metadata could not be loaded: " + e.getMessage());
