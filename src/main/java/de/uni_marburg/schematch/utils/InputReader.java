@@ -187,6 +187,11 @@ public class InputReader {
             for (String table : tables.keySet()){
                 Path fdFilePath = metadataFolderPath.resolve(table).resolve("FD_results.txt");
                 Path uccFilePath = metadataFolderPath.resolve(table).resolve("UCC_results.txt");
+                Path numFilePath = metadataFolderPath.resolve(table).resolve("num.csv");
+                Path stringFilePath = metadataFolderPath.resolve(table).resolve("type.csv");
+
+                AdditionalInformationReader.readTYPEFile(stringFilePath, tables.get(table));
+                AdditionalInformationReader.readNUMFile(numFilePath, tables.get(table));
 
                 Collection<FunctionalDependency> datasetFDs = readFDFile(fdFilePath, tables.get(table), fdMap);
                 Collection<UniqueColumnCombination> datasetUCCs = readUCCFile(uccFilePath, tables.get(table), uccMap);
