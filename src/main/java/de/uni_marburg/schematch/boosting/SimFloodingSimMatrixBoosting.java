@@ -1,5 +1,7 @@
 package de.uni_marburg.schematch.boosting;
 
+import de.uni_marburg.schematch.boosting.sf_algorithm.DBGraph;
+import de.uni_marburg.schematch.boosting.sf_algorithm.PropagationGraph;
 import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Database;
 import de.uni_marburg.schematch.data.Scenario;
@@ -63,10 +65,14 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
         Collection<InclusionDependency> sourceToTargetInds = scenarioMetadata.getSourceToTargetMetadata();
         Collection<InclusionDependency> TargetToSourceInds = scenarioMetadata.getTargetToSourceMetadata();
 
-        // Extract Column Metadata
-        for (Column column : sourceColumns){
-            log.debug(""+ column  + column.getMetadata().getNumMetaMap() + column.getMetadata().getStringMetaMap());
-        }
+        DBGraph sourceGraph = new DBGraph(sourceTable);
+        sourceGraph.addDatatypes();
+        DBGraph targetGraph = new DBGraph(targetTable);
+        targetGraph.addDatatypes();
+
+        PropagationGraph pGraph = sourceGraph.generatePropagationGraph(targetGraph);
+        log.debug(pGraph);
+        System.exit(2);
 
 
         // Dummy return
