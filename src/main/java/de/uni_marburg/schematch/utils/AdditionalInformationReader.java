@@ -9,12 +9,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 
 public class AdditionalInformationReader {
     private static final Logger log = LogManager.getLogger(AdditionalInformationReader.class);
 
-    public static Map<Column, Map<String, Float>> readNUMFile(String path, Table table) throws IOException{
+    public static void readNUMFile(Path path, Table table) throws IOException{
         char separator = Configuration.getInstance().getDefaultSeparator();
         CSVFormat csvFormat = CSVFormat.DEFAULT.builder()
                 .setHeader()
@@ -22,17 +24,10 @@ public class AdditionalInformationReader {
                 .setAllowMissingColumnNames(true)
                 .build();
 
-        Reader reader = new FileReader(path);
+        Reader reader = Files.newBufferedReader(path);
         CSVParser csvParser = new CSVParser(reader, csvFormat);
 
-        Map<Column, Map<String, Float>> resultMap = new HashMap<>();
         List<String> headerNames = csvParser.getHeaderNames();
-        for (String header : headerNames){
-            if (header == ""){
-                continue;
-            }
-            resultMap.put(extractColumnFromString(header, table), new HashMap<>());
-        }
 
         for (CSVRecord record : csvParser) {
             String rowKey = record.get(0); // Get the first column for the row key
@@ -40,14 +35,14 @@ public class AdditionalInformationReader {
                 if(record.get(i) == ""){
                     continue;
                 }
-                resultMap.get(extractColumnFromString(headerNames.get(i), table)).put(rowKey, Float.parseFloat(record.get(i)));
+                Column column = extractColumnFromString(headerNames.get(i), table);
+                column.getMetadata().getNumMetaMap().put(rowKey, Float.parseFloat(record.get(i)));
             }
         }
         csvParser.close();
-        return resultMap;
     }
 
-    public static Map<Column, Map<String, String>> readTYPEFile(String path, Table table) throws IOException{
+    public static void readTYPEFile(Path path, Table table) throws IOException{
         char separator = Configuration.getInstance().getDefaultSeparator();
         CSVFormat csvFormat = CSVFormat.DEFAULT.builder()
                 .setHeader()
@@ -55,17 +50,10 @@ public class AdditionalInformationReader {
                 .setAllowMissingColumnNames(true)
                 .build();
 
-        Reader reader = new FileReader(path);
+        Reader reader = Files.newBufferedReader(path);
         CSVParser csvParser = new CSVParser(reader, csvFormat);
 
-        Map<Column, Map<String, String>> resultMap = new HashMap<>();
         List<String> headerNames = csvParser.getHeaderNames();
-        for (String header : headerNames){
-            if (header == ""){
-                continue;
-            }
-            resultMap.put(extractColumnFromString(header, table), new HashMap<>());
-        }
 
         for (CSVRecord record : csvParser) {
             String rowKey = record.get(0); // Get the first column for the row key
@@ -73,11 +61,14 @@ public class AdditionalInformationReader {
                 if(record.get(i) == ""){
                     continue;
                 }
-                resultMap.get(extractColumnFromString(headerNames.get(i), table)).put(rowKey, record.get(i));
+                Column column = extractColumnFromString(headerNames.get(i), table);
+                column.getMetadata().getStringMetaMap().put(rowKey, record.get(i));
+                if(rowKey == "datatype"){
+                    column.setDatatype(column.getMetadata().getDatatype());
+                }
             }
         }
         csvParser.close();
-        return resultMap;
     }
     private static Column extractColumnFromString(String input, Table table) {
         try{
