@@ -9,6 +9,9 @@ params:
 ---
 name: "DatatypeMatcher"
 packageName: "metadata"
+---
+name: "NumberOfRowsMatcher"
+packageName: "metadata"
 
 # Similarity matchers
 ---
