@@ -53,7 +53,7 @@ public class NullPercentageMatcher extends Matcher {
         double targetNullPercentage = (double) targetNulls / targetSize;
 
         //result is rounded to 2 digits
-        return Math.round(Math.abs(sourceNullPercentage - targetNullPercentage) * 100.0) / 100.0;
+        return 1.0 - Math.round(Math.abs(sourceNullPercentage - targetNullPercentage) * 100.0) / 100.0;
     }
 
 }
