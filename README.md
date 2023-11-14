@@ -6,6 +6,11 @@ Data dependencies as well as code for loading and handling them is developed by 
 
 **Please do not publish the code or data elsewhere.** This repository is only for teaching at Marburg University and Hasso-Plattner-Institut (Potsdam).
 
+# Team Members
+
+- Jonathan Wendt
+- Daniel Engelbach
+
 ## Setup
 
 This project requires Java JDK 17 and Maven >=3.9.2. We suggest developing and running the project in IntelliJ IDEA.
