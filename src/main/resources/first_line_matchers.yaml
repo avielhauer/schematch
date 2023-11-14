@@ -12,6 +12,9 @@ packageName: "metadata"
 ---
 name: "NumberOfRowsMatcher"
 packageName: "metadata"
+---
+name: "NullPercentageMatcher"
+packageName: "metadata"
 
 # Similarity matchers
 ---
