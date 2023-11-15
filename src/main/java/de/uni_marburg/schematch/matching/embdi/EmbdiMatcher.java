@@ -3,7 +3,13 @@ package de.uni_marburg.schematch.matching.embdi;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.PythonUtils;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
+@Data
+@EqualsAndHashCode(callSuper=false)
+@NoArgsConstructor
 public class EmbdiMatcher extends Matcher {
 
     @Override
