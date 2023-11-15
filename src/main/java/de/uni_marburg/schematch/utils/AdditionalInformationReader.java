@@ -32,7 +32,7 @@ public class AdditionalInformationReader {
         for (CSVRecord record : csvParser) {
             String rowKey = record.get(0); // Get the first column for the row key
             for (int i = 1; i < record.size(); i++){
-                if(record.get(i) == ""){
+                if(Objects.equals(record.get(i), "")){
                     continue;
                 }
                 Column column = extractColumnFromString(headerNames.get(i), table);
