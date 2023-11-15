@@ -1,6 +1,8 @@
 package de.uni_marburg.schematch.boosting;
 
 import de.uni_marburg.schematch.boosting.sf_algorithm.DBGraph;
+import de.uni_marburg.schematch.boosting.sf_algorithm.FloodingFunctions;
+import de.uni_marburg.schematch.boosting.sf_algorithm.ObjectPair;
 import de.uni_marburg.schematch.boosting.sf_algorithm.PropagationGraph;
 import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Database;
@@ -14,17 +16,15 @@ import de.uni_marburg.schematch.data.metadata.dependency.UniqueColumnCombination
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
+import de.uni_marburg.schematch.similarity.SimilarityMeasure;
+import de.uni_marburg.schematch.similarity.string.Levenshtein;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jgrapht.graph.SimpleDirectedGraph;
 
-import java.io.IOException;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static de.uni_marburg.schematch.utils.AdditionalInformationReader.readNUMFile;
-import static de.uni_marburg.schematch.utils.AdditionalInformationReader.readTYPEFile;
 
 /**
  * Similarity Flooding Matrix Boosting
@@ -66,16 +66,50 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
         Collection<InclusionDependency> TargetToSourceInds = scenarioMetadata.getTargetToSourceMetadata();
 
         DBGraph sourceGraph = new DBGraph(sourceTable);
+        sourceGraph.addNumericMetadata();
         sourceGraph.addDatatypes();
         DBGraph targetGraph = new DBGraph(targetTable);
+        targetGraph.addNumericMetadata();
         targetGraph.addDatatypes();
 
         PropagationGraph pGraph = sourceGraph.generatePropagationGraph(targetGraph);
-        log.debug(pGraph);
-        System.exit(2);
+
+        Map<ObjectPair<Column, Column>, Float> columnDefaultSimilarity = new HashMap<>();
+        for(int i = 0; i < simMatrix.length; i++){
+            for(int j = 0; j < simMatrix[0].length; j++){
+                ObjectPair<Column, Column> pair = new ObjectPair<>(sourceColumns.get(i), targetColumns.get(j));
+                columnDefaultSimilarity.put(pair, simMatrix[i][j]);
+            }
+        }
+
+        SimilarityMeasure<String> stringSimMeasure = new Levenshtein();
+
+        pGraph.setFloodingFunction(FloodingFunctions::floodingFunctionA);
+        pGraph.setDefaultSimilarityMap(stringSimMeasure, columnDefaultSimilarity);
+
+        pGraph.flood(100, (float) 0.01); //TODO: configure
 
 
-        // Dummy return
-        return simMatrix;
+        float[][] newSimMatrix = new float[simMatrix.length][];
+
+        for (int i = 0; i < simMatrix.length; i++) {
+            newSimMatrix[i] = simMatrix[i].clone(); // Cloning each subarray
+            for (int j = 0; j < simMatrix[0].length; j++) {
+                ObjectPair pair = new ObjectPair<Column, Column>(sourceColumns.get(i), targetColumns.get(j));
+                if(pGraph.getColumnSimilarity().containsKey(pair)){
+                    newSimMatrix[i][j] = pGraph.getColumnSimilarity().get(pair);
+                }
+            }
+        }
+        return newSimMatrix;
+    }
+
+    private void printMatrix(float[][] sim){
+        for(float[] row : sim){
+            for(float a : row){
+                System.out.print(a+" ");
+            }
+            System.out.print("\n");
+        }
     }
 }

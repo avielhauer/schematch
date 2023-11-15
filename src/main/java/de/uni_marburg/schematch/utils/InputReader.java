@@ -190,8 +190,13 @@ public class InputReader {
                 Path numFilePath = metadataFolderPath.resolve(table).resolve("num.csv");
                 Path stringFilePath = metadataFolderPath.resolve(table).resolve("type.csv");
 
-                AdditionalInformationReader.readTYPEFile(stringFilePath, tables.get(table));
-                AdditionalInformationReader.readNUMFile(numFilePath, tables.get(table));
+                try{
+                    AdditionalInformationReader.readTYPEFile(stringFilePath, tables.get(table));
+                    AdditionalInformationReader.readNUMFile(numFilePath, tables.get(table));
+                } catch (IOException e){
+                    log.info("Additional metadata Could not be loaded:" + e);
+                }
+
 
                 Collection<FunctionalDependency> datasetFDs = readFDFile(fdFilePath, tables.get(table), fdMap);
                 Collection<UniqueColumnCombination> datasetUCCs = readUCCFile(uccFilePath, tables.get(table), uccMap);
