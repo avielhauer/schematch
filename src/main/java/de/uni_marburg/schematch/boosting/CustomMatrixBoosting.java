@@ -7,8 +7,10 @@ import de.uni_marburg.schematch.matching.TokenizedMatcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import lombok.Setter;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @Setter
 public class CustomMatrixBoosting implements SimMatrixBoosting {
@@ -20,30 +22,13 @@ public class CustomMatrixBoosting implements SimMatrixBoosting {
     // eventuell über dependencies
     @Override
     public float[][] run(float[][] simMatrix) {
-        return simMatrix;
-    }
 
-    static int c = 0;
-    public void test(){
-        if(c == 0){
-            ArrayList<Integer> unique = getUniqueColumns(this.tablePair.getTargetTable(), true);
-            System.out.println(unique);
-
-            /**
-            System.out.println("SOURCE DATA");
-            for (int i = 0; i < this.tablePair.getSourceTable().getNumberOfColumns(); i++){
-                System.out.println("COLUMN: " + this.tablePair.getSourceTable().getColumn(i).getLabel());
-                System.out.println("VALUES: " + this.tablePair.getSourceTable().getColumn(i).getValues());
-            }
-
-            System.out.println("\nTARGET DATA");
-            for (int i = 0; i < this.tablePair.getTargetTable().getNumberOfColumns(); i++){
-                System.out.println("COLUMN: " + this.tablePair.getTargetTable().getColumn(i).getLabel());
-                System.out.println("VALUES: " + this.tablePair.getTargetTable().getColumn(i).getValues());
-            }
-             **/
+        if(this.tablePair != null) {
+            float[][] uniqueColumnBoosting = bothUnique(this.tablePair.getSourceTable(), this.tablePair.getTargetTable());
+            return boostSimMatrix(simMatrix, uniqueColumnBoosting);
+        } else {
+            return simMatrix;
         }
-        c++;
     }
 
     private ArrayList<Integer> getUniqueColumns(Table table, boolean ignoreEmpty){
@@ -68,5 +53,30 @@ public class CustomMatrixBoosting implements SimMatrixBoosting {
             }
         }
         return result;
+    }
+
+    private float[][] bothUnique(Table source, Table target) {
+        ArrayList<Integer> sourceUnique = getUniqueColumns(source, true);
+        ArrayList<Integer> targetUnique = getUniqueColumns(target, true);
+
+        float[][] result = new float[source.getNumberOfColumns()][target.getNumberOfColumns()];
+
+        for(int i=0; i<sourceUnique.size(); i++) {
+            for(int j=0; j<targetUnique.size(); j++) {
+                result[sourceUnique.get(i)][targetUnique.get(j)] = 1.0f;
+            }
+        }
+        return result;
+    }
+
+    private float[][] boostSimMatrix(float[][] simMatrix, float[][] boostMatrix) {
+        for(int i=0; i<simMatrix.length; i++) {
+            for(int j=0; j<simMatrix[0].length; j++) {
+                if(boostMatrix[i][j] > 0f) {
+                    simMatrix[i][j] = (simMatrix[i][j] + boostMatrix[i][j]) / 2f;
+                }
+            }
+        }
+        return simMatrix;
     }
 }
