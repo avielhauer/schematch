@@ -1,5 +1,7 @@
 package de.uni_marburg.schematch.matchtask.matchstep;
 
+import de.uni_marburg.schematch.boosting.CustomMatrixBoosting;
+import de.uni_marburg.schematch.boosting.IdentitySimMatrixBoosting;
 import de.uni_marburg.schematch.boosting.SimMatrixBoosting;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
@@ -27,6 +29,10 @@ public class SimMatrixBoostingStep implements MatchStep {
             if (this.line == 1) {
                 for (Matcher matcher : tablePair.getFirstLineMatcherResults().keySet()) {
                     float[][] simMatrix = tablePair.getResultsForFirstLineMatcher(matcher);
+                    // TEST
+                    ((CustomMatrixBoosting)this.simMatrixBoosting).setScenario(matchTask.getScenario());
+                    ((CustomMatrixBoosting)this.simMatrixBoosting).test();
+                    //
                     tablePair.addBoostedResultsForFirstLineMatcher(matcher, this.simMatrixBoosting.run(simMatrix));
                 }
             } else {
