@@ -30,7 +30,7 @@ public class SimMatrixBoostingStep implements MatchStep {
                 for (Matcher matcher : tablePair.getFirstLineMatcherResults().keySet()) {
                     float[][] simMatrix = tablePair.getResultsForFirstLineMatcher(matcher);
                     // TEST
-                    ((CustomMatrixBoosting)this.simMatrixBoosting).setScenario(matchTask.getScenario());
+                    ((CustomMatrixBoosting)this.simMatrixBoosting).setTablePair(tablePair);
                     ((CustomMatrixBoosting)this.simMatrixBoosting).test();
                     //
                     tablePair.addBoostedResultsForFirstLineMatcher(matcher, this.simMatrixBoosting.run(simMatrix));
