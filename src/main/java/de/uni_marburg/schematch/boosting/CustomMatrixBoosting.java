@@ -7,63 +7,35 @@ import de.uni_marburg.schematch.matching.TokenizedMatcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import lombok.Setter;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 @Setter
 public class CustomMatrixBoosting implements SimMatrixBoosting {
     private TablePair tablePair;
-    // TODO: Improve output from single matcher with corresponding table pair over n-dependencies
-    // beste werte für jeden match boosten, rest runter -> stable marriage
-    // ucc, fd?
-    // https://en.wikipedia.org/wiki/Stable_marriage_problem
-    // eventuell über dependencies
     @Override
     public float[][] run(float[][] simMatrix) {
-
         if(this.tablePair != null) {
-            float[][] uniqueColumnBoosting = bothUnique(this.tablePair.getSourceTable(), this.tablePair.getTargetTable());
-            return boostSimMatrix(simMatrix, uniqueColumnBoosting);
+            float[][] uniqueColumnBoosting = unaryUniqueColumnCombination(this.tablePair.getSourceTable(), this.tablePair.getTargetTable());
+            float[][] inclusionDependency = unaryInclusionDependency(this.tablePair.getSourceTable(), this.tablePair.getTargetTable());
+            simMatrix = boostSimMatrix(simMatrix, uniqueColumnBoosting);
+            simMatrix = boostSimMatrix(simMatrix, inclusionDependency);
+            return simMatrix;
         } else {
             return simMatrix;
         }
     }
 
-    private ArrayList<Integer> getUniqueColumns(Table table, boolean ignoreEmpty){
-        ArrayList<Integer> result = new ArrayList<>();
-        for (int i = 0; i < table.getNumberOfColumns(); i++){
-            ArrayList<String> values = (ArrayList<String>) table.getColumn(i).getValues();
-            HashMap<String, Integer> map = new HashMap<>();
-            boolean isUnique = true;
-            for (String value : values) {
-                if(value.isEmpty() && ignoreEmpty){
-                    continue;
-                }
-                if (map.get(value) != null) {
-                    isUnique = false;
-                    break;
-                } else {
-                    map.put(value, map.size());
-                }
-            }
-            if(isUnique){
-                result.add(i);
-            }
-        }
-        return result;
-    }
 
-    private float[][] bothUnique(Table source, Table target) {
-        ArrayList<Integer> sourceUnique = getUniqueColumns(source, true);
-        ArrayList<Integer> targetUnique = getUniqueColumns(target, true);
+
+    private float[][] unaryUniqueColumnCombination(Table source, Table target) {
+        ArrayList<Integer> sourceUnique = HelperFunctions.getUniqueColumns(source, true);
+        ArrayList<Integer> targetUnique = HelperFunctions.getUniqueColumns(target, true);
 
         float[][] result = new float[source.getNumberOfColumns()][target.getNumberOfColumns()];
 
-        for(int i=0; i<sourceUnique.size(); i++) {
-            for(int j=0; j<targetUnique.size(); j++) {
-                result[sourceUnique.get(i)][targetUnique.get(j)] = 1.0f;
+        for (Integer v1 : sourceUnique) {
+            for (Integer v2 : targetUnique) {
+                result[v1][v2] = 1.0f;
             }
         }
         return result;
@@ -78,5 +50,23 @@ public class CustomMatrixBoosting implements SimMatrixBoosting {
             }
         }
         return simMatrix;
+    }
+
+    private float[][] unaryInclusionDependency(Table source, Table target){
+        float[][] result = new float[source.getNumberOfColumns()][target.getNumberOfColumns()];
+        for (int i = 0; i < source.getNumberOfColumns(); i++){
+            ArrayList<String> sourceValues = HelperFunctions.getUniqueValuesFromList(source.getColumn(i).getValues());
+            for (int j = 0; j < target.getNumberOfColumns(); j++){
+                ArrayList<String> targetValues = HelperFunctions.getUniqueValuesFromList(target.getColumn(j).getValues());
+                if(targetValues.containsAll(sourceValues)){
+                    result[i][j] = 1.0f;
+                    System.out.println("INCLUSION FOUND!");
+                } else {
+                    result[i][j] = 0.0f;
+                }
+            }
+            System.out.println("TESTING: " + source.getName() + " AND " + target.getName());
+        }
+        return result;
     }
 }
