@@ -15,6 +15,9 @@ packageName: "metadata"
 ---
 name: "NullPercentageMatcher"
 packageName: "metadata"
+---
+name: "DistinctCountMatcher"
+packageName: "metadata"
 
 # Similarity matchers
 ---
