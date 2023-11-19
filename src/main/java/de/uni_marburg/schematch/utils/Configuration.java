@@ -148,6 +148,11 @@ public class Configuration {
         CombinationGenerator<Object> combinationGenerator = new CombinationGenerator<>();
         for (Object object : matcherConfigs) {
             Map<String, Object> matcherConfig = (Map<String, Object>) object;
+            if (!(Boolean) matcherConfig.get("active")) {
+                log.info("Skipped loading first line matcher '{}' because it is marked as inactive.", matcherConfig.get("name"));
+                continue;
+            }
+
             String name = (String) matcherConfig.get("name");
             String packageName = (String) matcherConfig.get("packageName");
             List<MatcherConfiguration> matcherConfigurationList = new ArrayList<>();
