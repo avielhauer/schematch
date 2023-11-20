@@ -1,0 +1,13 @@
+version: "3.0"
+services:
+  leapme:
+    image: schematch/leapme
+    build: src/main/resources/leapme
+    ports:
+      - "127.0.0.1:5000:5000"
+    command:
+      - "glove"
+    volumes:
+      - type: bind
+        source: ./data
+        target: /leapme/data
