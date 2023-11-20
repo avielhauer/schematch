@@ -6,6 +6,7 @@ import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matching.TokenizedMatcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import lombok.Setter;
+import org.apache.logging.log4j.core.tools.picocli.CommandLine;
 
 import java.util.ArrayList;
 
@@ -16,8 +17,10 @@ public class CustomMatrixBoosting implements SimMatrixBoosting {
     public float[][] run(float[][] simMatrix) {
         if(this.tablePair != null) {
             float[][] uniqueColumnBoosting = unaryUniqueColumnCombination(this.tablePair.getSourceTable(), this.tablePair.getTargetTable());
+            float[][] functionalDependency = unaryFunctionalDependency(this.tablePair.getSourceTable(), this.tablePair.getTargetTable());
             float[][] inclusionDependency = unaryInclusionDependency(this.tablePair.getSourceTable(), this.tablePair.getTargetTable());
             simMatrix = boostSimMatrix(simMatrix, uniqueColumnBoosting);
+            simMatrix = boostSimMatrix(simMatrix, functionalDependency);
             simMatrix = boostSimMatrix(simMatrix, inclusionDependency);
             return simMatrix;
         } else {
@@ -61,6 +64,24 @@ public class CustomMatrixBoosting implements SimMatrixBoosting {
                 if(targetValues.containsAll(sourceValues)){
                     result[i][j] = 1.0f;
                     System.out.println("INCLUSION FOUND!");
+                } else {
+                    result[i][j] = 0.0f;
+                }
+            }
+            System.out.println("TESTING: " + source.getName() + " AND " + target.getName());
+        }
+        return result;
+    }
+
+    private float[][] unaryFunctionalDependency(Table source, Table target){
+        float[][] result = new float[source.getNumberOfColumns()][target.getNumberOfColumns()];
+        for (int i = 0; i < source.getNumberOfColumns(); i++){
+            ArrayList<String> sourceValues = (ArrayList<String>) source.getColumn(i).getValues();
+            for (int j = 0; j < target.getNumberOfColumns(); j++){
+                ArrayList<String> targetValues = (ArrayList<String>) target.getColumn(j).getValues();
+                if(HelperFunctions.functionalDependencyExists(sourceValues, targetValues, true)){
+                    result[i][j] = 1.0f;
+                    System.out.println("FUNCTIONAL DEPENDENCY FOUND!");
                 } else {
                     result[i][j] = 0.0f;
                 }

@@ -2,6 +2,7 @@ package de.uni_marburg.schematch.boosting;
 
 import de.uni_marburg.schematch.data.Table;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,5 +42,24 @@ abstract class HelperFunctions {
         return uniqueValues;
     }
 
+    static boolean functionalDependencyExists(ArrayList<String> source, ArrayList<String> target, boolean ignoreEmpty){
+        HashMap<String, String> map = new HashMap<>();
+        for (String v1: source){
+            if(v1.isEmpty() && ignoreEmpty){
+                continue;
+            }
+            for (String v2: target){
+                if (map.get(v1) == null){
+                    map.put(v1, v2);
+                } else {
+                    String objValue = map.get(v1);
+                    if(!objValue.equals(v2)){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
 }
 
