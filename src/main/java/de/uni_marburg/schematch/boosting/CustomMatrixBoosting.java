@@ -18,10 +18,10 @@ public class CustomMatrixBoosting implements SimMatrixBoosting {
         if(this.tablePair != null) {
             float[][] uniqueColumnBoosting = unaryUniqueColumnCombination(this.tablePair.getSourceTable(), this.tablePair.getTargetTable());
             float[][] functionalDependency = unaryFunctionalDependency(this.tablePair.getSourceTable(), this.tablePair.getTargetTable());
-            float[][] inclusionDependency = unaryInclusionDependency(this.tablePair.getSourceTable(), this.tablePair.getTargetTable());
+            //float[][] inclusionDependency = unaryInclusionDependency(this.tablePair.getSourceTable(), this.tablePair.getTargetTable());
             simMatrix = boostSimMatrix(simMatrix, uniqueColumnBoosting);
             simMatrix = boostSimMatrix(simMatrix, functionalDependency);
-            simMatrix = boostSimMatrix(simMatrix, inclusionDependency);
+            //simMatrix = boostSimMatrix(simMatrix, inclusionDependency);
             return simMatrix;
         } else {
             return simMatrix;
@@ -75,18 +75,41 @@ public class CustomMatrixBoosting implements SimMatrixBoosting {
 
     private float[][] unaryFunctionalDependency(Table source, Table target){
         float[][] result = new float[source.getNumberOfColumns()][target.getNumberOfColumns()];
+        ArrayList<Integer> sourceFunctionalDep = new ArrayList<>();
+        ArrayList<Integer> targetFunctionalDep = new ArrayList<>();
+        // source table
         for (int i = 0; i < source.getNumberOfColumns(); i++){
-            ArrayList<String> sourceValues = (ArrayList<String>) source.getColumn(i).getValues();
-            for (int j = 0; j < target.getNumberOfColumns(); j++){
-                ArrayList<String> targetValues = (ArrayList<String>) target.getColumn(j).getValues();
-                if(HelperFunctions.functionalDependencyExists(sourceValues, targetValues, true)){
-                    result[i][j] = 1.0f;
-                    System.out.println("FUNCTIONAL DEPENDENCY FOUND!");
-                } else {
-                    result[i][j] = 0.0f;
+            ArrayList<String> firstColumn = (ArrayList<String>) source.getColumn(i).getValues();
+            for (int j = 0; j < source.getNumberOfColumns(); j++){
+                if(i == j){
+                    continue;
+                }
+                ArrayList<String> secondColumn = (ArrayList<String>) source.getColumn(j).getValues();
+                if(HelperFunctions.functionalDependencyExists(firstColumn, secondColumn, true)){
+                    sourceFunctionalDep.add(i);
+                    break;
                 }
             }
-            System.out.println("TESTING: " + source.getName() + " AND " + target.getName());
+        }
+        // target table
+        for (int i = 0; i < target.getNumberOfColumns(); i++){
+            ArrayList<String> firstColumn = (ArrayList<String>) target.getColumn(i).getValues();
+            for (int j = 0; j < target.getNumberOfColumns(); j++){
+                if(i == j){
+                    continue;
+                }
+                ArrayList<String> secondColumn = (ArrayList<String>) target.getColumn(j).getValues();
+                if(HelperFunctions.functionalDependencyExists(firstColumn, secondColumn, true)){
+                    targetFunctionalDep.add(i);
+                    break;
+                }
+            }
+        }
+
+        for (Integer v1 : sourceFunctionalDep) {
+            for (Integer v2 : targetFunctionalDep) {
+                result[v1][v2] = 1.0f;
+            }
         }
         return result;
     }

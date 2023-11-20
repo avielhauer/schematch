@@ -6,6 +6,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 abstract class HelperFunctions {
     static ArrayList<Integer> getUniqueColumns(Table table, boolean ignoreEmpty){
@@ -44,18 +45,16 @@ abstract class HelperFunctions {
 
     static boolean functionalDependencyExists(ArrayList<String> source, ArrayList<String> target, boolean ignoreEmpty){
         HashMap<String, String> map = new HashMap<>();
-        for (String v1: source){
-            if(v1.isEmpty() && ignoreEmpty){
+        for (int i = 0; i < source.size(); i++){
+            if(source.get(i).isEmpty() && ignoreEmpty){
                 continue;
             }
-            for (String v2: target){
-                if (map.get(v1) == null){
-                    map.put(v1, v2);
-                } else {
-                    String objValue = map.get(v1);
-                    if(!objValue.equals(v2)){
-                        return false;
-                    }
+            if (map.get(source.get(i)) == null){
+                map.put(source.get(i), target.get(i));
+            } else {
+                String objVal = map.get(source.get(i));
+                if (!objVal.equals(target.get(i))){
+                    return false;
                 }
             }
         }
