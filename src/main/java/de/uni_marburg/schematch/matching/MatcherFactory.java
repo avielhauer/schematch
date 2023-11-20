@@ -135,7 +135,9 @@ public class MatcherFactory {
         Configuration config = Configuration.getInstance();
 
         for (String matcherName : config.getMatcherConfigurations().keySet()) {
-            matchers.put(matcherName, createMatcherInstances(matcherName));
+            List<Matcher> matcherInstances = createMatcherInstances(matcherName);
+            matcherInstances.forEach(Matcher::startUp);
+            matchers.put(matcherName, matcherInstances);
         }
 
         return matchers;

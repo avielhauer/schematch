@@ -330,5 +330,4 @@ public class InputReader {
         }
         return columnList;
     }
-
 }

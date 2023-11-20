@@ -21,14 +21,19 @@ This project requires Java JDK 17 and Maven >=3.9.2. We suggest developing and r
 For setup, IntelliJ should guide you to install the correct Java JDK and download the Maven dependencies for you.
 In case of problems with Maven dependencies, try to [reload the project](https://www.jetbrains.com/help/idea/delegate-build-and-run-actions-to-maven.html#maven_reimport).
 
-To also be able to run State-of-the-Art matchers written in Python, install `python3`. 
-Run `python3 -m pip install -r requirements.txt` from this project's basedir to install all required dependencies.
-
 You can run the project out of the box, as it comes with data and default configurations.
 For a successful run, you should see this log line at the end of your console:
 ```
 [INFO ] <timestamp> [main] de.uni_marburg.schematch.Main - Ending Schematch
 ```
+
+To also be able to run State-of-the-Art matchers, you need to enable them first (see [first line matchers](#matchers)).
+*Before* starting a matching run, you also need to start the matcher servers.
+In order to do so, you need to have docker installed (these matchers are run as docker containers because they can require long-running processes).
+The matcher servers can then be started using docker compose, i.e. `docker compose -f src/main/resources/sota.docker-compose.yml up`.
+Add the `-d` flag if you want to detach from the output of the matchers.
+Note that starting the containers for the first time can take quite long, because the containers need to be build first
+and some time-consuming data preprocessing steps are performed during the build.
 
 ## Project Overview
 

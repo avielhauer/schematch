@@ -9,7 +9,7 @@ public class Table {
     private final String name;
     private final List<String> labels;
     private List<Column> columns;
-    private  String path;
+    private String path;
 
     public Table(String name, List<String> labels, List<Column> columns, String path) {
         this.name = name;
@@ -28,5 +28,9 @@ public class Table {
 
     public Column getColumn(int n) {
         return this.columns.get(n);
+    }
+
+    public String pathRelativeToDataDirectory() {
+        return path.split("/data/")[1];
     }
 }
