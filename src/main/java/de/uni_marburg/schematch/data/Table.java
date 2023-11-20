@@ -30,3 +30,8 @@ public class Table {
     public Column getColumn(int n) {
         return this.columns.get(n);
     }
+
+    public String pathRelativeToDataDirectory() {
+        return path.split("/data/")[1];
+    }
+}
