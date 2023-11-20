@@ -85,4 +85,14 @@ public abstract class Matcher {
         }
         return res + ")";
     }
+    /**
+     * Execute any code needed to get the matcher up and running. Mainly used for state-of-the-art matchers which may
+     * required long-running external processes.
+     */
+    public void startUp() {}
+
+    /**
+     * Tear down the matcher. Mainly used by state-of-the-art matchers which might have started long-running processes.
+     */
+    public void tearDown() {}
 }

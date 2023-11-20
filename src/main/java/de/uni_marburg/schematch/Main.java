@@ -125,6 +125,9 @@ public class Main {
         long durationInMillis =  END_TIMESTAMP.getTime() - START_TIMESTAMP.getTime();
         log.info("Total time: " + DurationFormatUtils.formatDuration(durationInMillis, "HH:mm:ss:SSS"));
 
+        log.info("Tearing down matchers");
+        firstLineMatchers.values().forEach(instantiations -> instantiations.forEach(Matcher::tearDown));
+
         log.info("Ending Schematch");
     }
 }

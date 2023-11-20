@@ -10,8 +10,7 @@ import os
 # We use stdout to communicate with java library and therefore don't want libraries to mess
 # that up.
 OLD_STDOUT = sys.stdout
-sys.stdout = open(os.devnull, 'w')
-sys.stderr = open(os.devnull, 'w')
+sys.stdout = sys.stderr
 
 
 try:

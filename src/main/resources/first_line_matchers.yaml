@@ -9,6 +9,14 @@ params:
 name: "EmbdiMatcher"
 packageName: "sota"
 active: false
+---
+name: "LeapmeMatcher"
+packageName: "sota"
+active: true
+params:
+  serverPort: 5000
+  information: "both" # ["values", "names", "both"]
+  features: "both" # ["embeddings", "no-embeddings", "both"]
 
 # Metadata matchers
 ---
