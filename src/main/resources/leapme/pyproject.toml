@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "leapme"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastai = "^2.7.13"
+torch = {version = "^2.1.0+cpu", source = "pytorch-cpu"}
+regex = "^2023.10.3"
+nltk = "^3.8.1"
+strsimpy = "^0.2.1"
+flask = "^3.0.0"
+
+[[tool.poetry.source]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+priority = "explicit"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
