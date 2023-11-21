@@ -16,7 +16,7 @@ import java.util.Map;
 @NoArgsConstructor
 public abstract class Matcher {
     // this is required to make logs from abstract methods show the concrete class
-    private Logger getConcreteLogger() {
+    protected Logger getLogger() {
         return LogManager.getLogger(this.getClass());
     }
 
@@ -40,14 +40,14 @@ public abstract class Matcher {
             try {
                 fieldType = this.getClass().getDeclaredField(key).getType();
             } catch (NoSuchFieldException e) {
-                getConcreteLogger().error("Configuration error: Could not find field " + key + " for " + this);
+                getLogger().error("Configuration error: Could not find field " + key + " for " + this);
                 throw new RuntimeException(e);
             }
             try {
                 String setterName = "set" + key.substring(0,1).toUpperCase() + key.substring(1);
                 setter = this.getClass().getDeclaredMethod(setterName, fieldType);
             } catch (NoSuchMethodException e) {
-                getConcreteLogger().error("Configuration error: Could not find setter for field " + key + " for " + this);
+                getLogger().error("Configuration error: Could not find setter for field " + key + " for " + this);
                 throw new RuntimeException(e);
             }
             try {
@@ -59,7 +59,7 @@ public abstract class Matcher {
                     setter.invoke(this, fieldType.cast(value));
                 }
             } catch (IllegalAccessException | InvocationTargetException e) {
-                getConcreteLogger().error("Configuration error: Failed to invoke setter for field " + key + " for " + this);
+                getLogger().error("Configuration error: Failed to invoke setter for field " + key + " for " + this);
                 throw new RuntimeException(e);
             }
         }
