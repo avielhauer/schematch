@@ -68,6 +68,26 @@ public abstract class Matcher {
         }
     }
 
+    public String evaluationHeader() {
+        StringBuilder result = new StringBuilder(getClass().getSimpleName());
+        result.append("(");
+        for (Field field : getClass().getDeclaredFields()) {
+            try {
+                field.setAccessible(true);
+                result.append(field.getName()).append("=").append(field.get(this)).append(";");
+                field.setAccessible(false);
+            } catch (IllegalAccessException ignored) {} // Cannot happen, we have set the field to be accessible
+        }
+        result.append(")");
+        return result.toString();
+    }
+
+    /**
+     * Execute any code needed to get the matcher up and running. Mainly used for state-of-the-art matchers which may
+     * required long-running external processes.
+     */
+    public void startUp() {}
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder(getClass().getSimpleName());
