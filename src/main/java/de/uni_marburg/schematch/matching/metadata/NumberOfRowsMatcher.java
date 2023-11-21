@@ -21,10 +21,12 @@ public class NumberOfRowsMatcher extends Matcher {
 
                 final int sourceSize = sourceTable.getColumn(i).getValues().size();
                 final int targetSize = targetTable.getColumn(j).getValues().size();
-                float similarity = sourceSize == targetSize
-                        ? 1.0f
-                        : 0.0f;
-
+                float similarity;
+                if (sourceSize > targetSize) {
+                    similarity = (float) targetSize / sourceSize;
+                } else {
+                    similarity = (float) sourceSize / targetSize;
+                }
                 simMatrix[i][j] = similarity;
             }
         }

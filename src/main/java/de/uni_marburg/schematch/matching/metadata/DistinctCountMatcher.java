@@ -29,7 +29,7 @@ public class DistinctCountMatcher extends Matcher {
 
                 var similarity = calculateSimilarity(sourceValues, targetValues);
 
-                simMatrix[i][j] = (float) similarity;
+                simMatrix[i][j] = similarity;
             }
         }
 
@@ -41,9 +41,14 @@ public class DistinctCountMatcher extends Matcher {
         HashSet<String> sourceElements = new HashSet<>(sourceValues);
         HashSet<String> targetElements = new HashSet<>(targetValues);
 
-        return sourceElements.size() == targetElements.size()
-                ? 1.0f
-                : 0.0f;
+        float similarity;
+
+        if (sourceElements.size() > targetElements.size()) {
+            similarity = (float) targetElements.size() / sourceElements.size();
+        } else {
+            similarity = (float) sourceElements.size() / targetElements.size();
+        }
+        return similarity;
     }
 
 }
