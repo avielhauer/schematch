@@ -18,10 +18,10 @@ public class CustomMatrixBoosting implements SimMatrixBoosting {
         if(this.tablePair != null) {
             float[][] uniqueColumnBoosting = unaryUniqueColumnCombination(this.tablePair.getSourceTable(), this.tablePair.getTargetTable());
             float[][] functionalDependency = unaryFunctionalDependency(this.tablePair.getSourceTable(), this.tablePair.getTargetTable());
-            //float[][] inclusionDependency = unaryInclusionDependency(this.tablePair.getSourceTable(), this.tablePair.getTargetTable());
+            float[][] inclusionDependency = unaryInclusionDependency(this.tablePair.getSourceTable(), this.tablePair.getTargetTable());
             simMatrix = boostSimMatrix(simMatrix, uniqueColumnBoosting);
             simMatrix = boostSimMatrix(simMatrix, functionalDependency);
-            //simMatrix = boostSimMatrix(simMatrix, inclusionDependency);
+            simMatrix = boostSimMatrix(simMatrix, inclusionDependency);
             return simMatrix;
         } else {
             return simMatrix;
