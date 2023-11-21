@@ -58,7 +58,7 @@ public class EvalWriter {
         // set header
         StringBuilder sb = new StringBuilder();
         for (Matcher matcher : matchersSortedByName) {
-            String matcherDesc = matcher.toString();
+            String matcherDesc = matcher.evaluationHeader();
             if (matcher instanceof TokenizedMatcher) {
                 matcherDesc += "___";
                 matcherDesc += ((TokenizedMatcher) matcher).getTokenizer().toString();
@@ -132,7 +132,7 @@ public class EvalWriter {
                 if (matchStep instanceof SimMatrixBoostingStep) {
                     matchStepInfo += "Line" + ((SimMatrixBoostingStep) matchStep).getLine();
                 }
-                String matcherInfo = bestMatcherForMatchStep.toString();
+                String matcherInfo = bestMatcherForMatchStep.evaluationHeader();
                 if (bestMatcherForMatchStep instanceof TokenizedMatcher) {
                     matcherInfo += "___" + ((TokenizedMatcher) bestMatcherForMatchStep).getTokenizer().toString();
                 }
@@ -209,7 +209,7 @@ public class EvalWriter {
                 if (matchStep instanceof SimMatrixBoostingStep) {
                     matchStepInfo += "Line" + ((SimMatrixBoostingStep) matchStep).getLine();
                 }
-                String matcherInfo = bestMatcherForMatchStep.toString();
+                String matcherInfo = bestMatcherForMatchStep.evaluationHeader();
                 if (bestMatcherForMatchStep instanceof TokenizedMatcher) {
                     matcherInfo += "___" + ((TokenizedMatcher) bestMatcherForMatchStep).getTokenizer().toString();
                 }
@@ -285,7 +285,7 @@ public class EvalWriter {
                 if (matchStep instanceof SimMatrixBoostingStep) {
                     summaryLine += "Line" + ((SimMatrixBoostingStep) matchStep).getLine();
                 }
-                String matcherInfo = bestMatcherForMatchStep.toString();
+                String matcherInfo = bestMatcherForMatchStep.evaluationHeader();
                 if (bestMatcherForMatchStep instanceof TokenizedMatcher) {
                     matcherInfo += "___" + ((TokenizedMatcher) bestMatcherForMatchStep).getTokenizer().toString();
                 }
@@ -363,7 +363,7 @@ public class EvalWriter {
                 overviewWriter.newLine();
                 overviewWriter.write(sbOverviewLine.toString());
 
-                String matcherInfo = bestMatcherForTablePair.toString();
+                String matcherInfo = bestMatcherForTablePair.evaluationHeader();
                 if (bestMatcherForTablePair instanceof TokenizedMatcher) {
                     matcherInfo += "___" + ((TokenizedMatcher) bestMatcherForTablePair).getTokenizer().toString();
                 }

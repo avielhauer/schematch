@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
@@ -62,6 +63,20 @@ public abstract class Matcher {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    public String evaluationHeader() {
+        StringBuilder result = new StringBuilder(getClass().getSimpleName());
+        result.append("(");
+        for (Field field : getClass().getDeclaredFields()) {
+            try {
+                field.setAccessible(true);
+                result.append(field.getName()).append("=").append(field.get(this)).append(";");
+                field.setAccessible(false);
+            } catch (IllegalAccessException ignored) {} // Cannot happen, we have set the field to be accessible
+        }
+        result.append(")");
+        return result.toString();
     }
 
     /**
