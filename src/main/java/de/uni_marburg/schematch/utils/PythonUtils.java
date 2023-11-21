@@ -1,6 +1,5 @@
 package de.uni_marburg.schematch.utils;
 
-import com.google.common.io.CharStreams;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,10 +11,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UncheckedIOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 public class PythonUtils {
