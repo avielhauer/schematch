@@ -24,15 +24,13 @@ import java.util.Arrays;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LeapmeMatcher extends Matcher {
-    Logger log = LogManager.getLogger(LeapmeMatcher.class);
-
     private Integer serverPort;
     private String information;
     private String features;
 
     @Override
     public float[][] match(TablePair tablePair) {
-        log.debug("Running LEAPME matcher for tables '{}' as source and '{}' as target.",
+        getLogger().debug("Running LEAPME matcher for tables '{}' as source and '{}' as target.",
                 tablePair.getSourceTable().getPath(), tablePair.getTargetTable().getPath());
         try {
             HttpClient client = HttpClient.newHttpClient();
@@ -46,13 +44,13 @@ public class LeapmeMatcher extends Matcher {
                     ))).build();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             if (response.statusCode() != 200) {
-                log.error("Running LEAPME matcher failed with status code {}", response.statusCode());
+                getLogger().error("Running LEAPME matcher failed with status code {}", response.statusCode());
                 return tablePair.getEmptySimMatrix();
             }
 
             return PythonUtils.readMatcherOutput(Arrays.stream(response.body().split("\n")).toList(), tablePair);
         } catch (Exception e) {
-            log.error("Running LEAPME matcher failed with exception. Is the LEAPME server running?", e);
+            getLogger().error("Running LEAPME matcher failed with exception. Is the LEAPME server running?", e);
             return tablePair.getEmptySimMatrix();
         }
     }
