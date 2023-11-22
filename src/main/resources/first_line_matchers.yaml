@@ -8,7 +8,9 @@ params:
 ---
 name: "EmbdiMatcher"
 packageName: "sota"
-active: false
+active: true
+params:
+  serverPort: 5001
 ---
 name: "LeapmeMatcher"
 packageName: "sota"
