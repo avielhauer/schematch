@@ -11,3 +11,15 @@ services:
       - type: bind
         source: ./data
         target: /leapme/data
+  embdi:
+    image: schematch/embdi
+    build: src/main/resources/embdi
+    ports:
+      - "127.0.0.1:5001:5001"
+    volumes:
+      - type: bind
+        source: ./data
+        target: /embdi/data
+      - type: bind
+        source: ./target/embdi_cache
+        target: /embdi/cache
