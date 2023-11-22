@@ -6,13 +6,6 @@ Code mainly taken and modified from: https://gitlab.eurecom.fr/cappuzzo/embdi
 import sys
 import os
 
-
-# We use stdout to communicate with java library and therefore don't want libraries to mess
-# that up.
-OLD_STDOUT = sys.stdout
-sys.stdout = sys.stderr
-
-
 try:
     import argparse
     import pickle
@@ -34,6 +27,13 @@ try:
 except Exception as e:
     print(e)
     sys.exit(2)
+
+DATA_DIRECTORY_MOUNT = "/embdi/data/"
+CACHE_DIRECTORY_MOUNT = "/embdi/cache"
+INFO_FILE_FP = f"{CACHE_DIRECTORY_MOUNT}/info_file.csv"
+EDGELIST_FP = f"{CACHE_DIRECTORY_MOUNT}/edgelist"
+PREPROCESSED_FP = lambda input_1, input_2: f"{CACHE_DIRECTORY_MOUNT}/{table_identifier(input_1)}-{table_identifier(input_2)}_preprocessed.csv"
+EMBEDDINGS_FP = lambda input_1, input_2: f"{CACHE_DIRECTORY_MOUNT}/{table_identifier(input_1)}-{table_identifier(input_2)}_embeddings"
 
 PREFIXES = ["3#__tn", "3$__tt", "5$__idx", "1$__cid"]
 
@@ -171,28 +171,34 @@ def filter_embeddings(embeddings_path):
         emb_f.write(f"{len(filtered)} {dimension}\n")
         emb_f.writelines(filtered)
 
-if __name__ == "__main__":
-    args = parse_args()
 
-    INFO_FILE_FP = f"target/embdi_cache/info_file.csv"
-    PREPROCESSED_FP = f"target/embdi_cache/{table_identifier(args.input_1)}-{table_identifier(args.input_2)}_preprocessed.csv"
-    EDGELIST_FP = f"target/embdi_cache/edgelist"
-    EMBEDDINGS_FP = f"target/embdi_cache/{table_identifier(args.input_1)}-{table_identifier(args.input_2)}_embeddings"
+def match(input_1, input_2):
 
-    df_1 = read_csv(args.input_1)
-    df_2 = read_csv(args.input_2)
+    
+    df_1 = read_csv(f"{DATA_DIRECTORY_MOUNT}/{input_1}")
+    df_2 = read_csv(f"{DATA_DIRECTORY_MOUNT}/{input_2}")
 
     PARAMS["expand_columns"] = ','.join(list(set(list(df_1.columns) + list(df_2.columns))))
     preprocessed = prepare_csv(df_1, df_2)
     Path(INFO_FILE_FP).parent.mkdir(parents=True, exist_ok=True)
-    write_info_file([df_1 ,df_2], INFO_FILE_FP, [args.input_1, args.input_2])
-    if not os.path.exists(EMBEDDINGS_FP):
+    write_info_file([df_1 ,df_2], INFO_FILE_FP, [input_1, input_2])
+    if not os.path.exists(EMBEDDINGS_FP(input_1, input_2)):
         edgelist = generate_edgelist(preprocessed, INFO_FILE_FP)
         walks = generate_random_walks()
-        embeddings_generation(walks, None, EMBEDDINGS_FP)
-        filter_embeddings(EMBEDDINGS_FP)
-    matchings = schema_matching(EMBEDDINGS_FP, preprocessed, list(df_1.columns), list(df_2.columns))
+        embeddings_generation(walks, None, EMBEDDINGS_FP(input_1, input_2))
+        filter_embeddings(EMBEDDINGS_FP(input_1, input_2))
+    matchings = schema_matching(EMBEDDINGS_FP(input_1, input_2), preprocessed, list(df_1.columns), list(df_2.columns))
 
-    sys.stdout = OLD_STDOUT
-    for col in matchings:
-        print(" ".join([str(x) for x in col]))
+    return "\n".join([
+                        " ".join(
+                            [str(x) for x in column]
+                        )
+                        for column in matchings
+                    ]
+    )
+
+
+if __name__ == "__main__":
+    args = parse_args()
+    print(match(args.input_1, args.input_2))
+    
