@@ -1,6 +1,7 @@
 package de.uni_marburg.schematch.utils;
 
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
+import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -10,18 +11,26 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UncheckedIOException;
+import java.net.URI;
+import java.net.URLEncoder;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 
 public class PythonUtils {
     static Logger log = LogManager.getLogger(PythonUtils.class);
+    static HttpClient httpClient = HttpClient.newHttpClient();
 
     public static Process runPythonFile(Boolean withPoetry, String folderName, String fileName, String... command) throws IOException {
         List<String> processCommand = new ArrayList<>();
         if (withPoetry) {
-           processCommand.add("poetry");
-           processCommand.add("run");
+            processCommand.add("poetry");
+            processCommand.add("run");
         }
         processCommand.add("python");
         processCommand.add(fileName);
@@ -42,6 +51,24 @@ public class PythonUtils {
             log.warn("An error occurred while reading the external python matcher logging output.");
         }
         return List.of();
+    }
+
+    public static HttpResponse<String> sendMatchRequest(Integer serverPort, List<Pair<String, String>> parameters) throws IOException, InterruptedException {
+
+        StringBuilder uri_builder = new StringBuilder();
+        uri_builder.append("http://127.0.0.1:").append(serverPort).append("/match");
+        if (!parameters.isEmpty()) {
+            uri_builder.append("?");
+            StringJoiner parameterJoiner = new StringJoiner("&");
+            for (Pair<String, String> parameter : parameters) {
+                parameterJoiner.add(URLEncoder.encode(parameter.getLeft(), StandardCharsets.UTF_8)
+                        + "=" + URLEncoder.encode(parameter.getRight(), StandardCharsets.UTF_8));
+            }
+            uri_builder.append(parameterJoiner);
+        }
+        HttpRequest request = HttpRequest.newBuilder(URI.create(uri_builder.toString())).build();
+
+        return httpClient.send(request, HttpResponse.BodyHandlers.ofString());
     }
 
     public static float[][] runPythonMatcher(TablePair tablePair, Boolean withPoetry, String folderName, String fileName, String... command) {
