@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 public class EmbdiMatcher extends Matcher {
     private Integer serverPort;
-
+    private String sm_mode;
 
     @Override
     public float[][] match(TablePair tablePair) {
@@ -27,7 +27,8 @@ public class EmbdiMatcher extends Matcher {
         try {
             HttpResponse<String> response = PythonUtils.sendMatchRequest(serverPort, List.of(
                     new ImmutablePair<>("table1", tablePair.getSourceTable().pathRelativeToDataDirectory()),
-                    new ImmutablePair<>("table2", tablePair.getTargetTable().pathRelativeToDataDirectory())
+                    new ImmutablePair<>("table2", tablePair.getTargetTable().pathRelativeToDataDirectory()),
+                    new ImmutablePair<>("sm_mode", sm_mode)
             ));
             if (response.statusCode() != 200) {
                 getLogger().error("Running EmbDI matcher failed with status code {}", response.statusCode());

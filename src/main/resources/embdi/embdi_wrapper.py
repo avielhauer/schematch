@@ -3,30 +3,22 @@ Uses EmbDI scripts to generate Schema matchings of given data.
 Code mainly taken and modified from: https://gitlab.eurecom.fr/cappuzzo/embdi
 '''
 
-import sys
 import os
 
-try:
-    import argparse
-    import pickle
-    import datetime
-    import pandas as pd
-    import gensim.models as models
-    from numpy import dot
-    from operator import itemgetter
-    from gensim import matutils
-    from pathlib import Path
-    from EmbDI.embeddings import learn_embeddings
-    from EmbDI.graph import graph_generation
-    import EmbDI.utils as eutils
-    from EmbDI.data_preprocessing import data_preprocessing, write_info_file, get_unique_string_values
-    from EmbDI.edgelist import EdgeList
-    from EmbDI.sentence_generation_strategies import random_walks_generation
-    from EmbDI.utils import (TIME_FORMAT, read_edgelist)
-    from EmbDI.schema_matching import _produce_match_results
-except Exception as e:
-    print(e)
-    sys.exit(2)
+import argparse
+import pandas as pd
+import gensim.models as models
+from numpy import dot
+from gensim import matutils
+from pathlib import Path
+from EmbDI.embeddings import learn_embeddings
+from EmbDI.graph import graph_generation
+import EmbDI.utils as eutils
+from EmbDI.data_preprocessing import data_preprocessing, write_info_file, get_unique_string_values
+from EmbDI.edgelist import EdgeList
+from EmbDI.sentence_generation_strategies import random_walks_generation
+from EmbDI.utils import (TIME_FORMAT, read_edgelist)
+from EmbDI.schema_matching import _extract_candidates, _produce_match_results
 
 DATA_DIRECTORY_MOUNT = "/embdi/data/"
 CACHE_DIRECTORY_MOUNT = "/embdi/cache"
@@ -105,7 +97,7 @@ def embeddings_generation(walks, dictionary, embeddings_file_name):
 
     return PARAMS
 
-def generate_similarity_matrix(wv, dataset, source_columns, target_columns):
+def dot_product_similarity_matrix(wv, dataset, source_columns, target_columns):
     similarity_matrix = [[0.0 for _ in target_columns] for __ in source_columns]
     for i, source_column in enumerate(source_columns):
         for j, target_column in enumerate(target_columns):
@@ -115,15 +107,21 @@ def generate_similarity_matrix(wv, dataset, source_columns, target_columns):
 
     return similarity_matrix
 
-def schema_matching(embeddings_file, dataset, source_columns, target_columns):
+def binary_similarity_matrix_from_embdi(wv, dataset, source_columns, target_columns):
+    candidates = _extract_candidates(wv, dataset)
+    match_results = _produce_match_results(candidates)
 
-    # clean embeddings keeps only embeddings of columns that are actually in the ground truth, to save some memory.
-    # We could look for all existing/required keys, but so far simply loading all embeddings was no issue.
-    #emb_file = _clean_embeddings(embeddings_file, {c: [c] for c in dataset.columns})
+    sm = [[0.0 for _ in target_columns] for __ in source_columns]
 
-    wv = models.KeyedVectors.load_word2vec_format(embeddings_file, unicode_errors='ignore')
+    i_emb_col_names = list(enumerate([f"0_{col}" for col in source_columns])) + list(enumerate([f"1_{col}" for col in target_columns]))
 
-    return generate_similarity_matrix(wv, dataset, source_columns, target_columns)
+    lookup = {col: i for i,col in i_emb_col_names}
+
+    for match_result in match_results:
+        sm[lookup[match_result[0]]][lookup[match_result[1]]] = 1.0
+
+    return sm
+
 
 def parse_args():
     """Simple argument parser invoked on startup.
@@ -167,14 +165,17 @@ def filter_embeddings(embeddings_path):
         unfiltered = emb_f.readlines()
     dimension = unfiltered[0].split(" ")[1].strip("\n")
     filtered = [line for line in unfiltered if line.startswith("cid__")]
+    # also add embedding without the cid__:
+    non_prefixed = [line[5:] for line in filtered]
     with open(embeddings_path, "w") as emb_f:
         emb_f.write(f"{len(filtered)} {dimension}\n")
         emb_f.writelines(filtered)
+        emb_f.writelines(non_prefixed)
 
 
-def match(input_1, input_2):
+def match(input_1, input_2, similarity_matrix_generation_method="dot_product_similarity"):
 
-    
+
     df_1 = read_csv(f"{DATA_DIRECTORY_MOUNT}/{input_1}")
     df_2 = read_csv(f"{DATA_DIRECTORY_MOUNT}/{input_2}")
 
@@ -187,13 +188,19 @@ def match(input_1, input_2):
         walks = generate_random_walks()
         embeddings_generation(walks, None, EMBEDDINGS_FP(input_1, input_2))
         filter_embeddings(EMBEDDINGS_FP(input_1, input_2))
-    matchings = schema_matching(EMBEDDINGS_FP(input_1, input_2), preprocessed, list(df_1.columns), list(df_2.columns))
+
+    wv = models.KeyedVectors.load_word2vec_format(EMBEDDINGS_FP(input_1, input_2), unicode_errors='ignore')
+
+    if similarity_matrix_generation_method == "dot_product_similarity":
+        similarity_matrix = dot_product_similarity_matrix(wv, preprocessed, list(df_1.columns), list(df_2.columns))
+    elif similarity_matrix_generation_method == "binary_from_embdi":
+        similarity_matrix = binary_similarity_matrix_from_embdi(wv, preprocessed, list(df_1.columns), list(df_2.columns))
 
     return "\n".join([
                         " ".join(
                             [str(x) for x in column]
                         )
-                        for column in matchings
+                        for column in similarity_matrix
                     ]
     )
 
@@ -201,4 +208,4 @@ def match(input_1, input_2):
 if __name__ == "__main__":
     args = parse_args()
     print(match(args.input_1, args.input_2))
-    
+

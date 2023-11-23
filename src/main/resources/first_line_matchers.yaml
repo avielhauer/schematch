@@ -11,6 +11,7 @@ packageName: "sota"
 active: true
 params:
   serverPort: 5001
+  sm_mode: ["dot_product_similarity", "binary_from_embdi"]
 ---
 name: "LeapmeMatcher"
 packageName: "sota"
