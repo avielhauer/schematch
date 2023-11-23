@@ -8,5 +8,8 @@ path: "Efes-music"
 name: "Pubs"
 path: "Pubs"
 ---
+name: "EmbDI"
+path: "EmbDI"
+---
 name: "Sakila"
 path: "Sakila"
