@@ -13,3 +13,6 @@ path: "EmbDI"
 ---
 name: "Sakila"
 path: "Sakila"
+---
+name: "EmbDI"
+path: "EmbDI"

@@ -25,7 +25,7 @@ addr,city,class,name,phone,type
 21 w 52nd st,new york,23.0,21 club,212582 7200,american
 13 w 54th st,new york,24.0,aquavit,212307 7311,continental
 34 e 61st st,new york,25.0,aureole,212 3191660,american
-201 w 83rd st,new york,26.0,cafe lalo,212496 6031,coffee bar
+201 w 83rd st,new york,26.0,cafe lalo,212496 6031,coffee_bar
 1 w 67th st,new york,27.0,cafe des artistes,212877 3500,continental
 2450 broadway between 90th and 91st sts,new york,28.0,carmine s,212362 2200,italian
 854 7th ave between 54th and 55th sts,new york,29.0,carnegie deli,212757 2245,delicatessen
@@ -36,7 +36,7 @@ addr,city,class,name,phone,type
 99 e 52nd st,new york,34.0,four seasons grill room,212754 9494,american
 12 e 12th st,new york,35.0,gotham bar grill,212620 4020,american
 42 e 20th st between park ave s and broadway,new york,36.0,gramercy tavern,212477 0777,american
-402 w 44th st,new york,37.0,island spice,212765 1737,tel caribbean
+402 w 44th st,new york,37.0,island spice,212765 1737,tel_caribbean
 160 e 64th st,new york,38.0,jo jo,212223 5656,american
 33 w 55th st,new york,39.0,la caravelle,212586 4252,french
 60 w 55th st between 5th and 6th ave,new york,40.0,la cote basque,212688 6525,french
@@ -54,7 +54,7 @@ addr,city,class,name,phone,type
 182 w 58th st,new york,52.0,petrossian,212245 2214,french
 35 w 64th st,new york,53.0,picholine,212724 8585,mediterranean
 95 ave a at 6th st,new york,54.0,pisces,212260 6660,seafood
-30 rockefeller plaza,new york,55.0,rainbow room,212632 5000,or 212632 5100 american
+30 rockefeller plaza,new york,55.0,rainbow room,212632 5000,or_212632_5100_american
 1 water st at the east river,brooklyn,56.0,river cafe,718522 5200,american
 240 central park s,new york,57.0,san domenico,212265 5959,italian
 156 2nd ave at 10th st,new york,58.0,second avenue deli,212677 0606,delicatessen
@@ -71,7 +71,7 @@ in central park at 67th st,new york,63.0,tavern on the green,212873 3200,america
 3000 w paradise rd,las vegas,69.0,le montrachet,702732 5111,continental
 3570 las vegas blvd s,las vegas,70.0,palace court,702731 7547,continental
 200 e fremont st,las vegas,71.0,second street grille,702385 3232,seafood
-2880 las vegas blvd s,las vegas,72.0,steak house,702734 0410,steak houses
+2880 las vegas blvd s,las vegas,72.0,steak house,702734 0410,steak_houses
 2245 e flamingo rd,las vegas,73.0,tillerman,702731 4036,seafood
 2355 peachtree rd peachtree battle shopping center,atlanta,74.0,abruzzi,404261 8186,italian
 3125 piedmont rd near peachtree rd,atlanta,75.0,bacchanalia,404365 0410,international
@@ -88,7 +88,7 @@ in central park at 67th st,new york,63.0,tavern on the green,212873 3200,america
 224 ponce de leon ave,atlanta,86.0,mary mac s tea room,404876 1800,southern
 255 courtland st at harris st,atlanta,87.0,nikolai s roof,404221 6362,continental
 1232 w paces ferry rd,atlanta,88.0,pano s and paul s,404261 3662,international
-3434 peachtree rd,atlanta,89.0,cafe ritzcarlton buckhead,404237 2700,ext 6108 international
+3434 peachtree rd,atlanta,89.0,cafe ritzcarlton buckhead,404237 2700,ext_6108_international
 3434 peachtree rd,atlanta,90.0,dining room ritzcarlton buckhead,404237 2700,international
 181 peachtree st,atlanta,91.0,restaurant ritzcarlton atlanta,404659 0400,continental
 b peachtree rd,atlanta,92.0,toulouse,404351 9533,french
@@ -128,9 +128,9 @@ b peachtree rd,atlanta,92.0,toulouse,404351 9533,french
 3rd st,los angeles,123.0,cava,213658 8898,mediterranean
 656 n virgil ave,los angeles,124.0,cha cha cha,213664 7723,caribbean
 310 n larchmont blvd,los angeles,125.0,chan dara,213467 1052,asian
-168 w colorado blvd,los angeles,126.0,clearwater cafe,818356 0959,health food
+168 w colorado blvd,los angeles,126.0,clearwater cafe,818356 0959,health_food
 9500 wilshire blvd,los angeles,127.0,dining room,310275 5200,californian
-10250 santa monica blvd,los angeles,128.0,dive,310788,dive american
+10250 santa monica blvd,los angeles,128.0,dive,310788,dive_american
 2628 wilshire blvd,santa monica,129.0,drago,310828 1585,italian
 730 n la cienega blvd,los angeles,130.0,drai s,310358 8585,french
 930 hilgard ave,los angeles,131.0,dynasty room,310208 8765,continental
@@ -142,7 +142,7 @@ b peachtree rd,atlanta,92.0,toulouse,404351 9533,french
 8600 beverly blvd,los angeles,137.0,hard rock cafe,310276 7605,american
 2020 ave of the stars,los angeles,138.0,harry s bar american grill,310277 2333,italian
 301 n beverly dr,los angeles,139.0,il fornaio cucina italiana,310550 8330,italian
-10668 w pico blvd,los angeles,140.0,jack sprat s grill,310837 6662,health food
+10668 w pico blvd,los angeles,140.0,jack sprat s grill,310837 6662,health_food
 439 n beverly drive,los angeles,141.0,jackson s farm,310273 5578,californian
 201 moreno dr,los angeles,142.0,jimmy s,310552 2394,continental
 9255 sunset blvd,los angeles,143.0,joss,310276 1886,asian
@@ -190,9 +190,9 @@ b peachtree rd,atlanta,92.0,toulouse,404351 9533,french
 1022 3rd ave between 60th and 61st sts,new york,185.0,bar anise,212355 1112,mediterranean
 321 w 46th st,new york,186.0,barbetta,212246 9171,italian
 123 w 52nd st,new york,187.0,ben benson s,212581 8888,american
-228 8th ave between 21st and 22nd sts,new york,188.0,big cup,212206 0059,coffee bar
+228 8th ave between 21st and 22nd sts,new york,188.0,big cup,212206 0059,coffee_bar
 948 1st ave between 52nd and 53rd sts,new york,189.0,billy s,212753 1870,american
-13 1st ave near 1st st,new york,190.0,boca chica,212473 0108,latin american
+13 1st ave near 1st st,new york,190.0,boca chica,212473 0108,latin_american
 1393a 2nd ave between 72nd and 73rd sts,new york,192.0,boonthai,212249 8484,asian
 420 e 59th st off 1st ave,new york,193.0,bouterin,212758 0323,french
 225 varick st at clarkston st,new york,194.0,brothers barbq,212727 2775,american
@@ -200,34 +200,34 @@ b peachtree rd,atlanta,92.0,toulouse,404351 9533,french
 25 w 40th st between 5th and 6th aves,new york,196.0,bryant park grill roof restaurant and bp cafe,212840 6500,american
 103 waverly pl near washington sq,new york,197.0,c3,212254 1200,american
 111 e 22nd st between park ave s and lexington ave,new york,198.0,ct,212995 8500,french
-1486 2nd ave between 77th and 78th sts,new york,199.0,cafe bianco,212988 2655,coffee bar
+1486 2nd ave between 77th and 78th sts,new york,199.0,cafe bianco,212988 2655,coffee_bar
 160 central park s,new york,200.0,cafe botanica,212484 5120,french
-69 w 71st st,new york,201.0,cafe la fortuna,212724 5846,coffee bar
+69 w 71st st,new york,201.0,cafe la fortuna,212724 5846,coffee_bar
 200 w 70th st,new york,202.0,cafe luxembourg,212873 7411,french
 2 e 61st st,new york,203.0,cafe pierre,212940 8185,french
 200 park ave between 45th st and vanderbilt ave,new york,204.0,cafe centro,212818 1222,french
 246 w 4th st at charles st,new york,205.0,cafe fes,212924 7653,mediterranean
-81 macdougal st between houston and bleeker sts,new york,206.0,caffe dante,212982 5275,coffee bar
-46 greenwich ave,new york,207.0,caffe dell artista,212645 4431,coffee bar
+81 macdougal st between houston and bleeker sts,new york,206.0,caffe dante,212982 5275,coffee_bar
+46 greenwich ave,new york,207.0,caffe dell artista,212645 4431,coffee_bar
 169 sullivan st between houston and bleecker sts,new york,208.0,caffe lure,212473 2642,french
-119 macdougal st between 3rd and bleecker sts,new york,209.0,caffe reggio,212475 9557,coffee bar
-385 broome st at mulberry,new york,210.0,caffe roma,212226 8413,coffee bar
-32 jones st at bleecker st,new york,211.0,caffe vivaldi,212691 7538,coffee bar
+119 macdougal st between 3rd and bleecker sts,new york,209.0,caffe reggio,212475 9557,coffee_bar
+385 broome st at mulberry,new york,210.0,caffe roma,212226 8413,coffee_bar
+32 jones st at bleecker st,new york,211.0,caffe vivaldi,212691 7538,coffee_bar
 7 w 20th st,new york,212.0,caffe bondi ristorante,212691 8136,italian
 451 washington st near watts st,new york,213.0,capsouto freres,212966 4900,french
 860 2nd ave at 46th st,new york,214.0,captain s table,212697 9538,seafood
-150 wooster st between houston and prince sts,new york,215.0,casa la femme,212505 0005,middle eastern
+150 wooster st between houston and prince sts,new york,215.0,casa la femme,212505 0005,middle_eastern
 45 mercer st between broome and grand sts,new york,216.0,cendrillon asian grill marimba bar,212343 9012,asian
 72 macdougal st between w houston and bleecker sts,new york,217.0,chez jacqueline,212505 0727,french
 160 e 48th st,new york,218.0,chiam,212371 2323,asian
 60 w 53rd st,new york,219.0,china grill,212333 7788,american
 120 w 51st st,new york,220.0,cite,212956 7100,french
 23 e 74th st,new york,221.0,coco pazzo,212794 0205,italian
-53rd sts,new york,222.0,columbus bakery,212421 0334,coffee bar
-1013 3rd ave between 60th and 61st sts,new york,223.0,corrado cafe,212753 5100,coffee bar
-522 9th ave at 39th st,new york,224.0,cupcake cafe,212465 1530,coffee bar
+53rd sts,new york,222.0,columbus bakery,212421 0334,coffee_bar
+1013 3rd ave between 60th and 61st sts,new york,223.0,corrado cafe,212753 5100,coffee_bar
+522 9th ave at 39th st,new york,224.0,cupcake cafe,212465 1530,coffee_bar
 164 mulberry st between grand and broome sts,new york,225.0,da nico,212343 1212,italian
-121 prince st,new york,226.0,dean deluca,212254 8776,coffee bar
+121 prince st,new york,226.0,dean deluca,212254 8776,coffee_bar
 341 w broadway near grand st,new york,227.0,diva,212941 9024,italian
 181 w 10th st,new york,228.0,dix et sept,212645 8023,french
 633 3rd ave at 40th st,new york,229.0,docks,212 9868080,seafood
@@ -246,12 +246,12 @@ b peachtree rd,atlanta,92.0,toulouse,404351 9533,french
 522 columbus ave between 85th and 86th sts,new york,242.0,firehouse,212595 3139,american
 87 1st ave between 5th and 6th sts,new york,243.0,first,212674 3823,american
 73 w 71st st,new york,244.0,fishin eddie,212874 3474,seafood
-348 e 62nd st,new york,245.0,fleur de jour,212355 2020,coffee bar
+348 e 62nd st,new york,245.0,fleur de jour,212355 2020,coffee_bar
 21 west 17th st between 5th and 6th aves,new york,246.0,flowers,212691 8888,american
 6 w 24th st,new york,247.0,follonico,212691 6359,italian
 54 pearl st at broad st,new york,248.0,fraunces tavern,212269 0144,american
 458 6th ave at 11th st,new york,249.0,french roast,212533 2233,french
-2340 broadway at 85th st,new york,250.0,french roast cafe,212799 1533,coffee bar
+2340 broadway at 85th st,new york,250.0,french roast cafe,212799 1533,coffee_bar
 402 w 43rd st off 9th ave,new york,251.0,frico bar,212564 7272,italian
 467 columbus ave between 82nd and 83rd sts,new york,252.0,fujiyama mama,212769 1144,asian
 685 amsterdam ave at 93rd st,new york,253.0,gabriela s,212961 0574,mexican
@@ -268,26 +268,26 @@ b peachtree rd,atlanta,92.0,toulouse,404351 9533,french
 4 world financial center,new york,264.0,hudson river club,212786 1500,american
 122 e 27th st between lexington and park aves,new york,265.0,i trulli,212481 7372,italian
 125 mulberry st between canal and hester sts,new york,266.0,il cortile,212226 6060,italian
-492 broome st near w broadway,new york,268.0,inca grill,212966 3371,latin american
+492 broome st near w broadway,new york,268.0,inca grill,212966 3371,latin_american
 430 lafayette st between 4th st and astor pl,new york,269.0,indochine,212505 5111,asian
-82 e 3rd st between 1st and 2nd aves,new york,270.0,internet cafe,212 6140747,coffee bar
-13 w 46th st,new york,271.0,ipanema,212730 5848,latin american
+82 e 3rd st between 1st and 2nd aves,new york,270.0,internet cafe,212 6140747,coffee_bar
+13 w 46th st,new york,271.0,ipanema,212730 5848,latin_american
 68 w 58th st,new york,272.0,jean lafitte,212751 2323,french
 15 w 44th st,new york,273.0,jewel of india,212869 5544,asian
 219 e 44th st between 2nd and 3rd aves,new york,274.0,jimmy sung s,212682 5678,asian
 326 w 46th st,new york,275.0,joe allen,212581 6464,american
 152 w 52nd st,new york,276.0,judson grill,212582 5252,american
 227 e 67th st,new york,277.0,l absinthe,212794 4950,french
-1191 1st ave between 64th and 65th sts,new york,278.0,l auberge,212288 8791,middle eastern
+1191 1st ave between 64th and 65th sts,new york,278.0,l auberge,212288 8791,middle_eastern
 310 w 4th st between w 12th and bank sts,new york,279.0,l auberge du midi,212242 4705,french
 432 lafayette st near astor pl,new york,280.0,l udo,212388 0978,french
 4 w 49th st,new york,281.0,la reserve,212247 2993,french
 168 1st ave between 10th and 11th sts,new york,282.0,lanza restaurant,212674 7014,italian
 361 w 46th st,new york,283.0,lattanzi ristorante,212315 0980,italian
-211 w broadway at franklin st,new york,284.0,layla,212431 0700,middle eastern
+211 w broadway at franklin st,new york,284.0,layla,212431 0700,middle_eastern
 106 e 57th st,new york,285.0,le chantilly,212751 2931,french
 149 e 57th st,new york,286.0,le colonial,212 7520808,asian
-50 macdougal st between houston and prince sts,new york,287.0,le gamin,212254 4678,coffee bar
+50 macdougal st between houston and prince sts,new york,287.0,le gamin,212254 4678,coffee_bar
 25 cleveland pl near spring st,new york,288.0,le jardin,212343 9599,french
 168 w 18th st,new york,289.0,le madri,212727 8022,italian
 150 w 46th st,new york,290.0,le marais,212869 0900,american
@@ -296,53 +296,53 @@ b peachtree rd,atlanta,92.0,toulouse,404351 9533,french
 411 park ave s between 28th and 29th sts,new york,293.0,les halles,212679 4111,french
 51 w 64th st,new york,294.0,lincoln tavern,212721 8271,american
 30 west 22nd st between 5th and 6th ave,new york,295.0,lola,212675 6700,american
-59 grand st between wooster st and w broadway,new york,296.0,lucky strike,212941 0479,or 212941 0772 american
+59 grand st between wooster st and w broadway,new york,296.0,lucky strike,212941 0479,or_212941_0772_american
 2182 broadway between 77th and 78th sts,new york,297.0,mad fish,212787 0202,seafood
 446 columbus ave between 81st and 82nd sts,new york,298.0,main street,212873 5025,american
 800 9th ave at 53rd st,new york,299.0,mangia e bevi,212956 3976,italian
 1161 1st ave between 63rd and 64th sts,new york,300.0,manhattan cafe,212888 6556,american
 325 e 14th st between 1st and 2nd aves,new york,301.0,manila garden,212777 6314,asian
 342 e 46th st between 1st and 2nd aves,new york,302.0,marichu,212370 1866,french
-15 e 12th st between 5th ave and university pl,new york,303.0,marquet patisserie,212229 9313,coffee bar
+15 e 12th st between 5th ave and university pl,new york,303.0,marquet patisserie,212229 9313,coffee_bar
 160 mercer st between houston and prince sts,new york,304.0,match,212906 9173,american
 1030 3rd ave at 61st st,new york,305.0,matthew s,212838 4343,american
 46 e 29th st,new york,306.0,mavalli palace,212679 5535,asian
-120 w 23rd st,new york,307.0,milan cafe and coffee bar,212807 1801,coffee bar
+120 w 23rd st,new york,307.0,milan cafe and coffee bar,212807 1801,coffee_bar
 60 e 54th st,new york,308.0,monkey bar,212838 2600,american
 1134 1st ave between 62nd and 63rd sts,new york,309.0,montien,212421 4433,asian
 551 5th ave at 45th st,new york,310.0,morton s,212972 3315,american
 104 w 57th st near 6th ave,new york,311.0,motown cafe,212581 8030,american
 32 w 32nd st,new york,312.0,new york kom tang soot bul house,212 9478482,asian
 28 12 bowery at bayard st,new york,313.0,new york noodletown,212349 0923,asian
-2 w 19th st,new york,314.0,newsbar,212255 3996,coffee bar
+2 w 19th st,new york,314.0,newsbar,212255 3996,coffee_bar
 145 w broadway at thomas st,new york,315.0,odeon,212233 0507,american
 322 w 46th st,new york,316.0,orso,212489 7212,italian
 142 w 44th st,new york,317.0,osteria al droge,212944 3643,italian
 68 e 56th st,new york,318.0,otabe,212223 7575,asian
 138 lafayette st between canal and howard sts,new york,319.0,pacifica,212941 4168,asian
 151 w 51st st,new york,320.0,palio,212245 4850,italian
-1065 1st ave at 58th st,new york,321.0,pamir,212644 9258,middle eastern
+1065 1st ave at 58th st,new york,321.0,pamir,212644 9258,middle_eastern
 24 e 81st st,new york,322.0,parioli romanissimo,212288 2391,italian
-250 park ave s at 20th st,new york,323.0,patria,212777 6211,latin american
+250 park ave s at 20th st,new york,323.0,patria,212777 6211,latin_american
 301 park ave between 49th and 50th sts,new york,324.0,peacock alley,212872 4895,french
 205 e 45th st,new york,325.0,pen pencil,212682 8660,american
 109 spring st between greene and mercer sts,new york,326.0,penang soho,212274 8883,asian
-1423 2nd ave between 74th and 75th sts,new york,327.0,persepolis,212535 1100,middle eastern
+1423 2nd ave between 74th and 75th sts,new york,327.0,persepolis,212535 1100,middle_eastern
 140 w 57th st,new york,328.0,planet hollywood,212333 7827,american
-371 w 46th st off 9th ave,new york,329.0,pomaire,212 9563055,latin american
+371 w 46th st off 9th ave,new york,329.0,pomaire,212 9563055,latin_american
 551 amsterdam ave between 86th and 87th sts,new york,330.0,popover cafe,212595 8555,american
 28 e 63rd st,new york,331.0,post house,212935 2888,american
 100 w 82nd st,new york,332.0,rain,212501 0776,asian
-439 e 75th st,new york,333.0,red tulip,212734 4893,eastern european
+439 e 75th st,new york,333.0,red tulip,212734 4893,eastern_european
 37a union sq w between 16th and 17th sts,new york,335.0,republic,212627 7172,asian
 126 e 7th st between 1st ave and ave a,new york,336.0,roettelle a g,212674 4140,continental
 1063 1st ave at 58th st,new york,337.0,rosa mexicano,212753 7407,mexican
 148 w 51st st,new york,338.0,ruth s chris,212245 9600,american
 133 mulberry st between hester and grand sts,new york,339.0,spqr,212925 3120,italian
 55 irving pl,new york,340.0,sal anthony s,212982 9030,italian
-157 chrystie st at delancey st,new york,341.0,sammy s roumanian steak house,212673 0330,east european
+157 chrystie st at delancey st,new york,341.0,sammy s roumanian steak house,212673 0330,east_european
 18 e 54th st,new york,342.0,san pietro,212753 9015,italian
-1000 madison ave between 77th and 78th sts,new york,343.0,sant ambroeus,212570 2211,coffee bar
+1000 madison ave between 77th and 78th sts,new york,343.0,sant ambroeus,212570 2211,coffee_bar
 423 amsterdam ave between 80th and 81st sts,new york,344.0,sarabeth s kitchen,212496 6280,american
 19 w 49th st,new york,345.0,sea grill,212332 7610,seafood
 3 225 e 60th st,new york,346.0,serendipity,212838 3531,american
@@ -354,29 +354,29 @@ b peachtree rd,atlanta,92.0,toulouse,404351 9533,french
 834 7th ave between 53rd and 54th sts,new york,352.0,stage deli,212245 7850,delicatessen
 428 amsterdam ave between 80th and 81st sts,new york,353.0,stingray,212501 7515,seafood
 76 mott st at canal st,new york,354.0,sweet n tart cafe,212334 8088,asian
-143 mercer st at prince st,new york,355.0,t salon,212925 3700,coffee bar
+143 mercer st at prince st,new york,355.0,t salon,212925 3700,coffee_bar
 65 w 55th st,new york,356.0,tang pavillion,212956 6888,asian
 950 8th ave at 56th st,new york,357.0,tapika,212 3973737,american
-103 1st ave between 6th and 7th sts,new york,358.0,teresa s,212228 0604,east european
+103 1st ave between 6th and 7th sts,new york,358.0,teresa s,212228 0604,east_european
 400 w 119th st between amsterdam and morningside aves,new york,359.0,terrace,212666 9490,continental
-350 9th ave at 49th st,new york,360.0,the coffee pot,212265 3566,coffee bar
+350 9th ave at 49th st,new york,360.0,the coffee pot,212265 3566,coffee_bar
 2420 broadway at 89th st,new york,361.0,the savannah club,212496 1066,american
 900 7th ave between 56th and 57th sts,new york,362.0,trattoria dell arte,212245 9800,italian
 345 e 83rd st,new york,363.0,triangolo,212472 4488,italian
 375 greenwich st near franklin st,new york,364.0,tribeca grill,212941 3900,american
-154 e 79th st between lexington and 3rd aves,new york,365.0,trois jean,212988 4858,coffee bar
+154 e 79th st between lexington and 3rd aves,new york,365.0,trois jean,212988 4858,coffee_bar
 34 e 51st st,new york,366.0,tse yang,212688 5447,asian
-386 3rd ave between 27th and 28th sts,new york,367.0,turkish kitchen,212679 1810,middle eastern
+386 3rd ave between 27th and 28th sts,new york,367.0,turkish kitchen,212679 1810,middle_eastern
 222 w 79th st,new york,368.0,two two two,212799 0400,american
-342 e 11th st near 1st ave,new york,369.0,veniero s pasticceria,212674 7264,coffee bar
+342 e 11th st near 1st ave,new york,369.0,veniero s pasticceria,212674 7264,coffee_bar
 54 irving pl at 17th st,new york,370.0,verbena,212260 5454,american
-52 236 w 52nd st,new york,371.0,victor s cafe,212586 7714,latin american
+52 236 w 52nd st,new york,371.0,victor s cafe,212586 7714,latin_american
 70 w 68th st,new york,372.0,vince eddie s,212721 0068,american
 200 e 54th st,new york,373.0,vong,212486 9592,american
 500 e 30th st,new york,374.0,water club,212683 3333,american
 63rd street steakhouse 44 w 63rd st,new york,375.0,west,212246 6363,american
 174 1st ave between 10th and 11th sts,new york,376.0,xunta,212614 0620,mediterranean
-34 union sq e at 16th st,new york,377.0,zen palate,212614 9291,and 212614 9345 asian
+34 union sq e at 16th st,new york,377.0,zen palate,212614 9291,and_212614_9345_asian
 90 prince st between broadway and mercer st,new york,378.0,zoe,212966 6722,american
 163 ponce de leon ave,atlanta,379.0,abbey,404876 8532,international
 783 martin luther king jr dr,atlanta,380.0,aleck s barbecue heaven,404525 2062,barbecue
@@ -427,12 +427,12 @@ park place across from perimeter mall dunwoody,atlanta,408.0,mi spia dunwoody rd
 4850 flamingo rd,las vegas,425.0,bamboo garden,702871 3262,asian
 4041 audrie st at flamingo rd,las vegas,426.0,battista s hole in the wall,702732 1424,italian
 3570 las vegas blvd s,las vegas,427.0,bertolini s,702735 4663,italian
-128 fremont st,las vegas,428.0,binion s coffee shop,702382 1600,coffee shopsdiners
+128 fremont st,las vegas,428.0,binion s coffee shop,702382 1600,coffee_shopsdiners
 3400 las vegas blvd s,las vegas,429.0,bistro,702791 7111,continental
 4111 boulder hwy,las vegas,430.0,broiler,702432 7777,american
-3555 las vegas blvd s,las vegas,431.0,bugsy s diner,702733 3111,coffee shopsdiners
+3555 las vegas blvd s,las vegas,431.0,bugsy s diner,702733 3111,coffee_shopsdiners
 1350 e flamingo rd,las vegas,432.0,cafe michelle,702735 8686,american
-3570 las vegas blvd s,las vegas,433.0,cafe roma,702731 7547,coffee shopsdiners
+3570 las vegas blvd s,las vegas,433.0,cafe roma,702731 7547,coffee_shopsdiners
 3333 s maryland pkwy,las vegas,434.0,capozzoli s,702731 5311,italian
 3700 w flamingo rd,las vegas,435.0,carnival world,702252 7777,buffets
 1 main st,las vegas,436.0,center stage plaza hotel,702386 2512,american
@@ -440,51 +440,51 @@ park place across from perimeter mall dunwoody,atlanta,408.0,mi spia dunwoody rd
 3570 las vegas blvd s,las vegas,438.0,em press court,702731 7888,asian
 2411 w sahara ave,las vegas,439.0,feast,702367 2411,buffets
 129 e fremont st,las vegas,440.0,golden nugget hotel,702385 7111,buffets
-308 w sahara ave,las vegas,441.0,golden steer,702384 4470,steak houses
+308 w sahara ave,las vegas,441.0,golden steer,702384 4470,steak_houses
 129 e fremont st,las vegas,442.0,lillie langtry s,702385 7111,asian
 1510 e flamingo rd,las vegas,443.0,mandarin court,702737 1234,asian
 3120 las vegas blvd s,las vegas,444.0,margarita s mexican cantina,702794 8200,mexican
-5111 w boulder hwy,las vegas,445.0,mary s diner,702454 8073,coffee shopsdiners
+5111 w boulder hwy,las vegas,445.0,mary s diner,702454 8073,coffee_shopsdiners
 3400 las vegas blvd s,las vegas,446.0,mikado,702791 7111,asian
 400 e sahara ave,las vegas,447.0,pamplemousse,702733 2066,continental
-3000 las vegas blvd s,las vegas,448.0,ralph s diner,702732 6330,coffee shopsdiners
-3570 las vegas blvd s,las vegas,449.0,the bacchanal,702731 7525,only in las vegas
+3000 las vegas blvd s,las vegas,448.0,ralph s diner,702732 6330,coffee_shopsdiners
+3570 las vegas blvd s,las vegas,449.0,the bacchanal,702731 7525,only_in_las_vegas
 3713 w sahara ave,las vegas,450.0,venetian,702876 4190,italian
 6182 w flamingo rd,las vegas,451.0,viva mercado s,702871 8826,mexican
-3900 paradise rd,las vegas,452.0,yolie s,702794 0700,steak houses
+3900 paradise rd,las vegas,452.0,yolie s,702794 0700,steak_houses
 2223 market st,san francisco,453.0,2223,415431 0692,american
 1722 sacramento st,san francisco,454.0,acquarello,415567 5432,italian
-243 o farrell st,san francisco,455.0,bardelli s,415982 0243,old san francisco
+243 o farrell st,san francisco,455.0,bardelli s,415982 0243,old_san_francisco
 2030 union st,san francisco,456.0,betelnut,415929 8855,asian
 155 steuart st,san francisco,457.0,bistro roti,415495 6500,french
 56 gold st,san francisco,458.0,bix,415433 6300,american
 598 fourth st,san francisco,459.0,bizou,415543 2222,french
 800 greenwich st,san francisco,460.0,buca giovanni,415776 7766,italian
 3347 fillmore st,san francisco,461.0,cafe adriano,415474 4180,italian
-2317 chestnut st,san francisco,462.0,cafe marimba,415776 1506,mexicanlatin americanspanish
+2317 chestnut st,san francisco,462.0,cafe marimba,415776 1506,mexicanlatin_americanspanish
 625 polk st,san francisco,463.0,california culinary academy,415771 3500,french
 1600 powell st,san francisco,464.0,capp s corner,415989 2589,italian
 1772 market st,san francisco,465.0,carta,415863 3516,american
-4th and howard sts,san francisco,466.0,chevys,415543 8060,mexicanlatin americanspanish
+4th and howard sts,san francisco,466.0,chevys,415543 8060,mexicanlatin_americanspanish
 500 jackson st,san francisco,467.0,cypress club,415296 8555,american
 732 broadway,san francisco,468.0,des alpes,415788 9900,french
-161 sutter st,san francisco,469.0,faz,415362 0404,greek and middle eastern
+161 sutter st,san francisco,469.0,faz,415362 0404,greek_and_middle_eastern
 1300 battery st,san francisco,470.0,fog city diner,415982 2000,american
-market and new montgomery sts,san francisco,471.0,garden court,415546 5011,old san francisco
+market and new montgomery sts,san francisco,471.0,garden court,415546 5011,old_san_francisco
 ghirardelli sq,san francisco,472.0,gaylord s,415771 8822,asian
 501 geary st,san francisco,473.0,grand cafe hotel monaco,415292 0101,american
 bldg a fort mason,san francisco,474.0,greens,415771 6222,vegetarian
 4 embarcadero center,san francisco,475.0,harbor village,415781 8833,asian
-2100 van ness ave,san francisco,476.0,harris,415673 1888,steak houses
+2100 van ness ave,san francisco,476.0,harris,415673 1888,steak_houses
 161 steuart st,san francisco,477.0,harry denton s,415882 1333,american
 320 hayes st,san francisco,478.0,hayes street grill,415863 5545,seafood
-430 broadway,san francisco,479.0,helmand,415362 0641,greek and middle eastern
+430 broadway,san francisco,479.0,helmand,415362 0641,greek_and_middle_eastern
 5322 geary blvd,san francisco,480.0,hong kong flower lounge,415668 8998,asian
 2332 clement st,san francisco,481.0,hong kong villa,415752 8833,asian
 1521 hyde st,san francisco,482.0,hyde street bistro,415441 7778,italian
 1265 battery st,san francisco,483.0,il fornaio levi s plaza,415986 0100,italian
-3345 steiner st,san francisco,484.0,izzy s steak chop house,415563 0487,steak houses
-615 sacramento st,san francisco,485.0,jack s,415986 9854,old san francisco
+3345 steiner st,san francisco,484.0,izzy s steak chop house,415563 0487,steak_houses
+615 sacramento st,san francisco,485.0,jack s,415986 9854,old_san_francisco
 5116 geary blvd,san francisco,486.0,kabuto sushi,415752 5652,asian
 600 5th ave,san francisco,487.0,katia s,415668 9292,
 221 powell st,san francisco,488.0,kuleto s,415397 7720,italian
@@ -494,7 +494,7 @@ bldg a fort mason,san francisco,474.0,greens,415771 6222,vegetarian
 133 clement st,san francisco,492.0,le soleil,415668 4848,asian
 607 front st,san francisco,493.0,macarthur park,415398 5700,american
 3226 mission st,san francisco,494.0,manora,415861 6224,asian
-470 green st,san francisco,495.0,maykadeh,415362 8286,greek and middle eastern
+470 green st,san francisco,495.0,maykadeh,415362 8286,greek_and_middle_eastern
 ghirardelli sq,san francisco,496.0,mccormick kuleto s,415929 1730,seafood
 246 mcallister st,san francisco,497.0,millennium,415487 9800,vegetarian
 1652 stockton st,san francisco,498.0,moose s,415989 7800,mediterranean
@@ -506,7 +506,7 @@ ghirardelli sq,san francisco,496.0,mccormick kuleto s,415929 1730,seafood
 3011 steiner st,san francisco,504.0,pane e vino,415346 2111,italian
 1015 battery st,san francisco,505.0,pastis,415391 2555,french
 1944 union st,san francisco,506.0,perry s,415922 9022,american
-631 b kearny st,san francisco,507.0,r g lounge,415982 7877,or 415982 3811 asian
+631 b kearny st,san francisco,507.0,r g lounge,415982 7877,or_415982_3811_asian
 558 sacramento st,san francisco,508.0,rubicon,415434 4100,american
 1 tillman pl,san francisco,509.0,rumpus,415421 2300,american
 1702 post st,san francisco,510.0,sanppo,415346 3486,asian
@@ -515,7 +515,7 @@ ghirardelli sq,san francisco,496.0,mccormick kuleto s,415929 1730,seafood
 4,san francisco,513.0,splendido embarcadero,415986 3222,mediterranean
 150 redwood alley,san francisco,514.0,stars,415861 7827,american
 500 van ness ave,san francisco,515.0,stars cafe,415861 4344,american
-1240 9th ave,san francisco,516.0,stoyanof s cafe,415664 3664,greek and middle eastern
+1240 9th ave,san francisco,516.0,stoyanof s cafe,415664 3664,greek_and_middle_eastern
 3300 geary blvd,san francisco,517.0,straits cafe,415668 1783,asian
 601 hayes st,san francisco,518.0,suppenkuche,415252 9289,russiangerman
 240 california st,san francisco,519.0,tadich grill,415391 2373,seafood
@@ -528,7 +528,7 @@ ghirardelli sq,san francisco,496.0,mccormick kuleto s,415929 1730,seafood
 2257 chestnut st,san francisco,526.0,world wrapps,415563 9727,american
 101 spear st,san francisco,527.0,wu kong,415957 9300,asian
 427 battery st,san francisco,528.0,yank sing,415541 4949,asian
-1220 9th ave,san francisco,529.0,yaya cuisine,415566 6966,greek and middle eastern
+1220 9th ave,san francisco,529.0,yaya cuisine,415566 6966,greek_and_middle_eastern
 1611 post st,san francisco,530.0,yoyo tsumami bistro,415922 7788,french
-2000 hyde st,san francisco,531.0,zarzuela,415346 0800,mexicanlatin americanspanish
+2000 hyde st,san francisco,531.0,zarzuela,415346 0800,mexicanlatin_americanspanish
 1658 market st,san francisco,532.0,zuni cafe grill,415552 2522,mediterranean
