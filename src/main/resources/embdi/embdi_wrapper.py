@@ -110,7 +110,6 @@ def dot_product_similarity_matrix(wv, dataset, source_columns, target_columns):
 def binary_similarity_matrix_from_embdi(wv, dataset, source_columns, target_columns):
     candidates = _extract_candidates(wv, dataset)
     match_results = _produce_match_results(candidates)
-
     sm = [[0.0 for _ in target_columns] for __ in source_columns]
 
     i_emb_col_names = list(enumerate([f"0_{col}" for col in source_columns])) + list(enumerate([f"1_{col}" for col in target_columns]))
@@ -168,7 +167,7 @@ def filter_embeddings(embeddings_path):
     # also add embedding without the cid__:
     non_prefixed = [line[5:] for line in filtered]
     with open(embeddings_path, "w") as emb_f:
-        emb_f.write(f"{len(filtered)} {dimension}\n")
+        emb_f.write(f"{len(filtered)+ len(non_prefixed)} {dimension}\n")
         emb_f.writelines(filtered)
         emb_f.writelines(non_prefixed)
 
