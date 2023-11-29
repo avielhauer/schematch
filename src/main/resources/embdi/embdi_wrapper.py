@@ -4,6 +4,7 @@ Code mainly taken and modified from: https://gitlab.eurecom.fr/cappuzzo/embdi
 '''
 
 import os
+import sys
 
 import argparse
 import pandas as pd
@@ -30,7 +31,7 @@ EMBEDDINGS_FP = lambda input_1, input_2: f"{CACHE_DIRECTORY_MOUNT}/{table_identi
 PREFIXES = ["3#__tn", "3$__tt", "5$__idx", "1$__cid"]
 
 # default parameters for embdi
-PARAMS = {
+DEFAULT_PARAMS = {
     'ntop': 10,
     'ncand': 1,
     'max_rank': 3,
@@ -78,24 +79,24 @@ def write_csv(df: pd.DataFrame, file_path: str):
     df.to_csv(file_path, index=False)
 
 
-def embeddings_generation(walks, dictionary, embeddings_file_name):
+def embeddings_generation(walks, dictionary, embeddings_file_name, params):
     """
     Take the generated walks and train embeddings using the walks as training corpus.
     :param walks:
     :param dictionary:
     :return:
     """
-    learn_embeddings(embeddings_file_name, walks, write_walks=PARAMS['write_walks'],
-                     dimensions=int(PARAMS['n_dimensions']),
-                     window_size=int(PARAMS['window_size']))
+    learn_embeddings(embeddings_file_name, walks, write_walks=params['write_walks'],
+                     dimensions=int(params['n_dimensions']),
+                     window_size=int(params['window_size']))
 
-    if PARAMS['compression']:
+    if params['compression']:
         newf = eutils.clean_embeddings_file(embeddings_file_name, dictionary)
     else:
         newf = embeddings_file_name
-    PARAMS['embeddings_file'] = newf
+    params['embeddings_file'] = newf
 
-    return PARAMS
+    return params
 
 def dot_product_similarity_matrix(wv, dataset, source_columns, target_columns):
     similarity_matrix = [[0.0 for _ in target_columns] for __ in source_columns]
@@ -134,22 +135,22 @@ def parse_args():
     built_args = parser.parse_args()
     return built_args
 
-def prepare_csv(df_1, df_2):
+def prepare_csv(df_1, df_2, params):
     # overrides default values to schema matching values
     # might need adjustment for new datasets
-    return data_preprocessing([df_1, df_2], PARAMS)
+    return data_preprocessing([df_1, df_2], params)
 
 def generate_edgelist(df, info_file):
     return EdgeList(df, EDGELIST_FP, PREFIXES, info_file, flatten=True)
 
-def generate_random_walks():
+def generate_random_walks(params):
     prefixes, edgelist = read_edgelist(EDGELIST_FP)
-    graph = graph_generation(PARAMS, edgelist, prefixes, dictionary=None)
+    graph = graph_generation(params, edgelist, prefixes, dictionary=None)
     #  Compute the number of sentences according to the rule of thumb.
-    if PARAMS['n_sentences'] == 'default':
-        PARAMS['n_sentences'] = graph.compute_n_sentences(int(PARAMS['sentence_length']))
-    PARAMS["write_walks"] = False
-    walks = random_walks_generation(PARAMS, graph)
+    if params['n_sentences'] == 'default':
+        params['n_sentences'] = graph.compute_n_sentences(int(params['sentence_length']))
+    params["write_walks"] = False
+    walks = random_walks_generation(params, graph)
 
     return walks
 
@@ -172,20 +173,44 @@ def filter_embeddings(embeddings_path):
         emb_f.writelines(non_prefixed)
 
 
+def read_variables_file(var_file):
+    variables = {}
+    with open(var_file, 'r') as fp:
+        for i, line in enumerate(fp):
+            parameter, values = line.strip().split(':', maxsplit=1)
+            variables[parameter] = values.split(',')
+    for default_var in default_values:
+        if default_var not in variables or variables[default_var][0] == '':
+            variables[default_var] = [default_values[default_var]]
+    return variables
+
+def update_params(source1, source2, params):
+    if not source1.startswith("EmbDI") or not source2.startswith("EmbDI"):
+        return params
+    try:
+        config = read_variables_file(f"/configs/config-{source1.split('/')[-1].split('.')[0]}_{source2.split('/')[-1].split('.')[0]}-sm")
+        for k,v in config.items():
+            params[k] = v
+        return params
+    except:
+        print(f"could not read specific dataset for {source1} and {source2}", file=sys.stderr)
+        return params
+
 def match(input_1, input_2, similarity_matrix_generation_method="dot_product_similarity"):
 
+    execution_specific_params = update_params(input_1, input_2, DEFAULT_PARAMS.copy())
 
     df_1 = read_csv(f"{DATA_DIRECTORY_MOUNT}/{input_1}")
     df_2 = read_csv(f"{DATA_DIRECTORY_MOUNT}/{input_2}")
 
-    PARAMS["expand_columns"] = ','.join(list(set(list(df_1.columns) + list(df_2.columns))))
-    preprocessed = prepare_csv(df_1, df_2)
+    execution_specific_params["expand_columns"] = ','.join(list(set(list(df_1.columns) + list(df_2.columns))))
+    preprocessed = prepare_csv(df_1, df_2, execution_specific_params)
     Path(INFO_FILE_FP).parent.mkdir(parents=True, exist_ok=True)
     write_info_file([df_1 ,df_2], INFO_FILE_FP, [input_1, input_2])
     if not os.path.exists(EMBEDDINGS_FP(input_1, input_2)):
         edgelist = generate_edgelist(preprocessed, INFO_FILE_FP)
-        walks = generate_random_walks()
-        embeddings_generation(walks, None, EMBEDDINGS_FP(input_1, input_2))
+        walks = generate_random_walks(execution_specific_params)
+        embeddings_generation(walks, None, EMBEDDINGS_FP(input_1, input_2), execution_specific_params)
         filter_embeddings(EMBEDDINGS_FP(input_1, input_2))
 
     wv = models.KeyedVectors.load_word2vec_format(EMBEDDINGS_FP(input_1, input_2), unicode_errors='ignore')
