@@ -18,7 +18,7 @@ from EmbDI.data_preprocessing import data_preprocessing, write_info_file, get_un
 from EmbDI.edgelist import EdgeList
 from EmbDI.sentence_generation_strategies import random_walks_generation
 from EmbDI.utils import (TIME_FORMAT, read_edgelist)
-from EmbDI.schema_matching import _extract_candidates, _produce_match_results
+from EmbDI.schema_matching import _produce_match_results , _extract_candidates
 
 DATA_DIRECTORY_MOUNT = "/embdi/data/"
 CACHE_DIRECTORY_MOUNT = "/embdi/cache"
@@ -39,7 +39,7 @@ PARAMS = {
     'backtrack': True,
     'training_algorithm': 'word2vec',
     'write_walks': True,
-    'flatten': 'all',
+    'flatten': 'tt',
     'indexing': 'basic',
     'epsilon': 0.1,
     'num_trees': 250,
@@ -64,7 +64,7 @@ PARAMS = {
     'round_number': 0,
     'round_columns': 'price',
     'auto_merge': False,
-    'tokenize_shared': True,
+    'tokenize_shared': False,
     'run-tag': 'something_random',
     'follow_replacement': False
 }
