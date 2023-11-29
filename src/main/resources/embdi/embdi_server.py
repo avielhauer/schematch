@@ -7,8 +7,8 @@ from embdi_wrapper import match
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     # When running in container, we need to listen on all interfaces.
-    parser.add_argument("--leapme-host", default="0.0.0.0")
-    parser.add_argument("-p", "--leapme-port", default=5001)
+    parser.add_argument("--embdi-host", default="0.0.0.0")
+    parser.add_argument("-p", "--embdi-port", default=5001)
     args = parser.parse_args()
 
 
@@ -25,4 +25,4 @@ if __name__ == "__main__":
             request.args.get("sm_mode")
         )
 
-    app.run(host=args.leapme_host, port=args.leapme_port)
+    app.run(host=args.embdi_host, port=args.embdi_port)
