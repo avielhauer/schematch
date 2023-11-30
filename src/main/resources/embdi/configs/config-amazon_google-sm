@@ -15,5 +15,7 @@ window_size:3
 n_dimensions:300
 intersection:false
 mlflow:false
-repl_numbers:False
-repl_strings:False
+repl_numbers:false
+repl_strings:false
+round_number:0
+round_columns:price

@@ -6,7 +6,7 @@ follow_sub:false
 smoothing_method:no
 backtrack:true
 training_algorithm:word2vec
-write_walks:true
+write_walks:false
 n_sentences:default
 walks_strategy:basic
 learning_method:skipgram
@@ -15,5 +15,6 @@ window_size:3
 n_dimensions:300
 intersection:false
 mlflow:false
-repl_numbers:False
-repl_strings:False
+repl_numbers:false
+repl_strings:false
+round_number:-2
