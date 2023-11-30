@@ -19,7 +19,7 @@ from EmbDI.data_preprocessing import data_preprocessing, write_info_file, get_un
 from EmbDI.edgelist import EdgeList
 from EmbDI.sentence_generation_strategies import random_walks_generation
 from EmbDI.utils import (TIME_FORMAT, read_edgelist)
-from EmbDI.schema_matching import _produce_match_results , _extract_candidates
+from EmbDI.schema_matching import _extract_candidates, _produce_match_results
 
 DATA_DIRECTORY_MOUNT = "/embdi/data/"
 CACHE_DIRECTORY_MOUNT = "/embdi/cache"
@@ -113,10 +113,7 @@ def dot_product_similarity_matrix(wv, dataset, source_columns, target_columns):
 
 def binary_similarity_matrix_from_embdi(wv, dataset, source_columns, target_columns):
     candidates = _extract_candidates(wv, dataset)
-    print(candidates, file=sys.stderr)
-
     match_results = _produce_match_results(candidates)
-    print(match_results, file=sys.stderr)
     sm = [[0.0 for _ in target_columns] for __ in source_columns]
 
     i_emb_col_names = list(enumerate([f"0_{col}" for col in source_columns])) + list(enumerate([f"1_{col}" for col in target_columns]))
