@@ -39,7 +39,7 @@ DEFAULT_PARAMS = {
     'smoothing_method': 'no',
     'backtrack': True,
     'training_algorithm': 'word2vec',
-    'write_walks': True,
+    'write_walks': False,
     'flatten': 'tt',
     'indexing': 'basic',
     'epsilon': 0.1,
@@ -62,7 +62,7 @@ DEFAULT_PARAMS = {
     'concatenate': 'horizon',
     'missing_value': 'nan,ukn,none,unknown,',
     'missing_value_strategy': '',
-    'round_number': 0,
+    'round_number': -1,
     'round_columns': 'price',
     'auto_merge': False,
     'tokenize_shared': False,
@@ -88,7 +88,10 @@ def embeddings_generation(walks, dictionary, embeddings_file_name, params):
     """
     learn_embeddings(embeddings_file_name, walks, write_walks=params['write_walks'],
                      dimensions=int(params['n_dimensions']),
-                     window_size=int(params['window_size']))
+                     window_size=int(params['window_size']),
+                     training_algorithm=params["training_algorithm"],
+                     learning_method=params["learning_method"],
+                     sampling_factor=params["sampling_factor"])
 
     if params['compression']:
         newf = eutils.clean_embeddings_file(embeddings_file_name, dictionary)
@@ -110,7 +113,10 @@ def dot_product_similarity_matrix(wv, dataset, source_columns, target_columns):
 
 def binary_similarity_matrix_from_embdi(wv, dataset, source_columns, target_columns):
     candidates = _extract_candidates(wv, dataset)
+    print(candidates, file=sys.stderr)
+
     match_results = _produce_match_results(candidates)
+    print(match_results, file=sys.stderr)
     sm = [[0.0 for _ in target_columns] for __ in source_columns]
 
     i_emb_col_names = list(enumerate([f"0_{col}" for col in source_columns])) + list(enumerate([f"1_{col}" for col in target_columns]))
@@ -149,7 +155,6 @@ def generate_random_walks(params):
     #  Compute the number of sentences according to the rule of thumb.
     if params['n_sentences'] == 'default':
         params['n_sentences'] = graph.compute_n_sentences(int(params['sentence_length']))
-    params["write_walks"] = False
     walks = random_walks_generation(params, graph)
 
     return walks
@@ -172,28 +177,34 @@ def filter_embeddings(embeddings_path):
         emb_f.writelines(filtered)
         emb_f.writelines(non_prefixed)
 
+def interpret_value(value_string):
+    norm_string = value_string.lower()
+    if norm_string == "false":
+        return False
+    if norm_string == "true":
+        return True
+    if norm_string.endswith(","):
+        return value_string.split(",")[:-1]
+    return value_string
 
 def read_variables_file(var_file):
     variables = {}
     with open(var_file, 'r') as fp:
         for i, line in enumerate(fp):
             parameter, values = line.strip().split(':', maxsplit=1)
-            variables[parameter] = values.split(',')
-    for default_var in default_values:
-        if default_var not in variables or variables[default_var][0] == '':
-            variables[default_var] = [default_values[default_var]]
+            variables[parameter] = interpret_value(values)
     return variables
 
 def update_params(source1, source2, params):
     if not source1.startswith("EmbDI") or not source2.startswith("EmbDI"):
         return params
     try:
-        config = read_variables_file(f"/configs/config-{source1.split('/')[-1].split('.')[0]}_{source2.split('/')[-1].split('.')[0]}-sm")
+        config = read_variables_file(f"/embdi/configs/config-{source1.split('/')[-1].split('.')[0]}_{source2.split('/')[-1].split('.')[0]}-sm")
         for k,v in config.items():
             params[k] = v
         return params
     except:
-        print(f"could not read specific dataset for {source1} and {source2}", file=sys.stderr)
+        print(f"Could not read specific config for {source1.split('/')[-1].split('.')[0]} and {source2.split('/')[-1].split('.')[0]}.", file=sys.stderr)
         return params
 
 def match(input_1, input_2, similarity_matrix_generation_method="dot_product_similarity"):
@@ -210,7 +221,7 @@ def match(input_1, input_2, similarity_matrix_generation_method="dot_product_sim
     if not os.path.exists(EMBEDDINGS_FP(input_1, input_2)):
         edgelist = generate_edgelist(preprocessed, INFO_FILE_FP)
         walks = generate_random_walks(execution_specific_params)
-        embeddings_generation(walks, None, EMBEDDINGS_FP(input_1, input_2), execution_specific_params)
+        execution_specific_params = embeddings_generation(walks, None, EMBEDDINGS_FP(input_1, input_2), execution_specific_params)
         filter_embeddings(EMBEDDINGS_FP(input_1, input_2))
 
     wv = models.KeyedVectors.load_word2vec_format(EMBEDDINGS_FP(input_1, input_2), unicode_errors='ignore')

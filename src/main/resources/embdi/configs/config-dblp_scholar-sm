@@ -16,5 +16,5 @@ window_size:5
 n_dimensions:300
 intersection:false
 mlflow:false
-repl_numbers:False
-repl_strings:False
+repl_numbers:false
+repl_strings:false
