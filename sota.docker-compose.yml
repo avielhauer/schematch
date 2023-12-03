@@ -1,5 +1,14 @@
 version: "3.0"
 services:
+  adnev:
+    image: schematch/adnev
+    build: src/main/resources/adnev
+    ports:
+      - "127.0.0.1:5002:5002"
+    volumes:
+      - type: bind
+        source: ./target/adnev
+        target: /adnev/DSMA/target/adnev
   leapme:
     image: schematch/leapme
     build: src/main/resources/leapme
