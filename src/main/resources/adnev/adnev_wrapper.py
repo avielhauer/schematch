@@ -3,29 +3,27 @@ A simple script to execute ADnEV on similarity matrices.
 Code mainly taken and modified from: https://github.com/shraga89/DSMA
 '''
 
-import math
-import sys
 from os import listdir
 from os.path import isfile, join
 import DataHandler as DH
 import numpy as np
 import tensorflow as tf
-graph = tf.get_default_graph()
+GRAPH = tf.get_default_graph()
 
 
 Y_HAT_SINGLE_FALLBACK = -1
 i = 5
-crnn_model_adapt = DH.data_loader("./models/11_11_2018_08_42/crnn_adapt_no_attention_model_fold_" + str(i))
-crnn_model_eval = DH.data_loader("./models/11_11_2018_08_42/crnn_eval_model_fold_" + str(i))
+CRNN_MODEL_APDAPT = DH.data_loader("./models/11_11_2018_08_42/crnn_adapt_no_attention_model_fold_" + str(i))
+CRNN_MODEL_EVAL = DH.data_loader("./models/11_11_2018_08_42/crnn_eval_model_fold_" + str(i))
 
-def deep_adapt_and_evaluate(X_seq, adaptor=crnn_model_adapt, evaluator=crnn_model_eval):
-    with graph.as_default():
+def deep_adapt_and_evaluate(X_seq, adaptor=CRNN_MODEL_APDAPT, evaluator=CRNN_MODEL_EVAL):
+    with GRAPH.as_default():
         yhat_full = adaptor.predict_classes(X_seq, verbose=2)
     yhat_full = np.array(yhat_full.reshape(yhat_full.shape[1:-1] + (1,)))
     try:
         # 4 x 4 matrix or something like that is minimum input for model, else dimensions too small
         # at that point fall back to some default val, so ev
-        with graph.as_default():
+        with GRAPH.as_default():
             yhat_single = evaluator.predict(X_seq, verbose=2)
     except:
         yhat_single = Y_HAT_SINGLE_FALLBACK
@@ -33,18 +31,18 @@ def deep_adapt_and_evaluate(X_seq, adaptor=crnn_model_adapt, evaluator=crnn_mode
     k_adapt += 1
     yhat_full = np.array(yhat_full.reshape((1,) + yhat_full.shape))
     try:
-        with graph.as_default():
+        with GRAPH.as_default():
             yhat_new = evaluator.predict(yhat_full, verbose=2)
     except:
         yhat_new = Y_HAT_SINGLE_FALLBACK
     while yhat_new > yhat_single:
         X_seq = yhat_full
-        with graph.as_default():
+        with GRAPH.as_default():
             yhat_full = adaptor.predict_classes(X_seq, verbose=2)
         yhat_full = np.array(yhat_full.reshape(yhat_full.shape[1:-1] + (1,)))
         yhat_single = yhat_new
         k_adapt += 1
-        with graph.as_default():
+        with GRAPH.as_default():
             yhat_new = evaluator.predict(X_seq, verbose=2)
     return X_seq, yhat_single
 
@@ -61,13 +59,14 @@ def match(sm_dir):
             if ev > max_ev:
                 max_sm = sm
 
-    dim = int(math.sqrt(max_sm.shape[1]))
+    row_nums = len(lines)
+    col_nums = len(lines[0].split(","))
 
     return "\n".join([
         " ".join(
             [str(x) for x in column]
         )
-        for column in max_sm.reshape([dim,dim])]
+        for column in max_sm.reshape([row_nums,col_nums])]
     )
 
 
@@ -81,5 +80,5 @@ if __name__ == "__main__":
         0,0,0,0,0,1,0,
         0,0,0,0,0,0,1,
     ])])
-    deep_adapt_and_evaluate(crnn_model_adapt, crnn_model_eval,matrix)
+    deep_adapt_and_evaluate(CRNN_MODEL_APDAPT, CRNN_MODEL_EVAL, matrix)
 
