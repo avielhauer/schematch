@@ -4,6 +4,7 @@
 /target
 /META-INF
 /out
+/data/Sakila
 
 # IntelliJ
 /.idea
