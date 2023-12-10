@@ -25,7 +25,7 @@ public class Column {
     public Column(String label, List<String> values) {
         this.label = label;
         this.values = values;
-        this.datatype = Datatype.STRING;
+        this.datatype = null;
         this.tokenizedLabel = new HashMap<>();
         this.tokenizedValues = new HashMap<>();
     }
@@ -38,6 +38,13 @@ public class Column {
     @Override
     public String toString() {
         return this.label + "___" + this.table.getName();
+    }
+
+    public Datatype getDatatype() {
+        if (this.datatype == null) {
+            this.datatype = Datatype.determineDatatype(this);
+        }
+        return this.datatype;
     }
 
     public Set<String> getLabelTokens(Tokenizer tokenizer) {
