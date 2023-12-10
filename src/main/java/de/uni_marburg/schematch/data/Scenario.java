@@ -4,7 +4,7 @@ import de.uni_marburg.schematch.data.metadata.ScenarioMetadata;
 import de.uni_marburg.schematch.utils.Configuration;
 import de.uni_marburg.schematch.utils.InputReader;
 import de.uni_marburg.schematch.utils.StringUtils;
-import lombok.*;
+import lombok.Data;
 
 import java.io.File;
 

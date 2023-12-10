@@ -1,0 +1,4 @@
+[target_publishers.csv.cewvaeif, target_publishers.csv.ffqwwlzq] --> target_publishers.csv.ebvgtwmh, target_publishers.csv.pknggvah, target_publishers.csv.qdfxzvif
+[target_publishers.csv.ebvgtwmh] --> target_publishers.csv.cewvaeif, target_publishers.csv.ffqwwlzq, target_publishers.csv.pknggvah, target_publishers.csv.qdfxzvif
+[target_publishers.csv.pknggvah] --> target_publishers.csv.cewvaeif, target_publishers.csv.ebvgtwmh, target_publishers.csv.ffqwwlzq, target_publishers.csv.qdfxzvif
+[target_publishers.csv.qdfxzvif] --> target_publishers.csv.cewvaeif, target_publishers.csv.ebvgtwmh, target_publishers.csv.ffqwwlzq, target_publishers.csv.pknggvah

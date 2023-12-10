@@ -27,12 +27,12 @@ public abstract class Tokenizer {
         return tokens;
     }
 
-    private void tokenize(Column column) {
+    public void tokenize(Column column) {
         column.addLabelTokens(this, tokenize(column.getLabel()));
         column.addValuesTokens(this, tokenize(column.getValues()));
     }
 
-    private void tokenize(Table table) {
+    public void tokenize(Table table) {
         List<Column> columns = table.getColumns();
         for (Column column : columns) {
             tokenize(column);
