@@ -19,6 +19,17 @@ packageName: "metadata"
 name: "DistinctCountMatcher"
 packageName: "metadata"
 ---
+name: "UniquenessMatcher"
+packageName: "metadata"
+
+# Similarity matchers
+---
+name: "LevenshteinMatcher"
+packageName: "similarity.label"
+---
+name: "CosineMatcher"
+packageName: "similarity.label"
+---
 name: "HammingMatcher"
 packageName: "similarity.label"
 ---
