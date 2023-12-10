@@ -1,6 +1,7 @@
 package de.uni_marburg.schematch.data;
 
 import de.uni_marburg.schematch.preprocessing.tokenization.Tokenizer;
+import de.uni_marburg.schematch.data.metadata.Datatype;
 import lombok.Data;
 
 import java.util.HashMap;
@@ -10,15 +11,6 @@ import java.util.Set;
 
 @Data
 public class Column {
-    public enum Datatype {
-        STRING,
-        INTEGER,
-        FLOAT,
-        DATE,
-        TEXT, // long string (e.g., comments or descriptions)
-        GEO_LOCATION
-    }
-
     private Table table;
     private final String label;
     private Datatype datatype;

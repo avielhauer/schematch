@@ -4,6 +4,7 @@ import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.matching.Matcher;
+import de.uni_marburg.schematch.data.metadata.Datatype;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,9 +25,9 @@ public class DatatypeMatcher extends Matcher {
         Table targetTable = tablePair.getTargetTable();
         float[][] simMatrix = tablePair.getEmptySimMatrix();
         for (int i = 0; i < sourceTable.getNumberOfColumns(); i++) {
-            Column.Datatype datatype_i = sourceTable.getColumn(i).getDatatype();
+            Datatype datatype_i = sourceTable.getColumn(i).getDatatype();
             for (int j = 0; j < targetTable.getNumberOfColumns(); j++) {
-                Column.Datatype datatype_j = targetTable.getColumn(j).getDatatype();
+                Datatype datatype_j = targetTable.getColumn(j).getDatatype();
                 if (datatype_i == datatype_j) {
                     simMatrix[i][j] = 1;
                 } else {
