@@ -267,11 +267,13 @@ path: "newData"
 
 ### Matchers
 
-To configure first-line matchers, see `first_line_matchers.yaml`. You can specify `name`, `packageName`, and `params`.
+To configure first-line matchers, see `first_line_matchers.yaml`. You can specify `name`, `packageName`, `params` and
+whether the matcher is currently active.
 See for example this configuration:
 ```
 name: "RandomMatcher"
 packageName: "sota"
+active: true
 params:
   seed: [42, 2023]
 ```
@@ -279,6 +281,7 @@ params:
 `packageName.name` gives us the class path, so the matcher class needs to be `matching.sota.RandomMatcher`.
 `params` allows us to specify a single value or a list of values for all the matcher's parameters. In this case
 we instantiate the `RandomMatcher` twice: once with `seed=42` and another one with `seed=2023`.
+By setting `active` to false, the matcher will not be considered during a matching run.
 
 If configuring a `TokenizedMatcher` (e.g., `matching.similarity.tokenizedlabel.DiceLabelMatcher`), we need
 to configure a list of tokenizers in `first_line_tokenizers.yaml`. Internally, this is just another parameter for the matcher;
