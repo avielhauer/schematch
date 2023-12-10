@@ -1,5 +1,7 @@
 package de.uni_marburg.schematch.data;
 
+import de.uni_marburg.schematch.matchtask.MatchTask;
+import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.utils.Configuration;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,18 +15,21 @@ import java.util.List;
 public class Dataset {
     private String name;
     private String path;
-    private List<String> scenarioNames;
+    private List<MatchStep> matchSteps;
+    private List<MatchTask> scenarioMatchTasks;
 
-    public Dataset(Configuration.DatasetConfiguration datasetConfiguration) {
+    public Dataset(Configuration.DatasetConfiguration datasetConfiguration, List<MatchStep> matchSteps) {
         this.name = datasetConfiguration.getName();
         this.path = datasetConfiguration.getPath();
-        this.scenarioNames = new ArrayList<>();
+        this.matchSteps = matchSteps;
+        this.scenarioMatchTasks = new ArrayList<>();
 
         File dir = new File(this.path);
 
         for (File subdir : dir.listFiles()) {
             if (subdir.isDirectory()) {
-                this.scenarioNames.add(subdir.getName());
+                Scenario scenario = new Scenario(subdir.getPath());
+                scenarioMatchTasks.add(new MatchTask(this, scenario, matchSteps));
             }
         }
     }

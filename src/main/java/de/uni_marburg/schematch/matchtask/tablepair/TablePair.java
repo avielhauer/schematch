@@ -122,20 +122,20 @@ public class TablePair {
         return this.boostedSecondLineMatcherPerformances.get(matcher);
     }
 
-    public TablePairPerformance getPerformance(MatchStep matchStep, Matcher matcher) {
-        TablePairPerformance tablePairPerformance = null;
+    public Map<Matcher, TablePairPerformance> getPerformances(MatchStep matchStep) {
         if (matchStep instanceof FirstLineMatchingStep) {
-            tablePairPerformance = this.firstLineMatcherPerformances.get(matcher);
+            return this.firstLineMatcherPerformances;
         } else if (matchStep instanceof SecondLineMatchingStep) {
-            tablePairPerformance = this.secondLineMatcherPerformances.get(matcher);
+            return this.secondLineMatcherPerformances;
         } else if (matchStep instanceof SimMatrixBoostingStep) {
             if (((SimMatrixBoostingStep) matchStep).getLine() == 1) {
-                tablePairPerformance = this.boostedFirstLineMatcherPerformances.get(matcher);
+                return this.boostedFirstLineMatcherPerformances;
             } else {
-                tablePairPerformance = this.boostedSecondLineMatcherPerformances.get(matcher);
+                return this.boostedSecondLineMatcherPerformances;
             }
         }
-        return tablePairPerformance;
+
+        throw new IllegalArgumentException("Unrecognized match step given.");
     }
 
     public int getNumGroundTruthMatches() {

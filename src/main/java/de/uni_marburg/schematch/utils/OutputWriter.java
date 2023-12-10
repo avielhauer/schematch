@@ -13,11 +13,10 @@ import java.nio.file.Paths;
 public class OutputWriter {
     private final static Logger log = LogManager.getLogger(OutputWriter.class);
 
-    public static void writeSimMatrix(String path, float[][] simMatrix) {
+    public static void writeSimMatrix(Path path, float[][] simMatrix) {
         try {
-            Path filePath = Paths.get(path);
-            Files.createDirectories(filePath.getParent());
-            BufferedWriter writer = new BufferedWriter(new FileWriter(path));
+            Files.createDirectories(path.getParent());
+            BufferedWriter writer = new BufferedWriter(new FileWriter(path.toString()));
             for (float[] scoreList : simMatrix) {
                 StringBuilder line = new StringBuilder();
                 for (float score : scoreList) {

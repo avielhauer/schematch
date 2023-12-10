@@ -23,9 +23,9 @@ public abstract class TokenizedLabelSimilarityMatcher extends TokenizedMatcher {
         Table targetTable = tablePair.getTargetTable();
         float[][] simMatrix = tablePair.getEmptySimMatrix();
         for (int i = 0; i < sourceTable.getNumberOfColumns(); i++) {
-            Set<String> sourceTokens_i = sourceTable.getColumn(i).getLabelTokens(this.getTokenizer());
+            Set<String> sourceTokens_i = sourceTable.getColumn(i).getLabelTokens(tokenizer);
             for (int j = 0; j < targetTable.getNumberOfColumns(); j++) {
-                Set<String> targetTokens_j = targetTable.getColumn(j).getLabelTokens(this.getTokenizer());
+                Set<String> targetTokens_j = targetTable.getColumn(j).getLabelTokens(tokenizer);
                 simMatrix[i][j] = similarityMeasure.compare(sourceTokens_i, targetTokens_j);
             }
         }

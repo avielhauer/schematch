@@ -4,7 +4,6 @@ import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.Configuration;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Random;
@@ -14,7 +13,6 @@ import java.util.Random;
  * from all first line matcher results. If similarity matrix boosting is enabled for first line matchers,
  * it uses the boosted similarity matrices instead of the vanilla first line matcher results.
  */
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class RandomEnsembleMatcher extends Matcher {

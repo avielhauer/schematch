@@ -1,3 +1,5 @@
+# Name of this application
+applicationName: "schematch"
 # default separator used in CSV data files
 defaultSeparator: ","
 # default separator between two table names
@@ -12,15 +14,10 @@ defaultGroundTruthDir: "ground_truth"
 resultsDir: "results"
 # directory name for performance results
 performanceDir: "performances"
-# file name suffixes for matchstep performances (<MatchStep>suffix)
-performanceMatchStepOverviewFileSuffix: "_performance_overview.csv"
-performanceMatchStepSummaryFileSuffix: "_performance_summary.csv"
-# file name suffixes for scenario performance (<Scenario>suffix)
-performanceScenarioSummaryFileSuffix: "_performance_summary.csv"
-# file name suffixes for dataset performance (<Dataset>suffix)
-performanceDatasetSummaryFileSuffix: "_performance_summary.csv"
+# file name suffixes for performance evaluation files
+performanceSummaryFileSuffix: "_performance_summary.csv"
+performanceOverviewFileSuffix: "_performance_overview.csv"
 # file name for overall performance summary file
-performanceOverallSummaryFile: "overall_performance.csv"
 # directory name for matcher output results
 outputDir : "outputs"
 # default base directory where data directories reside
