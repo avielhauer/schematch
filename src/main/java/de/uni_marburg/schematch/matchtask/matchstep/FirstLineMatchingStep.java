@@ -1,8 +1,7 @@
 package de.uni_marburg.schematch.matchtask.matchstep;
 
-import de.uni_marburg.schematch.evaluation.Evaluator;
+import de.uni_marburg.schematch.evaluation.EvaluatorOld;
 import de.uni_marburg.schematch.matching.Matcher;
-import de.uni_marburg.schematch.matching.TokenizedMatcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.Configuration;
@@ -14,7 +13,6 @@ import lombok.Getter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.File;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +20,7 @@ import java.util.Map;
 @Getter
 @EqualsAndHashCode(callSuper = true)
 public class FirstLineMatchingStep extends MatchStep {
-    final static Logger log = LogManager.getLogger(FirstLineMatchingStep.class);
+    private final static Logger log = LogManager.getLogger(FirstLineMatchingStep.class);
 
     private final Map<String, List<Matcher>> firstLineMatchers;
 
@@ -38,7 +36,8 @@ public class FirstLineMatchingStep extends MatchStep {
         for (String matcherName : this.firstLineMatchers.keySet()) {
             for (Matcher matcher : this.firstLineMatchers.get(matcherName)) {
                 log.trace("Processing first line matcher " + matcherName);
-                matcher.match(matchTask, this);
+                float[][] globalSimMatrix = matcher.match(matchTask, this);
+                matchTask.setGlobalSimMatrix(this, matcher, globalSimMatrix);
             }
         }
     }
@@ -75,7 +74,7 @@ public class FirstLineMatchingStep extends MatchStep {
             for (String matcherName : this.firstLineMatchers.keySet()) {
                 for (Matcher matcher : this.firstLineMatchers.get(matcherName)) {
                     float[][] simMatrix = tablePair.getResultsForFirstLineMatcher(matcher);
-                    tablePair.addPerformanceForFirstLineMatcher(matcher, Evaluator.evaluateMatrix(simMatrix, gtMatrix));
+                    tablePair.addPerformanceForFirstLineMatcher(matcher, EvaluatorOld.evaluateMatrix(simMatrix, gtMatrix));
                 }
             }
         }

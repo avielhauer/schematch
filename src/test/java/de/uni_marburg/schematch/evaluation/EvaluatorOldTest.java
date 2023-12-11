@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class EvaluatorTest {
+class EvaluatorOldTest {
 
     @Test
     void evaluateMatrix() {
@@ -18,7 +18,7 @@ class EvaluatorTest {
                 {0,1}
         };
 
-        TablePairPerformance tpp = Evaluator.evaluateMatrix(simMatrix, gtMatrix);
+        TablePairPerformance tpp = EvaluatorOld.evaluateMatrix(simMatrix, gtMatrix);
 
         float tppPrecision = (float) 2/3;
         float tppNonBinaryPrecision = (simMatrix[0][0] + simMatrix[1][1])/(simMatrix[0][0] + simMatrix[0][1] + simMatrix[1][1]);

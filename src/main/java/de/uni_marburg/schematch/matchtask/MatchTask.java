@@ -8,6 +8,7 @@ import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matching.TablePairMatcher;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
+import de.uni_marburg.schematch.utils.ArrayUtils;
 import de.uni_marburg.schematch.utils.Configuration;
 import de.uni_marburg.schematch.utils.InputReader;
 import lombok.Data;
@@ -32,8 +33,9 @@ public class MatchTask {
     private final Dataset dataset;
     private final Scenario scenario;
     private final List<MatchStep> matchSteps;
-    private List<TablePair> tablePairs; // set by tablepair gen match step
+    private List<TablePair> tablePairs; // is set by tablepair gen match step
     private Map<MatchStep, Map<Matcher, float[][]>> globalSimMatrices;
+    private int[][] globalGroundTruthMatrix;
 
     public MatchTask(Dataset dataset, Scenario scenario, List<MatchStep> matchSteps) {
         this.dataset = dataset;
@@ -64,28 +66,25 @@ public class MatchTask {
     public void readGroundTruth() {
         log.debug("Reading ground truth for scenario: " + this.scenario.getPath());
         String basePath = scenario.getPath() + File.separator + Configuration.getInstance().getDefaultGroundTruthDir();
+
+        Database sourceDatabase = this.scenario.getSourceDatabase();
+        Database targetDatabase = this.scenario.getTargetDatabase();
+
+        this.globalGroundTruthMatrix = new int[sourceDatabase.getNumColumns()][targetDatabase.getNumColumns()];
+
         for (TablePair tablePair : this.tablePairs) {
-            int[][] gt = InputReader.readGroundTruthFile(basePath + File.separator + tablePair.toString() + ".csv");
-            tablePair.setGroundTruth(gt);
+            int[][] gtMatrix = InputReader.readGroundTruthFile(basePath + File.separator + tablePair.toString() + ".csv");
+            int sourceTableOffset = tablePair.getSourceTable().getGlobalMatrixOffset();
+            int targetTableOffset = tablePair.getTargetTable().getGlobalMatrixOffset();
+            ArrayUtils.insertSubmatrixInMatrix(gtMatrix, this.globalGroundTruthMatrix, sourceTableOffset, targetTableOffset);
         }
     }
 
-    public void setGlobalSimMatrix(Matcher matcher, MatchStep matchStep, float[][] globalSimMatrix) {
+    public void setGlobalSimMatrix(MatchStep matchStep, Matcher matcher, float[][] globalSimMatrix) {
         this.globalSimMatrices.get(matchStep).put(matcher, globalSimMatrix);
     }
 
     public float[][] getGlobalSimMatrix(Matcher matcher, MatchStep matchStep) {
         return this.globalSimMatrices.get(matchStep).get(matcher);
-    }
-
-    public float[][] assembleGlobalSimMatrix(TablePairMatcher tablePairMatcher, MatchStep matchStep) {
-        int numSourceColumns = this.scenario.getSourceDatabase().getNumColumns();
-        int numTargetColumns = this.scenario.getTargetDatabase().getNumColumns();
-        float[][] globalSimMatrix = new float[numSourceColumns][numTargetColumns];
-
-        // FIXME: come up with a solution for attribute pairs not covered in table pairs (i.e., table pairs are smaller than cross product of tables)
-
-        setGlobalSimMatrix(tablePairMatcher, matchStep, globalSimMatrix);
-        return globalSimMatrix;
     }
 }

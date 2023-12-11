@@ -1,6 +1,6 @@
 package de.uni_marburg.schematch.matchtask.matchstep;
 
-import de.uni_marburg.schematch.evaluation.Evaluator;
+import de.uni_marburg.schematch.evaluation.EvaluatorOld;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
@@ -13,7 +13,6 @@ import lombok.Getter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.File;
 import java.nio.file.Path;
 import java.util.List;
 
@@ -73,7 +72,7 @@ public class SecondLineMatchingStep extends MatchStep {
             int[][] gtMatrix = tablePair.getGroundTruth();
             for (Matcher matcher : this.secondLineMatchers) {
                 float[][] simMatrix = tablePair.getResultsForSecondLineMatcher(matcher);
-                tablePair.addPerformanceForSecondLineMatcher(matcher, Evaluator.evaluateMatrix(simMatrix, gtMatrix));
+                tablePair.addPerformanceForSecondLineMatcher(matcher, EvaluatorOld.evaluateMatrix(simMatrix, gtMatrix));
             }
         }
 

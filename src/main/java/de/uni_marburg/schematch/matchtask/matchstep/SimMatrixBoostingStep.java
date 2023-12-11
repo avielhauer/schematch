@@ -1,7 +1,7 @@
 package de.uni_marburg.schematch.matchtask.matchstep;
 
 import de.uni_marburg.schematch.boosting.SimMatrixBoosting;
-import de.uni_marburg.schematch.evaluation.Evaluator;
+import de.uni_marburg.schematch.evaluation.EvaluatorOld;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
@@ -13,7 +13,6 @@ import lombok.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.File;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
@@ -104,11 +103,11 @@ public class SimMatrixBoostingStep extends MatchStep {
                 switch (this.line) {
                     case 1:
                         simMatrix = tablePair.getBoostedResultsForFirstLineMatcher(matcher);
-                        tablePair.addBoostedPerformanceForFirstLineMatcher(matcher, Evaluator.evaluateMatrix(simMatrix, gtMatrix));
+                        tablePair.addBoostedPerformanceForFirstLineMatcher(matcher, EvaluatorOld.evaluateMatrix(simMatrix, gtMatrix));
                         break;
                     case 2:
                         simMatrix = tablePair.getBoostedResultsForSecondLineMatcher(matcher);
-                        tablePair.addBoostedPerformanceForSecondLineMatcher(matcher, Evaluator.evaluateMatrix(simMatrix, gtMatrix));
+                        tablePair.addBoostedPerformanceForSecondLineMatcher(matcher, EvaluatorOld.evaluateMatrix(simMatrix, gtMatrix));
                         break;
                 }
             }

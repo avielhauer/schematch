@@ -10,6 +10,22 @@ import java.util.stream.IntStream;
 public class ArrayUtils {
     private static final Logger log = LogManager.getLogger(ArrayUtils.class);
 
+    public static void insertSubmatrixInMatrix(int[][] submatrix, int[][] matrix, int xOffset, int yOffset) {
+        for (int i = 0; i < submatrix.length; i++) {
+            for (int j = 0; j < submatrix[i].length; j++) {
+                matrix[i+xOffset][j+yOffset] = submatrix[i][j];
+            }
+        }
+    }
+
+    public static void insertSubmatrixInMatrix(float[][] submatrix, float[][] matrix, int xOffset, int yOffset) {
+        for (int i = 0; i < submatrix.length; i++) {
+            for (int j = 0; j < submatrix[i].length; j++) {
+                matrix[i+xOffset][j+yOffset] = submatrix[i][j];
+            }
+        }
+    }
+
     public static Integer[] sortIndices(float[] input, boolean ascending) {
         Integer[] indices = new Integer[input.length];
 
