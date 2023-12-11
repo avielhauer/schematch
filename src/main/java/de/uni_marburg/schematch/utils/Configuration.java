@@ -34,7 +34,8 @@ public class Configuration {
 
     private String defaultDatasetBasePath;
 
-    private char defaultSeparator;
+    private String applicationName;
+    private String defaultSeparator;
     private String defaultTablePairSeparator;
     private String defaultSourceDatabaseDir;
     private String defaultTargetDatabaseDir;
@@ -42,11 +43,8 @@ public class Configuration {
 
     private String resultsDir;
     private String performanceDir;
-    private String performanceMatchStepOverviewFileSuffix;
-    private String performanceMatchStepSummaryFileSuffix;
-    private String performanceScenarioSummaryFileSuffix;
-    private String performanceDatasetSummaryFileSuffix;
-    private String performanceOverallSummaryFile;
+    private String performanceOverviewFileSuffix;
+    private String performanceSummaryFileSuffix;
     private String outputDir;
 
     // FIXME: refactor to use log4j custom log level instead

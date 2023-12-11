@@ -26,7 +26,7 @@ public class InputReader {
         return readDataDir(inputPath, Configuration.getInstance().getDefaultSeparator());
     }
 
-    public static Map<String, Table> readDataDir(String inputPath, char separator) {
+    public static Map<String, Table> readDataDir(String inputPath, String separator) {
         Map<String, Table> tables = new HashMap<>();
 
         File dir = new File(inputPath);
@@ -46,7 +46,7 @@ public class InputReader {
         return readDataFile(inputPath, Configuration.getInstance().getDefaultSeparator());
     }
 
-    public static Table readDataFile(String inputPath, char separator) {
+    public static Table readDataFile(String inputPath, String separator) {
         CSVFormat csvFormat = CSVFormat.DEFAULT.builder()
                 .setHeader()
                 .setDelimiter(separator)
@@ -99,7 +99,7 @@ public class InputReader {
             throw new RuntimeException(e);
         }
 
-        return new Table(fileName, labels, columns);
+        return new Table(fileName, labels, columns, inputPath);
     }
 
     public static List<String> fetchGroundTruthTablePairNames(String inputPath) {
@@ -122,7 +122,7 @@ public class InputReader {
         return readGroundTruthFile(inputPath, Configuration.getInstance().getDefaultTablePairSeparator(),
                 Configuration.getInstance().getDefaultSeparator());
     }
-    private static int[][] readGroundTruthFile(String inputPath, String tablePairSeparator, char csvSeparator) {
+    private static int[][] readGroundTruthFile(String inputPath, String tablePairSeparator, String csvSeparator) {
         File file = new File(inputPath);
 
         // FIXME: find better way to skip table pairs without ground truth
@@ -330,5 +330,4 @@ public class InputReader {
         }
         return columnList;
     }
-
 }

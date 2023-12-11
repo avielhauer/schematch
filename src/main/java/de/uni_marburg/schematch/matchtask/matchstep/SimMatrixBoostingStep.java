@@ -14,6 +14,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -32,6 +33,11 @@ public class SimMatrixBoostingStep extends MatchStep {
         super(doRun, doSave, doEvaluate);
         this.line = line;
         this.simMatrixBoosting = simMatrixBoosting;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Line" + line;
     }
 
     @Override
@@ -60,8 +66,7 @@ public class SimMatrixBoostingStep extends MatchStep {
         }
         log.debug("Saving similarity matrix boosting (line=" + this.line + ") output for scenario: " + matchTask.getScenario().getPath());
 
-        String basePath = ResultsUtils.getBaseResultsPathForScenario(matchTask);
-        basePath += File.separator + ResultsUtils.getDirNameForMatchStep(this) + File.separator + Configuration.getInstance().getOutputDir();
+        Path basePath = ResultsUtils.getOutputBaseResultsPathForMatchStepInScenario(matchTask, this);
         for (TablePair tablePair : matchTask.getTablePairs()) {
             Map<Matcher, float[][]> boostedResults;
             if (this.line == 1) {
@@ -70,11 +75,8 @@ public class SimMatrixBoostingStep extends MatchStep {
                 boostedResults = tablePair.getBoostedSecondLineMatcherResults();
             }
             for (Matcher matcher : boostedResults.keySet()) {
-                String matcherInfo = matcher.toString();
                 float[][] simMatrix = boostedResults.get(matcher);
-                String path = basePath + File.separator + matcherInfo + File.separator +
-                        tablePair.toString() + ".csv";
-                OutputWriter.writeSimMatrix(path, simMatrix);
+                OutputWriter.writeSimMatrix(basePath.resolve(matcher.toString()).resolve(tablePair.toString()), simMatrix);
             }
         }
     }
@@ -111,8 +113,5 @@ public class SimMatrixBoostingStep extends MatchStep {
                 }
             }
         }
-
-        EvalWriter evalWriter = new EvalWriter(matchTask, this);
-        evalWriter.writeMatchStepPerformance();
     }
 }

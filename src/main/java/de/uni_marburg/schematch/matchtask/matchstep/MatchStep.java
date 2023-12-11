@@ -27,4 +27,8 @@ public abstract class MatchStep {
      * @param matchTask The {@link MatchTask} to process
      */
     public abstract void evaluate(MatchTask matchTask);
+
+    public String toString() {
+        return this.getClass().getSimpleName();
+    }
 }

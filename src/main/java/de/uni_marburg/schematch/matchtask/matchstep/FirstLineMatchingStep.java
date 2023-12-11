@@ -15,6 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
 
@@ -54,18 +55,11 @@ public class FirstLineMatchingStep extends MatchStep {
 
         log.debug("Saving first line matching output for scenario: " + matchTask.getScenario().getPath());
 
-        String basePath = ResultsUtils.getBaseResultsPathForScenario(matchTask);
-        basePath += File.separator + ResultsUtils.getDirNameForMatchStep(this) + File.separator + Configuration.getInstance().getOutputDir();
+        Path basePath = ResultsUtils.getOutputBaseResultsPathForMatchStepInScenario(matchTask, this);
         for (TablePair tablePair : matchTask.getTablePairs()) {
             for (Matcher matcher : tablePair.getFirstLineMatcherResults().keySet()) {
-                StringBuilder matcherInfo = new StringBuilder(matcher.toString());
-                if (matcher instanceof TokenizedMatcher) {
-                    matcherInfo.append("___").append(((TokenizedMatcher) matcher).getTokenizer().toString());
-                }
                 float[][] simMatrix = tablePair.getResultsForFirstLineMatcher(matcher);
-                String path = basePath + File.separator + matcherInfo + File.separator +
-                        tablePair + ".csv";
-                OutputWriter.writeSimMatrix(path, simMatrix);
+                OutputWriter.writeSimMatrix(basePath.resolve(matcher.toString()).resolve(tablePair + ".csv"), simMatrix);
             }
         }
     }
@@ -89,8 +83,5 @@ public class FirstLineMatchingStep extends MatchStep {
                 }
             }
         }
-
-        EvalWriter evalWriter = new EvalWriter(matchTask, this);
-        evalWriter.writeMatchStepPerformance();
     }
 }

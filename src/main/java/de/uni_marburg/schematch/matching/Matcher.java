@@ -7,15 +7,15 @@ import lombok.NoArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
-@Data
 @NoArgsConstructor
 public abstract class Matcher {
     // this is required to make logs from abstract methods show the concrete class
-    private Logger getConcreteLogger() {
+    protected Logger getLogger() {
         return LogManager.getLogger(this.getClass());
     }
 
@@ -39,14 +39,14 @@ public abstract class Matcher {
             try {
                 fieldType = this.getClass().getDeclaredField(key).getType();
             } catch (NoSuchFieldException e) {
-                getConcreteLogger().error("Configuration error: Could not find field " + key + " for " + this);
+                getLogger().error("Configuration error: Could not find field " + key + " for " + this);
                 throw new RuntimeException(e);
             }
             try {
                 String setterName = "set" + key.substring(0,1).toUpperCase() + key.substring(1);
                 setter = this.getClass().getDeclaredMethod(setterName, fieldType);
             } catch (NoSuchMethodException e) {
-                getConcreteLogger().error("Configuration error: Could not find setter for field " + key + " for " + this);
+                getLogger().error("Configuration error: Could not find setter for field " + key + " for " + this);
                 throw new RuntimeException(e);
             }
             try {
@@ -58,9 +58,24 @@ public abstract class Matcher {
                     setter.invoke(this, fieldType.cast(value));
                 }
             } catch (IllegalAccessException | InvocationTargetException e) {
-                getConcreteLogger().error("Configuration error: Failed to invoke setter for field " + key + " for " + this);
+                getLogger().error("Configuration error: Failed to invoke setter for field " + key + " for " + this);
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder(getClass().getSimpleName());
+        result.append("(");
+        for (Field field : getClass().getDeclaredFields()) {
+            try {
+                field.setAccessible(true);
+                result.append(field.getName()).append("=").append(field.get(this)).append(";");
+                field.setAccessible(false);
+            } catch (IllegalAccessException ignored) {} // Cannot happen, we have set the field to be accessible
+        }
+        result.append(")");
+        return result.toString();
     }
 }
