@@ -76,5 +76,8 @@ public class SecondLineMatchingStep extends MatchStep {
                 tablePair.addPerformanceForSecondLineMatcher(matcher, Evaluator.evaluateMatrix(simMatrix, gtMatrix));
             }
         }
+
+        EvalWriter evalWriter = new EvalWriter(matchTask, this);
+        evalWriter.writeMatchStepPerformance();
     }
 }

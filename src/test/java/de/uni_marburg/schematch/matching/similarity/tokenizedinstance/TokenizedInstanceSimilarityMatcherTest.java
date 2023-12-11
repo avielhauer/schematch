@@ -1,7 +1,6 @@
 package de.uni_marburg.schematch.matching.similarity.tokenizedinstance;
 
 import de.uni_marburg.schematch.TestUtils;
-import de.uni_marburg.schematch.data.Dataset;
 import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.matching.Matcher;
@@ -21,9 +20,8 @@ class TokenizedInstanceSimilarityMatcherTest {
             Tokenizer tokenizer,
             SimilarityMeasure<Set<String>> similarityMeasure
     ) throws Exception {
-        Dataset testDataset = TestUtils.getTestDataset();
-        Scenario scenario = testDataset.getScenarioMatchTasks().get(0).getScenario();
-
+        TestUtils.TestData testData = TestUtils.getTestData();
+        Scenario scenario = new Scenario(testData.getScenarios().get("test1").getPath());
         Table sourceTable = scenario.getSourceDatabase().getTableByName("authors");
         Table targetTable = scenario.getTargetDatabase().getTableByName("authors");
         TablePair tp = new TablePair(sourceTable, targetTable);

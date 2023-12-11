@@ -113,5 +113,8 @@ public class SimMatrixBoostingStep extends MatchStep {
                 }
             }
         }
+
+        EvalWriter evalWriter = new EvalWriter(matchTask, this);
+        evalWriter.writeMatchStepPerformance();
     }
 }

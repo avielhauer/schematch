@@ -76,20 +76,28 @@ public class Main {
         }
 
         // loop over datasets
-        List<Dataset> datasets = new ArrayList<>();
         for (Configuration.DatasetConfiguration datasetConfiguration : config.getDatasetConfigurations()) {
-            Dataset dataset = new Dataset(datasetConfiguration, matchSteps);
-            datasets.add(dataset);
-            log.info("Starting experiments for dataset " + dataset.getName() + " with " + dataset.getScenarioMatchTasks().size() + " scenarios");
+            Dataset dataset = new Dataset(datasetConfiguration);
+            log.info("Starting experiments for dataset " + dataset.getName() + " with " + dataset.getScenarioNames().size() + " scenarios");
             // loop over scenarios
-            for (MatchTask scenarioMatchTask : dataset.getScenarioMatchTasks()) {
-                log.debug("Starting experiments for dataset " + dataset.getName() + ", scenario: " + scenarioMatchTask.getScenario().getPath());
-                scenarioMatchTask.runSteps();
+            for (String scenarioName : dataset.getScenarioNames()) {
+                Scenario scenario = new Scenario(dataset.getPath() + File.separator + scenarioName);
+                log.debug("Starting experiments for dataset " + dataset.getName() + ", scenario: " + scenario.getPath());
+
+                MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps);
+                matchTask.runSteps();
+                if (ConfigUtils.anyEvaluate()) {
+                    EvalWriter.writeScenarioPerformance(dataset, scenario, matchSteps);
+                }
+            }
+
+            if (ConfigUtils.anyEvaluate()) {
+                EvalWriter.writeDatasetPerformance(dataset, matchSteps);
             }
         }
 
         if (ConfigUtils.anyEvaluate()) {
-            EvalWriter.writeOverallPerformance(datasets, matchSteps);
+            EvalWriter.writeOverallPerformance(matchSteps);
         }
 
         log.info("See results directory for more detailed performance and similarity matrices results.");

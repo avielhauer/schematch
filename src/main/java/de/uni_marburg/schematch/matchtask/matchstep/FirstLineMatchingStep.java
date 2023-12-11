@@ -83,5 +83,8 @@ public class FirstLineMatchingStep extends MatchStep {
                 }
             }
         }
+
+        EvalWriter evalWriter = new EvalWriter(matchTask, this);
+        evalWriter.writeMatchStepPerformance();
     }
 }

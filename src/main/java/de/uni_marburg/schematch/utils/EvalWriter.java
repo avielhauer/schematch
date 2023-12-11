@@ -1,325 +1,374 @@
 package de.uni_marburg.schematch.utils;
 
 import de.uni_marburg.schematch.data.Dataset;
+import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.matching.Matcher;
+import de.uni_marburg.schematch.matching.TokenizedMatcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.*;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import lombok.Data;
-import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.util.TriConsumer;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
-import java.util.function.Function;
 
 @Data
 public class EvalWriter {
     private static final Logger log = LogManager.getLogger(EvalWriter.class);
-    private static final Configuration config = Configuration.getInstance();
 
-    public static void writeOverallPerformance(List<Dataset> datasets, List<MatchStep> matchSteps) {
-        Map<MatchStep, Map<Matcher, Float>> matcherPerformanceSumAcrossAllDatasets = new HashMap<>();
+    private static String summaryHeader;
 
-        // While writing performances, collect performances across all datasets
-        for (Dataset dataset : datasets) {
-            writeDatasetPerformance(dataset, matchSteps, matcherPerformanceSumAcrossAllDatasets);
-        }
+    private static Map<MatchStep, Map<Matcher, Float>> avgTablePairPerformance = new HashMap<>();
+    private static Map<MatchStep, Map<Matcher, Float>> sumScenarioPerformance = new HashMap<>();
+    private static Map<MatchStep, Map<Matcher, Float>> sumDatasetPerformance = new HashMap<>();
 
-        // Write performances for this granularity level
-        Function<MatchStep, List<Pair<Matcher, Float>>> matcherPerformancesForMatchStep = (matchStep) -> {
-            return EvalWriter.matcherPerformancesForAggregationUnit(matcherPerformanceSumAcrossAllDatasets, matchStep, datasets.size());
-        };
-        TriConsumer<MatchStep, Matcher, Float> addMatcherScoreToSum = (matchStep, matcher, score) -> {};
-        log.info("Best overall performance (average over all datasets):");
-        writePerformanceSummary(
-                ResultsUtils.getBaseResultsPath(), config.getApplicationName(),
-                true,
-                matchSteps, matcherPerformancesForMatchStep, addMatcherScoreToSum
-        );
-        writePerformanceOverview(
-                ResultsUtils.getBaseResultsPath(), config.getApplicationName(),
-                matchSteps, matcherPerformancesForMatchStep
-        );
-    }
+    private final MatchTask matchTask;
+    private final MatchStep matchStep;
+    private List<Matcher> matchersSortedByName;
+    private String overviewHeader;
+    private Path path;
 
-    public static void writeDatasetPerformance(Dataset dataset, List<MatchStep> matchSteps,
-                                               Map<MatchStep, Map<Matcher, Float>> matcherPerformancesAcrossAllDatasets) {
-        Map<MatchStep, Map<Matcher, Float>> matcherPerformanceSumForWholeDataset = new HashMap<>();
-
-        // While writing performances, collect performances across all scenarios
-        for (MatchTask scenarioMatchTask : dataset.getScenarioMatchTasks()) {
-            writeScenarioPerformance(scenarioMatchTask, matcherPerformanceSumForWholeDataset);
-        }
-
-        // Write performances for this granularity level
-        Function<MatchStep, List<Pair<Matcher, Float>>> matcherPerformancesForMatchStep = (matchStep) -> {
-            return EvalWriter.matcherPerformancesForAggregationUnit(matcherPerformanceSumForWholeDataset, matchStep, dataset.getScenarioMatchTasks().size());
-        };
-        TriConsumer<MatchStep, Matcher, Float> addMatcherScoreToSum = (matchStep, matcher, score) -> {
-            EvalWriter.addMatcherScoreToPerformanceSum(matcherPerformancesAcrossAllDatasets, matchStep, matcher, score);
-        };
-        log.info("Best performance for dataset " + dataset.getName() + " (average over all scenarios):");
-        writePerformanceSummary(
-                ResultsUtils.getBaseResultsPathForDataset(dataset), dataset.getName(),
-                true,
-                matchSteps, matcherPerformancesForMatchStep, addMatcherScoreToSum
-        );
-        writePerformanceOverview(
-                ResultsUtils.getBaseResultsPathForDataset(dataset), dataset.getName(),
-                matchSteps, matcherPerformancesForMatchStep
-        );
-    }
-
-    public static void writeScenarioPerformance(MatchTask matchTask,
-                                                Map<MatchStep, Map<Matcher, Float>> matcherPerformanceSumForWholeDataset) {
-        Map<MatchStep, Map<Matcher, Float>> matcherPerformanceSumForWholeScenario = new HashMap<>();
-
-        // While writing performances, collect performances across all match steps
-        for (MatchStep matchStep : matchTask.getMatchSteps()) {
-            if (matchStep.isDoEvaluate()) {
-                writeMatchStepPerformance(matchTask, matchStep, matcherPerformanceSumForWholeScenario);
+    public EvalWriter(MatchTask matchTask, MatchStep matchStep) {
+        this.matchTask = matchTask;
+        this.matchStep = matchStep;
+        // set matchers
+        // FIXME: refactor
+        Set<Matcher> matchers = null;
+        TablePair tp = matchTask.getTablePairs().get(0);
+        if (matchStep instanceof FirstLineMatchingStep) {
+            matchers = tp.getFirstLineMatcherPerformances().keySet();
+        } else if (matchStep instanceof SecondLineMatchingStep) {
+            matchers = tp.getSecondLineMatcherResults().keySet();
+        } else if (matchStep instanceof SimMatrixBoostingStep) {
+            if (((SimMatrixBoostingStep) matchStep).getLine() == 1) {
+                matchers = tp.getBoostedFirstLineMatcherPerformances().keySet();
+            } else {
+                matchers = tp.getBoostedSecondLineMatcherPerformances().keySet();
             }
         }
-
-        // Write performances for this granularity level
-        Function<MatchStep, List<Pair<Matcher, Float>>> matcherPerformancesForMatchStep = (matchStep) -> {
-            return EvalWriter.matcherPerformancesForAggregationUnit(matcherPerformanceSumForWholeScenario, matchStep, matchTask.getTablePairs().size());
-        };
-        TriConsumer<MatchStep, Matcher, Float> addMatcherScoreToSum = (matchStep, matcher, score) -> {
-            EvalWriter.addMatcherScoreToPerformanceSum(matcherPerformanceSumForWholeDataset, matchStep, matcher, score);
-        };
-        writePerformanceSummary(
-                ResultsUtils.getBaseResultsPathForScenario(matchTask), matchTask.getScenario().getName(),
-                false,
-                matchTask.getMatchSteps(), matcherPerformancesForMatchStep, addMatcherScoreToSum
-        );
-        writePerformanceOverview(
-                ResultsUtils.getBaseResultsPathForScenario(matchTask), matchTask.getScenario().getName(),
-                matchTask.getMatchSteps(), matcherPerformancesForMatchStep
-        );
+        this.matchersSortedByName = MatcherUtils.sortMatchersByName(matchers);
+        // set header
+        StringBuilder sb = new StringBuilder();
+        for (Matcher matcher : matchersSortedByName) {
+            String matcherDesc = matcher.toString();
+            sb.append(Configuration.getInstance().getDefaultSeparator()).append(matcherDesc);
+        }
+        this.overviewHeader = sb.toString();
+        // set path
+        Path basePath = ResultsUtils.getBaseResultsPathForScenario(matchTask);
+        this.path = basePath.resolve(matchStep.toString()).resolve(Configuration.getInstance().getPerformanceDir());
     }
 
-    public static void writeMatchStepPerformance(MatchTask matchTask, MatchStep matchStep,
-                                                 Map<MatchStep, Map<Matcher, Float>> matcherPerformanceSumForWholeScenario) {
-        // Write performances for this granularity level
-        Function<TablePair, List<Pair<Matcher, Float>>> matcherPerformancesForTablePair = (tablePair) -> {
-            return tablePair.getPerformances(matchStep).entrySet().stream().map(
-                    e -> Pair.of(e.getKey(), e.getValue().calculateNonBinaryPrecision())
-            ).toList();
-        };
-        TriConsumer<TablePair, Matcher, Float> addMatcherScoreToSum = (ignored, matcher, score) -> {
-            EvalWriter.addMatcherScoreToPerformanceSum(matcherPerformanceSumForWholeScenario, matchStep, matcher, score);
-        };
+    private static String getSummaryHeader() {
+        if (summaryHeader == null) {
+            Configuration config = Configuration.getInstance();
 
-        writePerformanceSummary(
-                ResultsUtils.getPerformanceBaseResultsPathForMatchStepInScenario(matchTask, matchStep), matchStep.toString(),
-                false,
-                matchTask.getTablePairs(), matcherPerformancesForTablePair, addMatcherScoreToSum
-        );
-        writePerformanceOverview(
-                ResultsUtils.getPerformanceBaseResultsPathForMatchStepInScenario(matchTask, matchStep), matchStep.toString(),
-                matchTask.getTablePairs(), matcherPerformancesForTablePair
-        );
+            summaryHeader = config.getDefaultSeparator() + "BestMatcher" +
+                    config.getDefaultSeparator() + "BestScore" +
+                    config.getDefaultSeparator() + "numBestMatchers" +
+                    config.getDefaultSeparator() + "ListBestMatchers";
+        }
+
+        return summaryHeader;
     }
 
-    private static <T> List<Pair<Matcher, Float>> matcherPerformancesForAggregationUnit(Map<T, Map<Matcher, Float>> matcherPerformanceSums, T aggregationUnit,
-                                                                                        Integer numberOfAggregationUnitsOnNextLowestGranularityLevel) {
-        return matcherPerformanceSums.get(aggregationUnit).entrySet().stream().map(
-                e -> Pair.of(
-                        e.getKey(),
-                        // Dividing by the number of aggregation units to obtain the average performance instead of the
-                        // performance sum
-                        e.getValue() / numberOfAggregationUnitsOnNextLowestGranularityLevel
-                )).toList();
-    }
+    public static void writeOverallPerformance(List<MatchStep> matchSteps) {
+        Configuration config = Configuration.getInstance();
 
-    private static <T> void addMatcherScoreToPerformanceSum(Map<T, Map<Matcher, Float>> matcherPerformanceSums, T aggregationUnit,
-                                                            Matcher matcher, Float score) {
-        matcherPerformanceSums.computeIfAbsent(aggregationUnit, k -> new HashMap<>());
-        matcherPerformanceSums.get(aggregationUnit).putIfAbsent(matcher, 0f);
-        matcherPerformanceSums.get(aggregationUnit).put(matcher, score + matcherPerformanceSums.get(aggregationUnit).get(matcher));
-    }
+        Path summaryPath = ResultsUtils.getBaseResultsPath().resolve(config.getApplicationName() + config.getPerformanceSummaryFileSuffix());
 
-    public static <T> void writePerformanceSummary(Path directory,
-                                                   String fileNameWithoutSuffix,
-                                                   Boolean logSummaryResult,
-                                                   List<T> aggregationUnits, // can be MatchStep or TablePair
-                                                   Function<T, List<Pair<Matcher, Float>>> performancesForCurrentGranularityLevel,
-                                                   TriConsumer<T, Matcher, Float> addMatcherPerformanceForNextHighestGranularityLevel) {
         try {
-            CsvEvaluationWriter summaryWriter = new CsvEvaluationWriter(
-                    directory.resolve(fileNameWithoutSuffix + config.getPerformanceSummaryFileSuffix())
-            );
-            summaryWriter.addSummaryHeader();
+            Files.createDirectories(summaryPath.getParent());
+            BufferedWriter summaryWriter = new BufferedWriter(new FileWriter(summaryPath.toString()));
+            summaryWriter.write("MatchStep\\Summary" + EvalWriter.getSummaryHeader());
 
-            for (T aggregationUnit : aggregationUnits) {
-                if (aggregationUnit instanceof MatchStep && !((MatchStep)aggregationUnit).isDoEvaluate()) {
-                    continue;
-                }
+            log.info("Best overall performance (average over all datasets):");
+
+            for (MatchStep matchStep : matchSteps) {
                 // FIXME: add evaluation for table pair generation
-                if (aggregationUnit instanceof TablePairGenerationStep) {
+                if (matchStep instanceof TablePairGenerationStep) {
+                    continue;
+                }
+                if (!matchStep.isDoEvaluate()) {
                     continue;
                 }
 
-                Pair<Float, List<Matcher>> bestMatchers = bestMatchersForAggregationUnit(
-                        aggregationUnit, performancesForCurrentGranularityLevel, addMatcherPerformanceForNextHighestGranularityLevel
-                );
+                Matcher bestMatcherForMatchStep = null;
+                float bestNonBinaryPrecisionForMatchStep = -1f;
+                int numBestMatchersForMatchStep = 0;
+                List<Matcher> listBestMatchersForMatchStep = new ArrayList<>();
 
-                summaryWriter.addSummary(aggregationUnit, bestMatchers.getLeft(), bestMatchers.getRight());
-
-                if (logSummaryResult) {
-                    Formatter formatter = new Formatter();
-                    formatter.format(
-                            "  %s best matcher: %s (non-binary precision: %.3f)",
-                            aggregationUnit,
-                            bestMatchers.getRight().get(0),
-                            bestMatchers.getLeft()
-                    );
-                    log.info(formatter);
-                }
-            }
-
-            summaryWriter.write();
-        } catch (IOException e) {
-            log.error(e.getMessage());
-        }
-    }
-
-    private static <T> Pair<Float, List<Matcher>> bestMatchersForAggregationUnit(T aggregationUnit,
-                                                                                 Function<T, List<Pair<Matcher, Float>>> performancesForCurrentGranularityLevel,
-                                                                                 TriConsumer<T, Matcher, Float> addMatcherPerformanceForNextHighestGranularityLevel) {
-        float bestPrecision = -1f;
-        List<Matcher> bestMatchers = new ArrayList<>();
-        for (Pair<Matcher, Float> matcherPerformance :
-                performancesForCurrentGranularityLevel.apply(aggregationUnit)) {
-            if (matcherPerformance.getValue() == bestPrecision) {
-                bestMatchers.add(matcherPerformance.getKey());
-            } else if (matcherPerformance.getValue() > bestPrecision) {
-                bestPrecision = matcherPerformance.getValue();
-                bestMatchers.clear();
-                bestMatchers.add(matcherPerformance.getKey());
-            }
-            addMatcherPerformanceForNextHighestGranularityLevel.accept(aggregationUnit, matcherPerformance.getKey(), matcherPerformance.getValue());
-        }
-        return Pair.of(bestPrecision, bestMatchers);
-    }
-
-    public static <T> void writePerformanceOverview(Path directory,
-                                                    String fileNameWithoutSuffix,
-                                                    List<T> aggregationUnits,
-                                                    Function<T, List<Pair<Matcher, Float>>> performancesForCurrentGranularityLevel) {
-        try {
-            CsvEvaluationWriter overviewWriter = new CsvEvaluationWriter(
-                    directory.resolve(fileNameWithoutSuffix + config.getPerformanceOverviewFileSuffix())
-            );
-
-            List<T> activeAggregationUnits = new ArrayList<>();
-            Map<Matcher, Float[]> matcherResults = new HashMap<>();
-            int numIgnoredAggregationUnits = 0;
-            for (int i = 0; i < aggregationUnits.size(); i++) {
-                T aggregationUnit = aggregationUnits.get(i);
-                if (aggregationUnit instanceof MatchStep && !((MatchStep)aggregationUnit).isDoEvaluate()) {
-                    numIgnoredAggregationUnits += 1;
-                    continue;
-                }
-                // FIXME: add evaluation for table pair generation
-                if (aggregationUnit instanceof TablePairGenerationStep) {
-                    numIgnoredAggregationUnits += 1;
-                    continue;
-                }
-
-                activeAggregationUnits.add(aggregationUnit);
-                for (Pair<Matcher, Float> matcherPrecision: performancesForCurrentGranularityLevel.apply(aggregationUnit)) {
-                    matcherResults.computeIfAbsent(matcherPrecision.getKey(), k -> new Float[aggregationUnits.size()]);
-                    matcherResults.get(matcherPrecision.getKey())[i - numIgnoredAggregationUnits] = matcherPrecision.getValue();
-                }
-            }
-
-            overviewWriter.addOverviewInformation(activeAggregationUnits, matcherResults);
-            overviewWriter.write();
-        } catch (IOException e) {
-            log.error(e.getMessage());
-        }
-    }
-
-    static class CsvEvaluationWriter {
-        private final BufferedWriter writer;
-        private final List<String[]> lines = new ArrayList<>();
-
-        public CsvEvaluationWriter(Path evaluationPath) throws IOException {
-            Files.createDirectories(evaluationPath.getParent());
-            writer = new BufferedWriter(new FileWriter(evaluationPath.toString()));
-        }
-
-        public void addSummaryHeader() throws IOException {
-            addCsvLine(
-                    "AggregationUnit\\Summary",
-                    "BestMatcher",
-                    "BestScore",
-                    "numBestMatchers",
-                    "ListBestMatchers"
-            );
-        }
-
-        public <T> void addSummary(T aggregationUnit, Float bestPrecision, List<Matcher> bestMatchers) throws IOException {
-            Matcher bestMatcherForMatchStep = bestMatchers.get(0);
-
-            addCsvLine(
-                    aggregationUnit.toString(),
-                    bestMatcherForMatchStep.toString(),
-                    String.valueOf(bestPrecision) ,
-                    String.valueOf(bestMatchers.size()),
-                    bestMatchers.toString()
-            );
-        }
-
-        public <T> void addOverviewInformation(List<T> aggregationUnits,
-                                               Map<Matcher, Float[]> matcherResults) throws IOException {
-            String[] matcherHeaders = new String[aggregationUnits.size() + 1];
-            matcherHeaders[0] = "Matcher\\AggregationUnit";
-            for (int i = 0; i < aggregationUnits.size(); i++) {
-                matcherHeaders[i + 1] = aggregationUnits.get(i).toString();
-            }
-            this.addCsvLine(matcherHeaders);
-
-            List<Pair<Matcher, Float[]>> sortedMatchers = new ArrayList<>(
-                    matcherResults.entrySet().stream().map(e -> Pair.of(e.getKey(), e.getValue())).toList()
-            );
-            sortedMatchers.sort(Comparator.comparing(pair -> pair.getKey().toString()));
-
-            for (Pair<Matcher, Float[]> matcherResult : sortedMatchers) {
-                String[] matcherResultLine = new String[aggregationUnits.size() + 1];
-                matcherResultLine[0] = matcherResult.getKey().toString();
-                for (int i = 0; i < aggregationUnits.size(); i++) {
-                    matcherResultLine[i + 1] = String.valueOf(matcherResult.getValue()[i]);
-                }
-                this.addCsvLine(matcherResultLine);
-            }
-        }
-
-        private void addCsvLine(String... line) {
-            lines.add(line);
-        }
-
-        public void write() throws IOException {
-            for (String[] line : lines) {
-                List<String> quotedCells = Arrays.stream(line).map(cell -> {
-                    if (cell.contains(config.getDefaultSeparator())) {
-                        return '"' + cell + '"';
+                Map<Matcher, Float> matcherPerformances = sumDatasetPerformance.get(matchStep);
+                for (Matcher matcher : matcherPerformances.keySet()) {
+                    float score = matcherPerformances.get(matcher);
+                    if (score == bestNonBinaryPrecisionForMatchStep) {
+                        numBestMatchersForMatchStep += 1;
+                        listBestMatchersForMatchStep.add(matcher);
+                    } else if (score > bestNonBinaryPrecisionForMatchStep) {
+                        numBestMatchersForMatchStep = 1;
+                        bestNonBinaryPrecisionForMatchStep = score;
+                        bestMatcherForMatchStep = matcher;
+                        listBestMatchersForMatchStep = new ArrayList<>();
+                        listBestMatchersForMatchStep.add(matcher);
                     }
-                    return cell;
-                }).toList();
-                writer.write(String.join(config.getDefaultSeparator(), quotedCells));
-                writer.newLine();
+                }
+                bestNonBinaryPrecisionForMatchStep = bestNonBinaryPrecisionForMatchStep / config.getDatasetConfigurations().size();
+
+                String matchStepInfo = matchStep.getClass().getSimpleName();
+                if (matchStep instanceof SimMatrixBoostingStep) {
+                    matchStepInfo += "Line" + ((SimMatrixBoostingStep) matchStep).getLine();
+                }
+                String matcherInfo = bestMatcherForMatchStep.toString();
+                String summaryLine = matchStepInfo + config.getDefaultSeparator() +
+                        matcherInfo + // BestMatcher
+                        config.getDefaultSeparator() +
+                        bestNonBinaryPrecisionForMatchStep + // BestScore
+                        config.getDefaultSeparator() +
+                        numBestMatchersForMatchStep + // numBestMatchers
+                        config.getDefaultSeparator() +
+                        "\"" + listBestMatchersForMatchStep + "\""; // ListBestMatchers
+
+                summaryWriter.newLine();
+                summaryWriter.write(summaryLine);
+
+                Formatter formatter = new Formatter();
+                formatter.format("  %s best matcher: %s (non-binary precision: %.3f)", matchStepInfo, matcherInfo, bestNonBinaryPrecisionForMatchStep);
+                log.info(formatter);
             }
-            writer.close();
+            summaryWriter.close();
+        } catch (IOException e) {
+            log.error(e.getMessage());
+        }
+    }
+
+    public static void writeDatasetPerformance(Dataset dataset, List<MatchStep> matchSteps) {
+        Configuration config = Configuration.getInstance();
+
+        Path summaryPath = ResultsUtils.getBaseResultsPathForDataset(dataset)
+                .resolve(dataset.getName() + config.getPerformanceSummaryFileSuffix());
+
+        try {
+            Files.createDirectories(summaryPath.getParent());
+            BufferedWriter summaryWriter = new BufferedWriter(new FileWriter(summaryPath.toString()));
+            summaryWriter.write("MatchStep\\Summary" + EvalWriter.getSummaryHeader());
+
+            log.info("Best performance for dataset " + dataset.getName() + " (average over all scenarios):");
+
+            for (MatchStep matchStep : matchSteps) {
+                // FIXME: add evaluation for table pair generation
+                if (matchStep instanceof TablePairGenerationStep) {
+                    continue;
+                }
+                if (!matchStep.isDoEvaluate()) {
+                    continue;
+                }
+
+                sumDatasetPerformance.computeIfAbsent(matchStep, k -> new HashMap<>());
+
+                Matcher bestMatcherForMatchStep = null;
+                float bestNonBinaryPrecisionForMatchStep = -1f;
+                int numBestMatchersForMatchStep = 0;
+                List<Matcher> listBestMatchersForMatchStep = new ArrayList<>();
+
+                Map<Matcher, Float> matcherPerformances = sumScenarioPerformance.get(matchStep);
+                for (Matcher matcher : matcherPerformances.keySet()) {
+                    float score = matcherPerformances.get(matcher) / dataset.getScenarioNames().size();
+                    if (score == bestNonBinaryPrecisionForMatchStep) {
+                        numBestMatchersForMatchStep += 1;
+                        listBestMatchersForMatchStep.add(matcher);
+                    } else if (score > bestNonBinaryPrecisionForMatchStep) {
+                        numBestMatchersForMatchStep = 1;
+                        bestNonBinaryPrecisionForMatchStep = score;
+                        bestMatcherForMatchStep = matcher;
+                        listBestMatchersForMatchStep = new ArrayList<>();
+                        listBestMatchersForMatchStep.add(matcher);
+                    }
+                    sumDatasetPerformance.get(matchStep).putIfAbsent(matcher, 0f);
+                    sumDatasetPerformance.get(matchStep).put(matcher, score + sumDatasetPerformance.get(matchStep).get(matcher));
+                }
+
+                String matchStepInfo = matchStep.getClass().getSimpleName();
+                if (matchStep instanceof SimMatrixBoostingStep) {
+                    matchStepInfo += "Line" + ((SimMatrixBoostingStep) matchStep).getLine();
+                }
+                String matcherInfo = bestMatcherForMatchStep.toString();
+                String summaryLine = matchStepInfo + config.getDefaultSeparator() +
+                        matcherInfo + // BestMatcher
+                        config.getDefaultSeparator() +
+                        bestNonBinaryPrecisionForMatchStep + // BestScore
+                        config.getDefaultSeparator() +
+                        numBestMatchersForMatchStep + // numBestMatchers
+                        config.getDefaultSeparator() +
+                        "\"" + listBestMatchersForMatchStep + "\""; // ListBestMatchers
+
+                summaryWriter.newLine();
+                summaryWriter.write(summaryLine);
+
+                Formatter formatter = new Formatter();
+                formatter.format("  %s best matcher: %s (non-binary precision: %.3f)", matchStepInfo, matcherInfo, bestNonBinaryPrecisionForMatchStep);
+                log.info(formatter);
+            }
+            summaryWriter.close();
+            sumScenarioPerformance = new HashMap<>();
+        } catch (IOException e) {
+            log.error(e.getMessage());
+        }
+    }
+
+    public static void writeScenarioPerformance(Dataset dataset, Scenario scenario, List<MatchStep> matchSteps) {
+        Configuration config = Configuration.getInstance();
+
+        Path summaryPath = ResultsUtils.getBaseResultsPathForDataset(dataset)
+                .resolve(scenario.getName())
+                .resolve(scenario.getName() + config.getPerformanceSummaryFileSuffix());
+
+        try {
+            Files.createDirectories(summaryPath.getParent());
+            BufferedWriter summaryWriter = new BufferedWriter(new FileWriter(summaryPath.toString()));
+            summaryWriter.write("MatchStep\\Summary" + EvalWriter.getSummaryHeader());
+
+            for (MatchStep matchStep : matchSteps) {
+                // FIXME: add evaluation for table pair generation
+                if (matchStep instanceof TablePairGenerationStep) {
+                    continue;
+                }
+                if (!matchStep.isDoEvaluate()) {
+                    continue;
+                }
+
+                sumScenarioPerformance.computeIfAbsent(matchStep, k -> new HashMap<>());
+
+                Matcher bestMatcherForMatchStep = null;
+                float bestNonBinaryPrecisionForMatchStep = -1f;
+                int numBestMatchersForMatchStep = 0;
+                List<Matcher> listBestMatchersForMatchStep = new ArrayList<>();
+
+                Map<Matcher, Float> matcherPerformances = avgTablePairPerformance.get(matchStep);
+                for (Matcher matcher : matcherPerformances.keySet()) {
+                    float score = matcherPerformances.get(matcher);
+                    if (score == bestNonBinaryPrecisionForMatchStep) {
+                        numBestMatchersForMatchStep += 1;
+                        listBestMatchersForMatchStep.add(matcher);
+                    } else if (score > bestNonBinaryPrecisionForMatchStep) {
+                        numBestMatchersForMatchStep = 1;
+                        bestNonBinaryPrecisionForMatchStep = score;
+                        bestMatcherForMatchStep = matcher;
+                        listBestMatchersForMatchStep = new ArrayList<>();
+                        listBestMatchersForMatchStep.add(matcher);
+                    }
+                    sumScenarioPerformance.get(matchStep).putIfAbsent(matcher, 0f);
+                    sumScenarioPerformance.get(matchStep).put(matcher, score + sumScenarioPerformance.get(matchStep).get(matcher));
+                }
+
+                String summaryLine = matchStep.getClass().getSimpleName();
+                if (matchStep instanceof SimMatrixBoostingStep) {
+                    summaryLine += "Line" + ((SimMatrixBoostingStep) matchStep).getLine();
+                }
+                String matcherInfo = bestMatcherForMatchStep.toString();
+                summaryLine = summaryLine + config.getDefaultSeparator() +
+                        matcherInfo + // BestMatcher
+                        config.getDefaultSeparator() +
+                        bestNonBinaryPrecisionForMatchStep + // BestScore
+                        config.getDefaultSeparator() +
+                        numBestMatchersForMatchStep + // numBestMatchers
+                        config.getDefaultSeparator() +
+                        "\"" + listBestMatchersForMatchStep + "\""; // ListBestMatchers
+
+                summaryWriter.newLine();
+                summaryWriter.write(summaryLine);
+            }
+            summaryWriter.close();
+        } catch (IOException e) {
+            log.error(e.getMessage());
+        }
+    }
+
+    public void writeMatchStepPerformance() {
+        Configuration config = Configuration.getInstance();
+        List<TablePair> tablePairs = this.matchTask.getTablePairs();
+
+        String matchStepInfo = this.matchStep.toString();
+
+        Path overviewPath = this.path.resolve(matchStepInfo + config.getPerformanceOverviewFileSuffix());
+        Path summaryPath = this.path.resolve(matchStepInfo + config.getPerformanceSummaryFileSuffix());
+
+        try {
+            Files.createDirectories(overviewPath.getParent());
+            BufferedWriter overviewWriter = new BufferedWriter(new FileWriter(overviewPath.toString()));
+            overviewWriter.write("TablePair\\Matcher" + this.overviewHeader);
+
+            Files.createDirectories(summaryPath.getParent());
+            BufferedWriter summaryWriter = new BufferedWriter(new FileWriter(summaryPath.toString()));
+            summaryWriter.write("TablePair\\Summary" + EvalWriter.getSummaryHeader());
+
+            Map<Matcher, Float> sumMatcherPerformanceForMatchStep = new HashMap<>();
+            for (Matcher matcher : matchersSortedByName) {
+                sumMatcherPerformanceForMatchStep.put(matcher, 0f);
+            }
+
+            for (TablePair tablePair : tablePairs) {
+                Matcher bestMatcherForTablePair = null;
+                float bestNonBinaryPrecisionForTablePair = -1f;
+                int numBestMatchersForTablePair = 0;
+                List<Matcher> listBestMatchersForTablePair = new ArrayList<>();
+
+                StringBuilder sbOverviewLine = new StringBuilder();
+                sbOverviewLine.append(tablePair);
+                for (Matcher matcher : matchersSortedByName) {
+                    sbOverviewLine.append(config.getDefaultSeparator());
+                    float nonBinaryPrecision = tablePair.getPerformance(matchStep, matcher).calculateNonBinaryPrecision();
+                    sbOverviewLine.append(nonBinaryPrecision);
+                    if (nonBinaryPrecision == bestNonBinaryPrecisionForTablePair) {
+                        numBestMatchersForTablePair += 1;
+                        listBestMatchersForTablePair.add(matcher);
+                    } else if (nonBinaryPrecision > bestNonBinaryPrecisionForTablePair) {
+                        numBestMatchersForTablePair = 1;
+                        bestNonBinaryPrecisionForTablePair = nonBinaryPrecision;
+                        bestMatcherForTablePair = matcher;
+                        listBestMatchersForTablePair = new ArrayList<>();
+                        listBestMatchersForTablePair.add(matcher);
+                    }
+                    sumMatcherPerformanceForMatchStep.put(matcher, sumMatcherPerformanceForMatchStep.get(matcher) + nonBinaryPrecision);
+                }
+
+                overviewWriter.newLine();
+                overviewWriter.write(sbOverviewLine.toString());
+
+                String matcherInfo = bestMatcherForTablePair.toString();
+
+                String sbSummaryLine = String.valueOf(tablePair) +
+                        config.getDefaultSeparator() +
+                        matcherInfo + // BestMatcher
+                        config.getDefaultSeparator() +
+                        bestNonBinaryPrecisionForTablePair + // BestScore
+                        config.getDefaultSeparator() +
+                        numBestMatchersForTablePair + // numBestMatchers
+                        config.getDefaultSeparator() +
+                        "\"" + listBestMatchersForTablePair + "\""; // ListBestMatchers
+
+                summaryWriter.newLine();
+                summaryWriter.write(sbSummaryLine);
+            }
+
+            Map<Matcher, Float> avgMatcherPerformanceForMatchStep = new HashMap<>();
+            for (Matcher matcher : sumMatcherPerformanceForMatchStep.keySet()) {
+                avgMatcherPerformanceForMatchStep.put(matcher, sumMatcherPerformanceForMatchStep.get(matcher)/tablePairs.size());
+            }
+
+            EvalWriter.avgTablePairPerformance.put(this.matchStep, avgMatcherPerformanceForMatchStep);
+
+            overviewWriter.close();
+            summaryWriter.close();
+        } catch (IOException e) {
+            log.error(e.getMessage());
         }
     }
 }
