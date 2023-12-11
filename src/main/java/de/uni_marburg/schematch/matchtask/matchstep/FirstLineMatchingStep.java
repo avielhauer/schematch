@@ -35,14 +35,10 @@ public class FirstLineMatchingStep extends MatchStep {
     public void run(MatchTask matchTask) {
         log.debug("Running first line matching on scenario: " + matchTask.getScenario().getPath());
 
-        var tablePairs = matchTask.getTablePairs();
-
         for (String matcherName : this.firstLineMatchers.keySet()) {
             for (Matcher matcher : this.firstLineMatchers.get(matcherName)) {
                 log.trace("Processing first line matcher " + matcherName);
-                for (TablePair tablePair : tablePairs) {
-                    tablePair.addResultsForFirstLineMatcher(matcher, matcher.match(tablePair));
-                }
+                matcher.match(matchTask, this);
             }
         }
     }

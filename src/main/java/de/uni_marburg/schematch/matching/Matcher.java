@@ -1,5 +1,7 @@
 package de.uni_marburg.schematch.matching;
 
+import de.uni_marburg.schematch.matchtask.MatchTask;
+import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.Configuration;
 import lombok.Data;
@@ -20,11 +22,11 @@ public abstract class Matcher {
     }
 
     /**
-     * @param tablePair Table pair to match
-     * @return Similarity matrix for the given table pair. Position (i,j) represents the similarity score for
+     * @param matchTask MatchTask to match
+     * @return Similarity matrix for the given match task. Position (i,j) represents the similarity score for
      * the column pair (i-th source column, j-th target column)
      */
-    public abstract float[][] match(TablePair tablePair);
+    public abstract float[][] match(MatchTask matchTask, MatchStep matchStep);
 
     /**
      * Sets all matcher fields according to the configuration (see first_line_matchers.yaml)
@@ -75,6 +77,10 @@ public abstract class Matcher {
                 field.setAccessible(false);
             } catch (IllegalAccessException ignored) {} // Cannot happen, we have set the field to be accessible
         }
-        return result.substring(0, result.length() - 2) + ")";
+        String res = result.toString();
+        if (getClass().getDeclaredFields().length > 0) {
+            res = res.substring(0, res.length() - 2);
+        }
+        return res + ")";
     }
 }

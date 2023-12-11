@@ -6,14 +6,15 @@ import de.uni_marburg.schematch.utils.InputReader;
 import lombok.Data;
 
 import java.io.File;
-import java.util.Map;
+import java.util.List;
 
 @Data
 public class Database {
     private final String name;
     private final String path;
-    private Map<String, Table> tables;
+    private List<Table> tables;
     private DatabaseMetadata metadata;
+    private int numColumns;
 
     public Database(String path) {
         this.name = new File(path).getName();
@@ -23,9 +24,23 @@ public class Database {
         if (Configuration.getInstance().isReadDependencies()) {
             this.metadata = InputReader.readDatabaseMetadata(this.path, this.tables);
         }
+
+        // set global matrix offsets for tables
+        int currentOffset = 0;
+        for (Table table : this.tables) {
+            table.setGlobalMatrixOffset(currentOffset);
+            currentOffset += table.getNumberOfColumns();
+        }
+        // set numColumns
+        numColumns = currentOffset - 1;
     }
 
     public Table getTableByName(String tableName) {
-        return this.tables.get(tableName);
+        for (Table table : this.tables) {
+            if (table.getName().equals(tableName)) {
+                return table;
+            }
+        }
+        return null;
     }
 }

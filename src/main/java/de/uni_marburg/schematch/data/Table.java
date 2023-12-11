@@ -10,6 +10,7 @@ public class Table {
     private final List<String> labels;
     private List<Column> columns;
     private String path;
+    private int globalMatrixOffset;
 
     public Table(String name, List<String> labels, List<Column> columns, String path) {
         this.name = name;

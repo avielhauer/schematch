@@ -3,6 +3,7 @@ package de.uni_marburg.schematch.matchtask.tablepair;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.evaluation.performance.TablePairPerformance;
 import de.uni_marburg.schematch.matching.Matcher;
+import de.uni_marburg.schematch.matching.TablePairMatcher;
 import de.uni_marburg.schematch.matchtask.matchstep.FirstLineMatchingStep;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.matchstep.SecondLineMatchingStep;
@@ -26,10 +27,7 @@ public class TablePair {
     private int[][] groundTruth;
     // TODO: maybe matchsteps should hold their results/performances
     // results (similarity matrices)
-    private Map<Matcher, float[][]> firstLineMatcherResults;
-    private Map<Matcher, float[][]> boostedFirstLineMatcherResults;
-    private Map<Matcher, float[][]> secondLineMatcherResults;
-    private Map<Matcher, float[][]> boostedSecondLineMatcherResults;
+    private Map<MatchStep, Map<Matcher, float[][]>> matcherResultsForMatchSteps;
     // results (performances)
     private Map<Matcher, TablePairPerformance> firstLineMatcherPerformances;
     private Map<Matcher, TablePairPerformance> boostedFirstLineMatcherPerformances;
@@ -39,10 +37,7 @@ public class TablePair {
     public TablePair(Table sourceTable, Table targetTable) {
         this.sourceTable = sourceTable;
         this.targetTable = targetTable;
-        this.firstLineMatcherResults = new HashMap<>();
-        this.boostedFirstLineMatcherResults = new HashMap<>();
-        this.secondLineMatcherResults = new HashMap<>();
-        this.boostedSecondLineMatcherResults = new HashMap<>();
+        this.matcherResultsForMatchSteps = new HashMap<>();
         this.firstLineMatcherPerformances = new HashMap<>();
         this.boostedFirstLineMatcherPerformances = new HashMap<>();
         this.secondLineMatcherPerformances = new HashMap<>();
@@ -58,36 +53,11 @@ public class TablePair {
         return new float[this.sourceTable.getNumberOfColumns()][this.targetTable.getNumberOfColumns()];
     }
 
-    public void addResultsForFirstLineMatcher(Matcher matcher, float[][] simMatrix) {
-        this.firstLineMatcherResults.put(matcher, simMatrix);
-    }
-
-    public float[][] getResultsForFirstLineMatcher(Matcher matcher) {
-        return this.firstLineMatcherResults.get(matcher);
-    }
-
-    public void addBoostedResultsForFirstLineMatcher(Matcher matcher, float[][] simMatrix) {
-        this.boostedFirstLineMatcherResults.put(matcher, simMatrix);
-    }
-
-    public float[][] getBoostedResultsForFirstLineMatcher(Matcher matcher) {
-        return this.boostedFirstLineMatcherResults.get(matcher);
-    }
-
-    public void addResultsForSecondLineMatcher(Matcher matcher, float[][] simMatrix) {
-        this.secondLineMatcherResults.put(matcher, simMatrix);
-    }
-
-    public float[][] getResultsForSecondLineMatcher(Matcher matcher) {
-        return this.secondLineMatcherResults.get(matcher);
-    }
-
-    public void addBoostedResultsForSecondLineMatcher(Matcher matcher, float[][] simMatrix) {
-        this.boostedSecondLineMatcherResults.put(matcher, simMatrix);
-    }
-
-    public float[][] getBoostedResultsForSecondLineMatcher(Matcher matcher) {
-        return this.boostedSecondLineMatcherResults.get(matcher);
+    public void addResults(TablePairMatcher tablePairMatcher, MatchStep matchStep, float[][] simMatrix) {
+        if (!this.matcherResultsForMatchSteps.containsKey(matchStep)) {
+            this.matcherResultsForMatchSteps.put(matchStep, new HashMap<>());
+        }
+        this.matcherResultsForMatchSteps.get(matchStep).put(tablePairMatcher, simMatrix);
     }
 
     public void addPerformanceForFirstLineMatcher(Matcher matcher, TablePairPerformance tablePerformance) {
@@ -146,4 +116,6 @@ public class TablePair {
         return sourceTable.getName() + Configuration.getInstance().getDefaultTablePairSeparator() +
                 targetTable.getName();
     }
+
+
 }

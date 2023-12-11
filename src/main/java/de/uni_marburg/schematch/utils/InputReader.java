@@ -1,6 +1,7 @@
 package de.uni_marburg.schematch.utils;
 
 import de.uni_marburg.schematch.data.Column;
+import de.uni_marburg.schematch.data.Database;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.data.metadata.DatabaseMetadata;
 import de.uni_marburg.schematch.data.metadata.ScenarioMetadata;
@@ -22,12 +23,12 @@ import java.util.*;
 public class InputReader {
     private static final Logger log = LogManager.getLogger(InputReader.class);
 
-    public static Map<String, Table> readDataDir(String inputPath) {
+    public static List<Table> readDataDir(String inputPath) {
         return readDataDir(inputPath, Configuration.getInstance().getDefaultSeparator());
     }
 
-    public static Map<String, Table> readDataDir(String inputPath, String separator) {
-        Map<String, Table> tables = new HashMap<>();
+    public static List<Table> readDataDir(String inputPath, String separator) {
+        List<Table> tables = new ArrayList<>();
 
         File dir = new File(inputPath);
         File[] listOfFiles = dir.listFiles();
@@ -36,7 +37,7 @@ public class InputReader {
             if (file.isFile()) {
                 String fileName = StringUtils.getFileName(file);
                 Table table = readDataFile(file.getAbsolutePath(), separator);
-                tables.put(fileName, table);
+                tables.add(table);
             }
         }
         return tables;
@@ -170,7 +171,7 @@ public class InputReader {
         }
     }
 
-    public static DatabaseMetadata readDatabaseMetadata(String inputPath, Map<String, Table> tables){
+    public static DatabaseMetadata readDatabaseMetadata(String inputPath, List<Table> tables){
         try {
             String folderName = StringUtils.getFolderName(inputPath);
             Path metadataFolderPath = Paths.get(new File(inputPath).getParent(), "metadata", folderName);
@@ -184,12 +185,12 @@ public class InputReader {
             Collection<FunctionalDependency> fds = new ArrayList<>();
             Collection<UniqueColumnCombination> uccs = new ArrayList<>();
 
-            for (String table : tables.keySet()){
-                Path fdFilePath = metadataFolderPath.resolve(table).resolve("FD_results.txt");
-                Path uccFilePath = metadataFolderPath.resolve(table).resolve("UCC_results.txt");
+            for (Table table : tables) {
+                Path fdFilePath = metadataFolderPath.resolve(table.getName()).resolve("FD_results.txt");
+                Path uccFilePath = metadataFolderPath.resolve(table.getName()).resolve("UCC_results.txt");
 
-                Collection<FunctionalDependency> datasetFDs = readFDFile(fdFilePath, tables.get(table), fdMap);
-                Collection<UniqueColumnCombination> datasetUCCs = readUCCFile(uccFilePath, tables.get(table), uccMap);
+                Collection<FunctionalDependency> datasetFDs = readFDFile(fdFilePath, table, fdMap);
+                Collection<UniqueColumnCombination> datasetUCCs = readUCCFile(uccFilePath, table, uccMap);
 
                 fds.addAll(datasetFDs);
                 uccs.addAll(datasetUCCs);
@@ -205,7 +206,7 @@ public class InputReader {
     }
 
 
-    public static ScenarioMetadata readScenarioMetadata(String inputPath, Map<String, Table> sourceDatabase, Map<String, Table> targetDatabase){
+    public static ScenarioMetadata readScenarioMetadata(String inputPath, Database sourceDatabase, Database targetDatabase){
         try {
             Path metadataFolderPath = Paths.get(inputPath, "metadata");
             Path sourceFilePath = metadataFolderPath.resolve("source-to-target-inds.txt");
@@ -263,7 +264,7 @@ public class InputReader {
         return uccs;
     }
 
-    private static Collection<InclusionDependency> readINDFile(Path filePath, Map<String, Table> leftMap, Map<String, Table> rightMap, Map<Column, Collection<InclusionDependency>> map) throws IOException{
+    private static Collection<InclusionDependency> readINDFile(Path filePath, Database leftDatabase, Database rightDatabase, Map<Column, Collection<InclusionDependency>> map) throws IOException{
         Set<InclusionDependency> inds = new HashSet<>();
         List<String> lines = Files.readAllLines(filePath);
         for (String line : lines) {
@@ -271,7 +272,7 @@ public class InputReader {
             Collection<String[]> supersetCCString = (Collection<String[]>) extractColumnsFromString(split[0], null);
             Collection<Column> supersetCC = new ArrayList<>();
             for(String[] tableColumnPair: supersetCCString){
-                Table table = leftMap.get(tableColumnPair[0]);
+                Table table = leftDatabase.getTableByName(tableColumnPair[0]);
                 if(table == null)
                     throw new RuntimeException("While reading in metadata from " + filePath + " an error occurred, table " + tableColumnPair[0] + " cannot be found!");
                 supersetCC.add(table.getColumn(table.getLabels().indexOf(tableColumnPair[1])));
@@ -283,7 +284,7 @@ public class InputReader {
                 Collection<String[]> subsetCCString = (Collection<String[]>) extractColumnsFromString(right, null);
                 Collection<Column> subsetCC = new ArrayList<>();
                 for(String[] tableColumnPair: subsetCCString){
-                    Table table = rightMap.get(tableColumnPair[0]);
+                    Table table = rightDatabase.getTableByName(tableColumnPair[0]);
                     if(table == null)
                         throw new RuntimeException("While reading in metadata from " + filePath + " an error occurred, table " + tableColumnPair[0] + " cannot be found!");
                     subsetCC.add(table.getColumn(table.getLabels().indexOf(tableColumnPair[1])));
