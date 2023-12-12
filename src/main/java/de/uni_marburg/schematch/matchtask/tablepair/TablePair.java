@@ -1,5 +1,6 @@
 package de.uni_marburg.schematch.matchtask.tablepair;
 
+import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.evaluation.performance.TablePairPerformance;
 import de.uni_marburg.schematch.matching.Matcher;
@@ -22,6 +23,7 @@ import java.util.Map;
 public class TablePair {
     private final Table sourceTable;
     private final Table targetTable;
+    private Scenario scenario;
     private int[][] candidates; // not used atm, probably should be List<ColumnPair>
     private int[][] groundTruth;
     // TODO: maybe matchsteps should hold their results/performances
@@ -36,9 +38,21 @@ public class TablePair {
     private Map<Matcher, TablePairPerformance> secondLineMatcherPerformances;
     private Map<Matcher, TablePairPerformance> boostedSecondLineMatcherPerformances;
 
-    public TablePair(Table sourceTable, Table targetTable) {
+    public TablePair(Table sourceTable, Table targetTable, Scenario scenario) {
+        this.scenario = scenario;
         this.sourceTable = sourceTable;
         this.targetTable = targetTable;
+        initializeMaps();
+    }
+
+    public TablePair(Table sourceTable, Table targetTable) {
+        this.scenario = null;
+        this.sourceTable = sourceTable;
+        this.targetTable = targetTable;
+        initializeMaps();
+    }
+
+    private void initializeMaps() {
         this.firstLineMatcherResults = new HashMap<>();
         this.boostedFirstLineMatcherResults = new HashMap<>();
         this.secondLineMatcherResults = new HashMap<>();

@@ -105,6 +105,15 @@ public class PythonUtils {
 
     public static float[][] readMatcherOutput(final List<String> output, final TablePair tablePair) {
         float[][] simMatrix = tablePair.getEmptySimMatrix();
+        return parseOutputIntoMatrix(output, simMatrix);
+    }
+
+    public static float[][] readMatcherOutput(final List<String> output, int dim) {
+        float[][] simMatrix = new float[dim][dim];
+        return parseOutputIntoMatrix(output, simMatrix);
+    }
+
+    private static float[][] parseOutputIntoMatrix(List<String> output, float[][] simMatrix) {
         try {
             for (int i = 0; i < simMatrix.length; i++) {
                 String line = output.get(i);

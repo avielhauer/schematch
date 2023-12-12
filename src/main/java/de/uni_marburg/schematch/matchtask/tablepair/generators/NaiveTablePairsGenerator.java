@@ -23,7 +23,7 @@ public class NaiveTablePairsGenerator implements TablePairsGenerator {
         List<TablePair> tablePairs = new ArrayList<>();
         for (Table sourceTable : sourceDatabase.getTables().values()) {
             for (Table targetTable : targetDatabase.getTables().values()) {
-                tablePairs.add(new TablePair(sourceTable, targetTable));
+                tablePairs.add(new TablePair(sourceTable, targetTable, scenario));
             }
         }
         return tablePairs;

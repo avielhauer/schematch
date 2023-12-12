@@ -31,7 +31,7 @@ public class GroundTruthTablePairsGenerator implements TablePairsGenerator {
             String gtTargetTableName = gtTablePairName.split(Configuration.getInstance().getDefaultTablePairSeparator())[1];
             Table sourceTable = sourceDatabase.getTableByName(gtSourceTableName);
             Table targetTable = targetDatabase.getTableByName(gtTargetTableName);
-            tablePairs.add(new TablePair(sourceTable, targetTable));
+            tablePairs.add(new TablePair(sourceTable, targetTable, scenario));
         }
 
         return tablePairs;
