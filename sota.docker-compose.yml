@@ -23,3 +23,12 @@ services:
       - type: bind
         source: ./target/embdi_cache
         target: /embdi/cache
+  ic:
+    image: schematch/ic
+    build: src/main/resources/ic
+    ports:
+      - "127.0.0.1:5003:5003"
+    volumes:
+      - type: bind
+        source: ./target
+        target: /ic/NATool/target
