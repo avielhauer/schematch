@@ -18,9 +18,12 @@ packageName: "sota"
 active: false
 params:
   serverPort: 5000
-  information: ["values", "names", "both"]
-  features: ["embeddings", "no-embeddings", "both"]
-
+  information: "both" # ["values", "names", "both"]
+  features: "both" # ["embeddings", "no-embeddings", "both"]
+---
+name: "ICMatcher"
+packageName: "metadata"
+active: true
 # Metadata matchers
 ---
 name: "DatatypeMatcher"
