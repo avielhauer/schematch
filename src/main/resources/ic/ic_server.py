@@ -16,11 +16,12 @@ if __name__ == "__main__":
 
     @app.route("/match")
     def _match():
-        if "graph_path" not in request.args:
+        if "source_graph_path" not in request.args or "target_graph_path" not in request.args:
             return "", 400
 
         return match(
-            request.args.get("graph_path")
+            request.args.get("source_graph_path"),
+            request.args.get("target_graph_path")
         )
 
     app.run(host=args.ic_host, port=args.ic_port)

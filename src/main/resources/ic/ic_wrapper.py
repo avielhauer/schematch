@@ -33,19 +33,49 @@ alpha=0.01
 gammastruc=1
 gammaattr=1
 buckets=2
-def match(graph_file, alignmethod="REGAL", embmethod="xnetMF"):
+
+def align_node_count(graphA, graphB):
+    numNodesA = graphA.number_of_nodes()
+    numNodesB = graphB.number_of_nodes()
+    totalNodesCount = numNodesA + numNodesB
+    diff = abs(numNodesA - numNodesB)
+    if(numNodesB > numNodesA):
+        for i in range(totalNodesCount + 1, totalNodesCount +1 + diff):
+            graphA.add_node(i)
+    else:
+        for i in range(totalNodesCount + 1, totalNodesCount +1 + diff):
+            graphB.add_node(i)
+    return numNodesB > numNodesA, diff
+
+def remove_added_nodes(alignment_matrix, addedToSource, numNodesAdded):
+    if numNodesAdded == 0:
+        return alignment_matrix
+    if addedToSource:
+        return alignment_matrix[:-numNodesAdded,:]
+    else:
+        return alignment_matrix[:,:-numNodesAdded]
+
+def match(source_graph_file, target_graph_file, alignmethod="REGAL", embmethod="xnetMF"):
 
     ##################### Load data ######################################
     # running normal graph alignment methods
-    combined_graph_name = graph_file
-    graph = nx.read_graphml(combined_graph_name, node_type=int)
+    #combined_graph_name = graph_file
+    #graph = nx.read_graphml(combined_graph_name, node_type=int)
     #graph = nx.read_edgelist(combined_graph_name, nodetype=int, comments="%")
-    adj = nx.adjacency_matrix(graph, nodelist = range(graph.number_of_nodes()) ).todense().astype(float)
-    node_num = int(adj.shape[0] / 2)
-    adjA = np.array(adj[:node_num, :node_num])
-    split_idx = adjA.shape[0]
-    adjB = np.array(adj[node_num:, node_num:])
+    #adj = nx.adjacency_matrix(graph, nodelist = range(graph.number_of_nodes()) ).todense().astype(float)
+    #node_num = int(adj.shape[0] / 2)
+    #adjA = np.array(adj[:node_num, :node_num])
+    #split_idx = adjA.shape[0]
+    #adjB = np.array(adj[node_num:, node_num:])
 
+    graphA = nx.read_graphml(source_graph_file, node_type=int)
+    graphB = nx.read_graphml(target_graph_file, node_type=int)
+    addedToGraphA, numNodesAdded = align_node_count(graphA, graphB)
+    node_num = graphA.number_of_nodes()
+    adjA = nx.adjacency_matrix(graphA, nodelist = range(graphA.number_of_nodes()) ).todense().astype(float)
+    adjB = nx.adjacency_matrix(graphB, nodelist = range(graphB.number_of_nodes()) ).todense().astype(float)
+    split_idx = adjA.shape[0]
+    assert(graphA.number_of_nodes() == graphB.number_of_nodes())
     # print statistics data
     print("---------------")
     print(f"The number of nodes in a single graph is {node_num}")
@@ -163,14 +193,15 @@ def match(graph_file, alignmethod="REGAL", embmethod="xnetMF"):
                 gwd_model.save_recommend('{}/result_{}_{}.pkl'.format(result_folder, m, c))
                 alignment_matrix = gwd_model.trans
 
-    print(alignment_matrix.shape, file=sys.stderr)
+    alignment_matrix = remove_added_nodes(alignment_matrix, addedToGraphA, numNodesAdded)
+
     return "\n".join([
-                        " ".join(
-                            [str(x) for x in row]
-                        )
-                        for row in alignment_matrix
-                    ]
+        " ".join(
+            [str(x) for x in row]
+        )
+        for row in alignment_matrix
+    ]
     )
 
 if __name__ == "__main__":
-    match("test")
+    match("author_author_source", "author_author_target")

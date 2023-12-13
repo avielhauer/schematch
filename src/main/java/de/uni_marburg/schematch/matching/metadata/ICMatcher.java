@@ -14,7 +14,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.jgrapht.Graphs;
 import org.jgrapht.nio.graphml.GraphMLExporter;
 import org.jgrapht.graph.SimpleDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
@@ -99,18 +98,30 @@ public class ICMatcher extends Matcher {
         return newMatrix;
     }
 
-    private float[][] extractSimilarityMatrix(float[][] alignment_matrix, TablePair tablePair){
+    private float[][] extractSimilarityMatrix(float[][] alignment_matrix, TablePair tablePair, Integer sourceNodeCount){
         float[][] sm = tablePair.getEmptySimMatrix();
         List<Integer> sourceColumns = tablePair.getSourceTable().getColumns().stream().map((c) -> columnToID.get(c)).toList();
         List<Integer> targetColumns = tablePair.getTargetTable().getColumns().stream().map((c) -> columnToID.get(c)).toList();
 
         for(int i = 0; i < sourceColumns.size(); i++){
             for(int j = 0; j < targetColumns.size(); j++){
-                sm[i][j] = alignment_matrix[sourceColumns.get(i)][targetColumns.get(j)];
+                sm[i][j] = alignment_matrix[sourceColumns.get(i)][targetColumns.get(j) - sourceNodeCount];
             }
         }
 
         return sm;
+    }
+    private void exportGraph(String path, SimpleDirectedGraph<Integer, DefaultEdge> graph){
+        GraphMLExporter<Integer, DefaultEdge> exporter = new GraphMLExporter<>();
+        Path filePath = Paths.get(path);
+        try {
+            Files.createDirectories(filePath.getParent());
+            Writer sourceGraphWriter = new FileWriter(path);
+            exporter.exportGraph(graph, sourceGraphWriter);
+        } catch (IOException e) {
+            getLogger().error("Could not open file " + graph);
+            throw new RuntimeException(e);
+        }
     }
     @Override
     public float[][] match(TablePair tablePair) {
@@ -140,45 +151,43 @@ public class ICMatcher extends Matcher {
         int nNodesSourceGraph = sourceGraph.vertexSet().size();
         int nNodesTargetGraph = targetGraph.vertexSet().size();
         int diff = Math.abs(nNodesTargetGraph - nNodesSourceGraph);
-        if(nNodesTargetGraph > nNodesSourceGraph){
-            for(int i = 0; i < diff;i++){
-                sourceGraph.addVertex(nodeCounter);
-                nodeCounter++;
-            }
-        } else {
-            for(int i = 0; i < diff; i++){
-                targetGraph.addVertex(nodeCounter);
-                nodeCounter++;
-            }
-        }
-        Graphs.addGraph(sourceGraph, targetGraph);
-        GraphMLExporter<Integer, DefaultEdge> exporter = new GraphMLExporter<>();
-        String graphPath = "target/ic/" + scenario.getName() + "/" + tablePair.getSourceTable().getName() + "_" + tablePair.getTargetTable().getName();
-        try {
-            Path filePath = Paths.get(graphPath);
-            Files.createDirectories(filePath.getParent());
-            Writer writer = new FileWriter(graphPath);
-            exporter.exportGraph(sourceGraph, writer);
-        } catch (IOException e) {
-            getLogger().error("Could not open file " + graphPath);
-            throw new RuntimeException(e);
-        }
+//        if(nNodesTargetGraph > nNodesSourceGraph){
+//            for(int i = 0; i < diff;i++){
+//                sourceGraph.addVertex(nodeCounter);
+//                nodeCounter++;
+//            }
+//        } else {
+//            for(int i = 0; i < diff; i++){
+//                targetGraph.addVertex(nodeCounter);
+//                nodeCounter++;
+//            }
+//        }
+
+        String targetGraphPath = "target/ic/" + scenario.getName() + "/" + tablePair.getSourceTable().getName() + "_" + tablePair.getTargetTable().getName() + "_target";
+        String sourceGraphPath = "target/ic/" + scenario.getName() + "/" + tablePair.getSourceTable().getName() + "_" + tablePair.getTargetTable().getName() + "_source";
+        exportGraph(targetGraphPath, targetGraph);
+        exportGraph(sourceGraphPath, sourceGraph);
+
         // TODO: Make sure empty nodes are actually written to the export file
         // (not only added isolated nodes can be empty, but also nodes with no ICs)
 
         float[][] alignment_matrix;
         try {
             HttpResponse<String> response = PythonUtils.sendMatchRequest(serverPort, List.of(
-                    new ImmutablePair<>("graph_path", graphPath)
+                    new ImmutablePair<>("source_graph_path", sourceGraphPath),
+                    new ImmutablePair<>("target_graph_path", targetGraphPath)
             ));
 
-            alignment_matrix = PythonUtils.readMatcherOutput(Arrays.stream(response.body().split("\n")).toList(), Math.max(nNodesSourceGraph, nNodesTargetGraph));
+            alignment_matrix = PythonUtils.readMatcherOutput(Arrays.stream(response.body().split("\n")).toList(), nNodesSourceGraph, nNodesTargetGraph);
 
         } catch (Exception e){
             getLogger().error("Running IC Matcher's Graph Alignment failed, is the server running?", e);
             return  tablePair.getEmptySimMatrix();
         }
 
-        return extractSimilarityMatrix(removeAddedVertices(alignment_matrix, diff, nNodesSourceGraph > nNodesTargetGraph), tablePair);
+        float[][] sm = extractSimilarityMatrix(alignment_matrix, tablePair, nNodesSourceGraph);
+        nodeCounter = 0;
+        columnToID.clear();
+        return sm;
     }
 }
