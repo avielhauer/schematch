@@ -108,8 +108,8 @@ public class PythonUtils {
         return parseOutputIntoMatrix(output, simMatrix);
     }
 
-    public static float[][] readMatcherOutput(final List<String> output, int dim) {
-        float[][] simMatrix = new float[dim][dim];
+    public static float[][] readMatcherOutput(final List<String> output, int rows, int columns) {
+        float[][] simMatrix = new float[rows][columns];
         return parseOutputIntoMatrix(output, simMatrix);
     }
 
