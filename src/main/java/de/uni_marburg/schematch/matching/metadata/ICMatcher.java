@@ -35,27 +35,45 @@ public class ICMatcher extends Matcher {
     private Integer nodeCounter = 0;
     private Map<Column, Integer> columnToID = new HashMap<>();
     private Integer serverPort = 5003;
-    private SimpleDirectedGraph<Integer, DefaultEdge> buildGraph(List<Column> columns, Map<Column, Collection<UniqueColumnCombination>> uccs, Map<Column, Collection<FunctionalDependency>> fds) {
+    private final Integer maxUCCSize = 5;
+    private final Integer maxFDSize = 5;
+    private SimpleDirectedGraph<Integer, DefaultEdge> buildGraph(List<Column> columns, DatabaseMetadata metadata) {
         SimpleDirectedGraph<Integer, DefaultEdge> graph = new SimpleDirectedGraph<>(DefaultEdge.class);
+        int tableNode = nodeCounter;
+        graph.addVertex(tableNode);
+        nodeCounter++;
+
         for (Column column : columns) {
-            Integer column_id = nodeCounter;
+            Integer columnID = nodeCounter;
             nodeCounter++;
-            columnToID.put(column, column_id);
-            graph.addVertex(column_id);
+            columnToID.put(column, columnID);
+            graph.addVertex(columnID);
+            graph.addEdge(tableNode, columnID);
         }
-        Collection<UniqueColumnCombination> uccs_combined = new HashSet<>();
-        for (Column column : columns){
-            if(uccs.containsKey(column)){
-                uccs_combined.addAll(uccs.get(column));
-            }
+        // TODO: perhaps go over the ucc and fd collections on the metadata and simply filter out the ones that do not
+        HashSet<Column> columnLookup = new HashSet<>(columns);
+        // contain relevant columns
+        Collection<UniqueColumnCombination> uccs_unfiltered = metadata.getUccs();
+        Collection<UniqueColumnCombination> uccs_filtered = uccs_unfiltered.stream().filter((ucc)-> columnLookup.containsAll(ucc.getColumnCombination()) && ucc.getColumnCombination().size() <= maxUCCSize).toList();
+
+        HashSet<UniqueColumnCombination> uccLookup = new HashSet<>(uccs_filtered);
+        Collection<FunctionalDependency> fds_unfiltered = metadata.getFds();
+        Collection<FunctionalDependency> fds_filtered = fds_unfiltered.stream().filter((fd)-> (!uccLookup.contains(new UniqueColumnCombination(fd.getDeterminant()))) && columnLookup.containsAll(fd.getDeterminant()) && columnLookup.contains(fd.getDependant()) && fd.getDeterminant().size() < maxFDSize).toList();
+
+        int cutoff = maxFDSize-1;
+        while(fds_filtered.size() > 2000 && cutoff > 1){
+            int finalCutoff = cutoff;
+            fds_filtered =  fds_filtered.stream().filter((fd)->  fd.getDeterminant().size() < finalCutoff).toList();
+            cutoff--;
         }
-        Collection<FunctionalDependency> fds_combined = new HashSet<>();
-        for(Column column : columns){
-            if(fds.containsKey(column)){
-                fds_combined.addAll(fds.get(column));
-            }
+        cutoff = maxUCCSize;
+        while(uccs_filtered.size() > 2000 && cutoff >= 1){
+            int finalCutoff1 = cutoff;
+            uccs_filtered = uccs_filtered.stream().filter((ucc)->  ucc.getColumnCombination().size() <= finalCutoff1).toList();
+            cutoff--;
         }
-        for (UniqueColumnCombination ucc : uccs_combined){
+
+        for (UniqueColumnCombination ucc : uccs_filtered){
             Integer ucc_id = nodeCounter;
             nodeCounter++;
             graph.addVertex(ucc_id);
@@ -64,7 +82,7 @@ public class ICMatcher extends Matcher {
             }
         }
 
-        for(FunctionalDependency fd: fds_combined){
+        for(FunctionalDependency fd: fds_filtered){
             Integer fd_id = nodeCounter;
             nodeCounter++;
             graph.addVertex(fd_id);
@@ -137,20 +155,14 @@ public class ICMatcher extends Matcher {
         Database target = scenario.getTargetDatabase();
         DatabaseMetadata sourceMetadata = source.getMetadata();
         DatabaseMetadata targetMetadata = target.getMetadata();
-        // Extract UCCs
-        Map<Column, Collection<UniqueColumnCombination>> sourceUccs = sourceMetadata.getUccMap();
-        Map<Column, Collection<UniqueColumnCombination>> targetUccs = targetMetadata.getUccMap();
-        // Extract FDs
-        Map<Column, Collection<FunctionalDependency>> sourceFds = sourceMetadata.getFdMap();
-        Map<Column, Collection<FunctionalDependency>> targetFds = targetMetadata.getFdMap();
 
-        SimpleDirectedGraph<Integer, DefaultEdge> sourceGraph = buildGraph(sourceTable.getColumns(), sourceUccs, sourceFds);
-        SimpleDirectedGraph<Integer, DefaultEdge> targetGraph = buildGraph(targetTable.getColumns(), targetUccs, targetFds);
+        SimpleDirectedGraph<Integer, DefaultEdge> sourceGraph = buildGraph(sourceTable.getColumns(), sourceMetadata);
+        SimpleDirectedGraph<Integer, DefaultEdge> targetGraph = buildGraph(targetTable.getColumns(), targetMetadata);
 
         // NA expects both graph to have the same number of nodes - we will add isolated nodes to the smaller graph
         int nNodesSourceGraph = sourceGraph.vertexSet().size();
         int nNodesTargetGraph = targetGraph.vertexSet().size();
-        int diff = Math.abs(nNodesTargetGraph - nNodesSourceGraph);
+//        int diff = Math.abs(nNodesTargetGraph - nNodesSourceGraph);
 //        if(nNodesTargetGraph > nNodesSourceGraph){
 //            for(int i = 0; i < diff;i++){
 //                sourceGraph.addVertex(nodeCounter);
