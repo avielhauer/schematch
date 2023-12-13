@@ -20,7 +20,10 @@ params:
   serverPort: 5000
   information: "both" # ["values", "names", "both"]
   features: "both" # ["embeddings", "no-embeddings", "both"]
-
+---
+name: "ICMatcher"
+packageName: "metadata"
+active: true
 # Metadata matchers
 ---
 name: "DatatypeMatcher"
