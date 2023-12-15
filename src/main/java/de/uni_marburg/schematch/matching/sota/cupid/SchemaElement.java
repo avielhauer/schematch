@@ -5,10 +5,13 @@ import java.util.Collections;
 import java.util.List;
 
 class SchemaElement {
+
     private List<String> categories;
     private String dataType;
     private List<Token> tokens;
     private String initialName;
+
+
     private String longName;
 
     public SchemaElement(String name) {
@@ -82,5 +85,11 @@ class SchemaElement {
             }
         }
         return resultTokens;
+    }
+    public List<String> getCategories() {
+        return categories;
+    }
+    public String getLongName() {
+        return longName;
     }
 }

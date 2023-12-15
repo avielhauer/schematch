@@ -14,15 +14,15 @@ public class SchemaTree {
 
     private SchemaElementNode rootNode;
 
-    public SchemaTree(String root) {
+    public SchemaTree(SchemaElement root) {
         this.nodes = new HashMap<>();
         this.addRootNode(root);
-        this.schemaName = root;
+        this.schemaName = root.getLongName();
         this.schemaTree = null;
     }
 
-    public void addRootNode(String root) {
-        this.rootNode = new SchemaElementNode(root, null, null);
+    public void addRootNode(SchemaElement root) {
+        this.rootNode = new SchemaElementNode(root.getLongName(), null, null, root);
     }
 
     public String getSchemaTree() {
@@ -54,7 +54,7 @@ public class SchemaTree {
     }
 
     public SchemaElementNode getRoot() {
-        return nodes.get(schemaName);
+        return rootNode;
     }
 
     private String renderTree(SchemaElementNode node) {

@@ -8,11 +8,13 @@ public class SchemaElementNode{
     SchemaElementNode parent;
     ArrayList<SchemaElementNode> children;
 
-    public SchemaElementNode(String name, SchemaElementNode parent, ArrayList<SchemaElementNode> children) {
+    SchemaElement current;
+
+    public SchemaElementNode(String name, SchemaElementNode parent, ArrayList<SchemaElementNode> children, SchemaElement current) {
         this.name = name;
         this.parent = parent;
         this.children = children;
-
+        this.current = current;
     }
 
     //noch implementieren
@@ -21,5 +23,7 @@ public class SchemaElementNode{
     }
 
 
-
+    public SchemaElement getCurrent() {
+        return current;
+    }
 }
