@@ -1,7 +1,8 @@
 package de.uni_marburg.schematch.data;
 
 import de.uni_marburg.schematch.utils.Configuration;
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.File;
 import java.util.ArrayList;

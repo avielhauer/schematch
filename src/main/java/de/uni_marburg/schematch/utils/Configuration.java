@@ -42,8 +42,15 @@ public class Configuration {
 
     private String resultsDir;
     private String performanceDir;
-    private String performanceSummaryFile;
+    private String performanceMatchStepOverviewFileSuffix;
+    private String performanceMatchStepSummaryFileSuffix;
+    private String performanceScenarioSummaryFileSuffix;
+    private String performanceDatasetSummaryFileSuffix;
+    private String performanceOverallSummaryFile;
     private String outputDir;
+
+    // FIXME: refactor to use log4j custom log level instead
+    private int logLevelResults;
 
     // Step 1
     private boolean saveOutputTablePairGeneration;
@@ -89,7 +96,6 @@ public class Configuration {
     public static class MatcherConfiguration {
         private String name;
         private String packageName;
-        private String type;
         private Map<String, Object> params;
     }
 
@@ -160,7 +166,6 @@ public class Configuration {
             Map<String, Object> matcherConfig = (Map<String, Object>) object;
             String name = (String) matcherConfig.get("name");
             String packageName = (String) matcherConfig.get("packageName");
-            String type = (String) matcherConfig.get("type");
             List<MatcherConfiguration> matcherConfigurationList = new ArrayList<>();
             if (matcherConfig.get("params") instanceof List) {
                 String err = "Parsing of parameter lists not implemented yet. Use dictionary of possible parameter values" +
@@ -190,7 +195,7 @@ public class Configuration {
                     for (int i = 0; i < paramList.size(); i++) {
                         params.put(paramNames.get(i), paramList.get(i));
                     }
-                    MatcherConfiguration matcherConfiguration = new MatcherConfiguration(name, packageName, type, params);
+                    MatcherConfiguration matcherConfiguration = new MatcherConfiguration(name, packageName, params);
                     matcherConfigurationList.add(matcherConfiguration);
                     log.debug(matcherConfiguration.toString());
                 }

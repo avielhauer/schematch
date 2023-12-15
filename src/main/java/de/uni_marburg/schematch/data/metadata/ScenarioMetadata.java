@@ -27,6 +27,14 @@ public class ScenarioMetadata {
         return targetToSourceMap.get(column);
     }
 
+    public Collection<InclusionDependency> getSourceToTargetMetadata(Column column, int size){
+        return sourceToTargetMap.get(column).stream().filter(e -> e.getDependant().size() <= size).toList();
+    }
+
+    public Collection<InclusionDependency> getTargetToSourceMetadata(Column column, int size){
+        return targetToSourceMap.get(column).stream().filter(e -> e.getDependant().size() <= size).toList();
+    }
+
     public boolean contains(Column column){
         return sourceToTargetMap.containsKey(column) || targetToSourceMap.containsKey(column);
     }

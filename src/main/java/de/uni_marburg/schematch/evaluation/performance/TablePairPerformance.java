@@ -1,30 +1,24 @@
 package de.uni_marburg.schematch.evaluation.performance;
 
-import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Data
-public class TablePairPerformance extends Performance {
-    Map<ColumnPair, ColumnPairPerformance> columnPairPerformances;
+@AllArgsConstructor
+public class TablePairPerformance {
+    private int TP;
+    private int FP;
+    private float simScoreTP;
+    private float simScoreFP;
 
-    public TablePairPerformance() {
-        super();
-        this.columnPairPerformances = new HashMap<>();
+    public float calculatePrecision() {
+        return (float) TP / (TP + FP);
     }
-
-    public TablePairPerformance(int TP, int FP, float simScoreTP, float simScoreFP, Map<ColumnPair, ColumnPairPerformance> columnPairPerformances) {
-        super(TP, FP, simScoreTP, simScoreFP);
-        this.columnPairPerformances = columnPairPerformances;
-    }
-
-    public ColumnPairPerformance getColumnPairPerformance(ColumnPair columnPair) {
-        return this.columnPairPerformances.get(columnPair);
-    }
-
-    public void addColumnPairPerformance(ColumnPair columnPair, ColumnPairPerformance columnPairPerformance) {
-        this.columnPairPerformances.put(columnPair, columnPairPerformance);
+    public float calculateNonBinaryPrecision() {
+        if (simScoreTP + simScoreFP == 0) {
+            return 0;
+        } else {
+            return simScoreTP / (simScoreTP + simScoreFP);
+        }
     }
 }

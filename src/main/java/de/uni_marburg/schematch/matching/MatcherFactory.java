@@ -45,7 +45,44 @@ public class MatcherFactory {
     }
 
     /**
+     * Instantiates a matcher for the given matcher configuration
+     * @param matcherConfiguration Matcher configuration to use for instantiation
+     * @return Matcher instance for the specified matcher configuration
+     * @throws Exception when reflection goes wrong
+     */
+    public Matcher createMatcherInstance(Configuration.MatcherConfiguration matcherConfiguration) throws Exception {
+        String name = matcherConfiguration.getName();
+        String packageName = matcherConfiguration.getPackageName();
+        Class<?> matcherClass = Class.forName(Configuration.MATCHING_PACKAGE_NAME + "." + packageName + "." + name);
+
+        Matcher matcher = (Matcher) matcherClass.getConstructor().newInstance();
+        matcher.configure(matcherConfiguration);
+
+        return matcher;
+    }
+
+    /**
+     * Instantiates a tokenized matcher for the given matcher configuration and tokenizer
+     * @param matcherConfiguration Matcher configuration to use for instantiation
+     * @param tokenizer Tokenizer to use for instantiation
+     * @return Matcher instance for the specified matcher configuration and tokenizer
+     * @throws Exception when reflection goes wrong
+     */
+    public Matcher createTokenizedMatcherInstance(Configuration.MatcherConfiguration matcherConfiguration, Tokenizer tokenizer) throws Exception {
+        String name = matcherConfiguration.getName();
+        String packageName = matcherConfiguration.getPackageName();
+        Class<?> matcherClass = Class.forName(Configuration.MATCHING_PACKAGE_NAME + "." + packageName + "." + name);
+
+        TokenizedMatcher matcher = (TokenizedMatcher) matcherClass.getConstructor().newInstance();
+        matcher.configure(matcherConfiguration);
+        matcher.setTokenizer(tokenizer);
+
+        return matcher;
+    }
+
+    /**
      * Instantiates all configurations for a given matcher as specified in first_line_matchers.yaml
+     * @param matcherName Name of the matcher to create instances for
      * @return List of all configured matcher instances
      * @throws Exception when reflection goes wrong
      */
@@ -73,10 +110,7 @@ public class MatcherFactory {
             for (String tokenizerName : this.tokenizers.keySet()) {
                 for (Tokenizer tokenizer : this.tokenizers.get(tokenizerName)) {
                     for (Configuration.MatcherConfiguration matcherConfiguration : matcherConfigurations) {
-                        TokenizedMatcher matcher = (TokenizedMatcher) matcherClass.getConstructor().newInstance();
-                        matcher.configure(matcherConfiguration);
-                        matcher.setTokenizer(tokenizer);
-                        matcherInstances.add(matcher);
+                        matcherInstances.add(createTokenizedMatcherInstance(matcherConfiguration, tokenizer));
                     }
                 }
             }
@@ -84,9 +118,7 @@ public class MatcherFactory {
             // initialize matcher for all matcher configurations
             log.info("Instantiating matcher " + matcherName + " with " + numConfigs + " different configurations");
             for (Configuration.MatcherConfiguration matcherConfiguration : matcherConfigurations) {
-                Matcher matcher = (Matcher) matcherClass.getConstructor().newInstance();
-                matcher.configure(matcherConfiguration);
-                matcherInstances.add(matcher);
+                matcherInstances.add(createMatcherInstance(matcherConfiguration));
             }
         }
 

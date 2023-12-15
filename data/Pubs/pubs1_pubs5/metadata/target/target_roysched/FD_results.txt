@@ -1,0 +1,3 @@
+[target_roysched.csv.hirange, target_roysched.csv.title_id] --> target_roysched.csv.lorange, target_roysched.csv.royalty
+[target_roysched.csv.lorange, target_roysched.csv.title_id] --> target_roysched.csv.hirange, target_roysched.csv.royalty
+[target_roysched.csv.royalty, target_roysched.csv.title_id] --> target_roysched.csv.hirange, target_roysched.csv.lorange

@@ -5,7 +5,6 @@ import de.uni_marburg.schematch.boosting.SimMatrixBoosting;
 import de.uni_marburg.schematch.matching.ensemble.RandomEnsembleMatcher;
 import de.uni_marburg.schematch.matchtask.matchstep.*;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.GroundTruthTablePairsGenerator;
-import de.uni_marburg.schematch.matchtask.tablepair.generators.NaiveTablePairsGenerator;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.TablePairsGenerator;
 import de.uni_marburg.schematch.data.*;
 import de.uni_marburg.schematch.matching.Matcher;
@@ -43,19 +42,36 @@ public class Main {
         log.info("Setting up matching steps as specified in config");
         List<MatchStep> matchSteps = new ArrayList<>();
         // Step 1: generate candidate table pairs to match
-        matchSteps.add(new TablePairGenerationStep(tablePairsGenerator));
+        matchSteps.add(new TablePairGenerationStep(true,
+                config.isSaveOutputTablePairGeneration(),
+                config.isEvaluateTablePairGeneration(),
+                tablePairsGenerator));
         // Step 2: run first line matchers (i.e., matchers that use table data to match)
-        matchSteps.add(new FirstLineMatchingStep(firstLineMatchers));
+        matchSteps.add(new FirstLineMatchingStep(true,
+                config.isSaveOutputFirstLineMatchers(),
+                config.isEvaluateFirstLineMatchers(),
+                firstLineMatchers));
         // Step 3: run similarity matrix boosting on the output of first line matchers
         if (config.isRunSimMatrixBoostingOnFirstLineMatchers()) {
-            matchSteps.add(new SimMatrixBoostingStep(1, firstLineSimMatrixBoosting));
+            matchSteps.add(new SimMatrixBoostingStep(config.isRunSimMatrixBoostingOnFirstLineMatchers(),
+                    config.isSaveOutputSimMatrixBoostingOnFirstLineMatchers(),
+                    config.isEvaluateSimMatrixBoostingOnFirstLineMatchers(),
+                    1,
+                    firstLineSimMatrixBoosting));
         }
         // Step 4: run second line matchers (ensemble matchers and other matchers using output of first line matchers)
         if (config.isRunSecondLineMatchers()) {
-            matchSteps.add(new SecondLineMatchingStep(secondLineMatchers));
+            matchSteps.add(new SecondLineMatchingStep(config.isRunSecondLineMatchers(),
+                    config.isSaveOutputSecondLineMatchers(),
+                    config.isEvaluateSecondLineMatchers(),
+                    secondLineMatchers));
             // Step 5: run similarity matrix boosting on the output of second line matchers
             if (config.isRunSimMatrixBoostingOnSecondLineMatchers()) {
-                matchSteps.add(new SimMatrixBoostingStep(2, secondLineSimMatrixBoosting));
+                matchSteps.add(new SimMatrixBoostingStep(config.isRunSimMatrixBoostingOnSecondLineMatchers(),
+                        config.isSaveOutputSimMatrixBoostingOnSecondLineMatchers(),
+                        config.isEvaluateSimMatrixBoostingOnSecondLineMatchers(),
+                        2,
+                        secondLineSimMatrixBoosting));
             }
         }
 
@@ -70,8 +86,21 @@ public class Main {
 
                 MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps);
                 matchTask.runSteps();
+                if (ConfigUtils.anyEvaluate()) {
+                    EvalWriter.writeScenarioPerformance(dataset, scenario, matchSteps);
+                }
+            }
+
+            if (ConfigUtils.anyEvaluate()) {
+                EvalWriter.writeDatasetPerformance(dataset, matchSteps);
             }
         }
+
+        if (ConfigUtils.anyEvaluate()) {
+            EvalWriter.writeOverallPerformance(matchSteps);
+        }
+
+        log.info("See results directory for more detailed performance and similarity matrices results.");
 
         Date END_TIMESTAMP = new Date();
         long durationInMillis =  END_TIMESTAMP.getTime() - START_TIMESTAMP.getTime();

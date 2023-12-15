@@ -1,0 +1,6 @@
+[discounts.csv.discount] --> discounts.csv.discounttype, discounts.csv.highqty, discounts.csv.lowqty, discounts.csv.stor_id
+[discounts.csv.discounttype] --> discounts.csv.discount, discounts.csv.highqty, discounts.csv.lowqty, discounts.csv.stor_id
+[discounts.csv.highqty, discounts.csv.stor_id] --> discounts.csv.discount, discounts.csv.discounttype
+[discounts.csv.highqty] --> discounts.csv.lowqty
+[discounts.csv.lowqty, discounts.csv.stor_id] --> discounts.csv.discount, discounts.csv.discounttype
+[discounts.csv.lowqty] --> discounts.csv.highqty

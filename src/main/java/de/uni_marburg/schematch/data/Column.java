@@ -1,9 +1,8 @@
 package de.uni_marburg.schematch.data;
 
 import de.uni_marburg.schematch.preprocessing.tokenization.Tokenizer;
+import de.uni_marburg.schematch.data.metadata.Datatype;
 import lombok.Data;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,17 +11,6 @@ import java.util.Set;
 
 @Data
 public class Column {
-    private static final Logger log = LogManager.getLogger(Column.class);
-
-    public enum Datatype {
-        STRING,
-        INTEGER,
-        FLOAT,
-        DATE,
-        TEXT, // long string (e.g., comments or descriptions)
-        GEO_LOCATION
-    }
-
     private Table table;
     private final String label;
     private Datatype datatype;
@@ -37,7 +25,7 @@ public class Column {
     public Column(String label, List<String> values) {
         this.label = label;
         this.values = values;
-        this.datatype = Datatype.STRING;
+        this.datatype = null;
         this.tokenizedLabel = new HashMap<>();
         this.tokenizedValues = new HashMap<>();
     }
@@ -49,7 +37,14 @@ public class Column {
 
     @Override
     public String toString() {
-        return null;
+        return this.label + "___" + this.table.getName();
+    }
+
+    public Datatype getDatatype() {
+        if (this.datatype == null) {
+            this.datatype = Datatype.determineDatatype(this);
+        }
+        return this.datatype;
     }
 
     public Set<String> getLabelTokens(Tokenizer tokenizer) {

@@ -1,0 +1,3 @@
+[roysched.csv.lorange, roysched.csv.title_id]
+[roysched.csv.hirange, roysched.csv.title_id]
+[roysched.csv.royalty, roysched.csv.title_id]

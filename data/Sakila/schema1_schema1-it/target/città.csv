@@ -1,0 +1,301 @@
+città_id,città,stato_id,stato
+251,Kabul,1,Afghanistan
+59,Batna,2,Algeria
+63,Bchar,2,Algeria
+483,Skikda,2,Algeria
+516,Tafuna,3,American Samoa
+67,Benguela,4,Angola
+360,Namibe,4,Angola
+493,South Hill,5,Anguilla
+20,Almirante Brown,6,Argentina
+43,Avellaneda,6,Argentina
+45,Baha Blanca,6,Argentina
+128,Crdoba,6,Argentina
+161,Escobar,6,Argentina
+165,Ezeiza,6,Argentina
+289,La Plata,6,Argentina
+334,Merlo,6,Argentina
+424,Quilmes,6,Argentina
+454,San Miguel de Tucumn,6,Argentina
+457,Santa F,6,Argentina
+524,Tandil,6,Argentina
+567,Vicente Lpez,6,Argentina
+586,Yerevan,7,Armenia
+576,Woodridge,8,Australia
+186,Graz,9,Austria
+307,Linz,9,Austria
+447,Salzburg,9,Austria
+48,Baku,10,Azerbaijan
+505,Sumqayit,10,Azerbaijan
+14,al-Manama,11,Bahrain
+143,Dhaka,12,Bangladesh
+234,Jamalpur,12,Bangladesh
+525,Tangail,12,Bangladesh
+339,Mogiljov,13,Belarus
+340,Molodetno,13,Belarus
+153,El Alto,14,Bolivia
+501,Sucre,14,Bolivia
+21,Alvorada,15,Brazil
+25,Angra dos Reis,15,Brazil
+26,Anpolis,15,Brazil
+28,Aparecida de Goinia,15,Brazil
+30,Araatuba,15,Brazil
+44,Bag,15,Brazil
+66,Belm,15,Brazil
+83,Blumenau,15,Brazil
+84,Boa Vista,15,Brazil
+89,Braslia,15,Brazil
+183,Goinia,15,Brazil
+189,Guaruj,15,Brazil
+190,guas Lindas de Gois,15,Brazil
+215,Ibirit,15,Brazil
+247,Juazeiro do Norte,15,Brazil
+248,Juiz de Fora,15,Brazil
+317,Luzinia,15,Brazil
+328,Maring,15,Brazil
+410,Po,15,Brazil
+413,Poos de Caldas,15,Brazil
+431,Rio Claro,15,Brazil
+456,Santa Brbara dOeste,15,Brazil
+461,Santo Andr,15,Brazil
+485,So Bernardo do Campo,15,Brazil
+486,So Leopoldo,15,Brazil
+490,Sorocaba,15,Brazil
+569,Vila Velha,15,Brazil
+572,Vitria de Santo Anto,15,Brazil
+53,Bandar Seri Begawan,16,Brunei
+436,Ruse,17,Bulgaria
+498,Stara Zagora,17,Bulgaria
+60,Battambang,18,Cambodia
+406,Phnom Penh,18,Cambodia
+52,Bamenda,19,Cameroon
+585,Yaound,19,Cameroon
+179,Gatineau,20,Canada
+196,Halifax,20,Canada
+300,Lethbridge,20,Canada
+313,London,20,Canada
+383,Oshawa,20,Canada
+430,Richmond Hill,20,Canada
+565,Vancouver,20,Canada
+363,NDjamna,21,Chad
+27,Antofagasta,22,Chile
+127,Coquimbo,22,Chile
+428,Rancagua,22,Chile
+46,Baicheng,23,China
+47,Baiyin,23,China
+80,Binzhou,23,China
+109,Changzhou,23,China
+136,Datong,23,China
+139,Daxian,23,China
+145,Dongying,23,China
+157,Emeishan,23,China
+159,Enshi,23,China
+166,Ezhou,23,China
+174,Fuyu,23,China
+175,Fuzhou,23,China
+193,Haining,23,China
+199,Hami,23,China
+207,Hohhot,23,China
+210,Huaian,23,China
+240,Jinchang,23,China
+241,Jining,23,China
+242,Jinzhou,23,China
+249,Junan,23,China
+277,Korla,23,China
+291,Laiwu,23,China
+293,Laohekou,23,China
+298,Lengshuijiang,23,China
+299,Leshan,23,China
+302,Liaocheng,23,China
+332,Meixian,23,China
+362,Nanyang,23,China
+407,Pingxiang,23,China
+422,Qinhuangdao,23,China
+432,Rizhao,23,China
+462,Sanya,23,China
+468,Shanwei,23,China
+469,Shaoguan,23,China
+471,Shenzhen,23,China
+502,Suihua,23,China
+535,Tianjin,23,China
+536,Tiefa,23,China
+537,Tieli,23,China
+540,Tongliao,23,China
+574,Weifang,23,China
+578,Xiangfan,23,China
+579,Xiangtan,23,China
+580,Xintai,23,China
+581,Xinxiang,23,China
+584,Yantai,23,China
+587,Yinchuan,23,China
+588,Yingkou,23,China
+590,Yuncheng,23,China
+591,Yuzhou,23,China
+592,Zalantun,23,China
+594,Zaoyang,23,China
+599,Zhoushan,23,China
+96,Buenaventura,24,Colombia
+147,Dos Quebradas,24,Colombia
+170,Florencia,24,Colombia
+405,Pereira,24,Colombia
+480,Sincelejo,24,Colombia
+487,Sogamoso,24,Colombia
+315,Lubumbashi,25,"Congo, The Democratic Republic of the"
+348,Mwene-Ditu,25,"Congo, The Democratic Republic of the"
+378,Olomouc,26,Czech Republic
+290,La Romana,27,Dominican Republic
+450,San Felipe de Puerto Plata,27,Dominican Republic
+460,Santiago de los Caballeros,27,Dominican Republic
+311,Loja,28,Ecuador
+414,Portoviejo,28,Ecuador
+434,Robamba,28,Ecuador
+79,Bilbays,29,Egypt
+216,Idfu,29,Egypt
+337,Mit Ghamr,29,Egypt
+421,Qalyub,29,Egypt
+465,Sawhaj,29,Egypt
+476,Shubra al-Khayma,29,Egypt
+530,Tartu,30,Estonia
+6,Addis Abeba,31,Ethiopia
+545,Trshavn,32,Faroe Islands
+387,Oulu,33,Finland
+92,Brest,34,France
+297,Le Mans,34,France
+543,Toulon,34,France
+544,Toulouse,34,France
+105,Cayenne,35,French Guiana
+167,Faaa,36,French Polynesia
+397,Papeete,36,French Polynesia
+54,Banjul,37,Gambia
+148,Duisburg,38,Germany
+160,Erlangen,38,Germany
+198,Halle/Saale,38,Germany
+325,Mannheim,38,Germany
+439,Saarbrcken,38,Germany
+477,Siegen,38,Germany
+575,Witten,38,Germany
+38,Athenai,39,Greece
+401,Patras,39,Greece
+371,Nuuk,40,Greenland
+121,Citt del Vaticano,41,Holy See (Vatican City State)
+279,Kowloon and New Kowloon,42,Hong Kong
+512,Szkesfehrvr,43,Hungary
+8,Adoni,44,India
+9,Ahmadnagar,44,India
+18,Allappuzha (Alleppey),44,India
+22,Ambattur,44,India
+24,Amroha,44,India
+51,Balurghat,44,India
+71,Berhampore (Baharampur),44,India
+73,Bhavnagar,44,India
+74,Bhilwara,44,India
+75,Bhimavaram,44,India
+76,Bhopal,44,India
+77,Bhusawal,44,India
+78,Bijapur,44,India
+107,Chandrapur,44,India
+110,Chapra,44,India
+144,Dhule (Dhulia),44,India
+164,Etawah,44,India
+169,Firozabad,44,India
+176,Gandhinagar,44,India
+191,Gulbarga,44,India
+195,Haldia,44,India
+197,Halisahar,44,India
+208,Hoshiarpur,44,India
+211,Hubli-Dharwad,44,India
+231,Jaipur,44,India
+239,Jhansi,44,India
+243,Jodhpur,44,India
+257,Kamarhati,44,India
+261,Kanchrapara,44,India
+263,Karnal,44,India
+264,Katihar,44,India
+283,Kumbakonam,44,India
+336,Miraj,44,India
+346,Munger (Monghyr),44,India
+350,Mysore,44,India
+354,Nagaon,44,India
+395,Palghat (Palakkad),44,India
+398,Parbhani,44,India
+399,Pathankot,44,India
+400,Patiala,44,India
+416,Pudukkottai,44,India
+417,Pune,44,India
+418,Purnea (Purnia),44,India
+425,Rae Bareli,44,India
+426,Rajkot,44,India
+427,Rampur,44,India
+429,Ranchi,44,India
+448,Sambhal,44,India
+464,Satna,44,India
+473,Shimoga,44,India
+475,Shivapuri,44,India
+478,Siliguri (Shiliguri),44,India
+522,Tambaram,44,India
+550,Udaipur,44,India
+554,Uluberia,44,India
+559,Uttarpara-Kotrung,44,India
+564,Valparai,44,India
+566,Varanasi (Benares),44,India
+568,Vijayawada,44,India
+582,Yamuna Nagar,44,India
+117,Cianjur,45,Indonesia
+118,Ciomas,45,Indonesia
+119,Ciparay,45,Indonesia
+184,Gorontalo,45,Indonesia
+232,Jakarta,45,Indonesia
+301,Lhokseumawe,45,Indonesia
+318,Madiun,45,Indonesia
+396,Pangkal Pinang,45,Indonesia
+403,Pemalang,45,Indonesia
+412,Pontianak,45,Indonesia
+415,Probolinggo,45,Indonesia
+419,Purwakarta,45,Indonesia
+509,Surakarta,45,Indonesia
+532,Tegal,45,Indonesia
+31,Arak,46,Iran
+162,Esfahan,46,Iran
+265,Kermanshah,46,Iran
+356,Najafabad,46,Iran
+423,Qomsheh,46,Iran
+467,Shahr-e Kord,46,Iran
+481,Sirjan,46,Iran
+514,Tabriz,46,Iran
+344,Mosul,47,Iraq
+34,Ashdod,48,Israel
+36,Ashqelon,48,Israel
+57,Bat Yam,48,Israel
+533,Tel Aviv-Jaffa,48,Israel
+17,Alessandria,49,Italy
+70,Bergamo,49,Italy
+91,Brescia,49,Italy
+93,Brindisi,49,Italy
+309,Livorno,49,Italy
+511,Syrakusa,49,Italy
+551,Udine,49,Italy
+10,Akishima,50,Japan
+172,Fukuyama,50,Japan
+203,Higashiosaka,50,Japan
+204,Hino,50,Japan
+205,Hiroshima,50,Japan
+224,Isesaki,50,Japan
+226,Iwaki,50,Japan
+227,Iwakuni,50,Japan
+228,Iwatsuki,50,Japan
+229,Izumisano,50,Japan
+253,Kakamigahara,50,Japan
+256,Kamakura,50,Japan
+260,Kanazawa,50,Japan
+276,Koriyama,50,Japan
+284,Kurashiki,50,Japan
+287,Kuwana,50,Japan
+331,Matsue,50,Japan
+338,Miyakonojo,50,Japan
+355,Nagareyama,50,Japan
+376,Okayama,50,Japan
+377,Okinawa,50,Japan
+380,Omiya,50,Japan
+382,Onomichi,50,Japan
+386,Otsu,50,Japan
+440,Sagamihara,50,Japan

@@ -1,10 +1,18 @@
 # Schematch
 
-This is a research prototype for automated schema matching, mainly developed by Alexander Vielhauer
-at the Big Data Analytics group of Thorsten Papenbrock at Marburg University.
-Data dependencies as well as code for loading and handling them is developed by Marcian Seeger (same research group).
+This is a research prototype for automated schema matching, mainly developed by [Alexander Vielhauer](mailto:avielhauer@informatik.uni-marburg.de)
+at the Big Data Analytics group of Thorsten Papenbrock at Marburg University. Data dependencies as well as code for loading and handling them is developed by [Marcian Seeger](mailto:marcian.seeger@uni-marburg.de) (same research group).
 
 **Please do not publish the code or data elsewhere.** This repository is only for teaching at Marburg University and Hasso-Plattner-Institut (Potsdam).
+
+## General Information
+
+If you encounter any problems or have any questions, do not hesitate to write a mail to [Alexander Vielhauer](mailto:avielhauer@informatik.uni-marburg.de).
+
+When you work on a particular step (e.g., a first-line matcher or boosting first-line similarity matrices), it can help to
+tweak the configurations to your use case as this will greatly reduce runtime. (see [Configuration](#configuration))
+
+When reading a lot of CSV files, installing a plugin for that in your IDE can be really helpful. (e.g., [CSV Editor in IntelliJ](https://plugins.jetbrains.com/plugin/10037-csv-editor))
 
 ## Setup
 
@@ -66,7 +74,7 @@ Initially, those data objects only hold what they read from the input files (e.g
 Whenever a matcher requires additional (meta)data, that information is added to the data objects on demand and cached for
 later usage by other matchers. Examples are column data types, column value tokens, and multi-column data dependencies.
 
-### Code Overview
+## Code Overview
 ```
 /src/main/java/de.uni_marburg.schematch/
 |- boosting: package for similarity matrix boosting
@@ -105,7 +113,7 @@ SimMatrixBoosting firstLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
 SimMatrixBoosting secondLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
 ```
 
-### Data Overview
+## Data Overview
 
 Data can be found in the `data` directory. This directory is specified as `defaultDatasetBasePath` in `src/main/resources/general.yaml`.
 For each dataset there is a subdirectory holding all scenarios for that dataset. Within a scenario (e.g., `data/Efes/fdb1-mb2`)
@@ -123,19 +131,94 @@ there are four directories:
 - `metadata/<source|target>/<table-name>/UCC_results.txt`: Contains unique column combinations from within <table-name>
   With the format: "[<table-name>.csv.<attribute-name>,..]"
 
-### Output Overview
+### Efes Datasets
+
+These two datasets are introduced in the paper *Estimating Data Integration and Cleaning Effort* by Kruse et al. (2015, [Download](https://hpi.de/naumann/projects/repeatability/data-integration/estimating-data-integration-and-cleaning-effort.html)).
+
+`Efes-bib` consists of four schemata for bibliographic data from [the amalgam dataset](http://dblab.cs.toronto.edu/~miller/amalgam/) which are assembled to three matching scenarios.
+
+`Efes-music` consists of three schemata for music data which are assembled to three matching scenarios. The three schemata are:
+- `fdb`: [FreeDB](https://gnudb.org/)
+- `mb`: [MusicBrainz](https://musicbrainz.org/)
+- `dis`: [Discogs](https://www.discogs.com/)
+
+### Pubs Dataset
+
+The Pubs dataset is a popular SQL sample dataset which mocks a book publishing company. You can access the dataset [here](https://www.codeproject.com/Articles/20987/HowTo-Install-the-Northwind-and-Pubs-Sample-Databa) and explore its structure through this [ER-Diagram](https://relational.fit.cvut.cz/assets/img/datasets-generated/pubs.svg).
+
+The Pubs dataset offers five different variations, each originating from the original dataset as the source:
+
+- pubs1: `Original Dataset (Unchanged)`
+- pubs2: `Original Dataset with Modified Headers`
+- pubs3: `Original Dataset Joined via Inner Join`
+- pubs4: `Original Dataset Joined via Full Outer Join`
+- pubs5: `Original Dataset with Encoding Changes`
+
+### Test Dataset
+
+This dataset is mainly used by the test cases. Editing existing test scenarios will break the tests, add new scenarios if needed.
+
+## Results Overview
 
 After running Schematch, it generates a new `logs/<timestamp>.log` log file and a `results/<timestamp>/` directory.
 
-In the `results/<timestamp>/<dataset>/<scenario>/<match-step>/outputs/<matcher>/` directory, we can find the similarity matrices produced by `<matcher>`
+### Similarity Matrices
+
+In the `results/<timestamp>/<dataset>/<scenario>/<match-step>/outputs/<matcher>/` directory, you can find the similarity matrices produced by `<matcher>`
 during `<match-step>` for `<scenario>`.
 
 For example, `FirstLineMatchingStep/outputs/RandomMatcher(seed=42)/discs___annotation.csv` holds the similarity matrix that `RandomMatcher` produced
 with the configuration `(seed=42)` during the first-line matching step for matching source table `discs` with target table `annotation`.
 
-TODO: Performance results from evaluating the matchers' similarity matrices against ground truth will appear in `results/<timestamp>/<dataset>/<scenario>/<match-step>/performances/<matcher>/`
+### Performance Results
 
-Saving similarity matrices and performances results can be toggled for every matching step (see [Configuration](#Configuration)).
+Performance results from evaluating the matchers' similarity matrices against ground truth will appear in
+different granularity on different levels in the results hierarchy (`results/<timestamp>/`):
+```
+(1) ./overall_performance.csv
+(2) ./<dataset>/<dataset>_performance_summary.csv
+(3) ./<dataset>/<scenario>/<scenario>_performance_summary.csv
+(4) ./<dataset>/<scenario>/<matchstep>/performances/<matchstep>_performance_summary.csv
+(5) ./<dataset>/<scenario>/<matchstep>/performances/<matchstep>_performance_overview.csv
+```
+
+The performance overview (5) holds details about the performances of every matcher for every table pair
+executed in the respective matching step and scenario. The performance summaries (1-4) show the best matcher for each
+matching step: for every table pair (4), as average over all table pairs in a given scenario (3),
+as average over all scenarios in a given dataset (2), as average over all datasets (1).
+
+### Performance Metric
+
+At the moment, Schematch uses *non-binary precision (at ground truth)* to evaluate similarity matrices against
+ground truth matrices. Given a similarity matrix, it creates a ranked list of attribute correspondence candidates
+(i.e., index pairs sorted by their similarity score) and subsequently checks the list until it finds all ground truth
+correspondences. It collects the sum of similarity scores for true and false positives and then calculates non-binary
+precision as: `sumScoreTP/(sumScoreTP+sumScoreFP)`. Note that the usual precision is calculated by `numTP/(numTP+numFP)`.
+
+Non-binary precision is upper bounded by normal precision and lower bounded by 0, i.e. it ranges from 0 to 1.
+The advantage of using this metric is that it accounts for high gaps between similarity scores. See these two examples:
+
+```
+Ground Truth:
+1 0
+0 1
+
+Similarity Matrix 1:
+0.1 0.6
+0.8 0.2
+Precision=2/4=0.5, Non-binary Precision=(0.1+0.2)/(0.1+0.2+0.6+0.8)=0.3/1.7=0.176
+
+Similarity Matrix 2:
+0.5 0.6
+0.8 0.7
+Precision=2/4=0.5, Non-binary Precision=(0.5+0.7)/(0.5+0.7+0.6+0.8)=1.2/2.6=0.462
+```
+
+While precision estimates both similarity matrices to be equally good, non-binary precision is much worse for
+similarity matrix 1 (low similarity scores for true positives, high similarity scores for false positives) than for
+similarity matrix 2 (all similarity scores about on par).
+
+Saving similarity matrices and performances results can be toggled for every matching step (see [Configuration](#configuration)).
 
 ## Configuration
 
@@ -162,6 +245,11 @@ runSimMatrixBoostingOnSecondLineMatchers: True
 saveOutputSimMatrixBoostingOnSecondLineMatchers: True
 evaluateSimMatrixBoostingOnSecondLineMatchers: True
 ```
+We recommend to only save outputs when they are actually useful for you, as they result in a lot of files.
+If you are, for example only working on first-line matchers, you might want to also turn off evaluation for the other steps.
+
+Note that all other steps depend on the first-line matching step, and the similarity matrix boosting steps depend
+on their respective line-matching.
 
 ### Datasets
 
@@ -243,7 +331,8 @@ or to `INFO` to only get error, warn, and info logs.
 1. Deduplicate `save()` and `evaluate()` code for match steps.
 2. Read dependencies on demand, making config parameter `readDependencies` obsolete.
 3. Make step 3 to 5 configurable via `.yaml` file, at the moment you can only toggle run/save/evaluate in `general.yaml` but specific configuration needs to be done near the beginning of `Main.main()`.
-4. Streamline evaluation process, also add option for binary precision and check difference between row-wise (source-to-target matching) and column-wise (target-to-source matching) precision.
+4. Streamline evaluation process, also add option for binary precision.
+5. Various `FIXME` and `TODO` in the code.
 
 ## Teaching
 
@@ -251,7 +340,7 @@ or to `INFO` to only get error, warn, and info logs.
 #### Topic 1: State-of-the-Art Matchers
 Team members: Jonathan Püschel, Julius Scheffler, Lukas Junk
 #### Topic 2: Metadata Matchers
-Team members: TODO
+Team members: Leif Reuter, Lars Reuter
 #### Topic 3: Similarity Matrix Boosting (Similarity Flooding)
 Team members: TODO
 #### Topic 4: Similarity Matrix Boosting (Other)

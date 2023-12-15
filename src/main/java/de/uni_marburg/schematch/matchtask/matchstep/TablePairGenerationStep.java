@@ -4,18 +4,23 @@ package de.uni_marburg.schematch.matchtask.matchstep;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.TablePairsGenerator;
 import de.uni_marburg.schematch.utils.Configuration;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import org.apache.commons.lang3.NotImplementedException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Data
-@RequiredArgsConstructor
-public class TablePairGenerationStep implements MatchStep {
-    final static Logger log = LogManager.getLogger(TablePairGenerationStep.class);
+@Getter
+@EqualsAndHashCode(callSuper = true)
+public class TablePairGenerationStep extends MatchStep {
+    private final static Logger log = LogManager.getLogger(TablePairGenerationStep.class);
 
     private final TablePairsGenerator tablePairsGenerator;
+
+    public TablePairGenerationStep(boolean doRun, boolean doSave, boolean doEvaluate, TablePairsGenerator tablePairsGenerator) {
+        super(doRun, doSave, doEvaluate);
+        this.tablePairsGenerator = tablePairsGenerator;
+    }
 
     @Override
     public void run(MatchTask matchTask) {

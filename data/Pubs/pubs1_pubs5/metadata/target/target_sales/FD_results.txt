@@ -1,0 +1,9 @@
+[target_sales.csv.ord_date, target_sales.csv.payterms, target_sales.csv.qty] --> target_sales.csv.ord_num, target_sales.csv.stor_id
+[target_sales.csv.ord_date, target_sales.csv.payterms, target_sales.csv.title_id] --> target_sales.csv.ord_num, target_sales.csv.qty, target_sales.csv.stor_id
+[target_sales.csv.ord_date, target_sales.csv.qty, target_sales.csv.stor_id] --> target_sales.csv.ord_num
+[target_sales.csv.ord_date, target_sales.csv.stor_id] --> target_sales.csv.payterms
+[target_sales.csv.ord_num, target_sales.csv.title_id] --> target_sales.csv.qty
+[target_sales.csv.ord_num] --> target_sales.csv.ord_date, target_sales.csv.payterms, target_sales.csv.stor_id
+[target_sales.csv.payterms, target_sales.csv.qty, target_sales.csv.stor_id] --> target_sales.csv.ord_date, target_sales.csv.ord_num
+[target_sales.csv.qty, target_sales.csv.title_id] --> target_sales.csv.ord_date, target_sales.csv.ord_num, target_sales.csv.payterms, target_sales.csv.stor_id
+[target_sales.csv.stor_id, target_sales.csv.title_id] --> target_sales.csv.ord_date, target_sales.csv.ord_num, target_sales.csv.payterms, target_sales.csv.qty

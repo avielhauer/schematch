@@ -1,0 +1,7 @@
+[authors.csv.address] --> authors.csv.city, authors.csv.contract, authors.csv.phone, authors.csv.state, authors.csv.zip
+[authors.csv.au_fname] --> authors.csv.address, authors.csv.au_id, authors.csv.au_lname, authors.csv.city, authors.csv.contract, authors.csv.phone, authors.csv.state, authors.csv.zip
+[authors.csv.au_id] --> authors.csv.address, authors.csv.au_fname, authors.csv.au_lname, authors.csv.city, authors.csv.contract, authors.csv.phone, authors.csv.state, authors.csv.zip
+[authors.csv.au_lname] --> authors.csv.address, authors.csv.city, authors.csv.contract, authors.csv.phone, authors.csv.state, authors.csv.zip
+[authors.csv.city] --> authors.csv.state
+[authors.csv.phone] --> authors.csv.address, authors.csv.city, authors.csv.contract, authors.csv.state, authors.csv.zip
+[authors.csv.zip] --> authors.csv.city, authors.csv.state
