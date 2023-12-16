@@ -1,6 +1,7 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class SchemaElementNode{
@@ -25,5 +26,18 @@ public class SchemaElementNode{
 
     public SchemaElement getCurrent() {
         return current;
+    }
+
+    public List<SchemaElementNode> postOrder() {
+        ArrayList<SchemaElementNode> postOrderList = new ArrayList<SchemaElementNode>();
+        if(!children.isEmpty()) children.forEach(schemaElementNode -> {
+            if (!schemaElementNode.children.isEmpty()) {
+                postOrderList.addAll(schemaElementNode.postOrder());
+            } else {
+                postOrderList.add(schemaElementNode);
+            }
+        });
+        postOrderList.add(this);
+        return postOrderList;
     }
 }

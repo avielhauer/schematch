@@ -64,4 +64,8 @@ public class SchemaTree {
     private String renderTree(SchemaElementNode node, String prefix, boolean isTail) {
        return null;
     }
+
+    public List<SchemaElementNode> postOrder() {
+        return rootNode.postOrder();
+    }
 }
