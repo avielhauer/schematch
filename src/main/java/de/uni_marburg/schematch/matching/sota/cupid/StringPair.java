@@ -3,8 +3,8 @@ package de.uni_marburg.schematch.matching.sota.cupid;
 import java.util.Objects;
 
 public class StringPair {
-    private String first;
-    private String second;
+    private final String first;
+    private final String second;
 
     public StringPair(String first, String second) {
         this.first = first;
