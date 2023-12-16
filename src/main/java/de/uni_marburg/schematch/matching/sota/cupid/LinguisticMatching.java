@@ -20,13 +20,13 @@ public class LinguisticMatching {
         return null;
     }
 
-    public Map<Pair<String, String>, Float> computeCompatibility(Set<String> categories) {
+    public Map<String, Map<String, Double>> computeCompatibility(Set<String> categories) {
 
         return null;
     }
 
-    public void comparison() {
-
+    public HashMap<StringPair,Double> comparison() {
+        return new HashMap<StringPair,Double>();
     }
 
     private List<Pair<SchemaElementNode, SchemaElementNode>> generateParallelLsimInput(SchemaTree sourceTree,

@@ -1,5 +1,7 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -7,6 +9,7 @@ import java.util.List;
 class SchemaElement {
 
     private List<String> categories;
+    @Getter
     private String dataType;
     private List<Token> tokens;
     private String initialName;
