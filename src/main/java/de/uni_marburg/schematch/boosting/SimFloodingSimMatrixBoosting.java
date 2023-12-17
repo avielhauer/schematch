@@ -1,9 +1,6 @@
 package de.uni_marburg.schematch.boosting;
 
-import de.uni_marburg.schematch.boosting.sf_algorithm.DBGraph;
-import de.uni_marburg.schematch.boosting.sf_algorithm.FloodingFunctions;
-import de.uni_marburg.schematch.boosting.sf_algorithm.ObjectPair;
-import de.uni_marburg.schematch.boosting.sf_algorithm.PropagationGraph;
+import de.uni_marburg.schematch.boosting.sf_algorithm.*;
 import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Database;
 import de.uni_marburg.schematch.data.Scenario;
@@ -72,7 +69,8 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
         targetGraph.addNumericMetadata();
         targetGraph.addDatatypes();
 
-        PropagationGraph pGraph = sourceGraph.generatePropagationGraph(targetGraph);
+        // Generate Propagation Graph from Source and target graphs. Set Weight distribution function for pGraph:
+        PropagationGraph pGraph = sourceGraph.generatePropagationGraph(targetGraph, (e, g) -> WeightDistributionFunctions.cpWaterWeighting(e,g, 1.0F));
 
         Map<ObjectPair<Column, Column>, Float> columnDefaultSimilarity = new HashMap<>();
         for(int i = 0; i < simMatrix.length; i++){

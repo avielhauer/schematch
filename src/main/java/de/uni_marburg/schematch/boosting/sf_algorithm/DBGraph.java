@@ -68,7 +68,7 @@ public class DBGraph extends SimpleDirectedGraph<Object, LabeledEdge> {
         }
     }
 
-    public PropagationGraph generatePropagationGraph(DBGraph that){
+    public PropagationGraph generatePropagationGraph(DBGraph that, WeightDistributer distributor){
         Set<LabeledEdge> thisEdges = this.edgeSet();
         Set<LabeledEdge> thatEdges = that.edgeSet();
 
@@ -86,13 +86,11 @@ public class DBGraph extends SimpleDirectedGraph<Object, LabeledEdge> {
                 }
             }
         }
-        // Set Edge weight, TODO: make this configurable
-        for(ObjectPair vertex : pGraph.vertexSet()){
-            Set<WeightedEdge> edges = pGraph.outgoingEdgesOf(vertex);
-            for(WeightedEdge edge : edges){
-                edge.setWeight((float) (1.0/edges.size()));
-            }
+
+        for(WeightedEdge edge : pGraph.edgeSet()){
+            edge.setWeight(distributor.apply(edge, pGraph));
         }
+
         return pGraph;
     }
 
