@@ -13,8 +13,8 @@ public class StructuralSimilarity {
 
         if (sLeaves.size() > tLeaves.size()*2 || sLeaves.size()*2 < tLeaves.size()) return Double.NaN;
 
-        List<SchemaElementNode> sStrongLink = new ArrayList<SchemaElementNode>();
-        List<SchemaElementNode> tStrongLink = new ArrayList<SchemaElementNode>();
+        HashSet<SchemaElementNode> sStrongLink = new HashSet<SchemaElementNode>();
+        HashSet<SchemaElementNode> tStrongLink = new HashSet<SchemaElementNode>();
 
         for (SchemaElementNode s1: sLeaves) {
             for (SchemaElementNode t1: sLeaves) {
