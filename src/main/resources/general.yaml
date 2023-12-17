@@ -12,8 +12,15 @@ defaultGroundTruthDir: "ground_truth"
 resultsDir: "results"
 # directory name for performance results
 performanceDir: "performances"
-# file name for performance summary
-performanceSummaryFile: "_summary.csv"
+# file name suffixes for matchstep performances (<MatchStep>suffix)
+performanceMatchStepOverviewFileSuffix: "_performance_overview.csv"
+performanceMatchStepSummaryFileSuffix: "_performance_summary.csv"
+# file name suffixes for scenario performance (<Scenario>suffix)
+performanceScenarioSummaryFileSuffix: "_performance_summary.csv"
+# file name suffixes for dataset performance (<Dataset>suffix)
+performanceDatasetSummaryFileSuffix: "_performance_summary.csv"
+# file name for overall performance summary file
+performanceOverallSummaryFile: "overall_performance.csv"
 # directory name for matcher output results
 outputDir : "outputs"
 # default base directory where data directories reside
@@ -24,19 +31,19 @@ defaultDatasetBasePath: "data"
 saveOutputTablePairGeneration: False
 evaluateTablePairGeneration: False
 # Step 2: run first line matchers (i.e., matchers that use table data to match)
-saveOutputFirstLineMatchers: True
+saveOutputFirstLineMatchers: False
 evaluateFirstLineMatchers: True
 # Step 3: run similarity matrix boosting on the output of first line matchers
 runSimMatrixBoostingOnFirstLineMatchers: True
-saveOutputSimMatrixBoostingOnFirstLineMatchers: True
+saveOutputSimMatrixBoostingOnFirstLineMatchers: False
 evaluateSimMatrixBoostingOnFirstLineMatchers: True
 # Step 4: run second line matchers (ensemble matchers and other matchers using output of first line matchers)
 runSecondLineMatchers: True
-saveOutputSecondLineMatchers: True
+saveOutputSecondLineMatchers: False
 evaluateSecondLineMatchers: True
 # Step 5: run similarity matrix boosting on the output of second line matchers
 runSimMatrixBoostingOnSecondLineMatchers: True
-saveOutputSimMatrixBoostingOnSecondLineMatchers: True
+saveOutputSimMatrixBoostingOnSecondLineMatchers: False
 evaluateSimMatrixBoostingOnSecondLineMatchers: True
 
 # FIXME: do not set this parameter in this file, it is set to true whenever runSimMatrixBoosting is set to true

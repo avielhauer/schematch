@@ -1,0 +1,7 @@
+[target_authors.csv.address] --> target_authors.csv.city, target_authors.csv.contract, target_authors.csv.phone, target_authors.csv.state, target_authors.csv.zip
+[target_authors.csv.au_fname] --> target_authors.csv.address, target_authors.csv.au_id, target_authors.csv.au_lname, target_authors.csv.city, target_authors.csv.contract, target_authors.csv.phone, target_authors.csv.state, target_authors.csv.zip
+[target_authors.csv.au_id] --> target_authors.csv.address, target_authors.csv.au_fname, target_authors.csv.au_lname, target_authors.csv.city, target_authors.csv.contract, target_authors.csv.phone, target_authors.csv.state, target_authors.csv.zip
+[target_authors.csv.au_lname] --> target_authors.csv.address, target_authors.csv.city, target_authors.csv.contract, target_authors.csv.phone, target_authors.csv.state, target_authors.csv.zip
+[target_authors.csv.city] --> target_authors.csv.state
+[target_authors.csv.phone] --> target_authors.csv.address, target_authors.csv.city, target_authors.csv.contract, target_authors.csv.state, target_authors.csv.zip
+[target_authors.csv.zip] --> target_authors.csv.city, target_authors.csv.state

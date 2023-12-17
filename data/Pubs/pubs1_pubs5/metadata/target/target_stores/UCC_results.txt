@@ -1,0 +1,5 @@
+[target_stores.csv.stor_id]
+[target_stores.csv.stor_name]
+[target_stores.csv.stor_address]
+[target_stores.csv.city]
+[target_stores.csv.zip]
