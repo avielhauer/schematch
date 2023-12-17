@@ -20,7 +20,7 @@ public class CupidMatcher extends Matcher {
     private HashMap<String,HashMap<StringPair,Double>> treeMatch(
             SchemaTree sourceTree,
             SchemaTree targetTree,
-            Set<String> categories,
+            List<String> categories,
             double leafWStruct,
             double wStruct,
             double thAccept,

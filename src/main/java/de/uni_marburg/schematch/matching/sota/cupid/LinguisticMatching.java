@@ -5,34 +5,154 @@ import de.uni_marburg.schematch.similarity.string.Levenshtein;
 import java.util.*;
 
 public class LinguisticMatching {
+
     private String snakeCase(String name) {
-        return "";
+        String s1 = name.replaceAll("(.)([A-Z][a-z]+)", "$1_$2");
+        return s1.replaceAll("([a-z0-9])([A-Z])", "$1_$2").toLowerCase();
     }
 
-    public SchemaElement normalization(String element, SchemaElement schemaElement) {
+    public SchemaElement normalization(String element,
+                                       SchemaElement schemaElement) {
+        if (schemaElement == null) {
+            schemaElement = new SchemaElement(element);
+        }
+        try {
+            // TODO: 17.12.2023 nltk.word_tokenize
+
+        } catch (Exception e) {
+            // TODO: 17.12.2023 same library
+        }
 
 
-        return null;
+        // Dummy
+        List<String> tokens = new ArrayList<>();
+
+        for (String token : tokens) {
+            Token tokenObj = new Token();
+
+            // TODO: token in string.punctuation
+            if (true) {
+                tokenObj.setIgnore(true);
+                tokenObj.addData(token);
+                // welche bedeutung hat die Klassen TokenType?
+                tokenObj.setTokenType(TokenTypes.SYMBOLS);
+                schemaElement.addToken(tokenObj);
+            } else {
+                try {
+                    Float.parseFloat(token);
+                    tokenObj.addData(token);
+                    tokenObj.setTokenType(TokenTypes.NUMBER);
+                    schemaElement.addToken(tokenObj);
+                } catch (Exception e) {
+                    String tokenSnake = snakeCase(token);
+
+                    if (tokenSnake.contains("_")) {
+                        tokenSnake.replace("_", " ");
+                        schemaElement = normalization(tokenSnake, schemaElement);
+                    } else if (true) { // token.lower() in stopwords.words('english'):
+                        tokenObj.addData(token.toLowerCase(Locale.ROOT));
+                        tokenObj.setIgnore(true);
+                        tokenObj.setTokenType(TokenTypes.COMMON_WORDS);
+                        schemaElement.addToken(tokenObj);
+                    } else {
+                        tokenObj.addData(token.toLowerCase(Locale.ROOT));
+                        tokenObj.setTokenType(TokenTypes.CONTENT);
+                        schemaElement.addToken(tokenObj);
+                    }
+                }
+            }
+        }
+
+        return schemaElement;
     }
 
-    private TokenType addTokenType(Token token) {
-
-        return null;
+    private TokenTypes addTokenType(Token token) {
+        try {
+            Float.parseFloat(token.getData());
+            return TokenTypes.NUMBER;
+        } catch (Exception e) {
+            return TokenTypes.CONTENT;
+        }
     }
 
-    public Map<String, Map<String, Double>> computeCompatibility(Set<String> categories) {
+    public Map<String, Map<String, Double>> computeCompatibility(List<String> categories) {
+        Map<String, Map<String, Double>> compatibilityTable = new HashMap<>();
+        List<StringPair> combinations = new ArrayList<>();
+        Map<String, Map<String, Double>> dataCompatibilityTable = new DataCompatibilityTable().table;
 
-        return null;
+        for (int i = 0; i < categories.size(); i++) {
+            for (int j = 0; j < categories.size(); j++) {
+                StringPair s = new StringPair(categories.get(i), categories.get(j));
+                combinations.add(s);
+            }
+        }
+
+        for (StringPair categoryPair : combinations) {
+            if (!compatibilityTable.containsKey(categoryPair.getFirst())) {
+                compatibilityTable.put(categoryPair.getFirst(), new HashMap<>());
+            }
+
+            if (!compatibilityTable.containsKey(categoryPair.getSecond())) {
+                compatibilityTable.put(categoryPair.getSecond(), new HashMap<>());
+            }
+
+            if (categoryPair.getFirst().equals(categoryPair.getSecond())) {
+                compatibilityTable.get(categoryPair.getFirst()).put(categoryPair.getSecond(), 1.0);
+                compatibilityTable.get(categoryPair.getSecond()).put(categoryPair.getFirst(), 1.0);
+            } else if (dataCompatibilityTable.containsKey(categoryPair.getFirst()) &&
+                    dataCompatibilityTable.get(categoryPair.getFirst()).containsKey(categoryPair.getSecond())) {
+                compatibilityTable.get(categoryPair.getFirst())
+                        .put(categoryPair.getSecond(), dataCompatibilityTable.get(categoryPair.getFirst())
+                                .get(categoryPair.getSecond()));
+
+                compatibilityTable.get(categoryPair.getSecond())
+                        .put(categoryPair.getFirst(), dataCompatibilityTable.get(categoryPair.getSecond())
+                                .get(categoryPair.getFirst()));
+            } else {
+                // TODO: 17.12.2023 nltk.world library
+                List<Token> tokens1 = new ArrayList<>();
+                List<Token> tokens2 = new ArrayList<>();
+
+                for (Token token : tokens1) {
+                    token.setTokenType(addTokenType(token));
+                }
+
+                for (Token token : tokens2) {
+                    token.setTokenType(addTokenType(token));
+                }
+
+                double compatibility = dataTypeSimilarity(tokens1, tokens2);
+                compatibilityTable.get(categoryPair.getFirst()).put(categoryPair.getSecond(), compatibility);
+                compatibilityTable.get(categoryPair.getSecond()).put(categoryPair.getFirst(), compatibility);
+            }
+        }
+        return compatibilityTable;
     }
 
-    public HashMap<StringPair,Double> comparison() {
-        return new HashMap<StringPair,Double>();
+    public Map<StringPair, Double> comparison(SchemaTree sourceTree,
+                                                  SchemaTree targetTree,
+                                                  Map<String, Map<String, Double>> compatibilityTable,
+                                                  double thNs,
+                                                  double parallelism) {
+        List<Pair<SchemaElementNode, SchemaElementNode>> elementsToCompare = generateParallelLsimInput(sourceTree, targetTree, compatibilityTable, thNs);
+        Map<StringPair, Double> lsims = new HashMap<>();
+
+        if (parallelism == 1) {
+            for (Pair<SchemaElementNode, SchemaElementNode> pairNode : elementsToCompare) {
+                Pair<SchemaElement, SchemaElement> pair = new Pair<>(pairNode.getFirst().current, pairNode.getFirst().current);
+                Pair<StringPair, Double> lsimProcVal = lsimProc(pair, compatibilityTable);
+                lsims.put(lsimProcVal.getFirst(), lsimProcVal.getSecond());
+            }
+        } else {
+            // TODO: 17.12.2023 wie parallelisiert man in Java?
+        }
+        return lsims;
     }
 
     private List<Pair<SchemaElementNode, SchemaElementNode>> generateParallelLsimInput(SchemaTree sourceTree,
-                                      SchemaTree targetTree,
-                                      Map<Pair<String, String>, Float> compatibilityTable,
-                                      float th_ns) {
+                                                                                       SchemaTree targetTree,
+                                                                                       Map<String, Map<String, Double>> compatibilityTable,
+                                                                                       double thNs) {
 
         List<Pair<SchemaElementNode, SchemaElementNode>> result = new ArrayList<>();
 
@@ -45,21 +165,22 @@ public class LinguisticMatching {
             }
         }
 
-        CompatibilityTable dataTypeCompatibilityTable = new CompatibilityTable();
-
         for (Pair<SchemaElementNode, SchemaElementNode> pair : allNodes) {
             try {
-                dataTypeCompatibilityTable.table.get(pair.getFirst().getCurrent().getCategories().get(0));
-                dataTypeCompatibilityTable.table.get(pair.getSecond().getCurrent().getCategories().get(0));
-                dataTypeCompatibilityTable.table.get(pair.getFirst().getCurrent().getCategories().get(0));
-            } catch (Exception e) {
-                continue;
+                if (compatibilityTable.containsKey(pair.getFirst().getCurrent().getCategories().get(0)) &&
+                    compatibilityTable.containsKey(pair.getSecond().getCurrent().getCategories().get(0)) &&
+                        compatibilityTable.get(pair.getFirst().getCurrent().getCategories().get(0))
+                        .get(pair.getSecond().getCurrent().getCategories().get(0)) > thNs) {
+                    result.add(pair);
+                }
+            } catch (Exception ignored) {
             }
         }
 
 
         return result;
     }
+
     private static List<SchemaElementNode> levelOrderTraversal(SchemaElementNode root) {
         if (root == null) {
             return null;
@@ -79,14 +200,14 @@ public class LinguisticMatching {
         return nodes;
     }
 
-    private Pair<Pair<String, String>, Float> lsimProc(Pair<SchemaElement, SchemaElement> pair, Map<Pair<String, String>, Float> compatibilityTable) {
+    private Pair<StringPair, Double> lsimProc(Pair<SchemaElement, SchemaElement> pair, Map<String, Map<String, Double>> compatibilityTable) {
         SchemaElement s = pair.getFirst();
         SchemaElement t = pair.getSecond();
 
         List<String> s_cat = s.getCategories();
         List<String> t_cat = t.getCategories();
 
-        //double max_s
+        // TODO: 17.12.2023 Tf ist diese Listcomprehension
         return null;
     }
 
@@ -99,14 +220,14 @@ public class LinguisticMatching {
                 continue;
             }
 
-            List t1 = new ArrayList();
+            List<Token> t1 = new ArrayList();
             for (Token token : tokenSet1) {
                 if (token.getTokenType().equals(tt)) {
                     t1.add(token);
                 }
             }
 
-            List t2 = new ArrayList();
+            List<Token> t2 = new ArrayList();
             for (Token token : tokenSet2) {
                 if (token.getTokenType().equals(tt)) {
                     t2.add(token);
@@ -156,12 +277,13 @@ public class LinguisticMatching {
     }
 
     private Set<String> getSynonyms(String word) {
-
+        // TODO: 17.12.2023  
+        
         return null;
     }
 
     private float computeSimilarityWordnet(String word1, String word2) {
-
+        // TODO: 17.12.2023  
         return 0;
     }
 
@@ -195,14 +317,28 @@ public class LinguisticMatching {
         return sum1 / sum2;
     }
 
-    private float computeLsim(SchemaElement element1, SchemaElement element2) {
-
-        return 0;
+    private double computeLsim(SchemaElement element1, SchemaElement element2) {
+        double nameSimilarity = nameSimilarityElements(element1, element2);
+        double maxCategory = getMaxNsCategory(element1.getCategories(), element2.getCategories())
+        return nameSimilarity * maxCategory;
     }
 
-    private float getMaxNsCategory(ArrayList<String> categoriesE1, ArrayList<String> categoriesE2) {
+    private double getMaxNsCategory(List<String> categoriesE1, List<String> categoriesE2) {
+        double maxCategory = Double.MIN_VALUE;
 
-        return 0;
+        // TODO: 17.12.2023 nltk.word_tokens for c1Tokens and c2Tokens
+        for (String c1 : categoriesE1) {
+            List<Token> c1Token = new ArrayList<>();
+            for (String c2 : categoriesE2) {
+                List<Token> c2Token = new ArrayList<>();
+                double nameSimilarityCategories = nameSimilarityTokens(c1Token, c2Token);
+                
+                if (nameSimilarityCategories > maxCategory) {
+                    maxCategory = nameSimilarityCategories;
+                }
+            }
+        }
+        return maxCategory;
     }
 
 

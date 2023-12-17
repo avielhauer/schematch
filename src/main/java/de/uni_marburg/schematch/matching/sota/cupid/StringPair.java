@@ -23,4 +23,12 @@ public class StringPair {
     public int hashCode() {
         return Objects.hash(first, second);
     }
+
+    public String getFirst() {
+        return first;
+    }
+
+    public String getSecond() {
+        return second;
+    }
 }
