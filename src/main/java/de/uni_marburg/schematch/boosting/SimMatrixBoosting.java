@@ -10,5 +10,5 @@ public interface SimMatrixBoosting {
      * @param matchTask MatchTask with all needed information for similarity boosting
      * @return An updated (hopefully better) similarity matrix
      */
-    public float[][] run(int line, MatchTask matchTask, TablePair tablePait, Matcher matcher);
+    public float[][] run(int line, MatchTask matchTask, TablePair tablePair, Matcher matcher);
 }
