@@ -217,8 +217,16 @@ public class LinguisticMatching {
         List<String> s_cat = s.getCategories();
         List<String> t_cat = t.getCategories();
 
-        // TODO: 17.12.2023 Tf ist diese Listcomprehension
-        return null;
+        double maxScore = s_cat.stream()
+                .mapToDouble(c -> compatibilityTable.getOrDefault(c, Map.of()).entrySet().stream()
+                        .filter(e -> t_cat.contains(e.getKey()))
+                        .mapToDouble(Map.Entry::getValue)
+                        .max().orElse(0.0))
+                .max().orElse(0.0);
+
+        double nameSimilarityScore = nameSimilarityElements(s, t);
+
+        return new Pair<>(new StringPair(s.getLongName(), t.getLongName()), nameSimilarityScore * maxScore);
     }
 
     private double dataTypeSimilarity(List<Token> tokenSet1, List<Token> tokenSet2) {
