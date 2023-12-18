@@ -3,6 +3,8 @@ package de.uni_marburg.schematch.matching.sota.cupid;
 import de.uni_marburg.schematch.similarity.string.Levenshtein;
 
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class LinguisticMatching {
 
@@ -133,7 +135,7 @@ public class LinguisticMatching {
                                                   SchemaTree targetTree,
                                                   Map<String, Map<String, Double>> compatibilityTable,
                                                   double thNs,
-                                                  double parallelism) {
+                                                  int parallelism) {
         List<Pair<SchemaElementNode, SchemaElementNode>> elementsToCompare = generateParallelLsimInput(sourceTree, targetTree, compatibilityTable, thNs);
         Map<StringPair, Double> lsims = new HashMap<>();
 
@@ -144,7 +146,15 @@ public class LinguisticMatching {
                 lsims.put(lsimProcVal.getFirst(), lsimProcVal.getSecond());
             }
         } else {
-            // TODO: 17.12.2023 wie parallelisiert man in Java?
+            ExecutorService executor = Executors.newFixedThreadPool(parallelism);
+            for (Pair<SchemaElementNode, SchemaElementNode> pairNode : elementsToCompare) {
+                Pair<SchemaElement, SchemaElement> pair = new Pair<>(pairNode.getFirst().current, pairNode.getFirst().current);
+                executor.submit(() -> {
+                    Pair<StringPair, Double> lsimProcVal = lsimProc(pair, compatibilityTable);
+                    lsims.put(lsimProcVal.getFirst(), lsimProcVal.getSecond());
+                });
+            }
+            executor.shutdown();
         }
         return lsims;
     }
@@ -319,7 +329,7 @@ public class LinguisticMatching {
 
     private double computeLsim(SchemaElement element1, SchemaElement element2) {
         double nameSimilarity = nameSimilarityElements(element1, element2);
-        double maxCategory = getMaxNsCategory(element1.getCategories(), element2.getCategories())
+        double maxCategory = getMaxNsCategory(element1.getCategories(), element2.getCategories());
         return nameSimilarity * maxCategory;
     }
 

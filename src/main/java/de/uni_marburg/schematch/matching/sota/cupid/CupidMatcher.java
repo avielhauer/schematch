@@ -14,10 +14,10 @@ public class CupidMatcher extends Matcher {
         return new float[0][];
     }
 
-    // Gibt eine HashMap zurück mit 3 Schlüsseln "ssim","lsim" und "wsim"
-    // mit denen auf 3 weitere Hashmaps zugegriffen werden kann, welche
+    // Gibt eine Map zurück mit 3 Schlüsseln "ssim","lsim" und "wsim"
+    // mit denen auf 3 weitere Maps zugegriffen werden kann, welche
     // die Namenspaare der beiden bäume als schlüssel haben.
-    private HashMap<String,HashMap<StringPair,Double>> treeMatch(
+    private Map<String,Map<StringPair,Double>> treeMatch(
             SchemaTree sourceTree,
             SchemaTree targetTree,
             List<String> categories,
@@ -29,13 +29,13 @@ public class CupidMatcher extends Matcher {
             double cInc,
             double cDec,
             double thNs,
-            double parallelism
+            int parallelism
     ) {
         Map<String, Map<String, Double>> compatibilityTable = new LinguisticMatching().computeCompatibility(categories);
-        HashMap<StringPair,Double> lSims = new LinguisticMatching().comparison();
+        Map<StringPair,Double> lSims = new LinguisticMatching().comparison(sourceTree,targetTree,compatibilityTable,thNs,parallelism);
         List<SchemaElementNode> sLeaves = sourceTree.getLeaves();
         List<SchemaElementNode> tLeaves = targetTree.getLeaves();
-        HashMap<String,HashMap<StringPair,Double>> sims = getSims(sLeaves, tLeaves, compatibilityTable, lSims, leafWStruct);
+        Map<String,Map<StringPair,Double>> sims = getSims(sLeaves, tLeaves, compatibilityTable, lSims, leafWStruct);
         List<SchemaElementNode> sPostOrder = sourceTree.postOrder();
         List<SchemaElementNode> tPostOrder = targetTree.postOrder();
 
@@ -67,15 +67,15 @@ public class CupidMatcher extends Matcher {
         return sims;
     }
 
-    private HashMap<String, HashMap<StringPair, Double>> getSims(
+    private Map<String, Map<StringPair, Double>> getSims(
             List<SchemaElementNode> sLeaves,
             List<SchemaElementNode> tLeaves,
             Map<String, Map<String, Double>> compatibilityTable,
-            HashMap<StringPair, Double> lsims,
+            Map<StringPair, Double> lsims,
             double leafWStruct) {
-        HashMap<String, HashMap<StringPair, Double>> sims = new HashMap<String, HashMap<StringPair, Double>>();
-        HashMap<StringPair, Double> ssim = new HashMap<StringPair, Double>();
-        HashMap<StringPair, Double> wsim = new HashMap<StringPair, Double>();
+        Map<String, Map<StringPair, Double>> sims = new HashMap<String, Map<StringPair, Double>>();
+        Map<StringPair, Double> ssim = new HashMap<StringPair, Double>();
+        Map<StringPair, Double> wsim = new HashMap<StringPair, Double>();
         for (SchemaElementNode s: sLeaves) {
             for (SchemaElementNode t: tLeaves) {
                 if (compatibilityTable.containsKey(s.current.getDataType()) && compatibilityTable.containsKey(t.current.getDataType())) {
