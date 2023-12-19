@@ -27,6 +27,7 @@ public class RandomEnsembleMatcher extends Matcher {
         Object[] firstLineMatchers;
         if (Configuration.getInstance().isRunSimMatrixBoostingOnFirstLineMatchers()) {
             firstLineMatchers = tablePair.getBoostedFirstLineMatcherResults().keySet().toArray();
+
         } else {
             firstLineMatchers = tablePair.getFirstLineMatcherResults().keySet().toArray();
         }

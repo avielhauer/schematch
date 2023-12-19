@@ -3,9 +3,13 @@ package de.uni_marburg.schematch.matching.ensemble;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.Configuration;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Random;
 
+@Data
+@NoArgsConstructor
 public class AverageEnsembleMatcher extends Matcher {
     @Override
     public float[][] match(TablePair tablePair) {
