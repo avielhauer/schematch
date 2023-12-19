@@ -2,6 +2,7 @@ package de.uni_marburg.schematch.matchtask.matchstep;
 
 
 import de.uni_marburg.schematch.matchtask.MatchTask;
+import de.uni_marburg.schematch.matchtask.tablepair.generators.NaiveTablePairsGenerator;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.TablePairsGenerator;
 import de.uni_marburg.schematch.utils.Configuration;
 import lombok.EqualsAndHashCode;
@@ -20,6 +21,9 @@ public class TablePairGenerationStep extends MatchStep {
     public TablePairGenerationStep(boolean doRun, boolean doSave, boolean doEvaluate, TablePairsGenerator tablePairsGenerator) {
         super(doRun, doSave, doEvaluate);
         this.tablePairsGenerator = tablePairsGenerator;
+        if (!(tablePairsGenerator instanceof NaiveTablePairsGenerator)) {
+            throw new IllegalArgumentException("Only naive table pairs generator allowed at the moment.");
+        }
     }
 
     @Override

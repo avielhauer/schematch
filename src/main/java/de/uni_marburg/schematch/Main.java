@@ -5,6 +5,7 @@ import de.uni_marburg.schematch.boosting.SimMatrixBoosting;
 import de.uni_marburg.schematch.matching.ensemble.RandomEnsembleMatcher;
 import de.uni_marburg.schematch.matchtask.matchstep.*;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.GroundTruthTablePairsGenerator;
+import de.uni_marburg.schematch.matchtask.tablepair.generators.NaiveTablePairsGenerator;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.TablePairsGenerator;
 import de.uni_marburg.schematch.data.*;
 import de.uni_marburg.schematch.matching.Matcher;
@@ -28,14 +29,15 @@ public class Main {
 
         Configuration config = Configuration.getInstance();
 
-        log.info("Instantiating matchers and similarity matrix boosting");
+        log.info("Instantiating table pair generation");
+        TablePairsGenerator tablePairsGenerator = new NaiveTablePairsGenerator();
+        log.info("Instantiating matchers");
         MatcherFactory matcherFactory = new MatcherFactory();
-        Map<String, List<Matcher>> firstLineMatchers = matcherFactory.createMatchersFromConfig();
-        // FIXME: make sim matrix boosting and second line matching configurable via .yaml files
-        // Configure second line matchers and similarity matrix boosting here for now
-        TablePairsGenerator tablePairsGenerator = new GroundTruthTablePairsGenerator();
-        List<Matcher> secondLineMatchers = new ArrayList<>();
-        secondLineMatchers.add(new RandomEnsembleMatcher(42));
+        Map<String, List<Matcher>> firstLineMatchers = matcherFactory.createMatchersFromConfig(1);
+        Map<String, List<Matcher>> secondLineMatchers = matcherFactory.createMatchersFromConfig(2);
+        log.info("Instantiating sim matrix boosting");
+        // FIXME: make sim matrix boosting configurable via .yaml files
+        // Configure similarity matrix boosting here for now
         SimMatrixBoosting firstLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
         SimMatrixBoosting secondLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
 
@@ -47,9 +49,10 @@ public class Main {
                 config.isEvaluateTablePairGeneration(),
                 tablePairsGenerator));
         // Step 2: run first line matchers (i.e., matchers that use table data to match)
-        matchSteps.add(new FirstLineMatchingStep(true,
+        matchSteps.add(new MatchingStep(true,
                 config.isSaveOutputFirstLineMatchers(),
                 config.isEvaluateFirstLineMatchers(),
+                1,
                 firstLineMatchers));
         // Step 3: run similarity matrix boosting on the output of first line matchers
         if (config.isRunSimMatrixBoostingOnFirstLineMatchers()) {
@@ -61,9 +64,10 @@ public class Main {
         }
         // Step 4: run second line matchers (ensemble matchers and other matchers using output of first line matchers)
         if (config.isRunSecondLineMatchers()) {
-            matchSteps.add(new SecondLineMatchingStep(config.isRunSecondLineMatchers(),
+            matchSteps.add(new MatchingStep(config.isRunSecondLineMatchers(),
                     config.isSaveOutputSecondLineMatchers(),
                     config.isEvaluateSecondLineMatchers(),
+                    2,
                     secondLineMatchers));
             // Step 5: run similarity matrix boosting on the output of second line matchers
             if (config.isRunSimMatrixBoostingOnSecondLineMatchers()) {
@@ -87,17 +91,17 @@ public class Main {
                 MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps);
                 matchTask.runSteps();
                 if (ConfigUtils.anyEvaluate()) {
-                    EvalWriter.writeScenarioPerformance(dataset, scenario, matchSteps);
+                    //EvalWriter.writeScenarioPerformance(dataset, scenario, matchSteps);
                 }
             }
 
             if (ConfigUtils.anyEvaluate()) {
-                EvalWriter.writeDatasetPerformance(dataset, matchSteps);
+                //EvalWriter.writeDatasetPerformance(dataset, matchSteps);
             }
         }
 
         if (ConfigUtils.anyEvaluate()) {
-            EvalWriter.writeOverallPerformance(matchSteps);
+            //EvalWriter.writeOverallPerformance(matchSteps);
         }
 
         log.info("See results directory for more detailed performance and similarity matrices results.");

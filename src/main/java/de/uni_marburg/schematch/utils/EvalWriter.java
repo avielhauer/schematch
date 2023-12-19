@@ -3,7 +3,6 @@ package de.uni_marburg.schematch.utils;
 import de.uni_marburg.schematch.data.Dataset;
 import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.matching.Matcher;
-import de.uni_marburg.schematch.matching.TokenizedMatcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.*;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
@@ -12,12 +11,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 
 @Data
@@ -41,11 +38,11 @@ public class EvalWriter {
         this.matchStep = matchStep;
         // set matchers
         // FIXME: refactor
-        Set<Matcher> matchers = null;
+        /*Set<Matcher> matchers = null;
         TablePair tp = matchTask.getTablePairs().get(0);
-        if (matchStep instanceof FirstLineMatchingStep) {
+        if (matchStep instanceof MatchingStep && ((MatchingStep) matchStep).getLine() == 1) {
             matchers = tp.getFirstLineMatcherPerformances().keySet();
-        } else if (matchStep instanceof SecondLineMatchingStep) {
+        } else if (matchStep instanceof MatchingStep && ((MatchingStep) matchStep).getLine() == 2) {
             matchers = tp.getSecondLineMatcherResults().keySet();
         } else if (matchStep instanceof SimMatrixBoostingStep) {
             if (((SimMatrixBoostingStep) matchStep).getLine() == 1) {
@@ -64,7 +61,7 @@ public class EvalWriter {
         this.overviewHeader = sb.toString();
         // set path
         Path basePath = ResultsUtils.getBaseResultsPathForScenario(matchTask);
-        this.path = basePath.resolve(matchStep.toString()).resolve(Configuration.getInstance().getPerformanceDir());
+        this.path = basePath.resolve(matchStep.toString()).resolve(Configuration.getInstance().getPerformanceDir());*/
     }
 
     private static String getSummaryHeader() {
@@ -292,7 +289,7 @@ public class EvalWriter {
     }
 
     public void writeMatchStepPerformance() {
-        Configuration config = Configuration.getInstance();
+        /*Configuration config = Configuration.getInstance();
         List<TablePair> tablePairs = this.matchTask.getTablePairs();
 
         String matchStepInfo = this.matchStep.toString();
@@ -369,7 +366,7 @@ public class EvalWriter {
             summaryWriter.close();
         } catch (IOException e) {
             log.error(e.getMessage());
-        }
+        }*/
     }
 }
 

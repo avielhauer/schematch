@@ -22,17 +22,17 @@ public class Database {
         this.tables = InputReader.readDataDir(this.path);
         // TODO: read dependencies on demand
         if (Configuration.getInstance().isReadDependencies()) {
-            this.metadata = InputReader.readDatabaseMetadata(this.path, this.tables);
+            this.metadata = InputReader.readDatabaseMetadata(this);
         }
 
-        // set global matrix offsets for tables
+        // set matrix offsets for tables
         int currentOffset = 0;
         for (Table table : this.tables) {
-            table.setGlobalMatrixOffset(currentOffset);
-            currentOffset += table.getNumberOfColumns();
+            table.setOffset(currentOffset);
+            currentOffset += table.getNumColumns();
         }
         // set numColumns
-        numColumns = currentOffset - 1;
+        numColumns = currentOffset;
     }
 
     public Table getTableByName(String tableName) {

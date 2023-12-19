@@ -24,8 +24,9 @@ public class Configuration {
 
     private static final String GENERAL_CFG = "general.yaml";
     private static final String DATASETS_CFG = "datasets.yaml";
-    private static final String MATCHERS_CFG = "first_line_matchers.yaml";
-    private static final String TOKENIZERS_CFG = "first_line_tokenizers.yaml";
+    private static final String FIRST_LINE_MATCHERS_CFG = "first_line_matchers.yaml";
+    private static final String FIRST_LINE_TOKENIZERS_CFG = "first_line_tokenizers.yaml";
+    private static final String SECOND_LINE_MATCHERS_CFG = "second_line_matchers.yaml";
     public static final String MATCHING_PACKAGE_NAME = "de.uni_marburg.schematch.matching"; // TODO: fetch from reflection so it is easy to refactor
     public static final String TOKENIZATION_PACKAGE_NAME = "de.uni_marburg.schematch.preprocessing.tokenization"; // TODO: fetch from reflection so it is easy to refactor
     public static final String TIMESTAMP_PATTERN = "MM-dd-yyyy_HH-mm-ss";
@@ -74,8 +75,9 @@ public class Configuration {
     private boolean evaluateSimMatrixBoostingOnSecondLineMatchers;
 
     private List<DatasetConfiguration> datasetConfigurations = new ArrayList<>();
-    private Map<String, List<MatcherConfiguration>> matcherConfigurations = new HashMap<>();
-    private Map<String, List<TokenizerConfiguration>> tokenizerConfigurations = new HashMap<>();
+    private Map<String, List<MatcherConfiguration>> firstLineMatcherConfigurations = new HashMap<>();
+    private Map<String, List<TokenizerConfiguration>> firstLineTokenizerConfigurations = new HashMap<>();
+    private Map<String, List<MatcherConfiguration>> secondLineMatcherConfigurations = new HashMap<>();
 
     // FIXME: read dependencies on demand, atm this boolean gets set to true whenenver runSimMatrixBoosting is set to true
     private boolean readDependencies;
@@ -115,49 +117,10 @@ public class Configuration {
         return Configuration.instance;
     }
 
-    private static Configuration loadConfig() {
-        Yaml yaml = null;
-        InputStream inputStream = null;
+    private static void loadMatcherConfig(InputStream matchersCfgStream, Map<String, List<MatcherConfiguration>> matcherConfigurations) {
+        Yaml yaml = new Yaml();
 
-        // load general configuration
-        yaml = new Yaml(new Constructor(Configuration.class, new LoaderOptions()));
-        inputStream = Configuration.class.getClassLoader().getResourceAsStream(GENERAL_CFG);
-        if (inputStream == null) {
-            log.error("Unable to load general configuration file from: " + GENERAL_CFG);
-            throw new RuntimeException();
-        }
-        Configuration config = yaml.load(inputStream);
-        // FIXME: read dependencies on demand
-        config.setReadDependencies(config.isRunSimMatrixBoostingOnFirstLineMatchers() || config.isRunSimMatrixBoostingOnSecondLineMatchers());
-        log.debug("General configuration: " + config.toString());
-
-        // load datasets configuration
-        yaml = new Yaml(new Constructor(Configuration.DatasetConfiguration.class, new LoaderOptions()));
-        inputStream = Configuration.class.getClassLoader().getResourceAsStream(DATASETS_CFG);
-        if (inputStream == null) {
-            log.error("Unable to load datasets configuration file from: " + DATASETS_CFG);
-            throw new RuntimeException();
-        }
-        Iterable<Object> datasetConfigs = yaml.loadAll(inputStream);
-
-        for (Object datasetConfig : datasetConfigs) {
-            DatasetConfiguration datasetConfiguration = (DatasetConfiguration) datasetConfig;
-            // ensure absolute path in path field
-            if (!(datasetConfiguration.getPath().startsWith(File.separator))) {
-                datasetConfiguration.setPath(config.getDefaultDatasetBasePath() + File.separator + datasetConfiguration.getPath());
-            }
-            config.datasetConfigurations.add(datasetConfiguration);
-            log.debug(datasetConfiguration.toString());
-        }
-
-        // load matchers configuration
-        yaml = new Yaml();
-        inputStream = Configuration.class.getClassLoader().getResourceAsStream(MATCHERS_CFG);
-        if (inputStream == null) {
-            log.error("Unable to load matchers configuration file from: " + MATCHERS_CFG);
-            throw new RuntimeException();
-        }
-        Iterable<Object> matcherConfigs = yaml.loadAll(inputStream);
+        Iterable<Object> matcherConfigs = yaml.loadAll(matchersCfgStream);
 
         CombinationGenerator<Object> combinationGenerator = new CombinationGenerator<>();
         for (Object object : matcherConfigs) {
@@ -198,18 +161,71 @@ public class Configuration {
                     log.debug(matcherConfiguration.toString());
                 }
             }
-            config.matcherConfigurations.put(name, matcherConfigurationList);
-
+            matcherConfigurations.put(name, matcherConfigurationList);
         }
+    }
+
+    private static Configuration loadConfig() {
+        Yaml yaml = null;
+        InputStream inputStream = null;
+
+        // load general configuration
+        yaml = new Yaml(new Constructor(Configuration.class, new LoaderOptions()));
+        inputStream = Configuration.class.getClassLoader().getResourceAsStream(GENERAL_CFG);
+        if (inputStream == null) {
+            log.error("Unable to load general configuration file from: " + GENERAL_CFG);
+            throw new RuntimeException();
+        }
+        Configuration config = yaml.load(inputStream);
+        // FIXME: read dependencies on demand
+        config.setReadDependencies(config.isRunSimMatrixBoostingOnFirstLineMatchers() || config.isRunSimMatrixBoostingOnSecondLineMatchers());
+        log.debug("General configuration: " + config.toString());
+
+        // load datasets configuration
+        yaml = new Yaml(new Constructor(Configuration.DatasetConfiguration.class, new LoaderOptions()));
+        inputStream = Configuration.class.getClassLoader().getResourceAsStream(DATASETS_CFG);
+        if (inputStream == null) {
+            log.error("Unable to load datasets configuration file from: " + DATASETS_CFG);
+            throw new RuntimeException();
+        }
+        Iterable<Object> datasetConfigs = yaml.loadAll(inputStream);
+
+        for (Object datasetConfig : datasetConfigs) {
+            DatasetConfiguration datasetConfiguration = (DatasetConfiguration) datasetConfig;
+            // ensure absolute path in path field
+            if (!(datasetConfiguration.getPath().startsWith(File.separator))) {
+                datasetConfiguration.setPath(config.getDefaultDatasetBasePath() + File.separator + datasetConfiguration.getPath());
+            }
+            config.datasetConfigurations.add(datasetConfiguration);
+            log.debug(datasetConfiguration.toString());
+        }
+
+        // load matchers configuration
+        // first line
+        inputStream = Configuration.class.getClassLoader().getResourceAsStream(FIRST_LINE_MATCHERS_CFG);
+        if (inputStream == null) {
+            log.error("Unable to load matchers configuration file from: " + FIRST_LINE_MATCHERS_CFG);
+            throw new RuntimeException();
+        }
+        loadMatcherConfig(inputStream, config.firstLineMatcherConfigurations);
+        // second line
+        inputStream = Configuration.class.getClassLoader().getResourceAsStream(SECOND_LINE_MATCHERS_CFG);
+        if (inputStream == null) {
+            log.error("Unable to load matchers configuration file from: " + SECOND_LINE_MATCHERS_CFG);
+            throw new RuntimeException();
+        }
+        loadMatcherConfig(inputStream, config.secondLineMatcherConfigurations);
 
         // load tokenizers configuration
         yaml = new Yaml();
-        inputStream = Configuration.class.getClassLoader().getResourceAsStream(TOKENIZERS_CFG);
+        inputStream = Configuration.class.getClassLoader().getResourceAsStream(FIRST_LINE_TOKENIZERS_CFG);
         if (inputStream == null) {
-            log.error("Unable to load tokenizers configuration file from: " + TOKENIZERS_CFG);
+            log.error("Unable to load tokenizers configuration file from: " + FIRST_LINE_TOKENIZERS_CFG);
             throw new RuntimeException();
         }
         Iterable<Object> tokenizersConfigs = yaml.loadAll(inputStream);
+
+        CombinationGenerator<Object> combinationGenerator = new CombinationGenerator<>();
 
         for (Object object : tokenizersConfigs) {
             Map<String, Object> tokenizerConfig = (Map<String, Object>) object;
@@ -247,7 +263,7 @@ public class Configuration {
                     log.debug(tokenizerConfiguration.toString());
                 }
             }
-            config.tokenizerConfigurations.put(name, tokenizerConfigurationList);
+            config.firstLineTokenizerConfigurations.put(name, tokenizerConfigurationList);
 
         }
 

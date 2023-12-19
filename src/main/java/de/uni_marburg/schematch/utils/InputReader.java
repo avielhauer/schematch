@@ -171,8 +171,9 @@ public class InputReader {
         }
     }
 
-    public static DatabaseMetadata readDatabaseMetadata(String inputPath, List<Table> tables){
+    public static DatabaseMetadata readDatabaseMetadata(Database database) {
         try {
+            String inputPath = database.getPath();
             String folderName = StringUtils.getFolderName(inputPath);
             Path metadataFolderPath = Paths.get(new File(inputPath).getParent(), "metadata", folderName);
             Path indFilePath = metadataFolderPath.resolve("inds.txt");
@@ -181,11 +182,11 @@ public class InputReader {
             Map<Column, Collection<FunctionalDependency>> fdMap = new HashMap<>();
             Map<Column, Collection<UniqueColumnCombination>> uccMap = new HashMap<>();
 
-            Collection<InclusionDependency> inds = readINDFile(indFilePath, tables, tables, indMap);
+            Collection<InclusionDependency> inds = readINDFile(indFilePath, database, database, indMap);
             Collection<FunctionalDependency> fds = new ArrayList<>();
             Collection<UniqueColumnCombination> uccs = new ArrayList<>();
 
-            for (Table table : tables) {
+            for (Table table : database.getTables()) {
                 Path fdFilePath = metadataFolderPath.resolve(table.getName()).resolve("FD_results.txt");
                 Path uccFilePath = metadataFolderPath.resolve(table.getName()).resolve("UCC_results.txt");
 

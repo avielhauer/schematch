@@ -18,18 +18,16 @@ public abstract class TablePairMatcher extends Matcher {
     @Override
     public float[][] match(MatchTask matchTask, MatchStep matchStep) {
         List<TablePair> tablePairs = matchTask.getTablePairs();
-        Database sourceDatabase = matchTask.getScenario().getSourceDatabase();
-        Database targetDatabase = matchTask.getScenario().getTargetDatabase();
 
-        float[][] globalSimMatrix = new float[sourceDatabase.getNumColumns()][targetDatabase.getNumColumns()];
+        float[][] simMatrix = matchTask.getEmptySimMatrix();
 
         for (TablePair tablePair : tablePairs) {
             float[][] tablePairSimMatrix = this.match(tablePair);
-            int sourceTableOffset = tablePair.getSourceTable().getGlobalMatrixOffset();
-            int targetTableOffset = tablePair.getTargetTable().getGlobalMatrixOffset();
-            ArrayUtils.insertSubmatrixInMatrix(tablePairSimMatrix, globalSimMatrix, sourceTableOffset, targetTableOffset);
+            int sourceTableOffset = tablePair.getSourceTable().getOffset();
+            int targetTableOffset = tablePair.getTargetTable().getOffset();
+            ArrayUtils.insertSubmatrixInMatrix(tablePairSimMatrix, simMatrix, sourceTableOffset, targetTableOffset);
         }
 
-        return globalSimMatrix;
+        return simMatrix;
     }
 }

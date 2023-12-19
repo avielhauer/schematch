@@ -1,22 +1,18 @@
 package de.uni_marburg.schematch.matchtask;
 
-import de.uni_marburg.schematch.data.Database;
 import de.uni_marburg.schematch.data.Dataset;
 import de.uni_marburg.schematch.data.Scenario;
-import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.matching.Matcher;
-import de.uni_marburg.schematch.matching.TablePairMatcher;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
+import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.ArrayUtils;
 import de.uni_marburg.schematch.utils.Configuration;
 import de.uni_marburg.schematch.utils.InputReader;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.awt.*;
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
@@ -34,14 +30,17 @@ public class MatchTask {
     private final Scenario scenario;
     private final List<MatchStep> matchSteps;
     private List<TablePair> tablePairs; // is set by tablepair gen match step
-    private Map<MatchStep, Map<Matcher, float[][]>> globalSimMatrices;
-    private int[][] globalGroundTruthMatrix;
+    private Map<MatchStep, Map<Matcher, float[][]>> simMatrices;
+    private int[][] groundTruthMatrix;
+    private int numSourceColumns, numTargetColumns;
 
     public MatchTask(Dataset dataset, Scenario scenario, List<MatchStep> matchSteps) {
         this.dataset = dataset;
         this.scenario = scenario;
         this.matchSteps = matchSteps;
-        this.globalSimMatrices = new HashMap<>();
+        this.simMatrices = new HashMap<>();
+        this.numSourceColumns = scenario.getSourceDatabase().getNumColumns();
+        this.numTargetColumns = scenario.getTargetDatabase().getNumColumns();
     }
 
     /**
@@ -51,7 +50,7 @@ public class MatchTask {
      */
     public void runSteps() {
         for (MatchStep matchStep : matchSteps) {
-            this.globalSimMatrices.put(matchStep, new HashMap<>());
+            this.simMatrices.put(matchStep, new HashMap<>());
             matchStep.run(this);
             matchStep.save(this);
             matchStep.evaluate(this);
@@ -67,24 +66,65 @@ public class MatchTask {
         log.debug("Reading ground truth for scenario: " + this.scenario.getPath());
         String basePath = scenario.getPath() + File.separator + Configuration.getInstance().getDefaultGroundTruthDir();
 
-        Database sourceDatabase = this.scenario.getSourceDatabase();
-        Database targetDatabase = this.scenario.getTargetDatabase();
-
-        this.globalGroundTruthMatrix = new int[sourceDatabase.getNumColumns()][targetDatabase.getNumColumns()];
+        this.groundTruthMatrix = new int[this.numSourceColumns][this.numTargetColumns];
 
         for (TablePair tablePair : this.tablePairs) {
             int[][] gtMatrix = InputReader.readGroundTruthFile(basePath + File.separator + tablePair.toString() + ".csv");
-            int sourceTableOffset = tablePair.getSourceTable().getGlobalMatrixOffset();
-            int targetTableOffset = tablePair.getTargetTable().getGlobalMatrixOffset();
-            ArrayUtils.insertSubmatrixInMatrix(gtMatrix, this.globalGroundTruthMatrix, sourceTableOffset, targetTableOffset);
+            if (gtMatrix == null) {
+                gtMatrix = tablePair.getEmptyGTMatrix();
+            }
+            int sourceTableOffset = tablePair.getSourceTable().getOffset();
+            int targetTableOffset = tablePair.getTargetTable().getOffset();
+            ArrayUtils.insertSubmatrixInMatrix(gtMatrix, this.groundTruthMatrix, sourceTableOffset, targetTableOffset);
         }
     }
 
-    public void setGlobalSimMatrix(MatchStep matchStep, Matcher matcher, float[][] globalSimMatrix) {
-        this.globalSimMatrices.get(matchStep).put(matcher, globalSimMatrix);
+    public float[][] getEmptySimMatrix() {
+        return new float[this.numSourceColumns][this.numTargetColumns];
     }
 
-    public float[][] getGlobalSimMatrix(Matcher matcher, MatchStep matchStep) {
-        return this.globalSimMatrices.get(matchStep).get(matcher);
+    public void setSimMatrix(MatchStep matchStep, Matcher matcher, float[][] simMatrix) {
+        this.simMatrices.get(matchStep).put(matcher, simMatrix);
+    }
+
+    public float[][] getSimMatrix(Matcher matcher, MatchStep matchStep) {
+        return this.simMatrices.get(matchStep).get(matcher);
+    }
+
+    public float[][] getPreviousSimMatrix(Matcher matcher, MatchStep matchStep) {
+        MatchStep previousMatchStep = null;
+        for (MatchStep currMatchStep : this.matchSteps) {
+            if (currMatchStep == matchStep) {
+                break;
+            } else {
+                previousMatchStep = currMatchStep;
+            }
+        }
+        return getSimMatrix(matcher, previousMatchStep);
+    }
+
+    public Map<String, List<Matcher>> getFirstLineMatchers() {
+        for (MatchStep matchStep : this.matchSteps) {
+            if (matchStep instanceof MatchingStep && ((MatchingStep) matchStep).getLine() == 1) {
+                return ((MatchingStep) matchStep).getMatchers();
+            }
+        }
+        return null;
+    }
+    public Map<String, List<Matcher>> getSecondLineMatchers() {
+        for (MatchStep matchStep : this.matchSteps) {
+            if (matchStep instanceof MatchingStep && ((MatchingStep) matchStep).getLine() == 2) {
+                return ((MatchingStep) matchStep).getMatchers();
+            }
+        }
+        return null;
+    }
+
+    public Map<String, List<Matcher>> getMatchersForLine(int line) {
+        return switch (line) {
+            case 1 -> getFirstLineMatchers();
+            case 2 -> getSecondLineMatchers();
+            default -> throw new IllegalStateException("Unexpected value: " + line);
+        };
     }
 }

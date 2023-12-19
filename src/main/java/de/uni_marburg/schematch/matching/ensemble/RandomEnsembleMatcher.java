@@ -1,12 +1,15 @@
 package de.uni_marburg.schematch.matching.ensemble;
 
 import de.uni_marburg.schematch.matching.Matcher;
-import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
-import de.uni_marburg.schematch.utils.Configuration;
+import de.uni_marburg.schematch.matchtask.MatchTask;
+import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
+import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.util.Random;
+import java.util.*;
 
 /**
  * Dummy implementation for an ensemble matcher that randomly picks each row for its output similarity matrix
@@ -16,27 +19,30 @@ import java.util.Random;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RandomEnsembleMatcher extends Matcher {
+    @Getter
+    @Setter
     private long seed;
 
     @Override
-    public float[][] match(TablePair tablePair) {
-        int numSourceColumns = tablePair.getSourceTable().getNumberOfColumns();
-        float[][] simMatrix = tablePair.getEmptySimMatrix();
-        Object[] firstLineMatchers;
-        if (Configuration.getInstance().isRunSimMatrixBoostingOnFirstLineMatchers()) {
-            firstLineMatchers = tablePair.getBoostedFirstLineMatcherResults().keySet().toArray();
-        } else {
-            firstLineMatchers = tablePair.getFirstLineMatcherResults().keySet().toArray();
-        }
+    public float[][] match(MatchTask matchTask, MatchStep matchStep) {
         Random random = new Random(this.seed);
+        Map<String, List<Matcher>> matchers = matchTask.getFirstLineMatchers();
+        List<String> matcherNames = new ArrayList<>(matchers.keySet());
+
+        int numSourceColumns = matchTask.getScenario().getSourceDatabase().getNumColumns();
+        int numTargetColumns = matchTask.getScenario().getTargetDatabase().getNumColumns();
+
+        float[][] newSimMatrix = new float[numSourceColumns][numTargetColumns];
+
         for (int i = 0; i < numSourceColumns; i++) {
-            int randomIndex = random.nextInt(firstLineMatchers.length);
-            if (Configuration.getInstance().isRunSimMatrixBoostingOnFirstLineMatchers()) {
-                simMatrix[i] = tablePair.getBoostedResultsForFirstLineMatcher((Matcher) firstLineMatchers[randomIndex])[i];
-            } else {
-                simMatrix[i] = tablePair.getResultsForFirstLineMatcher((Matcher) firstLineMatchers[randomIndex])[i];
+            for (int j = 0; j < numTargetColumns; j++) {
+                String matcherName = matcherNames.get(random.nextInt(matcherNames.size()));
+                List<Matcher> matcherList = matchers.get(matcherName);
+                Matcher matcher = matcherList.get(random.nextInt(matcherList.size()));
+                newSimMatrix[i][j] = matchTask.getPreviousSimMatrix(matcher, matchStep)[i][j];
             }
         }
-        return simMatrix;
+
+        return newSimMatrix;
     }
 }

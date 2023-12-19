@@ -42,17 +42,11 @@ public class SimMatrixBoostingStep extends MatchStep {
     @Override
     public void run(MatchTask matchTask) {
         log.debug("Running similarity matrix boosting (line=" + this.line + ") for scenario: " + matchTask.getScenario().getPath());
-        for (TablePair tablePair : matchTask.getTablePairs()) {
-            if (this.line == 1) {
-                for (Matcher matcher : tablePair.getFirstLineMatcherResults().keySet()) {
-                    float[][] simMatrix = tablePair.getResultsForFirstLineMatcher(matcher);
-                    tablePair.addBoostedResultsForFirstLineMatcher(matcher, this.simMatrixBoosting.run(simMatrix));
-                }
-            } else {
-                for (Matcher matcher : tablePair.getSecondLineMatcherResults().keySet()) {
-                    float[][] simMatrix = tablePair.getResultsForSecondLineMatcher(matcher);
-                    tablePair.addBoostedResultsForSecondLineMatcher(matcher, this.simMatrixBoosting.run(simMatrix));
-                }
+        Map<String, List<Matcher>> matchers = matchTask.getMatchersForLine(this.line);
+        for (String matcherName : matchers.keySet()) {
+            for (Matcher matcher : matchers.get(matcherName)) {
+                float[][] boostedSimMatrix = this.simMatrixBoosting.run(matchTask.getPreviousSimMatrix(matcher, this));
+                matchTask.setSimMatrix(this, matcher, boostedSimMatrix);
             }
         }
     }
@@ -62,10 +56,10 @@ public class SimMatrixBoostingStep extends MatchStep {
         if ((line == 1 && !Configuration.getInstance().isSaveOutputSimMatrixBoostingOnFirstLineMatchers()) ||
                 line == 2 && !Configuration.getInstance().isSaveOutputSimMatrixBoostingOnSecondLineMatchers()) {
             return;
-        }
+         }
         log.debug("Saving similarity matrix boosting (line=" + this.line + ") output for scenario: " + matchTask.getScenario().getPath());
 
-        Path basePath = ResultsUtils.getOutputBaseResultsPathForMatchStepInScenario(matchTask, this);
+        /*Path basePath = ResultsUtils.getOutputBaseResultsPathForMatchStepInScenario(matchTask, this);
         for (TablePair tablePair : matchTask.getTablePairs()) {
             Map<Matcher, float[][]> boostedResults;
             if (this.line == 1) {
@@ -77,7 +71,7 @@ public class SimMatrixBoostingStep extends MatchStep {
                 float[][] simMatrix = boostedResults.get(matcher);
                 OutputWriter.writeSimMatrix(basePath.resolve(matcher.toString()).resolve(tablePair.toString()), simMatrix);
             }
-        }
+        }*/
     }
 
     @Override
@@ -88,7 +82,7 @@ public class SimMatrixBoostingStep extends MatchStep {
         }
         log.debug("Evaluating similarity matrix boosting (line=" + this.line + ") output for scenario: " + matchTask.getScenario().getPath());
 
-        List<TablePair> tablePairs = matchTask.getTablePairs();
+        /*List<TablePair> tablePairs = matchTask.getTablePairs();
 
         Set<Matcher> matchers = switch (this.line) {
             case 1 -> tablePairs.get(0).getFirstLineMatcherPerformances().keySet();
@@ -114,6 +108,6 @@ public class SimMatrixBoostingStep extends MatchStep {
         }
 
         EvalWriter evalWriter = new EvalWriter(matchTask, this);
-        evalWriter.writeMatchStepPerformance();
+        evalWriter.writeMatchStepPerformance();*/
     }
 }

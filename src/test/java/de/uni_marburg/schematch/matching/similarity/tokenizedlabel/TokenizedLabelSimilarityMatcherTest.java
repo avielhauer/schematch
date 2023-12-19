@@ -29,8 +29,8 @@ class TokenizedLabelSimilarityMatcherTest {
         Matcher matcher = MatcherTest.getMatcherFactory().createTokenizedMatcherInstance(matcherConfiguration, tokenizer);
         float[][] simMatrix = matcher.match(tp);
 
-        for (int i = 0; i < sourceTable.getNumberOfColumns(); i++) {
-            for (int j = 0; j < targetTable.getNumberOfColumns(); j++) {
+        for (int i = 0; i < sourceTable.getNumColumns(); i++) {
+            for (int j = 0; j < targetTable.getNumColumns(); j++) {
                 float simScore = similarityMeasure.compare(sourceTable.getColumn(i).getLabelTokens(tokenizer),
                         targetTable.getColumn(j).getLabelTokens(tokenizer));
                 assertEquals(simScore, simMatrix[i][j]);

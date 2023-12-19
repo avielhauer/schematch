@@ -8,7 +8,7 @@ import lombok.Setter;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @Setter
-public abstract class TokenizedMatcher extends Matcher {
+public abstract class TokenizedTablePairMatcher extends TablePairMatcher {
     protected Tokenizer tokenizer;
 
     @Override
