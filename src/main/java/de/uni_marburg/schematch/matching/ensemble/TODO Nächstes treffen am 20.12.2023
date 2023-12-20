@@ -20,3 +20,7 @@ TODO:
     länge von label und instanz
     heuristik: Daten die in einem Feature gut ausgeprägt sind viel credit (empirisch) matcher laufen lassen(schauen welcher gut ist)
     Literatur Recherche :D
+
+TODO: (verfasst am 20.12.2023) 
+    Manche Matcher haben auch verschiedene best Threshholds, also bei manchen ist 0.3 viel bei manchen ist es sehr schlecht, kommt hlat wirklich auf den Matcher drauf an
+    schauen ob weighted average sinn macht, oder weighted Max verwenden, villeicht Matcher basiert einbauen
