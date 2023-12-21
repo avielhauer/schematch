@@ -2,6 +2,7 @@ package de.uni_marburg.schematch.matching.sota;
 
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
+import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.matching.Matcher;
 import lombok.*;
@@ -19,7 +20,7 @@ public class RandomMatcher extends Matcher {
     private long seed;
 
     @Override
-    public float[][] match(MatchTask matchTask, MatchStep matchStep) {
+    public float[][] match(MatchTask matchTask, MatchingStep matchStep) {
         float[][] simMatrix = matchTask.getEmptySimMatrix();
         Random random = new Random(this.seed);
         for (int i = 0; i < matchTask.getNumSourceColumns(); i++) {

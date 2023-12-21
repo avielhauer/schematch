@@ -28,19 +28,19 @@ defaultDatasetBasePath: "data"
 saveOutputTablePairGeneration: False
 evaluateTablePairGeneration: False
 # Step 2: run first line matchers (i.e., matchers that use table data to match)
-saveOutputFirstLineMatchers: False
+saveOutputFirstLineMatchers: True
 evaluateFirstLineMatchers: True
 # Step 3: run similarity matrix boosting on the output of first line matchers
 runSimMatrixBoostingOnFirstLineMatchers: True
-saveOutputSimMatrixBoostingOnFirstLineMatchers: False
+saveOutputSimMatrixBoostingOnFirstLineMatchers: True
 evaluateSimMatrixBoostingOnFirstLineMatchers: True
 # Step 4: run second line matchers (ensemble matchers and other matchers using output of first line matchers)
 runSecondLineMatchers: True
-saveOutputSecondLineMatchers: False
+saveOutputSecondLineMatchers: True
 evaluateSecondLineMatchers: True
 # Step 5: run similarity matrix boosting on the output of second line matchers
 runSimMatrixBoostingOnSecondLineMatchers: True
-saveOutputSimMatrixBoostingOnSecondLineMatchers: False
+saveOutputSimMatrixBoostingOnSecondLineMatchers: True
 evaluateSimMatrixBoostingOnSecondLineMatchers: True
 
 # FIXME: do not set this parameter in this file, it is set to true whenever runSimMatrixBoosting is set to true

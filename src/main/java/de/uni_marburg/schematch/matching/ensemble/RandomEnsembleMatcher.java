@@ -24,7 +24,7 @@ public class RandomEnsembleMatcher extends Matcher {
     private long seed;
 
     @Override
-    public float[][] match(MatchTask matchTask, MatchStep matchStep) {
+    public float[][] match(MatchTask matchTask, MatchingStep matchStep) {
         Random random = new Random(this.seed);
         Map<String, List<Matcher>> matchers = matchTask.getFirstLineMatchers();
         List<String> matcherNames = new ArrayList<>(matchers.keySet());
@@ -39,7 +39,7 @@ public class RandomEnsembleMatcher extends Matcher {
                 String matcherName = matcherNames.get(random.nextInt(matcherNames.size()));
                 List<Matcher> matcherList = matchers.get(matcherName);
                 Matcher matcher = matcherList.get(random.nextInt(matcherList.size()));
-                newSimMatrix[i][j] = matchTask.getPreviousSimMatrix(matcher, matchStep)[i][j];
+                newSimMatrix[i][j] = matchTask.getSimMatrixFromPreviousMatchStep(matcher, matchStep)[i][j];
             }
         }
 

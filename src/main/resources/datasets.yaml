@@ -1,12 +1,15 @@
+#---
+#name: "Efes-bib"
+#path: "Efes-bib"
+#---
+#name: "Efes-music"
+#path: "Efes-music"
+#---
+#name: "Pubs"
+#path: "Pubs"
+#---
+#name: "Sakila"
+#path: "Sakila"
 ---
-name: "Efes-bib"
-path: "Efes-bib"
----
-name: "Efes-music"
-path: "Efes-music"
----
-name: "Pubs"
-path: "Pubs"
----
-name: "Sakila"
-path: "Sakila"
+name: "Test"
+path: "Test"

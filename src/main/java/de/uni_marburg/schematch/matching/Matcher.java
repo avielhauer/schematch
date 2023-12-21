@@ -2,6 +2,7 @@ package de.uni_marburg.schematch.matching;
 
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
+import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.Configuration;
 import lombok.Data;
@@ -23,10 +24,11 @@ public abstract class Matcher {
 
     /**
      * @param matchTask MatchTask to match
+     * @param matchStep Current MatchStep (MatchingStep)
      * @return Similarity matrix for the given match task. Position (i,j) represents the similarity score for
      * the column pair (i-th source column, j-th target column)
      */
-    public abstract float[][] match(MatchTask matchTask, MatchStep matchStep);
+    public abstract float[][] match(MatchTask matchTask, MatchingStep matchStep);
 
     /**
      * Sets all matcher fields according to the configuration (see first_line_matchers.yaml)

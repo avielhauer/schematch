@@ -1,12 +1,9 @@
 package de.uni_marburg.schematch.matchtask.matchstep;
 
 import de.uni_marburg.schematch.boosting.SimMatrixBoosting;
-import de.uni_marburg.schematch.evaluation.EvaluatorOld;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
-import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.Configuration;
-import de.uni_marburg.schematch.utils.EvalWriter;
 import de.uni_marburg.schematch.utils.OutputWriter;
 import de.uni_marburg.schematch.utils.ResultsUtils;
 import lombok.*;
@@ -14,9 +11,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.nio.file.Path;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 @Getter
 @EqualsAndHashCode(callSuper = true)
@@ -27,11 +24,13 @@ public class SimMatrixBoostingStep extends MatchStep {
     private final int line;
     @Getter
     private final SimMatrixBoosting simMatrixBoosting;
+    private final Map<Matcher, float[][]> simMatrices;
 
     public SimMatrixBoostingStep(boolean doRun, boolean doSave, boolean doEvaluate, int line, SimMatrixBoosting simMatrixBoosting) {
         super(doRun, doSave, doEvaluate);
         this.line = line;
         this.simMatrixBoosting = simMatrixBoosting;
+        this.simMatrices = new HashMap<>();
     }
 
     @Override
@@ -45,8 +44,8 @@ public class SimMatrixBoostingStep extends MatchStep {
         Map<String, List<Matcher>> matchers = matchTask.getMatchersForLine(this.line);
         for (String matcherName : matchers.keySet()) {
             for (Matcher matcher : matchers.get(matcherName)) {
-                float[][] boostedSimMatrix = this.simMatrixBoosting.run(matchTask.getPreviousSimMatrix(matcher, this));
-                matchTask.setSimMatrix(this, matcher, boostedSimMatrix);
+                float[][] boostedSimMatrix = this.simMatrixBoosting.run(matchTask, this, matchTask.getSimMatrixFromPreviousMatchStep(matcher, this));
+                this.setSimMatrix(matcher, boostedSimMatrix);
             }
         }
     }
@@ -59,19 +58,12 @@ public class SimMatrixBoostingStep extends MatchStep {
          }
         log.debug("Saving similarity matrix boosting (line=" + this.line + ") output for scenario: " + matchTask.getScenario().getPath());
 
-        /*Path basePath = ResultsUtils.getOutputBaseResultsPathForMatchStepInScenario(matchTask, this);
-        for (TablePair tablePair : matchTask.getTablePairs()) {
-            Map<Matcher, float[][]> boostedResults;
-            if (this.line == 1) {
-                boostedResults = tablePair.getBoostedFirstLineMatcherResults();
-            } else {
-                boostedResults = tablePair.getBoostedSecondLineMatcherResults();
-            }
-            for (Matcher matcher : boostedResults.keySet()) {
-                float[][] simMatrix = boostedResults.get(matcher);
-                OutputWriter.writeSimMatrix(basePath.resolve(matcher.toString()).resolve(tablePair.toString()), simMatrix);
-            }
-        }*/
+        Path basePath = ResultsUtils.getOutputBaseResultsPathForMatchStepInScenario(matchTask, this);
+
+        for (Matcher matcher : this.simMatrices.keySet()) {
+            float[][] simMatrix = this.getSimMatrix(matcher);
+            OutputWriter.writeSimMatrix(basePath.resolve(matcher.toString()).resolve(".csv"), simMatrix);
+        }
     }
 
     @Override
@@ -109,5 +101,13 @@ public class SimMatrixBoostingStep extends MatchStep {
 
         EvalWriter evalWriter = new EvalWriter(matchTask, this);
         evalWriter.writeMatchStepPerformance();*/
+    }
+
+    public void setSimMatrix(Matcher matcher, float[][] simMatrix) {
+        this.simMatrices.put(matcher, simMatrix);
+    }
+
+    public float[][] getSimMatrix(Matcher matcher) {
+        return this.simMatrices.get(matcher);
     }
 }
