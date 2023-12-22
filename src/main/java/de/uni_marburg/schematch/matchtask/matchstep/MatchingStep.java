@@ -22,13 +22,11 @@ public class MatchingStep extends MatchStep {
 
     private final int line;
     private final Map<String, List<Matcher>> matchers;
-    private final Map<Matcher, float[][]> simMatrices;
 
-    public MatchingStep(boolean doRun, boolean doSave, boolean doEvaluate, int line, Map<String, List<Matcher>> matchers) {
-        super(doRun, doSave, doEvaluate);
+    public MatchingStep(boolean doSave, boolean doEvaluate, int line, Map<String, List<Matcher>> matchers) {
+        super(doSave, doEvaluate);
         this.line = line;
         this.matchers = matchers;
-        this.simMatrices = new HashMap<>();
     }
 
     @Override
@@ -44,7 +42,7 @@ public class MatchingStep extends MatchStep {
             for (Matcher matcher : this.matchers.get(matcherName)) {
                 log.trace("Processing " + this.line + ". line matcher " + matcherName);
                 float[][] simMatrix = matcher.match(matchTask, this);
-                this.setSimMatrix(matcher, simMatrix);
+                matchTask.setSimMatrix(this, matcher, simMatrix);
             }
         }
     }
@@ -62,7 +60,7 @@ public class MatchingStep extends MatchStep {
 
         for (String matcherName : this.matchers.keySet()) {
             for (Matcher matcher : this.matchers.get(matcherName)) {
-                float[][] simMatrix = this.getSimMatrix(matcher);
+                float[][] simMatrix = matchTask.getSimMatrix(this, matcher);
                 OutputWriter.writeSimMatrix(scenarioPath.resolve(matcher.toString() + ".csv"), simMatrix);
             }
         }
@@ -70,8 +68,9 @@ public class MatchingStep extends MatchStep {
 
     @Override
     public void evaluate(MatchTask matchTask) {
-        if (!Configuration.getInstance().isEvaluateFirstLineMatchers()) {
-           return;
+        if ((line == 1 && !Configuration.getInstance().isSaveOutputFirstLineMatchers()) ||
+                line == 2 && !Configuration.getInstance().isSaveOutputSecondLineMatchers()) {
+            return;
         }
 
         log.debug("Evaluating " + this.line + ". line matching output for scenario: " + matchTask.getScenario().getPath());
@@ -90,13 +89,5 @@ public class MatchingStep extends MatchStep {
 
         EvalWriter evalWriter = new EvalWriter(matchTask, this);
         evalWriter.writeMatchStepPerformance();*/
-    }
-
-    public void setSimMatrix(Matcher matcher, float[][] simMatrix) {
-        this.simMatrices.put(matcher, simMatrix);
-    }
-
-    public float[][] getSimMatrix(Matcher matcher) {
-        return this.simMatrices.get(matcher);
     }
 }

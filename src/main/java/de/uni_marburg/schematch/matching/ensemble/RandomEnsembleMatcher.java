@@ -39,7 +39,7 @@ public class RandomEnsembleMatcher extends Matcher {
                 String matcherName = matcherNames.get(random.nextInt(matcherNames.size()));
                 List<Matcher> matcherList = matchers.get(matcherName);
                 Matcher matcher = matcherList.get(random.nextInt(matcherList.size()));
-                newSimMatrix[i][j] = matchTask.getSimMatrixFromPreviousMatchStep(matcher, matchStep)[i][j];
+                newSimMatrix[i][j] = matchTask.getSimMatrixFromPreviousMatchStep(matchStep, matcher)[i][j];
             }
         }
 

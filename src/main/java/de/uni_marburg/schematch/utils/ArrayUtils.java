@@ -10,6 +10,18 @@ import java.util.stream.IntStream;
 public class ArrayUtils {
     private static final Logger log = LogManager.getLogger(ArrayUtils.class);
 
+    public static float[] flattenMatrix(float[][] m) {
+        float[] result = new float[m.length * m[0].length];
+        for (int i = 0; i < m.length; ++i) {
+            System.arraycopy(m[i], 0, result, i * m[0].length, m[i].length);
+        }
+        return result;
+    }
+
+    public static int[] flattenMatrix(int[][] m) {
+        return Arrays.stream(m).flatMapToInt(Arrays::stream).toArray();
+    }
+
     public static void insertSubmatrixInMatrix(int[][] submatrix, int[][] matrix, int xOffset, int yOffset) {
         for (int i = 0; i < submatrix.length; i++) {
             for (int j = 0; j < submatrix[i].length; j++) {

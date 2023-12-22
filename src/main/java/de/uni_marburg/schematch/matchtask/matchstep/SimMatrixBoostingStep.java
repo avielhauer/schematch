@@ -24,13 +24,11 @@ public class SimMatrixBoostingStep extends MatchStep {
     private final int line;
     @Getter
     private final SimMatrixBoosting simMatrixBoosting;
-    private final Map<Matcher, float[][]> simMatrices;
 
-    public SimMatrixBoostingStep(boolean doRun, boolean doSave, boolean doEvaluate, int line, SimMatrixBoosting simMatrixBoosting) {
-        super(doRun, doSave, doEvaluate);
+    public SimMatrixBoostingStep(boolean doSave, boolean doEvaluate, int line, SimMatrixBoosting simMatrixBoosting) {
+        super(doSave, doEvaluate);
         this.line = line;
         this.simMatrixBoosting = simMatrixBoosting;
-        this.simMatrices = new HashMap<>();
     }
 
     @Override
@@ -44,8 +42,8 @@ public class SimMatrixBoostingStep extends MatchStep {
         Map<String, List<Matcher>> matchers = matchTask.getMatchersForLine(this.line);
         for (String matcherName : matchers.keySet()) {
             for (Matcher matcher : matchers.get(matcherName)) {
-                float[][] boostedSimMatrix = this.simMatrixBoosting.run(matchTask, this, matchTask.getSimMatrixFromPreviousMatchStep(matcher, this));
-                this.setSimMatrix(matcher, boostedSimMatrix);
+                float[][] boostedSimMatrix = this.simMatrixBoosting.run(matchTask, this, matchTask.getSimMatrixFromPreviousMatchStep(this, matcher));
+                matchTask.setSimMatrix(this, matcher, boostedSimMatrix);
             }
         }
     }
@@ -60,8 +58,8 @@ public class SimMatrixBoostingStep extends MatchStep {
 
         Path scenarioPath = ResultsUtils.getOutputScenarioResultsPathForMatchStepInScenario(matchTask, this);
 
-        for (Matcher matcher : this.simMatrices.keySet()) {
-            float[][] simMatrix = this.getSimMatrix(matcher);
+        for (Matcher matcher : matchTask.getSimMatrices().get(this).keySet()) {
+            float[][] simMatrix = matchTask.getSimMatrix(this, matcher);
             OutputWriter.writeSimMatrix(scenarioPath.resolve(matcher.toString() + ".csv"), simMatrix);
         }
     }
@@ -101,13 +99,5 @@ public class SimMatrixBoostingStep extends MatchStep {
 
         EvalWriter evalWriter = new EvalWriter(matchTask, this);
         evalWriter.writeMatchStepPerformance();*/
-    }
-
-    public void setSimMatrix(Matcher matcher, float[][] simMatrix) {
-        this.simMatrices.put(matcher, simMatrix);
-    }
-
-    public float[][] getSimMatrix(Matcher matcher) {
-        return this.simMatrices.get(matcher);
     }
 }

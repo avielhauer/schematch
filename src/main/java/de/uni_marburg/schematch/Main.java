@@ -44,19 +44,19 @@ public class Main {
         log.info("Setting up matching steps as specified in config");
         List<MatchStep> matchSteps = new ArrayList<>();
         // Step 1: generate candidate table pairs to match
-        matchSteps.add(new TablePairGenerationStep(true,
+        matchSteps.add(new TablePairGenerationStep(
                 config.isSaveOutputTablePairGeneration(),
                 config.isEvaluateTablePairGeneration(),
                 tablePairsGenerator));
         // Step 2: run first line matchers (i.e., matchers that use table data to match)
-        matchSteps.add(new MatchingStep(true,
+        matchSteps.add(new MatchingStep(
                 config.isSaveOutputFirstLineMatchers(),
                 config.isEvaluateFirstLineMatchers(),
                 1,
                 firstLineMatchers));
         // Step 3: run similarity matrix boosting on the output of first line matchers
         if (config.isRunSimMatrixBoostingOnFirstLineMatchers()) {
-            matchSteps.add(new SimMatrixBoostingStep(config.isRunSimMatrixBoostingOnFirstLineMatchers(),
+            matchSteps.add(new SimMatrixBoostingStep(
                     config.isSaveOutputSimMatrixBoostingOnFirstLineMatchers(),
                     config.isEvaluateSimMatrixBoostingOnFirstLineMatchers(),
                     1,
@@ -64,14 +64,14 @@ public class Main {
         }
         // Step 4: run second line matchers (ensemble matchers and other matchers using output of first line matchers)
         if (config.isRunSecondLineMatchers()) {
-            matchSteps.add(new MatchingStep(config.isRunSecondLineMatchers(),
+            matchSteps.add(new MatchingStep(
                     config.isSaveOutputSecondLineMatchers(),
                     config.isEvaluateSecondLineMatchers(),
                     2,
                     secondLineMatchers));
             // Step 5: run similarity matrix boosting on the output of second line matchers
             if (config.isRunSimMatrixBoostingOnSecondLineMatchers()) {
-                matchSteps.add(new SimMatrixBoostingStep(config.isRunSimMatrixBoostingOnSecondLineMatchers(),
+                matchSteps.add(new SimMatrixBoostingStep(
                         config.isSaveOutputSimMatrixBoostingOnSecondLineMatchers(),
                         config.isEvaluateSimMatrixBoostingOnSecondLineMatchers(),
                         2,

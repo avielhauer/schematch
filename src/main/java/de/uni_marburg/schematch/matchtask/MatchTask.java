@@ -2,12 +2,15 @@ package de.uni_marburg.schematch.matchtask;
 
 import de.uni_marburg.schematch.data.Dataset;
 import de.uni_marburg.schematch.data.Scenario;
+import de.uni_marburg.schematch.evaluation.Evaluator;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
 import de.uni_marburg.schematch.matchtask.matchstep.SimMatrixBoostingStep;
+import de.uni_marburg.schematch.matchtask.matchstep.TablePairGenerationStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.ArrayUtils;
+import de.uni_marburg.schematch.utils.ConfigUtils;
 import de.uni_marburg.schematch.utils.Configuration;
 import de.uni_marburg.schematch.utils.InputReader;
 import lombok.Data;
@@ -31,8 +34,10 @@ public class MatchTask {
     private final Scenario scenario;
     private final List<MatchStep> matchSteps;
     private List<TablePair> tablePairs; // is set by tablepair gen match step
+    private Map<MatchStep, Map<Matcher, float[][]>> simMatrices;
     private int[][] groundTruthMatrix;
     private int numSourceColumns, numTargetColumns;
+    private Evaluator evaluator;
 
     public MatchTask(Dataset dataset, Scenario scenario, List<MatchStep> matchSteps) {
         this.dataset = dataset;
@@ -40,6 +45,7 @@ public class MatchTask {
         this.matchSteps = matchSteps;
         this.numSourceColumns = scenario.getSourceDatabase().getNumColumns();
         this.numTargetColumns = scenario.getTargetDatabase().getNumColumns();
+        this.simMatrices = new HashMap<>();
     }
 
     /**
@@ -49,7 +55,12 @@ public class MatchTask {
      */
     public void runSteps() {
         for (MatchStep matchStep : matchSteps) {
+            this.simMatrices.put(matchStep, new HashMap<>());
             matchStep.run(this);
+            if (matchStep instanceof TablePairGenerationStep && ConfigUtils.anyEvaluate()) {
+                this.readGroundTruth();
+                this.evaluator = new Evaluator(this.scenario, this.groundTruthMatrix);
+            }
             matchStep.save(this);
             matchStep.evaluate(this);
         }
@@ -81,7 +92,15 @@ public class MatchTask {
         return new float[this.numSourceColumns][this.numTargetColumns];
     }
 
-    public float[][] getSimMatrixFromPreviousMatchStep(Matcher matcher, MatchStep matchStep) {
+    public void setSimMatrix(MatchStep matchStep, Matcher matcher, float[][] simMatrix) {
+        this.simMatrices.get(matchStep).put(matcher, simMatrix);
+    }
+
+    public float[][] getSimMatrix(MatchStep matchStep, Matcher matcher) {
+        return this.simMatrices.get(matchStep).get(matcher);
+    }
+
+    public float[][] getSimMatrixFromPreviousMatchStep(MatchStep matchStep, Matcher matcher) {
         MatchStep previousMatchStep = null;
         for (MatchStep currMatchStep : this.matchSteps) {
             if (currMatchStep == matchStep) {
@@ -90,15 +109,7 @@ public class MatchTask {
                 previousMatchStep = currMatchStep;
             }
         }
-        float[][] simMatrix;
-        if (previousMatchStep instanceof MatchingStep ms) {
-            simMatrix = ms.getSimMatrix(matcher);
-        } else if (previousMatchStep instanceof SimMatrixBoostingStep smbs) {
-            simMatrix = smbs.getSimMatrix(matcher);
-        } else {
-            throw new IllegalStateException("Cannot get sim matrix for previous match step of " + matchStep);
-        }
-        return simMatrix;
+        return this.getSimMatrix(previousMatchStep, matcher);
     }
 
     public Map<String, List<Matcher>> getFirstLineMatchers() {
