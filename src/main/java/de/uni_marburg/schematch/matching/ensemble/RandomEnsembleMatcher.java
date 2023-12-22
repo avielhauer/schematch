@@ -26,8 +26,7 @@ public class RandomEnsembleMatcher extends Matcher {
     @Override
     public float[][] match(MatchTask matchTask, MatchingStep matchStep) {
         Random random = new Random(this.seed);
-        Map<String, List<Matcher>> matchers = matchTask.getFirstLineMatchers();
-        List<String> matcherNames = new ArrayList<>(matchers.keySet());
+        List<Matcher> matchers = matchTask.getFirstLineMatchers();
 
         int numSourceColumns = matchTask.getScenario().getSourceDatabase().getNumColumns();
         int numTargetColumns = matchTask.getScenario().getTargetDatabase().getNumColumns();
@@ -36,9 +35,7 @@ public class RandomEnsembleMatcher extends Matcher {
 
         for (int i = 0; i < numSourceColumns; i++) {
             for (int j = 0; j < numTargetColumns; j++) {
-                String matcherName = matcherNames.get(random.nextInt(matcherNames.size()));
-                List<Matcher> matcherList = matchers.get(matcherName);
-                Matcher matcher = matcherList.get(random.nextInt(matcherList.size()));
+                Matcher matcher = matchers.get(random.nextInt(matchers.size()));
                 newSimMatrix[i][j] = matchTask.getSimMatrixFromPreviousMatchStep(matchStep, matcher)[i][j];
             }
         }

@@ -45,10 +45,9 @@ public class Configuration {
     private String defaultGroundTruthDir;
 
     private String resultsDir;
-    private String resultsDirScenario;
     private String performanceDir;
-    private String performanceOverviewFileSuffix;
-    private String performanceSummaryFileSuffix;
+    private String performanceOverviewFilePrefix;
+    private String performanceSummaryFileName;
     private String outputDir;
 
     // FIXME: refactor to use log4j custom log level instead

@@ -36,8 +36,8 @@ public class Main {
 
         log.info("Instantiating matchers");
         MatcherFactory matcherFactory = new MatcherFactory();
-        Map<String, List<Matcher>> firstLineMatchers = matcherFactory.createMatchersFromConfig(1);
-        Map<String, List<Matcher>> secondLineMatchers = matcherFactory.createMatchersFromConfig(2);
+        List<Matcher> firstLineMatchers = matcherFactory.createMatchersFromConfig(1);
+        List<Matcher> secondLineMatchers = matcherFactory.createMatchersFromConfig(2);
 
         log.info("Instantiating sim matrix boosting");
         // FIXME: make sim matrix boosting configurable via .yaml files
@@ -87,6 +87,11 @@ public class Main {
             }
         }
 
+        EvalWriter evalWriter = null;
+        if (ConfigUtils.anyEvaluate()) {
+            evalWriter = new EvalWriter(matchSteps, metrics);
+        }
+
         // loop over datasets
         for (Configuration.DatasetConfiguration datasetConfiguration : config.getDatasetConfigurations()) {
             Dataset dataset = new Dataset(datasetConfiguration);
@@ -99,17 +104,20 @@ public class Main {
                 MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps, metrics);
                 matchTask.runSteps();
                 if (ConfigUtils.anyEvaluate()) {
-                    //EvalWriter.writeScenarioPerformance(dataset, scenario, matchSteps);
+                    assert evalWriter != null;
+                    evalWriter.writeScenarioPerformance(matchTask);
                 }
             }
 
             if (ConfigUtils.anyEvaluate()) {
-                //EvalWriter.writeDatasetPerformance(dataset, matchSteps);
+                assert evalWriter != null;
+                evalWriter.writeDatasetPerformance(dataset);
             }
         }
 
         if (ConfigUtils.anyEvaluate()) {
-            //EvalWriter.writeOverallPerformance(matchSteps);
+            assert evalWriter != null;
+            evalWriter.writeOverallPerformance(config.getDatasetConfigurations().size());
         }
 
         log.info("See results directory for more detailed performance and similarity matrices results.");

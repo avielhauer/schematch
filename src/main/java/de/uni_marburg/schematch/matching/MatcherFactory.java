@@ -129,11 +129,11 @@ public class MatcherFactory {
 
     /**
      * Instantiates all matchers as specified in the respective config file
-     * @return Map of matcher names to list of all configured matcher instances
+     * @return List of matchers sorted by their name
      * @throws Exception when reflection goes wrong
      */
-    public Map<String, List<Matcher>> createMatchersFromConfig(int line) throws Exception {
-        Map<String, List<Matcher>> matchers = new HashMap<>();
+    public List<Matcher> createMatchersFromConfig(int line) throws Exception {
+        Set<Matcher> matcherSet = new HashSet<>();
         Configuration config = Configuration.getInstance();
 
         Set<String> matcherNames;
@@ -144,9 +144,11 @@ public class MatcherFactory {
         }
 
         for (String matcherName : matcherNames) {
-            matchers.put(matcherName, createMatcherInstances(matcherName, line));
+            matcherSet.addAll(createMatcherInstances(matcherName, line));
         }
 
-        return matchers;
+        List<Matcher> sortedMatchers = new ArrayList<>(matcherSet);
+        sortedMatchers.sort(Comparator.comparing(Matcher::toString));
+        return sortedMatchers;
     }
 }

@@ -4,6 +4,7 @@ import de.uni_marburg.schematch.data.Dataset;
 import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.evaluation.Evaluator;
 import de.uni_marburg.schematch.evaluation.metric.Metric;
+import de.uni_marburg.schematch.evaluation.performance.Performance;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
@@ -36,6 +37,7 @@ public class MatchTask {
     private final List<Metric> metrics;
     private List<TablePair> tablePairs; // is set by tablepair gen match step
     private Map<MatchStep, Map<Matcher, float[][]>> simMatrices;
+    private Map<Metric, Map<MatchStep, Map<Matcher, Performance>>> performances;
     private int[][] groundTruthMatrix;
     private int numSourceColumns, numTargetColumns;
     private Evaluator evaluator;
@@ -48,6 +50,10 @@ public class MatchTask {
         this.numSourceColumns = scenario.getSourceDatabase().getNumColumns();
         this.numTargetColumns = scenario.getTargetDatabase().getNumColumns();
         this.simMatrices = new HashMap<>();
+        this.performances = new HashMap<>();
+        for (Metric metric : metrics) {
+            this.performances.put(metric, new HashMap<>());
+        }
     }
 
     /**
@@ -58,6 +64,9 @@ public class MatchTask {
     public void runSteps() {
         for (MatchStep matchStep : matchSteps) {
             this.simMatrices.put(matchStep, new HashMap<>());
+            for (Metric metric : metrics) {
+                this.performances.get(metric).put(matchStep, new HashMap<>());
+            }
             matchStep.run(this);
             if (matchStep instanceof TablePairGenerationStep && ConfigUtils.anyEvaluate()) {
                 this.readGroundTruth();
@@ -114,7 +123,7 @@ public class MatchTask {
         return this.getSimMatrix(previousMatchStep, matcher);
     }
 
-    public Map<String, List<Matcher>> getFirstLineMatchers() {
+    public List<Matcher> getFirstLineMatchers() {
         for (MatchStep matchStep : this.matchSteps) {
             if (matchStep instanceof MatchingStep && ((MatchingStep) matchStep).getLine() == 1) {
                 return ((MatchingStep) matchStep).getMatchers();
@@ -122,7 +131,7 @@ public class MatchTask {
         }
         return null;
     }
-    public Map<String, List<Matcher>> getSecondLineMatchers() {
+    public List<Matcher> getSecondLineMatchers() {
         for (MatchStep matchStep : this.matchSteps) {
             if (matchStep instanceof MatchingStep && ((MatchingStep) matchStep).getLine() == 2) {
                 return ((MatchingStep) matchStep).getMatchers();
@@ -131,11 +140,23 @@ public class MatchTask {
         return null;
     }
 
-    public Map<String, List<Matcher>> getMatchersForLine(int line) {
+    public List<Matcher> getMatchersForLine(int line) {
         return switch (line) {
             case 1 -> getFirstLineMatchers();
             case 2 -> getSecondLineMatchers();
             default -> throw new IllegalStateException("Unexpected value: " + line);
         };
+    }
+
+    public void setPerformanceForMatcher(Metric metric, MatchStep matchStep, Matcher matcher, Performance performance) {
+        this.performances.get(metric).get(matchStep).put(matcher, performance);
+    }
+
+    public Performance getPerformanceForMatcher(Metric metric, MatchStep matchStep, Matcher matcher) {
+        return this.performances.get(metric).get(matchStep).get(matcher);
+    }
+
+    public Map<MatchStep, Map<Matcher, Performance>> getPerformancesForMetric(Metric metric) {
+        return this.performances.get(metric);
     }
 }

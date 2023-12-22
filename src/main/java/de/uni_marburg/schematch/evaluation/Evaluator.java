@@ -31,7 +31,7 @@ public class Evaluator {
         Map<Metric, Performance> performances = new HashMap<>();
 
         for (Metric metric : this.metrics) {
-            metric.run(this.groundTruthVector, simVector);
+            performances.put(metric, metric.run(this.groundTruthVector, simVector));
         }
 
         return performances;

@@ -12,16 +12,14 @@ defaultTargetDatabaseDir: "target"
 defaultGroundTruthDir: "ground_truth"
 # directory name for results
 resultsDir: "results"
-# file name for scenario sim matrices
-resultsDirScenario: "scenario"
 # directory name for performance results
-performanceDir: "performances"
+performanceDir: "_performances"
 # file name suffixes for performance evaluation files
-performanceSummaryFileSuffix: "_performance_summary.csv"
-performanceOverviewFileSuffix: "_performance_overview.csv"
+performanceSummaryFileName: "performance_summary.csv"
+performanceOverviewFilePrefix: "performance_overview_"
 # file name for overall performance summary file
 # directory name for matcher output results
-outputDir : "outputs"
+outputDir : "_outputs"
 # default base directory where data directories reside
 defaultDatasetBasePath: "data"
 
