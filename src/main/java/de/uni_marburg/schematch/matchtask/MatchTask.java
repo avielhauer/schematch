@@ -3,10 +3,10 @@ package de.uni_marburg.schematch.matchtask;
 import de.uni_marburg.schematch.data.Dataset;
 import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.evaluation.Evaluator;
+import de.uni_marburg.schematch.evaluation.metric.Metric;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
-import de.uni_marburg.schematch.matchtask.matchstep.SimMatrixBoostingStep;
 import de.uni_marburg.schematch.matchtask.matchstep.TablePairGenerationStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.ArrayUtils;
@@ -33,16 +33,18 @@ public class MatchTask {
     private final Dataset dataset;
     private final Scenario scenario;
     private final List<MatchStep> matchSteps;
+    private final List<Metric> metrics;
     private List<TablePair> tablePairs; // is set by tablepair gen match step
     private Map<MatchStep, Map<Matcher, float[][]>> simMatrices;
     private int[][] groundTruthMatrix;
     private int numSourceColumns, numTargetColumns;
     private Evaluator evaluator;
 
-    public MatchTask(Dataset dataset, Scenario scenario, List<MatchStep> matchSteps) {
+    public MatchTask(Dataset dataset, Scenario scenario, List<MatchStep> matchSteps, List<Metric> metrics) {
         this.dataset = dataset;
         this.scenario = scenario;
         this.matchSteps = matchSteps;
+        this.metrics = metrics;
         this.numSourceColumns = scenario.getSourceDatabase().getNumColumns();
         this.numTargetColumns = scenario.getTargetDatabase().getNumColumns();
         this.simMatrices = new HashMap<>();
@@ -59,7 +61,7 @@ public class MatchTask {
             matchStep.run(this);
             if (matchStep instanceof TablePairGenerationStep && ConfigUtils.anyEvaluate()) {
                 this.readGroundTruth();
-                this.evaluator = new Evaluator(this.scenario, this.groundTruthMatrix);
+                this.evaluator = new Evaluator(this.metrics, this.scenario, this.groundTruthMatrix);
             }
             matchStep.save(this);
             matchStep.evaluate(this);

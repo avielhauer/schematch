@@ -128,7 +128,7 @@ public class MatcherFactory {
     }
 
     /**
-     * Instantiates all matchers as specified in first_line_matchers.yaml
+     * Instantiates all matchers as specified in the respective config file
      * @return Map of matcher names to list of all configured matcher instances
      * @throws Exception when reflection goes wrong
      */

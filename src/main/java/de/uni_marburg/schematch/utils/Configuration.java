@@ -24,9 +24,11 @@ public class Configuration {
 
     private static final String GENERAL_CFG = "general.yaml";
     private static final String DATASETS_CFG = "datasets.yaml";
+    private static final String METRICS_CFG = "metrics.yaml";
     private static final String FIRST_LINE_MATCHERS_CFG = "first_line_matchers.yaml";
     private static final String FIRST_LINE_TOKENIZERS_CFG = "first_line_tokenizers.yaml";
     private static final String SECOND_LINE_MATCHERS_CFG = "second_line_matchers.yaml";
+    public static final String METRIC_PACKAGE_NAME = "de.uni_marburg.schematch.evaluation.metric"; // TODO: fetch from reflection so it is easy to refactor
     public static final String MATCHING_PACKAGE_NAME = "de.uni_marburg.schematch.matching"; // TODO: fetch from reflection so it is easy to refactor
     public static final String TOKENIZATION_PACKAGE_NAME = "de.uni_marburg.schematch.preprocessing.tokenization"; // TODO: fetch from reflection so it is easy to refactor
     public static final String TIMESTAMP_PATTERN = "MM-dd-yyyy_HH-mm-ss";
@@ -76,6 +78,7 @@ public class Configuration {
     private boolean evaluateSimMatrixBoostingOnSecondLineMatchers;
 
     private List<DatasetConfiguration> datasetConfigurations = new ArrayList<>();
+    private List<MetricConfiguration> metricConfigurations = new ArrayList<>();
     private Map<String, List<MatcherConfiguration>> firstLineMatcherConfigurations = new HashMap<>();
     private Map<String, List<TokenizerConfiguration>> firstLineTokenizerConfigurations = new HashMap<>();
     private Map<String, List<MatcherConfiguration>> secondLineMatcherConfigurations = new HashMap<>();
@@ -89,6 +92,13 @@ public class Configuration {
     public static class DatasetConfiguration {
         private String name;
         private String path;
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class MetricConfiguration {
+        private String name;
     }
 
     @Data
@@ -199,6 +209,21 @@ public class Configuration {
             }
             config.datasetConfigurations.add(datasetConfiguration);
             log.debug(datasetConfiguration.toString());
+        }
+
+        // load metrics configuration
+        yaml = new Yaml(new Constructor(Configuration.MetricConfiguration.class, new LoaderOptions()));
+        inputStream = Configuration.class.getClassLoader().getResourceAsStream(METRICS_CFG);
+        if (inputStream == null) {
+            log.error("Unable to load metrics configuration file from: " + METRICS_CFG);
+            throw new RuntimeException();
+        }
+        Iterable<Object> metricConfigs = yaml.loadAll(inputStream);
+
+        for (Object metricConfig : metricConfigs) {
+            MetricConfiguration metricConfiguration = (MetricConfiguration) metricConfig;
+            config.metricConfigurations.add(metricConfiguration);
+            log.debug(metricConfiguration.toString());
         }
 
         // load matchers configuration

@@ -2,6 +2,8 @@ package de.uni_marburg.schematch;
 
 import de.uni_marburg.schematch.boosting.IdentitySimMatrixBoosting;
 import de.uni_marburg.schematch.boosting.SimMatrixBoosting;
+import de.uni_marburg.schematch.evaluation.metric.Metric;
+import de.uni_marburg.schematch.evaluation.metric.MetricFactory;
 import de.uni_marburg.schematch.matching.ensemble.RandomEnsembleMatcher;
 import de.uni_marburg.schematch.matchtask.matchstep.*;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.GroundTruthTablePairsGenerator;
@@ -31,15 +33,21 @@ public class Main {
 
         log.info("Instantiating table pair generation");
         TablePairsGenerator tablePairsGenerator = new NaiveTablePairsGenerator();
+
         log.info("Instantiating matchers");
         MatcherFactory matcherFactory = new MatcherFactory();
         Map<String, List<Matcher>> firstLineMatchers = matcherFactory.createMatchersFromConfig(1);
         Map<String, List<Matcher>> secondLineMatchers = matcherFactory.createMatchersFromConfig(2);
+
         log.info("Instantiating sim matrix boosting");
         // FIXME: make sim matrix boosting configurable via .yaml files
         // Configure similarity matrix boosting here for now
         SimMatrixBoosting firstLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
         SimMatrixBoosting secondLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
+
+        log.info("Instantiating metrics");
+        MetricFactory metricFactory = new MetricFactory();
+        List<Metric> metrics = metricFactory.createMetricsFromConfig();
 
         log.info("Setting up matching steps as specified in config");
         List<MatchStep> matchSteps = new ArrayList<>();
@@ -88,7 +96,7 @@ public class Main {
                 Scenario scenario = new Scenario(dataset.getPath() + File.separator + scenarioName);
                 log.debug("Starting experiments for dataset " + dataset.getName() + ", scenario: " + scenario.getPath());
 
-                MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps);
+                MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps, metrics);
                 matchTask.runSteps();
                 if (ConfigUtils.anyEvaluate()) {
                     //EvalWriter.writeScenarioPerformance(dataset, scenario, matchSteps);

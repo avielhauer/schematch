@@ -75,6 +75,11 @@ public class MatchingStep extends MatchStep {
 
         log.debug("Evaluating " + this.line + ". line matching output for scenario: " + matchTask.getScenario().getPath());
 
+        for (String matcherName : this.matchers.keySet()) {
+            for (Matcher matcher : this.matchers.get(matcherName)) {
+                matchTask.getEvaluator().evaluate(matchTask.getSimMatrix(this, matcher));
+            }
+        }
         /*List<TablePair> tablePairs = matchTask.getTablePairs();
 
         for (TablePair tablePair : tablePairs) {

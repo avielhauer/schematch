@@ -2,13 +2,11 @@ package de.uni_marburg.schematch.evaluation;
 
 import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.evaluation.metric.Metric;
-import de.uni_marburg.schematch.evaluation.metric.NonBinaryPrecisionAtGroundTruth;
 import de.uni_marburg.schematch.evaluation.performance.Performance;
 import de.uni_marburg.schematch.utils.ArrayUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,15 +14,16 @@ import java.util.Map;
 public class Evaluator {
     final static Logger log = LogManager.getLogger(Evaluator.class);
 
-    private Scenario scenario;
-    private int[] groundTruthVector;
-    private List<Metric> metrics;
+    private final Scenario scenario;
+    private final int[] groundTruthVector;
+    private final int numGroundTruth;
+    private final List<Metric> metrics;
 
-    public Evaluator(Scenario scenario, int[][] groundTruthMatrix) {
+    public Evaluator(List<Metric> metrics, Scenario scenario, int[][] groundTruthMatrix) {
+        this.metrics = metrics;
         this.scenario = scenario;
+        this.numGroundTruth = ArrayUtils.sumOfMatrix(groundTruthMatrix);
         this.groundTruthVector = ArrayUtils.flattenMatrix(groundTruthMatrix);
-        metrics = new ArrayList<>();
-        metrics.add(new NonBinaryPrecisionAtGroundTruth());
     }
 
     public Map<Metric, Performance> evaluate(float[][] simMatrix) {
