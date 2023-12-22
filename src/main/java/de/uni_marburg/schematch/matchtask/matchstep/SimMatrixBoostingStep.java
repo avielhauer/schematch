@@ -58,11 +58,11 @@ public class SimMatrixBoostingStep extends MatchStep {
          }
         log.debug("Saving similarity matrix boosting (line=" + this.line + ") output for scenario: " + matchTask.getScenario().getPath());
 
-        Path basePath = ResultsUtils.getOutputBaseResultsPathForMatchStepInScenario(matchTask, this);
+        Path scenarioPath = ResultsUtils.getOutputScenarioResultsPathForMatchStepInScenario(matchTask, this);
 
         for (Matcher matcher : this.simMatrices.keySet()) {
             float[][] simMatrix = this.getSimMatrix(matcher);
-            OutputWriter.writeSimMatrix(basePath.resolve(matcher.toString()).resolve(".csv"), simMatrix);
+            OutputWriter.writeSimMatrix(scenarioPath.resolve(matcher.toString() + ".csv"), simMatrix);
         }
     }
 

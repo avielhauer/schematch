@@ -30,4 +30,8 @@ public class ResultsUtils {
     public static Path getOutputBaseResultsPathForMatchStepInScenario(MatchTask matchTask, MatchStep matchStep) {
         return getBaseResultsPathForScenario(matchTask).resolve(matchStep.toString()).resolve(config.getOutputDir());
     }
+
+    public static Path getOutputScenarioResultsPathForMatchStepInScenario(MatchTask matchTask, MatchStep matchStep) {
+        return getOutputBaseResultsPathForMatchStepInScenario(matchTask, matchStep).resolve(config.getResultsDirScenario());
+    }
 }

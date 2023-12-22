@@ -43,6 +43,7 @@ public class Configuration {
     private String defaultGroundTruthDir;
 
     private String resultsDir;
+    private String resultsDirScenario;
     private String performanceDir;
     private String performanceOverviewFileSuffix;
     private String performanceSummaryFileSuffix;

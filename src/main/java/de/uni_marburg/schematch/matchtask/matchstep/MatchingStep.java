@@ -58,12 +58,12 @@ public class MatchingStep extends MatchStep {
 
         log.debug("Saving " + this.line + ". line matching output for scenario: " + matchTask.getScenario().getPath());
 
-        Path basePath = ResultsUtils.getOutputBaseResultsPathForMatchStepInScenario(matchTask, this);
+        Path scenarioPath = ResultsUtils.getOutputScenarioResultsPathForMatchStepInScenario(matchTask, this);
 
         for (String matcherName : this.matchers.keySet()) {
             for (Matcher matcher : this.matchers.get(matcherName)) {
                 float[][] simMatrix = this.getSimMatrix(matcher);
-                OutputWriter.writeSimMatrix(basePath.resolve(matcher.toString()).resolve(".csv"), simMatrix);
+                OutputWriter.writeSimMatrix(scenarioPath.resolve(matcher.toString() + ".csv"), simMatrix);
             }
         }
     }

@@ -12,6 +12,8 @@ defaultTargetDatabaseDir: "target"
 defaultGroundTruthDir: "ground_truth"
 # directory name for results
 resultsDir: "results"
+# file name for scenario sim matrices
+resultsDirScenario: "scenario"
 # directory name for performance results
 performanceDir: "performances"
 # file name suffixes for performance evaluation files
