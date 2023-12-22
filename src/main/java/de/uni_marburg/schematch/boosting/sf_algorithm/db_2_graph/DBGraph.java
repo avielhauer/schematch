@@ -63,7 +63,7 @@ public abstract class DBGraph extends SimpleDirectedGraph<Object, LabeledEdge> {
         this.inds = this.dbMetadata.getInds();
 
         this.generateGraph();
-        log.debug("Created new DB-Graph.");
+        log.debug("Generated new DB-Graph with {} vertices and {} edges.", this.vertexSet().size(), this.edgeSet().size());
     }
 
     protected abstract void generateGraph();

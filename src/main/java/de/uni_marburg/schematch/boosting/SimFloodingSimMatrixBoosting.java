@@ -2,8 +2,10 @@ package de.uni_marburg.schematch.boosting;
 
 import de.uni_marburg.schematch.boosting.sf_algorithm.db_2_graph.DBGraph;
 import de.uni_marburg.schematch.boosting.sf_algorithm.db_2_graph.Metadata2Graph;
+import de.uni_marburg.schematch.boosting.sf_algorithm.db_2_graph.SQL2Graph;
 import de.uni_marburg.schematch.boosting.sf_algorithm.flooding.Flooder;
 import de.uni_marburg.schematch.boosting.sf_algorithm.flooding.FlooderA;
+import de.uni_marburg.schematch.boosting.sf_algorithm.flooding.FlooderC;
 import de.uni_marburg.schematch.boosting.sf_algorithm.propagation_graph.PropagationGraph;
 import de.uni_marburg.schematch.boosting.sf_algorithm.propagation_graph.PropagationNode;
 import de.uni_marburg.schematch.boosting.sf_algorithm.propagation_graph.WaterWeightingGraph;
@@ -24,10 +26,9 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
 
     @Override
     public float[][] run(int line, MatchTask matchTask, TablePair tablePair, Matcher matcher) {
-
         // Create a DatabaseGraph
-        DBGraph dbGraphSource = new Metadata2Graph(line, matchTask, tablePair, matcher, true);
-        DBGraph dbGraphTarget = new Metadata2Graph(line, matchTask, tablePair, matcher, false);
+        DBGraph dbGraphSource = new SQL2Graph(line, matchTask, tablePair, matcher, true);
+        DBGraph dbGraphTarget = new SQL2Graph(line, matchTask, tablePair, matcher, false);
 
         // Create Similaritycalculator
         SimilarityCalculator levenshteinCalculator = new SimilarityCalculator(line, matchTask, tablePair, matcher) {
@@ -42,19 +43,16 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
         PropagationGraph<PropagationNode> pGraph = new WaterWeightingGraph(dbGraphSource, dbGraphTarget, levenshteinCalculator);
 
         // Create Flooder
-        Flooder flooder = new FlooderA(pGraph);
+        Flooder flooder = new FlooderC(pGraph);
 
-        float[][] boostedMatrix = flooder.flood(100, 0.01F);
+        float[][] boostedMatrix = flooder.flood(100, 0.0000001F);
 
         float[][] simMatrix = switch (line) {
             case 1 -> tablePair.getResultsForFirstLineMatcher(matcher);
             case 2 -> tablePair.getResultsForSecondLineMatcher(matcher);
             default -> throw new RuntimeException("Illegal matcher line set for similarity matrix boosting");
         };
-        printMatrix(simMatrix);
-        System.out.println("---");
-        printMatrix(boostedMatrix);
-        System.out.println("__________");
+        
         return boostedMatrix;
     }
 

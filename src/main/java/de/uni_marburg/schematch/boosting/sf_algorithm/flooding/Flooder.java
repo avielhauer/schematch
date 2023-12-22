@@ -23,7 +23,7 @@ public abstract class Flooder {
             double residualLength = Math.sqrt(sumSquaredDifference);
 
             if(residualLength <= minResidualLength){
-                log.debug("Flooding finished due to a residual vector of length {}.", residualLength);
+                log.debug("Flooding finished due to a residual vector of length {} after {} iterations.", residualLength, i);
                 break;
             }
         }
