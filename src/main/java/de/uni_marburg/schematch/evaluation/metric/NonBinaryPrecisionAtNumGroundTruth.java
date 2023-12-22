@@ -1,19 +1,20 @@
 package de.uni_marburg.schematch.evaluation.metric;
 
+import de.uni_marburg.schematch.evaluation.Evaluator;
 import de.uni_marburg.schematch.evaluation.performance.Performance;
 
 import java.util.Arrays;
 
 public class NonBinaryPrecisionAtNumGroundTruth extends Metric {
     @Override
-    public Performance run(int[] groundTruthVector, float[] simVector) {
-        float totalSimScoreTP = 0;
-        float totalSimScoreFP = 0;
+    public float run(int[] groundTruthVector, float[] simVector) {
         int numGT = 0;
-
         for (int i : groundTruthVector) {
             numGT += i;
         }
+
+        float totalSimScoreTP = 0;
+        float totalSimScoreFP = 0;
 
         float[] sortedSimVector = simVector.clone();
         Arrays.sort(sortedSimVector);
@@ -37,6 +38,6 @@ public class NonBinaryPrecisionAtNumGroundTruth extends Metric {
             score = totalSimScoreTP / (totalSimScoreTP + totalSimScoreFP);
         }
 
-        return new Performance(score);
+        return score;
     }
 }

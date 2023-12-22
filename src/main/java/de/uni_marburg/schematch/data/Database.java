@@ -35,6 +35,15 @@ public class Database {
         numColumns = currentOffset;
     }
 
+    public Column getColumnByIndex(int idx) {
+        for (Table table : this.tables) {
+            if (table.getOffset() + table.getNumColumns() >= idx) {
+                return table.getColumn(idx - table.getOffset());
+            }
+        }
+        throw new IllegalStateException("Could not find column for index: " + idx);
+    }
+
     public Table getTableByName(String tableName) {
         for (Table table : this.tables) {
             if (table.getName().equals(tableName)) {

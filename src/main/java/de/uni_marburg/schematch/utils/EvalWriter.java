@@ -1,5 +1,6 @@
 package de.uni_marburg.schematch.utils;
 
+import de.uni_marburg.schematch.data.Database;
 import de.uni_marburg.schematch.data.Dataset;
 import de.uni_marburg.schematch.evaluation.metric.Metric;
 import de.uni_marburg.schematch.evaluation.performance.Performance;
@@ -100,6 +101,89 @@ public class EvalWriter {
     public void writeScenarioPerformance(MatchTask matchTask) {
         Path scenarioPerformancePath = ResultsUtils.getPerformancePathForScenario(matchTask);
         writePerformance(EvaluationLevel.SCENARIO, scenarioPerformancePath, matchTask.getPerformances());
+
+        if (Configuration.getInstance().isEvaluateAttributes()) {
+            // FIXME: find a better place to do the mapping of column indices to column labels
+            Map<Integer, String> sourceAttributeNames = new HashMap<>();
+            Map<Integer, String> targetAttributeNames = new HashMap<>();
+            int[][] groundTruthMatrix = matchTask.getGroundTruthMatrix();
+            for (int i = 0; i < groundTruthMatrix.length; i++) {
+                for (int j = 0; j < groundTruthMatrix[0].length; j++) {
+                    if (groundTruthMatrix[i][j] == 1) {
+                        sourceAttributeNames.put(i, matchTask.getScenario().getSourceDatabase().getColumnByIndex(i).getLabel());
+                        targetAttributeNames.put(i, matchTask.getScenario().getTargetDatabase().getColumnByIndex(i).getLabel());
+                    }
+                }
+            }
+
+            Map<Metric, Map<MatchStep, Map<Matcher, Performance>>> performances = matchTask.getPerformances();
+            for (Metric metric : matchTask.getMetrics()) {
+                for (MatchStep matchStep : matchTask.getMatchSteps()) {
+                    if (matchStep.isDoEvaluate()) {
+                        Path matchStepPath = scenarioPerformancePath.resolve(metric.toString()).resolve(matchStep.toString());
+                        List<Matcher> matchers = matchTask.getMatchersForMatchStep(matchStep);
+                        writeAttributePerformance(matchStepPath, matchTask, matchers,
+                                performances.get(metric).get(matchStep), sourceAttributeNames, targetAttributeNames);
+                    }
+                }
+            }
+        }
+    }
+
+    private void writeAttributePerformance(Path matchStepPath, MatchTask matchTask, List<Matcher> matchers,
+                                           Map<Matcher, Performance> performances,
+                                           Map<Integer, String> sourceAttributeNames,
+                                           Map<Integer, String> targetAttributeNames) {
+        Path sourceAttributesFilePath = matchStepPath.resolve("performance_source_attributes.csv");
+        Path targetAttributesFilePath = matchStepPath.resolve("performance_target_attributes.csv");
+        Path attributePairsFilePath = matchStepPath.resolve("performance_attribute_pairs.csv");
+
+        try {
+            Files.createDirectories(sourceAttributesFilePath.getParent());
+            BufferedWriter sourceAttributesWriter = new BufferedWriter(new FileWriter(sourceAttributesFilePath.toString()));
+            BufferedWriter targetAttributesWriter = new BufferedWriter(new FileWriter(targetAttributesFilePath.toString()));
+            BufferedWriter attributePairsWriter = new BufferedWriter(new FileWriter(attributePairsFilePath.toString()));
+
+            List<String> linesSourceAttributes = new ArrayList<>();
+            List<String> linesTargetAttributes = new ArrayList<>();
+            List<String> linesAttributePairs = new ArrayList<>();
+            StringBuilder generalHeader = new StringBuilder();
+
+            for (Matcher matcher : matchers) {
+                generalHeader.append(matcher.toString());
+                Performance performance = performances.get(matcher);
+                SortedMap<Integer, Float> sourceAttributeScores = performance.getSourceAttributeScores();
+                SortedMap<Integer, Float> targetAttributeScores = performance.getTargetAttributeScores();
+                for (Map.Entry<Integer, Float> sourceAttributeScore : sourceAttributeScores.entrySet()) {
+                    
+                }
+            }
+
+            sourceAttributesWriter.write("SourceAttribute\\Matcher," + generalHeader);
+            targetAttributesWriter.write("TargetAttribute\\Matcher," + generalHeader);
+            attributePairsWriter.write("AttributePairs\\Matcher," + generalHeader);
+
+            for (String line : linesSourceAttributes) {
+                sourceAttributesWriter.newLine();
+                sourceAttributesWriter.write(line);
+            }
+
+            for (String line : linesTargetAttributes) {
+                targetAttributesWriter.newLine();
+                targetAttributesWriter.write(line);
+            }
+
+            for (String line : linesAttributePairs) {
+                attributePairsWriter.newLine();
+                attributePairsWriter.write(line);
+            }
+
+            sourceAttributesWriter.close();
+            targetAttributesWriter.close();
+            attributePairsWriter.close();
+        } catch (IOException e) {
+            log.error(e.getMessage());
+        }
     }
 
     public void writeDatasetPerformance(Dataset dataset) {

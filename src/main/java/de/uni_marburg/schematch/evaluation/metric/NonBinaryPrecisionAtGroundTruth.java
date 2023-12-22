@@ -1,11 +1,12 @@
 package de.uni_marburg.schematch.evaluation.metric;
 
+import de.uni_marburg.schematch.evaluation.Evaluator;
 import de.uni_marburg.schematch.evaluation.performance.Performance;
-import de.uni_marburg.schematch.evaluation.performance.TablePairPerformance;
 
 public class NonBinaryPrecisionAtGroundTruth extends Metric {
     @Override
-    public Performance run(int[] groundTruthVector, float[] simVector) {
+    public float run(int[] groundTruthVector, float[] simVector) {
+
         float totalSimScoreTP = 0;
         float totalSimScoreFP = 0;
 
@@ -13,7 +14,7 @@ public class NonBinaryPrecisionAtGroundTruth extends Metric {
         float lowestGTScore = Float.MAX_VALUE;
         for (int i = 0; i < groundTruthVector.length; i++) {
             if (groundTruthVector[i] == 1 && simVector[i] < lowestGTScore) {
-            lowestGTScore = simVector[i];
+                lowestGTScore = simVector[i];
             }
         }
 
@@ -34,6 +35,6 @@ public class NonBinaryPrecisionAtGroundTruth extends Metric {
             score = totalSimScoreTP / (totalSimScoreTP + totalSimScoreFP);
         }
 
-        return new Performance(score);
+        return score;
     }
 }

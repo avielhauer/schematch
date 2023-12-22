@@ -53,6 +53,8 @@ public class Configuration {
     // FIXME: refactor to use log4j custom log level instead
     private int logLevelResults;
 
+    private boolean evaluateAttributes;
+
     // Step 1
     private boolean saveOutputTablePairGeneration;
     private boolean evaluateTablePairGeneration;

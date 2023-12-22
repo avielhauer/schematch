@@ -8,6 +8,7 @@ import de.uni_marburg.schematch.evaluation.performance.Performance;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
+import de.uni_marburg.schematch.matchtask.matchstep.SimMatrixBoostingStep;
 import de.uni_marburg.schematch.matchtask.matchstep.TablePairGenerationStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.ArrayUtils;
@@ -144,8 +145,18 @@ public class MatchTask {
         return switch (line) {
             case 1 -> getFirstLineMatchers();
             case 2 -> getSecondLineMatchers();
-            default -> throw new IllegalStateException("Unexpected value: " + line);
+            default -> throw new IllegalStateException("Unexpected line value: " + line);
         };
+    }
+
+    public List<Matcher> getMatchersForMatchStep(MatchStep matchStep) {
+        if (matchStep instanceof MatchingStep ms) {
+            return ms.getMatchers();
+        } else if (matchStep instanceof SimMatrixBoostingStep smbs) {
+            return getMatchersForLine(smbs.getLine());
+        } else {
+            throw new IllegalStateException("Cannot get matchers for match step: " + matchStep);
+        }
     }
 
     public void setPerformanceForMatcher(Metric metric, MatchStep matchStep, Matcher matcher, Performance performance) {

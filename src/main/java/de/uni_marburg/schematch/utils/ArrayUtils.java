@@ -57,4 +57,24 @@ public class ArrayUtils {
     public static int sumOfMatrix(int[][] m) {
         return Arrays.stream(m).mapToInt(ints -> IntStream.of(ints).sum()).sum();
     }
+
+    public static int[][] transposeMatrix(int[][] m) {
+        int[][] res = new int[m[0].length][m.length];
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m[0].length; j++) {
+                res[i][j] = m[j][i];
+            }
+        }
+        return res;
+    }
+
+    public static float[][] transposeMatrix(float[][] m) {
+        float[][] res = new float[m[0].length][m.length];
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m[0].length; j++) {
+                res[i][j] = m[j][i];
+            }
+        }
+        return res;
+    }
 }
