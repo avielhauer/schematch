@@ -10,6 +10,34 @@ import java.util.stream.IntStream;
 public class ArrayUtils {
     private static final Logger log = LogManager.getLogger(ArrayUtils.class);
 
+    public static float[] flattenMatrix(float[][] m) {
+        float[] result = new float[m.length * m[0].length];
+        for (int i = 0; i < m.length; ++i) {
+            System.arraycopy(m[i], 0, result, i * m[0].length, m[i].length);
+        }
+        return result;
+    }
+
+    public static int[] flattenMatrix(int[][] m) {
+        return Arrays.stream(m).flatMapToInt(Arrays::stream).toArray();
+    }
+
+    public static void insertSubmatrixInMatrix(int[][] submatrix, int[][] matrix, int xOffset, int yOffset) {
+        for (int i = 0; i < submatrix.length; i++) {
+            for (int j = 0; j < submatrix[i].length; j++) {
+                matrix[i+xOffset][j+yOffset] = submatrix[i][j];
+            }
+        }
+    }
+
+    public static void insertSubmatrixInMatrix(float[][] submatrix, float[][] matrix, int xOffset, int yOffset) {
+        for (int i = 0; i < submatrix.length; i++) {
+            for (int j = 0; j < submatrix[i].length; j++) {
+                matrix[i+xOffset][j+yOffset] = submatrix[i][j];
+            }
+        }
+    }
+
     public static Integer[] sortIndices(float[] input, boolean ascending) {
         Integer[] indices = new Integer[input.length];
 
@@ -28,5 +56,25 @@ public class ArrayUtils {
 
     public static int sumOfMatrix(int[][] m) {
         return Arrays.stream(m).mapToInt(ints -> IntStream.of(ints).sum()).sum();
+    }
+
+    public static int[][] transposeMatrix(int[][] m) {
+        int[][] res = new int[m[0].length][m.length];
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m[0].length; j++) {
+                res[j][i] = m[i][j];
+            }
+        }
+        return res;
+    }
+
+    public static float[][] transposeMatrix(float[][] m) {
+        float[][] res = new float[m[0].length][m.length];
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m[0].length; j++) {
+                res[j][i] = m[i][j];
+            }
+        }
+        return res;
     }
 }
