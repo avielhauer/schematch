@@ -62,7 +62,7 @@ public class ArrayUtils {
         int[][] res = new int[m[0].length][m.length];
         for (int i = 0; i < m.length; i++) {
             for (int j = 0; j < m[0].length; j++) {
-                res[i][j] = m[j][i];
+                res[j][i] = m[i][j];
             }
         }
         return res;
@@ -72,7 +72,7 @@ public class ArrayUtils {
         float[][] res = new float[m[0].length][m.length];
         for (int i = 0; i < m.length; i++) {
             for (int j = 0; j < m[0].length; j++) {
-                res[i][j] = m[j][i];
+                res[j][i] = m[i][j];
             }
         }
         return res;

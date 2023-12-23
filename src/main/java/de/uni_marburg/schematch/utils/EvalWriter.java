@@ -46,8 +46,6 @@ public class EvalWriter {
         //      it will then add the dataset performances to overall performances and reset the current dataset performance
         initializePerformances(this.datasetPerformances);
         initializePerformances(this.overallPerformances);
-
-
     }
 
     private void initializePerformances(Map<Metric, Map<MatchStep, Map<Matcher, Performance>>> performances) {
@@ -104,14 +102,14 @@ public class EvalWriter {
 
         if (Configuration.getInstance().isEvaluateAttributes()) {
             // FIXME: find a better place to do the mapping of column indices to column labels
-            Map<Integer, String> sourceAttributeNames = new HashMap<>();
-            Map<Integer, String> targetAttributeNames = new HashMap<>();
+            SortedMap<Integer, String> sourceAttributes = new TreeMap<>();
+            SortedMap<Integer, String> targetAttributes = new TreeMap<>();
             int[][] groundTruthMatrix = matchTask.getGroundTruthMatrix();
             for (int i = 0; i < groundTruthMatrix.length; i++) {
                 for (int j = 0; j < groundTruthMatrix[0].length; j++) {
                     if (groundTruthMatrix[i][j] == 1) {
-                        sourceAttributeNames.put(i, matchTask.getScenario().getSourceDatabase().getColumnByIndex(i).getLabel());
-                        targetAttributeNames.put(i, matchTask.getScenario().getTargetDatabase().getColumnByIndex(i).getLabel());
+                        sourceAttributes.put(i, matchTask.getScenario().getSourceDatabase().getFullColumnNameByIndex(i));
+                        targetAttributes.put(j, matchTask.getScenario().getTargetDatabase().getFullColumnNameByIndex(j));
                     }
                 }
             }
@@ -123,7 +121,7 @@ public class EvalWriter {
                         Path matchStepPath = scenarioPerformancePath.resolve(metric.toString()).resolve(matchStep.toString());
                         List<Matcher> matchers = matchTask.getMatchersForMatchStep(matchStep);
                         writeAttributePerformance(matchStepPath, matchTask, matchers,
-                                performances.get(metric).get(matchStep), sourceAttributeNames, targetAttributeNames);
+                                performances.get(metric).get(matchStep), sourceAttributes, targetAttributes);
                     }
                 }
             }
@@ -132,8 +130,8 @@ public class EvalWriter {
 
     private void writeAttributePerformance(Path matchStepPath, MatchTask matchTask, List<Matcher> matchers,
                                            Map<Matcher, Performance> performances,
-                                           Map<Integer, String> sourceAttributeNames,
-                                           Map<Integer, String> targetAttributeNames) {
+                                           SortedMap<Integer, String> sourceAttributes,
+                                           SortedMap<Integer, String> targetAttributes) {
         Path sourceAttributesFilePath = matchStepPath.resolve("performance_source_attributes.csv");
         Path targetAttributesFilePath = matchStepPath.resolve("performance_target_attributes.csv");
         Path attributePairsFilePath = matchStepPath.resolve("performance_attribute_pairs.csv");
@@ -150,18 +148,46 @@ public class EvalWriter {
             StringBuilder generalHeader = new StringBuilder();
 
             for (Matcher matcher : matchers) {
-                generalHeader.append(matcher.toString());
-                Performance performance = performances.get(matcher);
-                SortedMap<Integer, Float> sourceAttributeScores = performance.getSourceAttributeScores();
-                SortedMap<Integer, Float> targetAttributeScores = performance.getTargetAttributeScores();
-                for (Map.Entry<Integer, Float> sourceAttributeScore : sourceAttributeScores.entrySet()) {
-                    
+                generalHeader.append(",").append(matcher.toString());
+            }
+
+            for (Map.Entry<Integer, String> sourceAttribute : sourceAttributes.entrySet()) {
+                StringBuilder lineSourceAttribute = new StringBuilder();
+                lineSourceAttribute.append(sourceAttribute.getValue());
+                for (Matcher matcher : matchers) {
+                    lineSourceAttribute.append(",")
+                            .append(performances.get(matcher).getSourceAttributeScores().get(sourceAttribute.getKey()));
+                }
+                linesSourceAttributes.add(lineSourceAttribute.toString());
+            }
+
+            for (Map.Entry<Integer, String> targetAttribute : targetAttributes.entrySet()) {
+                StringBuilder lineTargetAttribute = new StringBuilder();
+                lineTargetAttribute.append(targetAttribute.getValue());
+                for (Matcher matcher : matchers) {
+                    lineTargetAttribute.append(",")
+                            .append(performances.get(matcher).getTargetAttributeScores().get(targetAttribute.getKey()));
+                }
+                linesTargetAttributes.add(lineTargetAttribute.toString());
+            }
+
+            for (Map.Entry<Integer, String> sourceAttribute : sourceAttributes.entrySet()) {
+                for (Map.Entry<Integer, String> targetAttribute : targetAttributes.entrySet()) {
+                    StringBuilder lineAttributePair = new StringBuilder();
+                    lineAttributePair.append(sourceAttribute.getValue()).append("___").append(targetAttribute.getValue());
+                    for (Matcher matcher : matchers) {
+                        float sourceScore = performances.get(matcher).getSourceAttributeScores().get(sourceAttribute.getKey());
+                        float targetScore = performances.get(matcher).getTargetAttributeScores().get(targetAttribute.getKey());
+                        float avgScore = (sourceScore + targetScore)/2;
+                        lineAttributePair.append(",").append(avgScore);
+                    }
+                    linesAttributePairs.add(lineAttributePair.toString());
                 }
             }
 
-            sourceAttributesWriter.write("SourceAttribute\\Matcher," + generalHeader);
-            targetAttributesWriter.write("TargetAttribute\\Matcher," + generalHeader);
-            attributePairsWriter.write("AttributePairs\\Matcher," + generalHeader);
+            sourceAttributesWriter.write("SourceAttribute\\Matcher" + generalHeader);
+            targetAttributesWriter.write("TargetAttribute\\Matcher" + generalHeader);
+            attributePairsWriter.write("AttributePairs\\Matcher" + generalHeader);
 
             for (String line : linesSourceAttributes) {
                 sourceAttributesWriter.newLine();

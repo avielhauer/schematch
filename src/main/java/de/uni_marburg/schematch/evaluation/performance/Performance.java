@@ -1,10 +1,7 @@
 package de.uni_marburg.schematch.evaluation.performance;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -20,8 +17,8 @@ public class Performance {
         targetAttributeScores = new TreeMap<>();
     }
 
-    public void addToGlobalScore(float a) {
-        this.globalScore += a;
+    public void addToGlobalScore(float f) {
+        this.globalScore += f;
     }
 
     public void addSourceAttributeScore(int attributeIndex, float score) {
@@ -29,6 +26,6 @@ public class Performance {
     }
 
     public void addTargetAttributeScore(int attributeIndex, float score) {
-        sourceAttributeScores.put(attributeIndex, score);
+        targetAttributeScores.put(attributeIndex, score);
     }
 }

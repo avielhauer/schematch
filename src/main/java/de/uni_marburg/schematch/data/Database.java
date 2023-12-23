@@ -35,9 +35,18 @@ public class Database {
         numColumns = currentOffset;
     }
 
+    public String getFullColumnNameByIndex(int idx) {
+        for (Table table : this.tables) {
+            if (table.getOffset() + table.getNumColumns() > idx) {
+                return table.getName() + "." + table.getColumn(idx - table.getOffset()).getLabel();
+            }
+        }
+        throw new IllegalStateException("Could not find full column name for index: " + idx);
+    }
+
     public Column getColumnByIndex(int idx) {
         for (Table table : this.tables) {
-            if (table.getOffset() + table.getNumColumns() >= idx) {
+            if (table.getOffset() + table.getNumColumns() > idx) {
                 return table.getColumn(idx - table.getOffset());
             }
         }
