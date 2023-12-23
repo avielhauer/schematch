@@ -16,10 +16,9 @@ public class FlooderA extends Flooder{
     protected void flooding_step() {
         float max = 0F;
         for(PropagationNode node : this.pGraph.vertexSet()){
-            node.setSimCandidate(node.getInitialSim());
             float simCandidate = node.getInitialSim();
             for(WeightedEdge edge : this.pGraph.incomingEdgesOf(node)){
-                simCandidate += edge.getWeight() * this.pGraph.getEdgeTarget(edge).getSim();
+                simCandidate += edge.getWeight() * this.pGraph.getEdgeSource(edge).getSim();
             }
             node.setSimCandidate(simCandidate);
             max = Math.max(simCandidate, max);

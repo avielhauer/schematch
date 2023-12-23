@@ -19,7 +19,7 @@ public class FlooderC extends Flooder{
             node.setSimCandidate(node.getInitialSim() + node.getSim());
             float simCandidate = node.getInitialSim();
             for(WeightedEdge edge : this.pGraph.incomingEdgesOf(node)){
-                simCandidate += edge.getWeight() * this.pGraph.getEdgeTarget(edge).getSim();
+                simCandidate += edge.getWeight() * this.pGraph.getEdgeSource(edge).getSim();
             }
             node.setSimCandidate(simCandidate);
             max = Math.max(simCandidate, max);

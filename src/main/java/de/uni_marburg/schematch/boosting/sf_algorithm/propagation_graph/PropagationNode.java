@@ -37,7 +37,7 @@ public class PropagationNode{
 
     @Override
     public String toString(){
-        return "";
+        return "["+this.objectA.toString()+","+this.objectB.toString()+"]";
     }
 
     @Override

@@ -3,6 +3,7 @@ package de.uni_marburg.schematch.boosting.sf_algorithm.propagation_graph;
 import de.uni_marburg.schematch.boosting.sf_algorithm.db_2_graph.DBGraph;
 import de.uni_marburg.schematch.boosting.sf_algorithm.db_2_graph.LabeledEdge;
 import de.uni_marburg.schematch.boosting.sf_algorithm.similarity_calculator.SimilarityCalculator;
+import lombok.Getter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jgrapht.graph.SimpleDirectedGraph;
@@ -11,10 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+@Getter
 public abstract class PropagationGraph<T extends PropagationNode> extends SimpleDirectedGraph<T, WeightedEdge> {
     private final static Logger log = LogManager.getLogger(PropagationGraph.class);
 
-    private final List<List<T>> columnNodes;
+    public final List<List<T>> columnNodes;
 
     protected PropagationGraph(DBGraph dbGraphA, DBGraph dbGraphB, SimilarityCalculator similarityCalculator){
         super(WeightedEdge.class);

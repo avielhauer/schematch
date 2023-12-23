@@ -15,14 +15,14 @@ import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import lombok.Getter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jgrapht.graph.SimpleDirectedGraph;
+import org.jgrapht.graph.DefaultDirectedGraph;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 @Getter
-public abstract class DBGraph extends SimpleDirectedGraph<Object, LabeledEdge> {
+public abstract class DBGraph extends DefaultDirectedGraph<Object, LabeledEdge> {
     private final static Logger log = LogManager.getLogger(DBGraph.class);
     private final int line;
     private final MatchTask matchTask;
@@ -38,7 +38,7 @@ public abstract class DBGraph extends SimpleDirectedGraph<Object, LabeledEdge> {
     private final Map<Column, Collection<FunctionalDependency>> fds;
     private final Collection<InclusionDependency> inds;
 
-    protected DBGraph(int line, MatchTask matchTask, TablePair tablePair, Matcher matcher, boolean source){
+    public DBGraph(int line, MatchTask matchTask, TablePair tablePair, Matcher matcher, boolean source){
         super(LabeledEdge.class);
         this.line = line;
         this.matchTask = matchTask;
@@ -67,4 +67,19 @@ public abstract class DBGraph extends SimpleDirectedGraph<Object, LabeledEdge> {
     }
 
     protected abstract void generateGraph();
+
+    public final void addDBGraph(DBGraph that){
+        for(Object vertex : that.vertexSet()){
+            this.addVertex(vertex);
+        }
+        for(LabeledEdge edge : that.edgeSet()){
+            this.addEdge(that.getEdgeSource(edge), that.getEdgeTarget(edge), edge);
+        }
+    }
+
+    @Override
+    public boolean addEdge(Object source, Object target, LabeledEdge edge){
+        if(source.equals(target)) throw new RuntimeException("DB graphs should not have loops.");
+        return super.addEdge(source, target, edge);
+    }
 }
