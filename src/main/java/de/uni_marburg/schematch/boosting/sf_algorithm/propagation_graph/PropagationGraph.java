@@ -18,7 +18,7 @@ public abstract class PropagationGraph<T extends PropagationNode> extends Simple
 
     public final List<List<T>> columnNodes;
 
-    protected PropagationGraph(DBGraph dbGraphA, DBGraph dbGraphB, SimilarityCalculator similarityCalculator){
+    public PropagationGraph(DBGraph dbGraphA, DBGraph dbGraphB, SimilarityCalculator similarityCalculator){
         super(WeightedEdge.class);
         // Create ColumnNodes
         this.columnNodes = new ArrayList<>();
@@ -80,5 +80,22 @@ public abstract class PropagationGraph<T extends PropagationNode> extends Simple
             }
         }
         return result;
+    }
+
+    @Override
+    public boolean addEdge(T nodeA, T nodeB, WeightedEdge edge){
+        for(T node : this.vertexSet()){
+            if(node.equals(nodeA)){
+                nodeA = node;
+                break;
+            }
+        }
+        for(T node : this.vertexSet()){
+            if(node.equals(nodeB)){
+                nodeB = node;
+                break;
+            }
+        }
+        return(super.addEdge(nodeA, nodeB, edge));
     }
 }

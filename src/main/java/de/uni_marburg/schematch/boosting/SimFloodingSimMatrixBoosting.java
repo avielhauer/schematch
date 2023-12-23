@@ -4,10 +4,7 @@ import de.uni_marburg.schematch.boosting.sf_algorithm.db_2_graph.*;
 import de.uni_marburg.schematch.boosting.sf_algorithm.flooding.Flooder;
 import de.uni_marburg.schematch.boosting.sf_algorithm.flooding.FlooderA;
 import de.uni_marburg.schematch.boosting.sf_algorithm.flooding.FlooderC;
-import de.uni_marburg.schematch.boosting.sf_algorithm.propagation_graph.PropagationGraph;
-import de.uni_marburg.schematch.boosting.sf_algorithm.propagation_graph.PropagationNode;
-import de.uni_marburg.schematch.boosting.sf_algorithm.propagation_graph.WaterWeightingGraph;
-import de.uni_marburg.schematch.boosting.sf_algorithm.propagation_graph.WeightedEdge;
+import de.uni_marburg.schematch.boosting.sf_algorithm.propagation_graph.*;
 import de.uni_marburg.schematch.boosting.sf_algorithm.similarity_calculator.SimilarityCalculator;
 import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.matching.Matcher;
@@ -29,8 +26,8 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
     @Override
     public float[][] run(int line, MatchTask matchTask, TablePair tablePair, Matcher matcher) {
         // Create a DatabaseGraph
-        DBGraph dbGraphSource = new FD2Graph(line, matchTask, tablePair, matcher, true);
-        DBGraph dbGraphTarget = new FD2Graph(line, matchTask, tablePair, matcher, false);
+        DBGraph dbGraphSource = new SQL2Graph(line, matchTask, tablePair, matcher, true);
+        DBGraph dbGraphTarget = new SQL2Graph(line, matchTask, tablePair, matcher, false);
 
         // Create Similaritycalculator
         SimilarityCalculator levenshteinCalculator = new SimilarityCalculator(line, matchTask, tablePair, matcher) {
@@ -43,9 +40,8 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
 
         // Create PropagationGraph
         PropagationGraph<PropagationNode> pGraph = new WaterWeightingGraph(dbGraphSource, dbGraphTarget, levenshteinCalculator);
-
         // Create Flooder
-        Flooder flooder = new FlooderC(pGraph);
+        Flooder flooder = new FlooderA(pGraph);
 
         float[][] boostedMatrix = flooder.flood(1000, 0.0000001F);
 
