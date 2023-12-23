@@ -26,6 +26,13 @@ defaultDatasetBasePath: "data"
 # evaluate performance for each attribute and attribute pair in ground truth
 # applies to all matching steps for which evaluation is enabled (see below)
 evaluateAttributes: True
+# write outputs per table pair
+# applies to all matching steps for which output saving is enabled (see below)
+# WARNING: greatly increases size of results directory
+saveOutputPerTablePair: False
+# adds header and index with attribute names to output files
+# applies to all matching steps for which output saving is enabled (see below)
+saveOutputVerbose: True
 
 # Step 1: generate candidate table pairs to match
 # FIXME: saving and evaluating output for table pair generation not yet implemented

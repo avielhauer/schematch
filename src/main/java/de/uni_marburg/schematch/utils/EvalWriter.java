@@ -312,7 +312,7 @@ public class EvalWriter {
                 numBestMatchers += 1;
                 listBestMatchers.add(matcher);
             } else if (score > bestScore) {
-                numBestMatchers += 1;
+                numBestMatchers = 1;
                 bestScore = score;
                 bestMatcher = matcher;
                 listBestMatchers = new ArrayList<>();

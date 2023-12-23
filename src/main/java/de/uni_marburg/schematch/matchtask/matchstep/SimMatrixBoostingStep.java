@@ -57,7 +57,7 @@ public class SimMatrixBoostingStep extends MatchStep {
 
         for (Matcher matcher : matchTask.getMatchersForLine(this.line)) {
             float[][] simMatrix = matchTask.getSimMatrix(this, matcher);
-            OutputWriter.writeSimMatrix(outputMatchStepPath.resolve(matcher.toString() + ".csv"), simMatrix);
+            OutputWriter.writeSimMatrix(outputMatchStepPath, matchTask, matcher.toString(), simMatrix);
         }
     }
 

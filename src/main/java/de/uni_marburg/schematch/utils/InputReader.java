@@ -32,10 +32,10 @@ public class InputReader {
 
         File dir = new File(inputPath);
         File[] listOfFiles = dir.listFiles();
+        Arrays.sort(listOfFiles);
 
         for (File file : listOfFiles) {
             if (file.isFile()) {
-                String fileName = StringUtils.getFileName(file);
                 Table table = readDataFile(file.getAbsolutePath(), separator);
                 tables.add(table);
             }

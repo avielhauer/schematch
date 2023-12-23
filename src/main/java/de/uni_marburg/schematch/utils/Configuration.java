@@ -54,6 +54,8 @@ public class Configuration {
     private int logLevelResults;
 
     private boolean evaluateAttributes;
+    private boolean saveOutputPerTablePair;
+    private boolean saveOutputVerbose;
 
     // Step 1
     private boolean saveOutputTablePairGeneration;
