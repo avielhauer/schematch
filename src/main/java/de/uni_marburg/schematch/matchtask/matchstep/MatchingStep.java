@@ -65,8 +65,8 @@ public class MatchingStep extends MatchStep {
 
     @Override
     public void evaluate(MatchTask matchTask) {
-        if ((line == 1 && !Configuration.getInstance().isSaveOutputFirstLineMatchers()) ||
-                line == 2 && !Configuration.getInstance().isSaveOutputSecondLineMatchers()) {
+        if ((line == 1 && !Configuration.getInstance().isEvaluateFirstLineMatchers()) ||
+                line == 2 && !Configuration.getInstance().isEvaluateSecondLineMatchers()) {
             return;
         }
 

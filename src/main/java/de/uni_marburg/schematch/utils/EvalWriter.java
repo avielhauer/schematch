@@ -246,20 +246,22 @@ public class EvalWriter {
             overviewWriter.write(overviewHeader.toString());
 
             // Results for matching step
-            StringBuilder sbMatching = new StringBuilder();
-            sbMatching.append(matchingStep);
-            Map<Matcher, Performance> matchingPerformance = performances.get(matchingStep);
-            for (Matcher matcher : matchers) {
-                float score = matchingPerformance.get(matcher).getGlobalScore();
-                sbMatching.append(Configuration.getInstance().getDefaultSeparator()).append(score);
-                if (evaluationLevel == EvaluationLevel.SCENARIO) {
-                    this.datasetPerformances.get(metric).get(matchingStep).get(matcher).addToGlobalScore(score);
-                } else if (evaluationLevel == EvaluationLevel.DATASET) {
-                    this.overallPerformances.get(metric).get(matchingStep).get(matcher).addToGlobalScore(score);
+            if (matchingStep.isDoEvaluate()) {
+                StringBuilder sbMatching = new StringBuilder();
+                sbMatching.append(matchingStep);
+                Map<Matcher, Performance> matchingPerformance = performances.get(matchingStep);
+                for (Matcher matcher : matchers) {
+                    float score = matchingPerformance.get(matcher).getGlobalScore();
+                    sbMatching.append(Configuration.getInstance().getDefaultSeparator()).append(score);
+                    if (evaluationLevel == EvaluationLevel.SCENARIO) {
+                        this.datasetPerformances.get(metric).get(matchingStep).get(matcher).addToGlobalScore(score);
+                    } else if (evaluationLevel == EvaluationLevel.DATASET) {
+                        this.overallPerformances.get(metric).get(matchingStep).get(matcher).addToGlobalScore(score);
+                    }
                 }
+                overviewWriter.newLine();
+                overviewWriter.write(sbMatching.toString());
             }
-            overviewWriter.newLine();
-            overviewWriter.write(sbMatching.toString());
 
             // Results for boosting step
             if (ConfigUtils.isEvaluateBoostingOnLine(line)) {
