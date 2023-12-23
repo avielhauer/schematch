@@ -8,18 +8,18 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jgrapht.graph.SimpleDirectedGraph;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Getter
 public abstract class PropagationGraph<T extends PropagationNode> extends SimpleDirectedGraph<T, WeightedEdge> {
     private final static Logger log = LogManager.getLogger(PropagationGraph.class);
-
+    private final Map<T, T> nodeList;
     public final List<List<T>> columnNodes;
 
     public PropagationGraph(DBGraph dbGraphA, DBGraph dbGraphB, SimilarityCalculator similarityCalculator){
         super(WeightedEdge.class);
+        this.nodeList = new HashMap<>();
+
         // Create ColumnNodes
         this.columnNodes = new ArrayList<>();
         for(int i = 0; i < dbGraphA.getColumns().size(); i++){
@@ -83,19 +83,19 @@ public abstract class PropagationGraph<T extends PropagationNode> extends Simple
     }
 
     @Override
+    public boolean addVertex(T vertex){
+        boolean result = super.addVertex(vertex);
+        if(result){
+            this.nodeList.put(vertex, vertex);
+        }
+        return result;
+    }
+
+    @Override
     public boolean addEdge(T nodeA, T nodeB, WeightedEdge edge){
-        for(T node : this.vertexSet()){
-            if(node.equals(nodeA)){
-                nodeA = node;
-                break;
-            }
+        if(!this.nodeList.containsKey(nodeA) || !this.nodeList.containsKey(nodeB)){
+            throw new RuntimeException("Edge vertices are not added.");
         }
-        for(T node : this.vertexSet()){
-            if(node.equals(nodeB)){
-                nodeB = node;
-                break;
-            }
-        }
-        return(super.addEdge(nodeA, nodeB, edge));
+        return(super.addEdge(this.nodeList.get(nodeA), this.nodeList.get(nodeB), edge));
     }
 }

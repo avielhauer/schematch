@@ -26,8 +26,11 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
     @Override
     public float[][] run(int line, MatchTask matchTask, TablePair tablePair, Matcher matcher) {
         // Create a DatabaseGraph
-        DBGraph dbGraphSource = new SQL2Graph(line, matchTask, tablePair, matcher, true);
-        DBGraph dbGraphTarget = new SQL2Graph(line, matchTask, tablePair, matcher, false);
+        DBGraph dbGraphSource = new FD2Graph(line, matchTask, tablePair, matcher, true);
+        DBGraph dbGraphTarget = new FD2Graph(line, matchTask, tablePair, matcher, false);
+        dbGraphSource.addDBGraph(new UCC2Graph(line, matchTask, tablePair, matcher, true));
+        dbGraphTarget.addDBGraph(new UCC2Graph(line, matchTask, tablePair, matcher, false));
+
 
         // Create Similaritycalculator
         SimilarityCalculator levenshteinCalculator = new SimilarityCalculator(line, matchTask, tablePair, matcher) {
@@ -39,9 +42,9 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
         };
 
         // Create PropagationGraph
-        PropagationGraph<PropagationNode> pGraph = new WaterWeightingGraph(dbGraphSource, dbGraphTarget, levenshteinCalculator);
+        PropagationGraph<PropagationNode> pGraph = new InversedWaterWeightingGraph(dbGraphSource, dbGraphTarget, levenshteinCalculator);
         // Create Flooder
-        Flooder flooder = new FlooderA(pGraph);
+        Flooder flooder = new FlooderC(pGraph);
 
         float[][] boostedMatrix = flooder.flood(1000, 0.0000001F);
 
