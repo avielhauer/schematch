@@ -171,6 +171,10 @@ public class EvalWriter {
                 linesTargetAttributes.add(lineTargetAttribute.toString());
             }
 
+            int numSourceColumns = matchTask.getNumSourceColumns();
+            int numTargetColumns = matchTask.getNumTargetColumns();;
+            int numTotalColumns = numSourceColumns + numTargetColumns;
+
             for (Map.Entry<Integer, String> sourceAttribute : sourceAttributes.entrySet()) {
                 for (Map.Entry<Integer, String> targetAttribute : targetAttributes.entrySet()) {
                     StringBuilder lineAttributePair = new StringBuilder();
@@ -178,8 +182,8 @@ public class EvalWriter {
                     for (Matcher matcher : matchers) {
                         float sourceScore = performances.get(matcher).getSourceAttributeScores().get(sourceAttribute.getKey());
                         float targetScore = performances.get(matcher).getTargetAttributeScores().get(targetAttribute.getKey());
-                        float avgScore = (sourceScore + targetScore)/2;
-                        lineAttributePair.append(",").append(avgScore);
+                        float weightedAvgScore = ((sourceScore * numSourceColumns) + (targetScore * numTargetColumns))/numTotalColumns;
+                        lineAttributePair.append(",").append(weightedAvgScore);
                     }
                     linesAttributePairs.add(lineAttributePair.toString());
                 }
