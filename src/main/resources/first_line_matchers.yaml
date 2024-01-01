@@ -8,18 +8,18 @@ params:
 ---
 name: "EmbdiMatcher"
 packageName: "sota"
-active: true
+active: false
 params:
   serverPort: 5001
   sm_mode: ["dot_product_similarity", "binary_from_embdi"]
 ---
 name: "LeapmeMatcher"
 packageName: "sota"
-active: true
+active: false
 params:
   serverPort: 5000
-  information: "both" # ["values", "names", "both"]
-  features: "both" # ["embeddings", "no-embeddings", "both"]
+  information: ["values", "names", "both"]
+  features: ["embeddings", "no-embeddings", "both"]
 
 # Metadata matchers
 ---

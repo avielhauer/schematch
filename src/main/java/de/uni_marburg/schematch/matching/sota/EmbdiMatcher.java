@@ -1,6 +1,7 @@
 package de.uni_marburg.schematch.matching.sota;
 
 import de.uni_marburg.schematch.matching.Matcher;
+import de.uni_marburg.schematch.matching.TablePairMatcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.PythonUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
@@ -15,7 +16,7 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper=false)
 @NoArgsConstructor
-public class EmbdiMatcher extends Matcher {
+public class EmbdiMatcher extends TablePairMatcher {
     private Integer serverPort;
     private String sm_mode;
 

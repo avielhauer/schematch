@@ -1,6 +1,7 @@
 package de.uni_marburg.schematch.matching.sota;
 
 import de.uni_marburg.schematch.matching.Matcher;
+import de.uni_marburg.schematch.matching.TablePairMatcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.PythonUtils;
 import lombok.AllArgsConstructor;
@@ -15,7 +16,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LeapmeMatcher extends Matcher {
+public class LeapmeMatcher extends TablePairMatcher {
     private Integer serverPort;
     private String information;
     private String features;
