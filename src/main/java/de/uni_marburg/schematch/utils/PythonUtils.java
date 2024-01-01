@@ -110,7 +110,7 @@ public class PythonUtils {
                 String line = output.get(i);
                 String[] sims = line.split(" ");
                 for (int j = 0; j < simMatrix[i].length; j++) {
-                    simMatrix[i][j] = Float.parseFloat(sims[j]);
+                    simMatrix[i][j] = Float.parseFloat(sims[j]) > 0.9 ? 1 : 0;
                 }
             }
         } catch (Exception e) {
