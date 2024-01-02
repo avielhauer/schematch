@@ -1,7 +1,6 @@
 package de.uni_marburg.schematch.matching.metadata;
 
 import de.uni_marburg.schematch.data.Column;
-import de.uni_marburg.schematch.data.Database;
 import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.data.metadata.DatabaseMetadata;
@@ -28,7 +27,7 @@ import java.util.*;
 import java.io.Writer;
 
 @Data
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 public class ICMatcher extends Matcher {
 
@@ -37,56 +36,50 @@ public class ICMatcher extends Matcher {
     private Integer serverPort = 5003;
     private final Integer maxUCCSize = 5;
     private final Integer maxFDSize = 5;
+
     private SimpleDirectedGraph<Integer, DefaultEdge> buildGraph(List<Column> columns, DatabaseMetadata metadata) {
         SimpleDirectedGraph<Integer, DefaultEdge> graph = new SimpleDirectedGraph<>(DefaultEdge.class);
-        int tableNode = nodeCounter;
+        int tableNode = nodeCounter++;
         graph.addVertex(tableNode);
-        nodeCounter++;
 
         for (Column column : columns) {
-            Integer columnID = nodeCounter;
-            nodeCounter++;
+            Integer columnID = nodeCounter++;
             columnToID.put(column, columnID);
             graph.addVertex(columnID);
             graph.addEdge(tableNode, columnID);
         }
         // TODO: perhaps go over the ucc and fd collections on the metadata and simply filter out the ones that do not
         HashSet<Column> columnLookup = new HashSet<>(columns);
-        // contain relevant columns
         Collection<UniqueColumnCombination> uccs_unfiltered = metadata.getUccs();
-        Collection<UniqueColumnCombination> uccs_filtered = uccs_unfiltered.stream().filter((ucc)-> columnLookup.containsAll(ucc.getColumnCombination()) && ucc.getColumnCombination().size() <= maxUCCSize).toList();
+        Collection<UniqueColumnCombination> uccs_filtered = uccs_unfiltered.stream().filter((ucc) -> columnLookup.containsAll(ucc.getColumnCombination()) && ucc.getColumnCombination().size() <= maxUCCSize).toList();
 
         HashSet<UniqueColumnCombination> uccLookup = new HashSet<>(uccs_filtered);
         Collection<FunctionalDependency> fds_unfiltered = metadata.getFds();
-        Collection<FunctionalDependency> fds_filtered = fds_unfiltered.stream().filter((fd)-> (!uccLookup.contains(new UniqueColumnCombination(fd.getDeterminant()))) && columnLookup.containsAll(fd.getDeterminant()) && columnLookup.contains(fd.getDependant()) && fd.getDeterminant().size() < maxFDSize).toList();
+        Collection<FunctionalDependency> fds_filtered = fds_unfiltered.stream().filter((fd) -> (!uccLookup.contains(new UniqueColumnCombination(fd.getDeterminant()))) && columnLookup.containsAll(fd.getDeterminant()) && columnLookup.contains(fd.getDependant()) && fd.getDeterminant().size() < maxFDSize).toList();
 
-        int cutoff = maxFDSize-1;
-        while(fds_filtered.size() > 2000 && cutoff > 1){
-            int finalCutoff = cutoff;
-            fds_filtered =  fds_filtered.stream().filter((fd)->  fd.getDeterminant().size() < finalCutoff).toList();
-            cutoff--;
+        int cutoff = maxFDSize - 1;
+        while (fds_filtered.size() > 2000 && cutoff > 1) {
+            int finalCutoff = cutoff--;
+            fds_filtered = fds_filtered.stream().filter((fd) -> fd.getDeterminant().size() < finalCutoff).toList();
         }
         cutoff = maxUCCSize;
-        while(uccs_filtered.size() > 2000 && cutoff >= 1){
-            int finalCutoff1 = cutoff;
-            uccs_filtered = uccs_filtered.stream().filter((ucc)->  ucc.getColumnCombination().size() <= finalCutoff1).toList();
-            cutoff--;
+        while (uccs_filtered.size() > 2000 && cutoff >= 1) {
+            int finalCutoff1 = cutoff--;
+            uccs_filtered = uccs_filtered.stream().filter((ucc) -> ucc.getColumnCombination().size() <= finalCutoff1).toList();
         }
 
-        for (UniqueColumnCombination ucc : uccs_filtered){
-            Integer ucc_id = nodeCounter;
-            nodeCounter++;
+        for (UniqueColumnCombination ucc : uccs_filtered) {
+            Integer ucc_id = nodeCounter++;
             graph.addVertex(ucc_id);
-            for(Column c : ucc.getColumnCombination()){
+            for (Column c : ucc.getColumnCombination()) {
                 graph.addEdge(columnToID.get(c), ucc_id);
             }
         }
 
-        for(FunctionalDependency fd: fds_filtered){
-            Integer fd_id = nodeCounter;
-            nodeCounter++;
+        for (FunctionalDependency fd : fds_filtered) {
+            Integer fd_id = nodeCounter++;
             graph.addVertex(fd_id);
-            for(Column c : fd.getDeterminant()){
+            for (Column c : fd.getDeterminant()) {
                 graph.addEdge(columnToID.get(c), fd_id);
             }
             graph.addEdge(fd_id, columnToID.get(fd.getDependant()));
@@ -95,41 +88,42 @@ public class ICMatcher extends Matcher {
         return graph;
     }
 
-    private float[][] removeAddedVertices(float[][] alignment_matrix, int diff, boolean sourceBigger){
+    private float[][] removeAddedVertices(float[][] alignment_matrix, int diff, boolean sourceBigger) {
         // alignment_matrix is a square, so dimensions are equal.
         int dim = alignment_matrix.length;
         float[][] newMatrix;
-        if(sourceBigger){
+        if (sourceBigger) {
             // remove diff last columns
-            newMatrix = new float[dim][dim-diff];
+            newMatrix = new float[dim][dim - diff];
 
             for (int i = 0; i < dim; i++) {
-                System.arraycopy(alignment_matrix[i], 0, newMatrix[i], 0, dim-diff);
+                System.arraycopy(alignment_matrix[i], 0, newMatrix[i], 0, dim - diff);
             }
         } else {
             // remove diff last rows
-            newMatrix = new float[dim-diff][dim];
-            for (int i = 0; i < dim-diff; i++) {
+            newMatrix = new float[dim - diff][dim];
+            for (int i = 0; i < dim - diff; i++) {
                 System.arraycopy(alignment_matrix[i], 0, newMatrix[i], 0, dim);
             }
         }
         return newMatrix;
     }
 
-    private float[][] extractSimilarityMatrix(float[][] alignment_matrix, TablePair tablePair, Integer sourceNodeCount){
+    private float[][] extractSimilarityMatrix(float[][] alignment_matrix, TablePair tablePair, Integer sourceNodeCount) {
         float[][] sm = tablePair.getEmptySimMatrix();
         List<Integer> sourceColumns = tablePair.getSourceTable().getColumns().stream().map((c) -> columnToID.get(c)).toList();
         List<Integer> targetColumns = tablePair.getTargetTable().getColumns().stream().map((c) -> columnToID.get(c)).toList();
 
-        for(int i = 0; i < sourceColumns.size(); i++){
-            for(int j = 0; j < targetColumns.size(); j++){
+        for (int i = 0; i < sourceColumns.size(); i++) {
+            for (int j = 0; j < targetColumns.size(); j++) {
                 sm[i][j] = alignment_matrix[sourceColumns.get(i)][targetColumns.get(j) - sourceNodeCount];
             }
         }
 
         return sm;
     }
-    private void exportGraph(String path, SimpleDirectedGraph<Integer, DefaultEdge> graph){
+
+    private void exportGraph(String path, SimpleDirectedGraph<Integer, DefaultEdge> graph) {
         GraphMLExporter<Integer, DefaultEdge> exporter = new GraphMLExporter<>();
         Path filePath = Paths.get(path);
         try {
@@ -141,48 +135,38 @@ public class ICMatcher extends Matcher {
             throw new RuntimeException(e);
         }
     }
+
     @Override
     public float[][] match(TablePair tablePair) {
 
         // Extract Tables
         Table sourceTable = tablePair.getSourceTable();
         Table targetTable = tablePair.getTargetTable();
-        //Extract Columns
         // Extract and load scenario meta data
         Scenario scenario = tablePair.getScenario();
-        // Extract and load database meta data
-        Database source = scenario.getSourceDatabase();
-        Database target = scenario.getTargetDatabase();
-        DatabaseMetadata sourceMetadata = source.getMetadata();
-        DatabaseMetadata targetMetadata = target.getMetadata();
 
-        SimpleDirectedGraph<Integer, DefaultEdge> sourceGraph = buildGraph(sourceTable.getColumns(), sourceMetadata);
-        SimpleDirectedGraph<Integer, DefaultEdge> targetGraph = buildGraph(targetTable.getColumns(), targetMetadata);
+        SimpleDirectedGraph<Integer, DefaultEdge> sourceGraph = buildGraph(sourceTable.getColumns(), scenario.getSourceDatabase().getMetadata());
+        SimpleDirectedGraph<Integer, DefaultEdge> targetGraph = buildGraph(targetTable.getColumns(), scenario.getTargetDatabase().getMetadata());
 
         // NA expects both graph to have the same number of nodes - we will add isolated nodes to the smaller graph
         int nNodesSourceGraph = sourceGraph.vertexSet().size();
         int nNodesTargetGraph = targetGraph.vertexSet().size();
-//        int diff = Math.abs(nNodesTargetGraph - nNodesSourceGraph);
-//        if(nNodesTargetGraph > nNodesSourceGraph){
-//            for(int i = 0; i < diff;i++){
-//                sourceGraph.addVertex(nodeCounter);
-//                nodeCounter++;
-//            }
-//        } else {
-//            for(int i = 0; i < diff; i++){
-//                targetGraph.addVertex(nodeCounter);
-//                nodeCounter++;
-//            }
-//        }
 
-        String targetGraphPath = "target/ic/" + scenario.getName() + "/" + tablePair.getSourceTable().getName() + "_" + tablePair.getTargetTable().getName() + "_target";
-        String sourceGraphPath = "target/ic/" + scenario.getName() + "/" + tablePair.getSourceTable().getName() + "_" + tablePair.getTargetTable().getName() + "_source";
+        String targetGraphPath = "target/ic/" + scenario.getName() + "/" + sourceTable.getName() + "_" + targetTable.getName() + "_target";
+        String sourceGraphPath = "target/ic/" + scenario.getName() + "/" + sourceTable.getName() + "_" + targetTable.getName() + "_source";
         exportGraph(targetGraphPath, targetGraph);
         exportGraph(sourceGraphPath, sourceGraph);
 
         // TODO: Make sure empty nodes are actually written to the export file
         // (not only added isolated nodes can be empty, but also nodes with no ICs)
+        float[][] sm = executeGraphAlignment(sourceGraphPath, targetGraphPath, nNodesSourceGraph, nNodesTargetGraph, tablePair);
 
+        resetMatchingState();
+
+        return sm;
+    }
+
+    private float[][] executeGraphAlignment(String sourceGraphPath, String targetGraphPath, int nNodesSourceGraph, int nNodesTargetGraph, TablePair tablePair) {
         float[][] alignment_matrix;
         try {
             HttpResponse<String> response = PythonUtils.sendMatchRequest(serverPort, List.of(
@@ -192,14 +176,16 @@ public class ICMatcher extends Matcher {
 
             alignment_matrix = PythonUtils.readMatcherOutput(Arrays.stream(response.body().split("\n")).toList(), nNodesSourceGraph, nNodesTargetGraph);
 
-        } catch (Exception e){
+        } catch (Exception e) {
             getLogger().error("Running IC Matcher's Graph Alignment failed, is the server running?", e);
-            return  tablePair.getEmptySimMatrix();
+            return tablePair.getEmptySimMatrix();
         }
 
-        float[][] sm = extractSimilarityMatrix(alignment_matrix, tablePair, nNodesSourceGraph);
+        return extractSimilarityMatrix(alignment_matrix, tablePair, nNodesSourceGraph);
+    }
+
+    private void resetMatchingState() {
         nodeCounter = 0;
         columnToID.clear();
-        return sm;
     }
 }
