@@ -22,25 +22,12 @@ public class TablePair {
         this.scenario = scenario;
         this.sourceTable = sourceTable;
         this.targetTable = targetTable;
-        initializeMaps();
     }
 
     public TablePair(Table sourceTable, Table targetTable) {
         this.scenario = null;
         this.sourceTable = sourceTable;
         this.targetTable = targetTable;
-        initializeMaps();
-    }
-
-    private void initializeMaps() {
-        this.firstLineMatcherResults = new HashMap<>();
-        this.boostedFirstLineMatcherResults = new HashMap<>();
-        this.secondLineMatcherResults = new HashMap<>();
-        this.boostedSecondLineMatcherResults = new HashMap<>();
-        this.firstLineMatcherPerformances = new HashMap<>();
-        this.boostedFirstLineMatcherPerformances = new HashMap<>();
-        this.secondLineMatcherPerformances = new HashMap<>();
-        this.boostedSecondLineMatcherPerformances = new HashMap<>();
     }
 
     /**

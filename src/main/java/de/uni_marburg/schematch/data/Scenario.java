@@ -5,22 +5,25 @@ import de.uni_marburg.schematch.utils.Configuration;
 import de.uni_marburg.schematch.utils.InputReader;
 import de.uni_marburg.schematch.utils.StringUtils;
 import lombok.Data;
+import lombok.Getter;
 
 import java.io.File;
 
-@Data
+@Getter
 public class Scenario {
+    private final Dataset dataset;
     private final String path;
     private final String name;
     private Database sourceDatabase;
     private Database targetDatabase;
     private ScenarioMetadata metadata;
 
-    public Scenario(String path) {
+    public Scenario(Dataset dataset, String path) {
+        this.dataset = dataset;
         this.path = path;
         this.name = StringUtils.getFolderName(path);
-        this.sourceDatabase = new Database(this.path + File.separator + Configuration.getInstance().getDefaultSourceDatabaseDir());
-        this.targetDatabase = new Database(this.path + File.separator + Configuration.getInstance().getDefaultTargetDatabaseDir());
+        this.sourceDatabase = new Database(this, this.path + File.separator + Configuration.getInstance().getDefaultSourceDatabaseDir());
+        this.targetDatabase = new Database(this, this.path + File.separator + Configuration.getInstance().getDefaultTargetDatabaseDir());
         // TODO: read dependencies on demand
         if (Configuration.getInstance().isReadDependencies()) {
             this.metadata = InputReader.readScenarioMetadata(this.path, sourceDatabase, targetDatabase);
