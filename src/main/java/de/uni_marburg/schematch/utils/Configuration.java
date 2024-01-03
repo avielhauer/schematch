@@ -24,8 +24,11 @@ public class Configuration {
 
     private static final String GENERAL_CFG = "general.yaml";
     private static final String DATASETS_CFG = "datasets.yaml";
-    private static final String MATCHERS_CFG = "first_line_matchers.yaml";
-    private static final String TOKENIZERS_CFG = "first_line_tokenizers.yaml";
+    private static final String METRICS_CFG = "metrics.yaml";
+    private static final String FIRST_LINE_MATCHERS_CFG = "first_line_matchers.yaml";
+    private static final String FIRST_LINE_TOKENIZERS_CFG = "first_line_tokenizers.yaml";
+    private static final String SECOND_LINE_MATCHERS_CFG = "second_line_matchers.yaml";
+    public static final String METRIC_PACKAGE_NAME = "de.uni_marburg.schematch.evaluation.metric"; // TODO: fetch from reflection so it is easy to refactor
     public static final String MATCHING_PACKAGE_NAME = "de.uni_marburg.schematch.matching"; // TODO: fetch from reflection so it is easy to refactor
     public static final String TOKENIZATION_PACKAGE_NAME = "de.uni_marburg.schematch.preprocessing.tokenization"; // TODO: fetch from reflection so it is easy to refactor
     public static final String TIMESTAMP_PATTERN = "MM-dd-yyyy_HH-mm-ss";
@@ -34,7 +37,8 @@ public class Configuration {
 
     private String defaultDatasetBasePath;
 
-    private char defaultSeparator;
+    private String applicationName;
+    private String defaultSeparator;
     private String defaultTablePairSeparator;
     private String defaultSourceDatabaseDir;
     private String defaultTargetDatabaseDir;
@@ -42,15 +46,16 @@ public class Configuration {
 
     private String resultsDir;
     private String performanceDir;
-    private String performanceMatchStepOverviewFileSuffix;
-    private String performanceMatchStepSummaryFileSuffix;
-    private String performanceScenarioSummaryFileSuffix;
-    private String performanceDatasetSummaryFileSuffix;
-    private String performanceOverallSummaryFile;
+    private String performanceOverviewFilePrefix;
+    private String performanceSummaryFileName;
     private String outputDir;
 
     // FIXME: refactor to use log4j custom log level instead
     private int logLevelResults;
+
+    private boolean evaluateAttributes;
+    private boolean saveOutputPerTablePair;
+    private boolean saveOutputVerbose;
 
     // Step 1
     private boolean saveOutputTablePairGeneration;
@@ -76,8 +81,10 @@ public class Configuration {
     private boolean evaluateSimMatrixBoostingOnSecondLineMatchers;
 
     private List<DatasetConfiguration> datasetConfigurations = new ArrayList<>();
-    private Map<String, List<MatcherConfiguration>> matcherConfigurations = new HashMap<>();
-    private Map<String, List<TokenizerConfiguration>> tokenizerConfigurations = new HashMap<>();
+    private List<MetricConfiguration> metricConfigurations = new ArrayList<>();
+    private Map<String, List<MatcherConfiguration>> firstLineMatcherConfigurations = new HashMap<>();
+    private Map<String, List<TokenizerConfiguration>> firstLineTokenizerConfigurations = new HashMap<>();
+    private Map<String, List<MatcherConfiguration>> secondLineMatcherConfigurations = new HashMap<>();
 
     // FIXME: read dependencies on demand, atm this boolean gets set to true whenenver runSimMatrixBoosting is set to true
     private boolean readDependencies;
@@ -88,6 +95,13 @@ public class Configuration {
     public static class DatasetConfiguration {
         private String name;
         private String path;
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class MetricConfiguration {
+        private String name;
     }
 
     @Data
@@ -115,6 +129,59 @@ public class Configuration {
             Configuration.instance = Configuration.loadConfig();
         }
         return Configuration.instance;
+    }
+
+    private static void loadMatcherConfig(InputStream matchersCfgStream, Map<String, List<MatcherConfiguration>> matcherConfigurations) {
+        Yaml yaml = new Yaml();
+
+        Iterable<Object> matcherConfigs = yaml.loadAll(matchersCfgStream);
+
+        CombinationGenerator<Object> combinationGenerator = new CombinationGenerator<>();
+        for (Object object : matcherConfigs) {
+            Map<String, Object> matcherConfig = (Map<String, Object>) object;
+            if (!(Boolean) matcherConfig.get("active")) {
+                log.info("Skipped loading first line matcher '{}' because it is marked as inactive.", matcherConfig.get("name"));
+                continue;
+            }
+
+            String name = (String) matcherConfig.get("name");
+            String packageName = (String) matcherConfig.get("packageName");
+            List<MatcherConfiguration> matcherConfigurationList = new ArrayList<>();
+            if (matcherConfig.get("params") instanceof List) {
+                String err = "Parsing of parameter lists not implemented yet. Use dictionary of possible parameter values" +
+                        "and the program will deduce configurations for all possible parameter value combinations.";
+                log.error(err);
+                throw new NotImplementedException(err);
+            } else {
+                Map<String, Object> paramSpacesMap = (Map<String, Object>) matcherConfig.get("params");
+                List<List<Object>> paramSpaces = new ArrayList<>();
+                List<String> paramNames = new ArrayList<>();
+                if (paramSpacesMap != null) {
+                    for (String key : paramSpacesMap.keySet()) {
+                        List<Object> paramSpace;
+                        if (paramSpacesMap.get(key) instanceof List) {
+                            paramSpace = (List<Object>) paramSpacesMap.get(key);
+                        } else {
+                            paramSpace = new ArrayList<>();
+                            paramSpace.add(paramSpacesMap.get(key));
+                        }
+                        paramSpaces.add(paramSpace);
+                        paramNames.add(key);
+                    }
+                }
+                List<List<Object>> paramLists = combinationGenerator.generateCombinations(paramSpaces);
+                for (List<Object> paramList : paramLists) {
+                    Map<String, Object> params = new HashMap<>();
+                    for (int i = 0; i < paramList.size(); i++) {
+                        params.put(paramNames.get(i), paramList.get(i));
+                    }
+                    MatcherConfiguration matcherConfiguration = new MatcherConfiguration(name, packageName, params);
+                    matcherConfigurationList.add(matcherConfiguration);
+                    log.debug(matcherConfiguration.toString());
+                }
+            }
+            matcherConfigurations.put(name, matcherConfigurationList);
+        }
     }
 
     private static Configuration loadConfig() {
@@ -152,66 +219,47 @@ public class Configuration {
             log.debug(datasetConfiguration.toString());
         }
 
-        // load matchers configuration
-        yaml = new Yaml();
-        inputStream = Configuration.class.getClassLoader().getResourceAsStream(MATCHERS_CFG);
+        // load metrics configuration
+        yaml = new Yaml(new Constructor(Configuration.MetricConfiguration.class, new LoaderOptions()));
+        inputStream = Configuration.class.getClassLoader().getResourceAsStream(METRICS_CFG);
         if (inputStream == null) {
-            log.error("Unable to load matchers configuration file from: " + MATCHERS_CFG);
+            log.error("Unable to load metrics configuration file from: " + METRICS_CFG);
             throw new RuntimeException();
         }
-        Iterable<Object> matcherConfigs = yaml.loadAll(inputStream);
+        Iterable<Object> metricConfigs = yaml.loadAll(inputStream);
 
-        CombinationGenerator<Object> combinationGenerator = new CombinationGenerator<>();
-        for (Object object : matcherConfigs) {
-            Map<String, Object> matcherConfig = (Map<String, Object>) object;
-            String name = (String) matcherConfig.get("name");
-            String packageName = (String) matcherConfig.get("packageName");
-            List<MatcherConfiguration> matcherConfigurationList = new ArrayList<>();
-            if (matcherConfig.get("params") instanceof List) {
-                String err = "Parsing of parameter lists not implemented yet. Use dictionary of possible parameter values" +
-                        "and the program will deduce configurations for all possible parameter value combinations.";
-                log.error(err);
-                throw new NotImplementedException(err);
-            } else {
-                Map<String, Object> paramSpacesMap = (Map<String, Object>) matcherConfig.get("params");
-                List<List<Object>> paramSpaces = new ArrayList<>();
-                List<String> paramNames = new ArrayList<>();
-                if (paramSpacesMap != null) {
-                    for (String key : paramSpacesMap.keySet()) {
-                        List<Object> paramSpace;
-                        if (paramSpacesMap.get(key) instanceof List) {
-                            paramSpace = (List<Object>) paramSpacesMap.get(key);
-                        } else {
-                            paramSpace = new ArrayList<>();
-                            paramSpace.add(paramSpacesMap.get(key));
-                        }
-                        paramSpaces.add(paramSpace);
-                        paramNames.add(key);
-                    }
-                }
-                List<List<Object>> paramLists = combinationGenerator.generateCombinations(paramSpaces);
-                for (List<Object> paramList : paramLists) {
-                    Map<String, Object> params = new HashMap<>();
-                    for (int i = 0; i < paramList.size(); i++) {
-                        params.put(paramNames.get(i), paramList.get(i));
-                    }
-                    MatcherConfiguration matcherConfiguration = new MatcherConfiguration(name, packageName, params);
-                    matcherConfigurationList.add(matcherConfiguration);
-                    log.debug(matcherConfiguration.toString());
-                }
-            }
-            config.matcherConfigurations.put(name, matcherConfigurationList);
-
+        for (Object metricConfig : metricConfigs) {
+            MetricConfiguration metricConfiguration = (MetricConfiguration) metricConfig;
+            config.metricConfigurations.add(metricConfiguration);
+            log.debug(metricConfiguration.toString());
         }
+
+        // load matchers configuration
+        // first line
+        inputStream = Configuration.class.getClassLoader().getResourceAsStream(FIRST_LINE_MATCHERS_CFG);
+        if (inputStream == null) {
+            log.error("Unable to load matchers configuration file from: " + FIRST_LINE_MATCHERS_CFG);
+            throw new RuntimeException();
+        }
+        loadMatcherConfig(inputStream, config.firstLineMatcherConfigurations);
+        // second line
+        inputStream = Configuration.class.getClassLoader().getResourceAsStream(SECOND_LINE_MATCHERS_CFG);
+        if (inputStream == null) {
+            log.error("Unable to load matchers configuration file from: " + SECOND_LINE_MATCHERS_CFG);
+            throw new RuntimeException();
+        }
+        loadMatcherConfig(inputStream, config.secondLineMatcherConfigurations);
 
         // load tokenizers configuration
         yaml = new Yaml();
-        inputStream = Configuration.class.getClassLoader().getResourceAsStream(TOKENIZERS_CFG);
+        inputStream = Configuration.class.getClassLoader().getResourceAsStream(FIRST_LINE_TOKENIZERS_CFG);
         if (inputStream == null) {
-            log.error("Unable to load tokenizers configuration file from: " + TOKENIZERS_CFG);
+            log.error("Unable to load tokenizers configuration file from: " + FIRST_LINE_TOKENIZERS_CFG);
             throw new RuntimeException();
         }
         Iterable<Object> tokenizersConfigs = yaml.loadAll(inputStream);
+
+        CombinationGenerator<Object> combinationGenerator = new CombinationGenerator<>();
 
         for (Object object : tokenizersConfigs) {
             Map<String, Object> tokenizerConfig = (Map<String, Object>) object;
@@ -249,7 +297,7 @@ public class Configuration {
                     log.debug(tokenizerConfiguration.toString());
                 }
             }
-            config.tokenizerConfigurations.put(name, tokenizerConfigurationList);
+            config.firstLineTokenizerConfigurations.put(name, tokenizerConfigurationList);
 
         }
 

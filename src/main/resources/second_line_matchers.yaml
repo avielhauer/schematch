@@ -1,0 +1,7 @@
+# State-of-the-Art matchers
+---
+name: "RandomEnsembleMatcher"
+packageName: "ensemble"
+active: true
+params:
+  seed: [42, 2023]

@@ -2,51 +2,81 @@
 ---
 name: "RandomMatcher"
 packageName: "sota"
+active: true
 params:
   seed: [42, 2023]
+---
+name: "EmbdiMatcher"
+packageName: "sota"
+active: false
+params:
+  serverPort: 5001
+  sm_mode: ["dot_product_similarity", "binary_from_embdi"]
+---
+name: "LeapmeMatcher"
+packageName: "sota"
+active: false
+params:
+  serverPort: 5000
+  information: ["values", "names", "both"]
+  features: ["embeddings", "no-embeddings", "both"]
 
 # Metadata matchers
 ---
 name: "DatatypeMatcher"
 packageName: "metadata"
+active: true
 
 # Similarity matchers
 ---
 name: "LevenshteinMatcher"
 packageName: "similarity.label"
+active: true
 ---
 name: "CosineMatcher"
 packageName: "similarity.label"
+active: true
 ---
 name: "HammingMatcher"
 packageName: "similarity.label"
+active: true
 ---
 name: "JaroWinklerMatcher"
 packageName: "similarity.label"
+active: true
 ---
 name: "LongestCommonSubsequenceMatcher"
 packageName: "similarity.label"
+active: true
 ---
 name: "JaccardInstanceMatcher"
 packageName: "similarity.tokenizedinstance"
+active: true
 ---
 name: "DiceInstanceMatcher"
 packageName: "similarity.tokenizedinstance"
+active: true
 ---
 name: "OverlapInstanceMatcher"
 packageName: "similarity.tokenizedinstance"
+active: true
 ---
 name: "SetCosineInstanceMatcher"
 packageName: "similarity.tokenizedinstance"
+active: true
 ---
 name: "JaccardLabelMatcher"
 packageName: "similarity.tokenizedlabel"
+active: true
 ---
 name: "DiceLabelMatcher"
 packageName: "similarity.tokenizedlabel"
+active: true
 ---
 name: "OverlapLabelMatcher"
 packageName: "similarity.tokenizedlabel"
+active: true
 ---
 name: "SetCosineLabelMatcher"
 packageName: "similarity.tokenizedlabel"
+active: true

@@ -1,49 +1,75 @@
 package de.uni_marburg.schematch.evaluation;
 
-import de.uni_marburg.schematch.evaluation.performance.TablePairPerformance;
+import de.uni_marburg.schematch.data.Scenario;
+import de.uni_marburg.schematch.evaluation.metric.Metric;
+import de.uni_marburg.schematch.evaluation.performance.Performance;
+import de.uni_marburg.schematch.utils.ArrayUtils;
+import de.uni_marburg.schematch.utils.Configuration;
 import lombok.Data;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Data
 public class Evaluator {
     final static Logger log = LogManager.getLogger(Evaluator.class);
 
-    public static TablePairPerformance evaluateMatrix(float[][] simMatrix, int[][] gtMatrix) {
-        int totalTP = 0;
-        int totalFP = 0;
-        float totalSimScoreTP = 0;
-        float totalSimScoreFP = 0;
+    private final List<Metric> metrics;
+    private final Scenario scenario;
+    private final int[][] groundTruthMatrix;
+    private final int[] groundTruthVector;
+    private final int numGroundTruth;
+    private List<Integer> sourceGroundTruthIndices;
+    private List<Integer> targetGroundTruthIndices;
+    private int[][] transposedGroundTruthMatrix;
 
-        int numRows = gtMatrix.length;
-        int numCols = gtMatrix[0].length;
+    public Evaluator(List<Metric> metrics, Scenario scenario, int[][] groundTruthMatrix) {
+        this.metrics = metrics;
+        this.scenario = scenario;
+        this.groundTruthMatrix = groundTruthMatrix;
+        this.groundTruthVector = ArrayUtils.flattenMatrix(groundTruthMatrix);
+        this.numGroundTruth = ArrayUtils.sumOfMatrix(groundTruthMatrix);
 
-        // find the lowest ground truth score
-        float lowestGTScore = Float.MAX_VALUE;
-        for (int i = 0; i < numRows; i++) {
-            for (int j = 0; j < numCols; j++) {
-                if (gtMatrix[i][j] == 1 && simMatrix[i][j] < lowestGTScore) {
-                    lowestGTScore = simMatrix[i][j];
+        if (Configuration.getInstance().isEvaluateAttributes()) {
+            this.sourceGroundTruthIndices = new ArrayList<>();
+            this.targetGroundTruthIndices = new ArrayList<>();
+            this.transposedGroundTruthMatrix = ArrayUtils.transposeMatrix(groundTruthMatrix);
+            for (int i = 0; i < groundTruthMatrix.length; i++) {
+                for (int j = 0; j < groundTruthMatrix[0].length; j++) {
+                    if (groundTruthMatrix[i][j] == 1) {
+                        sourceGroundTruthIndices.add(i);
+                        targetGroundTruthIndices.add(j);
+                    }
                 }
             }
         }
+    }
 
-        // flag all scores >= lowest ground truth score as TP/FP
-        for (int i = 0; i < numRows; i++) {
-           for (int j = 0; j < numCols; j++) {
-               float simScore = simMatrix[i][j];
-               if (simScore >= lowestGTScore) {
-                   if (gtMatrix[i][j] == 1) {
-                       totalTP += 1;
-                       totalSimScoreTP += simScore;
-                   } else {
-                       totalFP += 1;
-                       totalSimScoreFP += simScore;
-                   }
-               }
+    public Map<Metric, Performance> evaluate(float[][] simMatrix) {
+        float[] simVector = ArrayUtils.flattenMatrix(simMatrix);
+        Map<Metric, Performance> performances = new HashMap<>();
+
+        for (Metric metric : this.metrics) {
+            Performance performance = new Performance(metric.run(this.groundTruthVector, simVector));
+            if (Configuration.getInstance().isEvaluateAttributes()) {
+                assert this.sourceGroundTruthIndices != null;
+                assert this.targetGroundTruthIndices != null;
+                assert this.transposedGroundTruthMatrix != null;
+                for (Integer i : this.sourceGroundTruthIndices) {
+                    performance.addSourceAttributeScore(i, metric.run(this.groundTruthMatrix[i], simMatrix[i]));
+                }
+                float[][] transposedSimMatrix = ArrayUtils.transposeMatrix(simMatrix);
+                for (Integer j : this.targetGroundTruthIndices) {
+                    performance.addTargetAttributeScore(j, metric.run(this.transposedGroundTruthMatrix[j], transposedSimMatrix[j]));
+                }
             }
+            performances.put(metric, performance);
         }
 
-        return new TablePairPerformance(totalTP, totalFP, totalSimScoreTP, totalSimScoreFP);
+        return performances;
     }
 }
