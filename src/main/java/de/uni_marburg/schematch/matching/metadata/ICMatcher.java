@@ -1,5 +1,6 @@
 package de.uni_marburg.schematch.matching.metadata;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.data.Table;
@@ -13,10 +14,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 import org.jgrapht.nio.graphml.GraphMLExporter;
 import org.jgrapht.graph.SimpleDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.http.HttpResponse;
@@ -33,14 +36,28 @@ public class ICMatcher extends Matcher {
 
     private Integer nodeCounter = 0;
     private Map<Column, Integer> columnToID = new HashMap<>();
-    private Integer serverPort = 5003;
+    private Map<Integer, Integer> alignmentSeeds = new HashMap<>();
+    private Integer serverPortGALib = 5003;
+    private Integer serverPortGraspologic = 5004;
+    private String alignMethod = "GRASP"; //"REGAL"
+    private List<List<Integer>> graphBaseNodes = new ArrayList<>();
     private final Integer maxUCCSize = 5;
     private final Integer maxFDSize = 5;
+    private final Float seedRatio = 0.3F;
+    private final Float seedCertainty = 0.9F;
 
     private SimpleDirectedGraph<Integer, DefaultEdge> buildGraph(List<Column> columns, DatabaseMetadata metadata) {
         SimpleDirectedGraph<Integer, DefaultEdge> graph = new SimpleDirectedGraph<>(DefaultEdge.class);
         int tableNode = nodeCounter++;
+        int uccNode = nodeCounter++;
+        int fdNode = nodeCounter++;
+        List<Integer> baseNodes = new ArrayList<>();
+        baseNodes.add(tableNode);
+        baseNodes.add(uccNode);
+        baseNodes.add(fdNode);
         graph.addVertex(tableNode);
+        graph.addVertex(uccNode);
+        graph.addVertex(fdNode);
 
         for (Column column : columns) {
             Integer columnID = nodeCounter++;
@@ -74,6 +91,7 @@ public class ICMatcher extends Matcher {
             for (Column c : ucc.getColumnCombination()) {
                 graph.addEdge(columnToID.get(c), ucc_id);
             }
+            graph.addEdge(uccNode, ucc_id);
         }
 
         for (FunctionalDependency fd : fds_filtered) {
@@ -83,8 +101,10 @@ public class ICMatcher extends Matcher {
                 graph.addEdge(columnToID.get(c), fd_id);
             }
             graph.addEdge(fd_id, columnToID.get(fd.getDependant()));
+            graph.addEdge(fdNode, fd_id);
         }
 
+        graphBaseNodes.add(baseNodes);
         return graph;
     }
 
@@ -124,7 +144,7 @@ public class ICMatcher extends Matcher {
     }
 
     private void exportGraph(String path, SimpleDirectedGraph<Integer, DefaultEdge> graph) {
-        GraphMLExporter<Integer, DefaultEdge> exporter = new GraphMLExporter<>();
+        GraphMLExporter<Integer, DefaultEdge> exporter = new GraphMLExporter<>(String::valueOf);
         Path filePath = Paths.get(path);
         try {
             Files.createDirectories(filePath.getParent());
@@ -135,6 +155,77 @@ public class ICMatcher extends Matcher {
             throw new RuntimeException(e);
         }
     }
+
+    private void addSM(float[][] sm1, float[][] sm2) {
+        assert (sm1.length == sm2.length);
+
+        for (int i = 0; i < sm1.length; i++) {
+            assert (sm1[i].length == sm2[i].length);
+
+            for (int j = 0; j < sm1[i].length; j++) {
+                sm1[i][j] += sm2[i][j];
+            }
+        }
+    }
+
+    private void divideSM(float[][] sm, float divisor) {
+        for (int i = 0; i < sm.length; i++) {
+
+            for (int j = 0; j < sm[i].length; j++) {
+                sm[i][j] /= divisor;
+            }
+        }
+    }
+
+    private boolean containsValueOrHigher(float[][] sm, float val) {
+        for (float[] sims : sm) {
+            for (float sim : sims) {
+                if (sim >= val) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private Pair<Integer, Integer> getMaximumsCoordinates(float[][] sm) {
+        float max = 0.0F;
+        Pair<Integer, Integer> maxCoordinates = Pair.of(0, 0);
+        for (int i = 0; i < sm.length; i++) {
+            for (int j = 0; j < sm[i].length; j++) {
+                if (sm[i][j] > max) {
+                    max = sm[i][j];
+                    maxCoordinates = Pair.of(i, j);
+                }
+            }
+        }
+        return maxCoordinates;
+    }
+
+    private void setFoundAlignmentSeeds(TablePair tablePair, Integer minNumColumns) {
+        float[][] aggSM = tablePair.getEmptySimMatrix();
+        tablePair.getFirstLineMatcherResults().values().forEach((sm) -> addSM(aggSM, sm));
+        divideSM(aggSM, tablePair.getFirstLineMatcherResults().size());
+
+        while (Math.ceil(seedRatio * minNumColumns) > alignmentSeeds.size() || containsValueOrHigher(aggSM, seedCertainty)) {
+            Pair<Integer, Integer> maxCoordinate = getMaximumsCoordinates(aggSM);
+            if (aggSM[maxCoordinate.getLeft()][maxCoordinate.getRight()] == 0.0F) {
+                // no more seeds to be found in similarity matrix.
+                break;
+            }
+            aggSM[maxCoordinate.getLeft()][maxCoordinate.getRight()] = 0.0F;
+            int sourceGraphID = columnToID.get(tablePair.getSourceTable().getColumns().get(maxCoordinate.getLeft()));
+            if (!alignmentSeeds.containsKey(sourceGraphID)) {
+                alignmentSeeds.put(sourceGraphID, columnToID.get(tablePair.getTargetTable().getColumns().get(maxCoordinate.getRight())));
+            }
+        }
+        assert(graphBaseNodes.size() == 2);
+        assert(graphBaseNodes.get(0).size() == graphBaseNodes.get(1).size());
+        for(int i = 0; i < graphBaseNodes.get(0).size(); i++){
+            alignmentSeeds.put(graphBaseNodes.get(0).get(i), graphBaseNodes.get(1).get(i));
+        }
+    }
+
 
     @Override
     public float[][] match(TablePair tablePair) {
@@ -157,24 +248,46 @@ public class ICMatcher extends Matcher {
         exportGraph(targetGraphPath, targetGraph);
         exportGraph(sourceGraphPath, sourceGraph);
 
+        setFoundAlignmentSeeds(tablePair, Math.min(sourceTable.getNumberOfColumns(), targetTable.getNumberOfColumns()));
+        String alignmentSeedsPath = "target/ic/" + scenario.getName() + "/" + sourceTable.getName() + "_" + targetTable.getName() + "_seeds";
+        exportAlignmentSeeds(alignmentSeeds, alignmentSeedsPath);
         // TODO: Make sure empty nodes are actually written to the export file
         // (not only added isolated nodes can be empty, but also nodes with no ICs)
-        float[][] sm = executeGraphAlignment(sourceGraphPath, targetGraphPath, nNodesSourceGraph, nNodesTargetGraph, tablePair);
+        float[][] sm = executeGraphAlignment(sourceGraphPath, targetGraphPath, nNodesSourceGraph, nNodesTargetGraph, tablePair, alignmentSeedsPath);
 
         resetMatchingState();
 
         return sm;
     }
 
-    private float[][] executeGraphAlignment(String sourceGraphPath, String targetGraphPath, int nNodesSourceGraph, int nNodesTargetGraph, TablePair tablePair) {
+    private void exportAlignmentSeeds(Map<Integer, Integer> alignmentSeeds, String filePath) {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            // Use Jackson's ObjectMapper to write the collection to a JSON file
+            objectMapper.writeValue(new File(filePath), alignmentSeeds);
+        } catch (IOException e) {
+            getLogger().error("Alignment could not be written for " + filePath);
+        }
+    }
+
+    private float[][] executeGraphAlignment(String sourceGraphPath, String targetGraphPath, int nNodesSourceGraph,
+                                            int nNodesTargetGraph, TablePair tablePair, String alignmentSeedPath) {
         float[][] alignment_matrix;
         try {
-            HttpResponse<String> response = PythonUtils.sendMatchRequest(serverPort, List.of(
-                    new ImmutablePair<>("source_graph_path", sourceGraphPath),
-                    new ImmutablePair<>("target_graph_path", targetGraphPath)
-            ));
+            HttpResponse<String> response = PythonUtils.sendMatchRequest(
+                    (Objects.equals(alignMethod, "GRASP"))
+                            ? serverPortGraspologic
+                            : serverPortGALib,
+                    List.of(
+                            new ImmutablePair<>("align_method", alignMethod),
+                            new ImmutablePair<>("source_graph_path", sourceGraphPath),
+                            new ImmutablePair<>("target_graph_path", targetGraphPath),
+                            new ImmutablePair<>("alignment_seeds", alignmentSeedPath)
+                    ));
 
-            alignment_matrix = PythonUtils.readMatcherOutput(Arrays.stream(response.body().split("\n")).toList(), nNodesSourceGraph, nNodesTargetGraph);
+            alignment_matrix = PythonUtils.readMatcherOutput(
+                    Arrays.stream(response.body().split("\n")).toList(), nNodesSourceGraph, nNodesTargetGraph);
 
         } catch (Exception e) {
             getLogger().error("Running IC Matcher's Graph Alignment failed, is the server running?", e);
@@ -187,5 +300,7 @@ public class ICMatcher extends Matcher {
     private void resetMatchingState() {
         nodeCounter = 0;
         columnToID.clear();
+        alignmentSeeds.clear();
+        graphBaseNodes.clear();
     }
 }

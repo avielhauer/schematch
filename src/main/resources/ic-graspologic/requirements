@@ -1,0 +1,4 @@
+flask # for server
+graspologic
+numpy
+networkx

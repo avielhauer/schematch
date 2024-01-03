@@ -1,11 +1,8 @@
-FROM python:3.7
-EXPOSE 5003
+FROM python:3.8
+EXPOSE 5004
 
 RUN mkdir /ic
 WORKDIR /ic
-
-RUN git clone https://github.com/wyy-code/NATool.git
-WORKDIR NATool
 
 # install requirements
 RUN apt update && apt install -y tini && rm -rf /var/lib/apt/lists/*

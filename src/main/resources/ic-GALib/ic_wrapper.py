@@ -1,25 +1,28 @@
 '''
-Uses NATool scripts to generate alignment matrices of given graph(s).
-Code mainly taken and modified from: https://github.com/wyy-code/NATool/blob/main/main.py
+Uses GALib scripts to generate alignment matrices of given graph(s).
+Code mainly taken and modified from: https://github.com/wyy-code/GALib/blob/main/run.py
 '''
 
 import sys
-import numpy as np
+import os
+
+# Add GALib to path, so that import resolcing works
+sys.path.append(os.path.join(os.path.dirname(__file__), 'GALib'))
+
 import networkx as nx
 import time
-from encoder.REGAL.xnetmf_config import *
+from GALib.encoder.REGAL.xnetmf_config import *
 from scipy.linalg import block_diag
-import encoder.REGAL.xnetmf as xnetmf
-import encoder.REGAL.regal_utils as regal_utils
-from encoder.FINAL.FINAL import FINAL
-from encoder.CONE.CONE import CONE
-from encoder.Grampa.Grampa import Grampa
-from encoder.IsoRank.IsoRank import IsoRank
-from encoder.BigAlign.BigAlign import BigAlign
-from encoder.NSD.NSD import NSD
-from encoder.LREA.LREA import LREA
-from encoder.Grasp.Grasp import Grasp
-from encoder.gwl import gwl_model
+import GALib.encoder.REGAL.xnetmf as xnetmf
+import GALib.encoder.REGAL.regal_utils as regal_utils
+from GALib.encoder.CONE.CONE import CONE
+from GALib.encoder.Grampa.Grampa import Grampa
+from GALib.encoder.IsoRank.IsoRank import IsoRank
+from GALib.encoder.BigAlign.BigAlign import BigAlign
+from GALib.encoder.NSD.NSD import NSD
+from GALib.encoder.LREA.LREA import LREA
+from GALib.encoder.Grasp.Grasp import Grasp
+from GALib.encoder.gwl import gwl_model
 import torch.optim as optim
 from torch.optim import lr_scheduler
 
@@ -55,19 +58,18 @@ def remove_added_nodes(alignment_matrix, addedToSource, numNodesAdded):
     else:
         return alignment_matrix[:,:-numNodesAdded]
 
-def match(source_graph_file, target_graph_file, alignmethod="REGAL", embmethod="xnetMF"):
+def alignment_matrix_to_string(am):
+    return "\n".join([
+        " ".join(
+            [str(x) for x in row]
+        )
+        for row in am
+    ]
+    )
+
+def match(source_graph_file, target_graph_file, align_method="REGAL", embmethod="xnetMF"):
 
     ##################### Load data ######################################
-    # running normal graph alignment methods
-    #combined_graph_name = graph_file
-    #graph = nx.read_graphml(combined_graph_name, node_type=int)
-    #graph = nx.read_edgelist(combined_graph_name, nodetype=int, comments="%")
-    #adj = nx.adjacency_matrix(graph, nodelist = range(graph.number_of_nodes()) ).todense().astype(float)
-    #node_num = int(adj.shape[0] / 2)
-    #adjA = np.array(adj[:node_num, :node_num])
-    #split_idx = adjA.shape[0]
-    #adjB = np.array(adj[node_num:, node_num:])
-
     graphA = nx.read_graphml(source_graph_file, node_type=int)
     graphB = nx.read_graphml(target_graph_file, node_type=int)
     addedToGraphA, numNodesAdded = align_node_count(graphA, graphB)
@@ -129,35 +131,32 @@ def match(source_graph_file, target_graph_file, alignmethod="REGAL", embmethod="
     ##################### Alignment ######################################
     before_align = time.time()
     # step2 and 3: align embedding spaces and match nodes with similar embeddings
-    if alignmethod == 'REGAL':
+    if align_method == 'REGAL':
         emb1, emb2 = regal_utils.get_embeddings(embed, graph_split_idx=split_idx)
         alignment_matrix = regal_utils.get_embedding_similarities(emb1, emb2, num_top = None)
-    elif alignmethod == 'FINAL':
-        encoder = FINAL(adjA, adjB)
-        alignment_matrix = encoder.align()
-    elif alignmethod == 'IsoRank':
+    elif align_method == 'IsoRank':
         encoder = IsoRank(adjA, adjB)
         alignment_matrix = encoder.align()
-    elif alignmethod == 'BigAlign':
+    elif align_method == 'BigAlign':
         encoder = BigAlign(adjA, adjB)
         alignment_matrix = encoder.align()
-    elif alignmethod == 'CONE':
+    elif align_method == 'CONE':
         encoder = CONE(adjA, adjB)
         alignment_matrix = encoder.align()
-    elif alignmethod == 'Grampa':
+    elif align_method == 'Grampa':
         encoder = Grampa(adjA, adjB)
         alignment_matrix = encoder.align()
-    elif alignmethod == 'NSD':
+    elif align_method == 'NSD':
         encoder = NSD(adjA, adjB)
         alignment_matrix = encoder.align()
-    elif alignmethod == 'LREA':
+    elif align_method == 'LREA':
         encoder = LREA(adjA, adjB)
         alignment_matrix = encoder.align()
-    elif alignmethod == 'Grasp':
+    elif align_method == 'Grasp':
         encoder = Grasp(adjA, adjB)
         alignment_matrix = encoder.align()
 
-    elif alignmethod == "gwl":
+    elif align_method == "gwl":
         result_folder = 'gwl_test'
         cost_type = ['cosine']
         method = ['proximal']
@@ -195,13 +194,7 @@ def match(source_graph_file, target_graph_file, alignmethod="REGAL", embmethod="
 
     alignment_matrix = remove_added_nodes(alignment_matrix, addedToGraphA, numNodesAdded)
 
-    return "\n".join([
-        " ".join(
-            [str(x) for x in row]
-        )
-        for row in alignment_matrix
-    ]
-    )
+    return alignment_matrix_to_string(alignment_matrix)
 
 if __name__ == "__main__":
     match("author_author_source", "author_author_target")

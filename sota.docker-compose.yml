@@ -23,12 +23,21 @@ services:
       - type: bind
         source: ./target/embdi_cache
         target: /embdi/cache
-  ic:
-    image: schematch/ic
-    build: src/main/resources/ic
+  ic-GALib:
+    image: schematch/ic-galib
+    build: src/main/resources/ic-GALib
     ports:
       - "127.0.0.1:5003:5003"
     volumes:
       - type: bind
         source: ./target
-        target: /ic/NATool/target
+        target: /ic/target
+  ic-graspologic:
+    image: schematch/ic-graspologic
+    build: src/main/resources/ic-graspologic
+    ports:
+      - "127.0.0.1:5004:5004"
+    volumes:
+      - type: bind
+        source: ./target
+        target: /ic/target
