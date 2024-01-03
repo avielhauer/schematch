@@ -97,7 +97,7 @@ public class Main {
             log.info("Starting experiments for dataset " + dataset.getName() + " with " + dataset.getScenarioNames().size() + " scenarios");
             // loop over scenarios
             for (String scenarioName : dataset.getScenarioNames()) {
-                Scenario scenario = new Scenario(dataset.getPath() + File.separator + scenarioName);
+                Scenario scenario = new Scenario(dataset, dataset.getPath() + File.separator + scenarioName);
                 log.debug("Starting experiments for dataset " + dataset.getName() + ", scenario: " + scenario.getPath());
 
                 MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps, metrics);

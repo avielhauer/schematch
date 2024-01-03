@@ -2,7 +2,7 @@
 ---
 name: "RandomMatcher"
 packageName: "sota"
-active: true
+active: false
 params:
   seed: [42, 2023]
 ---
@@ -54,52 +54,52 @@ active: true
 ---
 name: "LevenshteinMatcher"
 packageName: "similarity.label"
-active: true
+active: false
 ---
 name: "CosineMatcher"
 packageName: "similarity.label"
-active: true
+active: false
 ---
 name: "HammingMatcher"
 packageName: "similarity.label"
-active: true
+active: false
 ---
 name: "JaroWinklerMatcher"
 packageName: "similarity.label"
-active: true
+active: false
 ---
 name: "LongestCommonSubsequenceMatcher"
 packageName: "similarity.label"
-active: true
+active: false
 ---
 name: "JaccardInstanceMatcher"
 packageName: "similarity.tokenizedinstance"
-active: true
+active: false
 ---
 name: "DiceInstanceMatcher"
 packageName: "similarity.tokenizedinstance"
-active: true
+active: false
 ---
 name: "OverlapInstanceMatcher"
 packageName: "similarity.tokenizedinstance"
-active: true
+active: false
 ---
 name: "SetCosineInstanceMatcher"
 packageName: "similarity.tokenizedinstance"
-active: true
+active: false
 ---
 name: "JaccardLabelMatcher"
 packageName: "similarity.tokenizedlabel"
-active: true
+active: false
 ---
 name: "DiceLabelMatcher"
 packageName: "similarity.tokenizedlabel"
-active: true
+active: false
 ---
 name: "OverlapLabelMatcher"
 packageName: "similarity.tokenizedlabel"
-active: true
+active: false
 ---
 name: "SetCosineLabelMatcher"
 packageName: "similarity.tokenizedlabel"
-active: true
+active: false

@@ -1,9 +1,9 @@
----
-name: "Efes-bib"
-path: "Efes-bib"
----
-name: "Efes-music"
-path: "Efes-music"
+#---
+#name: "Efes-bib"
+#path: "Efes-bib"
+#---
+#name: "Efes-music"
+#path: "Efes-music"
 ---
 name: "Pubs"
 path: "Pubs"
