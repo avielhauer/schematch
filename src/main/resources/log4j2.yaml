@@ -16,7 +16,7 @@ Configuration:
   Loggers:
     logger:
       - name: de.uni_marburg.schematch
-        level: DEBUG
+        level: TRACE
         additivity: false
         AppenderRef:
           - ref: LogToConsole

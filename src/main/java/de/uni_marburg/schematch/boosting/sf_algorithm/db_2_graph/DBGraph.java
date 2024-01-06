@@ -24,44 +24,11 @@ import java.util.Map;
 @Getter
 public abstract class DBGraph extends DefaultDirectedGraph<Object, LabeledEdge> {
     private final static Logger log = LogManager.getLogger(DBGraph.class);
-    private final int line;
-    private final MatchTask matchTask;
-    private final TablePair tablePair;
-    private final Matcher matcher;
-    private final Table table;
-    private final List<Column> columns;
-    private final Scenario scenario;
-    private final ScenarioMetadata scenarioMetadata;
     private final Database database;
-    private final DatabaseMetadata dbMetadata;
-    private final Map<Column, Collection<UniqueColumnCombination>> uccs;
-    private final Map<Column, Collection<FunctionalDependency>> fds;
-    private final Collection<InclusionDependency> inds;
 
-    public DBGraph(int line, MatchTask matchTask, TablePair tablePair, Matcher matcher, boolean source){
+    public DBGraph(Database database){
         super(LabeledEdge.class);
-        this.line = line;
-        this.matchTask = matchTask;
-        this.tablePair = tablePair;
-        this.matcher = matcher;
-
-        // Extract Tables
-        this.table = (source)? tablePair.getSourceTable() : tablePair.getTargetTable();
-        //Extract Columns
-        this.columns = table.getColumns();
-        // Extract and load scenario meta data
-        this.scenario = matchTask.getScenario();
-        this.scenarioMetadata = scenario.getMetadata();
-        // Extract and load database meta data
-        this.database = (source)? matchTask.getScenario().getSourceDatabase() : matchTask.getScenario().getTargetDatabase();
-        this.dbMetadata = this.database.getMetadata();
-        // Extract UCCs
-        this.uccs = this.dbMetadata.getUccMap();
-        // Extract FDs
-        this.fds = this.dbMetadata.getFdMap();
-        // Extract INDs
-        this.inds = this.dbMetadata.getInds();
-
+        this.database = database;
         this.generateGraph();
         log.debug("Generated new DB-Graph with {} vertices and {} edges.", this.vertexSet().size(), this.edgeSet().size());
     }

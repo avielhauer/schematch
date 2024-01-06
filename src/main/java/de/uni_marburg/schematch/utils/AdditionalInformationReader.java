@@ -17,7 +17,7 @@ public class AdditionalInformationReader {
     private static final Logger log = LogManager.getLogger(AdditionalInformationReader.class);
 
     public static void readNUMFile(Path path, Table table) throws IOException{
-        char separator = Configuration.getInstance().getDefaultSeparator();
+        String separator = Configuration.getInstance().getDefaultSeparator();
         CSVFormat csvFormat = CSVFormat.DEFAULT.builder()
                 .setHeader()
                 .setDelimiter(separator)
@@ -43,7 +43,7 @@ public class AdditionalInformationReader {
     }
 
     public static void readTYPEFile(Path path, Table table) throws IOException{
-        char separator = Configuration.getInstance().getDefaultSeparator();
+        String separator = Configuration.getInstance().getDefaultSeparator();
         CSVFormat csvFormat = CSVFormat.DEFAULT.builder()
                 .setHeader()
                 .setDelimiter(separator)

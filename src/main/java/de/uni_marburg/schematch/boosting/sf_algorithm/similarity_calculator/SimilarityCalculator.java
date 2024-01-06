@@ -17,25 +17,13 @@ public abstract class SimilarityCalculator{
     private final static Logger log = LogManager.getLogger(SimilarityCalculator.class);
     private final Map<PropagationNode, Float> columnSimilarity;
 
-    protected SimilarityCalculator(int line, MatchTask matchTask, TablePair tablePair, Matcher matcher) {
-
-        // Extract Tables
-        Table sourceTable = tablePair.getSourceTable();
-        Table targetTable = tablePair.getTargetTable();
-        //Extract Columns
-        List<Column> sourceColumns = sourceTable.getColumns();
-        List<Column> targetColumns = targetTable.getColumns();
-
-        float[][] simMatrix = switch (line) {
-            case 1 -> tablePair.getResultsForFirstLineMatcher(matcher);
-            case 2 -> tablePair.getResultsForSecondLineMatcher(matcher);
-            default -> throw new RuntimeException("Illegal matcher line set for similarity matrix boosting");
-        };
-
+    protected SimilarityCalculator(MatchTask matchTask, float[][] simMatrix) {
         this.columnSimilarity = new HashMap<>();
         for(int i = 0; i < simMatrix.length; i++){
+            Column sourceColumn = matchTask.getScenario().getSourceDatabase().getColumnByIndex(i);
             for(int j = 0; j < simMatrix[0].length; j++){
-                PropagationNode pair = new PropagationNode(sourceColumns.get(i), targetColumns.get(j));
+                Column targetColumn = matchTask.getScenario().getTargetDatabase().getColumnByIndex(j);
+                PropagationNode pair = new PropagationNode(sourceColumn, targetColumn);
                 this.columnSimilarity.put(pair, simMatrix[i][j]);
             }
         }

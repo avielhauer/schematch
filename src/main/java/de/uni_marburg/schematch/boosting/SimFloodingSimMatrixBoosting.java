@@ -9,6 +9,7 @@ import de.uni_marburg.schematch.boosting.sf_algorithm.similarity_calculator.Simi
 import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
+import de.uni_marburg.schematch.matchtask.matchstep.SimMatrixBoostingStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.similarity.SimilarityMeasure;
 import de.uni_marburg.schematch.similarity.string.Levenshtein;
@@ -24,16 +25,13 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
     private final static Logger log = LogManager.getLogger(SimFloodingSimMatrixBoosting.class);
 
     @Override
-    public float[][] run(int line, MatchTask matchTask, TablePair tablePair, Matcher matcher) {
+    public float[][] run(MatchTask matchTask, SimMatrixBoostingStep matchStep, float[][] simMatrix){
         // Create a DatabaseGraph
-        DBGraph dbGraphSource = new FD2Graph(line, matchTask, tablePair, matcher, true);
-        DBGraph dbGraphTarget = new FD2Graph(line, matchTask, tablePair, matcher, false);
-        dbGraphSource.addDBGraph(new UCC2Graph(line, matchTask, tablePair, matcher, true));
-        dbGraphTarget.addDBGraph(new UCC2Graph(line, matchTask, tablePair, matcher, false));
+        DBGraph dbGraphSource = new FD2Graph(matchTask.getScenario().getSourceDatabase());
+        DBGraph dbGraphTarget = new FD2Graph(matchTask.getScenario().getTargetDatabase());
 
-
-        // Create Similaritycalculator
-        SimilarityCalculator levenshteinCalculator = new SimilarityCalculator(line, matchTask, tablePair, matcher) {
+        // Create SimilarityCalculator
+        SimilarityCalculator levenshteinCalculator = new SimilarityCalculator(matchTask, simMatrix) {
             final SimilarityMeasure<String> stringMeasure = new Levenshtein();
             @Override
             public float calcStringSim(String stringA, String stringB){
@@ -48,14 +46,6 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
 
         float[][] boostedMatrix = flooder.flood(1000, 0.0000001F);
 
-        float[][] simMatrix = switch (line) {
-            case 1 -> tablePair.getResultsForFirstLineMatcher(matcher);
-            case 2 -> tablePair.getResultsForSecondLineMatcher(matcher);
-            default -> throw new RuntimeException("Illegal matcher line set for similarity matrix boosting");
-        };
-        //printMatrix(simMatrix);
-        //System.out.println(" ");
-        //printMatrix(boostedMatrix);
         return boostedMatrix;
     }
 

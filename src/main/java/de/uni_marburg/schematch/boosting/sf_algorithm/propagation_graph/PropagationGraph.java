@@ -3,6 +3,7 @@ package de.uni_marburg.schematch.boosting.sf_algorithm.propagation_graph;
 import de.uni_marburg.schematch.boosting.sf_algorithm.db_2_graph.DBGraph;
 import de.uni_marburg.schematch.boosting.sf_algorithm.db_2_graph.LabeledEdge;
 import de.uni_marburg.schematch.boosting.sf_algorithm.similarity_calculator.SimilarityCalculator;
+import de.uni_marburg.schematch.data.Column;
 import lombok.Getter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,11 +23,13 @@ public abstract class PropagationGraph<T extends PropagationNode> extends Simple
 
         // Create ColumnNodes
         this.columnNodes = new ArrayList<>();
-        for(int i = 0; i < dbGraphA.getColumns().size(); i++){
+        for(int i = 0; i < dbGraphA.getDatabase().getNumColumns(); i++){
             List<T> myList = new ArrayList<>();
             this.columnNodes.add(myList);
-            for(int j = 0; j < dbGraphB.getColumns().size(); j++){
-                T node = this.createNode(dbGraphA.getColumns().get(i), dbGraphB.getColumns().get(j));
+            for(int j = 0; j < dbGraphB.getDatabase().getNumColumns(); j++){
+                Column columnA = dbGraphA.getDatabase().getColumnByIndex(i);
+                Column columnB = dbGraphB.getDatabase().getColumnByIndex(j);
+                T node = this.createNode(columnA, columnB);
                 myList.add(node);
                 this.addVertex(node);
             }
