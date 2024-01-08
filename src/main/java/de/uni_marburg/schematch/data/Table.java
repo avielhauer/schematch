@@ -32,6 +32,7 @@ public class Table {
     }
 
     public String pathRelativeToDataDirectory() {
-        return path.split("/data/")[1];
+        String[] splitPath = path.split("/data");
+        return splitPath[splitPath.length-1];
     }
 }
