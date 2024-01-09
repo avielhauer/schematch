@@ -1,9 +1,6 @@
 package de.uni_marburg.schematch.boosting;
 
-import de.uni_marburg.schematch.boosting.sf_algorithm.DBGraph;
-import de.uni_marburg.schematch.boosting.sf_algorithm.FloodingFunctions;
-import de.uni_marburg.schematch.boosting.sf_algorithm.ObjectPair;
-import de.uni_marburg.schematch.boosting.sf_algorithm.PropagationGraph;
+import de.uni_marburg.schematch.boosting.sf_algorithm.*;
 import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Database;
 import de.uni_marburg.schematch.data.Scenario;
@@ -20,7 +17,11 @@ import de.uni_marburg.schematch.similarity.SimilarityMeasure;
 import de.uni_marburg.schematch.similarity.string.Levenshtein;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -51,10 +52,13 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
         Scenario scenario = matchTask.getScenario();
         ScenarioMetadata scenarioMetadata = scenario.getMetadata();
         // Extract and load database meta data
-        Database source = matchTask.getScenario().getSourceDatabase();
-        Database target = matchTask.getScenario().getTargetDatabase();
-        DatabaseMetadata sourceMetadata = source.getMetadata();
-        DatabaseMetadata targetMetadata = target.getMetadata();
+        Database sourceDatabase = matchTask.getScenario().getSourceDatabase();
+        Database targetDatabase = matchTask.getScenario().getTargetDatabase();
+
+        SQL2Graph sourceSQLGraph = new SQL2Graph(sourceDatabase);
+        SQL2Graph targetSQLGraph = new SQL2Graph(targetDatabase);
+        DatabaseMetadata sourceMetadata = sourceDatabase.getMetadata();
+        DatabaseMetadata targetMetadata = targetDatabase.getMetadata();
         // Extract UCCs
         Map<Column, Collection<UniqueColumnCombination>> sourceUccs = sourceMetadata.getUccMap();
         Map<Column, Collection<UniqueColumnCombination>> targetUccs = targetMetadata.getUccMap();
@@ -65,19 +69,22 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
         Collection<InclusionDependency> sourceToTargetInds = scenarioMetadata.getSourceToTargetMetadata();
         Collection<InclusionDependency> TargetToSourceInds = scenarioMetadata.getTargetToSourceMetadata();
 
-        DBGraph sourceGraph = new DBGraph(sourceTable);
-        sourceGraph.addNumericMetadata();
-        sourceGraph.addDatatypes();
-        DBGraph targetGraph = new DBGraph(targetTable);
-        targetGraph.addNumericMetadata();
-        targetGraph.addDatatypes();
+        SQL2Graph sourceGraph = new SQL2Graph(sourceDatabase);
+        // sourceGraph.addNumericMetadata();
+        // sourceGraph.addDatatypes();
+        SQL2Graph targetGraph = new SQL2Graph(targetDatabase);
+        // targetGraph.addNumericMetadata();
+        // targetGraph.addDatatypes();
 
-        PropagationGraph pGraph = sourceGraph.generatePropagationGraph(targetGraph);
+
+
+        PropagationGraph pGraph = sourceSQLGraph.generatePropagationGraph(targetSQLGraph);
 
         Map<ObjectPair<Column, Column>, Float> columnDefaultSimilarity = new HashMap<>();
         for(int i = 0; i < simMatrix.length; i++){
             for(int j = 0; j < simMatrix[0].length; j++){
                 ObjectPair<Column, Column> pair = new ObjectPair<>(sourceColumns.get(i), targetColumns.get(j));
+                columnDefaultSimilarity.put(pair, simMatrix[i][j]);
                 columnDefaultSimilarity.put(pair, simMatrix[i][j]);
             }
         }
@@ -88,6 +95,7 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
         pGraph.setDefaultSimilarityMap(stringSimMeasure, columnDefaultSimilarity);
 
         pGraph.flood(100, (float) 0.01); //TODO: configure
+
 
 
         float[][] newSimMatrix = new float[simMatrix.length][];
@@ -101,6 +109,8 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
                 }
             }
         }
+        exportToCsv(matcher.toString(), simMatrix, newSimMatrix);
+
         return newSimMatrix;
     }
 
@@ -112,4 +122,37 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
             System.out.print("\n");
         }
     }
+
+    private void exportToCsv(String matcher, float[][] oldMatrix, float[][] newMatrix) {
+        String fileName = matcher + "BoostingExport.csv";
+        try (FileWriter fileWriter = new FileWriter(fileName);
+             CSVPrinter csvPrinter = new CSVPrinter(fileWriter, CSVFormat.DEFAULT)) {
+
+            // Write oldMatrix to CSV
+            for (float[] row : oldMatrix) {
+                for (float number : row) {
+                    csvPrinter.print(number);
+                }
+                csvPrinter.println();
+            }
+
+            // Add an empty line between the two matrices
+            csvPrinter.println();
+
+            // Write newMatrix to CSV
+            for (float[] row1 : newMatrix) {
+                for (float number1 : row1) {
+                    csvPrinter.print(number1);
+                }
+                csvPrinter.println();
+            }
+
+
+            System.out.println("CSV Exported successfully to " + fileName);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
