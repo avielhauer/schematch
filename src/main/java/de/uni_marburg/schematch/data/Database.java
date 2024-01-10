@@ -18,6 +18,7 @@ public class Database {
     private DatabaseMetadata metadata;
     private int numColumns;
     private DatabaseGraph graph;
+    private KnowledgeGraph knowledgeGraph;
 
     public Database(Scenario scenario, String path) {
         this.scenario = scenario;
@@ -39,6 +40,7 @@ public class Database {
         numColumns = currentOffset;
 
         this.graph = new DatabaseGraph(this);
+        this.knowledgeGraph = new KnowledgeGraph(this);
     }
 
     public String getFullColumnNameByIndex(int idx) {
