@@ -3,21 +3,24 @@ import re
 import networkx as nx
 import matplotlib.pyplot as plt
 from node2vec import Node2Vec
+from pyvis.network import Network
 
-def visualize_graph(graph):
-    pos = nx.spring_layout(graph)
-    nx.draw(graph, with_labels=True, node_color='skyblue', font_color='black',
-            font_size=10, edge_color='gray', linewidths=1, alpha=0.7)
-    plt.title("Graph")
-
-    # Display the plots
-    plt.show()
+def visualize_graph(graph, title='test.html'):
+    net = Network(height="1500px", notebook=True, directed=True)
+    net.from_nx(graph)
+    for node in net.nodes:
+        if "SIBLING_CLUSTER" in node['label']:
+            node['color'] = "red"
+    net.show(title)
 
 def match(source_graph_file, source_graph_id, target_graph_file, target_graph_id):
     graphA: nx.Graph = nx.read_graphml(source_graph_file, node_type=str)
     graphB: nx.Graph = nx.read_graphml(target_graph_file, node_type=str)
 
+    visualize_graph(graphA)
     combinedGraph: nx.Graph = nx.compose(graphA, graphB)
+    visualize_graph(combinedGraph, f"non_meaningfull_all_2_{source_graph_file.split('/')[-2]}_combined.html")
+    return []
 
     # combinedGraph.add_edge(f"DB_{source_graph_id}_ROOT_", f"DB_{target_graph_id}_ROOT_")
     # combinedGraph.add_edge(f"DB_{source_graph_id}_UCC_", f"DB_{target_graph_id}_UCC_")

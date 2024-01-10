@@ -40,12 +40,12 @@ public class Column {
 
     @Override
     public int hashCode() {
-        return (this.label + "___" + this.table.getName()).hashCode();
+        return toString().hashCode();
     }
 
     @Override
     public String toString() {
-        return this.label + "___" + this.table.getName();
+        return this.table.getName() + ": " + this.label;
     }
 
     public Set<String> getLabelTokens(Tokenizer tokenizer) {
