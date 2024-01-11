@@ -2,6 +2,7 @@ package de.uni_marburg.schematch.matching.ensemble;
 
 import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Table;
+import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 
@@ -13,7 +14,13 @@ public class CrediblityPredictorModel implements Serializable {
 
 
     public List<ColumnPair> colomnPairs=new ArrayList<>();
-     class ModelTrainedException extends Exception{
+    List<Matcher> matchers=new ArrayList<>();
+    public void addMatcher(Matcher matcher)
+    {
+        matchers.add(matcher);
+    }
+
+     public class ModelTrainedException extends Exception{
         public ModelTrainedException(){
             super("\"Model is Already Trained\"");
         }
@@ -30,7 +37,18 @@ public class CrediblityPredictorModel implements Serializable {
     }
 
     List<Feature> features=new ArrayList<>();
-
+    List<List<Double>> scores=new ArrayList<>();
+    public void generateScores()
+    {
+        for(Feature feature:features)
+        {
+            List<Double> score=new ArrayList<>();
+            for(ColumnPair columnPair:colomnPairs)
+            {
+                score.add(feature.calculateScore(columnPair));
+            }
+        }
+    }
     public void addFeature(Feature feature) throws ModelTrainedException {
         if(!isTrained){
             features.add(feature);

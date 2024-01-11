@@ -4,6 +4,7 @@ import de.uni_marburg.schematch.boosting.IdentitySimMatrixBoosting;
 import de.uni_marburg.schematch.boosting.SimMatrixBoosting;
 import de.uni_marburg.schematch.matching.ensemble.AverageEnsembleMatcher;
 import de.uni_marburg.schematch.matching.ensemble.CrediblityPredictorModel;
+import de.uni_marburg.schematch.matching.ensemble.Feature;
 import de.uni_marburg.schematch.matching.ensemble.RandomEnsembleMatcher;
 import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
 import de.uni_marburg.schematch.matchtask.matchstep.*;
@@ -28,52 +29,23 @@ public class Main {
     public final static Date START_TIMESTAMP = new Date();
 
     public static void main(String[] args) throws Exception {
-        log.info("Starting Schematch");
-
-        Configuration config = Configuration.getInstance();
-
-        log.info("Instantiating matchers and similarity matrix boosting");
-        MatcherFactory matcherFactory = new MatcherFactory();
-        Map<String, List<Matcher>> firstLineMatchers = matcherFactory.createMatchersFromConfig();
-        // FIXME: make sim matrix boosting and second line matching configurable via .yaml files
-        // Configure second line matchers and similarity matrix boosting here for now
-        TablePairsGenerator tablePairsGenerator = new GroundTruthTablePairsGenerator();
-
-        log.info("Setting up matching steps as specified in config");
-        List<MatchStep> matchSteps = new ArrayList<>();
-        // Step 1: generate candidate table pairs to match
-        matchSteps.add(new TablePairGenerationStep(true,
-                config.isSaveOutputTablePairGeneration(),
-                config.isEvaluateTablePairGeneration(),
-                tablePairsGenerator));
 
         CrediblityPredictorModel crediblityPredictorModel=new CrediblityPredictorModel();
-        // loop over datasets
-        for (Configuration.DatasetConfiguration datasetConfiguration : config.getDatasetConfigurations()) {
-            Dataset dataset = new Dataset(datasetConfiguration);
-            // loop over scenarios
-            for (String scenarioName : dataset.getScenarioNames()) {
-                Scenario scenario = new Scenario(dataset.getPath() + File.separator + scenarioName);
-                List<TablePair> tablePairs = tablePairsGenerator.generateCandidates(scenario);
-                for(TablePair tp :tablePairs) {
-
-                    crediblityPredictorModel.addTablePair(tp);
-                }
-       }
-
-        }
+        ModelUtils.loadDataToModel(crediblityPredictorModel);
 
         crediblityPredictorModel.generateColumnPairs();
+        crediblityPredictorModel.addFeature(new Feature());
+        crediblityPredictorModel.addFeature(new Feature());
+        crediblityPredictorModel.addFeature(new Feature());
+        crediblityPredictorModel.addFeature(new Feature());
+        crediblityPredictorModel.generateScores();
         for (ColumnPair columnPair:crediblityPredictorModel.colomnPairs)
         {
             System.out.println(columnPair);
         }
-        log.info("See results directory for more detailed performance and similarity matrices results.");
 
-        Date END_TIMESTAMP = new Date();
-        long durationInMillis =  END_TIMESTAMP.getTime() - START_TIMESTAMP.getTime();
-        log.info("Total time: " + DurationFormatUtils.formatDuration(durationInMillis, "HH:mm:ss:SSS"));
 
-        log.info("Ending Schematch");
     }
+
+
 }
