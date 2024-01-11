@@ -50,6 +50,7 @@ public class CrediblityPredictorModel implements Serializable {
             {
                 score.add(feature.calculateScore(columnPair));
             }
+            scores.add(score);
         }
     }
     public void addFeature(Feature feature) throws ModelTrainedException {

@@ -11,7 +11,6 @@ public class MyMain {
         try {
             ModelUtils.loadDataToModel(crediblityPredictorModel);
 
-            crediblityPredictorModel.generateColumnPairs();
             crediblityPredictorModel.addFeature(new Feature());
             crediblityPredictorModel.addFeature(new Feature());
             crediblityPredictorModel.addFeature(new Feature());
