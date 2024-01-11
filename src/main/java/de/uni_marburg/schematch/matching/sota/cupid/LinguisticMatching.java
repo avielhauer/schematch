@@ -1,7 +1,11 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
 
 import de.uni_marburg.schematch.similarity.string.Levenshtein;
+import edu.stanford.nlp.ling.CoreLabel;
+import edu.stanford.nlp.process.*;
 
+import java.io.Reader;
+import java.io.StringReader;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -18,22 +22,17 @@ public class LinguisticMatching {
         if (schemaElement == null) {
             schemaElement = new SchemaElement(element);
         }
-        try {
-            // TODO: 17.12.2023 nltk.word_tokenize
 
-        } catch (Exception e) {
-            // TODO: 17.12.2023 same library
-        }
+        ;
+        Tokenizer tokenizer = new PTBTokenizer(new StringReader(element), new CoreLabelTokenFactory(), "");
+        List<String> tokens = tokenizer.tokenize();
 
-
-        // Dummy
-        List<String> tokens = new ArrayList<>();
 
         for (String token : tokens) {
             Token tokenObj = new Token();
 
-            // TODO: token in string.punctuation
-            if (true) {
+            String punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+            if (punctuation.contains(token)) {
                 tokenObj.setIgnore(true);
                 tokenObj.addData(token);
                 // welche bedeutung hat die Klassen TokenType?
@@ -132,10 +131,10 @@ public class LinguisticMatching {
     }
 
     public Map<StringPair, Double> comparison(SchemaTree sourceTree,
-                                                  SchemaTree targetTree,
-                                                  Map<String, Map<String, Double>> compatibilityTable,
-                                                  double thNs,
-                                                  int parallelism) {
+                                              SchemaTree targetTree,
+                                              Map<String, Map<String, Double>> compatibilityTable,
+                                              double thNs,
+                                              int parallelism) {
         List<Pair<SchemaElementNode, SchemaElementNode>> elementsToCompare = generateParallelLsimInput(sourceTree, targetTree, compatibilityTable, thNs);
         Map<StringPair, Double> lsims = new HashMap<>();
 
@@ -178,9 +177,9 @@ public class LinguisticMatching {
         for (Pair<SchemaElementNode, SchemaElementNode> pair : allNodes) {
             try {
                 if (compatibilityTable.containsKey(pair.getFirst().getCurrent().getCategories().get(0)) &&
-                    compatibilityTable.containsKey(pair.getSecond().getCurrent().getCategories().get(0)) &&
+                        compatibilityTable.containsKey(pair.getSecond().getCurrent().getCategories().get(0)) &&
                         compatibilityTable.get(pair.getFirst().getCurrent().getCategories().get(0))
-                        .get(pair.getSecond().getCurrent().getCategories().get(0)) > thNs) {
+                                .get(pair.getSecond().getCurrent().getCategories().get(0)) > thNs) {
                     result.add(pair);
                 }
             } catch (Exception ignored) {
@@ -296,7 +295,7 @@ public class LinguisticMatching {
 
     private Set<String> getSynonyms(String word) {
         // TODO: 17.12.2023  
-        
+
         return null;
     }
 
@@ -350,7 +349,7 @@ public class LinguisticMatching {
             for (String c2 : categoriesE2) {
                 List<Token> c2Token = new ArrayList<>();
                 double nameSimilarityCategories = nameSimilarityTokens(c1Token, c2Token);
-                
+
                 if (nameSimilarityCategories > maxCategory) {
                     maxCategory = nameSimilarityCategories;
                 }

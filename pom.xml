@@ -99,9 +99,12 @@
             <version>2.2.3</version>
         </dependency>
 
-
-
-
+        <!-- Tokenizer -->
+        <dependency>
+            <groupId>edu.stanford.nlp</groupId>
+            <artifactId>stanford-corenlp</artifactId>
+            <version>4.5.4</version>
+        </dependency>
 
     </dependencies>
 
