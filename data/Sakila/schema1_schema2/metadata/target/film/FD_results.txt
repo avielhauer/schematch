@@ -1,0 +1,5 @@
+[] --> film.csv.language_id, film.csv.original_language_id, film.csv.release_year
+[film.csv.description] --> film.csv.film_id, film.csv.length, film.csv.rating, film.csv.rental_duration, film.csv.rental_rate, film.csv.replacement_cost, film.csv.title
+[film.csv.film_id] --> film.csv.description, film.csv.length, film.csv.rating, film.csv.rental_duration, film.csv.rental_rate, film.csv.replacement_cost, film.csv.title
+[film.csv.length, film.csv.rating, film.csv.rental_duration, film.csv.rental_rate, film.csv.replacement_cost] --> film.csv.description, film.csv.film_id, film.csv.title
+[film.csv.title] --> film.csv.description, film.csv.film_id, film.csv.length, film.csv.rating, film.csv.rental_duration, film.csv.rental_rate, film.csv.replacement_cost
