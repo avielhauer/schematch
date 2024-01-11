@@ -78,12 +78,33 @@ def match(source_graph_file, target_graph_file, align_method="REGAL", embmethod=
     adjB = nx.adjacency_matrix(graphB, nodelist = range(graphB.number_of_nodes()) ).todense().astype(float)
     split_idx = adjA.shape[0]
     assert(graphA.number_of_nodes() == graphB.number_of_nodes())
+    print(f"shape of adjA {adjA.shape} and adjB {adjB.shape}")
     # print statistics data
     print("---------------")
     print(f"The number of nodes in a single graph is {node_num}")
     print(f"The number of edges in a the graph A is {nx.from_numpy_matrix(adjA).number_of_edges()}")
     print(f"The number of edges in a the graph B is {nx.from_numpy_matrix(adjB).number_of_edges()}")
     print("---------------")
+
+    if (align_method == "gwl"):
+        # parse the data to be gwl readable format
+        print("Parse the data to be gwl readable format")
+        data_gwl = {}
+        data_gwl['src_index'] = {}
+        data_gwl['tar_index'] = {}
+        data_gwl['src_interactions'] = []
+        data_gwl['tar_interactions'] = []
+        data_gwl['mutual_interactions'] = []
+        for i in range(adjA.shape[0]):
+            data_gwl['src_index'][float(i)] = i
+        for i in range(adjB.shape[0]):
+            data_gwl['tar_index'][float(i)] = i
+        ma,mb = adjA.nonzero()
+        for i in range(ma.shape[0]):
+            data_gwl['src_interactions'].append([ma[i], mb[i]])
+        ma,mb = adjB.nonzero()
+        for i in range(ma.shape[0]):
+            data_gwl['tar_interactions'].append([ma[i], mb[i]])
 
     ##################### Proprocess if needed ######################################
     if (embmethod == "xnetMF"):
@@ -158,6 +179,10 @@ def match(source_graph_file, target_graph_file, align_method="REGAL", embmethod=
 
     elif align_method == "gwl":
         result_folder = 'gwl_test'
+        try:
+            os.mkdir(result_folder)
+        except:
+            pass
         cost_type = ['cosine']
         method = ['proximal']
         opt_dict = {'epochs': 30,
