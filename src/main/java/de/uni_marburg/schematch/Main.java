@@ -3,8 +3,11 @@ package de.uni_marburg.schematch;
 import de.uni_marburg.schematch.boosting.IdentitySimMatrixBoosting;
 import de.uni_marburg.schematch.boosting.SimMatrixBoosting;
 import de.uni_marburg.schematch.matching.ensemble.AverageEnsembleMatcher;
+import de.uni_marburg.schematch.matching.ensemble.CrediblityPredictorModel;
 import de.uni_marburg.schematch.matching.ensemble.RandomEnsembleMatcher;
+import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
 import de.uni_marburg.schematch.matchtask.matchstep.*;
+import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.GroundTruthTablePairsGenerator;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.TablePairsGenerator;
 import de.uni_marburg.schematch.data.*;
@@ -35,11 +38,6 @@ public class Main {
         // FIXME: make sim matrix boosting and second line matching configurable via .yaml files
         // Configure second line matchers and similarity matrix boosting here for now
         TablePairsGenerator tablePairsGenerator = new GroundTruthTablePairsGenerator();
-        List<Matcher> secondLineMatchers = new ArrayList<>();
-        secondLineMatchers.add(new RandomEnsembleMatcher(42));
-        secondLineMatchers.add(new AverageEnsembleMatcher());
-        SimMatrixBoosting firstLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
-        SimMatrixBoosting secondLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
 
         log.info("Setting up matching steps as specified in config");
         List<MatchStep> matchSteps = new ArrayList<>();
@@ -48,60 +46,28 @@ public class Main {
                 config.isSaveOutputTablePairGeneration(),
                 config.isEvaluateTablePairGeneration(),
                 tablePairsGenerator));
-        // Step 2: run first line matchers (i.e., matchers that use table data to match)
-        matchSteps.add(new FirstLineMatchingStep(true,
-                config.isSaveOutputFirstLineMatchers(),
-                config.isEvaluateFirstLineMatchers(),
-                firstLineMatchers));
-        // Step 3: run similarity matrix boosting on the output of first line matchers
-        if (config.isRunSimMatrixBoostingOnFirstLineMatchers()) {
-            matchSteps.add(new SimMatrixBoostingStep(config.isRunSimMatrixBoostingOnFirstLineMatchers(),
-                    config.isSaveOutputSimMatrixBoostingOnFirstLineMatchers(),
-                    config.isEvaluateSimMatrixBoostingOnFirstLineMatchers(),
-                    1,
-                    firstLineSimMatrixBoosting));
-        }
-        // Step 4: run second line matchers (ensemble matchers and other matchers using output of first line matchers)
-        if (config.isRunSecondLineMatchers()) {
-            matchSteps.add(new SecondLineMatchingStep(config.isRunSecondLineMatchers(),
-                    config.isSaveOutputSecondLineMatchers(),
-                    config.isEvaluateSecondLineMatchers(),
-                    secondLineMatchers));
-            // Step 5: run similarity matrix boosting on the output of second line matchers
-            if (config.isRunSimMatrixBoostingOnSecondLineMatchers()) {
-                matchSteps.add(new SimMatrixBoostingStep(config.isRunSimMatrixBoostingOnSecondLineMatchers(),
-                        config.isSaveOutputSimMatrixBoostingOnSecondLineMatchers(),
-                        config.isEvaluateSimMatrixBoostingOnSecondLineMatchers(),
-                        2,
-                        secondLineSimMatrixBoosting));
-            }
-        }
 
+        CrediblityPredictorModel crediblityPredictorModel=new CrediblityPredictorModel();
         // loop over datasets
         for (Configuration.DatasetConfiguration datasetConfiguration : config.getDatasetConfigurations()) {
             Dataset dataset = new Dataset(datasetConfiguration);
-            log.info("Starting experiments for dataset " + dataset.getName() + " with " + dataset.getScenarioNames().size() + " scenarios");
             // loop over scenarios
             for (String scenarioName : dataset.getScenarioNames()) {
                 Scenario scenario = new Scenario(dataset.getPath() + File.separator + scenarioName);
-                log.debug("Starting experiments for dataset " + dataset.getName() + ", scenario: " + scenario.getPath());
+                List<TablePair> tablePairs = tablePairsGenerator.generateCandidates(scenario);
+                for(TablePair tp :tablePairs) {
 
-                MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps);
-                matchTask.runSteps();
-                if (ConfigUtils.anyEvaluate()) {
-                    EvalWriter.writeScenarioPerformance(dataset, scenario, matchSteps);
+                    crediblityPredictorModel.addTablePair(tp);
                 }
-            }
+       }
 
-            if (ConfigUtils.anyEvaluate()) {
-                EvalWriter.writeDatasetPerformance(dataset, matchSteps);
-            }
         }
 
-        if (ConfigUtils.anyEvaluate()) {
-            EvalWriter.writeOverallPerformance(matchSteps);
+        crediblityPredictorModel.generateColumnPairs();
+        for (ColumnPair columnPair:crediblityPredictorModel.colomnPairs)
+        {
+            System.out.println(columnPair);
         }
-
         log.info("See results directory for more detailed performance and similarity matrices results.");
 
         Date END_TIMESTAMP = new Date();
