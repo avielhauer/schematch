@@ -5,10 +5,13 @@ import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
+import de.uni_marburg.schematch.utils.ModelUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CrediblityPredictorModel implements Serializable {
 
@@ -76,6 +79,21 @@ public class CrediblityPredictorModel implements Serializable {
             }
         }
     }
+    Map<ColumnPair,Map<Matcher,Double>> accuracy=new HashMap<>();
+    public void generateAccuracy()
+    {
+        for (ColumnPair columnPair:colomnPairs)
+        {
+            Map<Matcher,Double> map=new HashMap<>();
+            for (Matcher matcher :matchers)
+            {
+                map.put(matcher, ModelUtils.getMSE(columnPair,matcher));
+            }
+            accuracy.put(columnPair,map);
+        }
+
+    }
+
 
 
 }
