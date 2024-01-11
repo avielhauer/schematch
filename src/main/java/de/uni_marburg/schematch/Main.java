@@ -31,6 +31,7 @@ public class Main {
 
         Configuration config = Configuration.getInstance();
 
+
         log.info("Instantiating table pair generation");
         TablePairsGenerator tablePairsGenerator = new NaiveTablePairsGenerator();
 

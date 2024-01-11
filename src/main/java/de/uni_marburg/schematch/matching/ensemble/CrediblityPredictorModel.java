@@ -66,9 +66,9 @@ public class CrediblityPredictorModel implements Serializable {
             {
                 Table source=tp.getSourceTable();
                 Table target=tp.getTargetTable();
-                for (int i = 0; i < source.getNumberOfColumns() ; i++) {
+                for (int i = 0; i < source.getNumColumns() ; i++) {
                     Column x=source.getColumn(i);
-                    for (int j = 0; j < target.getNumberOfColumns(); j++) {
+                    for (int j = 0; j < target.getNumColumns(); j++) {
                         Column y=target.getColumn(j);
                         colomnPairs.add(new ColumnPair(x,y));
                     }
