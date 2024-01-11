@@ -1,0 +1,2 @@
+,name,locale,id,begin_date_year,begin_date_day,end_date_day,begin_date_month,sort_name,primary_for_locale,edits_pending,end_date_year,end_date_month,ended,label,last_updated,type
+datatype,STRING,STRING,INTEGER,STRING,STRING,STRING,STRING,STRING,STRING,INTEGER,STRING,STRING,STRING,INTEGER,STRING,STRING

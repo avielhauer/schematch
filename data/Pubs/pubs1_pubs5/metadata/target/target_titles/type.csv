@@ -1,0 +1,2 @@
+,ytd_sales,notes,price,pub_id,title,advance,royalty,title_id,pubdate,type
+datatype,STRING,INTEGER,STRING,INTEGER,INTEGER,STRING,STRING,INTEGER,INTEGER,INTEGER

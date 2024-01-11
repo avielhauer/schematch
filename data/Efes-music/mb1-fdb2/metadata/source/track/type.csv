@@ -1,0 +1,2 @@
+,number,length,last_updated,name,recording,position,id,medium,edits_pending,gid,artist_credit
+datatype,INTEGER,STRING,STRING,STRING,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER,STRING,INTEGER

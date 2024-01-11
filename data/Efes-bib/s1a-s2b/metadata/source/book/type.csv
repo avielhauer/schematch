@@ -1,0 +1,2 @@
+,year,bookid,month,num,loc,publisher,pages,class,annote,note,title,vol
+datatype,INTEGER,STRING,STRING,STRING,STRING,STRING,STRING,STRING,TEXT,STRING,STRING,STRING

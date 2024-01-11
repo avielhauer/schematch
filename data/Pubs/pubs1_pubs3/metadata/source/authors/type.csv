@@ -1,0 +1,2 @@
+,au_id,state,city,phone,zip,address,au_fname,au_lname,contract
+datatype,STRING,STRING,STRING,STRING,INTEGER,STRING,STRING,STRING,INTEGER

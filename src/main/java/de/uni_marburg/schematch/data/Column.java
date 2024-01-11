@@ -1,5 +1,6 @@
 package de.uni_marburg.schematch.data;
 
+import de.uni_marburg.schematch.data.metadata.ColumnMetadata;
 import de.uni_marburg.schematch.preprocessing.tokenization.Tokenizer;
 import lombok.Data;
 
@@ -29,6 +30,7 @@ public class Column {
     private final List<String> values;
     private Map<Tokenizer, Set<String>> tokenizedLabel;
     private Map<Tokenizer, Set<String>> tokenizedValues;
+    private ColumnMetadata metadata = new ColumnMetadata();
 
     public Column(String label, List<String> values) {
         this.label = label;

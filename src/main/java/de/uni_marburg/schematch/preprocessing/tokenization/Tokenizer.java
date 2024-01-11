@@ -40,9 +40,8 @@ public abstract class Tokenizer {
     }
 
     public void tokenize(Database database) {
-        Map<String, Table> tables = database.getTables();
-        for (String tableName : tables.keySet()) {
-            tokenize(tables.get(tableName));
+        for (Table table : database.getTables()) {
+            tokenize(table);
         }
     }
 

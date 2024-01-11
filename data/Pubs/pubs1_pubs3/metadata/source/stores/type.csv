@@ -1,0 +1,2 @@
+,zip,stor_id,stor_address,state,stor_name,city
+datatype,INTEGER,INTEGER,STRING,STRING,STRING,STRING

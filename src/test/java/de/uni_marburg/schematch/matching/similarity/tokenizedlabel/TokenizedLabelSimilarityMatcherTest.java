@@ -5,6 +5,7 @@ import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matching.MatcherTest;
+import de.uni_marburg.schematch.matching.TablePairMatcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.preprocessing.tokenization.Tokenizer;
 import de.uni_marburg.schematch.similarity.SimilarityMeasure;
@@ -26,11 +27,11 @@ class TokenizedLabelSimilarityMatcherTest {
         Table targetTable = scenario.getTargetDatabase().getTableByName("authors");
         TablePair tp = new TablePair(sourceTable, targetTable);
 
-        Matcher matcher = MatcherTest.getMatcherFactory().createTokenizedMatcherInstance(matcherConfiguration, tokenizer);
+        TablePairMatcher matcher = (TablePairMatcher) MatcherTest.getMatcherFactory().createTokenizedMatcherInstance(matcherConfiguration, tokenizer);
         float[][] simMatrix = matcher.match(tp);
 
-        for (int i = 0; i < sourceTable.getNumberOfColumns(); i++) {
-            for (int j = 0; j < targetTable.getNumberOfColumns(); j++) {
+        for (int i = 0; i < sourceTable.getNumColumns(); i++) {
+            for (int j = 0; j < targetTable.getNumColumns(); j++) {
                 float simScore = similarityMeasure.compare(sourceTable.getColumn(i).getLabelTokens(tokenizer),
                         targetTable.getColumn(j).getLabelTokens(tokenizer));
                 assertEquals(simScore, simMatrix[i][j]);

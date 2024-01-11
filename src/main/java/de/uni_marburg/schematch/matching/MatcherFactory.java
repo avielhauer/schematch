@@ -8,10 +8,7 @@ import lombok.NoArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Data
 @NoArgsConstructor
@@ -31,7 +28,7 @@ public class MatcherFactory {
 
         Configuration config = Configuration.getInstance();
 
-        for (String tokenizerName : config.getTokenizerConfigurations().keySet()) {
+        for (String tokenizerName : config.getFirstLineTokenizerConfigurations().keySet()) {
             List<Tokenizer> tokenizerInstances = tokenizerFactory.createTokenizerInstances(tokenizerName);
             this.numTokenizers += tokenizerInstances.size();
             tokenizers.put(tokenizerName, tokenizerInstances);
@@ -73,7 +70,7 @@ public class MatcherFactory {
         String packageName = matcherConfiguration.getPackageName();
         Class<?> matcherClass = Class.forName(Configuration.MATCHING_PACKAGE_NAME + "." + packageName + "." + name);
 
-        TokenizedMatcher matcher = (TokenizedMatcher) matcherClass.getConstructor().newInstance();
+        TokenizedTablePairMatcher matcher = (TokenizedTablePairMatcher) matcherClass.getConstructor().newInstance();
         matcher.configure(matcherConfiguration);
         matcher.setTokenizer(tokenizer);
 
@@ -86,10 +83,15 @@ public class MatcherFactory {
      * @return List of all configured matcher instances
      * @throws Exception when reflection goes wrong
      */
-    public List<Matcher> createMatcherInstances(String matcherName) throws Exception {
+    public List<Matcher> createMatcherInstances(String matcherName, int line) throws Exception {
         Configuration config = Configuration.getInstance();
 
-        List<Configuration.MatcherConfiguration> matcherConfigurations = config.getMatcherConfigurations().get(matcherName);
+        List<Configuration.MatcherConfiguration> matcherConfigurations =
+                switch(line) {
+                    case 1 -> config.getFirstLineMatcherConfigurations().get(matcherName);
+                    case 2 -> config.getSecondLineMatcherConfigurations().get(matcherName);
+                    default -> throw new IllegalStateException("Unexpected value: " + line);
+                };
         int numConfigs = matcherConfigurations.size();
 
         String name = matcherConfigurations.get(0).getName();
@@ -99,7 +101,7 @@ public class MatcherFactory {
         List<Matcher> matcherInstances = new ArrayList<>();
         // TODO: find better way to figure out if current matcher is tokenized
         Matcher m = (Matcher) matcherClass.getConstructor().newInstance();
-        if (m instanceof TokenizedMatcher) {
+        if (m instanceof TokenizedTablePairMatcher) {
             // first tokenized matcher, create tokenizers first
             if (this.tokenizers == null) {
                 createTokenizers();
@@ -126,18 +128,27 @@ public class MatcherFactory {
     }
 
     /**
-     * Instantiates all matchers as specified in first_line_matchers.yaml
-     * @return Map of matcher names to list of all configured matcher instances
+     * Instantiates all matchers as specified in the respective config file
+     * @return List of matchers sorted by their name
      * @throws Exception when reflection goes wrong
      */
-    public Map<String, List<Matcher>> createMatchersFromConfig() throws Exception {
-        Map<String, List<Matcher>> matchers = new HashMap<>();
+    public List<Matcher> createMatchersFromConfig(int line) throws Exception {
+        Set<Matcher> matcherSet = new HashSet<>();
         Configuration config = Configuration.getInstance();
 
-        for (String matcherName : config.getMatcherConfigurations().keySet()) {
-            matchers.put(matcherName, createMatcherInstances(matcherName));
+        Set<String> matcherNames;
+        if (line == 1) {
+            matcherNames = config.getFirstLineMatcherConfigurations().keySet();
+        } else { // line == 2
+            matcherNames = config.getSecondLineMatcherConfigurations().keySet();
         }
 
-        return matchers;
+        for (String matcherName : matcherNames) {
+            matcherSet.addAll(createMatcherInstances(matcherName, line));
+        }
+
+        List<Matcher> sortedMatchers = new ArrayList<>(matcherSet);
+        sortedMatchers.sort(Comparator.comparing(Matcher::toString));
+        return sortedMatchers;
     }
 }

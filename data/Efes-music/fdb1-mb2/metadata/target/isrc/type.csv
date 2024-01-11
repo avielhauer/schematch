@@ -1,0 +1,2 @@
+,id,created,recording,source,isrc,edits_pending
+datatype,INTEGER,STRING,INTEGER,STRING,STRING,INTEGER

@@ -1,0 +1,2 @@
+,join_phrase,name,position,artist,artist_credit
+datatype,STRING,STRING,INTEGER,INTEGER,INTEGER
