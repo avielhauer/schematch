@@ -1,0 +1,2 @@
+[category.csv.category_id]
+[category.csv.name]

@@ -1,0 +1,11 @@
+[] --> store.csv.address2
+[store.csv.address] --> store.csv.address_id, store.csv.city_id, store.csv.district, store.csv.phone, store.csv.postal_code
+[store.csv.address_id] --> store.csv.address, store.csv.city_id, store.csv.district, store.csv.phone, store.csv.postal_code
+[store.csv.city_id, store.csv.district] --> store.csv.postal_code
+[store.csv.city_id, store.csv.phone] --> store.csv.address, store.csv.address_id, store.csv.district
+[store.csv.city_id, store.csv.postal_code] --> store.csv.district
+[store.csv.district, store.csv.phone] --> store.csv.address, store.csv.address_id, store.csv.city_id
+[store.csv.district, store.csv.postal_code] --> store.csv.city_id
+[store.csv.manager_staff_id] --> store.csv.store_id
+[store.csv.phone] --> store.csv.postal_code
+[store.csv.store_id] --> store.csv.manager_staff_id

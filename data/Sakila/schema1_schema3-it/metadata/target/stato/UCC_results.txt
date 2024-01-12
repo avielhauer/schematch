@@ -1,0 +1,2 @@
+[stato.csv.stato_id]
+[stato.csv.stato]
