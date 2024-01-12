@@ -3,7 +3,7 @@ package de.uni_marburg.schematch.matching.sota.cupid;
 import de.uni_marburg.schematch.similarity.string.Levenshtein;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.process.*;
-
+import org.apache.commons.lang3.StringUtils;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.*;
@@ -23,10 +23,11 @@ public class LinguisticMatching {
             schemaElement = new SchemaElement(element);
         }
 
-        ;
+
         Tokenizer tokenizer = new PTBTokenizer(new StringReader(element), new CoreLabelTokenFactory(), "");
         List<String> tokens = tokenizer.tokenize();
 
+        StopWords stopWords = new StopWords();
 
         for (String token : tokens) {
             Token tokenObj = new Token();
@@ -50,7 +51,7 @@ public class LinguisticMatching {
                     if (tokenSnake.contains("_")) {
                         tokenSnake.replace("_", " ");
                         schemaElement = normalization(tokenSnake, schemaElement);
-                    } else if (true) { // token.lower() in stopwords.words('english'):
+                    } else if (stopWords.isStopWord(token)) {
                         tokenObj.addData(token.toLowerCase(Locale.ROOT));
                         tokenObj.setIgnore(true);
                         tokenObj.setTokenType(TokenTypes.COMMON_WORDS);
@@ -110,12 +111,27 @@ public class LinguisticMatching {
                         .put(categoryPair.getFirst(), dataCompatibilityTable.get(categoryPair.getSecond())
                                 .get(categoryPair.getFirst()));
             } else {
-                // TODO: 17.12.2023 nltk.world library
+
+                Tokenizer tokenizer = new PTBTokenizer(new StringReader(categoryPair.getFirst()), new CoreLabelTokenFactory(), "");
+                List<String> tokenStrings = tokenizer.tokenize();
                 List<Token> tokens1 = new ArrayList<>();
-                List<Token> tokens2 = new ArrayList<>();
+                for (String tokenString : tokenStrings) {
+                    if(StringUtils.isAlphanumeric(tokenString)) {
+                        tokens1.add(new Token().addData(tokenString));
+                    }
+                }
 
                 for (Token token : tokens1) {
                     token.setTokenType(addTokenType(token));
+                }
+
+                Tokenizer tokenizer2 = new PTBTokenizer(new StringReader(categoryPair.getSecond()), new CoreLabelTokenFactory(), "");
+                List<String> tokenStrings2 = tokenizer2.tokenize();
+                List<Token> tokens2 = new ArrayList<>();
+                for (String tokenString : tokenStrings2) {
+                    if(StringUtils.isAlphanumeric(tokenString)) {
+                        tokens2.add(new Token().addData(tokenString));
+                    }
                 }
 
                 for (Token token : tokens2) {
@@ -343,11 +359,24 @@ public class LinguisticMatching {
     private double getMaxNsCategory(List<String> categoriesE1, List<String> categoriesE2) {
         double maxCategory = Double.MIN_VALUE;
 
-        // TODO: 17.12.2023 nltk.word_tokens for c1Tokens and c2Tokens
         for (String c1 : categoriesE1) {
+
+            Tokenizer tokenizer = new PTBTokenizer(new StringReader(c1), new CoreLabelTokenFactory(), "");
+            List<String> c1TokenStrings = tokenizer.tokenize();
             List<Token> c1Token = new ArrayList<>();
+            for (String tokenString : c1TokenStrings) {
+                c1Token.add(new Token().addData(tokenString));
+            }
+
             for (String c2 : categoriesE2) {
+
+                Tokenizer tokenizer2 = new PTBTokenizer(new StringReader(c2), new CoreLabelTokenFactory(), "");
+                List<String> c2TokenStrings = tokenizer2.tokenize();
                 List<Token> c2Token = new ArrayList<>();
+                for (String tokenString : c2TokenStrings) {
+                    c2Token.add(new Token().addData(tokenString));
+                }
+
                 double nameSimilarityCategories = nameSimilarityTokens(c1Token, c2Token);
 
                 if (nameSimilarityCategories > maxCategory) {
