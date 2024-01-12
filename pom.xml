@@ -92,7 +92,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/edu.mit/jwi -->
+        <!-- Java Wordnet Interface -->
         <dependency>
             <groupId>edu.mit</groupId>
             <artifactId>jwi</artifactId>
@@ -113,6 +113,12 @@
             <version>3.12.0</version>
         </dependency>
 
+        <!-- WS4J Wu-Palmer Similarity -->
+        <dependency>
+            <groupId>de.sciss</groupId>
+            <artifactId>ws4j</artifactId>
+            <version>0.1.0</version>
+        </dependency>
     </dependencies>
 
     <properties>

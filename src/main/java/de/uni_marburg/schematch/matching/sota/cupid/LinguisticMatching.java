@@ -1,9 +1,22 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
 
 import de.uni_marburg.schematch.similarity.string.Levenshtein;
+import edu.cmu.lti.jawjaw.pobj.POS;
+import edu.cmu.lti.lexical_db.ILexicalDatabase;
+import edu.cmu.lti.lexical_db.data.Concept;
+import edu.cmu.lti.ws4j.Relatedness;
+import edu.cmu.lti.ws4j.RelatednessCalculator;
+import edu.cmu.lti.ws4j.impl.WuPalmer;
+import edu.cmu.lti.ws4j.util.WS4JConfiguration;
+import edu.mit.jwi.item.IIndexWord;
+import edu.mit.jwi.item.ISynset;
+import edu.mit.jwi.item.IWord;
+import edu.mit.jwi.item.IWordID;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.process.*;
 import org.apache.commons.lang3.StringUtils;
+
+import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.*;
@@ -280,12 +293,17 @@ public class LinguisticMatching {
     }
 
     private double nameSimilarityTokens(List<Token> tokenSet1, List<Token> tokenSet2) {
-        double sum1 = getPartialSimilarity(tokenSet1, tokenSet2);
-        double sum2 = getPartialSimilarity(tokenSet2, tokenSet1);
-        return (sum1 + sum2) / (tokenSet1.size() + tokenSet2.size());
+        try {
+            double sum1 = getPartialSimilarity(tokenSet1, tokenSet2);
+            double sum2 = getPartialSimilarity(tokenSet2, tokenSet1);
+            return (sum1 + sum2) / (tokenSet1.size() + tokenSet2.size());
+        } catch (Exception ignored) {
+
+        }
+        return 0.0;
     }
 
-    private double getPartialSimilarity(List<Token> tokenSet1, List<Token> tokenSet2) {
+    private double getPartialSimilarity(List<Token> tokenSet1, List<Token> tokenSet2) throws IOException {
 
         double totalSum = 0;
         for (Token t1 : tokenSet1) {
@@ -309,15 +327,67 @@ public class LinguisticMatching {
         return totalSum;
     }
 
-    private Set<String> getSynonyms(String word) {
-        // TODO: 17.12.2023  
-
-        return null;
+    private Set<ISynset> getSynonyms(String word) throws IOException {
+        WordNetFunctionalities wordNet = new WordNetFunctionalities();
+        return wordNet.getAllSynonymsets(word);
     }
 
-    private float computeSimilarityWordnet(String word1, String word2) {
-        // TODO: 17.12.2023  
-        return 0;
+    private double computeSimilarityWordnet(String word1, String word2) throws IOException {
+        WordNetFunctionalities wordNet = new WordNetFunctionalities();
+        List<IIndexWord> word1List = wordNet.getAllPossibleWords(word1);
+        List<IIndexWord> word2List = wordNet.getAllPossibleWords(word2);
+
+        // check word1 & word2 not in lemmas is not nessecary, bc for every IWord, the method .getLemma() is never null
+
+        Set<ISynset> allSyns1 = getSynonyms(word1);
+        Set<ISynset> allSyns2 = getSynonyms(word2);
+
+        if (allSyns1.size() == 0 || allSyns2.size() == 0) {
+            return Float.NaN;
+        }
+
+        List<Pair<ISynset, ISynset>> productOfBothISynsetSets = new ArrayList<>();
+        for (ISynset iSynset1 : allSyns1) {
+            for (ISynset iSynset2 : allSyns2) {
+                productOfBothISynsetSets.add(new Pair<>(iSynset1, iSynset2));
+            }
+        }
+
+        double max = -1.0;
+        for (Pair<ISynset, ISynset> pair : productOfBothISynsetSets) {
+            ISynset s1 = pair.getFirst();
+            ISynset s2 = pair.getSecond();
+            Concept s1Concept;
+            Concept s2Concept;
+            
+            // convert s1 and s2 to WS4JConcepts
+            List<IWord> s1Words = s1.getWords();
+            if (!s1Words.isEmpty()) {
+                s1Concept = new Concept(s1Words.get(0).getLemma(), POS.valueOf(s1.getPOS().toString()));
+            } else {
+                s1Concept = null;
+            }
+
+            List<IWord> s2Words = s2.getWords();
+            if (!s2Words.isEmpty()) {
+                s2Concept = new Concept(s2Words.get(0).getLemma(), POS.valueOf(s2.getPOS().toString()));
+            } else {
+                s2Concept = null;
+            }
+
+            // the (ILexicalDatabase)-Cast could be a problem bc the Wordnet dict might not be a lexical database
+            WuPalmer wuPalmer = new WuPalmer((ILexicalDatabase) new WordNetFunctionalities().dict);
+            Relatedness res = wuPalmer.calcRelatednessOfSynset(s1Concept, s2Concept);
+            if (res != null) {
+                if (res.getScore() > max) {
+                    max = res.getScore();
+                }
+            }
+        }
+        if (max == -1.0) {
+            return Double.NaN;
+        }
+        return max;
     }
 
     private float computeSimilarityLeven(String word1, String word2) {
