@@ -57,15 +57,15 @@ class SchemaElement {
         }
     }
 
-    public List<Pair<String, TokenType>> getTokensDataAndType(List<Token> tokens) {
+    public List<Pair<String, TokenTypes>> getTokensDataAndType(List<Token> tokens) {
         if (tokens == null) {
-            List<Pair<String, TokenType>> tokenDataAndType = new ArrayList<>();
+            List<Pair<String, TokenTypes>> tokenDataAndType = new ArrayList<>();
             for (Token t : this.tokens) {
                 tokenDataAndType.add(new Pair<>(t.getData(), t.getTokenType()));
             }
             return tokenDataAndType;
         } else {
-            List<Pair<String, TokenType>> tokenDataAndType = new ArrayList<>();
+            List<Pair<String, TokenTypes>> tokenDataAndType = new ArrayList<>();
             for (Token t : tokens) {
                 tokenDataAndType.add(new Pair<>(t.getData(), t.getTokenType()));
             }

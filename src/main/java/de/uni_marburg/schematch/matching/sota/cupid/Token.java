@@ -3,7 +3,7 @@ package de.uni_marburg.schematch.matching.sota.cupid;
 public class Token {
     private boolean ignore;
     private String data;
-    private TokenType tokenType;
+    private TokenTypes tokenType;
 
     public Token() {
         this.ignore = false;
@@ -32,11 +32,11 @@ public class Token {
         return data;
     }
 
-    public TokenType getTokenType() {
+    public TokenTypes getTokenType() {
         return tokenType;
     }
 
-    public void setTokenType(TokenType tokenType) {
+    public void setTokenType(TokenTypes tokenType) {
         this.tokenType = tokenType;
     }
 }
