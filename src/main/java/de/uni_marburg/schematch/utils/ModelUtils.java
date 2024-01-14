@@ -49,7 +49,6 @@ public class ModelUtils {
                     crediblityPredictorModel.addTablePair(tp);
                 }
             }
-            crediblityPredictorModel.generateColumnPairs();
         }
     }
 }

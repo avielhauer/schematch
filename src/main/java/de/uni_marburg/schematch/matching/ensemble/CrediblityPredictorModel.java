@@ -6,7 +6,11 @@ import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.ModelUtils;
+import org.apache.commons.lang3.NotImplementedException;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +27,12 @@ public class CrediblityPredictorModel implements Serializable {
         matchers.add(matcher);
     }
 
-     public class ModelTrainedException extends Exception{
+    public void train() {
+        // TODO
+        throw new NotImplementedException();
+    }
+
+    public class ModelTrainedException extends Exception{
         public ModelTrainedException(){
             super("\"Model is Already Trained\"");
         }
@@ -40,17 +49,64 @@ public class CrediblityPredictorModel implements Serializable {
     }
 
     List<Feature> features=new ArrayList<>();
-    List<List<Double>> scores=new ArrayList<>();
-    public void generateScores()
-    {
-        for(Feature feature:features)
-        {
-            List<Double> score=new ArrayList<>();
-            for(ColumnPair columnPair:colomnPairs)
-            {
-                score.add(feature.calculateScore(columnPair));
+    /* List<List<Double>> scores=new ArrayList<>();
+    *public void generateScores()
+     {
+         for(Feature feature:features)
+         {
+             List<Double> score=new ArrayList<>();
+             for(ColumnPair columnPair:colomnPairs)
+             {
+                 score.add(feature.calculateScore(columnPair));
+             }
+             scores.add(score);
+         }
+     }
+
+      */
+    public void prepareData() throws ModelTrainedException {
+        generateColumnPairs();
+        generateAccuracy();
+        String header= "Pair";
+        for(Feature feature:features){
+            header+=","+feature.getName();
+        }
+        header+=","+"Matcher";
+        header+=","+"Accuracy";
+        List<String> data=new ArrayList<>();
+        data.add(header);
+        for (int i = 0; i < colomnPairs.size(); i++) {
+            String line= colomnPairs.get(i).toString();
+            for(Feature feature:features){
+                line+=","+feature.calculateScore(colomnPairs.get(i));
             }
-            scores.add(score);
+
+            Map<Matcher,Double> map=accuracy.get(colomnPairs.get(i));
+            for (Matcher matcher:matchers)
+            {
+                String instance=line;
+                instance+=","+matcher.getClass().getName();
+                instance+=","+map.get(matcher);
+
+                data.add(instance);
+            }
+
+        }
+        saveListToFile("output.csv",data);
+
+
+        System.out.println("heere header"+header);
+    }
+    private  void saveListToFile(String filePath, List<String> lines) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            // Write each string as a new line in the file
+            for (String line : lines) {
+                writer.write(line);
+                writer.newLine();
+            }
+            System.out.println("Data saved to " + filePath);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
     public void addFeature(Feature feature) throws ModelTrainedException {
