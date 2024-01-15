@@ -44,6 +44,7 @@ public class Configuration {
     private String defaultTargetDatabaseDir;
     private String defaultGroundTruthDir;
 
+    private String cacheDir;
     private String resultsDir;
     private String performanceDir;
     private String performanceOverviewFilePrefix;
@@ -64,21 +65,29 @@ public class Configuration {
     // Step 2
     private boolean saveOutputFirstLineMatchers;
     private boolean evaluateFirstLineMatchers;
+    private boolean readCacheFirstLineMatchers;
+    private boolean writeCacheFirstLineMatchers;
 
     // Step 3
     private boolean runSimMatrixBoostingOnFirstLineMatchers;
     private boolean saveOutputSimMatrixBoostingOnFirstLineMatchers;
     private boolean evaluateSimMatrixBoostingOnFirstLineMatchers;
+    private boolean readCacheSimMatrixBoostingOnFirstLineMatchers;
+    private boolean writeCacheSimMatrixBoostingOnFirstLineMatchers;
 
     // Step 4
     private boolean runSecondLineMatchers;
     private boolean saveOutputSecondLineMatchers;
     private boolean evaluateSecondLineMatchers;
+    private boolean readCacheSecondLineMatchers;
+    private boolean writeCacheSecondLineMatchers;
 
     // Step 5
     private boolean runSimMatrixBoostingOnSecondLineMatchers;
     private boolean saveOutputSimMatrixBoostingOnSecondLineMatchers;
     private boolean evaluateSimMatrixBoostingOnSecondLineMatchers;
+    private boolean readCacheSimMatrixBoostingOnSecondLineMatchers;
+    private boolean writeCacheSimMatrixBoostingOnSecondLineMatchers;
 
     private List<DatasetConfiguration> datasetConfigurations = new ArrayList<>();
     private List<MetricConfiguration> metricConfigurations = new ArrayList<>();
