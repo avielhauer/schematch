@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.net.http.HttpResponse;
+import java.util.Arrays;
 import java.util.List;
 
 @Data
@@ -50,12 +51,12 @@ public class Node2VecMatcher extends TablePairMatcher {
         try {
             HttpResponse<String> response = PythonUtils.sendMatchRequest(serverPort, List.of(
                     new ImmutablePair<>("source_graph_path", source.getGraph().exportPath().toString()),
-                    new ImmutablePair<>("source_graph_id", String.valueOf(source.getGraph().getGraphId())),
+                    new ImmutablePair<>("source_table", sourceTable.getName()),
                     new ImmutablePair<>("target_graph_path", target.getGraph().exportPath().toString()),
-                    new ImmutablePair<>("target_graph_id", String.valueOf(target.getGraph().getGraphId()))
+                    new ImmutablePair<>("target_table", targetTable.getName())
             ));
 
-//            alignment_matrix = PythonUtils.readMatcherOutput(Arrays.stream(response.body().split("\n")).toList(), nNodesSourceGraph, nNodesTargetGraph);
+            alignment_matrix = PythonUtils.readMatcherOutput(Arrays.stream(response.body().split("\n")).toList(), tablePair);
 
         } catch (Exception e){
             getLogger().error("Running Node2Vec Matcher failed, is the server running?", e);
@@ -63,6 +64,6 @@ public class Node2VecMatcher extends TablePairMatcher {
         }
 
 //        float[][] sm = extractSimilarityMatrix(alignment_matrix, tablePair, nNodesSourceGraph);
-        return tablePair.getEmptySimMatrix();
+        return alignment_matrix;
     }
 }
