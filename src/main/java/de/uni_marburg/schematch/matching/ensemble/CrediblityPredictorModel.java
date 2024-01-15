@@ -128,54 +128,8 @@ public class CrediblityPredictorModel implements Serializable {
     }
 
     List<Feature> features=new ArrayList<>();
-    /* List<List<Double>> scores=new ArrayList<>();
-    *public void generateScores()
-     {
-         for(Feature feature:features)
-         {
-             List<Double> score=new ArrayList<>();
-             for(ColumnPair columnPair:colomnPairs)
-             {
-                 score.add(feature.calculateScore(columnPair));
-             }
-             scores.add(score);
-         }
-     }
-
-      */
-    public void prepareData() throws ModelTrainedException {
-        generateColumnPairs();
-        generateAccuracy();
-        String header= "Pair";
-        for(Feature feature:features){
-            header+=","+feature.getName();
-        }
-        header+=","+"Matcher";
-        header+=","+"Accuracy";
-        List<String> data=new ArrayList<>();
-        data.add(header);
-        for (int i = 0; i < colomnPairs.size(); i++) {
-            String line= colomnPairs.get(i).toString();
-            for(Feature feature:features){
-                line+=","+feature.calculateScore(colomnPairs.get(i));
-            }
-
-            Map<Matcher,Double> map=accuracy.get(colomnPairs.get(i));
-            for (Matcher matcher:matchers)
-            {
-                String instance=line;
-                instance+=","+matcher.getClass().getName();
-                instance+=","+map.get(matcher);
-
-                data.add(instance);
-            }
-
-        }
-        saveListToFile("output.csv",data);
 
 
-        System.out.println("heere header"+header);
-    }
     private  void saveListToFile(String filePath, List<String> lines) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             // Write each string as a new line in the file
@@ -216,19 +170,8 @@ public class CrediblityPredictorModel implements Serializable {
         }
     }
     Map<ColumnPair,Map<Matcher,Double>> accuracy=new HashMap<>();
-    public void generateAccuracy()
-    {
-        for (ColumnPair columnPair:colomnPairs)
-        {
-            Map<Matcher,Double> map=new HashMap<>();
-            for (Matcher matcher :matchers)
-            {
-                map.put(matcher, ModelUtils.getMSE(columnPair,matcher));
-            }
-            accuracy.put(columnPair,map);
-        }
 
-    }
+
 
 
 
