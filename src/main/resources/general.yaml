@@ -49,26 +49,26 @@ evaluateTablePairGeneration: False
 # Step 2: run first line matchers (i.e., matchers that use table data to match)
 saveOutputFirstLineMatchers: True
 evaluateFirstLineMatchers: True
-readCacheFirstLineMatchers: True
-writeCacheFirstLineMatchers: True
+readCacheFirstLineMatchers: False
+writeCacheFirstLineMatchers: False
 # Step 3: run similarity matrix boosting on the output of first line matchers
 runSimMatrixBoostingOnFirstLineMatchers: True
 saveOutputSimMatrixBoostingOnFirstLineMatchers: True
 evaluateSimMatrixBoostingOnFirstLineMatchers: True
-readCacheSimMatrixBoostingOnFirstLineMatchers: True
-writeCacheSimMatrixBoostingOnFirstLineMatchers: True
+readCacheSimMatrixBoostingOnFirstLineMatchers: False
+writeCacheSimMatrixBoostingOnFirstLineMatchers: False
 # Step 4: run second line matchers (ensemble matchers and other matchers using output of first line matchers)
 runSecondLineMatchers: True
 saveOutputSecondLineMatchers: True
 evaluateSecondLineMatchers: True
-readCacheSecondLineMatchers: True
-writeCacheSecondLineMatchers: True
+readCacheSecondLineMatchers: False
+writeCacheSecondLineMatchers: False
 # Step 5: run similarity matrix boosting on the output of second line matchers
 runSimMatrixBoostingOnSecondLineMatchers: True
 saveOutputSimMatrixBoostingOnSecondLineMatchers: True
 evaluateSimMatrixBoostingOnSecondLineMatchers: True
-readCacheSimMatrixBoostingOnSecondLineMatchers: True
-writeCacheSimMatrixBoostingOnSecondLineMatchers: True
+readCacheSimMatrixBoostingOnSecondLineMatchers: False
+writeCacheSimMatrixBoostingOnSecondLineMatchers: False
 
 # FIXME: do not set this parameter in this file, it is set to true whenever runSimMatrixBoosting is set to true
 # FIXME: eventually, dependencies should be read on demand

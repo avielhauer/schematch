@@ -1,5 +1,6 @@
 # Schematch
 /results
+/cache
 /logs
 /target
 /META-INF

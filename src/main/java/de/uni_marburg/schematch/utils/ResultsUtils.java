@@ -4,6 +4,7 @@ import de.uni_marburg.schematch.Main;
 import de.uni_marburg.schematch.data.Dataset;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
+import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
 
 import java.nio.file.Path;
 
@@ -28,6 +29,14 @@ public class ResultsUtils {
     }
     public static Path getOutputPathForMatchStepInScenario(MatchTask matchTask, MatchStep matchStep) {
         return getOutputPathForScenario(matchTask).resolve(matchStep.toString());
+    }
+
+    // Cache paths
+    public static Path getCachePathForMatchStepInScenario(MatchTask matchTask, MatchStep matchingStep) {
+        return Path.of(config.getCacheDir())
+                .resolve(matchTask.getDataset().getName())
+                .resolve(matchTask.getScenario().getName())
+                .resolve(matchingStep.toString());
     }
 
     // Performance paths

@@ -33,4 +33,16 @@ public class ConfigUtils {
                 config.isEvaluateSecondLineMatchers() || config.isEvaluateSimMatrixBoostingOnFirstLineMatchers() ||
                 config.isEvaluateSimMatrixBoostingOnSecondLineMatchers();
     }
+
+    public static boolean anyReadCache() {
+        Configuration config = Configuration.getInstance();
+        return config.isReadCacheFirstLineMatchers() || config.isReadCacheSecondLineMatchers() ||
+                config.isReadCacheSimMatrixBoostingOnFirstLineMatchers() || config.isReadCacheSimMatrixBoostingOnSecondLineMatchers();
+    }
+
+    public static boolean anyWriteCache() {
+        Configuration config = Configuration.getInstance();
+        return config.isWriteCacheFirstLineMatchers() || config.isWriteCacheSecondLineMatchers() ||
+                config.isWriteCacheSimMatrixBoostingOnFirstLineMatchers() || config.isWriteCacheSimMatrixBoostingOnSecondLineMatchers();
+    }
 }
