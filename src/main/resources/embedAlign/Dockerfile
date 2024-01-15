@@ -1,8 +1,8 @@
 FROM python:3.11
 EXPOSE 5000
 
-RUN mkdir /node2vec
-WORKDIR /node2vec
+RUN mkdir /embedAlign
+WORKDIR /embedAlign
 
 # Install dependencies
 RUN apt update && apt install -y tini && rm -rf /var/lib/apt/lists/*
