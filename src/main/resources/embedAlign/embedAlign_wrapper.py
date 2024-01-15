@@ -10,23 +10,27 @@ import config as REGAL_config
 
 import unsup_align
 EMBEDDINGS_CACHE = {}
-EMBEDDING_GENERATION = "N2V" #"N2V" "XNET"
+EMBEDDING_GENERATION = "XNET" # "N2V" "XNET"
 
 def embed_xnetmf(graph, features):
     repmethod = REGAL_config.RepMethod()
     graph = REGAL_config.Graph(adj=nx.adjacency_matrix(graph), node_attributes=features)
     return REGAL_xnetmf.get_representations(graph, repmethod)
 
+
 def one_hot_encoding_lookup(labels):
+    labels = set(labels)
     lookup = {}
     for label in labels:
         if not label in lookup:
-            lookup[label] = len(lookup)
+            feature = np.zeros(len(labels))
+            feature[len(lookup)] = 1.0
+            lookup[label] = feature
     return lookup
 
 
 def encode(labels, lookup):
-    return np.asarray([lookup[label] for label in labels]).reshape(-1, 1)
+    return np.asarray([lookup[label] for label in labels])
 
 
 def extract_features_from_names(graphA, graphB):
@@ -112,10 +116,13 @@ def get_embeddings(graphA, source_graph_file, graphB, target_graph_file):
             embeddings_source = np.asarray([embeddings_source[node] for node in graphA.nodes])
             embeddings_target = generate_n2v_embeddings(graphB)
             embeddings_target = np.asarray([embeddings_target[node] for node in graphB.nodes])
+            embeddings_source = align_embeddings(norm(embeddings_source), norm(embeddings_target))
         elif EMBEDDING_GENERATION == "XNET":
             featuresA, featuresB = extract_features_from_names(graphA, graphB)
-            embeddings_source = embed_xnetmf(graphA, featuresA)
-            embeddings_target = embed_xnetmf(graphB, featuresB)
+            combined_graph = nx.compose(graphA, graphB)
+            embeddings_combined = embed_xnetmf(combined_graph, np.concatenate((featuresA, featuresB), axis=0))
+            embeddings_source = embeddings_combined[: len(graphA.nodes)]
+            embeddings_target = embeddings_combined[len(graphA.nodes):]
         else:
             print("get_embeddings failed, ", EMBEDDING_GENERATION, " not recognized")
             assert(False)
@@ -129,9 +136,7 @@ def match(source_graph_file, source_table, target_graph_file, target_table):
 
     embeddings_source, embeddings_target = get_embeddings(graphA, source_graph_file, graphB, target_graph_file)
 
-    aligned_embeddings_source = align_embeddings(norm(embeddings_source), norm(embeddings_target))
-
-    graphA_emb = extract_column_embeddings(aligned_embeddings_source, graphA, source_table)
+    graphA_emb = extract_column_embeddings(embeddings_source, graphA, source_table)
     graphB_emb = extract_column_embeddings(embeddings_target, graphB, target_table)
 
     alignment_matrix = get_sm(graphA_emb, graphB_emb)
