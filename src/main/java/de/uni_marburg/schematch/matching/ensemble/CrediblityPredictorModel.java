@@ -1,9 +1,12 @@
 package de.uni_marburg.schematch.matching.ensemble;
 
 import de.uni_marburg.schematch.data.Column;
+import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.matching.Matcher;
+import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
+import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.ModelUtils;
 import org.apache.commons.lang3.NotImplementedException;
@@ -19,9 +22,14 @@ import java.util.Map;
 
 public class CrediblityPredictorModel implements Serializable {
 
-
+    public List<MatchTask> matchTasks=new ArrayList<>();
     public List<ColumnPair> colomnPairs=new ArrayList<>();
     List<Matcher> matchers=new ArrayList<>();
+    List<MatchStep> matchSteps;
+    public CrediblityPredictorModel(List<MatchStep> matchSteps) {
+        this.matchSteps=matchSteps;
+    }
+
     public void addMatcher(Matcher matcher)
     {
         matchers.add(matcher);
@@ -46,6 +54,77 @@ public class CrediblityPredictorModel implements Serializable {
         }
         else throw new ModelTrainedException();
 
+    }
+    public void prepareData2() throws ModelTrainedException {
+        generateColumnPairs2();
+        generateAccuracy2();
+        String header= "Pair";
+        for(Feature feature:features){
+            header+=","+feature.getName();
+        }
+        header+=","+"Matcher";
+        header+=","+"Accuracy";
+        List<String> data=new ArrayList<>();
+        data.add(header);
+        for (int i = 0; i < colomnPairs.size(); i++) {
+            String line= colomnPairs.get(i).toString();
+            for(Feature feature:features){
+                line+=","+feature.calculateScore(colomnPairs.get(i));
+            }
+
+            Map<Matcher,Double> map=accuracy.get(colomnPairs.get(i));
+            for (Matcher matcher:matchers)
+            {
+                String instance=line;
+                instance+=","+matcher.getClass().getName();
+                instance+=","+map.get(matcher);
+
+                data.add(instance);
+            }
+
+        }
+        saveListToFile("output.csv",data);
+
+
+        System.out.println("heere header"+header);
+    }
+
+    private void generateAccuracy2() {
+        for (ColumnPair columnPair:colomnPairs)
+        {
+            Map<Matcher,Double> map=new HashMap<>();
+            for (Matcher matcher :matchers)
+            {
+                map.put(matcher, getMSE(columnPair,matcher));
+            }
+            accuracy.put(columnPair,map);
+        }
+
+    }
+    public  double getSimilarity(ColumnPair columnPair, Matcher matcher)
+
+    {
+        //TODO Crommc
+        return 0;
+    }
+    public  double getGroundTruth(ColumnPair columnPair)
+    {
+        //TODO Crommc
+
+        return 0;
+    }
+    public  double getMSE(ColumnPair columnPair,Matcher matcher)
+    {
+
+        return Math.pow((getSimilarity(columnPair,matcher)-getGroundTruth(columnPair)),2);
+    }
+
+    private void generateColumnPairs2() throws ModelTrainedException {
+        for (MatchTask matchTask:matchTasks){
+            tablePairs.addAll( matchTask.getTablePairs());
+
+        }
+        generateColumnPairs();
     }
 
     List<Feature> features=new ArrayList<>();

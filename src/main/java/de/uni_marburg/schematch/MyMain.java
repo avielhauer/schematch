@@ -9,7 +9,7 @@ import de.uni_marburg.schematch.utils.ModelUtils;
 
 public class MyMain {
     public static void main(String[] args) {
-        CrediblityPredictorModel crediblityPredictorModel=new CrediblityPredictorModel();
+       /* CrediblityPredictorModel crediblityPredictorModel=new CrediblityPredictorModel();
         try {
             ModelUtils.loadDataToModel(crediblityPredictorModel);
 
@@ -20,9 +20,10 @@ public class MyMain {
             crediblityPredictorModel.addMatcher(new CosineMatcher());
             crediblityPredictorModel.addMatcher(new HammingMatcher());
             crediblityPredictorModel.prepareData();
-            crediblityPredictorModel.train();
         } catch (CrediblityPredictorModel.ModelTrainedException e) {
             throw new RuntimeException(e);
         }
+
+        */
     }
 }
