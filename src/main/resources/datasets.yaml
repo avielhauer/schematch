@@ -1,12 +1,74 @@
 ---
+name: "Alaska"
+path: "Alaska"
+---
 name: "Efes-bib"
 path: "Efes-bib"
 ---
 name: "Efes-music"
 path: "Efes-music"
 ---
+name: "GitTables-benchmark"
+path: "GitTables-benchmark"
+---
+name: "ISIA-inventory"
+path: "ISIA-inventory"
+---
+name: "ISIA-real_estate2"
+path: "ISIA-real_estate2"
+---
 name: "Pubs"
 path: "Pubs"
 ---
 name: "Sakila"
 path: "Sakila"
+---
+name: "T2Dv2"
+path: "T2Dv2"
+---
+name: "Valentine-Magellan"
+path: "Valentine-Magellan"
+---
+name: "Valentine-Wikidata"
+path: "Valentine-Wikidata"
+
+# large datasets (see https://github.com/avielhauer/schematch/wiki/Datasets#large-datasets)
+## ChEMBL
+#---
+#name: "Valentine-ChEMBL_joinable"
+#path: "Valentine-ChEMBL_joinable"
+#---
+#name: "Valentine-ChEMBL_semantically-joinable"
+#path: "Valentine-ChEMBL_semantically-joinable"
+#---
+#name: "Valentine-ChEMBL_unionable"
+#path: "Valentine-ChEMBL_unionable"
+#---
+#name: "Valentine-ChEMBL_view-unionable"
+#path: "Valentine-ChEMBL_view-unionable"
+## OpenData
+#---
+#name: "Valentine-OpenData_joinable"
+#path: "Valentine-OpenData_joinable"
+#---
+#name: "Valentine-OpenData_semantically-joinable"
+#path: "Valentine-OpenData_semantically-joinable"
+#---
+#name: "Valentine-OpenData_unionable"
+#path: "Valentine-OpenData_unionable"
+#---
+#name: "Valentine-OpenData_view-unionable"
+#path: "Valentine-OpenData_view-unionable"
+## TPC-DI
+#---
+#name: "Valentine-TPC-DI_joinable"
+#path: "Valentine-TPC-DI_joinable"
+#---
+#name: "Valentine-TPC-DI_semantically-joinable"
+#path: "Valentine-TPC-DI_semantically-joinable"
+#---
+#name: "Valentine-TPC-DI_unionable"
+#path: "Valentine-TPC-DI_unionable"
+#---
+#name: "Valentine-TPC-DI_view-unionable"
+#path: "Valentine-TPC-DI_view-unionable"

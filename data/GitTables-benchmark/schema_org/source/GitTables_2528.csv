@@ -1,0 +1,17 @@
+,,,,,,,
+access_crm_survey_survey_pr,survey.survey,model_survey_survey,cci_config_groups.group_pr_ccit,1,1,1,1
+access_crm_survey_survey_dg,survey.survey,model_survey_survey,cci_config_groups.group_dg_ccit,1,1,1,1
+access_crm_survey_survey_coach,survey.survey,model_survey_survey,cci_config_groups.group_coach_cci,1,1,1,1
+access_crm_survey_survey_user,survey.survey,model_survey_survey,cci_config_groups.group_user_cci,1,1,1,1
+access_crm_survey_page_pr,survey.page,model_survey_page,cci_config_groups.group_pr_ccit,1,1,1,1
+access_crm_survey_page_dg,survey.page,model_survey_page,cci_config_groups.group_dg_ccit,1,1,1,1
+access_crm_survey_page_coach,survey.page,model_survey_page,cci_config_groups.group_coach_cci,1,1,1,1
+access_crm_survey_page_user,survey.page,model_survey_page,cci_config_groups.group_user_cci,1,1,1,1
+access_crm_survey_question_pr,survey.question,model_survey_question,cci_config_groups.group_pr_ccit,1,1,1,1
+access_crm_survey_question_dg,survey.question,model_survey_question,cci_config_groups.group_dg_ccit,1,1,1,1
+access_crm_survey_question_coach,survey.question,model_survey_question,cci_config_groups.group_coach_cci,1,1,1,1
+access_crm_survey_question_user,survey.question,model_survey_question,cci_config_groups.group_user_cci,1,1,1,1
+access_crm_survey_label_pr,survey.label,model_survey_label,cci_config_groups.group_pr_ccit,1,1,1,1
+access_crm_survey_label_dg,survey.label,model_survey_label,cci_config_groups.group_dg_ccit,1,1,1,1
+access_crm_survey_label_coach,survey.label,model_survey_label,cci_config_groups.group_coach_cci,1,1,1,1
+access_crm_survey_label_user,survey.label,model_survey_label,cci_config_groups.group_user_cci,1,1,1,1

@@ -1,0 +1,90 @@
+,,,,,
+"org.jfree.chart.plot.XYPlot#boolean#removeRangeMarker#?,int,Marker,Layer,boolean#2517",1.0,1.0,1.0,!(marker == null),GT
+"org.jfree.chart.plot.CategoryPlot#boolean#removeRangeMarker#?,int,Marker,Layer,boolean#2440",1.0,1.0,1.0,layer == Layer.FOREGROUND,GT
+"org.jfree.chart.plot.CategoryPlot#boolean#removeDomainMarker#?,int,Marker,Layer,boolean#2158",1.0,1.0,1.0,layer == Layer.FOREGROUND,GT
+"org.jfree.chart.plot.XYPlot#boolean#removeDomainMarker#?,int,Marker,Layer,boolean#2285",1.0,1.0,1.0,layer == Layer.FOREGROUND,GT
+"org.jfree.chart.plot.XYPlot#boolean#removeDomainMarker#?,Marker,Layer#2248",1.0,0.0,0.8,,_
+"org.jfree.chart.plot.CategoryPlot#boolean#removeDomainMarker#?,int,Marker,Layer#2139",1.0,0.0,0.8,,_
+"org.jfree.chart.plot.CategoryPlot#boolean#removeDomainMarker#?,Marker,Layer#2122",1.0,0.0,0.8,,_
+"org.jfree.chart.plot.CategoryPlot#boolean#removeDomainMarker#?,Marker#2106",1.0,0.0,0.8,,_
+"org.jfree.chart.plot.CategoryPlot#boolean#removeRangeMarker#?,Marker,Layer#2396",1.0,0.0,0.8,,_
+"org.jfree.chart.plot.XYPlot#boolean#removeRangeMarker#?,int,Marker,Layer#2498",1.0,0.0,0.8,,_
+"org.jfree.chart.plot.CategoryPlot#boolean#removeRangeMarker#?,Marker#2378",1.0,0.0,0.8,,_
+"org.jfree.chart.plot.XYPlot#boolean#removeDomainMarker#?,Marker#2232",1.0,0.0,0.8,,_
+"org.jfree.chart.plot.CategoryPlot#boolean#removeRangeMarker#?,int,Marker,Layer#2415",1.0,0.0,0.8,,_
+"org.jfree.chart.plot.XYPlot#boolean#removeRangeMarker#?,Marker#2465",1.0,0.0,0.8,,_
+"org.jfree.chart.plot.XYPlot#boolean#removeDomainMarker#?,int,Marker,Layer#2265",1.0,0.0,0.8,,_
+"org.jfree.chart.plot.XYPlot#boolean#removeRangeMarker#?,Marker,Layer#2481",1.0,0.0,0.8,,_
+org.jfree.chart.plot.CategoryPlot#?#CategoryPlot#?#430,0.1818181818181817,0.0,0.1454545454545454,,_
+"org.jfree.chart.plot.CategoryMarker#?#CategoryMarker#?,Comparable#80",0.1666666666666666,0.0,0.1333333333333333,,_
+"org.jfree.chart.plot.CategoryPlot#ValueAxis#getRangeAxis#?,int#900",0.1111111111111111,0.1333333333333333,0.1155555555555556,!(parent instanceof CategoryPlot),_
+"org.jfree.chart.plot.CategoryMarker#?#CategoryMarker#?,Comparable,Paint,Stroke#91",0.125,0.0,0.1,,_
+"org.jfree.chart.plot.CategoryMarker#?#CategoryMarker#?,Comparable,Paint,Stroke,Paint,Stroke,float#109",0.125,0.0,0.1,,_
+"org.jfree.chart.plot.Marker#?#Marker#?,Paint#153",0.1034482758620689,0.0,0.0827586206896551,,_
+org.jfree.chart.plot.Marker#?#Marker#?#144,0.1034482758620689,0.0,0.0827586206896551,,_
+"org.jfree.chart.plot.ValueMarker#?#ValueMarker#?,double#69",0.1034482758620689,0.0,0.0827586206896551,,_
+org.jfree.chart.plot.XYPlot#?#XYPlot#?#501,0.0999999999999999,0.0,0.0799999999999999,,_
+"org.jfree.chart.plot.Marker#void#setLabelOffsetType#?,LengthAdjustmentType#490",0.0588235294117647,0.0588235294117647,0.0588235294117647,!(adj == null),_
+"org.jfree.chart.plot.CategoryPlot#?#CategoryPlot#?,CategoryDataset,CategoryAxis,ValueAxis,CategoryItemRenderer#489",0.0294117647058823,0.1333333333333333,0.0501960784313725,!(rangeAxis != null),_
+"org.jfree.chart.plot.CategoryPlot#void#datasetChanged#?,DatasetChangeEvent#1858",0.0259740259740259,0.1333333333333333,0.0474458874458874,!(yAxis != null),_
+org.jfree.chart.plot.CategoryPlot#void#configureDomainAxes#?#869,0.0294117647058823,0.1111111111111111,0.0457516339869281,!(axis != null),_
+org.jfree.chart.plot.CategoryPlot#void#configureRangeAxes#?#1147,0.0227272727272727,0.1333333333333333,0.0448484848484848,!(axis != null),_
+"org.jfree.chart.plot.XYPlot#?#XYPlot#?,XYDataset,ValueAxis,ValueAxis,XYItemRenderer#564",0.0285714285714285,0.0799999999999999,0.0388571428571428,!(rangeAxis != null),_
+"org.jfree.chart.plot.Marker#?#Marker#?,Paint,Stroke,Paint,Stroke,float#181",0.0388349514563106,0.0388349514563106,0.0388349514563106,!(alpha < 0.0f || alpha > 1.0f),_
+org.jfree.chart.plot.XYPlot#void#configureRangeAxes#?#1162,0.0259740259740259,0.0769230769230768,0.0361638361638361,!(axis != null),_
+org.jfree.chart.plot.XYPlot#void#configureDomainAxes#?#862,0.0259740259740259,0.074074074074074,0.0355940355940356,!(axis != null),_
+"org.jfree.chart.plot.CategoryPlot#void#addRangeMarker#?,int,Marker,Layer,boolean#2239",0.0294117647058823,0.0294117647058823,0.0294117647058823,!(layer == Layer.FOREGROUND),_
+"org.jfree.chart.plot.CategoryPlot#void#setRangeAxisLocation#?,int,AxisLocation,boolean#1081",0.0294117647058823,0.0294117647058823,0.0294117647058823,!(index == 0 && location == null),_
+"org.jfree.chart.plot.CategoryPlot#void#setDomainAxisLocation#?,int,AxisLocation,boolean#800",0.0294117647058823,0.0294117647058823,0.0294117647058823,!(index == 0 && location == null),_
+"org.jfree.chart.event.MarkerChangeEvent#?#MarkerChangeEvent#?,Marker#65",0.0333333333333333,0.0,0.0266666666666666,,_
+"org.jfree.chart.plot.Marker#void#notifyListeners#?,MarkerChangeEvent#559",0.0333333333333333,0.0,0.0266666666666666,,_
+"org.jfree.chart.plot.XYPlot#void#datasetChanged#?,DatasetChangeEvent#4035",0.0259740259740259,0.0259740259740259,0.0259740259740259,!(getParent() != null),_
+"org.jfree.chart.plot.CategoryPlot#CategoryDataset#getDataset#?,int#1175",0.0256410256410256,0.0256410256410256,0.0256410256410256,this.datasets.size() > index,_
+"org.jfree.chart.plot.XYPlot#XYDataset#getDataset#?,int#1274",0.0238095238095238,0.0238095238095238,0.0238095238095238,this.datasets.size() > index,_
+"org.jfree.chart.plot.CategoryPlot#void#addRangeMarker#?,Marker,Layer#2200",0.0294117647058823,0.0,0.0235294117647058,,_
+"org.jfree.chart.plot.CategoryPlot#void#mapDatasetToRangeAxis#?,int,int#1274",0.0294117647058823,0.0,0.0235294117647058,,_
+"org.jfree.chart.plot.CategoryPlot#void#addRangeMarker#?,int,Marker,Layer#2217",0.0294117647058823,0.0,0.0235294117647058,,_
+"org.jfree.chart.plot.CategoryPlot#void#mapDatasetToDomainAxis#?,int,int#1241",0.0294117647058823,0.0,0.0235294117647058,,_
+"org.jfree.chart.plot.CategoryPlot#void#setDomainAxisLocation#?,AxisLocation,boolean#767",0.0294117647058823,0.0,0.0235294117647058,,_
+"org.jfree.chart.plot.CategoryPlot#void#setRangeAxisLocation#?,AxisLocation,boolean#1051",0.0294117647058823,0.0,0.0235294117647058,,_
+"org.jfree.chart.plot.ValueMarker#?#ValueMarker#?,double,Paint,Stroke,Paint,Stroke,float#96",0.0289855072463768,0.0,0.0231884057971014,,_
+"org.jfree.chart.plot.XYPlot#void#mapDatasetToDomainAxis#?,int,int#1354",0.0285714285714285,0.0,0.0228571428571428,,_
+"org.jfree.chart.plot.XYPlot#void#mapDatasetToRangeAxis#?,int,int#1373",0.0285714285714285,0.0,0.0228571428571428,,_
+"org.jfree.chart.event.ChartChangeEvent#void#setType#?,ChartChangeEventType#131",0.0245398773006134,0.0,0.0196319018404907,,_
+"org.jfree.chart.plot.Marker#void#addChangeListener#?,MarkerChangeListener#534",0.0222222222222222,0.0,0.0177777777777778,,_
+"org.jfree.chart.util.AbstractObjectList#Object#get#?,int#110",0.0169491525423728,0.0169491525423728,0.0169491525423728,index >= 0 && index < this.size,_
+"org.jfree.chart.util.AbstractObjectList#void#set#?,int,Object#126",0.0168067226890756,0.0168067226890756,0.0168067226890756,!(index >= this.objects.length),_
+"org.jfree.chart.util.ObjectList#void#set#?,int,Object#95",0.0207253886010362,0.0,0.0165803108808289,,_
+org.jfree.chart.plot.Plot#Plot#getParent#?#433,0.0206185567010309,0.0,0.0164948453608247,,_
+org.jfree.chart.plot.Plot#?#Plot#?#298,0.0199004975124378,0.0,0.0159203980099502,,_
+org.jfree.chart.plot.DefaultDrawingSupplier#?#DefaultDrawingSupplier#?#150,0.0196078431372549,0.0,0.0156862745098039,,_
+"org.jfree.chart.plot.DefaultDrawingSupplier#?#DefaultDrawingSupplier#?,Paint[],Paint[],Paint[],Stroke[],Stroke[],Shape[]#199",0.0196078431372549,0.0,0.0156862745098039,,_
+"org.jfree.chart.util.ObjectList#Object#get#?,int#85",0.0191387559808612,0.0,0.0153110047846889,,_
+"org.jfree.chart.util.RectangleInsets#?#RectangleInsets#?,UnitType,double,double,double,double#123",0.0145985401459853,0.014760147601476,0.0146308616370835,left==bottom,_
+"org.jfree.chart.event.PlotChangeEvent#?#PlotChangeEvent#?,Plot#65",0.0172413793103448,0.0,0.0137931034482758,,_
+"org.jfree.chart.plot.Plot#void#notifyListeners#?,PlotChangeEvent#888",0.0172413793103448,0.0,0.0137931034482758,,_
+"org.jfree.chart.util.RectangleInsets#?#RectangleInsets#?,double,double,double,double#102",0.0150943396226415,0.0,0.0120754716981132,,_
+org.jfree.chart.util.AbstractObjectList#int#size#?#149,0.0093457943925233,0.0170940170940171,0.0108954389328221,this.size>0,_
+org.jfree.chart.plot.Plot#void#fireChangeEvent#?#902,0.0123456790123457,0.0,0.0098765432098765,,_
+"org.jfree.chart.util.AbstractObjectList#?#AbstractObjectList#?,int,int#97",0.0093023255813953,0.0093023255813953,0.0093023255813953,increment==initialCapacity,_
+"org.jfree.data.general.DatasetChangeEvent#?#DatasetChangeEvent#?,Object,Dataset#71",0.0096385542168674,0.0,0.0077108433734939,,_
+org.jfree.chart.util.AbstractObjectList#?#AbstractObjectList#?#77,0.0093023255813953,0.0,0.0074418604651162,,_
+"org.jfree.chart.util.AbstractObjectList#?#AbstractObjectList#?,int#86",0.0093023255813953,0.0,0.0074418604651162,,_
+"org.jfree.chart.event.ChartChangeEvent#?#ChartChangeEvent#?,Object,JFreeChart,ChartChangeEventType#93",0.0080971659919028,0.0,0.0064777327935222,,_
+"org.jfree.chart.event.ChartChangeEvent#?#ChartChangeEvent#?,Object#69",0.0080971659919028,0.0,0.0064777327935222,,_
+"org.jfree.chart.plot.PlotOrientation#?#PlotOrientation#?,String#73",0.0,0.0,0.0,,_
+org.jfree.chart.plot.DefaultDrawingSupplier#Shape[]#createStandardSeriesShapes#?#289,0.0,0.0,0.0,,_
+"org.jfree.chart.event.ChartChangeEventType#?#ChartChangeEventType#?,String#75",0.0,0.0,0.0,,_
+"org.jfree.chart.plot.DefaultDrawingSupplier#int[]#intArray#?,double,double,double#517",0.0,0.0,0.0,,_
+"org.jfree.chart.text.TextAnchor#?#TextAnchor#?,String#125",0.0,0.0,0.0,,_
+"org.jfree.chart.util.RectangleAnchor#?#RectangleAnchor#?,String#107",0.0,0.0,0.0,,_
+"org.jfree.chart.axis.AxisLocation#?#AxisLocation#?,String#85",0.0,0.0,0.0,,_
+org.jfree.chart.ChartColor#Paint[]#createDefaultPaintArray#?#151,0.0,0.0,0.0,,_
+"org.jfree.chart.plot.SeriesRenderingOrder#?#SeriesRenderingOrder#?,String#79",0.0,0.0,0.0,,_
+"org.jfree.chart.util.UnitType#?#UnitType#?,String#70",0.0,0.0,0.0,,_
+"org.jfree.chart.util.Layer#?#Layer#?,String#70",0.0,0.0,0.0,,_
+"org.jfree.chart.plot.DefaultDrawingSupplier#int[]#intArray#?,double,double,double,double#532",0.0,0.0,0.0,,_
+"org.jfree.chart.plot.DatasetRenderingOrder#?#DatasetRenderingOrder#?,String#81",0.0,0.0,0.0,,_
+"org.jfree.chart.util.SortOrder#?#SortOrder#?,String#75",0.0,0.0,0.0,,_
+"org.jfree.chart.util.LengthAdjustmentType#?#LengthAdjustmentType#?,String#77",0.0,0.0,0.0,,_
+"org.jfree.chart.axis.CategoryAnchor#?#CategoryAnchor#?,String#76",0.0,0.0,0.0,,_

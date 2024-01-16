@@ -5,6 +5,11 @@
 /target
 /META-INF
 /out
+## Large datasets (see https://github.com/avielhauer/schematch/wiki/Datasets#large-datasets)
+/data/Valentine-ChEMBL*
+/data/Valentine-OpenData*
+/data/Valentine-TPC-DI*
+
 
 # IntelliJ
 /.idea

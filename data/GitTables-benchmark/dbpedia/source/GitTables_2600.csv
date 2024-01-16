@@ -1,0 +1,20 @@
+,,,,,,
+83,2691,apply online,89,2886,apply online,match
+83,2690,send documents by post,89,2885,send documents by post,match
+83,2706,documents received,89,2884,documents received (1),match
+83,2688,sufficient cp in mathematics,89,2895,bridging courses > 30 cp,part_of-->
+83,2704,less than 16 cp in mathematics,89,2896,bridging courses < 30 cp,part_of-->
+83,2705,take oral exam,89,2892,go to interview,<--part_of
+83,2705,take oral exam,89,2891,conduct interview,<--part_of
+83,2707,check documents,89,2897,check documents,<--part_of
+83,2706,documents received,89,2899,documents received (2),<--part_of
+83,2708,evaluate,89,2887,evaluate,<--part_of
+83,2694,send letter of acceptance,89,2888,send letter of acceptance,match
+83,2696,accepted,89,2883,rejected (accepted?),match
+83,2709,send letter of rejection,89,2889,send letter of rejection,match
+83,2697,rejected,89,2893,rejected,match
+83,2699,wait for bachelor's certificate,89,2894,check bachelor's degree,part_of-->
+83,2700,certificate received (1),89,2894,check bachelor's degree,part_of-->
+83,2702,certificate received (2),89,2894,check bachelor's degree,part_of-->
+83,2701,send bachelor's certificate,89,2894,check bachelor's degree,part_of-->
+83,2703,check certificate,89,2894,check bachelor's degree,part_of-->

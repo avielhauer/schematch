@@ -1,0 +1,273 @@
+,,,,,
+"com.google.javascript.rhino.Node#String#checkTreeEquals#?,Node#1429",0.0,0.8125071873090022,0.1625014374618004,diff != null,_
+"com.google.javascript.rhino.Node#NodeMismatch#checkTreeEqualsImpl#?,Node#1458",0.0,0.812506297278062,0.1625012594556124,res != null,_
+"com.google.javascript.rhino.Node#void#toString#?,StringBuilder,boolean,boolean,boolean#973",0.0,0.4936150267401142,0.0987230053480228,!(lineno != -1),_
+com.google.javascript.jscomp.FlowSensitiveInlineVariables$Candidate#boolean#canInline#?#350,0.0,0.4482758620689655,0.0896551724137931,NodeUtil.isStatementBlock(defCfgNode.getParent()) && defCfgNode.getNext() != useCfgNode,_
+"com.google.javascript.jscomp.FlowSensitiveInlineVariables#boolean#checkRightOf#?,Node,Node,Predicate<Node>#463",0.0,0.3763152997911837,0.0752630599582367,cur != null,_
+"com.google.javascript.jscomp.NodeUtil#boolean#checkForStateChangeHelper#?,Node,boolean,AbstractCompiler#860",0.0,0.3012027191912149,0.0602405438382429,"!functionCallHasSideEffects(n,compiler)",_
+"com.google.javascript.jscomp.MaybeReachingVariableUse#void#computeMayUse#?,Node,Node,ReachingUses,boolean#216",0.0,0.2800917222304263,0.0560183444460852,!(!conditional),_
+"com.google.javascript.jscomp.FlowSensitiveInlineVariables#boolean#checkLeftOf#?,Node,Node,Predicate<Node>#483",0.0,0.2015209125475285,0.0403041825095057,cur != p,_
+"com.google.javascript.jscomp.CheckPathsBetweenNodes#boolean#checkSomePathsWithoutBackEdges#?,DiGraphNode<N,E>,DiGraphNode<N,E>#205",0.0,0.2,0.04,a == b,_
+"com.google.javascript.jscomp.MustBeReachingVariableDef#void#addToDefIfLocal#?,String,Node,Node,MustDef#332",0.0,0.1861031699744892,0.0372206339948978,var == null || var.scope != jsScope,_
+"com.google.javascript.jscomp.Scope#boolean#isDeclared#?,String,boolean#568",0.0,0.1475132266312494,0.0295026453262498,scope.parent != null && recurse,_
+com.google.javascript.jscomp.FlowSensitiveInlineVariables$Candidate#void#inlineVariable#?#378,0.0,0.1364335779487504,0.02728671558975,!(def.isAssign()),_
+"com.google.javascript.jscomp.FlowSensitiveInlineVariables#void#enterScope#?,NodeTraversal#146",0.0,0.1349142833511513,0.0269828566702302,c.canInline(),_
+"com.google.javascript.jscomp.MarkNoSideEffectCalls$SetNoSideEffectCallProperty#void#visit#?,NodeTraversal,Node,Node#190",0.0,0.1200364751720136,0.0240072950344027,!(!noSideEffectFunctionNames.contains(lValue) && definitionTypeContainsFunctionType(def)),_
+"com.google.javascript.jscomp.MarkNoSideEffectCalls$GatherNoSideEffectFunctions#void#visit#?,NodeTraversal,Node,Node#157",0.0,0.0550164719065823,0.0110032943813164,hasAnnotation,_
+"com.google.javascript.jscomp.MustBeReachingVariableDef#void#computeMustDef#?,Node,Node,MustDef,boolean#270",0.0,0.0491823069286394,0.0098364613857278,!(c.hasChildren()),_
+"com.google.javascript.jscomp.NodeUtil#boolean#functionCallHasSideEffects#?,Node,AbstractCompiler#994",0.0,0.0444543942689011,0.0088908788537802,callNode.isNoSideEffectsCall(),_
+"com.google.javascript.jscomp.NodeUtil#boolean#isWithinLoop#?,Node#1607",0.0,0.0399971263172887,0.0079994252634577,parent.isFunction(),_
+"com.google.javascript.jscomp.ControlFlowAnalysis$AstControlFlowGraph#Comparator<DiGraphNode<Node,Branch>>#getOptionalNodeComparator#?,boolean#1027",0.0,0.0272320069581593,0.0054464013916318,!(isForward),_
+"com.google.javascript.jscomp.DataFlowAnalysis#void#analyze#?,int#226",0.0,0.027231235935356,0.0054462471870712,!(isForward()),_
+com.google.javascript.rhino.Node#int#getSideEffectFlags#?#2019,0.0,0.0255311218784942,0.0051062243756988,getIntProp(SIDE_EFFECT_FLAGS)!=0,_
+"com.google.javascript.jscomp.DataFlowAnalysis#boolean#flow#?,DiGraphNode<N,Branch>#269",0.0,0.0223145965426178,0.0044629193085235,isForward(),_
+"com.google.javascript.jscomp.DataFlowAnalysis#void#joinInputs#?,DiGraphNode<N,Branch>#288",0.0,0.0223145965426178,0.0044629193085235,isForward(),_
+"com.google.javascript.jscomp.MustBeReachingVariableDef#boolean#dependsOnOuterScopeVars#?,String,Node#432",0.0,0.019456675971551,0.0038913351943102,!(s.scope != jsScope),GT
+"com.google.javascript.jscomp.CodeGenerator#void#addJsString#?,Node#957",0.0,0.0189420913038288,0.0037884182607657,!(cached == null),_
+"com.google.javascript.jscomp.MaybeReachingVariableUse#void#addToUseIfLocal#?,String,Node,ReachingUses#246",0.0,0.0179868276839403,0.003597365536788,var == null || var.scope != jsScope,_
+"com.google.javascript.jscomp.CodeGenerator#void#unrollBinaryOperator#?,Node,int,String,Context,Context,int,int#743",0.0,0.0138889531486184,0.0027777906297236,firstNonOperator.getType() == op,_
+"com.google.javascript.jscomp.MustBeReachingVariableDef#Node#getDef#?,String,Node#418",0.0,0.0133965219363327,0.0026793043872665,def == null,_
+"com.google.javascript.jscomp.SimpleDefinitionFinder$DefinitionGatheringCallback#void#visit#?,NodeTraversal,Node,Node#183",0.0,0.0104622371051926,0.0020924474210385,inExterns,_
+"com.google.javascript.jscomp.MustBeReachingVariableDef$MustDef#?#MustDef#?,Iterator<Var>#121",0.0,0.0101449468796129,0.0020289893759225,vars.hasNext(),_
+"com.google.javascript.jscomp.ControlFlowGraph$AbstractCfgNodeTraversalCallback#boolean#shouldTraverse#?,NodeTraversal,Node,Node#140",0.0,0.0094307379637762,0.0018861475927552,!(parent == null),_
+"com.google.javascript.jscomp.CodeGenerator#void#addExpr#?,Node,int,Context#882",0.0,0.0077489723326214,0.0015497944665242,(NodeUtil.precedence(n.getType()) < minPrecedence) || ((context == Context.IN_FOR_INIT_CLAUSE) && (n.isIn())),_
+com.google.javascript.jscomp.NodeTraversal#Node#getScopeRoot#?#624,0.0,0.0074557371537051,0.001491147430741,scopeRoots.isEmpty(),_
+"com.google.javascript.jscomp.FlowSensitiveInlineVariables$GatherCandiates#void#visit#?,NodeTraversal,Node,Node#180",0.0,0.0067913448639108,0.0013582689727821,graphNode == null,_
+com.google.javascript.jscomp.graph.Graph#void#pushNodeAnnotations#?#246,0.0,0.0066316303817542,0.0013263260763508,!(nodeAnnotationStack == null),_
+com.google.javascript.jscomp.graph.Graph#void#pushEdgeAnnotations#?#267,0.0,0.0066316303817542,0.0013263260763508,!(edgeAnnotationStack == null),_
+com.google.javascript.rhino.Node#int[]#getSortedPropTypes#?#880,0.0,0.0064768416377938,0.0012953683275587,x != null,_
+"com.google.javascript.jscomp.CodeConsumer#void#addOp#?,String,boolean#214",0.0,0.0049701275299823,0.0009940255059964,getLastChar()<first,_
+"com.google.javascript.jscomp.NodeUtil#boolean#has#?,Node,Predicate<Node>,Predicate<Node>#2668",0.0,0.0046760707885943,0.0009352141577188,c != null,_
+"com.google.javascript.rhino.Node#Object#getProp#?,int#810",0.0,0.0043179384192894,0.0008635876838578,propType == SOURCENAME_PROP,_
+"com.google.javascript.rhino.Node#void#toStringTreeHelper#?,Node,int,Appendable#1030",0.0,0.0042602215951567,0.0008520443190313,i != level,_
+"com.google.javascript.jscomp.SimpleDefinitionFinder#Collection<Definition>#getDefinitionsReferencedAt#?,Node#92",0.0,0.004065310791753,0.0008130621583506,!(!defs.isEmpty()),_
+"com.google.javascript.jscomp.DataFlowAnalysis#void#computeEscaped#?,Scope,Set<Var>,AbstractCompiler#571",0.0,0.0028205633914436,0.0005641126782887,i.hasNext(),_
+"com.google.javascript.jscomp.CodeGenerator#void#add#?,Node,Context#102",0.0,0.0027840316659113,0.0005568063331822,NodeUtil.precedence(type)>childCount,_
+com.google.javascript.jscomp.Scope#int#getVarCount#?#607,0.0,0.002551067707996,0.0005102135415992,vars.size()>0,_
+"com.google.javascript.rhino.Node#void#removeChild#?,Node#701",0.0,0.0025136568074254,0.000502731361485,prev == null,_
+"com.google.javascript.rhino.Node#void#putProp#?,int,Object#853",0.0,0.0023090930171701,0.000461818603434,!(value != null),_
+"com.google.javascript.jscomp.DefinitionsRemover#Definition#getDefinition#?,Node,boolean#50",0.0,0.002263226720039,0.0004526453440078,!NodeUtil.isFunctionExpression(parent),_
+"com.google.javascript.rhino.Node#Node#getChildBefore#?,Node#553",0.0,0.0022508044166879,0.0004501608833375,child == first,_
+"com.google.javascript.rhino.Node#boolean#isEquivalentTo#?,Node,boolean,boolean#1509",0.0,0.002119827029766,0.0004239654059532,type != node.getType() || getChildCount() != node.getChildCount() || this.getClass() != node.getClass(),_
+"com.google.javascript.jscomp.MaybeReachingVariableUse#void#removeFromUseIfLocal#?,String,ReachingUses#264",0.0,0.0020226691018836,0.0004045338203767,!escaped.contains(var),_
+"com.google.javascript.jscomp.CodeGenerator#void#addList#?,Node,boolean,Context#905",0.0,0.0019530847759268,0.0003906169551853,!(isFirst),_
+"com.google.javascript.jscomp.CodeConsumer#void#add#?,String#189",0.0,0.0016441744019197,0.0003288348803839,(isWordChar(c) || c == '\\') && isWordChar(getLastChar()),_
+"com.google.javascript.jscomp.Scope#?#Scope#?,Scope,Node#397",0.0,0.0014220773107097,0.0002844154621419,!(nodeType != null && nodeType.isFunctionType()),_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#Node#processVariableInitializer#?,VariableInitializer#1066",0.0,0.0014006110142585,0.0002801222028517,!(initializerNode.getInitializer() != null),_
+"com.google.javascript.rhino.Node#Node#copyInformationFrom#?,Node#1732",0.0,0.0013520003109598,0.0002704000621919,!(getProp(STATIC_SOURCE_FILE) == null),_
+"com.google.javascript.rhino.Node#void#replaceChild#?,Node,Node#724",0.0,0.0012777349164277,0.0002555469832855,!(child == first),_
+"com.google.javascript.jscomp.AstValidator#void#validateVar#?,Node#398",0.0,0.001264969719163,0.0002529939438326,!(c.hasChildren()),_
+"com.google.javascript.jscomp.AstValidator#void#validateBlock#?,Node#279",0.0,0.0012469946657307,0.0002493989331461,c != null,_
+"com.google.javascript.jscomp.parsing.IRFactory#int#position2charno#?,int#368",0.0,0.0012164583970651,0.000243291679413,!(lineIndex == -1),_
+"com.google.javascript.jscomp.CodeConsumer#void#endFunction#?,boolean#169",0.0,0.0011744039921378,0.0002348807984275,statementContext,_
+"com.google.javascript.jscomp.ControlFlowAnalysis#boolean#mayThrowException#?,Node#924",0.0,0.0011146164119969,0.0002229232823993,!(!ControlFlowGraph.isEnteringNewCfgNode(c) && mayThrowException(c)),_
+com.google.javascript.jscomp.CodePrinter$CompactCodePrinter#void#maybeLineBreak#?#476,0.0,0.0009758006927201,0.000195160138544,!(preferredBreakPosition == len - 1),_
+"com.google.javascript.jscomp.parsing.IRFactory#Node#transform#?,AstNode#275",0.0,0.0009273972436044,0.0001854794487208,jsDocInfo != null,_
+"com.google.javascript.jscomp.parsing.IRFactory#JSDocInfo#handleJsDoc#?,AstNode,Node#262",0.0,0.0009130254682365,0.0001826050936473,comment != null,_
+"com.google.javascript.jscomp.parsing.IRFactory#Node#transformTree#?,AstRoot,StaticSourceFile,String,Config,ErrorReporter#175",0.0,0.000907905699216,0.0001815811398432,node.getComments() != null,_
+"com.google.javascript.jscomp.NodeTraversal#void#traverseBranch#?,Node,Node#485",0.0,0.0009012546888775,0.0001802509377755,"!callback.shouldTraverse(this,n,parent)",_
+com.google.javascript.jscomp.CodeConsumer#void#maybeEndStatement#?#154,0.0,0.0008888897748452,0.000177777954969,statementNeedsEnded,_
+"com.google.javascript.jscomp.SimpleDefinitionFinder$UseSiteGatheringCallback#void#visit#?,NodeTraversal,Node,Node#276",0.0,0.000771792299166,0.0001543584598332,!(defs == null),_
+"com.google.javascript.jscomp.Compiler#void#initOptions#?,CompilerOptions#298",0.0,0.0007717169017327,0.0001543433803465,!(!options.checkSymbols && !composedGuards.enables(DiagnosticGroups.CHECK_VARIABLES)),_
+"com.google.javascript.jscomp.SyntacticScopeCreator#Scope#createScope#?,Node,Scope#70",0.0,0.0006148674611724,0.0001229734922344,!(parent == null),_
+"com.google.javascript.jscomp.JsAst#Node#getAstRoot#?,AbstractCompiler#51",0.0,0.000605366078362,0.0001210732156724,!(root == null),_
+"com.google.javascript.jscomp.SyntacticScopeCreator#void#scanRoot#?,Node,Scope#85",0.0,0.0005798285532584,0.0001159657106516,n.isFunction(),_
+"com.google.javascript.jscomp.PrepareAst$PrepareAnnotations#void#annotateCalls#?,Node#170",0.0,0.0005602538292859,0.0001120507658571,!NodeUtil.isGet(first),_
+com.google.javascript.jscomp.Compiler#JSTypeRegistry#getTypeRegistry#?#1140,0.0,0.0005195378790267,0.0001039075758053,typeRegistry == null,_
+"com.google.javascript.rhino.jstype.FunctionType#boolean#setPrototype#?,ObjectType,Node#399",0.0,0.0005035050726425,0.0001007010145285,!(superClass != null),_
+"com.google.javascript.rhino.jstype.FunctionParamBuilder#boolean#addVarArgs#?,JSType#104",0.0,0.0004733118454051,9.46623690810316e-05,!(!type.isEmptyType()),_
+com.google.javascript.rhino.Node#int#getChildCount#?#1410,0.0,0.0004467656386222,8.93531277244479e-05,c<=0,_
+"com.google.javascript.rhino.jstype.FunctionType#void#addSubType#?,FunctionType#1051",0.0,0.0004467354529367,8.93470905873426e-05,subTypes == null,_
+"com.google.javascript.jscomp.Scope#Var#getVar#?,String#543",0.0,0.0003662958007222,7.325916014444889e-05,parent != null,_
+"com.google.javascript.jscomp.NodeUtil#JSDocInfo#getBestJSDocInfo#?,Node#3017",0.0,0.0003641503308363,7.283006616726686e-05,parent.isFunction(),_
+com.google.javascript.rhino.jstype.InstanceObjectType#int#hashCode#?#176,0.0,0.0003611219128997,7.222438257994997e-05,getReferenceName().hashCode()<=0,_
+"com.google.javascript.jscomp.NodeTraversal#?#NodeTraversal#?,AbstractCompiler,Callback,ScopeCreator#232",0.0,0.0003279278086831,6.558556173663235e-05,cb instanceof ScopedCallback,_
+com.google.javascript.jscomp.NodeTraversal#void#popScope#?#583,0.0,0.0003277764602419,6.555529204839407e-05,scopeCallback != null,_
+"com.google.javascript.jscomp.NodeTraversal#void#pushScope#?,Node#566",0.0,0.0003277764602419,6.555529204839407e-05,scopeCallback != null,_
+"com.google.javascript.jscomp.parsing.JsDocTokenStream#?#JsDocTokenStream#?,String,int,int#47",0.0,0.0002209154600078,4.418309200157175e-05,lineno<initCharno,_
+"com.google.javascript.jscomp.NodeUtil#JSDocInfo#getFunctionJSDocInfo#?,Node#2815",0.0,0.0002166240582517,4.33248116503479e-05,!(fnInfo == null && NodeUtil.isFunctionExpression(n)),_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#Node#processFunctionNode#?,FunctionNode#659",0.0,0.000201677211989,4.033544239781379e-05,fnName != null,_
+"com.google.javascript.rhino.jstype.UnionTypeBuilder#UnionTypeBuilder#addAlternate#?,JSType#181",0.0,0.0001969895110057,3.939790220114508e-05,alternate.isSubtype(current),_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#boolean#isDirective#?,Node#478",0.0,0.000189181284032,3.783625680641009e-05,n == null,_
+com.google.javascript.rhino.InputId#int#hashCode#?#61,0.0,0.0001890830664751,3.781661329503675e-05,id.hashCode()>0,_
+"com.google.javascript.jscomp.ComposeWarningsGuard#boolean#enables#?,DiagnosticGroup#151",0.0,0.0001857625626118,3.715251252236665e-05,guard.enables(group),_
+"com.google.javascript.jscomp.DiagnosticGroupWarningsGuard#boolean#enables#?,DiagnosticGroup#50",0.0,0.0001825834460884,3.651668921769365e-05,level.isOn(),_
+"com.google.javascript.rhino.jstype.ObjectType#boolean#isImplicitPrototype#?,ObjectType#473",0.0,0.0001795059595754,3.5901191915086186e-05,current.isEquivalentTo(prototype),_
+"com.google.javascript.rhino.jstype.InstanceObjectType#boolean#isEquivalentTo#?,JSType#162",0.0,0.0001684787232085,3.369574464170168e-05,thatObj != null && thatObj.isNominalType(),_
+"com.google.javascript.jscomp.CodeGenerator#String#jsString#?,String,boolean#969",0.0,0.0001658839236873,3.317678473746282e-05,i < s.length(),_
+"com.google.javascript.jscomp.ControlFlowAnalysis#boolean#shouldTraverse#?,NodeTraversal,Node,Node#250",0.0,0.0001610455123087,3.220910246175448e-05,!(parent != null),_
+"com.google.javascript.jscomp.AstValidator#void#validateReturn#?,Node#482",0.0,0.0001589611182514,3.179222365028208e-05,n.hasChildren(),_
+"com.google.javascript.rhino.jstype.JSTypeRegistry#void#addReferenceTypeIndexedByProperty#?,String,JSType#636",0.0,0.0001572662044348,3.145324088697186e-05,!(typeSet == null),_
+"com.google.javascript.rhino.jstype.JSTypeRegistry#void#registerPropertyOnType#?,String,JSType#619",0.0,0.0001562838806871,3.1256776137438024e-05,!(typeSet == null),_
+com.google.javascript.rhino.Node$NumberNode#double#getDouble#?#167,0.0,0.0001516708038108,3.0334160762176355e-05,this.number>0,_
+"com.google.javascript.jscomp.AstValidator#void#validateChildCount#?,Node,int#778",0.0,0.0001511777093809,3.023554187619528e-05,i == 1,_
+"com.google.javascript.jscomp.NodeTraversal#void#traverseFunction#?,Node,Node#527",0.0,0.0001468173184353,2.9363463687064588e-05,!(isFunctionExpression),_
+"com.google.javascript.jscomp.CodeGenerator#String#strEscape#?,String,char,String,String,String,CharsetEncoder,boolean#1023",0.0,0.0001454056366823,2.908112733647926e-05,i < s.length(),_
+com.google.javascript.rhino.jstype.PrototypeObjectType#String#getReferenceName#?#429,0.0,0.000135243487212,2.7048697442415828e-05,!(className != null),_
+com.google.javascript.rhino.Node#int#getCharno#?#1145,0.0,0.0001349111919654,2.698223839308279e-05,extractCharno(sourcePosition)>0,_
+"com.google.javascript.jscomp.graph.LinkedDirectedGraph#DiGraphNode<N,E>#createDirectedGraphNode#?,N#136",0.0,0.0001321924194721,2.643848389443206e-05,!(node == null),_
+"com.google.javascript.jscomp.ControlFlowAnalysis#void#handleReturn#?,Node#655",0.0,0.0001313268326762,2.6265366535248357e-05,node.hasChildren(),_
+"com.google.javascript.jscomp.parsing.IRFactory#JsDocInfoParser#createJsDocInfoParser#?,Comment,Node#340",0.0,0.0001275234842598,2.550469685197658e-05,node.getAbsolutePosition()>lineno,_
+"com.google.javascript.jscomp.SyntacticScopeCreator#void#scanVars#?,Node,Node#170",0.0,0.0001210482038848,2.4209640776964863e-05,!(NodeUtil.isControlStructure(n) || NodeUtil.isStatementBlock(n)),_
+com.google.javascript.jscomp.parsing.JsDocTokenStream#int#getLineno#?#226,0.0,0.0001158505752653,2.317011505306152e-05,lineno>0,_
+com.google.javascript.jscomp.Compiler#void#initCompilerOptionsIfTesting#?#1476,0.0,0.0001126802579733,2.2536051594670585e-05,!(options == null),_
+com.google.javascript.jscomp.Compiler#Config#getParserConfig#?#1936,0.0,0.0001118154749149,2.2363094982993563e-05,!(parserConfig == null),_
+com.google.javascript.jscomp.BasicErrorManager#int#getWarningCount#?#81,0.0,0.0001107046684537,2.2140933690756565e-05,warningCount==0,_
+"com.google.javascript.jscomp.NodeTraversal#void#traverseAtScope#?,Scope#355",0.0,0.0001081814425659,2.163628851318149e-05,inputId == null,_
+"com.google.javascript.rhino.Node#int#getIntProp#?,int#831",0.0,0.0001070111354357,2.1402227087143675e-05,item == null,_
+"com.google.javascript.jscomp.NodeTraversal#void#pushScope#?,Scope#576",0.0,0.0001069523920502,2.139047841005131e-05,!(scopeCallback != null),_
+"com.google.javascript.rhino.Node#int#extractCharno#?,int#1222",0.0,0.0001038364497321,2.0767289946423187e-05,!(lineCharNo == -1),_
+com.google.javascript.jscomp.parsing.JsDocTokenStream#JsDocToken#getJsDocToken#?#71,0.0,9.041784431262892e-05,1.8083568862525783e-05,!(!isJSSpace(c)),_
+com.google.javascript.rhino.JSDocInfo#boolean#lazyInitDocumentation#?#632,0.0,8.460297597485665e-05,1.692059519497133e-05,!includeDocumentation,_
+"com.google.javascript.rhino.Node#void#removeProp#?,int#783",0.0,8.456256878925012e-05,1.6912513757850024e-05,result != propListHead,_
+com.google.javascript.jscomp.parsing.JsDocInfoParser#boolean#parse#?#196,0.0,8.414552428104843e-05,1.6829104856209687e-05,!(jsdocBuilder.shouldParseDocumentation()),_
+"com.google.javascript.rhino.JSDocInfoBuilder#void#recordOriginalCommentString#?,String#79",0.0,8.414552428104843e-05,1.6829104856209687e-05,!(parseDocumentation),_
+"com.google.javascript.jscomp.NodeUtil#InputId#getInputId#?,Node#2860",0.0,8.295034806598551e-05,1.6590069613197102e-05,n != null && !n.isScript(),_
+"com.google.javascript.rhino.JSDocInfoBuilder#void#markAnnotation#?,String,int,int#151",0.0,7.969258767376307e-05,1.5938517534752614e-05,!(marker != null),_
+com.google.javascript.rhino.JSDocInfo#Marker#addMarker#?#648,0.0,7.969258767376307e-05,1.5938517534752614e-05,!lazyInitDocumentation(),_
+"com.google.javascript.jscomp.ControlFlowAnalysis#Node#computeFollowNode#?,Node,Node,ControlFlowAnalysis#781",0.0,7.745330598354894e-05,1.549066119670979e-05,nextSibling != null,_
+"com.google.javascript.rhino.Node#PropListItem#removeProp#?,PropListItem,int#801",0.0,7.419979447579368e-05,1.4839958895158734e-05,result != item.getNext(),_
+"com.google.javascript.rhino.Node#PropListItem#lookupProperty#?,int#761",0.0,7.203923941420338e-05,1.4407847882840674e-05,x != null && propType != x.getType(),_
+com.google.javascript.jscomp.NodeTraversal#Scope#getScope#?#597,0.0,6.710475728120511e-05,1.3420951456241024e-05,scopeRoots.isEmpty(),_
+"com.google.javascript.jscomp.LineNumberCheck#void#visit#?,NodeTraversal,Node,Node#71",0.0,6.549136607897273e-05,1.3098273215794548e-05,requiresLineNumbers,_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#Node#processReturnStatement#?,ReturnStatement#887",0.0,6.377033726939702e-05,1.2754067453879405e-05,statementNode.getReturnValue() != null,_
+com.google.javascript.jscomp.CodePrinter$MappedCodePrinter#char#getLastChar#?#207,0.0,4.457082025495378e-05,8.914164050990758e-06,(code.length() > 0) ? code.charAt(code.length() - 1) : '\0'>0,_
+"com.google.javascript.jscomp.AstValidator#void#validateMaximumChildCount#?,Node,int#809",0.0,3.9987798904470175e-05,7.997559780894035e-06,i == 1,_
+"com.google.javascript.jscomp.parsing.IRFactory#void#maybeSetLengthFrom#?,Node,AstNode#361",0.0,3.9049437416593376e-05,7.809887483318677e-06,!(config.isIdeMode),_
+com.google.javascript.rhino.jstype.FunctionType#FunctionType#getSuperClassConstructor#?#767,0.0,3.870022728778849e-05,7.740045457557698e-06,maybeSuperInstanceType == null,_
+"com.google.javascript.rhino.jstype.FunctionType#?#FunctionType#?,JSTypeRegistry,String,Node,ArrowType,ObjectType,String,boolean,boolean#143",0.0,3.708031866207589e-05,7.416063732415178e-06,isConstructor,_
+"com.google.javascript.rhino.jstype.PrototypeObjectType#?#PrototypeObjectType#?,JSTypeRegistry,String,ObjectType,boolean#119",0.0,3.671642265701749e-05,7.343284531403494e-06,!(nativeType || implicitPrototype != null),_
+"com.google.javascript.jscomp.LineNumberCheck#boolean#shouldTraverse#?,NodeTraversal,Node,Node#61",0.0,3.54908215357476e-05,7.098164307149519e-06,n.isScript(),_
+com.google.javascript.jscomp.Compiler#Node#parseInputs#?#1284,0.0,3.4833448449558e-05,6.966689689911601e-06,!(options.dependencyOptions.needsManagement() && options.closurePass),_
+"com.google.javascript.jscomp.ControlFlowAnalysis#void#process#?,Node,Node#165",0.0,2.885603461802251e-05,5.771206923604503e-06,!(shouldTraverseFunctions),_
+"com.google.javascript.jscomp.parsing.JsDocTokenStream#boolean#matchChar#?,int#262",0.0,2.8125134666223457e-05,5.625026933244691e-06,cursor<test,_
+com.google.javascript.jscomp.parsing.JsDocTokenStream#int#getCharIgnoreLineEnd#?#393,0.0,2.6207941828284218e-05,5.241588365656844e-06,!(ungetCursor != 0),_
+"com.google.javascript.jscomp.SimpleDefinitionFinder#String#getSimplifiedName#?,Node#138",0.0,2.579163363229769e-05,5.1583267264595365e-06,name != null && !name.isEmpty(),_
+"com.google.javascript.jscomp.ControlFlowAnalysis#void#connectToPossibleExceptionHandler#?,Node,Node#829",0.0,2.485375019915296e-05,4.970750039830592e-06,!(mayThrowException(target) && !exceptionHandler.isEmpty()),_
+"com.google.javascript.jscomp.parsing.TypeSafeDispatcher#T#process#?,AstNode#173",0.0,2.4557291501443523e-05,4.911458300288705e-06,node instanceof Block,_
+"com.google.javascript.jscomp.parsing.IRFactory#void#setSourceInfo#?,Node,AstNode#314",0.0,2.4030626197423405e-05,4.806125239484681e-06,!(irNode.getLineno() == -1),_
+com.google.javascript.rhino.jstype.FunctionType#ObjectType#getPrototype#?#310,0.0,2.374098033931099e-05,4.748196067862198e-06,prototypeSlot == null,_
+"com.google.javascript.jscomp.CodePrinter#String#toSource#?,Node,Format,boolean,boolean,int,SourceMap,SourceMap.DetailLevel,Charset,boolean#715",0.0,2.307693482487311e-05,4.615386964974623e-06,!(createSourceMap),_
+com.google.javascript.rhino.JSDocInfoBuilder#boolean#recordNoSideEffects#?#882,0.0,2.249091557252312e-05,4.498183114504623e-06,!hasAnySingletonSideEffectTags() && !currentInfo.isNoSideEffects(),_
+"com.google.javascript.rhino.Node#void#addChildToBack#?,Node#613",0.0,2.2097850132144228e-05,4.419570026428846e-06,!(last == null),_
+"com.google.javascript.rhino.Node#int#extractLineno#?,int#1210",0.0,2.164848135566468e-05,4.329696271132937e-06,lineCharNo == -1,_
+com.google.javascript.rhino.Node#int#getLineno#?#1141,0.0,2.137673152287709e-05,4.275346304575421e-06,extractLineno(sourcePosition)<0,_
+"com.google.javascript.rhino.JSDocInfoBuilder#JSDocInfo#build#?,Node#125",0.0,2.0762969369145557e-05,4.152593873829111e-06,populated,_
+"com.google.javascript.jscomp.CodePrinter$MappedCodePrinter#void#startSourceMapping#?,Node#93",0.0,1.987107046197796e-05,3.974214092395591e-06,!(createSrcMap && node.getSourceFileName() != null && node.getLineno() > 0 && sourceMapDetailLevel.apply(node)),_
+"com.google.javascript.jscomp.CodePrinter$MappedCodePrinter#void#endSourceMapping#?,Node#114",0.0,1.987107046197796e-05,3.974214092395591e-06,!(createSrcMap && !mappings.isEmpty() && mappings.peek().node == node),_
+"com.google.javascript.jscomp.CodeConsumer#void#endStatement#?,boolean#139",0.0,1.895773476848682e-05,3.791546953697364e-06,!(needSemiColon),_
+com.google.javascript.jscomp.parsing.JsDocTokenStream#int#getCharno#?#229,0.0,1.8560177097015186e-05,3.712035419403037e-06,lineno == initLineno ? initCharno + charno : charno>0,_
+com.google.javascript.rhino.Node#Node#cloneTree#?#1706,0.0,1.7922556200516995e-05,3.5845112401034e-06,n2 != null,_
+"com.google.javascript.jscomp.graph.LinkedDirectedGraph#boolean#isConnectedInDirection#?,N,Predicate<E>,N#208",0.0,1.4486052673391676e-05,2.8972105346783365e-06,!(outEdge.getDestination() == dNode2 && edgeMatcher.apply(outEdge.getValue())),_
+"com.google.javascript.jscomp.AstValidator#void#validateMinimumChildCount#?,Node,int#792",0.0,1.3985175828116046e-05,2.7970351656232096e-06,i == 1,_
+com.google.javascript.rhino.jstype.ObjectType#boolean#isUnknownType#?#493,0.0,1.062561311189184e-05,2.125122622378368e-06,unknown,_
+"com.google.javascript.jscomp.CodeConsumer#void#endBlock#?,boolean#117",0.0,1.0044785051774308e-05,2.0089570103548613e-06,!(shouldEndLine),_
+com.google.javascript.jscomp.Compiler#void#initBasedOnOptions#?#382,0.0,1.0029983998117488e-05,2.0059967996234983e-06,!(options.sourceMapOutputPath != null),_
+"com.google.javascript.rhino.jstype.JSTypeRegistry#Node#createParameters#?,boolean,JSType#1220",0.0,7.4625267396207166e-06,1.4925053479241438e-06,!(lastVarArgs && i == max),_
+com.google.javascript.rhino.Node#String#getQualifiedName#?#1566,0.0,7.078811783332344e-06,1.415762356666469e-06,type == Token.NAME,_
+"com.google.javascript.rhino.JSDocInfoBuilder#void#populateDefaults#?,JSDocInfo#139",0.0,6.42425785856132e-06,1.284851571712264e-06,info.getVisibility() == null,_
+com.google.javascript.rhino.jstype.UnionTypeBuilder#JSType#build#?#250,0.0,5.970151466882833e-06,1.194030293376567e-06,result == null,_
+"com.google.javascript.rhino.jstype.JSTypeRegistry#JSType#createOptionalType#?,JSType#956",0.0,5.5455231613135286e-06,1.1091046322627058e-06,type instanceof UnknownType || type.isAllType(),_
+"com.google.javascript.rhino.jstype.FunctionType#void#setPrototypeBasedOn#?,ObjectType,Node#359",0.0,5.437188741469648e-06,1.0874377482939294e-06,baseType.hasReferenceName() || isNativeObjectType() || baseType.isFunctionPrototypeType(),_
+com.google.javascript.jscomp.parsing.ParserRunner#void#initResourceConfig#?#77,0.0,4.971168703962542e-06,9.942337407925083e-07,annotationNames != null,_
+"com.google.javascript.jscomp.CodeConsumer#void#addNumber#?,double#253",0.0,3.592090887828404e-06,7.18418177565681e-07,!(Math.abs(x) >= 100),_
+"com.google.javascript.jscomp.ComposeWarningsGuard$GuardComparator#int#compare#?,WarningsGuard,WarningsGuard#64",0.0,3.5755199778223693e-06,7.151039955644741e-07,priorityDiff != 0,_
+com.google.javascript.jscomp.BasicErrorManager#int#getErrorCount#?#76,0.0,3.487462965273423e-06,6.974925930546848e-07,errorCount<=0,_
+com.google.javascript.rhino.jstype.UnionTypeBuilder#JSType#reduceAlternatesWithoutUnion#?#232,0.0,3.3255739795191487e-06,6.651147959038298e-07,size > 1,_
+"com.google.javascript.jscomp.parsing.ParserRunner#Node#parse#?,StaticSourceFile,String,Config,ErrorReporter,Logger#142",0.0,3.2633258222134985e-06,6.526651644426997e-07,astRoot != null,_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#Node#transformAsString#?,AstNode#401",0.0,2.743568862038739e-06,5.487137724077478e-07,n instanceof Name,_
+"com.google.javascript.jscomp.parsing.JsDocInfoParser#?#JsDocInfoParser#?,JsDocTokenStream,Comment,Node,Config,ErrorReporter#138",0.0,2.741106747343327e-06,5.482213494686654e-07,commentNode != null,_
+"com.google.javascript.rhino.jstype.PrototypeObjectType#boolean#isSubtype#?,JSType#445",0.0,2.62760406914954e-06,5.255208138299081e-07,"!(JSType.isSubtypeHelper(this,that))",_
+"com.google.javascript.jscomp.NodeUtil#boolean#isLatin#?,String#2402",0.0,2.500867407683474e-06,5.001734815366948e-07,index < len,_
+"com.google.javascript.rhino.jstype.JSType#boolean#isEquivalentTo#?,JSType#409",0.0,2.397044561564784e-06,4.794089123129568e-07,!(jsType instanceof ProxyObjectType),_
+"com.google.javascript.jscomp.DataFlowAnalysis#?#DataFlowAnalysis#?,ControlFlowGraph<N>,JoinOp<L>#125",0.0,2.365517960651216e-06,4.731035921302431e-07,nodeComparator != null,_
+"com.google.javascript.jscomp.AstValidator#void#validateScript#?,Node#88",0.0,2.298822057478174e-06,4.597644114956348e-07,c != null,_
+"com.google.javascript.jscomp.ControlFlowAnalysis#void#handleStmtList#?,Node#508",0.0,2.136622495627209e-06,4.273244991254419e-07,parent != null,_
+"com.google.javascript.jscomp.JsAst#void#parse#?,AbstractCompiler#95",0.0,1.8320445882572528e-06,3.6640891765145066e-07,!(root == null || compiler.hasHaltingErrors()),_
+com.google.javascript.jscomp.parsing.JsDocTokenStream#int#getChar#?#337,0.0,1.8054178545484357e-06,3.610835709096871e-07,ungetCursor != 0,_
+"com.google.javascript.jscomp.Compiler#void#initModules#?,List<T>,List<JSModule>,CompilerOptions#357",0.0,1.756584183522171e-06,3.5131683670443417e-07,!(modules.size() > 1),_
+com.google.javascript.jscomp.Compiler#int#getErrorCount#?#2024,0.0,1.5837810776712e-06,3.1675621553424e-07,errorManager.getErrorCount()<=0,_
+"com.google.javascript.jscomp.AstValidator#void#validateHasInputId#?,Node#307",0.0,1.3785300089197366e-06,2.7570600178394733e-07,!(inputId == null),_
+"com.google.javascript.jscomp.AstValidator#void#validateIsSynthetic#?,Node#293",0.0,1.3785300089197366e-06,2.7570600178394733e-07,!(!n.getBooleanProp(Node.SYNTHETIC_BLOCK_PROP)),_
+"com.google.javascript.jscomp.AstValidator#void#validateHasSourceName#?,Node#300",0.0,1.3785300089197366e-06,2.7570600178394733e-07,!(sourceName == null || sourceName.isEmpty()),_
+"com.google.javascript.rhino.jstype.JSTypeRegistry#FunctionType#createFunctionType#?,JSType,boolean,JSType#1238",0.0,1.191054298272496e-06,2.382108596544992e-07,lastVarArgs,_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#Node#processStringLiteral#?,StringLiteral#902",0.0,1.1879958355188171e-06,2.3759916710376358e-07,!(value.indexOf('\u000B') != -1),_
+"com.google.javascript.jscomp.parsing.IRFactory#boolean#handlePossibleFileOverviewJsDoc#?,JsDocInfoParser#247",0.0,1.1424127165784505e-06,2.2848254331569014e-07,!(jsDocParser.getFileOverviewJSDocInfo() != fileOverviewInfo),_
+"com.google.javascript.jscomp.parsing.IRFactory#Node#transformNameAsString#?,Name#285",0.0,1.127378763353357e-06,2.2547575267067145e-07,!(jsDocInfo != null),_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#Node#processName#?,Name,boolean#764",0.0,7.462325352151101e-07,1.49246507043022e-07,!(asString),_
+"com.google.javascript.rhino.jstype.JSType#boolean#isSubtypeHelper#?,JSType,JSType#1020",0.0,6.578657837186843e-07,1.315731567437369e-07,!(thisType.isEquivalentTo(thatType)),_
+"com.google.javascript.rhino.Node#Node#getChildAtIndex#?,int#568",0.0,5.396220951083905e-07,1.0792441902167809e-07,i > 0,_
+"com.google.javascript.jscomp.AstValidator#void#validateNodeType#?,int,Node#767",0.0,4.592558758468016e-07,9.185117516936033e-08,!(n.getType() != type),_
+"com.google.javascript.jscomp.parsing.JsDocTokenStream#boolean#isAlpha#?,int#272",0.0,4.574821999256589e-07,9.149643998513176e-08,!(c <= 'Z'),_
+com.google.javascript.jscomp.parsing.JsDocInfoParser#JsDocToken#next#?#2285,0.0,4.5622157190545786e-07,9.12443143810916e-08,!(unreadToken == NO_UNREAD_TOKEN),_
+com.google.javascript.jscomp.parsing.JsDocTokenStream#int#getOffset#?#447,0.0,4.5098342423759196e-07,9.01966848475184e-08,sourceCursor - lineStart - ungetCursor- 1==0,_
+"com.google.javascript.jscomp.parsing.IRFactory#void#setFileOverviewJsDoc#?,Node#201",0.0,4.395217452000922e-07,8.790434904001848e-08,!(fileOverviewInfo != null),_
+"com.google.javascript.rhino.Node#int#mergeLineCharNo#?,int,int#1201",0.0,4.044133436561744e-07,8.088266873123487e-08,lineno << COLUMN_BITS | (charno & COLUMN_MASK)!=0,_
+"com.google.javascript.jscomp.Compiler#void#fillEmptyModules#?,List<JSModule>#433",0.0,3.898596497332775e-07,7.797192994665552e-08,!(module.getInputs().isEmpty()),_
+"com.google.javascript.jscomp.ComposeWarningsGuard#void#addGuard#?,WarningsGuard#88",0.0,3.239793322626018e-07,6.479586645252036e-08,guard instanceof ComposeWarningsGuard,_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#Node#processVariableDeclaration#?,VariableDeclaration#1051",0.0,2.892476192425534e-07,5.784952384851068e-08,!(!config.acceptConstKeyword && declarationNode.getType() == com.google.javascript.rhino.head.Token.CONST),_
+"com.google.javascript.jscomp.PrepareAst$PrepareAnnotations#void#annotateDispatchers#?,Node,Node#187",0.0,2.219361516398969e-07,4.4387230327979395e-08,!(parent.getJSDocInfo() != null && parent.getJSDocInfo().isJavaDispatch()),_
+"com.google.javascript.jscomp.CompilerInput#?#CompilerInput#?,SourceAst,InputId,boolean#78",0.0,1.5406800237765806e-07,3.0813600475531614e-08,ast != null && ast.getSourceFile() != null,_
+"com.google.javascript.jscomp.parsing.ParserRunner#Config#createConfig#?,boolean,LanguageMode,boolean,Set<String>#66",0.0,1.454598053607153e-07,2.909196107214306e-08,extraAnnotationNames == null,_
+"com.google.javascript.rhino.Node#void#putIntProp#?,int,int#864",0.0,1.3249077334229082e-07,2.6498154668458162e-08,value != 0,_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#Node#processAssignment#?,Assignment#432",0.0,1.059620524456487e-07,2.119241048912974e-08,!(!validAssignmentTarget(target)),_
+"com.google.javascript.rhino.Node#void#setLineno#?,int#1169",0.0,0.0,0.0,"mergeLineCharNo(lineno,charno)>charno",_
+"com.google.javascript.jscomp.Tracer#long#stop#?,int#412",0.0,0.0,0.0,!trace.isInitialized(),_
+"com.google.javascript.jscomp.AstValidator#void#validateNonNullString#?,Node#333",0.0,0.0,0.0,!(n.getString() == null),_
+"com.google.javascript.jscomp.graph.LinkedDirectedGraph#List<DiGraphNode<N,E>>#getDirectedPredNodes#?,DiGraphNode<N,E>#230",0.0,0.0,0.0,!(dNode == null),_
+com.google.javascript.jscomp.SuppressDocWarningsGuard#int#getPriority#?#99,0.0,0.0,0.0,WarningsGuard.Priority.SUPPRESS_DOC.value!=0,_
+com.google.javascript.jscomp.CodePrinter$CompactCodePrinter#void#maybeCutLine#?#491,0.0,0.0,0.0,!(lineLength > lineLengthThreshold),_
+com.google.javascript.rhino.jstype.PrototypeObjectType#boolean#implicitPrototypeChainIsUnknown#?#495,0.0,0.0,0.0,!(p != null),_
+"com.google.javascript.jscomp.SourceFile#?#SourceFile#?,String#87",0.0,0.0,0.0,!(fileName == null || fileName.isEmpty()),_
+"com.google.javascript.rhino.Node#void#setCharno#?,int#1173",0.0,0.0,0.0,"mergeLineCharNo(getLineno(),charno)>=charno",_
+"com.google.javascript.jscomp.NodeUtil#int#precedence#?,int#1196",0.0,0.0,0.0,11!=0,_
+com.google.javascript.jscomp.Tracer#ThreadTrace#getThreadTrace#?#960,0.0,0.0,0.0,!(t == null),_
+"com.google.javascript.jscomp.ControlFlowAnalysis#void#prioritizeFromEntryNode#?,DiGraphNode<Node,Branch>#203",0.0,0.0,0.0,!(nodePriorities.containsKey(current)),_
+"com.google.javascript.jscomp.CheckPathsBetweenNodes#void#discoverBackEdges#?,DiGraphNode<N,E>#146",0.0,0.0,0.0,v.getAnnotation() == WHITE,_
+com.google.javascript.jscomp.DataFlowAnalysis#void#initialize#?#256,0.0,0.0,0.0,!(node != cfg.getImplicitReturn()),_
+"com.google.javascript.jscomp.PrepareAst$PrepareAnnotations#boolean#shouldTraverse#?,NodeTraversal,Node,Node#131",0.0,0.0,0.0,!(n.isObjectLit()),_
+com.google.javascript.jscomp.CodePrinter$Builder#String#build#?#658,0.0,0.0,0.0,!(root == null),_
+"com.google.javascript.rhino.jstype.FunctionParamBuilder#boolean#addOptionalParams#?,JSType#80",0.0,0.0,0.0,!(hasVarArgs()),_
+"com.google.javascript.jscomp.Compiler#void#checkFirstModule#?,List<JSModule>#412",0.0,0.0,0.0,!(modules.get(0).getInputs().isEmpty() && modules.size() > 1),_
+"com.google.javascript.jscomp.Compiler#void#stopTracer#?,Tracer,String#911",0.0,0.0,0.0,!(options.tracer.isOn()),_
+com.google.javascript.rhino.Node$AbstractPropListItem#int#getType#?#284,0.0,0.0,0.0,propType>=0,_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#void#parseDirectives#?,Node#472",0.0,0.0,0.0,!(directives != null),_
+com.google.javascript.jscomp.NodeTraversal#int#getScopeDepth#?#639,0.0,0.0,0.0,scopes.size() + scopeRoots.size()>0,_
+"com.google.javascript.jscomp.parsing.Config#Map<String,Annotation>#buildAnnotationNames#?,Set<String>#94",0.0,0.0,0.0,!Annotation.recognizedAnnotations.containsKey(unrecognizedAnnotation),_
+"com.google.javascript.rhino.Node#?#Node#?,int,Node,Node#398",0.0,0.0,0.0,-1<nodeType,_
+"com.google.javascript.jscomp.CompilerInput#Node#getAstRoot#?,AbstractCompiler#118",0.0,0.0,0.0,root != null,_
+com.google.javascript.jscomp.Scope$Var#int#hashCode#?#328,0.0,0.0,0.0,nameNode.hashCode()>0,_
+"com.google.javascript.jscomp.parsing.JsDocTokenStream#void#addToString#?,int#242",0.0,0.0,0.0,stringBufferTop<=c,_
+"com.google.javascript.rhino.jstype.PrototypeObjectType#boolean#defineProperty#?,String,JSType,boolean,Node#242",0.0,0.0,0.0,!(oldProp != null),_
+"com.google.javascript.jscomp.parsing.JsDocTokenStream#boolean#isJSSpace#?,int#310",0.0,0.0,0.0,c <= 127,_
+"com.google.javascript.jscomp.Tracer#?#Tracer#?,String,String#253",0.0,0.0,0.0,!trace.isInitialized(),_
+"com.google.javascript.jscomp.graph.Graph#T#getNodeOrFail#?,N#221",0.0,0.0,0.0,!(node == null),_
+com.google.javascript.rhino.Node#int#getType#?#529,0.0,0.0,0.0,type!=0,_
+"com.google.javascript.rhino.JSDocInfo#void#setFlag#?,boolean,int#422",0.0,0.0,0.0,value,_
+com.google.javascript.rhino.jstype.JSType#int#hashCode#?#432,0.0,0.0,0.0,System.identityHashCode(this)>0,_
+"com.google.javascript.jscomp.AstValidator#void#validateNonEmptyString#?,Node#327",0.0,0.0,0.0,!(n.getString().isEmpty()),_
+com.google.javascript.rhino.Node$IntPropListItem#int#getIntValue#?#342,0.0,0.0,0.0,intValue!=0,_
+"com.google.javascript.jscomp.graph.Graph#void#connectIfNotFound#?,N,E,N#120",0.0,0.0,0.0,"!isConnected(n1,edge,n2)",_
+com.google.javascript.jscomp.CodeConsumer#void#beginBlock#?#101,0.0,0.0,0.0,!(statementNeedsEnded),_
+"com.google.javascript.jscomp.CodeGenerator#String#identifierEscape#?,String#1097",0.0,0.0,0.0,NodeUtil.isLatin(s),_
+"com.google.javascript.jscomp.graph.LinkedDirectedGraph#List<DiGraphNode<N,E>>#getDirectedSuccNodes#?,DiGraphNode<N,E>#243",0.0,0.0,0.0,!(dNode == null),_
+"com.google.javascript.rhino.Node$StringNode#?#StringNode#?,int,String#198",0.0,0.0,0.0,!(null == str),_
+"com.google.javascript.rhino.jstype.InstanceObjectType#boolean#defineProperty#?,String,JSType,boolean,Node#89",0.0,0.0,0.0,!(proto != null && proto.hasOwnDeclaredProperty(name)),_
+"com.google.javascript.jscomp.AstValidator#void#validateCall#?,Node#376",0.0,0.0,0.0,!(c != null),_
+"com.google.javascript.rhino.Node#?#Node#?,int#364",0.0,0.0,0.0,-1!=nodeType,_
+"com.google.javascript.jscomp.parsing.JsDocInfoParser#JsDocToken#eatTokensUntilEOL#?,JsDocToken#2238",0.0,0.0,0.0,token == JsDocToken.EOL || token == JsDocToken.EOC || token == JsDocToken.EOF,_
+com.google.javascript.jscomp.CodePrinter$CompactCodePrinter#void#endFile#?#516,0.0,0.0,0.0,!preferLineBreakAtEndOfFile,_
+com.google.javascript.jscomp.Tracer#long#stop#?#441,0.0,0.0,0.0,stop(-1)==0,_
+com.google.javascript.jscomp.Compiler#void#initInputsByIdMap#?#494,0.0,0.0,0.0,!(previous != null),_
+"com.google.javascript.jscomp.PrepareAst#void#process#?,Node,Node#65",0.0,0.0,0.0,!(externs != null),_
+"com.google.javascript.jscomp.ControlFlowAnalysis$AstControlFlowGraph#int#getPosition#?,DiGraphNode<Node,Branch>#1053",0.0,0.0,0.0,priority!=0,_
+"com.google.javascript.rhino.Node#?#Node#?,int,Node#378",0.0,0.0,0.0,-1<=nodeType,_
+"com.google.javascript.rhino.jstype.FunctionParamBuilder#boolean#addRequiredParams#?,JSType#63",0.0,0.0,0.0,!(hasOptionalOrVarArgs()),_
+com.google.javascript.jscomp.UseSite#int#hashCode#?#43,0.0,0.0,0.0,this.node.hashCode()>0,_
+"com.google.javascript.jscomp.SyntacticScopeCreator#void#declareVar#?,Node#238",0.0,0.0,0.0,"!(scope.isDeclared(name,false) || (scope.isLocal() && name.equals(ARGUMENTS)))",_
+"com.google.javascript.jscomp.parsing.IRFactory#int#transformTokenType#?,int#1193",0.0,0.0,0.0,Token.CALL>0,_
+"com.google.javascript.jscomp.CodeGenerator#?#CodeGenerator#?,CodeConsumer,Charset#51",0.0,0.0,0.0,outputCharset == null || outputCharset == Charsets.US_ASCII,_
+com.google.javascript.jscomp.WarningsGuard#int#getPriority#?#84,0.0,0.0,0.0,Priority.DEFAULT.value>=0,_
+"com.google.javascript.rhino.jstype.InstanceObjectType#String#toStringHelper#?,boolean#97",0.0,0.0,0.0,constructor.hasReferenceName(),_
+"com.google.javascript.jscomp.Compiler#Tracer#newTracer#?,String#903",0.0,0.0,0.0,!(options.tracer.isOn()),_
+"com.google.javascript.jscomp.AstValidator#void#validateCodeRoot#?,Node#78",0.0,0.0,0.0,!(c != null),_

@@ -1,0 +1,28 @@
+,,
+1,ReplaceConstant,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:19 - ReplaceConstant - length -> 
+2,InsertUnaryOp,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:21 - InsertUnaryOp Negation of len
+3,ReplaceConstant,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:21 - ReplaceConstant - 0 -> 1
+4,ReplaceConstant,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:21 - ReplaceConstant - 0 -> -1
+5,ReplaceComparisonOperator,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:21 - ReplaceComparisonOperator != -> -1
+6,ReplaceComparisonOperator,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:21 - ReplaceComparisonOperator != -> <
+7,ReplaceComparisonOperator,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:21 - ReplaceComparisonOperator != -> >
+8,ReplaceConstant,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:22 - ReplaceConstant - length -> 
+9,ReplaceConstant,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:22 - ReplaceConstant - 0 -> 1
+10,ReplaceConstant,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:22 - ReplaceConstant - 0 -> -1
+11,ReplaceConstant,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:22 - ReplaceConstant - 1 -> 0
+12,InsertUnaryOp,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:26 - InsertUnaryOp Negation of len
+13,ReplaceConstant,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:26 - ReplaceConstant - 1 -> 0
+14,ReplaceConstant,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:26 - ReplaceConstant - 1 -> -1
+15,ReplaceConstant,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:26 - ReplaceConstant - 1 -> 2
+16,ReplaceArithmeticOperator,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:26 - ReplaceArithmeticOperator - -> +
+17,ReplaceArithmeticOperator,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:26 - ReplaceArithmeticOperator - -> %
+18,ReplaceArithmeticOperator,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:26 - ReplaceArithmeticOperator - -> *
+19,ReplaceArithmeticOperator,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:26 - ReplaceArithmeticOperator - -> /
+20,InsertUnaryOp,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:28 - InsertUnaryOp Negation of index
+21,InsertUnaryOp,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:29 - InsertUnaryOp Negation of index
+22,ReplaceConstant,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:29 - ReplaceConstant - 1 -> 0
+23,ReplaceConstant,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:30 - ReplaceConstant - length -> 
+24,InsertUnaryOp,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:30 - InsertUnaryOp Negation of index
+25,ReplaceConstant,org.dynjs.runtime.builtins.types.array.prototype.Pop.call(Lorg/dynjs/runtime/ExecutionContext;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:30 - ReplaceConstant - 1 -> 0
+26,ReplaceConstant,org.dynjs.runtime.builtins.types.array.prototype.Pop.setFileName()V:36 - ReplaceConstant - org/dynjs/runtime/builtins/types/array/prototype/Pop.java -> 
+27,ReplaceConstant,org.dynjs.runtime.builtins.types.array.prototype.Pop.setupDebugContext()V:41 - ReplaceConstant - <native function: pop> -> 

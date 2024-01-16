@@ -1,0 +1,101 @@
+employee_id,name,last_name,first_name,birth_day,birth_month,birth_year,hire_day,hire_month,hire_year,address,city,region,postal_code,country,employee_area_code,employee_phone_number
+5,Buchanan Steven,Buchanan,Steven,3,4,1955,10,17,1993,14 Garrett Hill,London,,SW1 8JR,UK,(71),555-4848
+6,Suyama Michael,Suyama,Michael,7,2,1963,10,17,1993,Miner Rd.,London,,EC2 7JR,UK,(71),555-7773
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+3,Leverling Janet,Leverling,Janet,8,30,1963,4,1,1992,722 Moss Bay Blvd.,Kirkland,WA,98033,USA,(206),555-3412
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+3,Leverling Janet,Leverling,Janet,8,30,1963,4,1,1992,722 Moss Bay Blvd.,Kirkland,WA,98033,USA,(206),555-3412
+5,Buchanan Steven,Buchanan,Steven,3,4,1955,10,17,1993,14 Garrett Hill,London,,SW1 8JR,UK,(71),555-4848
+9,Dodsworth Anne,Dodsworth,Anne,7,2,1969,11,15,1994,7 Houndstooth Rd.,London,,WG2 7LT,UK,(71),555-4444
+3,Leverling Janet,Leverling,Janet,8,30,1963,4,1,1992,722 Moss Bay Blvd.,Kirkland,WA,98033,USA,(206),555-3412
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+1,Davolio Nancy,Davolio,Nancy,12,8,1968,5,1,1992,Apt. 2A,Seattle,WA,98122,USA,(206),555-9857
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+8,Callahan Laura,Callahan,Laura,1,9,1958,3,5,1994,4726 - 11th Ave. N.E.,Seattle,WA,98105,USA,(206),555-1189
+9,Dodsworth Anne,Dodsworth,Anne,7,2,1969,11,15,1994,7 Houndstooth Rd.,London,,WG2 7LT,UK,(71),555-4444
+6,Suyama Michael,Suyama,Michael,7,2,1963,10,17,1993,Miner Rd.,London,,EC2 7JR,UK,(71),555-7773
+2,Fuller Andrew,Fuller,Andrew,2,19,1952,8,14,1992,908 W. Capital Way,Tacoma,WA,98401,USA,(206),555-9482
+3,Leverling Janet,Leverling,Janet,8,30,1963,4,1,1992,722 Moss Bay Blvd.,Kirkland,WA,98033,USA,(206),555-3412
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+8,Callahan Laura,Callahan,Laura,1,9,1958,3,5,1994,4726 - 11th Ave. N.E.,Seattle,WA,98105,USA,(206),555-1189
+5,Buchanan Steven,Buchanan,Steven,3,4,1955,10,17,1993,14 Garrett Hill,London,,SW1 8JR,UK,(71),555-4848
+1,Davolio Nancy,Davolio,Nancy,12,8,1968,5,1,1992,Apt. 2A,Seattle,WA,98122,USA,(206),555-9857
+6,Suyama Michael,Suyama,Michael,7,2,1963,10,17,1993,Miner Rd.,London,,EC2 7JR,UK,(71),555-7773
+6,Suyama Michael,Suyama,Michael,7,2,1963,10,17,1993,Miner Rd.,London,,EC2 7JR,UK,(71),555-7773
+3,Leverling Janet,Leverling,Janet,8,30,1963,4,1,1992,722 Moss Bay Blvd.,Kirkland,WA,98033,USA,(206),555-3412
+6,Suyama Michael,Suyama,Michael,7,2,1963,10,17,1993,Miner Rd.,London,,EC2 7JR,UK,(71),555-7773
+1,Davolio Nancy,Davolio,Nancy,12,8,1968,5,1,1992,Apt. 2A,Seattle,WA,98122,USA,(206),555-9857
+8,Callahan Laura,Callahan,Laura,1,9,1958,3,5,1994,4726 - 11th Ave. N.E.,Seattle,WA,98105,USA,(206),555-1189
+2,Fuller Andrew,Fuller,Andrew,2,19,1952,8,14,1992,908 W. Capital Way,Tacoma,WA,98401,USA,(206),555-9482
+8,Callahan Laura,Callahan,Laura,1,9,1958,3,5,1994,4726 - 11th Ave. N.E.,Seattle,WA,98105,USA,(206),555-1189
+8,Callahan Laura,Callahan,Laura,1,9,1958,3,5,1994,4726 - 11th Ave. N.E.,Seattle,WA,98105,USA,(206),555-1189
+2,Fuller Andrew,Fuller,Andrew,2,19,1952,8,14,1992,908 W. Capital Way,Tacoma,WA,98401,USA,(206),555-9482
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+3,Leverling Janet,Leverling,Janet,8,30,1963,4,1,1992,722 Moss Bay Blvd.,Kirkland,WA,98033,USA,(206),555-3412
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+1,Davolio Nancy,Davolio,Nancy,12,8,1968,5,1,1992,Apt. 2A,Seattle,WA,98122,USA,(206),555-9857
+8,Callahan Laura,Callahan,Laura,1,9,1958,3,5,1994,4726 - 11th Ave. N.E.,Seattle,WA,98105,USA,(206),555-1189
+8,Callahan Laura,Callahan,Laura,1,9,1958,3,5,1994,4726 - 11th Ave. N.E.,Seattle,WA,98105,USA,(206),555-1189
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+7,King Robert,King,Robert,5,29,1960,1,2,1994,Winchester Way,London,,RG1 9SP,UK,(71),555-5598
+8,Callahan Laura,Callahan,Laura,1,9,1958,3,5,1994,4726 - 11th Ave. N.E.,Seattle,WA,98105,USA,(206),555-1189
+6,Suyama Michael,Suyama,Michael,7,2,1963,10,17,1993,Miner Rd.,London,,EC2 7JR,UK,(71),555-7773
+1,Davolio Nancy,Davolio,Nancy,12,8,1968,5,1,1992,Apt. 2A,Seattle,WA,98122,USA,(206),555-9857
+1,Davolio Nancy,Davolio,Nancy,12,8,1968,5,1,1992,Apt. 2A,Seattle,WA,98122,USA,(206),555-9857
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+2,Fuller Andrew,Fuller,Andrew,2,19,1952,8,14,1992,908 W. Capital Way,Tacoma,WA,98401,USA,(206),555-9482
+6,Suyama Michael,Suyama,Michael,7,2,1963,10,17,1993,Miner Rd.,London,,EC2 7JR,UK,(71),555-7773
+5,Buchanan Steven,Buchanan,Steven,3,4,1955,10,17,1993,14 Garrett Hill,London,,SW1 8JR,UK,(71),555-4848
+6,Suyama Michael,Suyama,Michael,7,2,1963,10,17,1993,Miner Rd.,London,,EC2 7JR,UK,(71),555-7773
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+2,Fuller Andrew,Fuller,Andrew,2,19,1952,8,14,1992,908 W. Capital Way,Tacoma,WA,98401,USA,(206),555-9482
+8,Callahan Laura,Callahan,Laura,1,9,1958,3,5,1994,4726 - 11th Ave. N.E.,Seattle,WA,98105,USA,(206),555-1189
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+7,King Robert,King,Robert,5,29,1960,1,2,1994,Winchester Way,London,,RG1 9SP,UK,(71),555-5598
+1,Davolio Nancy,Davolio,Nancy,12,8,1968,5,1,1992,Apt. 2A,Seattle,WA,98122,USA,(206),555-9857
+8,Callahan Laura,Callahan,Laura,1,9,1958,3,5,1994,4726 - 11th Ave. N.E.,Seattle,WA,98105,USA,(206),555-1189
+1,Davolio Nancy,Davolio,Nancy,12,8,1968,5,1,1992,Apt. 2A,Seattle,WA,98122,USA,(206),555-9857
+2,Fuller Andrew,Fuller,Andrew,2,19,1952,8,14,1992,908 W. Capital Way,Tacoma,WA,98401,USA,(206),555-9482
+7,King Robert,King,Robert,5,29,1960,1,2,1994,Winchester Way,London,,RG1 9SP,UK,(71),555-5598
+3,Leverling Janet,Leverling,Janet,8,30,1963,4,1,1992,722 Moss Bay Blvd.,Kirkland,WA,98033,USA,(206),555-3412
+8,Callahan Laura,Callahan,Laura,1,9,1958,3,5,1994,4726 - 11th Ave. N.E.,Seattle,WA,98105,USA,(206),555-1189
+1,Davolio Nancy,Davolio,Nancy,12,8,1968,5,1,1992,Apt. 2A,Seattle,WA,98122,USA,(206),555-9857
+2,Fuller Andrew,Fuller,Andrew,2,19,1952,8,14,1992,908 W. Capital Way,Tacoma,WA,98401,USA,(206),555-9482
+2,Fuller Andrew,Fuller,Andrew,2,19,1952,8,14,1992,908 W. Capital Way,Tacoma,WA,98401,USA,(206),555-9482
+1,Davolio Nancy,Davolio,Nancy,12,8,1968,5,1,1992,Apt. 2A,Seattle,WA,98122,USA,(206),555-9857
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+1,Davolio Nancy,Davolio,Nancy,12,8,1968,5,1,1992,Apt. 2A,Seattle,WA,98122,USA,(206),555-9857
+6,Suyama Michael,Suyama,Michael,7,2,1963,10,17,1993,Miner Rd.,London,,EC2 7JR,UK,(71),555-7773
+8,Callahan Laura,Callahan,Laura,1,9,1958,3,5,1994,4726 - 11th Ave. N.E.,Seattle,WA,98105,USA,(206),555-1189
+7,King Robert,King,Robert,5,29,1960,1,2,1994,Winchester Way,London,,RG1 9SP,UK,(71),555-5598
+5,Buchanan Steven,Buchanan,Steven,3,4,1955,10,17,1993,14 Garrett Hill,London,,SW1 8JR,UK,(71),555-4848
+3,Leverling Janet,Leverling,Janet,8,30,1963,4,1,1992,722 Moss Bay Blvd.,Kirkland,WA,98033,USA,(206),555-3412
+7,King Robert,King,Robert,5,29,1960,1,2,1994,Winchester Way,London,,RG1 9SP,UK,(71),555-5598
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+9,Dodsworth Anne,Dodsworth,Anne,7,2,1969,11,15,1994,7 Houndstooth Rd.,London,,WG2 7LT,UK,(71),555-4444
+1,Davolio Nancy,Davolio,Nancy,12,8,1968,5,1,1992,Apt. 2A,Seattle,WA,98122,USA,(206),555-9857
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+2,Fuller Andrew,Fuller,Andrew,2,19,1952,8,14,1992,908 W. Capital Way,Tacoma,WA,98401,USA,(206),555-9482
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+3,Leverling Janet,Leverling,Janet,8,30,1963,4,1,1992,722 Moss Bay Blvd.,Kirkland,WA,98033,USA,(206),555-3412
+9,Dodsworth Anne,Dodsworth,Anne,7,2,1969,11,15,1994,7 Houndstooth Rd.,London,,WG2 7LT,UK,(71),555-4444
+3,Leverling Janet,Leverling,Janet,8,30,1963,4,1,1992,722 Moss Bay Blvd.,Kirkland,WA,98033,USA,(206),555-3412
+5,Buchanan Steven,Buchanan,Steven,3,4,1955,10,17,1993,14 Garrett Hill,London,,SW1 8JR,UK,(71),555-4848
+8,Callahan Laura,Callahan,Laura,1,9,1958,3,5,1994,4726 - 11th Ave. N.E.,Seattle,WA,98105,USA,(206),555-1189
+7,King Robert,King,Robert,5,29,1960,1,2,1994,Winchester Way,London,,RG1 9SP,UK,(71),555-5598
+7,King Robert,King,Robert,5,29,1960,1,2,1994,Winchester Way,London,,RG1 9SP,UK,(71),555-5598
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+2,Fuller Andrew,Fuller,Andrew,2,19,1952,8,14,1992,908 W. Capital Way,Tacoma,WA,98401,USA,(206),555-9482
+1,Davolio Nancy,Davolio,Nancy,12,8,1968,5,1,1992,Apt. 2A,Seattle,WA,98122,USA,(206),555-9857
+7,King Robert,King,Robert,5,29,1960,1,2,1994,Winchester Way,London,,RG1 9SP,UK,(71),555-5598
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122
+2,Fuller Andrew,Fuller,Andrew,2,19,1952,8,14,1992,908 W. Capital Way,Tacoma,WA,98401,USA,(206),555-9482
+3,Leverling Janet,Leverling,Janet,8,30,1963,4,1,1992,722 Moss Bay Blvd.,Kirkland,WA,98033,USA,(206),555-3412
+4,Peacock Margaret,Peacock,Margaret,9,19,1958,5,3,1993,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206),555-8122

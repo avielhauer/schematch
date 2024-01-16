@@ -1,0 +1,16 @@
+,,,,,
+Dev2.SignalR.Wrappers.New,HubConnectionWrapper,HubConnectionWrapper,4,1,1
+Dev2.SignalR.Wrappers.New,HubConnectionWrapper,HubConnectionWrapper,2,1,1
+Dev2.SignalR.Wrappers.New,HubConnectionWrapper,CreateHubProxy,0,1,1
+Dev2.SignalR.Wrappers.New,HubConnectionWrapper,Start,4,1,0
+Dev2.SignalR.Wrappers.New,HubConnectionWrapper,Stop,3,1,1
+Dev2.SignalR.Wrappers.New,HubProxyWrapper,HubProxyWrapper,3,1,1
+Dev2.SignalR.Wrappers.New,HubProxyWrapper,Subscribe,4,1,1
+Dev2.SignalR.Wrappers.New,HubProxyWrapper,Invoke,0,1,2
+Dev2.SignalR.Wrappers.New,HubProxyWrapper,Invoke,0,1,2
+Dev2.SignalR.Wrappers.New,HubProxyWrapper,Object,0,1,0
+Dev2.SignalR.Wrappers.New,HubProxyWrapper,On,0,1,2
+Dev2.SignalR.Wrappers.New,SubscriptionWrapper,SubscriptionWrapper,4,1,1
+Dev2.SignalR.Wrappers.New,SubscriptionWrapper,WrappedReceived,3,1,1
+Dev2.SignalR.Wrappers.New,StateChangeWrapped,StateChangeWrapped,4,1,2
+Dev2.SignalR.Wrappers.New,StateChangeWrapped,StateChangeWrapped,4,1,1

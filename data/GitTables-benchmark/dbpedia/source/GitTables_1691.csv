@@ -1,0 +1,104 @@
+,,
+1,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURLCount(I)I:85 - InsertUnaryOp Negation of list
+2,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURLCount(I)I:85 - InsertUnaryOp IINC 1 list
+3,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURLCount(I)I:85 - InsertUnaryOp IINC -1 list
+4,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.getURLCount(I)I:86 - ReplaceComparisonOperator = null -> != null
+5,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURLCount(I)I:89 - InsertUnaryOp Negation of result
+6,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURLCount(I)I:89 - InsertUnaryOp IINC 1 result
+7,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURLCount(I)I:89 - InsertUnaryOp IINC -1 result
+8,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:102 - InsertUnaryOp Negation of series
+9,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:102 - InsertUnaryOp IINC 1 series
+10,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:102 - InsertUnaryOp IINC -1 series
+11,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:102 - ReplaceComparisonOperator >= -> -1
+12,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:102 - ReplaceComparisonOperator >= -> >
+13,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:102 - ReplaceComparisonOperator >= -> ==
+14,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:103 - InsertUnaryOp Negation of series
+15,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:103 - InsertUnaryOp IINC 1 series
+16,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:103 - InsertUnaryOp IINC -1 series
+17,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:104 - ReplaceComparisonOperator = null -> != null
+18,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:105 - InsertUnaryOp Negation of item
+19,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:105 - InsertUnaryOp IINC 1 item
+20,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:105 - InsertUnaryOp IINC -1 item
+21,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:105 - ReplaceComparisonOperator >= -> -1
+22,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:105 - ReplaceComparisonOperator >= -> >
+23,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:105 - ReplaceComparisonOperator >= -> ==
+24,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:106 - InsertUnaryOp Negation of item
+25,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:106 - InsertUnaryOp IINC 1 item
+26,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.getURL(II)Ljava/lang/String;:106 - InsertUnaryOp IINC -1 item
+27,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.generateURL(Lorg/jfree/data/category/CategoryDataset;II)Ljava/lang/String;:124 - InsertUnaryOp Negation of series
+28,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.generateURL(Lorg/jfree/data/category/CategoryDataset;II)Ljava/lang/String;:124 - InsertUnaryOp IINC 1 series
+29,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.generateURL(Lorg/jfree/data/category/CategoryDataset;II)Ljava/lang/String;:124 - InsertUnaryOp IINC -1 series
+30,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.generateURL(Lorg/jfree/data/category/CategoryDataset;II)Ljava/lang/String;:124 - InsertUnaryOp Negation of item
+31,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.generateURL(Lorg/jfree/data/category/CategoryDataset;II)Ljava/lang/String;:124 - InsertUnaryOp IINC 1 item
+32,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.generateURL(Lorg/jfree/data/category/CategoryDataset;II)Ljava/lang/String;:124 - InsertUnaryOp IINC -1 item
+33,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.addURLSeries(Ljava/util/List;)V:134 - ReplaceComparisonOperator = null -> != null
+34,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:149 - ReplaceComparisonOperator != -> ==
+35,ReplaceConstant,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:150 - ReplaceConstant - 1 -> 0
+36,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:152 - ReplaceComparisonOperator != -> -1
+37,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:152 - ReplaceComparisonOperator != -> <
+38,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:152 - ReplaceComparisonOperator != -> >
+39,ReplaceConstant,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:153 - ReplaceConstant - 0 -> 1
+40,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:157 - InsertUnaryOp Negation of listCount
+41,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:157 - InsertUnaryOp IINC 1 listCount
+42,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:157 - InsertUnaryOp IINC -1 listCount
+43,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:157 - ReplaceComparisonOperator == -> -2
+44,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:157 - ReplaceComparisonOperator == -> >=
+45,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:157 - ReplaceComparisonOperator == -> <=
+46,ReplaceConstant,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:158 - ReplaceConstant - 0 -> 1
+47,ReplaceConstant,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:161 - ReplaceConstant - 0 -> 1
+48,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:161 - InsertUnaryOp Negation of series
+49,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:161 - InsertUnaryOp IINC 1 series
+50,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:161 - InsertUnaryOp IINC -1 series
+51,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:161 - InsertUnaryOp Negation of listCount
+52,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:161 - InsertUnaryOp IINC 1 listCount
+53,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:161 - InsertUnaryOp IINC -1 listCount
+54,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:161 - ReplaceComparisonOperator >= -> -1
+55,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:161 - ReplaceComparisonOperator >= -> >
+56,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:161 - ReplaceComparisonOperator >= -> ==
+57,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:162 - InsertUnaryOp Negation of series
+58,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:162 - InsertUnaryOp IINC 1 series
+59,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:162 - InsertUnaryOp IINC -1 series
+60,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:163 - InsertUnaryOp Negation of urlCount
+61,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:163 - InsertUnaryOp IINC 1 urlCount
+62,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:163 - InsertUnaryOp IINC -1 urlCount
+63,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:163 - InsertUnaryOp Negation of series
+64,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:163 - InsertUnaryOp IINC 1 series
+65,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:163 - InsertUnaryOp IINC -1 series
+66,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:163 - ReplaceComparisonOperator == -> -2
+67,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:163 - ReplaceComparisonOperator == -> >=
+68,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:163 - ReplaceComparisonOperator == -> <=
+69,ReplaceConstant,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:164 - ReplaceConstant - 0 -> 1
+70,ReplaceConstant,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:167 - ReplaceConstant - 0 -> 1
+71,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:167 - InsertUnaryOp Negation of item
+72,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:167 - InsertUnaryOp IINC 1 item
+73,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:167 - InsertUnaryOp IINC -1 item
+74,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:167 - InsertUnaryOp Negation of urlCount
+75,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:167 - InsertUnaryOp IINC 1 urlCount
+76,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:167 - InsertUnaryOp IINC -1 urlCount
+77,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:167 - ReplaceComparisonOperator >= -> -1
+78,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:167 - ReplaceComparisonOperator >= -> >
+79,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:167 - ReplaceComparisonOperator >= -> ==
+80,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:168 - InsertUnaryOp Negation of series
+81,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:168 - InsertUnaryOp IINC 1 series
+82,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:168 - InsertUnaryOp IINC -1 series
+83,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:168 - InsertUnaryOp Negation of item
+84,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:168 - InsertUnaryOp IINC 1 item
+85,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:168 - InsertUnaryOp IINC -1 item
+86,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:169 - InsertUnaryOp Negation of series
+87,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:169 - InsertUnaryOp IINC 1 series
+88,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:169 - InsertUnaryOp IINC -1 series
+89,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:169 - InsertUnaryOp Negation of item
+90,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:169 - InsertUnaryOp IINC 1 item
+91,InsertUnaryOp,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:169 - InsertUnaryOp IINC -1 item
+92,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:170 - ReplaceComparisonOperator = null -> != null
+93,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:171 - ReplaceComparisonOperator != -> -1
+94,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:171 - ReplaceComparisonOperator != -> <
+95,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:171 - ReplaceComparisonOperator != -> >
+96,ReplaceConstant,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:172 - ReplaceConstant - 0 -> 1
+97,ReplaceComparisonOperator,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:175 - ReplaceComparisonOperator = null -> != null
+98,ReplaceConstant,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:176 - ReplaceConstant - 0 -> 1
+99,ReplaceVariable,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:167 - ReplaceVariable item -> listCount
+100,ReplaceVariable,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:167 - ReplaceVariable item -> series
+101,ReplaceVariable,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:167 - ReplaceVariable item -> urlCount
+102,ReplaceVariable,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:161 - ReplaceVariable series -> listCount
+103,ReplaceConstant,org.jfree.chart.urls.CustomCategoryURLGenerator.equals(Ljava/lang/Object;)Z:181 - ReplaceConstant - 1 -> 0

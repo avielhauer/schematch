@@ -1,0 +1,17 @@
+,,,,,,,,,,
+dpnaddr.dll,8192,2,268992428,1978-07-11T08:07:08.000Z,imports,msvcrt.dll,_amsg_exit,d26714c28273e5fd6ca8142921d116c8,8f9add8e95a4a7aa859afd81375bebd9fe82835091ae3c76818e15aaf5b86975,c:\Windows\SysWOW64\dpnaddr.dll
+dpnaddr.dll,8192,2,268992428,1978-07-11T08:07:08.000Z,imports,msvcrt.dll,_except_handler4_common,d26714c28273e5fd6ca8142921d116c8,8f9add8e95a4a7aa859afd81375bebd9fe82835091ae3c76818e15aaf5b86975,c:\Windows\SysWOW64\dpnaddr.dll
+dpnaddr.dll,8192,2,268992428,1978-07-11T08:07:08.000Z,imports,msvcrt.dll,_initterm,d26714c28273e5fd6ca8142921d116c8,8f9add8e95a4a7aa859afd81375bebd9fe82835091ae3c76818e15aaf5b86975,c:\Windows\SysWOW64\dpnaddr.dll
+dpnaddr.dll,8192,2,268992428,1978-07-11T08:07:08.000Z,imports,msvcrt.dll,free,d26714c28273e5fd6ca8142921d116c8,8f9add8e95a4a7aa859afd81375bebd9fe82835091ae3c76818e15aaf5b86975,c:\Windows\SysWOW64\dpnaddr.dll
+dpnaddr.dll,8192,2,268992428,1978-07-11T08:07:08.000Z,imports,msvcrt.dll,malloc,d26714c28273e5fd6ca8142921d116c8,8f9add8e95a4a7aa859afd81375bebd9fe82835091ae3c76818e15aaf5b86975,c:\Windows\SysWOW64\dpnaddr.dll
+dpnaddr.dll,8192,2,268992428,1978-07-11T08:07:08.000Z,imports,kernel32.dll,GetCurrentProcess,d26714c28273e5fd6ca8142921d116c8,8f9add8e95a4a7aa859afd81375bebd9fe82835091ae3c76818e15aaf5b86975,c:\Windows\SysWOW64\dpnaddr.dll
+dpnaddr.dll,8192,2,268992428,1978-07-11T08:07:08.000Z,imports,kernel32.dll,GetCurrentProcessId,d26714c28273e5fd6ca8142921d116c8,8f9add8e95a4a7aa859afd81375bebd9fe82835091ae3c76818e15aaf5b86975,c:\Windows\SysWOW64\dpnaddr.dll
+dpnaddr.dll,8192,2,268992428,1978-07-11T08:07:08.000Z,imports,kernel32.dll,GetCurrentThreadId,d26714c28273e5fd6ca8142921d116c8,8f9add8e95a4a7aa859afd81375bebd9fe82835091ae3c76818e15aaf5b86975,c:\Windows\SysWOW64\dpnaddr.dll
+dpnaddr.dll,8192,2,268992428,1978-07-11T08:07:08.000Z,imports,kernel32.dll,GetSystemTimeAsFileTime,d26714c28273e5fd6ca8142921d116c8,8f9add8e95a4a7aa859afd81375bebd9fe82835091ae3c76818e15aaf5b86975,c:\Windows\SysWOW64\dpnaddr.dll
+dpnaddr.dll,8192,2,268992428,1978-07-11T08:07:08.000Z,imports,kernel32.dll,GetTickCount,d26714c28273e5fd6ca8142921d116c8,8f9add8e95a4a7aa859afd81375bebd9fe82835091ae3c76818e15aaf5b86975,c:\Windows\SysWOW64\dpnaddr.dll
+dpnaddr.dll,8192,2,268992428,1978-07-11T08:07:08.000Z,imports,kernel32.dll,QueryPerformanceCounter,d26714c28273e5fd6ca8142921d116c8,8f9add8e95a4a7aa859afd81375bebd9fe82835091ae3c76818e15aaf5b86975,c:\Windows\SysWOW64\dpnaddr.dll
+dpnaddr.dll,8192,2,268992428,1978-07-11T08:07:08.000Z,imports,kernel32.dll,SetUnhandledExceptionFilter,d26714c28273e5fd6ca8142921d116c8,8f9add8e95a4a7aa859afd81375bebd9fe82835091ae3c76818e15aaf5b86975,c:\Windows\SysWOW64\dpnaddr.dll
+dpnaddr.dll,8192,2,268992428,1978-07-11T08:07:08.000Z,imports,kernel32.dll,Sleep,d26714c28273e5fd6ca8142921d116c8,8f9add8e95a4a7aa859afd81375bebd9fe82835091ae3c76818e15aaf5b86975,c:\Windows\SysWOW64\dpnaddr.dll
+dpnaddr.dll,8192,2,268992428,1978-07-11T08:07:08.000Z,imports,kernel32.dll,TerminateProcess,d26714c28273e5fd6ca8142921d116c8,8f9add8e95a4a7aa859afd81375bebd9fe82835091ae3c76818e15aaf5b86975,c:\Windows\SysWOW64\dpnaddr.dll
+dpnaddr.dll,8192,2,268992428,1978-07-11T08:07:08.000Z,imports,kernel32.dll,UnhandledExceptionFilter,d26714c28273e5fd6ca8142921d116c8,8f9add8e95a4a7aa859afd81375bebd9fe82835091ae3c76818e15aaf5b86975,c:\Windows\SysWOW64\dpnaddr.dll
+dpnaddr.dll,8192,2,268992428,1978-07-11T08:07:08.000Z,exports,dpnaddr.dll,DllMain,d26714c28273e5fd6ca8142921d116c8,8f9add8e95a4a7aa859afd81375bebd9fe82835091ae3c76818e15aaf5b86975,c:\Windows\SysWOW64\dpnaddr.dll

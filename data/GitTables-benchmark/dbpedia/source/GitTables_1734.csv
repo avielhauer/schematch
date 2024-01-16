@@ -1,0 +1,98 @@
+,,,,,
+org.apache.commons.math3.optimization.linear.AbstractLinearOptimizer#void#incrementIterationsCounter#?#128,1.0,1.0,0.6,,_
+"org.apache.commons.math3.optimization.linear.SimplexSolver#Integer#getPivotRow#?,SimplexTableau,int#145",0.5,0.7071067811865475,0.5828427124746189,i<=col,GT
+"org.apache.commons.math3.optimization.linear.SimplexTableau#?#SimplexTableau#?,LinearObjectiveFunction,Collection<LinearConstraint>,GoalType,boolean,double,int#145",0.1825741858350553,0.5773502691896258,0.3404846191768835,f.getCoefficients().getDimension() + (restrictToNonNegative ? 0 : 1)>maxUlps,_
+"org.apache.commons.math3.util.Precision#int#compareTo#?,double,double,int#117",0.2581988897471611,0.2581988897471611,0.2581988897471611,-1<0,_
+org.apache.commons.math3.optimization.linear.SimplexTableau#int#getNumArtificialVariables#?#568,0.1825741858350553,0.3535533905932737,0.2509658677383427,numArtificialVariables<=0,_
+org.apache.commons.math3.optimization.linear.LinearConstraint#double#getValue#?#184,0.1825741858350553,0.3535533905932737,0.2509658677383427,value==0,_
+org.apache.commons.math3.optimization.linear.SimplexSolver#PointValuePair#doOptimize#?#226,0.25,0.25,0.25,!tableau.isOptimal(),_
+"org.apache.commons.math3.optimization.linear.SimplexSolver#void#doIteration#?,SimplexTableau#180",0.2041241452319315,0.2886751345948129,0.2379445409770841,"tableau.getEntry(i,pivotCol)>pivotVal",_
+org.apache.commons.math3.optimization.linear.SimplexTableau#void#dropPhase1Objective#?#351,0.2294157338705617,0.2294157338705617,0.225930372198212,getBasicRow(col) == null,_
+"org.apache.commons.math3.optimization.linear.SimplexTableau#RealMatrix#createTableau#?,boolean#230",0.2581988897471611,0.2672612419124244,0.2232795558988644,constraint.getRelationship() == Relationship.GEQ,_
+"org.apache.commons.math3.optimization.linear.SimplexSolver#void#solvePhase1#?,SimplexTableau#206",0.2182178902359924,0.2294157338705617,0.2196867233615909,"!(!Precision.equals(tableau.getEntry(0,tableau.getRhsOffset()),0d,epsilon))",_
+org.apache.commons.math3.optimization.linear.SimplexTableau#void#initializeColumnLabels#?#166,0.2,0.2672612419124244,0.216449008266003,!(!restrictToNonNegative),_
+"org.apache.commons.math3.optimization.linear.SimplexSolver#Integer#getPivotColumn#?,SimplexTableau#73",0.2041241452319315,0.2294157338705617,0.2142407806873836,"tableau.getEntry(0,i)==minValue",_
+"org.apache.commons.math3.optimization.linear.SimplexTableau#Integer#getBasicRow#?,int#325",0.2132007163556104,0.2132007163556104,0.2132007163556104,row!=0,_
+"org.apache.commons.math3.optimization.linear.SimplexTableau#void#subtractRow#?,int,int,double#464",0.2041241452319315,0.2182178902359924,0.2097616432335559,"tableau.getEntry(minuendRow,i) - tableau.getEntry(subtrahendRow,i) * multiple<multiple",_
+"org.apache.commons.math3.optimization.linear.SimplexTableau#void#divideRow#?,int,double#446",0.2041241452319315,0.2041241452319315,0.2041241452319315,j < getWidth(),_
+org.apache.commons.math3.optimization.linear.SimplexTableau#int#getRhsOffset#?#529,0.2,0.2,0.2,getWidth() - 1>0,_
+org.apache.commons.math3.optimization.linear.SimplexTableau#int#getArtificialVariableOffset#?#521,0.2,0.2,0.2,getNumObjectiveFunctions() + numDecisionVariables + numSlackVariables>=0,_
+org.apache.commons.math3.optimization.linear.SimplexTableau#boolean#isOptimal#?#391,0.2041241452319315,0.2041241452319315,0.199319339175683,"Precision.compareTo(entry,0d,epsilon) < 0",_
+org.apache.commons.math3.optimization.linear.SimplexTableau#int#getHeight#?#486,0.196116135138184,0.196116135138184,0.196116135138184,tableau.getRowDimension()>0,_
+"org.apache.commons.math3.optimization.linear.SimplexTableau#double#getEntry#?,int,int#495",0.1924500897298752,0.2,0.1954700538379251,"tableau.getEntry(row,column)==0",_
+org.apache.commons.math3.optimization.linear.SimplexTableau#int#getWidth#?#478,0.1924500897298752,0.1924500897298752,0.1924500897298752,tableau.getColumnDimension()>0,_
+org.apache.commons.math3.optimization.linear.SimplexTableau#int#getSlackVariableOffset#?#513,0.1924500897298752,0.1924500897298752,0.1924500897298752,getNumObjectiveFunctions() + numDecisionVariables>0,_
+org.apache.commons.math3.optimization.linear.SimplexTableau#int#getNumSlackVariables#?#560,0.1825741858350553,0.196116135138184,0.1879909655563068,numSlackVariables!=0,_
+"org.apache.commons.math3.linear.AbstractRealMatrix#void#setRowVector#?,int,RealVector#497",0.1856953381770518,0.1856953381770518,0.1856953381770518,!(i < nCols),_
+"org.apache.commons.math3.optimization.linear.SimplexTableau#int#getConstraintTypeCounts#?,Relationship#294",0.1825741858350553,0.1889822365046136,0.1851374061028786,count<=0,_
+"org.apache.commons.math3.optimization.linear.SimplexTableau#LinearConstraint#normalize#?,LinearConstraint#265",0.1889822365046136,0.1889822365046136,0.1851374061028786,!(constraint.getValue() < 0),_
+org.apache.commons.math3.optimization.linear.LinearObjectiveFunction#double#getConstantTerm#?#83,0.1825741858350553,0.1889822365046136,0.1851374061028786,constantTerm==0,_
+org.apache.commons.math3.optimization.linear.SimplexTableau#int#getNumObjectiveFunctions#?#279,0.1825741858350553,0.1825741858350553,0.1825741858350553,this.numArtificialVariables > 0 ? 2 : 1!=0,_
+org.apache.commons.math3.optimization.linear.SimplexTableau#int#getOriginalNumDecisionVariables#?#552,0.1825741858350553,0.1825741858350553,0.1825741858350553,f.getCoefficients().getDimension()>0,_
+"org.apache.commons.math3.util.Precision#int#compareTo#?,double,double,double#91",0.1643989873053573,0.1643989873053573,0.1643989873053573,-1<=0,_
+"org.apache.commons.math3.linear.AbstractRealMatrix#double[]#getRow#?,int#523",0.1428571428571428,0.1428571428571428,0.1428571428571428,getColumnDimension()>row,_
+"org.apache.commons.math3.exception.MaxCountExceededException#?#MaxCountExceededException#?,Number#42",0.2236067977499789,0.0,0.1341640786499873,,_
+"org.apache.commons.math3.exception.MaxCountExceededException#?#MaxCountExceededException#?,Localizable,Number,Object#55",0.2236067977499789,0.0,0.1341640786499873,,_
+"org.apache.commons.math3.optimization.linear.AbstractLinearOptimizer#void#setMaxIterations#?,int#108",0.196116135138184,0.0,0.1176696810829104,,_
+org.apache.commons.math3.optimization.linear.AbstractLinearOptimizer#Collection<LinearConstraint>#getConstraints#?#103,0.196116135138184,0.0,0.1176696810829104,,_
+"org.apache.commons.math3.optimization.linear.SimplexSolver#?#SimplexSolver#?,double,int#61",0.196116135138184,0.0,0.1176696810829104,,_
+"org.apache.commons.math3.optimization.linear.AbstractLinearOptimizer#PointValuePair#optimize#?,LinearObjectiveFunction,Collection<LinearConstraint>,GoalType,boolean#140",0.196116135138184,0.0,0.1176696810829104,,_
+org.apache.commons.math3.optimization.linear.AbstractLinearOptimizer#LinearObjectiveFunction#getFunction#?#96,0.196116135138184,0.0,0.1176696810829104,,_
+org.apache.commons.math3.optimization.linear.AbstractLinearOptimizer#?#AbstractLinearOptimizer#?#75,0.196116135138184,0.0,0.1176696810829104,,_
+org.apache.commons.math3.optimization.linear.SimplexSolver#?#SimplexSolver#?#51,0.196116135138184,0.0,0.1176696810829104,,_
+org.apache.commons.math3.optimization.linear.AbstractLinearOptimizer#boolean#restrictToNonNegative#?#82,0.196116135138184,0.0,0.1176696810829104,,_
+org.apache.commons.math3.optimization.linear.AbstractLinearOptimizer#GoalType#getGoalType#?#89,0.196116135138184,0.0,0.1176696810829104,,_
+"org.apache.commons.math3.linear.ArrayRealVector#ArrayRealVector#subtract#?,RealVector#323",0.1162476387438192,0.1162476387438192,0.1162476387438193,i < dim,_
+"org.apache.commons.math3.linear.AbstractRealMatrix#RealVector#getRowVector#?,int#486",0.1889822365046136,0.0,0.1133893419027681,,_
+"org.apache.commons.math3.optimization.linear.SimplexTableau#List<LinearConstraint>#normalizeConstraints#?,Collection<LinearConstraint>#252",0.1825741858350553,0.0,0.1095445115010332,,_
+org.apache.commons.math3.optimization.linear.LinearConstraint#RealVector#getCoefficients#?#168,0.1825741858350553,0.0,0.1095445115010332,,_
+"org.apache.commons.math3.optimization.linear.SimplexTableau#void#copyArray#?,double[],double[]#381",0.1825741858350553,0.0,0.1095445115010332,,_
+org.apache.commons.math3.optimization.linear.LinearConstraint#Relationship#getRelationship#?#176,0.1825741858350553,0.0,0.1095445115010332,,_
+"org.apache.commons.math3.optimization.linear.LinearConstraint#?#LinearConstraint#?,double[],Relationship,double#81",0.1825741858350553,0.0,0.1095445115010332,,_
+"org.apache.commons.math3.optimization.linear.LinearObjectiveFunction#?#LinearObjectiveFunction#?,double[],double#58",0.1825741858350553,0.0,0.1095445115010332,,_
+"org.apache.commons.math3.optimization.linear.LinearConstraint#?#LinearConstraint#?,RealVector,Relationship,double#102",0.1825741858350553,0.0,0.1095445115010332,,_
+"org.apache.commons.math3.optimization.linear.LinearObjectiveFunction#?#LinearObjectiveFunction#?,RealVector,double#66",0.1825741858350553,0.0,0.1095445115010332,,_
+org.apache.commons.math3.optimization.linear.LinearObjectiveFunction#RealVector#getCoefficients#?#75,0.1825741858350553,0.0,0.1095445115010332,,_
+org.apache.commons.math3.linear.Array2DRowRealMatrix#double[][]#getDataRef#?#255,0.156173761888606,0.0,0.0937042571331636,,_
+org.apache.commons.math3.exception.MathIllegalStateException#ExceptionContext#getContext#?#74,0.1474419561548971,0.0,0.0884651736929382,,_
+"org.apache.commons.math3.linear.Array2DRowRealMatrix#void#setSubMatrix#?,double[][],int,int#275",0.0633724250524477,0.1195228609334393,0.0858325994048444,subMatrix[0].length>nRows,_
+org.apache.commons.math3.exception.MathIllegalStateException#?#MathIllegalStateException#?#69,0.1428571428571428,0.0,0.0857142857142857,,_
+"org.apache.commons.math3.linear.ArrayRealVector#void#checkVectorDimensions#?,int#743",0.0833333333333333,0.0870388279778489,0.0848155311911395,!(data.length != n),_
+"org.apache.commons.math3.util.Precision#boolean#equals#?,double,double,int#305",0.0790569415042094,0.0821994936526786,0.0803139623635971,SGN_MASK - xInt<=yInt,_
+"org.apache.commons.math3.exception.MathIllegalStateException#?#MathIllegalStateException#?,Localizable,Object#46",0.1230914909793327,0.0,0.0738548945875996,,_
+"org.apache.commons.math3.linear.ArrayRealVector#double#getEntry#?,int#591",0.0635000635000952,0.0827605888602368,0.0712042736441518,data[index]==0,_
+"org.apache.commons.math3.linear.Array2DRowRealMatrix#double#getEntry#?,int,int#296",0.0623782861551805,0.0776150525706332,0.0684729927213616,data[row][column]<0,_
+org.apache.commons.math3.linear.ArrayRealVector#double[]#toArray#?#713,0.101015254455221,0.0,0.0606091526731326,,_
+"org.apache.commons.math3.linear.ArrayRealVector#?#ArrayRealVector#?,double[],boolean#104",0.0587220219514703,0.0587220219514703,0.0587220219514703,!(d == null),_
+org.apache.commons.math3.linear.ArrayRealVector#int#getDimension#?#601,0.0576390417704235,0.0577350269189625,0.0576774358298391,data.length>0,_
+org.apache.commons.math3.linear.Array2DRowRealMatrix#int#getRowDimension#?#323,0.0544734710702843,0.0544734710702843,0.0544734710702843,(data == null) ? 0 : data.length>0,_
+org.apache.commons.math3.linear.Array2DRowRealMatrix#int#getColumnDimension#?#329,0.0543928293220421,0.0543928293220421,0.0543928293220421,((data == null) || (data[0] == null)) ? 0 : data[0].length>0,_
+"org.apache.commons.math3.linear.MatrixUtils#void#checkRowIndex#?,AnyMatrix,int#391",0.052199575097188,0.052199575097188,0.052199575097188,!(row < 0 || row >= m.getRowDimension()),_
+"org.apache.commons.math3.linear.MatrixUtils#void#checkColumnIndex#?,AnyMatrix,int#406",0.0521286035142686,0.0521286035142686,0.0521286035142686,!(column < 0 || column >= m.getColumnDimension()),_
+"org.apache.commons.math3.linear.ArrayRealVector#?#ArrayRealVector#?,int#65",0.0857492925712544,0.0,0.0514495755427526,,_
+"org.apache.commons.math3.linear.AbstractRealMatrix#?#AbstractRealMatrix#?,int,int#65",0.0501885613228495,0.0501885613228495,0.0501885613228495,!(columnDimension < 1),_
+"org.apache.commons.math3.util.FastMath#long#abs#?,long#2909",0.0444554224474387,0.0568880123988574,0.0494284584280061,(x < 0l) ? -x : x==0,_
+"org.apache.commons.math3.util.Precision#boolean#equals#?,double,double,double#264",0.0764719112901872,0.0,0.0458831467741123,,_
+"org.apache.commons.math3.linear.ArrayRealVector#?#ArrayRealVector#?,double[]#86",0.0735214622093807,0.0,0.0441128773256284,,_
+"org.apache.commons.math3.exception.util.ArgUtils#Object[]#flatten#?,Object[]#45",0.0406894229385579,0.0437688109532408,0.0419211781444311,o instanceof Object[],_
+"org.apache.commons.math3.util.MathUtils#void#checkNotNull#?,Object#257",0.0389544693565809,0.0390137157320435,0.038978167906766,!(o == null),_
+"org.apache.commons.math3.linear.Array2DRowRealMatrix#?#Array2DRowRealMatrix#?,double[][]#75",0.0636284762975777,0.0,0.0381770857785466,,_
+"org.apache.commons.math3.linear.Array2DRowRealMatrix#void#copyIn#?,double[][]#526",0.0633724250524477,0.0,0.0380234550314686,,_
+"org.apache.commons.math3.linear.Array2DRowRealMatrix#void#setEntry#?,int,int,double#302",0.0633724250524477,0.0,0.0380234550314686,,_
+"org.apache.commons.math3.linear.Array2DRowRealMatrix#?#Array2DRowRealMatrix#?,int,int#56",0.0623782861551805,0.0,0.0374269716931083,,_
+"org.apache.commons.math3.linear.MatrixUtils#void#checkMatrixIndex#?,AnyMatrix,int,int#379",0.0547175655164582,0.0,0.0328305393098749,,_
+"org.apache.commons.math3.util.FastMath#double#abs#?,double#2927",0.0298807152333598,0.0349428278907306,0.0319055602963081,(x < 0.0) ? -x : (x == 0.0) ? 0.0 : x<=0,_
+"org.apache.commons.math3.exception.util.ExceptionContext#void#addMessage#?,Localizable,Object#88",0.0369106735262781,0.0,0.0221464041157668,,_
+"org.apache.commons.math3.exception.util.ExceptionContext#?#ExceptionContext#?,Throwable#65",0.0368855556781658,0.0,0.0221313334068995,,_
+"org.apache.commons.math3.linear.RealVectorFormat#?#RealVectorFormat#?,NumberFormat#82",0.0,0.0,0.0,,_
+"org.apache.commons.math3.linear.RealMatrixFormat#?#RealMatrixFormat#?,NumberFormat#99",0.0,0.0,0.0,,_
+org.apache.commons.math3.linear.RealMatrixFormat#NumberFormat#getFormat#?#207,0.0,0.0,0.0,,_
+"org.apache.commons.math3.linear.RealMatrixFormat#RealMatrixFormat#getInstance#?,Locale#224",0.0,0.0,0.0,,_
+"org.apache.commons.math3.util.CompositeFormat#NumberFormat#getDefaultNumberFormat#?,Locale#54",0.0,0.0,0.0,,_
+"org.apache.commons.math3.linear.RealVectorFormat#?#RealVectorFormat#?,String,String,String,NumberFormat#110",0.0,0.0,0.0,,_
+"org.apache.commons.math3.linear.RealMatrixFormat#?#RealMatrixFormat#?,String,String,String,String,String,String#115",0.0,0.0,0.0,,_
+"org.apache.commons.math3.linear.RealMatrixFormat#?#RealMatrixFormat#?,String,String,String,String,String,String,NumberFormat#142",0.0,0.0,0.0,,_
+"org.apache.commons.math3.linear.RealVectorFormat#RealVectorFormat#getInstance#?,Locale#171",0.0,0.0,0.0,,_
+org.apache.commons.math3.util.CompositeFormat#NumberFormat#getDefaultNumberFormat#?#43,0.0,0.0,0.0,,_
+org.apache.commons.math3.linear.RealVectorFormat#RealVectorFormat#getInstance#?#162,0.0,0.0,0.0,,_
+org.apache.commons.math3.linear.RealMatrixFormat#RealMatrixFormat#getInstance#?#215,0.0,0.0,0.0,,_

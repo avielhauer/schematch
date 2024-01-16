@@ -1,0 +1,228 @@
+,,,,,
+"com.google.javascript.jscomp.CodeGenerator#void#appendHexJavaScriptRepresentation#?,int,Appendable#1177",0.3779644730092272,0.3779644730092272,0.7559289460184544,!(Character.isSupplementaryCodePoint(codePoint)),_
+"com.google.javascript.jscomp.CodeGenerator#String#strEscape#?,String,char,String,String,String,CharsetEncoder#1045",0.3779644730092272,0.3779644730092272,0.424742499981726,!(c > 0x1f && c <= 0x7f),GT
+"com.google.javascript.jscomp.CodeGenerator#void#appendHexJavaScriptRepresentation#?,StringBuilder,char#1160",0.3779644730092272,0.0,0.3779644730092272,,_
+"com.google.javascript.jscomp.CodeGenerator#String#jsString#?,String,CharsetEncoder#943",0.0472983769840402,0.0472983769840402,0.0945967539680804,i < s.length(),_
+"com.google.javascript.jscomp.CodeGenerator#void#add#?,Node,Context#628",0.0460775677584091,0.0460775677584091,0.0921551355168182,!(childCount != ((n.getParent() != null && n.getParent().getType() == Token.OBJECTLIT) ? 1 : 0)),_
+"com.google.javascript.jscomp.Compiler#Node#parseTestCode#?,String#1246",0.0383764778226668,0.0383764778226668,0.0764182706680935,inputsByName == null,_
+"com.google.javascript.jscomp.Compiler#void#initOptions#?,CompilerOptions#240",0.0357828133482256,0.0357828133482256,0.071138152407553,!options.checkTypes,_
+"com.google.javascript.jscomp.DiagnosticGroup#boolean#isSubGroup#?,DiagnosticGroup#117",0.0346271680532221,0.0346271680532221,0.0692543361064443,!matches(type),_
+"com.google.javascript.jscomp.DiagnosticGroupWarningsGuard#boolean#enables#?,DiagnosticGroup#48",0.0197796943032308,0.0346271680532221,0.0481025927589798,!(level.isOn()),_
+"com.google.javascript.jscomp.DiagnosticGroup#DiagnosticGroup#forType#?,DiagnosticType#70",0.0202985544899111,0.0204294461611359,0.040728000651047,!(!singletons.containsKey(type)),_
+"com.google.javascript.jscomp.CodeGenerator#void#addList#?,Node,boolean,Context#894",0.0203405023637266,0.0203405023637266,0.0406810047274533,isFirst,_
+"com.google.javascript.jscomp.CodeConsumer#void#addOp#?,String,boolean#228",0.0203869467471832,0.0203869467471832,0.0405982488335443,binOp,_
+com.google.javascript.jscomp.CodePrinter$CompactCodePrinter#void#maybeCutLine#?#461,0.0186016332951081,0.0186016332951081,0.0372032665902162,!(lineLength > lineLengthThreshold),_
+"com.google.javascript.jscomp.CodeGenerator#void#addExpr#?,Node,int,Context#871",0.0181608178073037,0.0181608178073037,0.0363216356146074,!((NodeUtil.precedence(n.getType()) < minPrecedence) || ((context == Context.IN_FOR_INIT_CLAUSE) && (n.getType() == Token.IN))),_
+"com.google.javascript.jscomp.CodeConsumer#void#endStatement#?,boolean#143",0.0180480718921108,0.0180480718921108,0.0360961437842216,statementStarted,_
+"com.google.javascript.jscomp.CodeGenerator#String#identifierEscape#?,String#1062",0.0180099802943908,0.0180099802943908,0.0360199605887816,NodeUtil.isLatin(s),_
+"com.google.javascript.jscomp.NodeUtil#boolean#isLatin#?,String#2425",0.0179983082385346,0.0180012241248621,0.0359995323633967,!(c > LARGEST_BASIC_LATIN),_
+"com.google.javascript.jscomp.CodeConsumer#void#add#?,String#189",0.0178514513373625,0.0178771061309645,0.035728557468327,!((isWordChar(c) || c == '\\') && isWordChar(getLastChar())),_
+com.google.javascript.jscomp.CodeConsumer#void#maybeEndStatement#?#154,0.0178514513373625,0.0178514513373625,0.0357029026747251,!(statementNeedsEnded),_
+"com.google.javascript.jscomp.CompilerOptions#boolean#disables#?,DiagnosticGroup#933",0.0353553390593273,0.0,0.0353553390593273,,_
+"com.google.javascript.jscomp.CodePrinter#String#toSource#?,Node,Format,boolean,int,SourceMap,SourceMap.DetailLevel,Charset,boolean#639",0.0175330700665222,0.0176090181265124,0.0351420881930347,!(createSourceMap),_
+"com.google.javascript.jscomp.CodePrinter$MappedCodePrinter#void#startSourceMapping#?,Node#93",0.0175330700665222,0.0175981079531438,0.035131178019666,!(createSrcMap && node.getProp(Node.SOURCENAME_PROP) != null && node.getLineno() > 0 && sourceMapDetailLevel.apply(node)),_
+"com.google.javascript.jscomp.CodePrinter$MappedCodePrinter#void#endSourceMapping#?,Node#114",0.0175330700665222,0.0175981079531438,0.035131178019666,!(createSrcMap && !mappings.isEmpty() && mappings.peek().node == node),_
+com.google.javascript.jscomp.CodePrinter$Builder#String#build#?#584,0.0175330700665222,0.0175330700665222,0.0350661401330444,!(root == null),_
+"com.google.javascript.jscomp.CodeGenerator#?#CodeGenerator#?,CodeConsumer,Charset#48",0.0175330700665222,0.0175330700665222,0.0350661401330444,outputCharset == null || outputCharset == Charsets.US_ASCII,_
+com.google.javascript.jscomp.Compiler#void#initCompilerOptionsIfTesting#?#1228,0.0163321093783319,0.0170005100229511,0.0333326194012831,!(options == null),_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#Node#processVariableInitializer#?,VariableInitializer#969",0.0171171657415511,0.0171171657415511,0.0327288313898385,initializerNode.getInitializer() != null,_
+"com.google.javascript.jscomp.CompilerOptions#void#addWarningsGuard#?,WarningsGuard#951",0.0160333841948716,0.0160333841948716,0.0320667683897432,warningsGuard == null,_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#Node#processVariableDeclaration#?,VariableDeclaration#954",0.0156116656482873,0.0156135684657298,0.0312252341140172,!(!config.acceptConstKeyword && declarationNode.getType() == com.google.javascript.jscomp.mozilla.rhino.Token.CONST),_
+"com.google.javascript.jscomp.parsing.TypeSafeDispatcher#T#process#?,AstNode#266",0.029450003202688,0.0156116656482873,0.0312233312965747,node instanceof VariableDeclaration,_
+"com.google.javascript.rhino.Node#void#setLineno#?,int#1135",0.013049893774297,0.016854996561581,0.029904890335878,!(charno == -1),_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#Node#processStringLiteral#?,StringLiteral#839",0.029450003202688,0.0,0.029450003202688,,_
+"com.google.javascript.jscomp.parsing.IRFactory#Node#newStringNode#?,String#1249",0.029074190231479,0.0,0.029074190231479,,_
+"com.google.javascript.rhino.Node#Node#newString#?,String#519",0.0287479787288034,0.0,0.0287479787288034,,_
+"com.google.javascript.jscomp.parsing.IRFactory#Node#transformTree#?,AstRoot,String,Config,ErrorReporter#165",0.0130510051129214,0.0153882580069902,0.0284392631199117,!(node.getComments() != null),_
+"com.google.javascript.jscomp.parsing.ParserRunner#Node#parse#?,String,String,Config,ErrorReporter,Logger#106",0.013801311186847,0.013801311186847,0.0269432886512662,config.isIdeMode || config.languageMode != LanguageMode.ECMASCRIPT3,_
+"com.google.javascript.jscomp.ComposeWarningsGuard#void#addGuard#?,WarningsGuard#74",0.0134717557603598,0.0134717557603598,0.0269203442537736,guard instanceof ComposeWarningsGuard,_
+"com.google.javascript.jscomp.PrepareAst$PrepareAnnotations#boolean#shouldTraverse#?,NodeTraversal,Node,Node#142",0.0132604537725358,0.0132604537725358,0.0265209075450717,!(n.getType() == Token.OBJECTLIT),_
+"com.google.javascript.jscomp.PrepareAst#void#process#?,Node,Node#57",0.0132604537725358,0.0132604537725358,0.0265209075450717,!(checkOnly),_
+"com.google.javascript.jscomp.Compiler#void#stopTracer#?,Tracer,String#864",0.0132569575856914,0.0132569575856914,0.0265139151713829,!(options.tracer.isOn()),_
+"com.google.javascript.jscomp.Compiler#Tracer#newTracer#?,String#856",0.0132569575856914,0.0132569575856914,0.0265139151713829,!(options.tracer.isOn()),_
+"com.google.javascript.jscomp.JsAst#void#parse#?,AbstractCompiler,String,String#96",0.0132604537725358,0.0132604537725358,0.026506939366575,!(root == null || compiler.hasHaltingErrors()),_
+"com.google.javascript.jscomp.JsAst#Node#getAstRoot#?,AbstractCompiler#49",0.0132464855940391,0.0132464855940391,0.0264929711880782,root == null,_
+com.google.javascript.jscomp.Compiler#Config#getParserConfig#?#1675,0.0139631579409583,0.0132464855940391,0.0264929711880782,parserConfig == null,_
+com.google.javascript.rhino.Node#int#getChildCount#?#1360,0.0132464855940391,0.0132464855940391,0.0264929711880782,n != null,_
+"com.google.javascript.jscomp.Tracer#long#stop#?,int#411",0.0132418393344805,0.0132418393344805,0.0264836786689611,!trace.isInitialized(),_
+com.google.javascript.jscomp.Tracer#ThreadTrace#getThreadTrace#?#959,0.0132418393344805,0.0132418393344805,0.0264836786689611,!(t == null),_
+"com.google.javascript.jscomp.Tracer#?#Tracer#?,String,String#239",0.0132418393344805,0.0132418393344805,0.0264836786689611,!(!extraTracingStatistics.isEmpty()),_
+"com.google.javascript.jscomp.parsing.IRFactory#void#setSourceInfo#?,Node,AstNode#303",0.0130510051129214,0.0134231211042804,0.0264741262172019,!(irNode.getLineno() == -1),_
+"com.google.javascript.jscomp.NodeTraversal#void#traverseBranch#?,Node,Node#440",0.0132464855940391,0.0132464855940391,0.0264697886613968,type == Token.SCRIPT,_
+com.google.javascript.jscomp.NodeTraversal#void#popScope#?#543,0.0132233030673576,0.013225615844475,0.0264489189118326,!(scopeCallback != null),_
+"com.google.javascript.jscomp.NodeTraversal#void#pushScope#?,Node#526",0.0132233030673576,0.013225615844475,0.0264489189118326,!(scopeCallback != null),_
+"com.google.javascript.jscomp.NodeTraversal#?#NodeTraversal#?,AbstractCompiler,Callback,ScopeCreator#206",0.0132221471336986,0.0132244593042389,0.0264466064379375,!(cb instanceof ScopedCallback),_
+"com.google.javascript.rhino.Node#PropListItem#removeProp#?,PropListItem,int#781",0.0132604537725358,0.0132604537725358,0.026397894044531,result != item.next,_
+"com.google.javascript.rhino.Node#PropListItem#lookupProperty#?,int#741",0.0131944953492314,0.0131944953492314,0.0263889906984629,x != null && propType != x.type,_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#Node#processName#?,Name,boolean#711",0.0131159526008167,0.0131159526008167,0.0262319052016334,!(isReservedKeyword(nameNode.getIdentifier())),_
+"com.google.javascript.rhino.Node#int#extractCharno#?,int#1187",0.0133511467458638,0.0133511467458638,0.0261980816561915,!(lineCharNo == -1),_
+"com.google.javascript.rhino.Node#Object#getProp#?,int#792",0.0132360383794843,0.0132360383794843,0.0261783792653012,!(item == null),_
+"com.google.javascript.jscomp.parsing.IRFactory#int#position2charno#?,int#349",0.0130900817373435,0.0130900817373435,0.026141086850265,lineIndex == -1,_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#boolean#isDirective#?,Node#459",0.0130565660680986,0.0130565660680986,0.0261075711810201,!(n == null),_
+"com.google.javascript.jscomp.parsing.IRFactory#void#setFileOverviewJsDoc#?,Node#186",0.0130510051129214,0.0130543408331326,0.0261053459460541,!(fileOverviewInfo != null),_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#void#parseDirectives#?,Node#453",0.0130510051129214,0.0130510051129214,0.0261020102258429,!(directives != null),_
+"com.google.javascript.jscomp.parsing.IRFactory#JSDocInfo#handleJsDoc#?,AstNode#245",0.0130510051129214,0.0130510051129214,0.0261020102258429,!(comment != null),_
+"com.google.javascript.jscomp.parsing.IRFactory#Node#transform#?,AstNode#258",0.0130510051129214,0.0130510051129214,0.0261020102258429,!(jsDocInfo != null),_
+com.google.javascript.jscomp.parsing.ParserRunner#void#initResourceConfig#?#62,0.0130643633611603,0.0130643633611603,0.0260909844092589,annotationNames != null,_
+"com.google.javascript.rhino.Node#void#putIntProp#?,int,int#835",0.0129455939563436,0.0129455939563436,0.025890103283306,value != 0,_
+"com.google.javascript.rhino.Node#int#extractLineno#?,int#1175",0.0130365798169715,0.0130365798169715,0.0258835147272992,lineCharNo == -1,_
+"com.google.javascript.rhino.Node$StringNode#?#StringNode#?,int,String#277",0.0129239530285467,0.0129239530285467,0.0258479060570934,!(null == str),_
+"com.google.javascript.rhino.Node#void#removeProp#?,int#763",0.0132569575856914,0.0132569575856914,0.0257952184764887,result != propListHead,_
+"com.google.javascript.rhino.Node#void#addChildToBack#?,Node#605",0.0128026386396843,0.0128026386396843,0.0256010824435287,last == null,_
+"com.google.javascript.rhino.Node#void#putProp#?,int,Object#824",0.0127525710978145,0.012973890370337,0.0255737061623767,!(value != null),_
+"com.google.javascript.rhino.Node#int#mergeLineCharNo#?,int,int#1163",0.0127267258053535,0.0127267258053535,0.0254524210648691,!((charno & ~COLUMN_MASK) != 0),_
+"com.google.javascript.jscomp.parsing.Config#Map<String,Annotation>#buildAnnotationNames#?,Set<String>#94",0.0126379940949997,0.0126379940949997,0.0252759881899994,!Annotation.recognizedAnnotations.containsKey(unrecognizedAnnotation),_
+"com.google.javascript.jscomp.CodeConsumer#void#appendOp#?,String,boolean#200",0.0203615740593842,0.0,0.0203615740593842,,_
+"com.google.javascript.jscomp.CodeGenerator#Context#getContextForNoInOperator#?,Context#1139",0.0199920047968022,0.0,0.0199920047968022,,_
+"com.google.javascript.jscomp.DiagnosticGroupWarningsGuard#boolean#disables#?,DiagnosticGroup#43",0.0197796943032308,0.0,0.0197796943032308,,_
+"com.google.javascript.jscomp.CodeGenerator#void#addLeftExpr#?,Node,int,Context#863",0.018294043331615,0.0,0.018294043331615,,_
+"com.google.javascript.jscomp.NodeUtil#int#precedence#?,int#1101",0.0181608178073037,0.0,0.0181608178073037,,_
+com.google.javascript.jscomp.CodeConsumer#void#endStatement#?#135,0.0180480718921108,0.0,0.0180480718921108,,_
+"com.google.javascript.jscomp.CodeConsumer#void#addIdentifier#?,String#62",0.0180187492539111,0.0,0.0180187492539111,,_
+"com.google.javascript.jscomp.CodeGenerator#void#add#?,String#71",0.0180158248443725,0.0,0.0180158248443725,,_
+"com.google.javascript.jscomp.CodeGenerator#void#addIdentifier#?,String#75",0.0180099802943908,0.0,0.0180099802943908,,_
+com.google.javascript.jscomp.CodePrinter$CompactCodePrinter#void#notePreferredLineBreak#?#479,0.0179750320461403,0.0,0.0179750320461403,,_
+"com.google.javascript.jscomp.CodePrinter$CompactCodePrinter#void#append#?,String#416",0.0179692270945773,0.0,0.0179692270945773,,_
+com.google.javascript.jscomp.CodePrinter$MappedCodePrinter#char#getLastChar#?#184,0.0178628398242226,0.0,0.0178628398242226,,_
+"com.google.javascript.jscomp.CodeConsumer#boolean#isWordChar#?,char#262",0.0178514513373625,0.0,0.0178514513373625,,_
+"com.google.javascript.jscomp.CodePrinter$Builder#Builder#setLineLengthThreshold#?,int#539",0.0177164667817577,0.0,0.0177164667817577,,_
+"com.google.javascript.jscomp.CodePrinter$CompactCodePrinter#?#CompactCodePrinter#?,boolean,int,boolean,SourceMap.DetailLevel#408",0.0176446168310146,0.0,0.0176446168310146,,_
+"com.google.javascript.jscomp.CodePrinter$Builder#Builder#setPrettyPrint#?,boolean#511",0.0175492619155015,0.0,0.0175492619155015,,_
+"com.google.javascript.jscomp.CodePrinter$Builder#?#Builder#?,Node#502",0.0175330700665222,0.0,0.0175330700665222,,_
+com.google.javascript.jscomp.CodePrinter$MappedCodePrinter#String#getCode#?#179,0.0175330700665222,0.0,0.0175330700665222,,_
+"com.google.javascript.jscomp.CodePrinter$MappedCodePrinter#?#MappedCodePrinter#?,int,boolean,SourceMap.DetailLevel#62",0.0175330700665222,0.0,0.0175330700665222,,_
+"com.google.javascript.jscomp.CodeGenerator#void#add#?,Node#79",0.0175330700665222,0.0,0.0175330700665222,,_
+"com.google.javascript.jscomp.NodeUtil#String#opToStr#?,int#2161",0.0175330700665222,0.0,0.0175330700665222,,_
+com.google.javascript.jscomp.CodeConsumer#boolean#continueProcessing#?#53,0.0175330700665222,0.0,0.0175330700665222,,_
+"com.google.javascript.jscomp.CompilerOptions#void#setLanguageIn#?,LanguageMode#1148",0.0171624826296992,0.0,0.0171624826296992,,_
+"com.google.javascript.jscomp.LoggerErrorManager#?#LoggerErrorManager#?,MessageFormatter,Logger#39",0.0161374306091975,0.0,0.0161374306091975,,_
+com.google.javascript.jscomp.Compiler#?#Compiler#?#177,0.0161290322580645,0.0,0.0161290322580645,,_
+"com.google.javascript.jscomp.ComposeWarningsGuard#?#ComposeWarningsGuard#?,WarningsGuard#70",0.0160333841948716,0.0,0.0160333841948716,,_
+"com.google.javascript.jscomp.CompilerOptions#void#setWarningLevel#?,DiagnosticGroup,CheckLevel#940",0.0160333841948716,0.0,0.0160333841948716,,_
+com.google.javascript.jscomp.Compiler#MessageFormatter#createMessageFormatter#?#213,0.0159984642211486,0.0,0.0159984642211486,,_
+"com.google.javascript.jscomp.AbstractMessageFormatter#void#setColorize#?,boolean#37",0.0159984642211486,0.0,0.0159984642211486,,_
+com.google.javascript.jscomp.CompilerOptions#boolean#shouldColorizeErrorOutput#?#1039,0.0159984642211486,0.0,0.0159984642211486,,_
+"com.google.javascript.jscomp.LightweightMessageFormatter#?#LightweightMessageFormatter#?,SourceExcerptProvider#44",0.0159943709719525,0.0,0.0159943709719525,,_
+"com.google.javascript.jscomp.AbstractMessageFormatter#?#AbstractMessageFormatter#?,SourceExcerptProvider#33",0.0159943709719525,0.0,0.0159943709719525,,_
+"com.google.javascript.jscomp.LightweightMessageFormatter#?#LightweightMessageFormatter#?,SourceExcerptProvider,SourceExcerpt#49",0.0159943709719525,0.0,0.0159943709719525,,_
+"com.google.javascript.jscomp.Compiler#void#setErrorManager#?,ErrorManager#203",0.0159943709719525,0.0,0.0159943709719525,,_
+com.google.javascript.jscomp.CompilerOptions#?#CompilerOptions#?#781,0.01599232552518,0.0,0.01599232552518,,_
+"com.google.javascript.jscomp.RhinoErrorReporter$NewRhinoErrorReporter#?#NewRhinoErrorReporter#?,AbstractCompiler#158",0.0159902808629553,0.0,0.0159902808629553,,_
+"com.google.javascript.jscomp.RhinoErrorReporter$OldRhinoErrorReporter#?#OldRhinoErrorReporter#?,AbstractCompiler#144",0.0159902808629553,0.0,0.0159902808629553,,_
+"com.google.javascript.jscomp.RhinoErrorReporter#com.google.javascript.jscomp.mozilla.rhino.ErrorReporter#forNewRhino#?,AbstractCompiler#105",0.0159902808629553,0.0,0.0159902808629553,,_
+"com.google.javascript.jscomp.Compiler#?#Compiler#?,PrintStream#186",0.0159902808629553,0.0,0.0159902808629553,,_
+"com.google.javascript.jscomp.RhinoErrorReporter#?#RhinoErrorReporter#?,AbstractCompiler#75",0.0159902808629553,0.0,0.0159902808629553,,_
+"com.google.javascript.jscomp.RhinoErrorReporter#ErrorReporter#forOldRhino#?,AbstractCompiler#109",0.0159902808629553,0.0,0.0159902808629553,,_
+"com.google.javascript.jscomp.RhinoErrorReporter#Pattern#replacePlaceHolders#?,String#70",0.0159902808629553,0.0,0.0159902808629553,,_
+"com.google.javascript.jscomp.Compiler#void#addChangeHandler#?,CodeChangeHandler#1622",0.0159902808629553,0.0,0.0159902808629553,,_
+"com.google.javascript.jscomp.PassFactory#?#PassFactory#?,String,boolean#44",0.0159617376893524,0.0,0.0159617376893524,,_
+"com.google.javascript.rhino.ScriptRuntime#String#getMessage0#?,String#422",0.0157348668932266,0.0,0.0157348668932266,,_
+"com.google.javascript.rhino.ScriptRuntime#String#getMessage#?,String,Object[]#481",0.0157212495242602,0.0,0.0157212495242602,,_
+com.google.javascript.rhino.Context#Context#getCurrentContext#?#400,0.0157212495242602,0.0,0.0157212495242602,,_
+com.google.javascript.jscomp.BasicErrorManager#JSError[]#getWarnings#?#85,0.014237850952891,0.0,0.014237850952891,,_
+com.google.javascript.jscomp.Compiler#JSError[]#getWarnings#?#898,0.014237850952891,0.0,0.014237850952891,,_
+"com.google.javascript.jscomp.parsing.IRFactory#?#IRFactory#?,String,String,Config,ErrorReporter#137",0.0139482088162917,0.0,0.0139482088162917,,_
+com.google.javascript.jscomp.Compiler#JSError[]#getErrors#?#891,0.0138369377485388,0.0,0.0138369377485388,,_
+com.google.javascript.jscomp.BasicErrorManager#JSError[]#getErrors#?#81,0.0138369377485388,0.0,0.0138369377485388,,_
+"com.google.javascript.jscomp.BasicErrorManager#JSError[]#toArray#?,CheckLevel#97",0.0138250315902332,0.0,0.0138250315902332,,_
+com.google.javascript.jscomp.DiagnosticGroup#Collection<DiagnosticType>#getTypes#?#128,0.0134778723353675,0.0,0.0134778723353675,,_
+com.google.javascript.jscomp.WarningsGuard#int#getPriority#?#82,0.0134717557603598,0.0,0.0134717557603598,,_
+"com.google.javascript.jscomp.DiagnosticGroupWarningsGuard#?#DiagnosticGroupWarningsGuard#?,DiagnosticGroup,CheckLevel#33",0.0134485884934138,0.0,0.0134485884934138,,_
+com.google.javascript.jscomp.SuppressDocWarningsGuard#int#getPriority#?#92,0.0134485884934138,0.0,0.0134485884934138,,_
+com.google.javascript.jscomp.CompilerOptions#WarningsGuard#getWarningsGuard#?#944,0.0134485884934138,0.0,0.0134485884934138,,_
+"com.google.javascript.jscomp.CompilerOptions#boolean#enables#?,DiagnosticGroup#925",0.0134485884934138,0.0,0.0134485884934138,,_
+"com.google.javascript.jscomp.SuppressDocWarningsGuard#?#SuppressDocWarningsGuard#?,Map<String,DiagnosticGroup>#40",0.0134485884934138,0.0,0.0134485884934138,,_
+"com.google.javascript.jscomp.ComposeWarningsGuard#void#addGuards#?,Iterable<WarningsGuard>#86",0.0134485884934138,0.0,0.0134485884934138,,_
+com.google.javascript.jscomp.Compiler#DiagnosticGroups#getDiagnosticGroups#?#1714,0.0134485884934138,0.0,0.0134485884934138,,_
+"com.google.javascript.jscomp.ComposeWarningsGuard#?#ComposeWarningsGuard#?,List<WarningsGuard>#66",0.0134485884934138,0.0,0.0134485884934138,,_
+"com.google.javascript.jscomp.DiagnosticGroups#Map<String,DiagnosticGroup>#getRegisteredGroups#?#58",0.0134485884934138,0.0,0.0134485884934138,,_
+"com.google.javascript.jscomp.DiagnosticGroup#boolean#matches#?,DiagnosticType#109",0.0134388695483371,0.0,0.0134388695483371,,_
+"com.google.javascript.jscomp.CompilerInput#Node#getAstRoot#?,AbstractCompiler#102",0.0133049795886801,0.0,0.0133049795886801,,_
+com.google.javascript.rhino.Node#Node#getParent#?#1281,0.0132967437602285,0.0,0.0132967437602285,,_
+com.google.javascript.jscomp.Compiler#int#getErrorCount#?#1764,0.0132896966382282,0.0,0.0132896966382282,,_
+"com.google.javascript.jscomp.CompilerInput#?#CompilerInput#?,JSSourceFile#78",0.0132885232068862,0.0,0.0132885232068862,,_
+"com.google.javascript.jscomp.CompilerInput#?#CompilerInput#?,JSSourceFile,boolean#84",0.0132885232068862,0.0,0.0132885232068862,,_
+com.google.javascript.jscomp.CompilerInput#String#getName#?#90,0.0132873500863183,0.0,0.0132873500863183,,_
+"com.google.javascript.jscomp.PrepareAst#?#PrepareAst#?,AbstractCompiler#41",0.0132604537725358,0.0,0.0132604537725358,,_
+"com.google.javascript.jscomp.PrepareAst$PrepareAnnotations#?#PrepareAnnotations#?,AbstractCompiler#137",0.0132604537725358,0.0,0.0132604537725358,,_
+"com.google.javascript.jscomp.Compiler#void#prepareAst#?,Node#1601",0.0132604537725358,0.0,0.0132604537725358,,_
+"com.google.javascript.jscomp.PrepareAst#?#PrepareAst#?,AbstractCompiler,boolean#45",0.0132604537725358,0.0,0.0132604537725358,,_
+"com.google.javascript.jscomp.PrepareAst$PrepareAnnotations#void#visit#?,NodeTraversal,Node,Node#150",0.0132604537725358,0.0,0.0132604537725358,,_
+com.google.javascript.jscomp.CompilerOptions$TracerMode#boolean#isOn#?#1236,0.0132569575856914,0.0,0.0132569575856914,,_
+com.google.javascript.jscomp.Compiler#boolean#acceptConstKeyword#?#1670,0.0132464855940391,0.0,0.0132464855940391,,_
+com.google.javascript.jscomp.Compiler#ErrorReporter#getDefaultErrorReporter#?#1255,0.0132464855940391,0.0,0.0132464855940391,,_
+"com.google.javascript.jscomp.NodeTraversal#String#getSourceName#?,Node#614",0.0132464855940391,0.0,0.0132464855940391,,_
+"com.google.javascript.jscomp.JsAst#void#createAst#?,AbstractCompiler#77",0.0132464855940391,0.0,0.0132464855940391,,_
+com.google.javascript.jscomp.CompilerOptions#LanguageMode#getLanguageIn#?#1152,0.0132453235706504,0.0,0.0132453235706504,,_
+com.google.javascript.rhino.Node#Node#getLastChild#?#551,0.0132441618530171,0.0,0.0132441618530171,,_
+com.google.javascript.jscomp.Compiler#boolean#hasHaltingErrors#?#1776,0.0132430004410051,0.0,0.0132430004410051,,_
+com.google.javascript.jscomp.CodeChangeHandler$RecentChange#boolean#hasCodeChanged#?#43,0.0132418393344805,0.0,0.0132418393344805,,_
+com.google.javascript.jscomp.Tracer$ThreadTrace#boolean#isInitialized#?#745,0.0132418393344805,0.0,0.0132418393344805,,_
+com.google.javascript.jscomp.Tracer#long#stop#?#440,0.0132418393344805,0.0,0.0132418393344805,,_
+"com.google.javascript.jscomp.SourceFile#SourceFile#fromCode#?,String,String#257",0.0132406785333094,0.0,0.0132406785333094,,_
+"com.google.javascript.jscomp.SourceFile#?#SourceFile#?,String#80",0.0132406785333094,0.0,0.0132406785333094,,_
+"com.google.javascript.jscomp.SourceFile#void#setCode#?,String#110",0.0132406785333094,0.0,0.0132406785333094,,_
+"com.google.javascript.jscomp.SourceFile$Preloaded#?#Preloaded#?,String,String#297",0.0132406785333094,0.0,0.0132406785333094,,_
+"com.google.javascript.jscomp.JsAst#?#JsAst#?,SourceFile#43",0.0132406785333094,0.0,0.0132406785333094,,_
+"com.google.javascript.jscomp.SourceFile#void#setOriginalPath#?,String#118",0.0132406785333094,0.0,0.0132406785333094,,_
+"com.google.javascript.jscomp.SourceFile$Preloaded#?#Preloaded#?,String,String,String#303",0.0132406785333094,0.0,0.0132406785333094,,_
+"com.google.javascript.jscomp.JSSourceFile#JSSourceFile#fromCode#?,String,String#55",0.0132406785333094,0.0,0.0132406785333094,,_
+"com.google.javascript.jscomp.JSSourceFile#?#JSSourceFile#?,SourceFile#72",0.0132406785333094,0.0,0.0132406785333094,,_
+com.google.javascript.jscomp.SourceFile#String#getName#?#136,0.0132406785333094,0.0,0.0132406785333094,,_
+com.google.javascript.jscomp.SourceFile#String#getCode#?#94,0.0132371979605789,0.0,0.0132371979605789,,_
+com.google.javascript.jscomp.JSSourceFile#String#getCode#?#78,0.0132371979605789,0.0,0.0132371979605789,,_
+com.google.javascript.jscomp.CompilerOptions#CodingConvention#getCodingConvention#?#1080,0.0132360383794843,0.0,0.0132360383794843,,_
+com.google.javascript.jscomp.Compiler#CodingConvention#getCodingConvention#?#1646,0.0132360383794843,0.0,0.0132360383794843,,_
+com.google.javascript.jscomp.Compiler#boolean#isIdeMode#?#1651,0.0132302450416222,0.0,0.0132302450416222,,_
+"com.google.javascript.jscomp.NodeTraversal#void#traverse#?,AbstractCompiler,Node,Callback#422",0.0132233030673576,0.0,0.0132233030673576,,_
+"com.google.javascript.jscomp.NodeTraversal#void#traverse#?,Node#250",0.0132233030673576,0.0,0.0132233030673576,,_
+"com.google.javascript.jscomp.NodeTraversal#?#NodeTraversal#?,AbstractCompiler,Callback#196",0.0132221471336986,0.0,0.0132221471336986,,_
+"com.google.javascript.jscomp.SyntacticScopeCreator#?#SyntacticScopeCreator#?,AbstractCompiler#57",0.0132198361755172,0.0,0.0132198361755172,,_
+com.google.javascript.jscomp.BasicErrorManager#int#getErrorCount#?#73,0.0132175264286357,0.0,0.0132175264286357,,_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#Node#processName#?,Name#704",0.0131159526008167,0.0,0.0131159526008167,,_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#boolean#isReservedKeyword#?,String#725",0.0131159526008167,0.0,0.0131159526008167,,_
+"com.google.javascript.jscomp.parsing.IRFactory#Node#newStringNode#?,int,String#1253",0.0131080626273269,0.0,0.0131080626273269,,_
+com.google.javascript.rhino.Node$StringNode#String#getString#?#297,0.0130576791123926,0.0,0.0130576791123926,,_
+"com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher#Node#processAstRoot#?,AstRoot#426",0.0130565660680986,0.0,0.0130565660680986,,_
+"com.google.javascript.rhino.Node#void#setCharno#?,int#1142",0.0130510051129214,0.0,0.0130510051129214,,_
+"com.google.javascript.jscomp.parsing.IRFactory#Node#newNode#?,int#1233",0.0130510051129214,0.0,0.0130510051129214,,_
+"com.google.javascript.jscomp.parsing.IRFactory#Node#justTransform#?,AstNode#358",0.0130510051129214,0.0,0.0130510051129214,,_
+com.google.javascript.jscomp.parsing.IRFactory#Node#createTemplateNode#?#153,0.0130510051129214,0.0,0.0130510051129214,,_
+"com.google.javascript.rhino.Node#void#setIsSyntheticBlock#?,boolean#2036",0.0130310443490913,0.0,0.0130310443490913,,_
+"com.google.javascript.jscomp.parsing.ParserRunner#Config#createConfig#?,boolean,LanguageMode,boolean#55",0.0130266210480985,0.0,0.0130266210480985,,_
+"com.google.javascript.rhino.Node#void#setJSDocInfo#?,JSDocInfo#1992",0.0130034723907544,0.0,0.0130034723907544,,_
+com.google.javascript.rhino.Node#FileLevelJsDocBuilder#getJsDocBuilderForNode#?#1951,0.0130034723907544,0.0,0.0130034723907544,,_
+"com.google.javascript.rhino.Node#Node#newString#?,int,String#523",0.0129477640332939,0.0,0.0129477640332939,,_
+"com.google.javascript.rhino.Node#void#putBooleanProp#?,int,boolean#830",0.0129455939563436,0.0,0.0129455939563436,,_
+"com.google.javascript.rhino.Node$PropListItem#?#PropListItem#?,int,int,PropListItem#350",0.0129455939563436,0.0,0.0129455939563436,,_
+com.google.javascript.rhino.Node#JSDocInfo#getJSDocInfo#?#1985,0.0129445093269624,0.0,0.0129445093269624,,_
+com.google.javascript.rhino.Node#Node#getNext#?#555,0.012936924547063,0.0,0.012936924547063,,_
+com.google.javascript.rhino.Node#int#getCharno#?#862,0.0128501165510856,0.0,0.0128501165510856,,_
+com.google.javascript.rhino.Node#int#getLineno#?#858,0.0128501165510856,0.0,0.0128501165510856,,_
+"com.google.javascript.rhino.Node#Node#clonePropsFrom#?,Node#755",0.0127712775115664,0.0,0.0127712775115664,,_
+com.google.javascript.rhino.Node#Node#getFirstChild#?#547,0.0127536081873211,0.0,0.0127536081873211,,_
+"com.google.javascript.rhino.Node$PropListItem#?#PropListItem#?,int,Object,PropListItem#354",0.0127525710978145,0.0,0.0127525710978145,,_
+com.google.javascript.rhino.Node#int#getType#?#535,0.012732914342459,0.0,0.012732914342459,,_
+"com.google.javascript.jscomp.parsing.Config#?#Config#?,Set<String>,Set<String>,boolean,LanguageMode,boolean#80",0.0126319428645379,0.0,0.0126319428645379,,_
+"com.google.javascript.rhino.Node$PropListItem#?#PropListItem#?,int,int,Object,PropListItem#360",0.0126008160552724,0.0,0.0126008160552724,,_
+"com.google.javascript.rhino.Node#?#Node#?,int#369",0.0124524214687014,0.0,0.0124524214687014,,_
+"com.google.javascript.jscomp.DiagnosticType#DiagnosticType#error#?,String,String#50",0.0,0.0,0.0,,_
+"com.google.javascript.jscomp.DiagnosticType#DiagnosticType#make#?,String,CheckLevel,String#86",0.0,0.0,0.0,,_
+"com.google.javascript.jscomp.ProcessTweaks$TweakFunction#?#TweakFunction#?,String,String,int#128",0.0,0.0,0.0,,_
+"com.google.javascript.jscomp.ComposeWarningsGuard#boolean#disables#?,DiagnosticGroup#119",0.0,0.0,0.0,,_
+"com.google.javascript.jscomp.DiagnosticGroup#?#DiagnosticGroup#?,DiagnosticType#53",0.0,0.0,0.0,,_
+"com.google.javascript.jscomp.ProcessTweaks$TweakFunction#?#TweakFunction#?,String#123",0.0,0.0,0.0,,_
+"com.google.javascript.jscomp.ProcessTweaks$TweakFunction#?#TweakFunction#?,String,String,int,int,TweakFunction#143",0.0,0.0,0.0,,_
+com.google.javascript.jscomp.ProcessTweaks$TweakFunction#String#getName#?#164,0.0,0.0,0.0,,_
+"com.google.javascript.rhino.jstype.ObjectType#String#createDelegateSuffix#?,String#197",0.0,0.0,0.0,,_
+"com.google.javascript.jscomp.DiagnosticGroup#?#DiagnosticGroup#?,String,DiagnosticType#45",0.0,0.0,0.0,,_
+"com.google.javascript.jscomp.DiagnosticGroups#DiagnosticGroup#registerGroup#?,String,DiagnosticGroup#52",0.0,0.0,0.0,,_
+"com.google.javascript.jscomp.ProcessTweaks$TweakFunction#?#TweakFunction#?,String,TweakFunction#137",0.0,0.0,0.0,,_
+"com.google.javascript.jscomp.DiagnosticGroup#?#DiagnosticGroup#?,String,DiagnosticGroup#90",0.0,0.0,0.0,,_
+"com.google.javascript.jscomp.parsing.ParserRunner#Set<String>#extractList#?,String#74",0.0,0.0,0.0,,_
+"com.google.javascript.jscomp.DiagnosticType#?#DiagnosticType#?,String,CheckLevel,MessageFormat#98",0.0,0.0,0.0,,_
+"com.google.javascript.jscomp.DiagnosticType#DiagnosticType#disabled#?,String,String#73",0.0,0.0,0.0,,_
+"com.google.javascript.jscomp.WarningsGuard$Priority#?#Priority#?,int#57",0.0,0.0,0.0,,_
+"com.google.javascript.jscomp.DiagnosticGroups#DiagnosticGroup#registerGroup#?,String,DiagnosticType#46",0.0,0.0,0.0,,_
+"com.google.javascript.jscomp.ProcessTweaks$TweakFunction#?#TweakFunction#?,String,String,int,int#133",0.0,0.0,0.0,,_
+"com.google.javascript.jscomp.DiagnosticType#DiagnosticType#warning#?,String,String#61",0.0,0.0,0.0,,_

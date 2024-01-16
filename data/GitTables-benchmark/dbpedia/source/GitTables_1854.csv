@@ -1,0 +1,6 @@
+,,,
+org/assertj/core/error/ShouldBeInstance.shouldBeInstance,(Ljava/lang/Object;Ljava/lang/Class;)Lorg/assertj/core/error/ErrorMessageFactory;,26,2
+org/assertj/core/error/ShouldBeInstance.shouldBeInstanceButWasNull,(Ljava/lang/String;Ljava/lang/Class;)Lorg/assertj/core/error/ErrorMessageFactory;,10,1
+org/assertj/core/error/ShouldBeInstance.ShouldBeInstance,(Ljava/lang/Object;Ljava/lang/Class;)V,27,1
+org/assertj/core/error/ShouldBeInstance.ShouldBeInstance,(Ljava/lang/Throwable;Ljava/lang/Class;)V,27,1
+org/assertj/core/error/ShouldBeInstance.ShouldBeInstance,(Ljava/lang/String;Ljava/lang/Class;)V,22,1

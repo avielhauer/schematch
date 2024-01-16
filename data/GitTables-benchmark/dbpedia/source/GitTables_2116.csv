@@ -1,0 +1,20 @@
+,,
+0;1.8324452448726254,,
+1;1.8125994139707988,,
+2;1.8064765404868577,,
+3;1.8032488849143944,,
+4;1.8011765443646366,,
+5;1.7997155088398975,,
+6;1.7985437180782073,,
+7;1.797582210779689,,
+Starting,Compression,...
+pciBusID:,0000:8a:00.0,
+Using,TensorFlow,backend.
+	Swaps:,0,
+	Signals,delivered:,0
+	Exit,status:,0
+pciBusID:,0000:8a:00.0,
+Using,TensorFlow,backend.
+	Swaps:,0,
+	Signals,delivered:,0
+	Exit,status:,0
