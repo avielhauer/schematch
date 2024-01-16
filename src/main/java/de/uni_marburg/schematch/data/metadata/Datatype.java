@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -25,24 +26,31 @@ public enum Datatype {
      * @return The determined datatype
      */
     public static Datatype determineDatatype(Column column) {
+        HashMap<Datatype, Double> scores = calculateScores(column);
+
         ArrayList<Helper> percentages = new ArrayList<>();
+        Helper integerHelper = new Helper(scores.get(INTEGER), INTEGER);
+        Helper floatHelper = new Helper(scores.get(FLOAT), FLOAT);
+        Helper booleanHelper = new Helper(scores.get(BOOLEAN), BOOLEAN);
+        Helper dateHelper = new Helper(scores.get(DATE), DATE);
+        Helper geoHelper = new Helper(scores.get(GEO_LOCATION), GEO_LOCATION);
 
-        Helper integerHelper = new Helper(isInteger(column), INTEGER);
-        Helper floatHelper = new Helper(isFloat(column), FLOAT);
-        Helper booleanHelper = new Helper(isBoolean(column), BOOLEAN);
-        Helper dateHelper = new Helper(isDate(column), DATE);
-        Helper geoHelper = new Helper(isGeoLocation(column), GEO_LOCATION);
-
-        // Prefer boolean over int
+        // Prefer boolean to int
         // columns containing only (0, 1) should rather be boolean than int
         if (booleanHelper.percentage >= integerHelper.percentage) {
             percentages.add(booleanHelper);
         } else {
             percentages.add(integerHelper);
         }
+        // Prefer int to float
+        // If column only contains integers then floats can be ignored
+        if (integerHelper.percentage >= floatHelper.percentage) {
+            percentages.add(integerHelper);
+        } else {
+            percentages.add(floatHelper);
+        }
 
         // all other detection function outputs can be directly compared to each other
-        percentages.add(floatHelper);
         percentages.add(dateHelper);
         percentages.add(geoHelper);
 
@@ -54,20 +62,32 @@ public enum Datatype {
         else return percentages.get(0).type;
     }
 
+    public static HashMap<Datatype, Double> calculateScores(Column column) {
+        HashMap<Datatype, Double> scores = new HashMap<>();
+        scores.put(INTEGER, isInteger(column));
+        scores.put(FLOAT, isFloat(column));
+        scores.put(BOOLEAN, isBoolean(column));
+        scores.put(DATE, isDate(column));
+        scores.put(GEO_LOCATION, isGeoLocation(column));
+
+        return scores;
+    }
+
     /**
      * Prints the matching percentages for all data types and the final chosen type
      *
      * @param column The column to determine the data type of
      */
-    public static void printMatching(Column column) {
+    public static void printScores(Column column) {
         StringBuilder sb = new StringBuilder();
+        HashMap<Datatype, Double> scores = calculateScores(column);
 
         String label = column.getLabel();
-        String isInteger = String.valueOf(isInteger(column));
-        String isFloat = String.valueOf(isFloat(column));
-        String isBoolean = String.valueOf(isBoolean(column));
-        String isDate = String.valueOf(isDate(column));
-        String isGeoLocation = String.valueOf(isGeoLocation(column));
+        String isInteger = String.valueOf(scores.get(INTEGER));
+        String isFloat = String.valueOf(scores.get(FLOAT));
+        String isBoolean = String.valueOf(scores.get(BOOLEAN));
+        String isDate = String.valueOf(scores.get(DATE));
+        String isGeoLocation = String.valueOf(scores.get(GEO_LOCATION));
 
         isInteger = isInteger.substring(0, Math.min(5, isInteger.length()));
         isFloat = isFloat.substring(0, Math.min(5, isFloat.length()));
@@ -141,28 +161,17 @@ public enum Datatype {
 
         int nullCounter = 0;
         int exceptionCounter = 0;
-        int kommaCounter = 0;
-        int endsWithPointOCounter = 0;
 
         for (String value : values) {
             if (isNull(value)) nullCounter++;
             else {
                 value = value.replace(",", ".");
-                if (value.contains(".")) kommaCounter++;
-                if (value.endsWith(".0")) endsWithPointOCounter++;
-
                 try {
                     Float.parseFloat(value);
                 } catch (NumberFormatException e) {
                     exceptionCounter++;
                 }
             }
-        }
-
-        // if no kommas are present within the column then it is just an int
-        // if all parsed values end with .0 it is likely formatting and also an int
-        if (kommaCounter == 0 || kommaCounter == endsWithPointOCounter) {
-            return 0.0;
         }
 
         int fullSize = values.size();
