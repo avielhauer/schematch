@@ -72,7 +72,7 @@ public class NewMain {
         CrediblityPredictorModel cmc=new CrediblityPredictorModel(matchSteps);
 
         // loop over datasets
-        /*
+
 
         Configuration.DatasetConfiguration datasetConfiguration=config.getDatasetConfigurations().get(0);
         Dataset dataset = new Dataset(datasetConfiguration);
@@ -89,7 +89,7 @@ public class NewMain {
 
         }
 
-         */
+         /*
         for (Configuration.DatasetConfiguration datasetConfiguration : config.getDatasetConfigurations()) {
             Dataset dataset = new Dataset(datasetConfiguration);
             log.info("Starting experiments for dataset " + dataset.getName() + " with " + dataset.getScenarioNames().size() + " scenarios");
@@ -106,6 +106,8 @@ public class NewMain {
             }
 
         }
+
+          */
         cmc.addFeature(new Feature("f1"));
         cmc.addFeature(new Feature("f2"));
         cmc.addFeature(new Feature("f3"));

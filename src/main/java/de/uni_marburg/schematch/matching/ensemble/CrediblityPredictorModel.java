@@ -12,14 +12,21 @@ import de.uni_marburg.schematch.utils.ModelUtils;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.NotImplementedException;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+import org.apache.mahout.math.DenseVector;
+import org.apache.mahout.math.Vector;
+import org.apache.mahout.classifier.sgd.L2;
+import org.apache.mahout.classifier.sgd.OnlineLogisticRegression;
+
+import java.io.IOException;
 
 public class CrediblityPredictorModel implements Serializable {
 
@@ -35,10 +42,43 @@ public class CrediblityPredictorModel implements Serializable {
     {
         matchers.add(matcher);
     }
-
-    public void train() {
+    String dataPath="output.csv";
+    public void train() throws IOException {
         // TODO
+        CSVParser csvParser;
+        csvParser = new CSVParser(new FileReader("path/to/your/dataset.csv"), CSVFormat.DEFAULT.withHeader());
+        OnlineLogisticRegression model = trainMahoutModel(csvParser);
+
         throw new NotImplementedException();
+    }
+    private  OnlineLogisticRegression trainMahoutModel(CSVParser csvParser) throws IOException {
+        OnlineLogisticRegression model = new OnlineLogisticRegression(1, 3, new L2(1));
+
+        for (CSVRecord record : csvParser) {
+            // Extract numerical features
+            List<Double>  numericalFeatures=new ArrayList<>();
+            for(Feature f:features)
+            {
+                numericalFeatures.add(Double.parseDouble(record.get(f.Name)));
+            }
+
+            // Extract categorical feature (assuming the last column is categorical)
+            String categoricalFeature = record.get("Matcher");
+
+            // Map categorical feature to a numerical value (you might need a proper mapping strategy)
+            double mappedCategory = mapCategoryToNumber(categoricalFeature);
+
+            // Extract target label (assuming the last column is the target label)
+            double target = Double.parseDouble(record.get("target"));
+
+            // Train the model
+            //model.train(target, new DenseVector(), mappedCategory);
+        }
+
+        return model;
+    }
+
+    private double mapCategoryToNumber(String categoricalFeature) {
     }
 
     public class ModelTrainedException extends Exception{
@@ -90,7 +130,7 @@ public class CrediblityPredictorModel implements Serializable {
             }
 
         }
-        saveListToFile("output.csv",data);
+        saveListToFile(dataPath,data);
 
 
         System.out.println("heere header"+header);
@@ -110,24 +150,8 @@ public class CrediblityPredictorModel implements Serializable {
     }
     @SneakyThrows
     public double getSimilarity(ColumnPair columnPair, Matcher matcher){
-        Column srcColumn = columnPair.getSourceColumn();
-        Column trgColumn = columnPair.getTargetColumn();
-        int srcIndex = srcColumn.getTable().getLabels().indexOf(srcColumn.getLabel());
-        int trgIndex = trgColumn.getTable().getLabels().indexOf(trgColumn.getLabel());
-//        this.matchTasks.forEach(x -> {
-        for (MatchTask x : matchTasks) {
-            for (TablePair tablePair : x.getTablePairs()) {
-                if (tablePair.getSourceTable().equals(srcColumn)) {
-                    if (tablePair.getTargetTable().equals(trgColumn)) {
-                        float[][] simsOfMatcher = x.getSimMatrices().get(x.getSimMatrices().keySet().iterator().next()).get(matcher);
-                        //TODO ich habe keinen Blassen schimmer, ob ich die richitgen Indexe herrausgefunden habe! :D
-                        return simsOfMatcher[srcIndex][trgIndex];
-                    }
-                }
-            }
-        }
-        //TODO Crommc
-        throw new SimilarityNotFoundExeption();
+        return 0;
+
     }
     public  double getGroundTruth(ColumnPair columnPair)
     {
