@@ -4,6 +4,7 @@ import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.data.metadata.Datatype;
 import de.uni_marburg.schematch.matching.TablePairMatcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
+import de.uni_marburg.schematch.utils.GeoLocation;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -209,34 +210,22 @@ public class ExtremaMatcher extends TablePairMatcher {
         float targetMin = Float.MAX_VALUE;
         float targetMax = Float.MIN_VALUE;
 
+        GeoLocation reference = new GeoLocation(0.0d, 0.0d);
+
         for (String coords : sourceRaw) {
-            float distance = (float) haversine(coords);
+            GeoLocation target = new GeoLocation(coords);
+            float distance = (float) reference.calculateDistance(target);
             if (distance > sourceMax) sourceMax = distance;
             if (distance < sourceMin) sourceMin = distance;
         }
-        for (String coords : sourceRaw) {
-            float distance = (float) haversine(coords);
+        for (String coords : targetRaw) {
+            GeoLocation target = new GeoLocation(coords);
+            float distance = (float) reference.calculateDistance(target);
             if (distance > targetMax) targetMax = distance;
             if (distance < targetMin) targetMin = distance;
         }
 
         return calculateMatchPercentage(sourceMax, targetMax, sourceMin, targetMin);
-    }
-
-    private double haversine(String coordinates) {
-        String[] coords = coordinates.split(",");
-        double theta_1 = Double.parseDouble(coords[0]);
-        double phi_1 = Double.parseDouble(coords[1]);
-        double theta_2 = 0.0;
-        double phi_2 = 0.0;
-        double R = 6371;
-        //Haversine formula
-        //h = sin²((θ₂ - θ₁)/2) + cosθ₁ × cosθ₂ × sin²((θ₂ - φ₁)/2)
-        //d = 2R × sin⁻¹(√h)
-        double h =  Math.pow(Math.sin((theta_2 - theta_1) / 2), 2) +
-                    Math.cos(theta_1) * Math.cos(theta_2) *
-                    Math.pow(Math.sin((phi_2 - phi_1) / 2), 2);
-        return 2 * R * Math.asin(Math.sqrt(h));
     }
 
     private float stringExtrema(List<String> sourceRaw, List<String> targetRaw) {

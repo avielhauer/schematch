@@ -9,12 +9,6 @@ import lombok.EqualsAndHashCode;
 
 import java.util.HashMap;
 
-/**
- * Example for a single column metadata matcher
- * TODO: determine datatypes first (at the moment everything is a String)
- * TODO: find heuristic to give a score 1>s>0 for unequal but similar datatypes
- */
-
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class DatatypeMatcher extends TablePairMatcher {
