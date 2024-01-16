@@ -1,30 +1,19 @@
 package de.uni_marburg.schematch.matching.ensemble;
 
 import de.uni_marburg.schematch.data.Column;
-import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
-import de.uni_marburg.schematch.utils.ModelUtils;
 import lombok.SneakyThrows;
-import org.apache.commons.lang3.NotImplementedException;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord;
-import org.apache.mahout.math.DenseVector;
-import org.apache.mahout.math.Vector;
-import org.apache.mahout.classifier.sgd.L2;
-import org.apache.mahout.classifier.sgd.OnlineLogisticRegression;
 
 import java.io.IOException;
 
@@ -43,8 +32,11 @@ public class CrediblityPredictorModel implements Serializable {
         matchers.add(matcher);
     }
     String dataPath="output.csv";
+    public void  train() throws IOException {
 
-
+        MachineLearningModel machineLearningModel=new MachineLearningModel();
+        machineLearningModel.train(dataPath);
+    }
 
     public class ModelTrainedException extends Exception{
         public ModelTrainedException(){
@@ -76,7 +68,7 @@ public class CrediblityPredictorModel implements Serializable {
         }
         for (Matcher m:matchers)
         {
-         header+=","+m.getClass().getName();
+         header+=","+m;
         }
         header+=","+"Accuracy";
         List<String> data=new ArrayList<>();
