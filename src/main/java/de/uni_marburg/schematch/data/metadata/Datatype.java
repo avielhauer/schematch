@@ -62,6 +62,14 @@ public enum Datatype {
         else return percentages.get(0).type;
     }
 
+    /**
+     * Calculates the scores for all data types for the given column
+     * Score of 0.0 means that the column is not of the given Datatype
+     * Score of 1.0 means that the column can be interpreted as the given Datatype
+     *
+     * @param column the column to calculate the scores for
+     * @return a HashMap mapping the datatype to its score
+     */
     public static HashMap<Datatype, Double> calculateScores(Column column) {
         HashMap<Datatype, Double> scores = new HashMap<>();
         scores.put(INTEGER, isInteger(column));
