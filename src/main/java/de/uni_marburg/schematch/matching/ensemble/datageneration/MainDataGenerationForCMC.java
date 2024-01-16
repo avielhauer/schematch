@@ -13,5 +13,6 @@ public class MainDataGenerationForCMC {
                 nimmt.
          */
         LoadData.getSimilaritiesFromResults();
+        LoadData.generateTableCSVs_data();
     }
 }

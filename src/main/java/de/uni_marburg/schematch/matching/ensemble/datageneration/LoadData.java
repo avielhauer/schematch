@@ -1,7 +1,8 @@
 package de.uni_marburg.schematch.matching.ensemble.datageneration;
 
+import de.uni_marburg.schematch.data.Table;
+import de.uni_marburg.schematch.utils.InputReader;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 
 import java.util.*;
 import java.io.File;
@@ -13,11 +14,11 @@ public class LoadData {
     private final static String RESULT_DIR = "./results";
     private final static String GROUND_TRUTH_DIR = "./data";
 
-    private static List<CSV_Datatype> csv_dataFiles;
+    private static List<CSV_Datatype> csv_MeasuringDataFiles;
     private static List<Ground_Truth_CSV> groundTruthCsvs = new ArrayList<>();
 //    private final static String SUFFIX_DIR_TO_SEARCH = "overview.csv";
     public static HashMap<String,Integer> getSimilaritiesFromResults(){
-        csv_dataFiles = findCSVFiles();
+        csv_MeasuringDataFiles = findCSVFiles();
         processDirectory(new File(GROUND_TRUTH_DIR));
 //      TODO
 //          schauen, ob die liste noch in overview und summary unterteilt werden müssen.
@@ -25,7 +26,13 @@ public class LoadData {
         return null;
     }
 
-    public static List<CSV_Datatype> findCSVFiles() {
+    public static List<Table> generateTableCSVs_data(){
+        List<Table> result = new ArrayList<>();
+            csv_MeasuringDataFiles.stream().forEach(x -> result.add(InputReader.readDataFile(x.directoryPath)));
+        return result;
+    }
+
+    private static List<CSV_Datatype> findCSVFiles() {
         List<CSV_Datatype> csvFiles = new ArrayList<>();
         File directory = new File(RESULT_DIR);
 
