@@ -26,6 +26,15 @@ public class DatabaseMetadata {
     public Collection<FunctionalDependency> getFunctionalDependencies(Column columnName){
         return fdMap.get(columnName);
     }
+
+    public Collection<FunctionalDependency> getGpdepFDs(){
+        return getGpdepFDs(0.0);
+    }
+    public Collection<FunctionalDependency> getGpdepFDs(double lowerBound){
+        return fds.stream()
+                .filter(fd -> fd.getPdepTuple().gpdep > lowerBound).toList();
+    }
+
     public Collection<UniqueColumnCombination> getUniqueColumnCombinations(Column columnName){
         return uccMap.get(columnName);
     }

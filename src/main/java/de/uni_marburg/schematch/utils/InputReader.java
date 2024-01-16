@@ -194,6 +194,9 @@ public class InputReader {
                 Path uccFilePath = metadataFolderPath.resolve(table.getName()).resolve("UCC_results.txt");
 
                 Collection<FunctionalDependency> datasetFDs = readFDFile(fdFilePath, table, fdMap);
+                for (FunctionalDependency fd : datasetFDs) {
+                    fd.setPdepTuple(MetadataUtils.getPdep(fd));
+                }
                 Collection<UniqueColumnCombination> datasetUCCs = readUCCFile(uccFilePath, table, uccMap);
 
                 fds.addAll(datasetFDs);
