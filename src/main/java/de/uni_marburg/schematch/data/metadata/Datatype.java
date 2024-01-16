@@ -25,8 +25,7 @@ public enum Datatype {
      * @param column The column to determine the datatype of
      * @return The determined datatype
      */
-    public static Datatype determineDatatype(Column column) {
-        HashMap<Datatype, Double> scores = calculateScores(column);
+    public static Datatype determineDatatype(HashMap<Datatype, Double> scores) {
 
         ArrayList<Helper> percentages = new ArrayList<>();
         Helper integerHelper = new Helper(scores.get(INTEGER), INTEGER);
@@ -51,6 +50,7 @@ public enum Datatype {
         }
 
         // all other detection function outputs can be directly compared to each other
+        // leave out string as everything can be a string
         percentages.add(dateHelper);
         percentages.add(geoHelper);
 
@@ -77,6 +77,7 @@ public enum Datatype {
         scores.put(BOOLEAN, isBoolean(column));
         scores.put(DATE, isDate(column));
         scores.put(GEO_LOCATION, isGeoLocation(column));
+        scores.put(STRING, 1.0d);
 
         return scores;
     }
@@ -86,9 +87,8 @@ public enum Datatype {
      *
      * @param column The column to determine the data type of
      */
-    public static void printScores(Column column) {
+    public static void printScores(Column column, HashMap<Datatype, Double> scores) {
         StringBuilder sb = new StringBuilder();
-        HashMap<Datatype, Double> scores = calculateScores(column);
 
         String label = column.getLabel();
         String isInteger = String.valueOf(scores.get(INTEGER));
@@ -115,7 +115,7 @@ public enum Datatype {
         sb.append("Boolean:     ").append(isBoolean).append("\n");
         sb.append("Date:        ").append(isDate).append("\n");
         sb.append("GeoLocation: ").append(isGeoLocation).append("\n");
-        sb.append("Final type:  ").append(determineDatatype(column)).append("\n");
+        sb.append("Final type:  ").append(determineDatatype(scores)).append("\n");
         sb.append(String.format("%1$" + 24 + "s", "").replace(' ', '=')).append("\n");
 
         System.out.println(sb);
