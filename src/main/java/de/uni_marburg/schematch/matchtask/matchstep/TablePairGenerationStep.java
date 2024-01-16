@@ -2,6 +2,7 @@ package de.uni_marburg.schematch.matchtask.matchstep;
 
 
 import de.uni_marburg.schematch.matchtask.MatchTask;
+import de.uni_marburg.schematch.matchtask.tablepair.generators.NaiveTablePairsGenerator;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.TablePairsGenerator;
 import de.uni_marburg.schematch.utils.Configuration;
 import lombok.EqualsAndHashCode;
@@ -17,9 +18,12 @@ public class TablePairGenerationStep extends MatchStep {
 
     private final TablePairsGenerator tablePairsGenerator;
 
-    public TablePairGenerationStep(boolean doRun, boolean doSave, boolean doEvaluate, TablePairsGenerator tablePairsGenerator) {
-        super(doRun, doSave, doEvaluate);
+    public TablePairGenerationStep(boolean doSave, boolean doEvaluate, TablePairsGenerator tablePairsGenerator) {
+        super(doSave, doEvaluate);
         this.tablePairsGenerator = tablePairsGenerator;
+        if (!(tablePairsGenerator instanceof NaiveTablePairsGenerator)) {
+            throw new IllegalArgumentException("Only naive table pairs generator allowed at the moment.");
+        }
     }
 
     @Override
@@ -29,11 +33,6 @@ public class TablePairGenerationStep extends MatchStep {
         log.debug("Source tables: " + matchTask.getScenario().getSourceDatabase().getTables().size() + ", Target tables: " +
                 matchTask.getScenario().getTargetDatabase().getTables().size() + ", table pairs: " +
                 matchTask.getTablePairs().size());
-        Configuration config = Configuration.getInstance();
-        if (config.isEvaluateFirstLineMatchers() || config.isEvaluateSimMatrixBoostingOnFirstLineMatchers() ||
-                config.isEvaluateSecondLineMatchers() || config.isEvaluateSimMatrixBoostingOnSecondLineMatchers()) {
-            matchTask.readGroundTruth();
-        }
     }
 
     @Override

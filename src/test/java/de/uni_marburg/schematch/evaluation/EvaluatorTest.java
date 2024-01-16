@@ -1,29 +1,55 @@
 package de.uni_marburg.schematch.evaluation;
 
-import de.uni_marburg.schematch.evaluation.performance.TablePairPerformance;
+import de.uni_marburg.schematch.TestUtils;
+import de.uni_marburg.schematch.data.Scenario;
+import de.uni_marburg.schematch.evaluation.metric.Metric;
+import de.uni_marburg.schematch.evaluation.metric.NonBinaryPrecisionAtGroundTruth;
+import de.uni_marburg.schematch.evaluation.performance.Performance;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class EvaluatorTest {
 
     @Test
-    void evaluateMatrix() {
+    void evaluate() {
+        TestUtils.TestData testData = TestUtils.getTestData();
+
+        List<Metric> metrics = new ArrayList<>();
+        metrics.add(new NonBinaryPrecisionAtGroundTruth());
+        Scenario scenario = new Scenario(testData.getScenarios().get("test3").getPath());
+        // FIXME: refactor reading of ground truth to be more accessible
+        int[][] groundTruthMatrix = {
+                {1,0,0,0},
+                {0,0,0,0},
+                {0,0,1,0},
+                {0,0,0,0}
+        };
+
         float[][] simMatrix = {
-                {0.5f,0.7f},
-                {0.2f,0.9f}
-        };
-        int[][] gtMatrix = {
-                {1,0},
-                {0,1}
+                {0.5f,0.6f,0.4f,0.3f},
+                {0.5f,0.3f,0.2f,0.0f},
+                {0.9f,0.2f,0.6f,0.8f},
+                {0.3f,0.2f,0.0f,0.3f}
         };
 
-        TablePairPerformance tpp = Evaluator.evaluateMatrix(simMatrix, gtMatrix);
+        Evaluator evaluator = new Evaluator(metrics, scenario, groundTruthMatrix);
+        Performance performance = evaluator.evaluate(simMatrix).get(metrics.get(0));
 
-        float tppPrecision = (float) 2/3;
-        float tppNonBinaryPrecision = (simMatrix[0][0] + simMatrix[1][1])/(simMatrix[0][0] + simMatrix[0][1] + simMatrix[1][1]);
+        float expectedGlobalScore = (0.5f+0.6f)/(0.5f+0.6f+0.5f+0.9f+0.6f+0.8f);
+        float expectedSourceAttributeScore0 = (0.5f)/(0.5f+0.6f);
+        float expectedSourceAttributeScore2 = (0.6f)/(0.9f+0.6f+0.8f);
+        float expectedTargetAttributeScore0 = (0.5f)/(0.5f+0.5f+0.9f);
+        float expectedTargetAttributeScore2 = 1.0f;
 
-        assertEquals(tppPrecision,tpp.calculatePrecision());
-        assertEquals(tppNonBinaryPrecision,tpp.calculateNonBinaryPrecision());
+        assertEquals(expectedGlobalScore, performance.getGlobalScore(), 0.05);
+        assertEquals(expectedSourceAttributeScore0, performance.getSourceAttributeScores().get(0), 0.05);
+        assertEquals(expectedSourceAttributeScore2, performance.getSourceAttributeScores().get(2), 0.05);
+        assertEquals(expectedTargetAttributeScore0, performance.getTargetAttributeScores().get(0), 0.05);
+        assertEquals(expectedTargetAttributeScore2, performance.getTargetAttributeScores().get(2), 0.05);
     }
 }

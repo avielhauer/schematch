@@ -1,0 +1,5 @@
+[] --> address.csv.address2, address.csv.phone, address.csv.postal_code
+[address.csv.address] --> address.csv.address_id, address.csv.city_id, address.csv.district
+[address.csv.address_id] --> address.csv.address, address.csv.city_id, address.csv.district
+[address.csv.city_id] --> address.csv.address, address.csv.address_id, address.csv.district
+[address.csv.district] --> address.csv.address, address.csv.address_id, address.csv.city_id

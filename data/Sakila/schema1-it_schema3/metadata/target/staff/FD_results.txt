@@ -1,0 +1,8 @@
+[] --> staff.csv.active, staff.csv.password
+[staff.csv.address_id] --> staff.csv.email, staff.csv.first_name, staff.csv.last_name, staff.csv.staff_id, staff.csv.store_id, staff.csv.username
+[staff.csv.email] --> staff.csv.address_id, staff.csv.first_name, staff.csv.last_name, staff.csv.staff_id, staff.csv.store_id, staff.csv.username
+[staff.csv.first_name] --> staff.csv.address_id, staff.csv.email, staff.csv.last_name, staff.csv.staff_id, staff.csv.store_id, staff.csv.username
+[staff.csv.last_name] --> staff.csv.address_id, staff.csv.email, staff.csv.first_name, staff.csv.staff_id, staff.csv.store_id, staff.csv.username
+[staff.csv.staff_id] --> staff.csv.address_id, staff.csv.email, staff.csv.first_name, staff.csv.last_name, staff.csv.store_id, staff.csv.username
+[staff.csv.store_id] --> staff.csv.address_id, staff.csv.email, staff.csv.first_name, staff.csv.last_name, staff.csv.staff_id, staff.csv.username
+[staff.csv.username] --> staff.csv.address_id, staff.csv.email, staff.csv.first_name, staff.csv.last_name, staff.csv.staff_id, staff.csv.store_id

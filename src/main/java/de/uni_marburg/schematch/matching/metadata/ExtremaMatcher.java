@@ -1,9 +1,8 @@
 package de.uni_marburg.schematch.matching.metadata;
 
-import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.data.metadata.Datatype;
-import de.uni_marburg.schematch.matching.Matcher;
+import de.uni_marburg.schematch.matching.TablePairMatcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,18 +16,7 @@ import java.util.List;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class ExtremaMatcher extends Matcher {
-
-    public static void main(String[] args) {
-        Scenario scenario = new Scenario("data\\Test\\test1");
-        Table sourceTable = scenario.getSourceDatabase().getTableByName("authors");
-        Table targetTable = scenario.getTargetDatabase().getTableByName("authors");
-        TablePair tp = new TablePair(sourceTable, targetTable);
-
-        ExtremaMatcher matcher = new ExtremaMatcher();
-        //System.out.println(matcher.haversine("50.71,8.93"));
-        System.out.println(Arrays.deepToString(matcher.match(tp)));
-    }
+public class ExtremaMatcher extends TablePairMatcher {
 
     @Override
     public float[][] match(TablePair tablePair) {
@@ -37,9 +25,9 @@ public class ExtremaMatcher extends Matcher {
         Table targetTable = tablePair.getTargetTable();
 
         float[][] simMatrix = tablePair.getEmptySimMatrix();
-        for (int i = 0; i < sourceTable.getNumberOfColumns(); i++) {
+        for (int i = 0; i < sourceTable.getNumColumns(); i++) {
             Datatype datatype_i = sourceTable.getColumn(i).getDatatype();
-            for (int j = 0; j < targetTable.getNumberOfColumns(); j++) {
+            for (int j = 0; j < targetTable.getNumColumns(); j++) {
                 Datatype datatype_j = targetTable.getColumn(j).getDatatype();
 
                 if (datatype_i != datatype_j) {
@@ -48,7 +36,7 @@ public class ExtremaMatcher extends Matcher {
                 }
 
                 List<String> sourceColumn = sourceTable.getColumn(i).getValues();
-                List<String> targetColumn = targetTable.getColumn(i).getValues();
+                List<String> targetColumn = targetTable.getColumn(j).getValues();
                 switch (datatype_i) {
                     case BOOLEAN -> simMatrix[i][j] = booleanExtrema(sourceColumn, targetColumn);
                     case INTEGER -> simMatrix[i][j] = integerExtrema(sourceColumn, targetColumn);

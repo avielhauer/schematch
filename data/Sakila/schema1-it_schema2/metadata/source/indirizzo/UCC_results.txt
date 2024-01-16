@@ -1,0 +1,4 @@
+[indirizzo.csv.indirizzo_id]
+[indirizzo.csv.indirizzo]
+[indirizzo.csv.distretto]
+[indirizzo.csv.città_id]
