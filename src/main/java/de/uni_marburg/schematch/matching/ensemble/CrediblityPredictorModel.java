@@ -9,6 +9,7 @@ import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.ModelUtils;
+import lombok.SneakyThrows;
 import org.apache.commons.lang3.NotImplementedException;
 
 import java.io.BufferedWriter;
@@ -43,6 +44,12 @@ public class CrediblityPredictorModel implements Serializable {
     public class ModelTrainedException extends Exception{
         public ModelTrainedException(){
             super("\"Model is Already Trained\"");
+        }
+    }
+
+    public class SimilarityNotFoundExeption extends Exception{
+        public SimilarityNotFoundExeption(){
+            super("\"Similarty was not found in MatchTasks With the given column labels\"");
         }
     }
     boolean isTrained=false;
@@ -101,11 +108,26 @@ public class CrediblityPredictorModel implements Serializable {
         }
 
     }
-    public  double getSimilarity(ColumnPair columnPair, Matcher matcher)
-
-    {
+    @SneakyThrows
+    public double getSimilarity(ColumnPair columnPair, Matcher matcher){
+        Column srcColumn = columnPair.getSourceColumn();
+        Column trgColumn = columnPair.getTargetColumn();
+        int srcIndex = srcColumn.getTable().getLabels().indexOf(srcColumn.getLabel());
+        int trgIndex = trgColumn.getTable().getLabels().indexOf(trgColumn.getLabel());
+//        this.matchTasks.forEach(x -> {
+        for (MatchTask x : matchTasks) {
+            for (TablePair tablePair : x.getTablePairs()) {
+                if (tablePair.getSourceTable().equals(srcColumn)) {
+                    if (tablePair.getTargetTable().equals(trgColumn)) {
+                        float[][] simsOfMatcher = x.getSimMatrices().get(x.getSimMatrices().keySet().iterator().next()).get(matcher);
+                        //TODO ich habe keinen Blassen schimmer, ob ich die richitgen Indexe herrausgefunden habe! :D
+                        return simsOfMatcher[srcIndex][trgIndex];
+                    }
+                }
+            }
+        }
         //TODO Crommc
-        return 0;
+        throw new SimilarityNotFoundExeption();
     }
     public  double getGroundTruth(ColumnPair columnPair)
     {
