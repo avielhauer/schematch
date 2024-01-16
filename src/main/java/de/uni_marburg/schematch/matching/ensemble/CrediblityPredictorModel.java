@@ -43,43 +43,8 @@ public class CrediblityPredictorModel implements Serializable {
         matchers.add(matcher);
     }
     String dataPath="output.csv";
-    public void train() throws IOException {
-        // TODO
-        CSVParser csvParser;
-        csvParser = new CSVParser(new FileReader("path/to/your/dataset.csv"), CSVFormat.DEFAULT.withHeader());
-        OnlineLogisticRegression model = trainMahoutModel(csvParser);
 
-        throw new NotImplementedException();
-    }
-    private  OnlineLogisticRegression trainMahoutModel(CSVParser csvParser) throws IOException {
-        OnlineLogisticRegression model = new OnlineLogisticRegression(1, 3, new L2(1));
 
-        for (CSVRecord record : csvParser) {
-            // Extract numerical features
-            List<Double>  numericalFeatures=new ArrayList<>();
-            for(Feature f:features)
-            {
-                numericalFeatures.add(Double.parseDouble(record.get(f.Name)));
-            }
-
-            // Extract categorical feature (assuming the last column is categorical)
-            String categoricalFeature = record.get("Matcher");
-
-            // Map categorical feature to a numerical value (you might need a proper mapping strategy)
-            double mappedCategory = mapCategoryToNumber(categoricalFeature);
-
-            // Extract target label (assuming the last column is the target label)
-            double target = Double.parseDouble(record.get("target"));
-
-            // Train the model
-            //model.train(target, new DenseVector(), mappedCategory);
-        }
-
-        return model;
-    }
-
-    private double mapCategoryToNumber(String categoricalFeature) {
-    }
 
     public class ModelTrainedException extends Exception{
         public ModelTrainedException(){
@@ -109,7 +74,10 @@ public class CrediblityPredictorModel implements Serializable {
         for(Feature feature:features){
             header+=","+feature.getName();
         }
-        header+=","+"Matcher";
+        for (Matcher m:matchers)
+        {
+         header+=","+m.getClass().getName();
+        }
         header+=","+"Accuracy";
         List<String> data=new ArrayList<>();
         data.add(header);
@@ -119,12 +87,20 @@ public class CrediblityPredictorModel implements Serializable {
                 line+=","+feature.calculateScore(colomnPairs.get(i));
             }
 
-            Map<Matcher,Double> map=accuracy.get(colomnPairs.get(i));
+            Map<Matcher,Double> accuracyMap=accuracy.get(colomnPairs.get(i));
             for (Matcher matcher:matchers)
             {
+
                 String instance=line;
-                instance+=","+matcher.getClass().getName();
-                instance+=","+map.get(matcher);
+                for (Matcher m:matchers)
+                {
+                    if(matcher.equals(m))
+
+                        instance+=","+1;
+                    else
+                        instance+=","+0;
+                }
+                instance+=","+accuracyMap.get(matcher);
 
                 data.add(instance);
             }
