@@ -4,10 +4,7 @@ import de.uni_marburg.schematch.data.Column;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public enum Datatype {
@@ -20,9 +17,9 @@ public enum Datatype {
     GEO_LOCATION;
 
     /**
-     * Determines the data type of a given column
+     * Determines the definitive data type from a list of scores
      *
-     * @param column The column to determine the datatype of
+     * @param scores A vector of scores for a certain column
      * @return The determined datatype
      */
     public static Datatype determineDatatype(HashMap<Datatype, Double> scores) {
@@ -120,6 +117,64 @@ public enum Datatype {
 
         System.out.println(sb);
     }
+
+    public static List<Boolean> castToBoolean(Column column) {
+        List<String> input = column.getValues();
+        ArrayList<Boolean> list = new ArrayList<>();
+        String[] t = {"1", "true", "t", "yes", "y", "ja", "j"};
+        String[] f = {"0", "false", "f", "no", "n", "nein",};
+        List<String> patternsT = new ArrayList<>(Arrays.stream(t).toList());
+        List<String> patternsF = new ArrayList<>(Arrays.stream(f).toList());
+        for (String s : input) {
+            if (patternsT.contains(s)) list.add(true);
+            else if (patternsF.contains(s)) list.add(false);
+            else list.add(null);
+        }
+        return list;
+    }
+
+    public static List<Integer> castToInt(Column input) {
+        List<Integer> list = new ArrayList<>();
+        for (String s : input.getValues()) {
+            try {
+                list.add(Integer.parseInt(s));
+            } catch (NumberFormatException ignored) {
+                list.add(null);
+            }
+        }
+        return list;
+    }
+
+    public static List<Float> castToFloat(Column input) {
+        List<Float> list = new ArrayList<>();
+        for (String s : input.getValues()) {
+            try {
+                list.add(Float.parseFloat(s.replace(",", ".")));
+            } catch (NumberFormatException ignored) {
+                list.add(null);
+            }
+        }
+        return list;
+    }
+
+    public static List<Date> castToDate(Column input) {
+        List<Date> dates = new ArrayList<>();
+        final SimpleDateFormat sdf = new SimpleDateFormat("dd-MM");
+        for (String value : input.getValues()) {
+            if (value.equals("\"\"") || value.isEmpty()) {
+                continue;
+            }
+            if (value.contains("+")) value = value.substring(0, value.indexOf("+"));
+            try {
+                dates.add(sdf.parse(value));
+            } catch (ParseException ignored) {
+                dates.add(null);
+            }
+        }
+
+        return dates;
+    }
+
 
     private static class Helper implements Comparable<Helper> {
         double percentage;
@@ -244,7 +299,6 @@ public enum Datatype {
 
         return (double) parseCounter / (values.size() - nullCounter);
     }
-
 
     private static boolean isNull(String value) {
         return value.equals("\"\"") || value.isEmpty();

@@ -1,5 +1,6 @@
 package de.uni_marburg.schematch.matching.metadata;
 
+import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.data.metadata.Datatype;
 import de.uni_marburg.schematch.matching.TablePairMatcher;
@@ -36,8 +37,8 @@ public class ExtremaMatcher extends TablePairMatcher {
                     continue;
                 }
 
-                List<String> sourceColumn = sourceTable.getColumn(i).getValues();
-                List<String> targetColumn = targetTable.getColumn(j).getValues();
+                Column sourceColumn = sourceTable.getColumn(i);
+                Column targetColumn = targetTable.getColumn(j);
                 switch (datatype_i) {
                     case BOOLEAN -> simMatrix[i][j] = booleanExtrema(sourceColumn, targetColumn);
                     case INTEGER -> simMatrix[i][j] = integerExtrema(sourceColumn, targetColumn);
@@ -53,9 +54,9 @@ public class ExtremaMatcher extends TablePairMatcher {
         return simMatrix;
     }
 
-    private float booleanExtrema(List<String> sourceRaw, List<String> targetRaw) {
-        List<Boolean> source = castToBoolean(sourceRaw);
-        List<Boolean> target = castToBoolean(targetRaw);
+    private float booleanExtrema(Column sourceRaw, Column targetRaw) {
+        List<Boolean> source = Datatype.castToBoolean(sourceRaw);
+        List<Boolean> target = Datatype.castToBoolean(targetRaw);
 
         boolean sourceMax = false;
         boolean sourceMin = true;
@@ -63,6 +64,9 @@ public class ExtremaMatcher extends TablePairMatcher {
         boolean targetMin = true;
 
         for (Boolean b : source) {
+            if (b == null) {
+                continue;
+            }
             if (b) sourceMax = true;
             if (!b) sourceMin = false;
 
@@ -72,6 +76,9 @@ public class ExtremaMatcher extends TablePairMatcher {
         }
 
         for (Boolean b : target) {
+            if (b == null) {
+                continue;
+            }
             if (b) targetMax = true;
             if (!b) targetMin = false;
 
@@ -86,34 +93,27 @@ public class ExtremaMatcher extends TablePairMatcher {
         return result;
     }
 
-    private ArrayList<Boolean> castToBoolean(List<String> input) {
-        ArrayList<Boolean> list = new ArrayList<>();
-        String[] t = {"1", "true", "t", "yes", "y", "ja", "j"};
-        String[] f = {"0", "false", "f", "no", "n", "nein",};
-        List<String> patternsT = new ArrayList<>(Arrays.stream(t).toList());
-        List<String> patternsF = new ArrayList<>(Arrays.stream(f).toList());
-        for (String s : input) {
-            if (patternsT.contains(s)) list.add(true);
-            else if (patternsF.contains(s)) list.add(false);
-        }
-        return list;
-    }
-
-    private float integerExtrema(List<String> sourceRaw, List<String> targetRaw) {
+    private float integerExtrema(Column sourceRaw, Column targetRaw) {
         int sourceMin = Integer.MAX_VALUE;
         int sourceMax = Integer.MIN_VALUE;
         int targetMin = Integer.MAX_VALUE;
         int targetMax = Integer.MIN_VALUE;
 
-        List<Integer> source = castToInt(sourceRaw);
-        List<Integer> target = castToInt(targetRaw);
+        List<Integer> source = Datatype.castToInt(sourceRaw);
+        List<Integer> target = Datatype.castToInt(targetRaw);
 
         for (Integer s : source) {
+            if (s == null) {
+                continue;
+            }
             if (s > sourceMax) sourceMax = s;
             if (s < sourceMin) sourceMin = s;
         }
 
         for (Integer t : target) {
+            if (t == null) {
+                continue;
+            }
             if (t > targetMax) targetMax = t;
             if (t < targetMin) targetMin = t;
         }
@@ -121,32 +121,27 @@ public class ExtremaMatcher extends TablePairMatcher {
         return calculateMatchPercentage(sourceMax, targetMax, sourceMin, targetMin);
     }
 
-    private List<Integer> castToInt(List<String> input) {
-        List<Integer> list = new ArrayList<>();
-        for (String s : input) {
-            try {
-                list.add(Integer.parseInt(s));
-            } catch (NumberFormatException ignored) {
-            }
-        }
-        return list;
-    }
-
-    private float floatExtrema(List<String> sourceRaw, List<String> targetRaw) {
+    private float floatExtrema(Column sourceRaw, Column targetRaw) {
         float sourceMin = Float.MAX_VALUE;
         float sourceMax = Float.MIN_VALUE;
         float targetMin = Float.MAX_VALUE;
         float targetMax = Float.MIN_VALUE;
 
-        List<Float> source = castToFloat(sourceRaw);
-        List<Float> target = castToFloat(targetRaw);
+        List<Float> source = Datatype.castToFloat(sourceRaw);
+        List<Float> target = Datatype.castToFloat(targetRaw);
 
         for (Float s : source) {
+            if (s == null) {
+                continue;
+            }
             if (s > sourceMax) sourceMax = s;
             if (s < sourceMin) sourceMin = s;
         }
 
         for (Float t : target) {
+            if (t == null) {
+                continue;
+            }
             if (t > targetMax) targetMax = t;
             if (t < targetMin) targetMin = t;
         }
@@ -154,32 +149,27 @@ public class ExtremaMatcher extends TablePairMatcher {
         return calculateMatchPercentage(sourceMax, targetMax, sourceMin, targetMin);
     }
 
-    private List<Float> castToFloat(List<String> input) {
-        List<Float> list = new ArrayList<>();
-        for (String s : input) {
-            try {
-                list.add(Float.parseFloat(s.replace(",", ".")));
-            } catch (NumberFormatException ignored) {
-            }
-        }
-        return list;
-    }
-
-    private float dateExtrema(List<String> sourceRaw, List<String> targetRaw) {
+    private float dateExtrema(Column sourceRaw, Column targetRaw) {
         Date sourceMin = new Date(Long.MAX_VALUE);
         Date sourceMax = new Date(Long.MIN_VALUE);
         Date targetMin = new Date(Long.MAX_VALUE);
         Date targetMax = new Date(Long.MIN_VALUE);
 
-        List<Date> source = castToDate(sourceRaw);
-        List<Date> target = castToDate(targetRaw);
+        List<Date> source = Datatype.castToDate(sourceRaw);
+        List<Date> target = Datatype.castToDate(targetRaw);
 
         for (Date s : source) {
+            if (s == null) {
+                continue;
+            }
             if (s.after(sourceMax)) sourceMax = s;
             if (s.before(sourceMin)) sourceMin = s;
         }
 
         for (Date t : target) {
+            if (t == null) {
+                continue;
+            }
             if (t.after(targetMax)) sourceMax = t;
             if (t.before(targetMin)) sourceMin = t;
         }
@@ -187,24 +177,7 @@ public class ExtremaMatcher extends TablePairMatcher {
         return calculateMatchPercentage(sourceMax, targetMax, sourceMin, targetMin);
     }
 
-    private List<Date> castToDate(List<String> input) {
-        List<Date> dates = new ArrayList<>();
-        final SimpleDateFormat sdf = new SimpleDateFormat("dd-MM");
-        for (String value : input) {
-            if (value.equals("\"\"") || value.isEmpty()) {
-                continue;
-            }
-            if (value.contains("+")) value = value.substring(0, value.indexOf("+"));
-            try {
-                dates.add(sdf.parse(value));
-            } catch (ParseException ignored) {
-            }
-        }
-
-        return dates;
-    }
-
-    private float geoExtrema(List<String> sourceRaw, List<String> targetRaw) {
+    private float geoExtrema(Column sourceRaw, Column targetRaw) {
         float sourceMin = Float.MAX_VALUE;
         float sourceMax = Float.MIN_VALUE;
         float targetMin = Float.MAX_VALUE;
@@ -212,13 +185,13 @@ public class ExtremaMatcher extends TablePairMatcher {
 
         GeoLocation reference = new GeoLocation(0.0d, 0.0d);
 
-        for (String coords : sourceRaw) {
+        for (String coords : sourceRaw.getValues()) {
             GeoLocation target = new GeoLocation(coords);
             float distance = (float) reference.calculateDistance(target);
             if (distance > sourceMax) sourceMax = distance;
             if (distance < sourceMin) sourceMin = distance;
         }
-        for (String coords : targetRaw) {
+        for (String coords : targetRaw.getValues()) {
             GeoLocation target = new GeoLocation(coords);
             float distance = (float) reference.calculateDistance(target);
             if (distance > targetMax) targetMax = distance;
@@ -228,19 +201,19 @@ public class ExtremaMatcher extends TablePairMatcher {
         return calculateMatchPercentage(sourceMax, targetMax, sourceMin, targetMin);
     }
 
-    private float stringExtrema(List<String> sourceRaw, List<String> targetRaw) {
+    private float stringExtrema(Column sourceRaw, Column targetRaw) {
         int sourceMin = Integer.MAX_VALUE;
         int sourceMax = Integer.MIN_VALUE;
         int targetMin = Integer.MAX_VALUE;
         int targetMax = Integer.MIN_VALUE;
 
-        for (String s : sourceRaw) {
+        for (String s : sourceRaw.getValues()) {
             int length = s.length();
             if (length > sourceMax) sourceMax = length;
             if (length < sourceMin) sourceMin = length;
         }
 
-        for (String t : targetRaw) {
+        for (String t : targetRaw.getValues()) {
             int length = t.length();
             if (length > targetMax) targetMax = length;
             if (length < targetMin) targetMin = length;
