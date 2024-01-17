@@ -1,4 +1,5 @@
 import re
+import json
 
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -34,8 +35,8 @@ def encode(labels, lookup):
 
 
 def extract_features_from_names(graphA, graphB):
-    labelsA = [node.split("_")[2] for node in graphA.nodes]
-    labelsB = [node.split("_")[2] for node in graphB.nodes]
+    labelsA = [node.split("|")[2] for node in graphA.nodes]
+    labelsB = [node.split("|")[2] for node in graphB.nodes]
     lookup = one_hot_encoding_lookup(set(labelsA + labelsB))
     return encode(labelsA, lookup), encode(labelsB, lookup)
 
@@ -73,11 +74,17 @@ def align_embeddings(
     return norm(embed1.dot(dim_align_matrix))
 
 
+def is_column_node(node):
+    if len(node.split("|")) >= 3:
+        if node.split("|")[2] == "COLUMN":
+            return True
+    return False
+
 def extract_column_embeddings(all_embeddings, graph, table_name):
     embeddings = []
     for i, node in enumerate(graph.nodes):
-        if node.split("_")[2] == "COLUMN":
-            if "_".join(node.split("_")[3:]).startswith(table_name):
+        if is_column_node(node):
+            if "|".join(node.split("|")[3:]).startswith(table_name):
                 embeddings.append(all_embeddings[i])
     return np.asarray(embeddings)
 
@@ -107,7 +114,29 @@ def generate_n2v_embeddings(graph):
     fitted_model = model.fit()
     return fitted_model.wv
 
-def get_embeddings(graphA, source_graph_file, graphB, target_graph_file):
+def load_feature_dict(path):
+    with open(path, "r") as fp:
+        dict = json.loads(json.load(fp))
+    return dict
+
+def align_feature_dict(graph, feature_dict):
+    features = []
+    for node in graph.nodes:
+        if is_column_node(node):
+            table = node.split("|")[3]
+            column = node.split("|")[4]
+            features.append(feature_dict[table][column])
+        else:
+            features.append([0.0])
+    print(features)
+    return np.asarray(features)
+
+def read_additional_features(graphA, graphB, features_dir):
+    source_features = align_feature_dict(graphA,  load_feature_dict("/home/fabian/Desktop/MP/repos/schematch/" + features_dir+"/source.json"))
+    target_features = align_feature_dict(graphB, load_feature_dict("/home/fabian/Desktop/MP/repos/schematch/" + features_dir+"/target.json"))
+    return source_features, target_features
+
+def get_embeddings(graphA, source_graph_file, graphB, target_graph_file, features_dir):
     if (source_graph_file, target_graph_file) in EMBEDDINGS_CACHE:
         embeddings_source, embeddings_target = EMBEDDINGS_CACHE[(source_graph_file, target_graph_file)]
     else:
@@ -118,7 +147,11 @@ def get_embeddings(graphA, source_graph_file, graphB, target_graph_file):
             embeddings_target = np.asarray([embeddings_target[node] for node in graphB.nodes])
             embeddings_source = align_embeddings(norm(embeddings_source), norm(embeddings_target))
         elif EMBEDDING_GENERATION == "XNET":
+
             featuresA, featuresB = extract_features_from_names(graphA, graphB)
+            addFeaturesA, addFeaturesB = read_additional_features(graphA, graphB, features_dir)
+            featuresA = np.concatenate((featuresA, addFeaturesA), axis=1)
+            featuresB = np.concatenate((featuresB, addFeaturesB), axis=1)
             combined_graph = nx.compose(graphA, graphB)
             embeddings_combined = embed_xnetmf(combined_graph, np.concatenate((featuresA, featuresB), axis=0))
             embeddings_source = embeddings_combined[: len(graphA.nodes)]
@@ -129,12 +162,12 @@ def get_embeddings(graphA, source_graph_file, graphB, target_graph_file):
         EMBEDDINGS_CACHE[(source_graph_file, target_graph_file)] = (embeddings_source, embeddings_target)
     return embeddings_source, embeddings_target
 
-def match(source_graph_file, source_table, target_graph_file, target_table):
+def match(source_graph_file, source_table, target_graph_file, target_table, features_dir):
     graphA: nx.Graph = nx.read_graphml(source_graph_file, node_type=str)
     graphB: nx.Graph = nx.read_graphml(target_graph_file, node_type=str)
 
 
-    embeddings_source, embeddings_target = get_embeddings(graphA, source_graph_file, graphB, target_graph_file)
+    embeddings_source, embeddings_target = get_embeddings(graphA, source_graph_file, graphB, target_graph_file, features_dir)
 
     graphA_emb = extract_column_embeddings(embeddings_source, graphA, source_table)
     graphB_emb = extract_column_embeddings(embeddings_target, graphB, target_table)

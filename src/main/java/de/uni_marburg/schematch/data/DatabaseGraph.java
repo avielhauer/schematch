@@ -148,9 +148,9 @@ public class DatabaseGraph {
         return vertexName("TABLE", table.getName());
     }
     private String columnNode(final Column column) {
-        return vertexName("COLUMN", column.getTable().getName() + "_" + column.getLabel());
+        return vertexName("COLUMN", column.getTable().getName() + "|" + column.getLabel());
     }
     private String vertexName(final String resourceType, final String resourceName) {
-        return String.format("DB_%d_%s_%s", graphId, resourceType, resourceName);
+        return String.format("DB|%d|%s|%s", graphId, resourceType, resourceName);
     }
 }

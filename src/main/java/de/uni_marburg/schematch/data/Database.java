@@ -18,6 +18,7 @@ public class Database {
     private DatabaseMetadata metadata;
     private int numColumns;
     private DatabaseGraph graph;
+    private DatabaseFeatures databaseFeatures;
 
     public Database(Scenario scenario, String path) {
         this.scenario = scenario;
@@ -39,6 +40,8 @@ public class Database {
         numColumns = currentOffset;
 
         this.graph = new DatabaseGraph(this);
+        this.databaseFeatures = new DatabaseFeatures(this);
+        this.databaseFeatures.exportFeatures("target/features/" + scenario.getDataset().getName() +  "/" + scenario.getName());
     }
 
     public String getFullColumnNameByIndex(int idx) {
