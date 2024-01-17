@@ -1,0 +1,7 @@
+[staff.csv.staff_id]
+[staff.csv.first_name]
+[staff.csv.last_name]
+[staff.csv.address_id]
+[staff.csv.email]
+[staff.csv.store_id]
+[staff.csv.username]

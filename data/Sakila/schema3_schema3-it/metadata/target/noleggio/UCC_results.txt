@@ -1,0 +1,6 @@
+[noleggio.csv.noleggio_id]
+[noleggio.csv.data_restituzione, noleggio.csv.inventario_id]
+[noleggio.csv.cliente_id, noleggio.csv.data_restituzione, noleggio.csv.film_id]
+[noleggio.csv.data_noleggio, noleggio.csv.inventario_id]
+[noleggio.csv.cliente_id, noleggio.csv.data_noleggio, noleggio.csv.film_id]
+[noleggio.csv.cliente_id, noleggio.csv.inventario_id]

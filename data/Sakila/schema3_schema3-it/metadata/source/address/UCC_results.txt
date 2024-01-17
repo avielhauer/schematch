@@ -1,0 +1,6 @@
+[address.csv.address_id]
+[address.csv.address]
+[address.csv.phone]
+[address.csv.city_id, address.csv.postal_code]
+[address.csv.city_id, address.csv.district]
+[address.csv.district, address.csv.postal_code]
