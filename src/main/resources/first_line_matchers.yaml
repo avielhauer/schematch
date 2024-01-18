@@ -9,6 +9,21 @@ params:
 ---
 name: "DatatypeMatcher"
 packageName: "metadata"
+---
+name: "NumberOfRowsMatcher"
+packageName: "metadata"
+---
+name: "NullPercentageMatcher"
+packageName: "metadata"
+---
+name: "DistinctCountMatcher"
+packageName: "metadata"
+---
+name: "UniquenessMatcher"
+packageName: "metadata"
+---
+name: "ExtremaMatcher"
+packageName: "metadata"
 
 # Similarity matchers
 ---
