@@ -1,0 +1,2 @@
+[article.csv.number] --> [book.csv.num], [incollection.csv.vol], [inproceedings.csv.vol]
+[article.csv.year] --> [misc.csv.year]

@@ -1,8 +1,0 @@
-[citjournal.csv.jrnlid] --> [manual.csv.vol]
-[citkeywd.csv.keywdid] --> [book.csv.num], [inproceedings.csv.vol], [miscpublished.csv.authid]
-[citpublisher.csv.pubid] --> [miscpublished.csv.authid]
-[journal.csv.jrnlid] --> [manual.csv.vol]
-[keyword.csv.keywdid] --> [book.csv.num], [inproceedings.csv.vol], [miscpublished.csv.authid]
-[numbers.csv.num] --> [incollection.csv.vol]
-[publisher.csv.pubid] --> [miscpublished.csv.authid]
-[years.csv.yr] --> [incollection.csv.year], [misc.csv.year], [techreport.csv.year]
