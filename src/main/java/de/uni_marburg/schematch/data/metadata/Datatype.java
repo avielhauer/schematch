@@ -286,7 +286,7 @@ public enum Datatype {
     }
 
     private static double isGeoLocation(Column column) {
-        Pattern pattern = Pattern.compile("[0-9]+.[0-9]+,[0-9]+.[0-9]+");
+        Pattern pattern = Pattern.compile("-?[0-9]+.[0-9]+,-?[0-9]+.[0-9]+");
         List<String> values = column.getValues();
 
         int nullCounter = 0;
