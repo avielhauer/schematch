@@ -3,15 +3,16 @@ package de.uni_marburg.schematch.matching.sota.cupid;
 import java.util.*;
 
 public class StructuralSimilarity {
-    public static double computeSSim(
+    public static float computeSSim(
             SchemaElementNode s,
             SchemaElementNode t,
-            Map<String,Map<StringPair,Double>> sims,
-            double th_accept) {
+            Map<String, Map<StringPair, Float>> sims,
+            double th_accept
+    ) {
         List<SchemaElementNode> sLeaves = s.leaves();
         List<SchemaElementNode> tLeaves = t.leaves();
 
-        if (sLeaves.size() > tLeaves.size()*2 || sLeaves.size()*2 < tLeaves.size()) return Double.NaN;
+        if (sLeaves.size() > tLeaves.size()*2 || sLeaves.size()*2 < tLeaves.size()) return 0f;
 
         HashSet<SchemaElementNode> sStrongLink = new HashSet<SchemaElementNode>();
         HashSet<SchemaElementNode> tStrongLink = new HashSet<SchemaElementNode>();
@@ -25,20 +26,21 @@ public class StructuralSimilarity {
                 }
             }
         }
-        return (double) (sStrongLink.size() + tStrongLink.size()) / (sLeaves.size() + tLeaves.size());
+        return  (float) (sStrongLink.size() + tStrongLink.size()) / (sLeaves.size() + tLeaves.size());
     }
 
     public static void changeStructuralSimilarity(
             List<SchemaElementNode> sLeaves,
             List<SchemaElementNode> tLeaves,
-            Map<String, Map<StringPair, Double>> sims,
-            double cInc) {
+            Map<String, Map<StringPair, Float>> sims,
+            float cInc
+    ) {
         List<StringPair> allLeaves = product(sLeaves, tLeaves);
 
         for (StringPair pair: allLeaves) {
             if (sims.get("ssim").containsKey(pair)) {
-                double partial = sims.get("ssim").get(pair) * cInc;
-                if (partial > 1) partial = 1.0;
+                float partial = sims.get("ssim").get(pair) * cInc;
+                if (partial > 1) partial = 1.0f;
                 sims.get("ssim").put(pair,partial);
             }
         }

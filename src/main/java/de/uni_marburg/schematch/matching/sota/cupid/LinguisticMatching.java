@@ -3,10 +3,9 @@ package de.uni_marburg.schematch.matching.sota.cupid;
 import de.uni_marburg.schematch.similarity.string.Levenshtein;
 import edu.mit.jwi.RAMDictionary;
 import edu.mit.jwi.item.ISynset;
-import edu.mit.jwi.item.IWord;
-import edu.mit.jwi.item.IWordID;
-import edu.stanford.nlp.ling.CoreLabel;
-import edu.stanford.nlp.process.*;
+import edu.stanford.nlp.process.CoreLabelTokenFactory;
+import edu.stanford.nlp.process.PTBTokenizer;
+import edu.stanford.nlp.process.Tokenizer;
 import edu.uniba.di.lacam.kdde.lexical_db.ILexicalDatabase;
 import edu.uniba.di.lacam.kdde.lexical_db.MITWordNet;
 import edu.uniba.di.lacam.kdde.ws4j.similarity.WuPalmer;
@@ -14,9 +13,7 @@ import edu.uniba.di.lacam.kdde.ws4j.util.WS4JConfiguration;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
-import java.io.Reader;
 import java.io.StringReader;
-import java.net.URL;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -349,16 +346,15 @@ public class LinguisticMatching {
 
             double max = -1.0;
             int index = 1;
+            WordNetFunctionalities wordNetFunctionalities = new WordNetFunctionalities();
+            WS4JConfiguration.getInstance().setMemoryDB(false);
+            WS4JConfiguration.getInstance().setMFS(true);
+            ILexicalDatabase db = new MITWordNet(new RAMDictionary(wordNetFunctionalities.dict, 2));
+            WuPalmer wuPalmer = new WuPalmer(db);
+
             for (Pair<ISynset, ISynset> pair : productOfBothISynsetSets) {
                 ISynset s1 = pair.getFirst();
                 ISynset s2 = pair.getSecond();
-
-                WordNetFunctionalities wordNetFunctionalities = new WordNetFunctionalities();
-                WS4JConfiguration.getInstance().setMemoryDB(false);
-                WS4JConfiguration.getInstance().setMFS(true);
-                ILexicalDatabase db = new MITWordNet(new RAMDictionary(wordNetFunctionalities.dict, 2));
-
-                WuPalmer wuPalmer = new WuPalmer(db);
                 double score = wuPalmer.calcRelatednessOfWords(s1.getWords().get(0).getLemma(), s2.getWords().get(0).getLemma());
                 System.out.println(index + ". " + s1.getWords().get(0).getLemma() + ", " + s2.getWords().get(0).getLemma() + ": " + score);
                 index++;

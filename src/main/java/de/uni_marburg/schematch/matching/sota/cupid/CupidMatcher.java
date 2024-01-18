@@ -1,5 +1,6 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
 
+import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 
@@ -17,25 +18,25 @@ public class CupidMatcher extends Matcher {
     // Gibt eine Map zurück mit 3 Schlüsseln "ssim","lsim" und "wsim"
     // mit denen auf 3 weitere Maps zugegriffen werden kann, welche
     // die Namenspaare der beiden bäume als schlüssel haben.
-    private Map<String,Map<StringPair,Double>> treeMatch(
+    private Map<String,Map<StringPair,Float>> treeMatch(
             SchemaTree sourceTree,
             SchemaTree targetTree,
             List<String> categories,
-            double leafWStruct,
-            double wStruct,
-            double thAccept,
-            double thHigh,
-            double thLow,
-            double cInc,
-            double cDec,
-            double thNs,
+            float leafWStruct,
+            float wStruct,
+            float thAccept,
+            float thHigh,
+            float thLow,
+            float cInc,
+            float cDec,
+            float thNs,
             int parallelism
     ) {
         Map<String, Map<String, Double>> compatibilityTable = new LinguisticMatching().computeCompatibility(categories);
         Map<StringPair,Double> lSims = new LinguisticMatching().comparison(sourceTree,targetTree,compatibilityTable,thNs,parallelism);
         List<SchemaElementNode> sLeaves = sourceTree.getLeaves();
         List<SchemaElementNode> tLeaves = targetTree.getLeaves();
-        Map<String,Map<StringPair,Double>> sims = getSims(sLeaves, tLeaves, compatibilityTable, lSims, leafWStruct);
+        Map<String,Map<StringPair,Float>> sims = getSims(sLeaves, tLeaves, compatibilityTable, lSims, leafWStruct);
         List<SchemaElementNode> sPostOrder = sourceTree.postOrder();
         List<SchemaElementNode> tPostOrder = targetTree.postOrder();
 
@@ -43,14 +44,14 @@ public class CupidMatcher extends Matcher {
             for (SchemaElementNode t : tPostOrder) {
                 StringPair pair = new StringPair(s.name,t.name);
                 if (s.height() == t.height()) {
-                    double ssim = StructuralSimilarity.computeSSim(s, t, sims, thAccept);
+                    float ssim = StructuralSimilarity.computeSSim(s, t, sims, thAccept);
                     if (Double.isNaN(ssim)) {
                         continue;
                     }
                     if(!lSims.containsKey(pair)) {
-                        lSims.put(pair,Double.NaN);
+                        sims.get("lsim").put(pair,Float.NaN);
                     }
-                    double wsim = computeWeightedSimilarity(ssim,lSims.get(pair), wStruct);
+                    float wsim = computeWeightedSimilarity(ssim,lSims.get(pair).floatValue(), wStruct);
                     sims.get("ssim").put(pair,ssim);
                     sims.get("wsim").put(pair,wsim);
                 }
@@ -67,33 +68,62 @@ public class CupidMatcher extends Matcher {
         return sims;
     }
 
-    private Map<String, Map<StringPair, Double>> getSims(
+    private Map<String, Map<StringPair, Float>> getSims(
             List<SchemaElementNode> sLeaves,
             List<SchemaElementNode> tLeaves,
             Map<String, Map<String, Double>> compatibilityTable,
-            Map<StringPair, Double> lsims,
-            double leafWStruct) {
-        Map<String, Map<StringPair, Double>> sims = new HashMap<String, Map<StringPair, Double>>();
-        Map<StringPair, Double> ssim = new HashMap<StringPair, Double>();
-        Map<StringPair, Double> wsim = new HashMap<StringPair, Double>();
+            Map<StringPair, Double> lsimsDouble,
+            float leafWStruct) {
+        Map<String, Map<StringPair, Float>> sims = new HashMap<String, Map<StringPair, Float>>();
+        Map<StringPair, Float> lsim = doubleDictToFloat(lsimsDouble);
+        Map<StringPair, Float> ssim = new HashMap<StringPair, Float>();
+        Map<StringPair, Float> wsim = new HashMap<StringPair, Float>();
         for (SchemaElementNode s: sLeaves) {
             for (SchemaElementNode t: tLeaves) {
                 if (compatibilityTable.containsKey(s.current.getDataType()) && compatibilityTable.containsKey(t.current.getDataType())) {
                     StringPair pair = new StringPair(s.name,t.name);
-                    double ssimVal = compatibilityTable.get(s.name).get(t.name);
+                    float ssimVal = compatibilityTable.get(s.name).get(t.name).floatValue();
                     ssim.put(pair,ssimVal);
-                    wsim.put(pair, computeWeightedSimilarity(ssimVal,lsims.get(pair),leafWStruct));
+                    wsim.put(pair, computeWeightedSimilarity(ssimVal,lsim.get(pair),leafWStruct));
                 }
             }
         }
         sims.put("ssim",ssim);
-        sims.put("lsim",lsims);
+        sims.put("lsim",lsim);
         sims.put("wsim",wsim);
         return sims;
     }
 
-    private double computeWeightedSimilarity(double ssim, double lsim, double wStruct) {
+    private Map<StringPair, Float> doubleDictToFloat(Map<StringPair, Double> dict) {
+        Map<StringPair, Float> newDict = new HashMap<>();
+        for (StringPair pair: dict.keySet()) {
+            newDict.put(pair, dict.get(pair).floatValue());
+        }
+        return newDict;
+    }
+
+    private float computeWeightedSimilarity(float ssim, float lsim, float wStruct) {
         return ssim * wStruct + (1-wStruct) * lsim;
+    }
+    public static float[][] mappingGenerationLeaves(
+            TablePair tablePair,
+            Map<String, Map<StringPair, Float>> sims,
+            float thAccept
+    ) {
+        Table sTable = tablePair.getSourceTable();
+        Table tTable = tablePair.getTargetTable();
+
+        float[][] simMatrix = tablePair.getEmptySimMatrix();
+        for (int s = 0; s < simMatrix.length; s++) {
+            for (int t = 0; t < simMatrix[0].length; t++) {
+                StringPair pair = new StringPair(sTable.getLabels().get(s),tTable.getLabels().get(t));
+                float val = sims.get("wsim").get(pair);
+                if (val > thAccept) {
+                    simMatrix[s][t] = val;
+                }
+            }
+        }
+        return simMatrix;
     }
 }
 
