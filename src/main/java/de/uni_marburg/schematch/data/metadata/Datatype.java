@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 public enum Datatype {
     STRING,
@@ -15,6 +16,20 @@ public enum Datatype {
     DATE,
     TEXT, // long string (e.g., comments or descriptions) not implemented yet
     GEO_LOCATION;
+
+    // boolean values
+    final static String[] t = {"1", "true", "t", "yes", "y", "ja", "j"};
+    final static String[] f = {"0", "false", "f", "no", "n", "nein"};
+    final static List<String> patternsT = Arrays.stream(t).toList();
+    final static List<String> patternsF = Arrays.stream(f).toList();
+    final static List<String> booleanPatterns = Stream.concat(patternsT.stream(), patternsF.stream()).toList();
+    // geolocation pattern
+    final static Pattern geoLocationPattern = Pattern.compile("-?[0-9]+.[0-9]+,-?[0-9]+.[0-9]+");
+    // date formats
+    final static SimpleDateFormat sdfDashes = new SimpleDateFormat("dd-MM");
+    final static SimpleDateFormat sdfSlashes = new SimpleDateFormat("dd/MM");
+    final static SimpleDateFormat sdfDots = new SimpleDateFormat("dd.MM");
+    final static SimpleDateFormat[] sdfs = {sdfDashes, sdfSlashes, sdfDots};
 
     /**
      * Determines the definitive data type from a list of scores
@@ -45,12 +60,14 @@ public enum Datatype {
         } else {
             percentages.add(floatHelper);
         }
+        // Prefer geolocation to date
+        if (geoHelper.percentage >= dateHelper.percentage) {
+            percentages.add(geoHelper);
+        } else {
+            percentages.add(dateHelper);
+        }
 
-        // all other detection function outputs can be directly compared to each other
         // leave out string as everything can be a string
-        percentages.add(dateHelper);
-        percentages.add(geoHelper);
-
 
         // return highest matching type detection
         // we chose 95% as a threshold because this value is often used in statistics
@@ -121,10 +138,6 @@ public enum Datatype {
     public static List<Boolean> castToBoolean(Column column) {
         List<String> input = column.getValues();
         ArrayList<Boolean> list = new ArrayList<>();
-        String[] t = {"1", "true", "t", "yes", "y", "ja", "j"};
-        String[] f = {"0", "false", "f", "no", "n", "nein",};
-        List<String> patternsT = new ArrayList<>(Arrays.stream(t).toList());
-        List<String> patternsF = new ArrayList<>(Arrays.stream(f).toList());
         for (String s : input) {
             if (patternsT.contains(s)) list.add(true);
             else if (patternsF.contains(s)) list.add(false);
@@ -159,15 +172,21 @@ public enum Datatype {
 
     public static List<Date> castToDate(Column input) {
         List<Date> dates = new ArrayList<>();
-        final SimpleDateFormat sdf = new SimpleDateFormat("dd-MM");
         for (String value : input.getValues()) {
             if (value.equals("\"\"") || value.isEmpty()) {
                 continue;
             }
             if (value.contains("+")) value = value.substring(0, value.indexOf("+"));
-            try {
-                dates.add(sdf.parse(value));
-            } catch (ParseException ignored) {
+            boolean isDate = false;
+            for (SimpleDateFormat sdf : sdfs) {
+                try {
+                    dates.add(sdf.parse(value));
+                    isDate = true;
+                    break;
+                } catch (ParseException ignored) {
+                }
+            }
+            if (!isDate) {
                 dates.add(null);
             }
         }
@@ -179,7 +198,6 @@ public enum Datatype {
     private static class Helper implements Comparable<Helper> {
         double percentage;
         Datatype type;
-
 
         private Helper(double percentage, Datatype type) {
             this.percentage = percentage;
@@ -249,16 +267,22 @@ public enum Datatype {
         int nullCounter = 0;
         int exceptionCounter = 0;
 
-        final SimpleDateFormat sdf = new SimpleDateFormat("dd-MM");
         for (String value : values) {
             if (isNull(value)) {
                 nullCounter++;
                 continue;
             }
             if (value.contains("+")) value = value.substring(0, value.indexOf("+"));
-            try {
-                sdf.parse(value);
-            } catch (ParseException e) {
+            boolean isDate = false;
+            for (SimpleDateFormat sdf : sdfs) {
+                try {
+                    sdf.parse(value);
+                    isDate = true;
+                    break;
+                } catch (ParseException ignored) {
+                }
+            }
+            if (!isDate) {
                 exceptionCounter++;
             }
         }
@@ -270,8 +294,6 @@ public enum Datatype {
     }
 
     private static double isBoolean(Column column) {
-        String[] p = {"1", "0", "true", "false", "t", "f", "yes", "no", "y", "n", "ja", "nein", "j"};
-        List<String> patterns = new ArrayList<>(Arrays.stream(p).toList());
         List<String> values = column.getValues();
 
         int nullCounter = 0;
@@ -279,14 +301,13 @@ public enum Datatype {
 
         for (String value : values) {
             if (isNull(value)) nullCounter++;
-            else if (patterns.contains(value)) parseCounter++;
+            else if (booleanPatterns.contains(value)) parseCounter++;
         }
 
         return (double) parseCounter / (values.size() - nullCounter);
     }
 
     private static double isGeoLocation(Column column) {
-        Pattern pattern = Pattern.compile("-?[0-9]+.[0-9]+,-?[0-9]+.[0-9]+");
         List<String> values = column.getValues();
 
         int nullCounter = 0;
@@ -294,7 +315,7 @@ public enum Datatype {
 
         for (String value : values) {
             if (isNull(value)) nullCounter++;
-            else if (pattern.matcher(value).find()) parseCounter++;
+            else if (geoLocationPattern.matcher(value).find()) parseCounter++;
         }
 
         return (double) parseCounter / (values.size() - nullCounter);
