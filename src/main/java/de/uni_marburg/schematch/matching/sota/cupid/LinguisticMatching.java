@@ -395,7 +395,7 @@ public class LinguisticMatching {
                 continue;
             }
             List<Token> t1 = element1.getTokensByTokenType(tt.getTokenName());
-            List<Token> t2 = element1.getTokensByTokenType(tt.getTokenName());
+            List<Token> t2 = element2.getTokensByTokenType(tt.getTokenName());
             if (t1.size() == 0 || t2.size() == 0) {
                 continue;
             }
