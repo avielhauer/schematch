@@ -27,6 +27,7 @@ public class SchemaTree {
 
     public void addNode(String name, SchemaElementNode parent, ArrayList<SchemaElementNode> children, SchemaElement current) {
         SchemaElementNode newNode = new SchemaElementNode(name, parent, children, current);
+        parent.children.add(newNode);
         nodes.put(name, newNode);
     }
 

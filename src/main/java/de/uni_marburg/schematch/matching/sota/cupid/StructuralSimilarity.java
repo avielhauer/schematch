@@ -7,7 +7,7 @@ public class StructuralSimilarity {
             SchemaElementNode s,
             SchemaElementNode t,
             Map<String, Map<StringPair, Float>> sims,
-            double th_accept
+            float th_accept
     ) {
         List<SchemaElementNode> sLeaves = s.leaves();
         List<SchemaElementNode> tLeaves = t.leaves();

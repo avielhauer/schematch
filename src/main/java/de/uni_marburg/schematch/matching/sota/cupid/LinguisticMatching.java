@@ -349,7 +349,7 @@ public class LinguisticMatching {
             WordNetFunctionalities wordNetFunctionalities = new WordNetFunctionalities();
             WS4JConfiguration.getInstance().setMemoryDB(false);
             WS4JConfiguration.getInstance().setMFS(true);
-            ILexicalDatabase db = new MITWordNet(new RAMDictionary(wordNetFunctionalities.dict, 2));
+            ILexicalDatabase db = new MITWordNet();
             WuPalmer wuPalmer = new WuPalmer(db);
 
             for (Pair<ISynset, ISynset> pair : productOfBothISynsetSets) {
@@ -392,19 +392,19 @@ public class LinguisticMatching {
             }
             List<Token> t1 = element1.getTokensByTokenType(tt.getTokenName());
             List<Token> t2 = element2.getTokensByTokenType(tt.getTokenName());
-            if (t1.size() == 0 || t2.size() == 0) {
+            if (t1.isEmpty() || t2.isEmpty()) {
                 continue;
             }
             double sim = nameSimilarityTokens(t1, t2);
-            sum1 += tt.getWeight() * sim;
-            sum2 += tt.getWeight();
+            sum1 += (int) (tt.getWeight() * sim);
+            sum2 += (int) tt.getWeight();
 
         }
 
         if (sum1 == 0 || sum2 == 0) {
             return 0;
         }
-        return sum1 / sum2;
+        return (double) sum1 / sum2;
     }
 
     private double computeLsim(SchemaElement element1, SchemaElement element2) {
