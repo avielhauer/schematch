@@ -1,3 +1,5 @@
+# Name of this application
+applicationName: "schematch"
 # default separator used in CSV data files
 defaultSeparator: ","
 # default separator between two table names
@@ -8,43 +10,65 @@ defaultSourceDatabaseDir: "source"
 defaultTargetDatabaseDir: "target"
 # default directory name of ground truth matches
 defaultGroundTruthDir: "ground_truth"
+# directory name for cache
+cacheDir: "cache"
 # directory name for results
 resultsDir: "results"
 # directory name for performance results
-performanceDir: "performances"
-# file name suffixes for matchstep performances (<MatchStep>suffix)
-performanceMatchStepOverviewFileSuffix: "_performance_overview.csv"
-performanceMatchStepSummaryFileSuffix: "_performance_summary.csv"
-# file name suffixes for scenario performance (<Scenario>suffix)
-performanceScenarioSummaryFileSuffix: "_performance_summary.csv"
-# file name suffixes for dataset performance (<Dataset>suffix)
-performanceDatasetSummaryFileSuffix: "_performance_summary.csv"
+performanceDir: "_performances"
+# file name suffixes for performance evaluation files
+performanceSummaryFileName: "performance_summary.csv"
+performanceOverviewFilePrefix: "performance_overview_"
 # file name for overall performance summary file
-performanceOverallSummaryFile: "overall_performance.csv"
 # directory name for matcher output results
-outputDir : "outputs"
+outputDir : "_outputs"
 # default base directory where data directories reside
 defaultDatasetBasePath: "data"
 
+# evaluate performance for each attribute and attribute pair in ground truth
+# applies to all matching steps for which evaluation is enabled (see below)
+evaluateAttributes: True
+# write outputs per table pair
+# applies to all matching steps for which output saving is enabled (see below)
+# WARNING: greatly increases size of results directory
+saveOutputPerTablePair: False
+# adds header and index with attribute names to output files
+# applies to all matching steps for which output saving is enabled (see below)
+saveOutputVerbose: True
+
+# MatchSteps configuration
+# run: execute this match step
+# saveOutput: save similarity matrix results to disk
+# evaluate: evaluate similarity matrices and write performance results to disk
+# readCache: use cached similarity matrices for this step
+# writeCache: (over)write similarity matrix cache for this step
 # Step 1: generate candidate table pairs to match
 # FIXME: saving and evaluating output for table pair generation not yet implemented
 saveOutputTablePairGeneration: False
 evaluateTablePairGeneration: False
 # Step 2: run first line matchers (i.e., matchers that use table data to match)
-saveOutputFirstLineMatchers: False
+saveOutputFirstLineMatchers: True
 evaluateFirstLineMatchers: True
+readCacheFirstLineMatchers: False
+writeCacheFirstLineMatchers: False
 # Step 3: run similarity matrix boosting on the output of first line matchers
 runSimMatrixBoostingOnFirstLineMatchers: True
-saveOutputSimMatrixBoostingOnFirstLineMatchers: False
+saveOutputSimMatrixBoostingOnFirstLineMatchers: True
 evaluateSimMatrixBoostingOnFirstLineMatchers: True
+readCacheSimMatrixBoostingOnFirstLineMatchers: False
+writeCacheSimMatrixBoostingOnFirstLineMatchers: False
 # Step 4: run second line matchers (ensemble matchers and other matchers using output of first line matchers)
 runSecondLineMatchers: True
-saveOutputSecondLineMatchers: False
+saveOutputSecondLineMatchers: True
 evaluateSecondLineMatchers: True
+readCacheSecondLineMatchers: False
+writeCacheSecondLineMatchers: False
 # Step 5: run similarity matrix boosting on the output of second line matchers
 runSimMatrixBoostingOnSecondLineMatchers: True
-saveOutputSimMatrixBoostingOnSecondLineMatchers: False
+saveOutputSimMatrixBoostingOnSecondLineMatchers: True
 evaluateSimMatrixBoostingOnSecondLineMatchers: True
+readCacheSimMatrixBoostingOnSecondLineMatchers: False
+writeCacheSimMatrixBoostingOnSecondLineMatchers: False
 
 # FIXME: do not set this parameter in this file, it is set to true whenever runSimMatrixBoosting is set to true
 # FIXME: eventually, dependencies should be read on demand

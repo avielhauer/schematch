@@ -4,10 +4,9 @@ import de.uni_marburg.schematch.data.Column;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 public enum Datatype {
     STRING,
@@ -18,34 +17,57 @@ public enum Datatype {
     TEXT, // long string (e.g., comments or descriptions) not implemented yet
     GEO_LOCATION;
 
+    // boolean values
+    final static String[] t = {"1", "true", "t", "yes", "y", "ja", "j"};
+    final static String[] f = {"0", "false", "f", "no", "n", "nein"};
+    final static List<String> patternsT = Arrays.stream(t).toList();
+    final static List<String> patternsF = Arrays.stream(f).toList();
+    final static List<String> booleanPatterns = Stream.concat(patternsT.stream(), patternsF.stream()).toList();
+    // geolocation pattern
+    final static Pattern geoLocationPattern = Pattern.compile("-?[0-9]+.[0-9]+,-?[0-9]+.[0-9]+");
+    // date formats
+    final static SimpleDateFormat sdfDashes = new SimpleDateFormat("dd-MM");
+    final static SimpleDateFormat sdfSlashes = new SimpleDateFormat("dd/MM");
+    final static SimpleDateFormat sdfDots = new SimpleDateFormat("dd.MM");
+    final static SimpleDateFormat[] sdfs = {sdfDashes, sdfSlashes, sdfDots};
+
     /**
-     * Determines the data type of a given column
+     * Determines the definitive data type from a list of scores
      *
-     * @param column The column to determine the datatype of
+     * @param scores A vector of scores for a certain column
      * @return The determined datatype
      */
-    public static Datatype determineDatatype(Column column) {
+    public static Datatype determineDatatype(HashMap<Datatype, Double> scores) {
+
         ArrayList<Helper> percentages = new ArrayList<>();
+        Helper integerHelper = new Helper(scores.get(INTEGER), INTEGER);
+        Helper floatHelper = new Helper(scores.get(FLOAT), FLOAT);
+        Helper booleanHelper = new Helper(scores.get(BOOLEAN), BOOLEAN);
+        Helper dateHelper = new Helper(scores.get(DATE), DATE);
+        Helper geoHelper = new Helper(scores.get(GEO_LOCATION), GEO_LOCATION);
 
-        Helper integerHelper = new Helper(isInteger(column), INTEGER);
-        Helper floatHelper = new Helper(isFloat(column), FLOAT);
-        Helper booleanHelper = new Helper(isBoolean(column), BOOLEAN);
-        Helper dateHelper = new Helper(isDate(column), DATE);
-        Helper geoHelper = new Helper(isGeoLocation(column), GEO_LOCATION);
-
-        // Prefer boolean over int
+        // Prefer boolean to int
         // columns containing only (0, 1) should rather be boolean than int
         if (booleanHelper.percentage >= integerHelper.percentage) {
             percentages.add(booleanHelper);
         } else {
             percentages.add(integerHelper);
         }
+        // Prefer int to float
+        // If column only contains integers then floats can be ignored
+        if (integerHelper.percentage >= floatHelper.percentage) {
+            percentages.add(integerHelper);
+        } else {
+            percentages.add(floatHelper);
+        }
+        // Prefer geolocation to date
+        if (geoHelper.percentage >= dateHelper.percentage) {
+            percentages.add(geoHelper);
+        } else {
+            percentages.add(dateHelper);
+        }
 
-        // all other detection function outputs can be directly compared to each other
-        percentages.add(floatHelper);
-        percentages.add(dateHelper);
-        percentages.add(geoHelper);
-
+        // leave out string as everything can be a string
 
         // return highest matching type detection
         // we chose 95% as a threshold because this value is often used in statistics
@@ -55,19 +77,39 @@ public enum Datatype {
     }
 
     /**
+     * Calculates the scores for all data types for the given column
+     * Score of 0.0 means that the column is not of the given Datatype
+     * Score of 1.0 means that the column can be interpreted as the given Datatype
+     *
+     * @param column the column to calculate the scores for
+     * @return a HashMap mapping the datatype to its score
+     */
+    public static HashMap<Datatype, Double> calculateScores(Column column) {
+        HashMap<Datatype, Double> scores = new HashMap<>();
+        scores.put(INTEGER, isInteger(column));
+        scores.put(FLOAT, isFloat(column));
+        scores.put(BOOLEAN, isBoolean(column));
+        scores.put(DATE, isDate(column));
+        scores.put(GEO_LOCATION, isGeoLocation(column));
+        scores.put(STRING, 1.0d);
+
+        return scores;
+    }
+
+    /**
      * Prints the matching percentages for all data types and the final chosen type
      *
      * @param column The column to determine the data type of
      */
-    public static void printMatching(Column column) {
+    public static void printScores(Column column, HashMap<Datatype, Double> scores) {
         StringBuilder sb = new StringBuilder();
 
         String label = column.getLabel();
-        String isInteger = String.valueOf(isInteger(column));
-        String isFloat = String.valueOf(isFloat(column));
-        String isBoolean = String.valueOf(isBoolean(column));
-        String isDate = String.valueOf(isDate(column));
-        String isGeoLocation = String.valueOf(isGeoLocation(column));
+        String isInteger = String.valueOf(scores.get(INTEGER));
+        String isFloat = String.valueOf(scores.get(FLOAT));
+        String isBoolean = String.valueOf(scores.get(BOOLEAN));
+        String isDate = String.valueOf(scores.get(DATE));
+        String isGeoLocation = String.valueOf(scores.get(GEO_LOCATION));
 
         isInteger = isInteger.substring(0, Math.min(5, isInteger.length()));
         isFloat = isFloat.substring(0, Math.min(5, isFloat.length()));
@@ -87,16 +129,75 @@ public enum Datatype {
         sb.append("Boolean:     ").append(isBoolean).append("\n");
         sb.append("Date:        ").append(isDate).append("\n");
         sb.append("GeoLocation: ").append(isGeoLocation).append("\n");
-        sb.append("Final type:  ").append(determineDatatype(column)).append("\n");
+        sb.append("Final type:  ").append(determineDatatype(scores)).append("\n");
         sb.append(String.format("%1$" + 24 + "s", "").replace(' ', '=')).append("\n");
 
         System.out.println(sb);
     }
 
+    public static List<Boolean> castToBoolean(Column column) {
+        List<String> input = column.getValues();
+        ArrayList<Boolean> list = new ArrayList<>();
+        for (String s : input) {
+            if (patternsT.contains(s)) list.add(true);
+            else if (patternsF.contains(s)) list.add(false);
+            else list.add(null);
+        }
+        return list;
+    }
+
+    public static List<Integer> castToInt(Column input) {
+        List<Integer> list = new ArrayList<>();
+        for (String s : input.getValues()) {
+            try {
+                list.add(Integer.parseInt(s));
+            } catch (NumberFormatException ignored) {
+                list.add(null);
+            }
+        }
+        return list;
+    }
+
+    public static List<Float> castToFloat(Column input) {
+        List<Float> list = new ArrayList<>();
+        for (String s : input.getValues()) {
+            try {
+                list.add(Float.parseFloat(s.replace(",", ".")));
+            } catch (NumberFormatException ignored) {
+                list.add(null);
+            }
+        }
+        return list;
+    }
+
+    public static List<Date> castToDate(Column input) {
+        List<Date> dates = new ArrayList<>();
+        for (String value : input.getValues()) {
+            if (value.equals("\"\"") || value.isEmpty()) {
+                continue;
+            }
+            if (value.contains("+")) value = value.substring(0, value.indexOf("+"));
+            boolean isDate = false;
+            for (SimpleDateFormat sdf : sdfs) {
+                try {
+                    dates.add(sdf.parse(value));
+                    isDate = true;
+                    break;
+                } catch (ParseException ignored) {
+                }
+            }
+            if (!isDate) {
+                dates.add(null);
+            }
+        }
+
+        return dates;
+    }
+
+
     private static class Helper implements Comparable<Helper> {
         double percentage;
         Datatype type;
-
 
         private Helper(double percentage, Datatype type) {
             this.percentage = percentage;
@@ -141,28 +242,17 @@ public enum Datatype {
 
         int nullCounter = 0;
         int exceptionCounter = 0;
-        int kommaCounter = 0;
-        int endsWithPointOCounter = 0;
 
         for (String value : values) {
             if (isNull(value)) nullCounter++;
             else {
                 value = value.replace(",", ".");
-                if (value.contains(".")) kommaCounter++;
-                if (value.endsWith(".0")) endsWithPointOCounter++;
-
                 try {
                     Float.parseFloat(value);
                 } catch (NumberFormatException e) {
                     exceptionCounter++;
                 }
             }
-        }
-
-        // if no kommas are present within the column then it is just an int
-        // if all parsed values end with .0 it is likely formatting and also an int
-        if (kommaCounter == 0 || kommaCounter == endsWithPointOCounter) {
-            return 0.0;
         }
 
         int fullSize = values.size();
@@ -177,16 +267,22 @@ public enum Datatype {
         int nullCounter = 0;
         int exceptionCounter = 0;
 
-        final SimpleDateFormat sdf = new SimpleDateFormat("dd-MM");
         for (String value : values) {
             if (isNull(value)) {
                 nullCounter++;
                 continue;
             }
             if (value.contains("+")) value = value.substring(0, value.indexOf("+"));
-            try {
-                sdf.parse(value);
-            } catch (ParseException e) {
+            boolean isDate = false;
+            for (SimpleDateFormat sdf : sdfs) {
+                try {
+                    sdf.parse(value);
+                    isDate = true;
+                    break;
+                } catch (ParseException ignored) {
+                }
+            }
+            if (!isDate) {
                 exceptionCounter++;
             }
         }
@@ -198,8 +294,6 @@ public enum Datatype {
     }
 
     private static double isBoolean(Column column) {
-        String[] p = {"1", "0", "true", "false", "t", "f", "yes", "no", "y", "n", "ja", "nein", "j"};
-        List<String> patterns = new ArrayList<>(Arrays.stream(p).toList());
         List<String> values = column.getValues();
 
         int nullCounter = 0;
@@ -207,14 +301,13 @@ public enum Datatype {
 
         for (String value : values) {
             if (isNull(value)) nullCounter++;
-            else if (patterns.contains(value)) parseCounter++;
+            else if (booleanPatterns.contains(value)) parseCounter++;
         }
 
         return (double) parseCounter / (values.size() - nullCounter);
     }
 
     private static double isGeoLocation(Column column) {
-        Pattern pattern = Pattern.compile("[0-9]+.[0-9]+,[0-9]+.[0-9]+");
         List<String> values = column.getValues();
 
         int nullCounter = 0;
@@ -222,12 +315,11 @@ public enum Datatype {
 
         for (String value : values) {
             if (isNull(value)) nullCounter++;
-            else if (pattern.matcher(value).find()) parseCounter++;
+            else if (geoLocationPattern.matcher(value).find()) parseCounter++;
         }
 
         return (double) parseCounter / (values.size() - nullCounter);
     }
-
 
     private static boolean isNull(String value) {
         return value.equals("\"\"") || value.isEmpty();

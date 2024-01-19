@@ -22,7 +22,7 @@ public class TokenizerFactory {
     public List<Tokenizer> createTokenizerInstances(String tokenizerName) throws Exception {
         Configuration config = Configuration.getInstance();
 
-        List<Configuration.TokenizerConfiguration> tokenizerConfigurations = config.getTokenizerConfigurations().get(tokenizerName);
+        List<Configuration.TokenizerConfiguration> tokenizerConfigurations = config.getFirstLineTokenizerConfigurations().get(tokenizerName);
         log.info("Instantiating tokenizer " + tokenizerName + " with " + tokenizerConfigurations.size() + " different configurations");
 
         List<Tokenizer> tokenizerInstances = new ArrayList<>();
