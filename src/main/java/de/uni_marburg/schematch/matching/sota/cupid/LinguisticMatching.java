@@ -28,7 +28,7 @@ public class LinguisticMatching {
     public SchemaElement normalization(String element,
                                        SchemaElement schemaElement) {
         if (schemaElement == null) {
-            schemaElement = new SchemaElement(element);
+            schemaElement = new SchemaElement(element, schemaElement.getDataType());
         }
 
 
@@ -249,7 +249,7 @@ public class LinguisticMatching {
 
         double nameSimilarityScore = nameSimilarityElements(s, t);
 
-        return new Pair<>(new StringPair(s.getLongName(), t.getLongName()), nameSimilarityScore * maxScore);
+        return new Pair<>(new StringPair(s.getInitialName(), t.getInitialName()), nameSimilarityScore * maxScore);
     }
 
     private double dataTypeSimilarity(List<Token> tokenSet1, List<Token> tokenSet2) {

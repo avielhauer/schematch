@@ -17,53 +17,72 @@ public class SchemaTree {
     public SchemaTree(SchemaElement root) {
         this.nodes = new HashMap<>();
         this.addRootNode(root);
-        this.schemaName = root.getLongName();
+        this.schemaName = root.getInitialName();
         this.schemaTree = null;
     }
 
     public void addRootNode(SchemaElement root) {
-        this.rootNode = new SchemaElementNode(root.getLongName(), null, null, root);
+        this.rootNode = new SchemaElementNode(root.getInitialName(), null, new ArrayList<>(), root);
     }
 
-    public String getSchemaTree() {
-        return renderTree(nodes.get(schemaName));
+    public void addNode(String name, SchemaElementNode parent, ArrayList<SchemaElementNode> children, SchemaElement current) {
+        SchemaElementNode newNode = new SchemaElementNode(name, parent, children, current);
+        nodes.put(name, newNode);
     }
 
-    public SchemaElementNode getNode(String nodeName) {
-        return nodes.get(nodeName);
-    }
-
-    public void addNode(String tableName, String tableGuid, String columnName, String columnGuid, String dataType, SchemaElementNode parent) {
-
-    }
-
-    public void printSchemaTree() {
-        System.out.println(renderTree(nodes.get(schemaName), "", true));
-    }
+   //public void printSchemaTree() {
+   //    System.out.println(renderTree(nodes.get(schemaName), "", true));
+   //}
 
     public List<SchemaElementNode> getLeaves() {
-        return null;
+        List<SchemaElementNode> leaves = new ArrayList<>();
+        for (SchemaElementNode element : this.nodes.values()) {
+            if (element.getChildren().isEmpty()) {
+                leaves.add(element);
+            }
+        }
+        return leaves;
     }
 
     public List<String> getLeafNames() {
-        return null;
+        List<String> leavesNames = new ArrayList<>();
+        for (String element : this.nodes.keySet()) {
+            if (nodes.get(element).getChildren().isEmpty()) {
+                leavesNames.add(element);
+            }
+        }
+        return leavesNames;
     }
 
     public int getHeight() {
-        return 0;
+        return getHeight(rootNode);
+    }
+
+    private int getHeight(SchemaElementNode node) {
+        if (node == null) {
+            return 0;
+        }
+
+        int maxHeight = 0;
+        for (SchemaElementNode child : node.getChildren()) {
+            int childHeight = getHeight(child);
+            maxHeight = Math.max(maxHeight, childHeight);
+        }
+
+        return maxHeight + 1;
     }
 
     public SchemaElementNode getRoot() {
         return rootNode;
     }
 
-    private String renderTree(SchemaElementNode node) {
-        return renderTree(node, "", false);
-    }
+    //private String renderTree(SchemaElementNode node) {
+    //    return renderTree(node, "", false);
+    //}
 
-    private String renderTree(SchemaElementNode node, String prefix, boolean isTail) {
-       return null;
-    }
+    //private String renderTree(SchemaElementNode node, String prefix, boolean isTail) {
+    //   return null;
+    //}
 
     public List<SchemaElementNode> postOrder() {
         return rootNode.postOrder();

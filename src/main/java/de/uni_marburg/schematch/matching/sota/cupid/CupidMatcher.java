@@ -1,5 +1,6 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
 
+import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
@@ -125,6 +126,32 @@ public class CupidMatcher extends Matcher {
         }
         return simMatrix;
     }
+
+    public static Pair<SchemaTree, SchemaTree> buildTreesFromTables(TablePair tablePair) {
+        SchemaTree sourceTree = new SchemaTree(new SchemaElement("DB__"+tablePair.getSourceTable().getName(), "DB"));
+        SchemaTree targetTree = new SchemaTree(new SchemaElement("DB__"+tablePair.getSourceTable().getName(), "DB"));
+
+        sourceTree.addNode(tablePair.getSourceTable().getName(),sourceTree.getRoot(), new ArrayList<>(), new SchemaElement(tablePair.getSourceTable().getName(), "tableRoot"));
+        targetTree.addNode(tablePair.getTargetTable().getName(),targetTree.getRoot(), new ArrayList<>(), new SchemaElement(tablePair.getTargetTable().getName(), "tableRoot"));
+
+        for (Column column: tablePair.getSourceTable().getColumns()) {
+            SchemaElement schemtmp = new SchemaElement(column.getLabel(), column.getDatatype().toString());
+            schemtmp.addCategory(column.getDatatype().toString());
+            sourceTree.addNode(column.getLabel(), sourceTree.getRoot().getChildren().get(0), new ArrayList<>(), schemtmp);
+        }
+
+        for (Column column: tablePair.getTargetTable().getColumns()) {
+            SchemaElement schemtmp = new SchemaElement(column.getLabel(), column.getDatatype().toString());
+            schemtmp.addCategory(column.getDatatype().toString());
+            targetTree.addNode(column.getLabel(), targetTree.getRoot().getChildren().get(0), new ArrayList<>(), schemtmp);
+        }
+
+        return new Pair<>(sourceTree, targetTree);
+    }
+
+
+
+
 }
 
 

@@ -8,25 +8,21 @@ import java.util.List;
 
 class SchemaElement {
 
+    @Getter
     private List<String> categories;
     @Getter
     private String dataType;
     private List<Token> tokens;
+    @Getter
     private String initialName;
 
 
-    private String longName;
 
-    public SchemaElement(String name) {
+    public SchemaElement(String name, String dataType) {
         this.categories = new ArrayList<>();
-        this.dataType = null;
+        this.dataType = dataType;
         this.tokens = new ArrayList<>();
         this.initialName = name;
-        this.longName = null;
-    }
-
-    public void addLongName(String tableName, String tableGuid, String columnName, String columnGuid) {
-        this.longName = tableName + tableGuid + columnName + columnGuid;
     }
 
     public void addCategory(String category) {
@@ -88,11 +84,5 @@ class SchemaElement {
             }
         }
         return resultTokens;
-    }
-    public List<String> getCategories() {
-        return categories;
-    }
-    public String getLongName() {
-        return longName;
     }
 }

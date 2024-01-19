@@ -1,5 +1,8 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
+import lombok.Getter;
+
 import java.util.EnumSet;
+@Getter
 public enum TokenTypes {
     SYMBOLS("symbols", 0),
     NUMBER("number", 0.1),
@@ -18,10 +21,6 @@ public enum TokenTypes {
 
     public String getTokenName() {
         return value.getTokenName();
-    }
-
-    public TokenType getValue() {
-        return value;
     }
 
     public static EnumSet<TokenTypes> allTokenTypes() {

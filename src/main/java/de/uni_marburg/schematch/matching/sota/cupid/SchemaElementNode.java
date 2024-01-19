@@ -1,12 +1,17 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+@Getter
 public class SchemaElementNode{
+
     String name;
     SchemaElementNode parent;
+    @Getter
     ArrayList<SchemaElementNode> children;
 
     SchemaElement current;
@@ -14,19 +19,11 @@ public class SchemaElementNode{
     public SchemaElementNode(String name, SchemaElementNode parent, ArrayList<SchemaElementNode> children, SchemaElement current) {
         this.name = name;
         this.parent = parent;
+        parent.getChildren().add(this);
         this.children = children;
         this.current = current;
     }
 
-    //noch implementieren oder auch nicht, habe die leaves() methode hinzugefügt
-    public List<String> getLeafNames() {
-        return null;
-    }
-
-
-    public SchemaElement getCurrent() {
-        return current;
-    }
 
     public List<SchemaElementNode> postOrder() {
         ArrayList<SchemaElementNode> postOrderList = new ArrayList<SchemaElementNode>();
