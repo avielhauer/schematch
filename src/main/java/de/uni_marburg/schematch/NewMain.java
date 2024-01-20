@@ -42,10 +42,6 @@ public class NewMain {
         MatcherFactory matcherFactory = new MatcherFactory();
         List<Matcher> firstLineMatchers = matcherFactory.createMatchersFromConfig(1);
 
-        log.info("Instantiating sim matrix boosting");
-        // FIXME: make sim matrix boosting configurable via .yaml files
-        // Configure similarity matrix boosting here for now
-        SimMatrixBoosting firstLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
 
         log.info("Instantiating metrics");
         MetricFactory metricFactory = new MetricFactory();
@@ -73,7 +69,7 @@ public class NewMain {
 
         // loop over datasets
 
-
+        /*
         Configuration.DatasetConfiguration datasetConfiguration=config.getDatasetConfigurations().get(0);
         Dataset dataset = new Dataset(datasetConfiguration);
         log.info("Starting experiments for dataset " + dataset.getName() + " with " + dataset.getScenarioNames().size() + " scenarios");
@@ -87,27 +83,33 @@ public class NewMain {
             cmc.matchTasks.add(matchTask);
 
 
-        }
+        }*/
 
-         /*
+        int i = 0;
         for (Configuration.DatasetConfiguration datasetConfiguration : config.getDatasetConfigurations()) {
+            if ( i == 0) {
             Dataset dataset = new Dataset(datasetConfiguration);
             log.info("Starting experiments for dataset " + dataset.getName() + " with " + dataset.getScenarioNames().size() + " scenarios");
+
             // loop over scenarios
             for (String scenarioName : dataset.getScenarioNames()) {
-                Scenario scenario = new Scenario(dataset.getPath() + File.separator + scenarioName);
-                log.debug("Starting experiments for dataset " + dataset.getName() + ", scenario: " + scenario.getPath());
 
-                MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps, metrics);
-                matchTask.runSteps();
-                cmc.matchTasks.add(matchTask);
+                    Scenario scenario = new Scenario(dataset.getPath() + File.separator + scenarioName);
+                    log.debug("Starting experiments for dataset " + dataset.getName() + ", scenario: " + scenario.getPath());
+
+                    MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps, metrics);
+                    matchTask.runSteps();
+                    cmc.matchTasks.add(matchTask);
+                    i++;
 
 
             }
-
+        } else {
+            break;
+        }
         }
 
-          */
+
         cmc.addFeature(new Feature("f1"));
         cmc.addFeature(new Feature("f2"));
         cmc.addFeature(new Feature("f3"));

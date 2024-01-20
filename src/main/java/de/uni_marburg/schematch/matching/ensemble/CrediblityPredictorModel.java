@@ -7,6 +7,7 @@ import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
+import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.ModelUtils;
 import lombok.SneakyThrows;
@@ -17,14 +18,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord;
-import org.apache.mahout.math.DenseVector;
-import org.apache.mahout.math.Vector;
-import org.apache.mahout.classifier.sgd.L2;
-import org.apache.mahout.classifier.sgd.OnlineLogisticRegression;
 
 import java.io.IOException;
 
@@ -126,14 +119,40 @@ public class CrediblityPredictorModel implements Serializable {
     }
     @SneakyThrows
     public double getSimilarity(ColumnPair columnPair, Matcher matcher){
-        return 0;
-
+        Column srcColumn = columnPair.getSourceColumn();
+        Column trgColumn = columnPair.getTargetColumn();
+        int srcIndex = srcColumn.getTable().getOffset();
+        int trgIndex = trgColumn.getTable().getOffset();
+        for (MatchTask x : matchTasks) {
+            for (TablePair tablePair : x.getTablePairs()) {
+                if (tablePair.getSourceTable().equals(srcColumn.getTable())) {
+                    if (tablePair.getTargetTable().equals(trgColumn.getTable())) {
+                        for (MatchStep mtcStep : x.getSimMatrices().keySet()) {
+                            if (mtcStep instanceof MatchingStep){
+                                float[][] simsOfMatcher = x.getSimMatrices().get(mtcStep).get(matcher);
+                                return simsOfMatcher[srcIndex][trgIndex];
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        throw new SimilarityNotFoundExeption();
     }
-    public  double getGroundTruth(ColumnPair columnPair)
+    public int getGroundTruth(ColumnPair columnPair)
     {
-        //TODO Crommc
+        Column srcColumn = columnPair.getSourceColumn();
+        Column trgColumn = columnPair.getTargetColumn();
+        int srcIndex = srcColumn.getTable().getOffset();
+        int trgIndex = trgColumn.getTable().getOffset();
+        int[][] gTable = null;
+        for(MatchTask x: matchTasks){
+            if(srcColumn.getTable().getPath().contains(x.getDataset().getPath()) && x.getTablePairs().contains(new TablePair(srcColumn.getTable(),trgColumn.getTable()))){
+                gTable = x.getGroundTruthMatrix();
+            }
+        }
 
-        return 0;
+        return gTable[srcIndex][trgIndex];
     }
     public  double getMSE(ColumnPair columnPair,Matcher matcher)
     {
