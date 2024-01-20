@@ -112,7 +112,7 @@
         <dependency>
             <groupId>edu.stanford.nlp</groupId>
             <artifactId>stanford-corenlp</artifactId>
-            <version>4.5.4</version>
+            <version>4.5.5</version>
         </dependency>
 
         <!-- Alphanumeric-check for Strings -->
@@ -129,13 +129,6 @@
             <version>6c2e0aa588</version>
         </dependency>
     </dependencies>
-
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

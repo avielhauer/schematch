@@ -1,7 +1,6 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
 
 import de.uni_marburg.schematch.similarity.string.Levenshtein;
-import edu.mit.jwi.RAMDictionary;
 import edu.mit.jwi.item.ISynset;
 import edu.stanford.nlp.process.CoreLabelTokenFactory;
 import edu.stanford.nlp.process.PTBTokenizer;
@@ -85,15 +84,15 @@ public class LinguisticMatching {
         }
     }
 
-    public Map<String, Map<String, Double>> computeCompatibility(List<String> categories) {
+    public Map<String, Map<String, Double>> computeCompatibility(Set<String> categories) {
         Map<String, Map<String, Double>> compatibilityTable = new HashMap<>();
         List<StringPair> combinations = new ArrayList<>();
         Map<String, Map<String, Double>> dataCompatibilityTable = new DataCompatibilityTable().table;
 
-        for (int i = 0; i < categories.size(); i++) {
-            for (int j = 0; j < categories.size(); j++) {
-                StringPair s = new StringPair(categories.get(i), categories.get(j));
-                combinations.add(s);
+        for (String s: categories) {
+            for (String t: categories) {
+                StringPair p = new StringPair(s,t);
+                combinations.add(p);
             }
         }
 

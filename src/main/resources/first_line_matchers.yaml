@@ -65,3 +65,8 @@ packageName: "similarity.tokenizedlabel"
 ---
 name: "SetCosineLabelMatcher"
 packageName: "similarity.tokenizedlabel"
+
+# Sota matchers
+---
+name: "CupidMatcher"
+packageName: "sota.cupid"
