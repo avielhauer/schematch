@@ -407,7 +407,7 @@ public class LinguisticMatching {
         return (double) sum1 / sum2;
     }
 
-    private double computeLsim(SchemaElement element1, SchemaElement element2) {
+    public double computeLsim(SchemaElement element1, SchemaElement element2) {
         double nameSimilarity = nameSimilarityElements(element1, element2);
         double maxCategory = getMaxNsCategory(element1.getCategories(), element2.getCategories());
         return nameSimilarity * maxCategory;

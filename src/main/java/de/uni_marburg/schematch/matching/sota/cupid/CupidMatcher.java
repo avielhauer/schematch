@@ -30,9 +30,9 @@ public class CupidMatcher extends TablePairMatcher {
 
     @Override
     public float[][] match(TablePair tablePair) {
-        Pair<SchemaTree,SchemaTree> treePair= buildTreesFromTables(tablePair);
+        Pair<SchemaTree, SchemaTree> treePair = buildTreesFromTables(tablePair);
 
-        Map<String,Map<StringPair,Float>> sims = treeMatch(
+        Map<String, Map<StringPair, Float>> sims = treeMatch(
                 treePair.getFirst(),
                 treePair.getSecond(),
                 categories,
@@ -47,11 +47,9 @@ public class CupidMatcher extends TablePairMatcher {
                 parallelism
         );
 
-        Map<String,Map<StringPair,Float>> newSims = recomputewsim(treePair.getFirst(),treePair.getSecond(), sims, w_struct,th_accept);
+        Map<String, Map<StringPair, Float>> newSims = recomputewsim(treePair.getFirst(), treePair.getSecond(), sims, w_struct, th_accept);
 
-        float[][] symMatrix = mapSimilarityMatrix(treePair.getFirst(),treePair.getSecond(), newSims, tablePair.getEmptySimMatrix());
-
-        return symMatrix;
+        return mapSimilarityMatrix(treePair.getFirst(), treePair.getSecond(), newSims, tablePair.getEmptySimMatrix());
     }
 
     private float[][] mapSimilarityMatrix(SchemaTree first, SchemaTree second, Map<String, Map<StringPair, Float>> newSims, float[][] emptySimMatrix) {
@@ -59,15 +57,39 @@ public class CupidMatcher extends TablePairMatcher {
         return emptySimMatrix;
     }
 
-    private Map<String, Map<StringPair, Float>> recomputewsim(SchemaTree first, SchemaTree second, Map<String, Map<StringPair, Float>> sims, float wStruct, float thAccept) {
-        //TODO: implement recomputewsim
+    private Map<String, Map<StringPair, Float>> recomputewsim(SchemaTree sourceTree, SchemaTree targetTree, Map<String, Map<StringPair, Float>> sims, float wStruct, float thAccept) {
+        List<SchemaElementNode> sPostOrder = sourceTree.postOrder();
+        List<SchemaElementNode> tPostOrder = targetTree.postOrder();
+
+        for (SchemaElementNode s: sPostOrder) {
+            for (SchemaElementNode t: tPostOrder) {
+                if (s.height() == t.height() && (s.height() > 0 && t.height() > 0)) {
+                    float ssim = StructuralSimilarity.computeSSim(s,t,sims,thAccept);
+
+                    if (Float.isNaN(ssim)) {
+                        continue;
+                    }
+                    StringPair pair = new StringPair(s.name,t.name);
+                    float lsim = 0f;
+                    if (!sims.get("lsim").containsKey(pair)) {
+                        lsim = (float) new LinguisticMatching().computeLsim(s.getCurrent(),t.getCurrent());
+                    } else {
+                        lsim = sims.get("lsim").get(pair);
+                    }
+                    float wsim = computeWeightedSimilarity(ssim,lsim,wStruct);
+                    sims.get("ssim").put(pair,ssim);
+                    sims.get("lsim").put(pair,lsim);
+                    sims.get("wsim").put(pair,wsim);
+                }
+            }
+        }
         return sims;
     }
 
     // Gibt eine Map zurück mit 3 Schlüsseln "ssim","lsim" und "wsim"
     // mit denen auf 3 weitere Maps zugegriffen werden kann, welche
     // die Namenspaare der beiden bäume als schlüssel haben.
-    private Map<String,Map<StringPair,Float>> treeMatch(
+    private Map<String, Map<StringPair, Float>> treeMatch(
             SchemaTree sourceTree,
             SchemaTree targetTree,
             HashSet<String> categories,
@@ -82,34 +104,34 @@ public class CupidMatcher extends TablePairMatcher {
             int parallelism
     ) {
         Map<String, Map<String, Double>> compatibilityTable = new LinguisticMatching().computeCompatibility((List<String>) categories);
-        Map<StringPair,Double> lSims = new LinguisticMatching().comparison(sourceTree,targetTree,compatibilityTable,thNs,parallelism);
+        Map<StringPair, Double> lSims = new LinguisticMatching().comparison(sourceTree, targetTree, compatibilityTable, thNs, parallelism);
         List<SchemaElementNode> sLeaves = sourceTree.getLeaves();
         List<SchemaElementNode> tLeaves = targetTree.getLeaves();
-        Map<String,Map<StringPair,Float>> sims = getSims(sLeaves, tLeaves, compatibilityTable, lSims, leafWStruct);
+        Map<String, Map<StringPair, Float>> sims = getSims(sLeaves, tLeaves, compatibilityTable, lSims, leafWStruct);
         List<SchemaElementNode> sPostOrder = sourceTree.postOrder();
         List<SchemaElementNode> tPostOrder = targetTree.postOrder();
 
         for (SchemaElementNode s : sPostOrder) {
             for (SchemaElementNode t : tPostOrder) {
-                StringPair pair = new StringPair(s.name,t.name);
+                StringPair pair = new StringPair(s.name, t.name);
                 if (s.height() == t.height()) {
                     float ssim = StructuralSimilarity.computeSSim(s, t, sims, thAccept);
                     if (Double.isNaN(ssim)) {
                         continue;
                     }
-                    if(!lSims.containsKey(pair)) {
-                        sims.get("lsim").put(pair,Float.NaN);
+                    if (!lSims.containsKey(pair)) {
+                        sims.get("lsim").put(pair, Float.NaN);
                     }
-                    float wsim = computeWeightedSimilarity(ssim,lSims.get(pair).floatValue(), wStruct);
-                    sims.get("ssim").put(pair,ssim);
-                    sims.get("wsim").put(pair,wsim);
+                    float wsim = computeWeightedSimilarity(ssim, lSims.get(pair).floatValue(), wStruct);
+                    sims.get("ssim").put(pair, ssim);
+                    sims.get("wsim").put(pair, wsim);
                 }
-                if(sims.get("wsim").containsKey(pair)) {
+                if (sims.get("wsim").containsKey(pair)) {
                     if (sims.get("wsim").get(pair) > thHigh) {
-                        StructuralSimilarity.changeStructuralSimilarity(s.leaves(),t.leaves(),sims,cInc);
+                        StructuralSimilarity.changeStructuralSimilarity(s.leaves(), t.leaves(), sims, cInc);
                     }
                     if (sims.get("wsim").get(pair) < thLow) {
-                        StructuralSimilarity.changeStructuralSimilarity(s.leaves(),t.leaves(),sims,cDec);
+                        StructuralSimilarity.changeStructuralSimilarity(s.leaves(), t.leaves(), sims, cDec);
                     }
                 }
             }
@@ -127,33 +149,34 @@ public class CupidMatcher extends TablePairMatcher {
         Map<StringPair, Float> lsim = doubleDictToFloat(lsimsDouble);
         Map<StringPair, Float> ssim = new HashMap<StringPair, Float>();
         Map<StringPair, Float> wsim = new HashMap<StringPair, Float>();
-        for (SchemaElementNode s: sLeaves) {
-            for (SchemaElementNode t: tLeaves) {
+        for (SchemaElementNode s : sLeaves) {
+            for (SchemaElementNode t : tLeaves) {
                 if (compatibilityTable.containsKey(s.current.getDataType()) && compatibilityTable.containsKey(t.current.getDataType())) {
-                    StringPair pair = new StringPair(s.name,t.name);
+                    StringPair pair = new StringPair(s.name, t.name);
                     float ssimVal = compatibilityTable.get(s.name).get(t.name).floatValue();
-                    ssim.put(pair,ssimVal);
-                    wsim.put(pair, computeWeightedSimilarity(ssimVal,lsim.get(pair),leafWStruct));
+                    ssim.put(pair, ssimVal);
+                    wsim.put(pair, computeWeightedSimilarity(ssimVal, lsim.get(pair), leafWStruct));
                 }
             }
         }
-        sims.put("ssim",ssim);
-        sims.put("lsim",lsim);
-        sims.put("wsim",wsim);
+        sims.put("ssim", ssim);
+        sims.put("lsim", lsim);
+        sims.put("wsim", wsim);
         return sims;
     }
 
     private Map<StringPair, Float> doubleDictToFloat(Map<StringPair, Double> dict) {
         Map<StringPair, Float> newDict = new HashMap<>();
-        for (StringPair pair: dict.keySet()) {
+        for (StringPair pair : dict.keySet()) {
             newDict.put(pair, dict.get(pair).floatValue());
         }
         return newDict;
     }
 
     private float computeWeightedSimilarity(float ssim, float lsim, float wStruct) {
-        return ssim * wStruct + (1-wStruct) * lsim;
+        return ssim * wStruct + (1 - wStruct) * lsim;
     }
+
     public static float[][] mappingGenerationLeaves(
             TablePair tablePair,
             Map<String, Map<StringPair, Float>> sims,
@@ -165,7 +188,7 @@ public class CupidMatcher extends TablePairMatcher {
         float[][] simMatrix = tablePair.getEmptySimMatrix();
         for (int s = 0; s < simMatrix.length; s++) {
             for (int t = 0; t < simMatrix[0].length; t++) {
-                StringPair pair = new StringPair(sTable.getLabels().get(s),tTable.getLabels().get(t));
+                StringPair pair = new StringPair(sTable.getLabels().get(s), tTable.getLabels().get(t));
                 float val = sims.get("wsim").get(pair);
                 if (val > thAccept) {
                     simMatrix[s][t] = val;
@@ -176,17 +199,17 @@ public class CupidMatcher extends TablePairMatcher {
     }
 
     public Pair<SchemaTree, SchemaTree> buildTreesFromTables(TablePair tablePair) {
-        SchemaTree sourceTree = new SchemaTree(new SchemaElement("DB__"+tablePair.getSourceTable().getName(), "DB"));
-        SchemaTree targetTree = new SchemaTree(new SchemaElement("DB__"+tablePair.getSourceTable().getName(), "DB"));
+        SchemaTree sourceTree = new SchemaTree(new SchemaElement("DB__" + tablePair.getSourceTable().getName(), "DB"));
+        SchemaTree targetTree = new SchemaTree(new SchemaElement("DB__" + tablePair.getSourceTable().getName(), "DB"));
 
-        sourceTree.addNode(tablePair.getSourceTable().getName(),sourceTree.getRoot(), new ArrayList<>(), new SchemaElement(tablePair.getSourceTable().getName(), "tableRoot"));
-        targetTree.addNode(tablePair.getTargetTable().getName(),targetTree.getRoot(), new ArrayList<>(), new SchemaElement(tablePair.getTargetTable().getName(), "tableRoot"));
+        sourceTree.addNode(tablePair.getSourceTable().getName(), sourceTree.getRoot(), new ArrayList<>(), new SchemaElement(tablePair.getSourceTable().getName(), "tableRoot"));
+        targetTree.addNode(tablePair.getTargetTable().getName(), targetTree.getRoot(), new ArrayList<>(), new SchemaElement(tablePair.getTargetTable().getName(), "tableRoot"));
 
-        for (Column column: tablePair.getSourceTable().getColumns()) {
+        for (Column column : tablePair.getSourceTable().getColumns()) {
             AddColumn(sourceTree, column);
         }
 
-        for (Column column: tablePair.getTargetTable().getColumns()) {
+        for (Column column : tablePair.getTargetTable().getColumns()) {
             AddColumn(targetTree, column);
         }
 
@@ -225,11 +248,3 @@ public class CupidMatcher extends TablePairMatcher {
         }
     }
 }
-
-
-
-
-
-
-
-
