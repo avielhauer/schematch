@@ -3,7 +3,6 @@ package de.uni_marburg.schematch.data;
 import de.uni_marburg.schematch.data.metadata.DatabaseMetadata;
 import de.uni_marburg.schematch.utils.Configuration;
 import de.uni_marburg.schematch.utils.InputReader;
-import lombok.Data;
 import lombok.Getter;
 
 import java.io.File;
@@ -39,7 +38,7 @@ public class Database {
         // set numColumns
         numColumns = currentOffset;
 
-        this.graph = new DatabaseGraph(this);
+        this.graph = new MetaNodesDatabaseGraph(this);
         this.databaseFeatures = new DatabaseFeatures(this);
         this.databaseFeatures.exportFeatures("target/features/" + scenario.getDataset().getName() +  "/" + scenario.getName());
     }
