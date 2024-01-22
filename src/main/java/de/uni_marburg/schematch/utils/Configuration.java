@@ -67,6 +67,7 @@ public class Configuration {
     private boolean evaluateFirstLineMatchers;
     private boolean readCacheFirstLineMatchers;
     private boolean writeCacheFirstLineMatchers;
+    private boolean writeFirstLineGroundTruth;
 
     // Step 3
     private boolean runSimMatrixBoostingOnFirstLineMatchers;

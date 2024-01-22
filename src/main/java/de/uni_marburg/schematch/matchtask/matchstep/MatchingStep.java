@@ -65,7 +65,7 @@ public class MatchingStep extends MatchStep {
 
             for (Matcher matcher : this.matchers) {
                 float[][] simMatrix = matchTask.getSimMatrix(this, matcher);
-                OutputWriter.writeSimMatrix(outputMatchStepPath, matchTask, matcher.toString(), simMatrix);
+                OutputWriter.writeSimMatrix(outputMatchStepPath, matchTask, matcher.toString(), simMatrix, false);
                 matchTask.incrementCacheWrite();
             }
         }
@@ -79,7 +79,7 @@ public class MatchingStep extends MatchStep {
 
             for (Matcher matcher : this.matchers) {
                 float[][] simMatrix = matchTask.getSimMatrix(this, matcher);
-                OutputWriter.writeSimMatrix(outputMatchStepPath, matchTask, matcher.toString(), simMatrix);
+                OutputWriter.writeSimMatrix(outputMatchStepPath, matchTask, matcher.toString(), simMatrix, Configuration.getInstance().isWriteFirstLineGroundTruth());
             }
         }
     }

@@ -18,10 +18,14 @@ import java.nio.file.Path;
 public class OutputWriter {
     private final static Logger log = LogManager.getLogger(OutputWriter.class);
 
-    public static void writeSimMatrix(Path path, MatchTask matchTask, String matcherInfo, float[][] simMatrix) {
+    public static void writeSimMatrix(Path path, MatchTask matchTask, String matcherInfo, float[][] simMatrix, boolean writeGroundTruth) {
         Path pathToFile = path.resolve(matcherInfo + ".csv");
         boolean isCacheFile = path.toString().startsWith(Configuration.getInstance().getCacheDir());
-
+        int[][] groundTruth = writeGroundTruth? matchTask.getGroundTruthMatrix() : null;
+        if(writeGroundTruth && groundTruth == null){
+            log.info("Could not get ground truth for " + matchTask.getScenario().getName() + " - not writing ground truth to sim Matrix csv");
+            writeGroundTruth = false;
+        }
         try {
             Files.createDirectories(pathToFile.getParent());
             BufferedWriter writer = new BufferedWriter(new FileWriter(pathToFile.toString()));
@@ -46,8 +50,11 @@ public class OutputWriter {
                     line.append(matchTask.getScenario().getSourceDatabase().getFullColumnNameByIndex(i));
                     line.append(Configuration.getInstance().getDefaultSeparator());
                 }
-                for (float score : scoreList) {
-                    line.append(score).append(Configuration.getInstance().getDefaultSeparator());
+                for (int j = 0; j < scoreList.length; j++) {
+                    if(writeGroundTruth){
+                        line.append(groundTruth[i][j]).append(" / ");
+                    }
+                    line.append(scoreList[j]).append(Configuration.getInstance().getDefaultSeparator());
                 }
                 writer.write(line.substring(0, line.length() - 1));
                 writer.newLine();
