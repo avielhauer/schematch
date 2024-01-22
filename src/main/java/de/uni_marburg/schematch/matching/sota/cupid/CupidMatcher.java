@@ -7,6 +7,8 @@ import de.uni_marburg.schematch.matching.TablePairMatcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * TODO: Implement Cupid Matcher
@@ -226,7 +228,7 @@ public class CupidMatcher extends TablePairMatcher {
     }
 
     private void AddColumn(SchemaTree targetTree, Column column) {
-        String datatype = convertDatatype(column.getDatatype());
+        String datatype = convertDatatype(column);
         categories.add(datatype);
         SchemaElement schemtmp = new SchemaElement(column.getLabel(), datatype);
         schemtmp.addCategory(datatype);
@@ -253,6 +255,110 @@ public class CupidMatcher extends TablePairMatcher {
             }
             default -> {
                 return "string";
+            }
+        }
+    }
+
+    private String convertDatatype(Column column) {
+        Datatype schematchType = column.getDatatype();
+        List<String> values = column.getValues();
+
+        if (values.isEmpty())
+            return convertDatatype(column.getDatatype());
+
+        switch (schematchType) {
+            case DATE -> {
+                return "date";
+            }
+            case INTEGER -> {
+                boolean isShort = true;
+                boolean isInt = true;
+                boolean isLong = true;
+
+                for (String item : values) {
+                    try {
+                        short shortVal = Short.parseShort(item);
+                    } catch (NumberFormatException e) {
+                        isShort = false;
+                        try {
+                            int intVal = Integer.parseInt(item);
+                        } catch (NumberFormatException e1) {
+                            isInt = false;
+                            try {
+                                long longVal = Long.parseLong(item);
+                            } catch (NumberFormatException e2) {
+                                isLong = false;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (isShort) {
+                    return "short";
+                } else if (isInt) {
+                    return "int";
+                } else if (isLong) {
+                    return "long";
+                } else {
+                    return "bigint";
+                }
+            }
+            case FLOAT -> {
+                for (String s: values) {
+                    if (s.contains("e") || s.contains("E"))
+                    {
+                        return "float";
+                    }
+
+                    String[] parts = s.split("\\.");
+                    int decimalLength = parts[1].length();
+
+                    if (decimalLength <= 7)
+                    {
+                        return "float";
+                    }
+                }
+                return "double";
+            }
+            case BOOLEAN -> {
+                return "bit";
+            }
+            case GEO_LOCATION -> {
+                //Todo: Extend DataCompatibilityTable with Geo Location
+                return "text";
+            }
+            case STRING,TEXT -> {
+                AtomicInteger size = new AtomicInteger();
+                AtomicBoolean isChar = new AtomicBoolean(true);
+                AtomicInteger maxLength = new AtomicInteger();
+                AtomicInteger maxCount = new AtomicInteger();
+                values.forEach(s -> {
+                    size.addAndGet(s.length());
+                    if (s.length() > 1) {
+                        isChar.set(false);
+                    }
+                    if (s.length() == maxLength.get()) {
+                        maxCount.addAndGet(1);
+                    }
+                    else if (s.length() > maxLength.get()) {
+                        maxLength.set(s.length());
+                        maxCount.set(0);
+                    }
+                });
+                if (isChar.get()) {
+                    return "char";
+                }
+                if (size.get() % values.size() == 0) {
+                    return "nchar";
+                }
+                if (maxCount.get() > values.size() / 2) {
+                    return "nvarchar";
+                }
+                return "text";
+            }
+            default -> {
+                return "text";
             }
         }
     }
