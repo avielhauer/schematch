@@ -120,14 +120,16 @@ def load_feature_dict(path):
     return dict
 
 def align_feature_dict(graph, feature_dict):
+    # TODO: make this more elegant & robust.
     features = []
+    feature_vector_length = len(list(list(feature_dict.values())[0].values())[0])
     for node in graph.nodes:
         if is_column_node(node):
             table = node.split("|")[3]
             column = node.split("|")[4]
             features.append(feature_dict[table][column])
         else:
-            features.append([0.0])
+            features.append([0.0 for _ in range(feature_vector_length)])
     print(features)
     return np.asarray(features)
 

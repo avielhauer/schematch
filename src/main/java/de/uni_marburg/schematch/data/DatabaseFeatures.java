@@ -2,6 +2,7 @@ package de.uni_marburg.schematch.data;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import de.uni_marburg.schematch.data.metadata.Datatype;
 import lombok.Data;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,9 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Data
 public class DatabaseFeatures {
@@ -34,17 +33,32 @@ public class DatabaseFeatures {
         return (double) total_length / num_values;
     }
 
+    private List<Double> getDatatypeEncoded(Column column){
+        List<Double> encoded = new ArrayList<>(Datatype.values().length);
+        for(Datatype datatype: Datatype.values()){
+            if(datatype == column.getDatatype()){
+                encoded.add(1.0);
+            } else {
+                encoded.add(0.0);
+            }
+        }
+        return encoded;
+    }
+
     public DatabaseFeatures(final Database database){
         this.database = database;
         for (Table table : database.getTables()){
             for(Column column: table.getColumns()){
                 double avgLength = getAverageLength(column.getValues());
+                List<Double> featureVector = new ArrayList<>();
+                featureVector.add(avgLength);
+                featureVector.addAll(getDatatypeEncoded(column));
                 if(features.containsKey(table.getName())){
                     Map<String, List<Double>> column_map = features.get(table.getName());
-                    column_map.put(column.getLabel(), List.of(avgLength));
+                    column_map.put(column.getLabel(), featureVector);
                 } else {
                     Map<String, List<Double>> columnMap = new HashMap<>();
-                    columnMap.put(column.getLabel(), List.of(avgLength));
+                    columnMap.put(column.getLabel(), featureVector);
                     features.put(table.getName(), columnMap);
                 }
             }
