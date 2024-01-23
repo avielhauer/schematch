@@ -24,7 +24,12 @@ public abstract class TablePairMatcher extends Matcher {
         float[][] simMatrix = matchTask.getEmptySimMatrix();
 
         for (TablePair tablePair : tablePairs) {
-            float[][] tablePairSimMatrix = this.match(tablePair);
+            float[][] tablePairSimMatrix = new float[0][];
+            try {
+                tablePairSimMatrix = this.match(tablePair);
+            } catch (CrediblityPredictorModel.ModelTrainedException e) {
+                e.printStackTrace();
+            }
             int sourceTableOffset = tablePair.getSourceTable().getOffset();
             int targetTableOffset = tablePair.getTargetTable().getOffset();
             ArrayUtils.insertSubmatrixInMatrix(tablePairSimMatrix, simMatrix, sourceTableOffset, targetTableOffset);
