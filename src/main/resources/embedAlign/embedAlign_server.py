@@ -14,9 +14,13 @@ if __name__ == "__main__":
 
     @app.route("/match")
     def _match():
-        if "source_graph_path" not in request.args or "target_graph_path" not in request.args \
-                or "source_table" not in request.args or "target_table" not in request.args \
-                or "features_dir" not in request.args:
+        if (
+            "source_graph_path" not in request.args
+            or "target_graph_path" not in request.args
+            or "source_table" not in request.args
+            or "target_table" not in request.args
+            or "features_dir" not in request.args
+        ):
             return "", 400
 
         return match(
@@ -24,7 +28,7 @@ if __name__ == "__main__":
             request.args.get("source_table"),
             "../../../../" + request.args.get("target_graph_path"),
             request.args.get("target_table"),
-            request.args.get("features_dir")
+            request.args.get("features_dir"),
         )
 
     app.run(host=args.embedAlign_host, port=args.embedAlign_port)
