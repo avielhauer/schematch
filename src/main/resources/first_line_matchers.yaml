@@ -24,6 +24,9 @@ params:
 name: "Node2VecMatcher"
 packageName: "metadata"
 active: true
+params:
+  dropColumns: [0.0, 0.1, 0.2, 0.3]
+  dropConstraints: [0.0, 0.1, 0.2, 0.3]
 ---
 name: "EmbdiMatcher"
 packageName: "sota"

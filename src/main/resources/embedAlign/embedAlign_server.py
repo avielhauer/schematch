@@ -14,21 +14,32 @@ if __name__ == "__main__":
 
     @app.route("/match")
     def _match():
-        if (
-            "source_graph_path" not in request.args
-            or "target_graph_path" not in request.args
-            or "source_table" not in request.args
-            or "target_table" not in request.args
-            or "features_dir" not in request.args
-        ):
-            return "", 400
+        ARGS = [
+            "source_graph_path",
+            "target_graph_path",
+            "source_table",
+            "target_table",
+            "features_dir",
+        ]
 
+        CONFIG_KEYS = [
+            "dropColumns",
+            "dropConstraints",
+            "xNetMFGammaStruc",
+            "xNetMFGammaAttr",
+        ]
+        for arg in ARGS + CONFIG_KEYS:
+            if arg not in request.args:
+                return "", 400
+
+        config = {k: request.args.get(k) for k in CONFIG_KEYS}
         return match(
             "../../../../" + request.args.get("source_graph_path"),
             request.args.get("source_table"),
             "../../../../" + request.args.get("target_graph_path"),
             request.args.get("target_table"),
             request.args.get("features_dir"),
+            config,
         )
 
     app.run(host=args.embedAlign_host, port=args.embedAlign_port)

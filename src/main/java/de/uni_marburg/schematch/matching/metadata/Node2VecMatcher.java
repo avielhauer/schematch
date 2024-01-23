@@ -6,9 +6,7 @@ import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.matching.TablePairMatcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.PythonUtils;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.net.http.HttpResponse;
@@ -20,6 +18,14 @@ import java.util.List;
 @NoArgsConstructor
 public class Node2VecMatcher extends TablePairMatcher {
     private Integer serverPort = 5004;
+    @Getter
+    @Setter
+    public double dropColumns = 0.0;
+    @Getter
+    @Setter
+    public double dropConstraints = 0.0;
+    public Integer xNetMFGammaStruc = 1;
+    public Integer xNetMFGammaAttr = 1;
 
     @Override
     public float[][] match(TablePair tablePair) {
@@ -41,9 +47,12 @@ public class Node2VecMatcher extends TablePairMatcher {
                     new ImmutablePair<>("source_table", sourceTable.getName()),
                     new ImmutablePair<>("target_graph_path", target.getGraph().exportPath().toString()),
                     new ImmutablePair<>("target_table", targetTable.getName()),
-                    new ImmutablePair<>("features_dir", "target/features/" + scenario.getDataset().getName() + "/" + scenario.getName())
+                    new ImmutablePair<>("features_dir", "target/features/" + scenario.getDataset().getName() + "/" + scenario.getName()),
+                    new ImmutablePair<>("dropColumns", String.valueOf(dropColumns)),
+                    new ImmutablePair<>("dropConstraints", String.valueOf(dropConstraints)),
+                    new ImmutablePair<>("xNetMFGammaStruc", String.valueOf(xNetMFGammaStruc)),
+                    new ImmutablePair<>("xNetMFGammaAttr", String.valueOf(xNetMFGammaAttr))
             ));
-
             alignment_matrix = PythonUtils.readMatcherOutput(Arrays.stream(response.body().split("\n")).toList(), tablePair);
 
         } catch (Exception e){
