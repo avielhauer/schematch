@@ -65,11 +65,11 @@ public class NewMain {
         // Step 4: run second line matchers (ensemble matchers and other matchers using output of first line matchers)
 
 
-        CrediblityPredictorModel cmc=new CrediblityPredictorModel(matchSteps);
+        CrediblityPredictorModel cmc=new CrediblityPredictorModel(matchSteps.get(1));
 
         // loop over datasets
 
-        /*
+
         Configuration.DatasetConfiguration datasetConfiguration=config.getDatasetConfigurations().get(0);
         Dataset dataset = new Dataset(datasetConfiguration);
         log.info("Starting experiments for dataset " + dataset.getName() + " with " + dataset.getScenarioNames().size() + " scenarios");
@@ -83,8 +83,8 @@ public class NewMain {
             cmc.matchTasks.add(matchTask);
 
 
-        }*/
-
+        }
+/*
         int i = 0;
         for (Configuration.DatasetConfiguration datasetConfiguration : config.getDatasetConfigurations()) {
             if ( i == 0) {
@@ -109,7 +109,7 @@ public class NewMain {
         }
         }
 
-
+*/
         cmc.addFeature(new Feature("f1"));
         cmc.addFeature(new Feature("f2"));
         cmc.addFeature(new Feature("f3"));
@@ -118,7 +118,8 @@ public class NewMain {
         {
             cmc.addMatcher(matcher);
         }
-        cmc.prepareData2();
+        cmc.train();
+
 
 
         log.info("See results directory for more detailed performance and similarity matrices results.");

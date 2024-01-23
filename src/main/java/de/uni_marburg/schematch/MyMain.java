@@ -1,5 +1,6 @@
 package de.uni_marburg.schematch;
 
+import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matching.ensemble.CrediblityPredictorModel;
 import de.uni_marburg.schematch.matching.ensemble.Feature;
 import de.uni_marburg.schematch.matching.similarity.label.CosineMatcher;
@@ -25,5 +26,10 @@ public class MyMain {
         }
 
         */
+        Matcher token=new CosineMatcher();
+        System.out.println(token.toString());
+        System.out.println(token.getClass());
+        System.out.println(token.getClass().getName());
+
     }
 }

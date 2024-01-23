@@ -12,6 +12,12 @@ import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.ModelUtils;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.NotImplementedException;
+import weka.classifiers.functions.LinearRegression;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.converters.CSVLoader;
+import weka.filters.Filter;
+import weka.filters.unsupervised.attribute.Remove;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -26,8 +32,8 @@ public class CrediblityPredictorModel implements Serializable {
     public List<MatchTask> matchTasks=new ArrayList<>();
     public List<ColumnPair> colomnPairs=new ArrayList<>();
     List<Matcher> matchers=new ArrayList<>();
-    List<MatchStep> matchSteps;
-    public CrediblityPredictorModel(List<MatchStep> matchSteps) {
+    MatchStep matchSteps;
+    public CrediblityPredictorModel(MatchStep matchSteps) {
         this.matchSteps=matchSteps;
     }
 
@@ -36,7 +42,6 @@ public class CrediblityPredictorModel implements Serializable {
         matchers.add(matcher);
     }
     String dataPath="output.csv";
-
 
 
     public class ModelTrainedException extends Exception{
@@ -52,6 +57,7 @@ public class CrediblityPredictorModel implements Serializable {
     }
     boolean isTrained=false;
     List<TablePair> tablePairs=new ArrayList<>();
+    LinearRegression linearRegression;
     public void addTablePair(TablePair tablePair) throws ModelTrainedException {
         if(!isTrained){
             tablePairs.add(tablePair);
@@ -60,6 +66,57 @@ public class CrediblityPredictorModel implements Serializable {
         else throw new ModelTrainedException();
 
     }
+    public double predictaccuracy(ColumnPair columnPair,Matcher newMatcher) throws Exception {
+        Instance newInstance=new Instance(features.size()+matchers.size());
+        int i =0;
+        for(Feature feature:features){
+            newInstance.setValue(i,feature.calculateScore(columnPair));
+            i++;
+        }
+
+
+        for (Matcher m : matchers) {
+
+            if (newMatcher.equals(m))
+
+                newInstance.setValue(i, 1);
+            else newInstance.setValue(i, 0);
+            i++;
+            }
+
+
+        return linearRegression.classifyInstance(newInstance);
+    }
+    public void train()
+    {
+        try {
+            Instances instances=loadData(dataPath);
+            // Create the Remove filter
+            Remove removeFilter = new Remove();
+            removeFilter.setAttributeIndicesArray(new int[]{0});
+
+            // Apply the filter to the dataset
+            removeFilter.setInputFormat(instances);
+            instances = Filter.useFilter(instances, removeFilter);
+            instances.setClassIndex(instances.numAttributes()-1);
+
+            linearRegression = new LinearRegression();
+            linearRegression.buildClassifier(instances);
+            isTrained=true;
+            System.out.println(linearRegression);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    private Instances loadData(String dataPath) throws IOException, ModelTrainedException {
+        prepareData2();
+        CSVLoader csvLoader=new CSVLoader();
+        csvLoader.setSource(new File(dataPath));
+        return csvLoader.getDataSet();
+    }
+
     public void prepareData2() throws ModelTrainedException {
         generateColumnPairs2();
         generateAccuracy2();
@@ -69,7 +126,7 @@ public class CrediblityPredictorModel implements Serializable {
         }
         for (Matcher m:matchers)
         {
-         header+=","+m.getClass().getName();
+         header+=","+m.toString();
         }
         header+=","+"Accuracy";
         List<String> data=new ArrayList<>();
@@ -80,7 +137,6 @@ public class CrediblityPredictorModel implements Serializable {
                 line+=","+feature.calculateScore(colomnPairs.get(i));
             }
 
-            Map<Matcher,Double> accuracyMap=accuracy.get(colomnPairs.get(i));
             for (Matcher matcher:matchers)
             {
 
@@ -93,7 +149,7 @@ public class CrediblityPredictorModel implements Serializable {
                     else
                         instance+=","+0;
                 }
-                instance+=","+accuracyMap.get(matcher);
+                instance+=","+getMSE(colomnPairs.get(i),matcher);
 
                 data.add(instance);
             }
@@ -129,8 +185,20 @@ public class CrediblityPredictorModel implements Serializable {
                     if (tablePair.getTargetTable().equals(trgColumn.getTable())) {
                         for (MatchStep mtcStep : x.getSimMatrices().keySet()) {
                             if (mtcStep instanceof MatchingStep){
+
                                 float[][] simsOfMatcher = x.getSimMatrices().get(mtcStep).get(matcher);
-                                return simsOfMatcher[srcIndex][trgIndex];
+                                int i ;
+                                for (i=0; i < tablePair.getSourceTable().getNumColumns(); i++) {
+                                    if(srcColumn.equals(tablePair.getSourceTable().getColumn(i)))
+                                        break;
+
+                                }
+                                int j ;
+                                for (j = 0; j < tablePair.getTargetTable().getNumColumns(); j++) {
+                                    if(trgColumn.equals(tablePair.getTargetTable().getColumn(i)))
+                                        break;
+                                }
+                                return simsOfMatcher[srcIndex+i][trgIndex+j];
                             }
                         }
                     }
