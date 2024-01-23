@@ -2,6 +2,8 @@ package de.uni_marburg.schematch.matching.sota.cupid;
 
 import lombok.Getter;
 
+import java.util.Objects;
+
 @Getter
 public class Pair<T, U> {
     private final T first;
@@ -12,17 +14,24 @@ public class Pair<T, U> {
         this.second = second;
     }
 
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StringPair that = (StringPair) o;
+        Pair<String, String> that = (Pair<String, String>) o;
         return first.equals(that.getFirst()) && second.equals(that.getSecond());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(first, second);
     }
 
     //public static void main(String[] args) {
     //    Pair<String, String> test1 = new Pair<>("test1", "test2");
     //    Pair<String, String> test2 = new Pair<>("test1", "test2");
     //    System.out.println(test1.equals(test2));
+    //    System.out.println(test2.hashCode());
 //
     //}
 

@@ -31,7 +31,7 @@ public class CupidMatcher extends TablePairMatcher {
     @Override
     public float[][] match(TablePair tablePair) {
         Pair<SchemaTree, SchemaTree> treePair = buildTreesFromTables(tablePair);
-
+        treePair.getFirst().printSchemaTree();
         Map<String, Map<StringPair, Float>> sims = treeMatch(
                 treePair.getFirst(),
                 treePair.getSecond(),
@@ -217,17 +217,17 @@ public class CupidMatcher extends TablePairMatcher {
         targetTree.addNode(tablePair.getTargetTable().getName(), targetTree.getRoot(), new ArrayList<>(), new SchemaElement(tablePair.getTargetTable().getName(), "tableRoot"));
 
         for (Column column : tablePair.getSourceTable().getColumns()) {
-            AddColumn(sourceTree, column);
+            addColumn(sourceTree, column);
         }
 
         for (Column column : tablePair.getTargetTable().getColumns()) {
-            AddColumn(targetTree, column);
+            addColumn(targetTree, column);
         }
 
         return new Pair<>(sourceTree, targetTree);
     }
 
-    private void AddColumn(SchemaTree targetTree, Column column) {
+    private void addColumn(SchemaTree targetTree, Column column) {
         String datatype = convertDatatype(column);
         categories.add(datatype);
         SchemaElement schemtmp = new SchemaElement(column.getLabel(), datatype);

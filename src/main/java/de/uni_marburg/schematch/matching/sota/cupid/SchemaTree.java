@@ -1,9 +1,6 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class SchemaTree {
     private Map<String, SchemaElementNode> nodes;
@@ -23,6 +20,7 @@ public class SchemaTree {
 
     public void addRootNode(SchemaElement root) {
         this.rootNode = new SchemaElementNode(root.getInitialName(), null, new ArrayList<>(), root);
+        nodes.put(root.getInitialName(), rootNode);
     }
 
     public void addNode(String name, SchemaElementNode parent, ArrayList<SchemaElementNode> children, SchemaElement current) {
@@ -31,9 +29,13 @@ public class SchemaTree {
         nodes.put(name, newNode);
     }
 
-   //public void printSchemaTree() {
-   //    System.out.println(renderTree(nodes.get(schemaName), "", true));
-   //}
+   public void printSchemaTree() {
+        for (SchemaElementNode element : nodes.values()) {
+            System.out.println(element.getChildren().size());
+            System.out.println(element.getName());
+            System.out.println(element.getCurrent().getDataType());
+        }
+   }
 
     public List<SchemaElementNode> getLeaves() {
         List<SchemaElementNode> leaves = new ArrayList<>();
@@ -77,13 +79,6 @@ public class SchemaTree {
         return rootNode;
     }
 
-    //private String renderTree(SchemaElementNode node) {
-    //    return renderTree(node, "", false);
-    //}
-
-    //private String renderTree(SchemaElementNode node, String prefix, boolean isTail) {
-    //   return null;
-    //}
 
     public List<SchemaElementNode> postOrder() {
         return rootNode.postOrder();
