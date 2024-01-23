@@ -22,8 +22,9 @@ public class Scenario {
         this.sourceDatabase = new Database(this.path + File.separator + Configuration.getInstance().getDefaultSourceDatabaseDir());
         this.targetDatabase = new Database(this.path + File.separator + Configuration.getInstance().getDefaultTargetDatabaseDir());
         // TODO: read dependencies on demand
-        if (Configuration.getInstance().isReadDependencies()) {
+        // FIXME: broken (and unnecessary?) at the moment
+        /*if (Configuration.getInstance().isReadDependencies()) {
             this.metadata = InputReader.readScenarioMetadata(this.path, sourceDatabase, targetDatabase);
-        }
+        }*/
     }
 }

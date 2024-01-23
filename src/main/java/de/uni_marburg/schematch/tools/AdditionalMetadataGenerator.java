@@ -35,9 +35,9 @@ public class AdditionalMetadataGenerator {
             for (String scenarioName : dataset.getScenarioNames()) {
                 Scenario scenario = new Scenario(dataset.getPath() + File.separator + scenarioName);
                 log.debug("Starting generation for dataset " + dataset.getName() + ", scenario: " + scenario.getPath());
-                for (Map.Entry<String, Table> entry: scenario.getSourceDatabase().getTables().entrySet()) {
-                    String name = entry.getKey();
-                    Table table = entry.getValue();
+                for (Table table: scenario.getSourceDatabase().getTables()) {
+                    String name = table.getName();
+
                     Map<Column, Map<String, String>> typeMetadata = generateTypeMetadata(table);
                     Map<Column, Map<String, String>> numMetadata = generateNumMetadata(table);
                     String typePath = scenario.getPath() + "/metadata/source/" + name + "/type.csv";
@@ -46,9 +46,8 @@ public class AdditionalMetadataGenerator {
                     AdditionalInformationWriter.writeMetadata(numMetadata, numPath);
                 }
 
-                for (Map.Entry<String, Table> entry: scenario.getTargetDatabase().getTables().entrySet()) {
-                    String name = entry.getKey();
-                    Table table = entry.getValue();
+                for (Table table: scenario.getTargetDatabase().getTables()) {
+                    String name = table.getName();
                     Map<Column, Map<String, String>> typeMetadata = generateTypeMetadata(table);
                     Map<Column, Map<String, String>> numMetadata = generateNumMetadata(table);
                     String typePath = scenario.getPath() + "/metadata/target/" + name + "/type.csv";

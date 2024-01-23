@@ -1,0 +1,3 @@
+[store.csv.address_id] --> store.csv.manager_staff_id, store.csv.store_id
+[store.csv.manager_staff_id] --> store.csv.address_id, store.csv.store_id
+[store.csv.store_id] --> store.csv.address_id, store.csv.manager_staff_id

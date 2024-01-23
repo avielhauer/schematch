@@ -1,0 +1,5 @@
+[pagamento.csv.pagamento_id]
+[pagamento.csv.data_pagamento, pagamento.csv.noleggio_id]
+[pagamento.csv.cliente_id, pagamento.csv.noleggio_id]
+[pagamento.csv.ammontare, pagamento.csv.noleggio_id, pagamento.csv.personale_id]
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_pagamento, pagamento.csv.personale_id]

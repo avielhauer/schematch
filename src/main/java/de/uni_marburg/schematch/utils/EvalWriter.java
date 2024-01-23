@@ -348,21 +348,21 @@ public class EvalWriter {
                 summaryWriter.write(matchStep + "," + summary);
             }
 
-            if (config.isEvaluateSimMatrixBoostingOnFirstLineMatchers()) {
+            if (config.isRunSimMatrixBoostingOnFirstLineMatchers() && config.isEvaluateSimMatrixBoostingOnFirstLineMatchers()) {
                 MatchStep matchStep = getMatchStep(matchSteps, 1, true);
                 Summary summary = summarizePerformance(performances.get(matchStep));
                 summaryWriter.newLine();
                 summaryWriter.write(matchStep + "," + summary);
             }
 
-            if (config.isEvaluateSecondLineMatchers()) {
+            if (config.isRunSecondLineMatchers() && config.isEvaluateSecondLineMatchers()) {
                 MatchStep matchStep = getMatchStep(matchSteps, 2, false);
                 Summary summary = summarizePerformance(performances.get(matchStep));
                 summaryWriter.newLine();
                 summaryWriter.write(matchStep + "," + summary);
             }
 
-            if (config.isEvaluateSecondLineMatchers()) {
+            if (config.isRunSimMatrixBoostingOnSecondLineMatchers() && config.isEvaluateSimMatrixBoostingOnSecondLineMatchers()) {
                 MatchStep matchStep = getMatchStep(matchSteps, 2, true);
                 Summary summary = summarizePerformance(performances.get(matchStep));
                 summaryWriter.newLine();

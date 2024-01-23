@@ -8,6 +8,9 @@ import de.uni_marburg.schematch.data.metadata.ScenarioMetadata;
 import de.uni_marburg.schematch.data.metadata.dependency.FunctionalDependency;
 import de.uni_marburg.schematch.data.metadata.dependency.InclusionDependency;
 import de.uni_marburg.schematch.data.metadata.dependency.UniqueColumnCombination;
+import de.uni_marburg.schematch.matching.Matcher;
+import de.uni_marburg.schematch.matchtask.MatchTask;
+import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -192,6 +195,9 @@ public class InputReader {
                 Path uccFilePath = metadataFolderPath.resolve(table.getName()).resolve("UCC_results.txt");
 
                 Collection<FunctionalDependency> datasetFDs = readFDFile(fdFilePath, table, fdMap);
+                for (FunctionalDependency fd : datasetFDs) {
+                    fd.setPdepTuple(MetadataUtils.getPdep(fd));
+                }
                 Collection<UniqueColumnCombination> datasetUCCs = readUCCFile(uccFilePath, table, uccMap);
 
                 fds.addAll(datasetFDs);
@@ -217,8 +223,8 @@ public class InputReader {
             Map<Column, Collection<InclusionDependency>> sourceContentMap = new HashMap<>();
             Map<Column, Collection<InclusionDependency>> targetContentMap = new HashMap<>();
 
-            Collection<InclusionDependency> sourceContent = readINDFile(sourceFilePath, targetDatabase, sourceDatabase, sourceContentMap);
-            Collection<InclusionDependency> targetContent = readINDFile(targetFilePath, sourceDatabase, targetDatabase, targetContentMap);
+            Collection<InclusionDependency> sourceContent = readINDFile(sourceFilePath, sourceDatabase, targetDatabase, sourceContentMap);
+            Collection<InclusionDependency> targetContent = readINDFile(targetFilePath, targetDatabase, sourceDatabase, targetContentMap);
 
             ScenarioMetadata metadata = new ScenarioMetadata(sourceContent, targetContent);
             metadata.getSourceToTargetMap().putAll(sourceContentMap);
@@ -332,5 +338,40 @@ public class InputReader {
             }
         }
         return columnList;
+    }
+
+    public static float[][] readCache(MatchTask matchTask, MatchStep matchStep, Matcher matcher, String separator) {
+        float[][] simMatrix = matchTask.getEmptySimMatrix();
+
+        CSVFormat csvFormat = CSVFormat.DEFAULT.builder()
+                .setHeader()
+                .setDelimiter(separator)
+                .setAllowMissingColumnNames(true)
+                .build();
+
+        File file = ResultsUtils.getCachePathForMatchStepInScenario(matchTask, matchStep).resolve(matcher.toString() + ".csv").toFile();
+
+        try (Reader reader = new FileReader(file.getAbsolutePath())) {
+            log.trace("Reading cache file " + file.getAbsolutePath());
+            matchTask.incrementCacheRead();
+            CSVParser csvParser = new CSVParser(reader, csvFormat);
+            // parse records
+            int i = 0;
+            for (CSVRecord csvRecord : csvParser) {
+                for (int j = 0; j < simMatrix[0].length; j++) {
+                    simMatrix[i][j] = Float.parseFloat(csvRecord.get(j));
+                }
+                i += 1;
+            }
+        } catch (IOException e) {
+            // no cache for matcher in matchstep
+            return null;
+        }
+
+        return simMatrix;
+    }
+
+    public static float[][] readCache(MatchTask matchTask, MatchStep matchStep, Matcher matcher) {
+        return readCache(matchTask, matchStep, matcher, Configuration.getInstance().getDefaultSeparator());
     }
 }
