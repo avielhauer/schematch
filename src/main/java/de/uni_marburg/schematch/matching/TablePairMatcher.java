@@ -1,6 +1,7 @@
 package de.uni_marburg.schematch.matching;
 
 import de.uni_marburg.schematch.data.Database;
+import de.uni_marburg.schematch.matching.ensemble.CrediblityPredictorModel;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
@@ -14,7 +15,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public abstract class TablePairMatcher extends Matcher {
-    public abstract float[][] match(TablePair tablePair);
+    public abstract float[][] match(TablePair tablePair) throws CrediblityPredictorModel.ModelTrainedException;
 
     @Override
     public float[][] match(MatchTask matchTask, MatchingStep matchStep) {

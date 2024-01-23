@@ -44,7 +44,7 @@ public class CrediblityPredictorModel implements Serializable {
     String dataPath="output.csv";
 
 
-    public class ModelTrainedException extends Exception{
+    public static class ModelTrainedException extends Exception{
         public ModelTrainedException(){
             super("\"Model is Already Trained\"");
         }

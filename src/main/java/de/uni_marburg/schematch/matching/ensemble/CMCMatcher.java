@@ -1,7 +1,9 @@
 package de.uni_marburg.schematch.matching.ensemble;
 
 import com.fasterxml.jackson.databind.deser.DataFormatReaders;
+import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.matching.Matcher;
+import de.uni_marburg.schematch.matching.TablePairMatcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
@@ -10,9 +12,10 @@ import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
-public class CMCMatcher extends Matcher {
+public class CMCMatcher extends TablePairMatcher {
     public  CMCMatcher(MatchingStep matchStep, ArrayList<Feature> featureList, ArrayList<Matcher> matchers,ArrayList<MatchTask> matchTasks) {
         try {
 
@@ -42,14 +45,35 @@ public class CMCMatcher extends Matcher {
 
     CrediblityPredictorModel crediblityPredictorModel;
 
-    public float match(ColumnPair columnPair,MatchingStep matchStep)
-    {
+    public float matchColumnPair(ColumnPair columnPair) throws CrediblityPredictorModel.ModelTrainedException {
+        List<Matcher> matchers=crediblityPredictorModel.matchers;
+        for(Matcher m:crediblityPredictorModel.matchers)
+        {
+            if(crediblityPredictorModel.isTrained)
+            {
+                //here generate the similarity
+            }
+            else {
+                throw new CrediblityPredictorModel.ModelTrainedException();
+            }
+        }
         return 0;
     }
 
     @Override
-    public float[][] match(MatchTask matchTask, MatchingStep matchStep) {
+    public float[][] match(TablePair tablePair) throws CrediblityPredictorModel.ModelTrainedException {
+        Table sourceTable = tablePair.getSourceTable();
+        Table targetTable = tablePair.getTargetTable();
+        float[][] simMatrix = tablePair.getEmptySimMatrix();
+        for (int i = 0; i < sourceTable.getNumColumns(); i++) {
+            for (int j = 0; j < targetTable.getNumColumns(); j++) {
+                {
 
-        return new float[0][];
+                    simMatrix[i][j] = matchColumnPair(new ColumnPair(sourceTable.getColumn(i),targetTable.getColumn(j)));
+                }
+            }
+        }
+        return simMatrix;
     }
+
 }
