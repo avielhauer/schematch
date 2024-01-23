@@ -33,7 +33,7 @@ public class CrediblityPredictorModel implements Serializable {
     public List<ColumnPair> colomnPairs=new ArrayList<>();
     List<Matcher> matchers=new ArrayList<>();
     MatchStep matchSteps;
-    public CrediblityPredictorModel(MatchStep matchSteps) {
+    public CrediblityPredictorModel(MatchingStep matchSteps) {
         this.matchSteps=matchSteps;
     }
 
@@ -55,7 +55,7 @@ public class CrediblityPredictorModel implements Serializable {
             super("\"Similarty was not found in MatchTasks With the given column labels\"");
         }
     }
-    boolean isTrained=false;
+    public boolean isTrained=false;
     List<TablePair> tablePairs=new ArrayList<>();
     LinearRegression linearRegression;
     public void addTablePair(TablePair tablePair) throws ModelTrainedException {
@@ -110,16 +110,15 @@ public class CrediblityPredictorModel implements Serializable {
 
     }
 
-    private Instances loadData(String dataPath) throws IOException, ModelTrainedException {
+    private Instances loadData(String dataPath) throws IOException, ModelTrainedException, SimilarityNotFoundExeption {
         prepareData2();
         CSVLoader csvLoader=new CSVLoader();
         csvLoader.setSource(new File(dataPath));
         return csvLoader.getDataSet();
     }
 
-    public void prepareData2() throws ModelTrainedException {
+    public void prepareData2() throws ModelTrainedException, SimilarityNotFoundExeption {
         generateColumnPairs2();
-        generateAccuracy2();
         String header= "Pair";
         for(Feature feature:features){
             header+=","+feature.getName();
@@ -161,18 +160,7 @@ public class CrediblityPredictorModel implements Serializable {
         System.out.println("heere header"+header);
     }
 
-    private void generateAccuracy2() {
-        for (ColumnPair columnPair:colomnPairs)
-        {
-            Map<Matcher,Double> map=new HashMap<>();
-            for (Matcher matcher :matchers)
-            {
-                map.put(matcher, getMSE(columnPair,matcher));
-            }
-            accuracy.put(columnPair,map);
-        }
 
-    }
     @SneakyThrows
     public double getSimilarity(ColumnPair columnPair, Matcher matcher){
         Column srcColumn = columnPair.getSourceColumn();
@@ -187,18 +175,29 @@ public class CrediblityPredictorModel implements Serializable {
                             if (mtcStep instanceof MatchingStep){
 
                                 float[][] simsOfMatcher = x.getSimMatrices().get(mtcStep).get(matcher);
-                                int i ;
-                                for (i=0; i < tablePair.getSourceTable().getNumColumns(); i++) {
+                                int n1= -1 ;
+                                for (int i=0; i < tablePair.getSourceTable().getNumColumns(); i++) {
                                     if(srcColumn.equals(tablePair.getSourceTable().getColumn(i)))
+                                    {
+                                        n1=i;
                                         break;
+                                    }
 
                                 }
-                                int j ;
-                                for (j = 0; j < tablePair.getTargetTable().getNumColumns(); j++) {
-                                    if(trgColumn.equals(tablePair.getTargetTable().getColumn(i)))
+                                int n2=-1 ;
+                                for (int  j = 0; j < tablePair.getTargetTable().getNumColumns(); j++) {
+                                    if(trgColumn.equals(tablePair.getTargetTable().getColumn(j)))
+                                    {
+                                        n2=j;
                                         break;
+                                    }
                                 }
-                                return simsOfMatcher[srcIndex+i][trgIndex+j];
+                                if(n1>-1&&n2>-1)
+                                {
+                                    System.out.println(n1 +"   "+n2);
+                                    return simsOfMatcher[srcIndex+n1][trgIndex+n2];
+                                }
+
                             }
                         }
                     }
@@ -207,10 +206,12 @@ public class CrediblityPredictorModel implements Serializable {
         }
         throw new SimilarityNotFoundExeption();
     }
-    public int getGroundTruth(ColumnPair columnPair)
-    {
+    public int getGroundTruth(ColumnPair columnPair) throws SimilarityNotFoundExeption {
         Column srcColumn = columnPair.getSourceColumn();
         Column trgColumn = columnPair.getTargetColumn();
+        Table sourceTable=srcColumn.getTable();
+        Table targetTable=trgColumn.getTable();
+
         int srcIndex = srcColumn.getTable().getOffset();
         int trgIndex = trgColumn.getTable().getOffset();
         int[][] gTable = null;
@@ -219,11 +220,31 @@ public class CrediblityPredictorModel implements Serializable {
                 gTable = x.getGroundTruthMatrix();
             }
         }
+        int n1= -1 ;
+        for (int i=0; i < sourceTable.getNumColumns(); i++) {
+            if(srcColumn.equals(sourceTable.getColumn(i)))
+            {
+                n1=i;
+                break;
+            }
 
-        return gTable[srcIndex][trgIndex];
+        }
+        int n2=-1 ;
+        for (int  j = 0; j < targetTable.getNumColumns(); j++) {
+            if(trgColumn.equals(targetTable.getColumn(j)))
+            {
+                n2=j;
+                break;
+            }
+        }
+        if(n1>-1&&n2>-1)
+        {
+            System.out.println(n1 +"   "+n2);
+            return gTable[srcIndex+n1][trgIndex+n2];
+        }
+        else throw new SimilarityNotFoundExeption();
     }
-    public  double getMSE(ColumnPair columnPair,Matcher matcher)
-    {
+    public  double getMSE(ColumnPair columnPair,Matcher matcher) throws SimilarityNotFoundExeption {
 
         return Math.pow((getSimilarity(columnPair,matcher)-getGroundTruth(columnPair)),2);
     }

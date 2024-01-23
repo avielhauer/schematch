@@ -55,17 +55,18 @@ public class NewMain {
                 config.isEvaluateTablePairGeneration(),
                 tablePairsGenerator));
         // Step 2: run first line matchers (i.e., matchers that use table data to match)
-        matchSteps.add(new MatchingStep(
+        MatchingStep firstLineStep = new MatchingStep(
                 config.isSaveOutputFirstLineMatchers(),
                 config.isEvaluateFirstLineMatchers(),
                 1,
-                firstLineMatchers));
+                firstLineMatchers);
+        matchSteps.add(firstLineStep);
         // Step 3: run similarity matrix boosting on the output of first line matchers
 
         // Step 4: run second line matchers (ensemble matchers and other matchers using output of first line matchers)
 
 
-        CrediblityPredictorModel cmc=new CrediblityPredictorModel(matchSteps.get(1));
+        CrediblityPredictorModel cmc=new CrediblityPredictorModel(firstLineStep);
 
         // loop over datasets
 
