@@ -6,6 +6,7 @@ import de.uni_marburg.schematch.data.metadata.Datatype;
 import de.uni_marburg.schematch.matching.TablePairMatcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 
+import java.math.BigInteger;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -276,21 +277,27 @@ public class CupidMatcher extends TablePairMatcher {
                 boolean isLong = true;
 
                 for (String item : values) {
+                    System.out.println(item);
                     try {
-                        short shortVal = Short.parseShort(item);
-                    } catch (NumberFormatException e) {
-                        isShort = false;
+                        BigInteger big = new BigInteger(item);
                         try {
-                            int intVal = Integer.parseInt(item);
-                        } catch (NumberFormatException e1) {
-                            isInt = false;
+                            short shortVal = Short.parseShort(item);
+                        } catch (NumberFormatException e) {
+                            isShort = false;
                             try {
-                                long longVal = Long.parseLong(item);
-                            } catch (NumberFormatException e2) {
-                                isLong = false;
-                                break;
+                                int intVal = Integer.parseInt(item);
+                            } catch (NumberFormatException e1) {
+                                isInt = false;
+                                try {
+                                    long longVal = Long.parseLong(item);
+                                } catch (NumberFormatException e2) {
+                                    isLong = false;
+                                    break;
+                                }
                             }
                         }
+                    } catch (NumberFormatException e4) {
+                        continue;
                     }
                 }
 
