@@ -17,6 +17,13 @@ public class SQL2Graph extends DBGraph{
 
     @Override
     protected void generateGraph(){
+        // Add Database Vertex
+        Database database = this.getDatabase();
+        this.addVertex("Database");
+        this.addVertex(database.getName());
+        this.addVertex(database);
+        this.addEdge(database, "Database", new LabeledEdge("type"));
+        this.addEdge(database, database.getName(), new LabeledEdge("name"));
         // Add ColumnTypes
         this.addVertex("ColumnType");
         for(Column.Datatype type : Column.Datatype.values()){
@@ -28,19 +35,24 @@ public class SQL2Graph extends DBGraph{
 
         // Add Tables
         this.addVertex("Table");
-        List<Table> tables = this.getDatabase().getTables();
+        List<Table> tables = database.getTables();
         for(Table table : tables){
             this.addVertex(table);
-            this.addEdge(table, "Table", new LabeledEdge("type"));
+            this.addVertex(table.getName());
 
+            // connect Database with Table
+            this.addEdge(database, table, new LabeledEdge("table"));
+            this.addEdge(table, "Table", new LabeledEdge("type"));
+            this.addEdge(table, table.getName(), new LabeledEdge("name"));
             //Add Columns
             this.addVertex("Column");
             List<Column> columns = table.getColumns();
             for(Column column : columns){
                 this.addVertex(column);
-                this.addEdge(column, "Column", new LabeledEdge("type"));
-                this.addEdge(table, column, new LabeledEdge("column"));
                 this.addVertex(column.getLabel());
+                this.addEdge(table, column, new LabeledEdge("column"));
+
+                this.addEdge(column, "Column", new LabeledEdge("type"));
                 this.addEdge(column, column.getLabel(), new LabeledEdge("name"));
                 this.addEdge(column, column.getDatatype(), new LabeledEdge("SQLtype"));
                 //TODO: Fetch Metadata from native metadata implementation (How does it work?)
