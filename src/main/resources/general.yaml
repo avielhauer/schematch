@@ -69,6 +69,7 @@ saveOutputSimMatrixBoostingOnSecondLineMatchers: False
 evaluateSimMatrixBoostingOnSecondLineMatchers: False
 readCacheSimMatrixBoostingOnSecondLineMatchers: False
 writeCacheSimMatrixBoostingOnSecondLineMatchers: False
+
 # FIXME: do not set this parameter in this file, it is set to true whenever runSimMatrixBoosting is set to true
 # FIXME: eventually, dependencies should be read on demand
 # flag indicating whether to read functional and inclusion dependencies and unique column combinations from metadata folder in scenarios

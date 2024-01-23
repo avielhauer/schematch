@@ -15,9 +15,10 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/*
-17.01.24: Disabled due to unsolved merge conflicts.
 
+/*
+Class to generate numeric metadata for given datasets.
+ */
 public class AdditionalMetadataGenerator {
     final static Logger log = LogManager.getLogger(AdditionalMetadataGenerator.class);
 
@@ -173,4 +174,3 @@ public class AdditionalMetadataGenerator {
         return sum / strings.size();
     }
 }
-*/
