@@ -9,6 +9,34 @@
     <version>0.1</version>
 
     <dependencies>
+        <!-- metanome -->
+        <dependency>
+            <groupId>de.metanome</groupId>
+            <artifactId>backend</artifactId>
+            <version>1.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.metanome</groupId>
+            <artifactId>algorithm_integration</artifactId>
+            <version>1.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.metanome.algorithms.hyfd</groupId>
+            <artifactId>HyFD</artifactId>
+            <version>1.2-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>de.metanome.algorithms.hyucc</groupId>
+            <artifactId>HyUCC</artifactId>
+            <version>1.2-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>de.metanome.algorithms.binder</groupId>
+            <artifactId>BINDER</artifactId>
+            <version>1.2-SNAPSHOT</version>
+        </dependency>
         <!-- apache commons -->
         <dependency>
             <groupId>org.apache.commons</groupId>
