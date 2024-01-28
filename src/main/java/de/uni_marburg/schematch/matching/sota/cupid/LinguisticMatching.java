@@ -1,7 +1,9 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
 
 import de.uni_marburg.schematch.similarity.string.Levenshtein;
+import edu.mit.jwi.RAMDictionary;
 import edu.mit.jwi.item.ISynset;
+import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.process.CoreLabelTokenFactory;
 import edu.stanford.nlp.process.PTBTokenizer;
 import edu.stanford.nlp.process.Tokenizer;
@@ -32,11 +34,11 @@ public class LinguisticMatching {
 
 
         Tokenizer tokenizer = new PTBTokenizer(new StringReader(element), new CoreLabelTokenFactory(), "");
-        List<String> tokens = tokenizer.tokenize();
-
+        List<CoreLabel> tokens = tokenizer.tokenize();
         StopWords stopWords = new StopWords();
 
-        for (String token : tokens) {
+        for (CoreLabel tokenCoreLabel : tokens) {
+            String token = tokenCoreLabel.originalText();
             Token tokenObj = new Token();
 
             String punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
@@ -56,7 +58,7 @@ public class LinguisticMatching {
                     String tokenSnake = snakeCase(token);
 
                     if (tokenSnake.contains("_")) {
-                        tokenSnake.replace("_", " ");
+                        tokenSnake = tokenSnake.replace("_", " ");
                         schemaElement = normalization(tokenSnake, schemaElement);
                     } else if (stopWords.isStopWord(token)) {
                         tokenObj.addData(token.toLowerCase(Locale.ROOT));
@@ -120,9 +122,10 @@ public class LinguisticMatching {
             } else {
 
                 Tokenizer tokenizer = new PTBTokenizer(new StringReader(categoryPair.getFirst()), new CoreLabelTokenFactory(), "");
-                List<String> tokenStrings = tokenizer.tokenize();
+                List<CoreLabel> tokenStrings = tokenizer.tokenize();
                 List<Token> tokens1 = new ArrayList<>();
-                for (String tokenString : tokenStrings) {
+                for (CoreLabel tokenStringCoreLabel : tokenStrings) {
+                    String tokenString = tokenStringCoreLabel.originalText();
                     if (StringUtils.isAlphanumeric(tokenString)) {
                         tokens1.add(new Token().addData(tokenString));
                     }
@@ -133,9 +136,10 @@ public class LinguisticMatching {
                 }
 
                 Tokenizer tokenizer2 = new PTBTokenizer(new StringReader(categoryPair.getSecond()), new CoreLabelTokenFactory(), "");
-                List<String> tokenStrings2 = tokenizer2.tokenize();
+                List<CoreLabel> tokenStrings2 = tokenizer2.tokenize();
                 List<Token> tokens2 = new ArrayList<>();
-                for (String tokenString : tokenStrings2) {
+                for (CoreLabel tokenStringCoreLabel : tokenStrings2) {
+                    String tokenString = tokenStringCoreLabel.originalText();
                     if (StringUtils.isAlphanumeric(tokenString)) {
                         tokens2.add(new Token().addData(tokenString));
                     }
@@ -260,7 +264,7 @@ public class LinguisticMatching {
                 continue;
             }
 
-            List<Token> t1 = new ArrayList();
+            List<Token> t1 = new ArrayList<>();
             for (Token token : tokenSet1) {
                 if (token.getTokenType().equals(tt)) {
                     t1.add(token);
@@ -297,11 +301,11 @@ public class LinguisticMatching {
         return 0.0;
     }
 
-    private double getPartialSimilarity(List<Token> tokenSet1, List<Token> tokenSet2) throws IOException {
+    private double getPartialSimilarity(List<Token> tokenSet1, List<Token> tokenSet2) {
 
         double totalSum = 0;
         for (Token t1 : tokenSet1) {
-            double max_sim = Double.MIN_VALUE;
+            double max_sim = 0;
             double sim;
             for (Token t2 : tokenSet2) {
                 if (t1.getData().equals(t2.getData())) {
@@ -348,14 +352,14 @@ public class LinguisticMatching {
             WordNetFunctionalities wordNetFunctionalities = new WordNetFunctionalities();
             WS4JConfiguration.getInstance().setMemoryDB(false);
             WS4JConfiguration.getInstance().setMFS(true);
-            ILexicalDatabase db = new MITWordNet();
+            ILexicalDatabase db = new MITWordNet(new RAMDictionary(wordNetFunctionalities.dict, 2));
             WuPalmer wuPalmer = new WuPalmer(db);
 
             for (Pair<ISynset, ISynset> pair : productOfBothISynsetSets) {
                 ISynset s1 = pair.getFirst();
                 ISynset s2 = pair.getSecond();
                 double score = wuPalmer.calcRelatednessOfWords(s1.getWords().get(0).getLemma(), s2.getWords().get(0).getLemma());
-                System.out.println(index + ". " + s1.getWords().get(0).getLemma() + ", " + s2.getWords().get(0).getLemma() + ": " + score);
+                //System.out.println(index + ". " + s1.getWords().get(0).getLemma() + ", " + s2.getWords().get(0).getLemma() + ": " + score);
                 index++;
 
                 if (score > max) {
@@ -446,7 +450,7 @@ public class LinguisticMatching {
     public static void main(String[] args) throws IOException {
         LinguisticMatching linguisticMatching = new LinguisticMatching();
 
-        System.out.println(linguisticMatching.computeSimilarityWordnet("ship", "boat"));
+        //System.out.println(linguisticMatching.computeSimilarityWordnet("ship", "boat"));
 
     }
 }

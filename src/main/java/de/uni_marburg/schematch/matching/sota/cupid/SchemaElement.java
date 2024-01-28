@@ -85,4 +85,8 @@ class SchemaElement {
         }
         return resultTokens;
     }
+
+    public List<Token> getTokens() {
+        return tokens;
+    }
 }
