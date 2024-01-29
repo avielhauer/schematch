@@ -72,7 +72,13 @@ public class TransitivityReductionDatabaseGraph extends DatabaseGraph {
 
         @Override
         public String toString() {
-            return attributes.toString() + " (" + inboundNodes.size() + ", " + outboundNodes.size() + ")";
+            StringBuilder output = new StringBuilder();
+            for (Column attribute : attributes) {
+                output.append(attribute.toString());
+                output.append("|");
+            }
+            output.append(" (" + inboundNodes.size() + ", " + outboundNodes.size() + ")");
+            return output.toString();
         }
     }
 
@@ -109,10 +115,14 @@ public class TransitivityReductionDatabaseGraph extends DatabaseGraph {
     }
 
     private void buildFor(final Database database) {
-        Collection<UniqueColumnCombination> uccs = database.getMetadata().getUniqueColumnCombinations(2);
+//        Collection<UniqueColumnCombination> uccs = database.getMetadata().getUniqueColumnCombinations(2);
 //        uccs.forEach(this::addUcc);
 
-        Collection<FunctionalDependency> fds = database.getMetadata().getMeaningfulFunctionalDependencies(1, new HashSet<>());
+//        Collection<FunctionalDependency> fds = database.getMetadata().getMeaningfulFunctionalDependencies(1, new HashSet<>());
+
+        Collection<FunctionalDependency> fds = database.getMetadata().getMeaningfulFunctionalDependencies(1, new HashSet<>())
+                .stream().map(database.getMetadata()::subsumeFunctionalDependencyViaInclusionDependency)
+                .toList();
 
         // Enter FDs into graph
         int count = 0;
@@ -238,8 +248,10 @@ public class TransitivityReductionDatabaseGraph extends DatabaseGraph {
 
     private void exportGraph() {
         SimpleDirectedGraph<String, DefaultEdge> graph = new SimpleDirectedGraph<>(DefaultEdge.class);
+//        graph.addVertex(graphRoot());
         for (Node node : nodes.values()) {
             graph.addVertex(vertexName(node.toString()));
+//            graph.addEdge(graphRoot(), vertexName(node.toString()));
         }
         for (SiblingNode node : siblingNodes) {
             graph.addVertex(vertexName(node.toString()));
@@ -265,66 +277,16 @@ public class TransitivityReductionDatabaseGraph extends DatabaseGraph {
             throw new RuntimeException(e);
         }
     }
-//
-//    private void addUcc(UniqueColumnCombination ucc) {
-//        String thisUccNode = vertexName("UCC", String.valueOf(uccCounter));
-//        graph.addVertex(thisUccNode);
-//        for (Column c : ucc.getColumnCombination()) {
-//            addEdge(columnNode(c), thisUccNode, true);
-//        }
-//
-//        uccCounter++;
-//    }
-//
-//    private void addFd(FunctionalDependency fd) {
-//        String thisFdNode = vertexName("FD", String.valueOf(fdCounter));
-//        graph.addVertex(thisFdNode);
-////        addEdge(thisFdNode, fdMetaNode());
-//        for (Column c : fd.getDeterminant()) {
-//            addEdge(columnNode(c), thisFdNode);
-//        }
-//        addEdge(thisFdNode, columnNode(fd.getDependant()));
-//
-//        fdCounter++;
-//    }
-//
-//    private void addEdge(final String sourceVertex, final String targetVertex) {
-//        addEdge(sourceVertex, targetVertex, false);
-//    }
-//
-//    private void addEdge(final String sourceVertex, final String targetVertex, final Boolean bothDirections) {
-//        graph.addEdge(sourceVertex, targetVertex);
-//        if (bothDirections) {
-//            graph.addEdge(targetVertex, sourceVertex);
-//        }
-////        String antiDirectionNode = vertexName("ANTI_DIRECTION", String.valueOf(antiDirectionalityNodeCounter));
-////        graph.addVertex(antiDirectionNode);
-////        graph.addEdge(targetVertex, antiDirectionNode);
-////        graph.addEdge(antiDirectionNode, sourceVertex);
-////
-////        antiDirectionalityNodeCounter++;
-//    }
-//
-//    private String graphRoot() {
-//        return vertexName("ROOT", "");
-//    }
-//    private String uccMetaNode() {
-//        return vertexName("UCC", "");
-//    }
-//    private String fdMetaNode() {
-//        return vertexName("FD", "");
-//    }
-//    private String tableNode(final Table table) {
-//        return vertexName("TABLE", table.getName());
-//    }
-//    private String columnNode(final Column column) {
-//        return vertexName("COLUMN", column.getTable().getName() + "_" + column.getLabel());
-//    }
+
+    private String graphRoot() {
+        return vertexName("ROOT");
+    }
+
     private String vertexName(final String resourceType, final String resourceName) {
-        return String.format("DB_%d_%s_%s", graphId, resourceType, resourceName);
+        return String.format("DB|%d|%s|%s", graphId, resourceType, resourceName);
     }
 
     private String vertexName(final String resourceName) {
-        return String.format("DB_%d_%s", graphId, resourceName);
+        return String.format("DB|%d|%s", graphId, resourceName);
     }
 }

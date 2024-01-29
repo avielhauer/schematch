@@ -11,6 +11,7 @@ flask = "^3.0.1"
 matplotlib = "^3.8.2"
 node2vec = "^0.4.6"
 pot = "^0.9.3"
+pyvis = "^0.3.2"
 
 
 [build-system]

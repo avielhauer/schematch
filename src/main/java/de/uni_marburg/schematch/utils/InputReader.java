@@ -272,7 +272,8 @@ public class InputReader {
         return uccs;
     }
 
-    private static Collection<InclusionDependency> readINDFile(Path filePath, Database leftDatabase, Database rightDatabase, Map<Column, Collection<InclusionDependency>> map) throws IOException{
+    private static Collection<InclusionDependency> readINDFile(Path filePath, Database leftDatabase, Database rightDatabase,
+                                                               Map<Column, Collection<InclusionDependency>> map) throws IOException{
         Set<InclusionDependency> inds = new HashSet<>();
         List<String> lines = Files.readAllLines(filePath);
         for (String line : lines) {
@@ -298,6 +299,9 @@ public class InputReader {
                     subsetCC.add(table.getColumn(table.getLabels().indexOf(tableColumnPair[1])));
                 }
                 InclusionDependency ind = new InclusionDependency(subsetCC, supersetCC);
+//                if (ind.getReferenced().size() != 1 || ind.getDependant().size() != 1) {
+//                    throw new RuntimeException("Just testing to find whether there are INDs with multiple columns");
+//                }
                 inds.add(ind);
                 for (Column left: subsetCC){
                     map.computeIfAbsent(left, k -> new ArrayList<>()).add(ind);

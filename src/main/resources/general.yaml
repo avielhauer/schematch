@@ -48,7 +48,7 @@ saveOutputTablePairGeneration: False
 evaluateTablePairGeneration: False
 # Step 2: run first line matchers (i.e., matchers that use table data to match)
 saveOutputFirstLineMatchers: True
-writeFirstLineGroundTruth: True
+writeFirstLineGroundTruth: False
 evaluateFirstLineMatchers: True
 readCacheFirstLineMatchers: False
 writeCacheFirstLineMatchers: False

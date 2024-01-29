@@ -30,6 +30,11 @@ public class FunctionalDependency implements Dependency{
         sb.append("]");
         sb.append(" --> ");
         sb.append(dependant.getLabel());
+        sb.append(" (pdep ");
+        sb.append(pdepTuple.pdep);
+        sb.append(", ");
+        sb.append(pdepTuple.gpdep);
+        sb.append(")");
         return sb.toString();
     }
 }

@@ -39,7 +39,7 @@ public class Column {
 
     @Override
     public String toString() {
-        return this.table.getName() + ": " + this.label;
+        return this.table.getName() + "|" + this.label;
     }
 
     public Datatype getDatatype() {

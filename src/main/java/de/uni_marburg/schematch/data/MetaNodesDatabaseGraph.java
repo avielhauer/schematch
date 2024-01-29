@@ -16,14 +16,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.function.Function;
 
 public class MetaNodesDatabaseGraph extends DatabaseGraph {
     private final Logger logger = LogManager.getLogger(this.getClass());
     private static Integer globalGraphCounter = 1;
 
-    private final Integer MAX_UCC_SIZE = 5;
-    private final Integer MAX_FD_SIZE = 5;
+    private final Integer MAX_UCC_SIZE = 1;
+    private final Integer MAX_FD_SIZE = 1;
 
     private final Database database;
     private final SimpleDirectedGraph<String, DefaultEdge> graph = new SimpleDirectedGraph<>(DefaultEdge.class);
@@ -32,6 +33,11 @@ public class MetaNodesDatabaseGraph extends DatabaseGraph {
     private Integer uccCounter = 1;
     private Integer fdCounter = 1;
     private Integer antiDirectionalityNodeCounter = 1;
+
+    private List<String> columnsToExclude = List.of(
+//          "phone",
+//          "ptmxztdd" // author_fname
+    );
 
     public MetaNodesDatabaseGraph(final Database database) {
         logger.info("Building graph");
@@ -48,32 +54,37 @@ public class MetaNodesDatabaseGraph extends DatabaseGraph {
 //        graph.addVertex(fdMetaNode());
 
         for (Table table : database.getTables()) {
-            graph.addVertex(tableNode(table));
-            addEdge(graphRoot(), tableNode(table), true);
+//            graph.addVertex(tableNode(table));
+//            addEdge(graphRoot(), tableNode(table), true);
 
             for (Column column : table.getColumns()) {
                 graph.addVertex(columnNode(column));
-                addEdge(tableNode(table), columnNode(column), true);
+
+                if (columnsToExclude.contains(column.getLabel())) {
+                    continue;
+                }
+
+                addEdge(graphRoot(), columnNode(column), true);
             }
         }
 
         int maxConstraintsSize = graph.vertexSet().size() * 100;
 
-        int maxUccSize = MAX_UCC_SIZE;
-        Collection<UniqueColumnCombination> uccs;
-        do {
-            uccs = database.getMetadata().getUniqueColumnCombinations(maxUccSize);
-            maxUccSize--;
-        } while (uccs.size() > maxConstraintsSize && maxUccSize >= 1);
-        uccs.forEach(this::addUcc);
+//        int maxUccSize = MAX_UCC_SIZE;
+//        Collection<UniqueColumnCombination> uccs;
+//        do {
+//            uccs = database.getMetadata().getUniqueColumnCombinations(maxUccSize);
+//            maxUccSize--;
+//        } while (uccs.size() > maxConstraintsSize && maxUccSize >= 1);
+//        uccs.forEach(this::addUcc);
 
         int maxFdSize = MAX_FD_SIZE;
         Collection<FunctionalDependency> fds;
         do {
-            fds = database.getMetadata().getMeaningfulFunctionalDependencies(maxFdSize, new HashSet<>(uccs));
+            fds = database.getMetadata().getMeaningfulFunctionalDependencies(maxFdSize, new HashSet<>());
             maxFdSize--;
-        } while (fds.size() > maxConstraintsSize && maxUccSize > 1);
-        fds.forEach(this::addFd);
+        } while (fds.size() > maxConstraintsSize && maxFdSize > 1);
+        fds.stream().map(database.getMetadata()::subsumeFunctionalDependencyViaInclusionDependency).forEach(this::addFd);
     }
 
     public Path exportPath() {
@@ -107,6 +118,11 @@ public class MetaNodesDatabaseGraph extends DatabaseGraph {
     }
 
     private void addFd(FunctionalDependency fd) {
+        if (fd.getDeterminant().stream().anyMatch((c) -> columnsToExclude.contains(c.getLabel())) ||
+                columnsToExclude.contains(fd.getDependant().getLabel())) {
+            return;
+        }
+
         String thisFdNode = vertexName("FD", String.valueOf(fdCounter));
         graph.addVertex(thisFdNode);
 //        addEdge(thisFdNode, fdMetaNode());

@@ -33,6 +33,11 @@ public class DatabaseMetadata {
                 .filter(fd -> fd.getPdepTuple().gpdep >= lowerBound).toList();
     }
 
+    public Collection<FunctionalDependency> getGpdepFDs(double lowerBound, int size){
+        return fds.stream()
+                .filter(fd -> fd.getDeterminant().size() <= size && fd.getPdepTuple().gpdep >= lowerBound).toList();
+    }
+
     public Collection<FunctionalDependency> getGpdepFDs(Column columnName, double lowerBound){
         return fdMap.get(columnName).stream()
                 .filter(fd -> fd.getPdepTuple().gpdep >= lowerBound).toList();
@@ -75,5 +80,31 @@ public class DatabaseMetadata {
                 .filter(fd -> fd.getDeterminant().size() <= size
                         && !getUccs().contains(new UniqueColumnCombination(fd.getDeterminant()))
                 ).toList();
+    }
+
+    public FunctionalDependency subsumeFunctionalDependencyViaInclusionDependency(FunctionalDependency fd) {
+        FunctionalDependency outputFd = new FunctionalDependency(fd.getDeterminant(), fd.getDependant());
+        boolean changed = false;
+        // TODO: do recursively
+        for (InclusionDependency id : inds) {
+            if (id.getDependant().size() == fd.getDeterminant().size() && id.getDependant().containsAll(fd.getDeterminant())) {
+                outputFd.setDeterminant(id.getReferenced());
+                changed = true;
+            }
+            if (id.getDependant().size() == 1 && id.getDependant().contains(fd.getDependant())) {
+                if (id.getReferenced().size() > 1) {
+                    throw new RuntimeException("Inclusion dependencies with multiple references columns are not yet supported by ID rewriting.");
+                }
+
+                outputFd.setDependant(id.getReferenced().stream().toList().get(0));
+                changed = true;
+            }
+        }
+
+        if (changed) {
+            return subsumeFunctionalDependencyViaInclusionDependency(outputFd);
+        }
+
+        return outputFd;
     }
 }
