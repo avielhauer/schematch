@@ -8,6 +8,17 @@
     <artifactId>schematch</artifactId>
     <version>0.1</version>
 
+    <repositories>
+        <repository>
+            <id>github-metanome</id>
+            <url>https://raw.githubusercontent.com/HPI-Information-Systems/metanome/mvn-repo/</url>
+        </repository>
+        <repository>
+            <id>github-metanome-algorithm</id>
+            <url>https://raw.githubusercontent.com/HPI-Information-Systems/metanome-algorithms/mvn-repo/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <!-- metanome -->
         <dependency>
