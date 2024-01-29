@@ -5,6 +5,7 @@ import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.data.metadata.Datatype;
 import de.uni_marburg.schematch.matching.TablePairMatcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
+import edu.stanford.nlp.util.Triple;
 
 import java.math.BigInteger;
 import java.util.*;
@@ -15,10 +16,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  * TODO: Implement Cupid Matcher
  */
 public class CupidMatcher extends TablePairMatcher {
-    private HashSet<String> categories = new HashSet<>();
     @Override
     public float[][] match(TablePair tablePair) {
-        Pair<SchemaTree, SchemaTree> treePair = buildTreesFromTables(tablePair);
+        Triple<SchemaTree,SchemaTree,Set<String>> treePairInfo = buildTreesFromTables(tablePair);
         //treePair.getFirst().printSchemaTree();
         //Standard Config:
         float leaf_w_struct = 0.2f;
@@ -31,9 +31,9 @@ public class CupidMatcher extends TablePairMatcher {
         float th_ns = 0.7f;
         int parallelism = 1;
         Map<String, Map<StringPair, Float>> sims = treeMatch(
-                treePair.getFirst(),
-                treePair.getSecond(),
-                categories,
+                treePairInfo.first,
+                treePairInfo.second,
+                treePairInfo.third,
                 leaf_w_struct,
                 w_struct,
                 th_accept,
@@ -45,7 +45,7 @@ public class CupidMatcher extends TablePairMatcher {
                 parallelism
         );
 
-        Map<String, Map<StringPair, Float>> newSims = recomputewsim(treePair.getFirst(), treePair.getSecond(), sims, w_struct, th_accept);
+        Map<String, Map<StringPair, Float>> newSims = recomputewsim(treePairInfo.first, treePairInfo.second, sims, w_struct, th_accept);
 
         return mapSimilarityMatrix(tablePair, newSims);
     }
@@ -101,7 +101,7 @@ public class CupidMatcher extends TablePairMatcher {
     private Map<String, Map<StringPair, Float>> treeMatch(
             SchemaTree sourceTree,
             SchemaTree targetTree,
-            HashSet<String> categories,
+            Set<String> categories,
             float leafWStruct,
             float wStruct,
             float thAccept,
@@ -210,7 +210,9 @@ public class CupidMatcher extends TablePairMatcher {
         return simMatrix;
     }
 
-    public Pair<SchemaTree, SchemaTree> buildTreesFromTables(TablePair tablePair) {
+    public Triple<SchemaTree,SchemaTree,Set<String>> buildTreesFromTables(TablePair tablePair) {
+        HashSet<String> categories = new HashSet<>();
+
         SchemaTree sourceTree = new SchemaTree(new SchemaElement("DB__" + tablePair.getSourceTable().getName(), "DB"));
         SchemaTree targetTree = new SchemaTree(new SchemaElement("DB__" + tablePair.getTargetTable().getName(), "DB"));
 
@@ -218,22 +220,23 @@ public class CupidMatcher extends TablePairMatcher {
         targetTree.addNode(tablePair.getTargetTable().getName(), targetTree.getRoot(), new ArrayList<>(), new SchemaElement(tablePair.getTargetTable().getName(), "tableRoot"));
 
         for (Column column : tablePair.getSourceTable().getColumns()) {
-            addColumn(sourceTree, column);
+            categories = addColumn(sourceTree, column,categories);
         }
 
         for (Column column : tablePair.getTargetTable().getColumns()) {
-            addColumn(targetTree, column);
+            categories = addColumn(targetTree, column,categories);
         }
 
-        return new Pair<>(sourceTree, targetTree);
+        return new Triple<SchemaTree,SchemaTree,Set<String>>(sourceTree,targetTree,categories);
     }
 
-    private void addColumn(SchemaTree targetTree, Column column) {
+    private HashSet<String> addColumn(SchemaTree targetTree, Column column, HashSet<String> categories) {
         String datatype = convertDatatype(column);
         categories.add(datatype);
         SchemaElement schemtmp = new SchemaElement(column.getLabel(), datatype);
         schemtmp.addCategory(datatype);
         targetTree.addNode(column.getLabel(), targetTree.getRoot().getChildren().get(0), new ArrayList<>(), schemtmp);
+        return categories;
     }
 
     private static String convertDatatype(Datatype datatype) {
