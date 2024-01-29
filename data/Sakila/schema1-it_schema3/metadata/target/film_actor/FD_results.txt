@@ -1,0 +1,2 @@
+[film_actor.csv.actor_id] --> film_actor.csv.first_name, film_actor.csv.last_name
+[film_actor.csv.film_id, film_actor.csv.first_name, film_actor.csv.last_name] --> film_actor.csv.actor_id

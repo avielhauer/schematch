@@ -1,0 +1,4 @@
+[film.csv.film_id]
+[film.csv.titolo]
+[film.csv.descrizione]
+[film.csv.costo_sostituzione, film.csv.durata, film.csv.durata_noleggio, film.csv.tariffa_noleggio, film.csv.voto]

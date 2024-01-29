@@ -5,6 +5,7 @@ import de.uni_marburg.schematch.evaluation.performance.Performance;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.utils.Configuration;
+import de.uni_marburg.schematch.utils.InputReader;
 import de.uni_marburg.schematch.utils.OutputWriter;
 import de.uni_marburg.schematch.utils.ResultsUtils;
 import lombok.EqualsAndHashCode;
@@ -40,26 +41,46 @@ public class MatchingStep extends MatchStep {
         log.debug("Running " + this.line + ". line matching on scenario: " + matchTask.getScenario().getPath());
 
         for (Matcher matcher : this.matchers) {
-            log.trace("Processing " + this.line + ". line matcher " + matcher.toString());
-            float[][] simMatrix = matcher.match(matchTask, this);
+            float[][] simMatrix = null;
+            if ((line == 1 && Configuration.getInstance().isReadCacheFirstLineMatchers()) ||
+                    line == 2 && Configuration.getInstance().isReadCacheSecondLineMatchers()) {
+                simMatrix = InputReader.readCache(matchTask,this, matcher);
+            }
+            if (simMatrix == null) {
+                log.debug("Processing " + this.line + ". line matcher " + matcher.toString());
+                simMatrix = matcher.match(matchTask, this);
+            }
             matchTask.setSimMatrix(this, matcher, simMatrix);
         }
     }
 
     @Override
     public void save(MatchTask matchTask) {
-        if ((line == 1 && !Configuration.getInstance().isSaveOutputFirstLineMatchers()) ||
-                line == 2 && !Configuration.getInstance().isSaveOutputSecondLineMatchers()) {
-            return;
+        // write cache
+        if ((line == 1 && Configuration.getInstance().isWriteCacheFirstLineMatchers()) ||
+                line == 2 && Configuration.getInstance().isWriteCacheSecondLineMatchers()) {
+            log.debug("Caching  " + this.line + ". line matching output for scenario: " + matchTask.getScenario().getPath());
+
+            Path outputMatchStepPath = ResultsUtils.getCachePathForMatchStepInScenario(matchTask, this);
+
+            for (Matcher matcher : this.matchers) {
+                float[][] simMatrix = matchTask.getSimMatrix(this, matcher);
+                OutputWriter.writeSimMatrix(outputMatchStepPath, matchTask, matcher.toString(), simMatrix);
+                matchTask.incrementCacheWrite();
+            }
         }
 
-        log.debug("Saving " + this.line + ". line matching output for scenario: " + matchTask.getScenario().getPath());
+        // write results
+        if ((line == 1 && Configuration.getInstance().isSaveOutputFirstLineMatchers()) ||
+                line == 2 && Configuration.getInstance().isSaveOutputSecondLineMatchers()) {
+            log.debug("Saving " + this.line + ". line matching output for scenario: " + matchTask.getScenario().getPath());
 
-        Path outputMatchStepPath = ResultsUtils.getOutputPathForMatchStepInScenario(matchTask, this);
+            Path outputMatchStepPath = ResultsUtils.getOutputPathForMatchStepInScenario(matchTask, this);
 
-        for (Matcher matcher : this.matchers) {
-            float[][] simMatrix = matchTask.getSimMatrix(this, matcher);
-            OutputWriter.writeSimMatrix(outputMatchStepPath, matchTask, matcher.toString(), simMatrix);
+            for (Matcher matcher : this.matchers) {
+                float[][] simMatrix = matchTask.getSimMatrix(this, matcher);
+                OutputWriter.writeSimMatrix(outputMatchStepPath, matchTask, matcher.toString(), simMatrix);
+            }
         }
     }
 
@@ -78,7 +99,5 @@ public class MatchingStep extends MatchStep {
                 matchTask.setPerformanceForMatcher(metric, this, matcher, performances.get(metric));
             }
         }
-        //EvalWriter evalWriter = new EvalWriter(matchTask, this);
-        //evalWriter.writeMatchStepPerformance();
     }
 }
