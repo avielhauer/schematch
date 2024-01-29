@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -74,5 +75,39 @@ public class DatabaseMetadata {
                 .filter(fd -> fd.getDeterminant().size() <= size
                         && !getUccs().contains(new UniqueColumnCombination(fd.getDeterminant()))
                 ).toList();
+    }
+
+    public void setUCCs(Collection<UniqueColumnCombination> uccs){
+        this.uccs = uccs;
+        uccMap.clear();
+        for(UniqueColumnCombination ucc: uccs){
+            for (Column left: ucc.getColumnCombination()){
+                uccMap.computeIfAbsent(left, k -> new ArrayList<>()).add(ucc);
+            }
+        }
+    }
+
+    public void setFDs(Collection<FunctionalDependency> fds){
+        this.fds = fds;
+        fdMap.clear();
+        for (FunctionalDependency fd: fds){
+            fdMap.computeIfAbsent(fd.getDependant(), k -> new ArrayList<>()).add(fd);
+            for (Column left: fd.getDeterminant()){
+                fdMap.computeIfAbsent(left, k -> new ArrayList<>()).add(fd);
+            }
+        }
+    }
+
+    public void setINDs(Collection<InclusionDependency> inds){
+        this.inds = inds;
+        indMap.clear();
+        for (InclusionDependency ind : inds){
+            for (Column left: ind.getSuperset()){
+                indMap.computeIfAbsent(left, k -> new ArrayList<>()).add(ind);
+            }
+            for (Column left: ind.getSubset()){
+                indMap.computeIfAbsent(left, k -> new ArrayList<>()).add(ind);
+            }
+        }
     }
 }
