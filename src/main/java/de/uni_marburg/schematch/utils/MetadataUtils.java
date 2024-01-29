@@ -3,8 +3,14 @@ package de.uni_marburg.schematch.utils;
 import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.data.metadata.PdepTuple;
+import de.uni_marburg.schematch.data.metadata.dependency.Dependency;
 import de.uni_marburg.schematch.data.metadata.dependency.FunctionalDependency;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -67,5 +73,48 @@ public class MetadataUtils {
         }
 
         return frequencyMap;
+    }
+
+    public static boolean metadataExists(String filePath, String dep) {
+        Path path = Paths.get(filePath);
+        String fileNameWithoutExtension = path.getFileName().toString().replaceFirst("[.][^.]+$", "");
+
+        Path parentDirectory = path.getParent();
+
+        if (parentDirectory != null) {
+
+            String folderName = parentDirectory.getFileName().toString();
+            Path metadataFolder = parentDirectory.resolve("metadata");
+            Path stFolder = metadataFolder.resolve(folderName);
+
+            if (Files.exists(stFolder) && Files.isDirectory(stFolder)) {
+                Path targetFolder = stFolder.resolve(fileNameWithoutExtension);
+                Path indPath  = stFolder.resolve("inds.txt");
+                Path fdPath = targetFolder.resolve("FD_results.txt");
+                Path uccPath = targetFolder.resolve("UCC_results.txt");
+
+                return switch (dep) {
+                    case "UCC" -> fileContainsContent(uccPath);
+                    case "FD" -> fileContainsContent(fdPath);
+                    case "IND" -> fileContainsContent(indPath);
+                    default -> false;
+                };
+            }
+        }
+
+        return false;
+    }
+    private static boolean fileContainsContent(Path filePath) {
+        try {
+            BufferedReader reader = Files.newBufferedReader(filePath);
+            String line = reader.readLine();
+            reader.close();
+            return line != null && !line.trim().isEmpty();
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    public static <T extends Dependency> void save(List<T> results) {
     }
 }
