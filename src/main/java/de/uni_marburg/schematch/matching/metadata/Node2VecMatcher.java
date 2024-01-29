@@ -9,6 +9,7 @@ import de.uni_marburg.schematch.utils.PythonUtils;
 import lombok.*;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
+import java.lang.reflect.Field;
 import java.net.http.HttpResponse;
 import java.util.Arrays;
 import java.util.List;
@@ -61,5 +62,22 @@ public class Node2VecMatcher extends TablePairMatcher {
         }
 
         return alignment_matrix;
+    }
+
+    public String toString() {
+        StringBuilder result = new StringBuilder(getClass().getSimpleName());
+        result.append("(");
+        for (Field field : getClass().getDeclaredFields()) {
+            try {
+                field.setAccessible(true);
+                result.append(field.getName()).append("=").append(field.get(this)).append(": ");
+                field.setAccessible(false);
+            } catch (IllegalAccessException ignored) {} // Cannot happen, we have set the field to be accessible
+        }
+        String res = result.toString();
+        if (getClass().getDeclaredFields().length > 0) {
+            res = res.substring(0, res.length() - 2);
+        }
+        return res + ")";
     }
 }

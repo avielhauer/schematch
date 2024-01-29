@@ -8,7 +8,7 @@ import numpy as np
 
 import xnetmf as REGAL_xnetmf
 import config as REGAL_config
-from embedAlign_graph import EmbedGraph
+from embedAlign_graph import EmbedGraph, extract_table
 from embedAlign_cache import RepresentationCache
 import unsup_align
 
@@ -73,13 +73,37 @@ def norm(embed):
     return embed
 
 
-def get_sm(source, target):
-    sm = np.zeros((source.shape[0], target.shape[0]))
-    for i in range(source.shape[0]):
-        for j in range(target.shape[0]):
-            sm[i][j] = np.dot(source[i], target[j]) / (
-                np.linalg.norm(source[i]) * np.linalg.norm(target[j])
-            )
+def get_sm(source_table: str, target_table: str, rep_cache: RepresentationCache):
+    all_original_source_nodes = [
+        node
+        for node in rep_cache.source_all_original_table_nodes_sorted_as_given
+        if extract_table(node) == source_table
+    ]
+    all_original_target_nodes = [
+        node
+        for node in rep_cache.target_all_original_table_nodes_sorted_as_given
+        if extract_table(node) == target_table
+    ]
+
+    sm = np.zeros(
+        (
+            len(all_original_source_nodes),
+            len(all_original_target_nodes),
+        )
+    )
+    for i, source_node in enumerate(all_original_source_nodes):
+        for j, target_node in enumerate(all_original_target_nodes):
+            if (
+                source_node in rep_cache.column_embeddings_source
+                and target_node in rep_cache.column_embeddings_target
+            ):
+                source_emb = rep_cache.column_embeddings_source[source_node]
+                target_emb = rep_cache.column_embeddings_target[target_node]
+                sm[i][j] = np.dot(source_emb, target_emb) / (
+                    np.linalg.norm(source_emb) * np.linalg.norm(target_emb)
+                )
+            else:
+                sm[i][j] = -404.0
     return sm
 
 
@@ -128,6 +152,9 @@ def get_embeddings(
         embeddings_combined = embed_xnetmf(
             combined_graph,
             np.concatenate((graphA.get_features(), graphB.get_features()), axis=0),
+        )
+        assert embeddings_combined.shape[0] == len(graphA.graph.nodes) + len(
+            graphB.graph.nodes
         )
         embeddings_source = embeddings_combined[: len(graphA.graph.nodes)]
         embeddings_target = embeddings_combined[len(graphA.graph.nodes) :]
@@ -178,8 +205,8 @@ def match(
             nx.read_graphml(source_graph_file, node_type=str),
             "/home/fabian/Desktop/MP/repos/schematch/" + features_dir + "/source.json",
         )
-        graphA.remove_random_columns(float(config["dropColumns"]))
         graphA.remove_random_ics(float(config["dropConstraints"]))
+        graphA.remove_random_columns(float(config["dropColumns"]))
         graphB = EmbedGraph(
             nx.read_graphml(target_graph_file, node_type=str),
             "/home/fabian/Desktop/MP/repos/schematch/" + features_dir + "/target.json",
@@ -195,10 +222,10 @@ def match(
         )
         EMBEDDINGS_CACHE[key] = representationCache
 
-    graphA_emb = representationCache.get_source_embeddings(source_table)
-    graphB_emb = representationCache.get_target_embeddings(target_table)
+    # graphA_emb = representationCache.get_source_embeddings(source_table)
+    # graphB_emb = representationCache.get_target_embeddings(target_table)
 
-    alignment_matrix = get_sm(graphA_emb, graphB_emb)
+    alignment_matrix = get_sm(source_table, target_table, representationCache)
 
     print(alignment_matrix)
     return "\n".join([" ".join([str(x) for x in row]) for row in alignment_matrix])
