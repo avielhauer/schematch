@@ -15,6 +15,7 @@ import de.metanome.backend.input.file.DefaultFileInputGenerator;
 import de.metanome.backend.result_receiver.ResultCache;
 import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Table;
+import org.apache.commons.io.output.NullOutputStream;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -246,7 +247,7 @@ public class Metanome {
     //BLAME THE AUTHORS @METANOME ALGORITHMS
     private static void suppressSysout(Runnable method) throws RuntimeException{
         PrintStream originalOut = System.out;
-        System.setOut(null);
+        System.setOut(new PrintStream(new NullOutputStream()));
         method.run();
         System.setOut(originalOut);
     }

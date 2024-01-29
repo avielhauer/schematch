@@ -26,16 +26,22 @@
             <groupId>de.metanome.algorithms.hyfd</groupId>
             <artifactId>HyFD</artifactId>
             <version>1.2-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/lib/HyFD-1.2-SNAPSHOT.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>de.metanome.algorithms.hyucc</groupId>
             <artifactId>HyUCC</artifactId>
             <version>1.2-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/lib/HyUCC-1.2-SNAPSHOT.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>de.metanome.algorithms.binder</groupId>
             <artifactId>BINDER</artifactId>
             <version>1.2-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/lib/BINDER-1.2-SNAPSHOT.jar</systemPath>
         </dependency>
         <!-- apache commons -->
         <dependency>
@@ -65,19 +71,28 @@
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
-            <version>2.15.2</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.15.2</version>
+            <version>${jackson.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-base</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-json-provider</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
         <!-- yaml -->
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
-            <version>2.1</version>
+            <version>1.33</version>
         </dependency>
 
         <!-- Lombok -->
@@ -122,6 +137,7 @@
     </dependencies>
 
     <properties>
+        <jackson.version>2.12.7</jackson.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
