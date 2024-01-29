@@ -16,24 +16,20 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class CupidMatcher extends TablePairMatcher {
     private HashSet<String> categories = new HashSet<>();
-
-    //Standard Config:
-    private final float leaf_w_struct = 0.2f;
-    private final float w_struct = 0.2f;
-    private final float th_accept = 0.7f;
-    private final float th_high = 0.6f;
-    private final float th_low = 0.35f;
-    private final float c_inc = 1.2f;
-    private final float c_dec = 0.9f;
-    private final float th_ns = 0.7f;
-    private final int parallelism = 1;
-
-
     @Override
     public float[][] match(TablePair tablePair) {
-        System.out.print(".");
         Pair<SchemaTree, SchemaTree> treePair = buildTreesFromTables(tablePair);
         //treePair.getFirst().printSchemaTree();
+        //Standard Config:
+        float leaf_w_struct = 0.2f;
+        float w_struct = 0.2f;
+        float th_accept = 0.7f;
+        float th_high = 0.6f;
+        float th_low = 0.35f;
+        float c_inc = 1.2f;
+        float c_dec = 0.9f;
+        float th_ns = 0.7f;
+        int parallelism = 1;
         Map<String, Map<StringPair, Float>> sims = treeMatch(
                 treePair.getFirst(),
                 treePair.getSecond(),
