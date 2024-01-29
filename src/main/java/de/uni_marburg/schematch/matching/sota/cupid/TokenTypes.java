@@ -4,10 +4,10 @@ import lombok.Getter;
 import java.util.EnumSet;
 @Getter
 public enum TokenTypes {
-    SYMBOLS("symbols", 0),
-    NUMBER("number", 0.1),
-    COMMON_WORDS("common words", 0.1),
-    CONTENT("content", 0.8);
+    SYMBOLS("SYMBOLS", 0),
+    NUMBER("NUMBER", 0.1),
+    COMMON_WORDS("COMMON WORDS", 0.1),
+    CONTENT("CONTENT", 0.8);
 
     private final TokenType value;
 

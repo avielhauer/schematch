@@ -385,8 +385,8 @@ public class LinguisticMatching {
     }
 
     private double nameSimilarityElements(SchemaElement element1, SchemaElement element2) {
-        int sum1 = 0;
-        int sum2 = 0;
+        double sum1 = 0;
+        double sum2 = 0;
 
         for (TokenTypes tt : TokenTypes.allTokenTypes()) {
             if (tt == TokenTypes.SYMBOLS) {
@@ -398,15 +398,16 @@ public class LinguisticMatching {
                 continue;
             }
             double sim = nameSimilarityTokens(t1, t2);
-            sum1 += (int) (tt.getWeight() * sim);
-            sum2 += (int) tt.getWeight();
+            double weight = tt.getWeight();
+            sum1 += (weight * sim);
+            sum2 += weight;
 
         }
 
         if (sum1 == 0 || sum2 == 0) {
             return 0;
         }
-        return (double) sum1 / sum2;
+        return sum1 / sum2;
     }
 
     public double computeLsim(SchemaElement element1, SchemaElement element2) {

@@ -393,5 +393,6 @@ public class CupidMatcher extends TablePairMatcher {
         Table t2 = new Table("Author", (List<String>) t1Labels.clone(), (List<Column>) t1Columns.clone(),"");
         TablePair tp = new TablePair(t1,t2);
         float[][] res = cm.match(tp);
+        System.out.print("test");
     }
 }

@@ -86,7 +86,7 @@ class SchemaElement {
         List<Token> sortedTokens = this.sortByTokenType();
         List<Token> resultTokens = new ArrayList<>();
         for (Token t : sortedTokens) {
-            if (t.getTokenType().equals(tokenType)) {
+            if (t.getTokenType().getTokenName().equals(tokenType)) {
                 resultTokens.add(t);
             }
         }
