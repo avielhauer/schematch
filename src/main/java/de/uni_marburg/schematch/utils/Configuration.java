@@ -272,7 +272,7 @@ public class Configuration {
             if (tokenizerConfig.get("params") instanceof List) {
                 log.error("Parsing of parameter lists not implemented yet. Use dictionary of possible parameter values" +
                         "and the program will deduce configurations for all possible parameter value combinations.");
-                throw new NotImplementedException();
+                throw new NotImplementedException("");
             } else {
                 Map<String, Object> paramSpacesMap = (Map<String, Object>) tokenizerConfig.get("params");
                 List<List<Object>> paramSpaces = new ArrayList<>();
