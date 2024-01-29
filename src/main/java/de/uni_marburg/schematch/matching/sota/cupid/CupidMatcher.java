@@ -31,8 +31,9 @@ public class CupidMatcher extends TablePairMatcher {
 
     @Override
     public float[][] match(TablePair tablePair) {
+        System.out.print(".");
         Pair<SchemaTree, SchemaTree> treePair = buildTreesFromTables(tablePair);
-        treePair.getFirst().printSchemaTree();
+        //treePair.getFirst().printSchemaTree();
         Map<String, Map<StringPair, Float>> sims = treeMatch(
                 treePair.getFirst(),
                 treePair.getSecond(),
@@ -134,7 +135,7 @@ public class CupidMatcher extends TablePairMatcher {
                     if (!lSims.containsKey(pair)) {
                         sims.get("lsim").put(pair, Float.NaN);
                     }
-                    float wsim = computeWeightedSimilarity(ssim, lSims.get(pair).floatValue(), wStruct);
+                    float wsim = computeWeightedSimilarity(ssim, sims.get("lsim").get(pair), wStruct);
                     sims.get("ssim").put(pair, ssim);
                     sims.get("wsim").put(pair, wsim);
                 }
@@ -165,9 +166,12 @@ public class CupidMatcher extends TablePairMatcher {
             for (SchemaElementNode t : tLeaves) {
                 if (compatibilityTable.containsKey(s.current.getDataType()) && compatibilityTable.containsKey(t.current.getDataType())) {
                     StringPair pair = new StringPair(s.name, t.name);
-                    float ssimVal = compatibilityTable.get(s.name).get(t.name).floatValue();
+                    float ssimVal = compatibilityTable.get(s.current.getDataType()).get(s.current.getDataType()).floatValue();
                     ssim.put(pair, ssimVal);
-                    wsim.put(pair, computeWeightedSimilarity(ssimVal, lsim.get(pair), leafWStruct));
+                    float lsimValue = 0f;
+                    if (lsim.get(pair) != null) lsimValue = lsim.get(pair);
+                    float wsimValue = computeWeightedSimilarity(ssimVal, lsimValue, leafWStruct);
+                    wsim.put(pair, wsimValue);
                 }
             }
         }
@@ -212,7 +216,7 @@ public class CupidMatcher extends TablePairMatcher {
 
     public Pair<SchemaTree, SchemaTree> buildTreesFromTables(TablePair tablePair) {
         SchemaTree sourceTree = new SchemaTree(new SchemaElement("DB__" + tablePair.getSourceTable().getName(), "DB"));
-        SchemaTree targetTree = new SchemaTree(new SchemaElement("DB__" + tablePair.getSourceTable().getName(), "DB"));
+        SchemaTree targetTree = new SchemaTree(new SchemaElement("DB__" + tablePair.getTargetTable().getName(), "DB"));
 
         sourceTree.addNode(tablePair.getSourceTable().getName(), sourceTree.getRoot(), new ArrayList<>(), new SchemaElement(tablePair.getSourceTable().getName(), "tableRoot"));
         targetTree.addNode(tablePair.getTargetTable().getName(), targetTree.getRoot(), new ArrayList<>(), new SchemaElement(tablePair.getTargetTable().getName(), "tableRoot"));
@@ -277,7 +281,6 @@ public class CupidMatcher extends TablePairMatcher {
                 boolean isLong = true;
 
                 for (String item : values) {
-                    System.out.println(item);
                     try {
                         BigInteger big = new BigInteger(item);
                         try {
@@ -312,19 +315,21 @@ public class CupidMatcher extends TablePairMatcher {
                 }
             }
             case FLOAT -> {
-                for (String s: values) {
-                    if (s.contains("e") || s.contains("E"))
-                    {
-                        return "float";
-                    }
+                try {
+                    for (String s : values) {
+                        if (s.contains("e") || s.contains("E")) {
+                            return "float";
+                        }
 
-                    String[] parts = s.split("\\.");
-                    int decimalLength = parts[1].length();
+                        String[] parts = s.split("\\.");
+                        int decimalLength = parts[1].length();
 
-                    if (decimalLength <= 7)
-                    {
-                        return "float";
+                        if (decimalLength <= 7) {
+                            return "float";
+                        }
                     }
+                } catch (Exception e) {
+                    return "double";
                 }
                 return "double";
             }
@@ -368,5 +373,25 @@ public class CupidMatcher extends TablePairMatcher {
                 return "text";
             }
         }
+    }
+
+    public static void main(String[] args) {
+        CupidMatcher cm = new CupidMatcher();
+        ArrayList<String> t1Labels = new ArrayList<>();
+        t1Labels.add("Vorname");
+        t1Labels.add("Name");
+        ArrayList<Column> t1Columns = new ArrayList<>();
+        ArrayList<String> t1Vornamen = new ArrayList<>();
+        t1Vornamen.add("Peter");
+        t1Vornamen.add("Klaus");
+        t1Columns.add(0, new Column("Vorname",t1Vornamen));
+        ArrayList<String> t1Namen = new ArrayList<>();
+        t1Namen.add("Peters");
+        t1Namen.add("Klausus");
+        t1Columns.add(1,new Column("Name",t1Namen));
+        Table t1 = new Table("Author", t1Labels, t1Columns,"");
+        Table t2 = new Table("Author", (List<String>) t1Labels.clone(), (List<Column>) t1Columns.clone(),"");
+        TablePair tp = new TablePair(t1,t2);
+        float[][] res = cm.match(tp);
     }
 }

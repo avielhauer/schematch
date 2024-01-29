@@ -21,12 +21,12 @@ import java.util.concurrent.Executors;
 
 public class LinguisticMatching {
 
-    private String snakeCase(String name) {
+    private static String snakeCase(String name) {
         String s1 = name.replaceAll("(.)([A-Z][a-z]+)", "$1_$2");
         return s1.replaceAll("([a-z0-9])([A-Z])", "$1_$2").toLowerCase();
     }
 
-    public SchemaElement normalization(String element,
+    public static SchemaElement normalization(String element,
                                        SchemaElement schemaElement) {
         if (schemaElement == null) {
             schemaElement = new SchemaElement(element, schemaElement.getDataType());
@@ -73,7 +73,6 @@ public class LinguisticMatching {
                 }
             }
         }
-
         return schemaElement;
     }
 
@@ -450,7 +449,18 @@ public class LinguisticMatching {
     public static void main(String[] args) throws IOException {
         LinguisticMatching linguisticMatching = new LinguisticMatching();
 
-        //System.out.println(linguisticMatching.computeSimilarityWordnet("ship", "boat"));
+        System.out.println(linguisticMatching.computeSimilarityWordnet("ship", "boat"));
 
+        SchemaElement s = new SchemaElement("articleid","text");
+        s.addCategory("text");
+        s = LinguisticMatching.normalization(s.getInitialName(),s);
+
+        SchemaElement t = new SchemaElement("articleid","text");
+        t.addCategory("text");
+        t = LinguisticMatching.normalization(t.getInitialName(),t);
+
+        double test = new LinguisticMatching().nameSimilarityElements(s,t);
+
+        System.out.println(test);
     }
 }

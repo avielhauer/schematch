@@ -12,9 +12,10 @@ public class SchemaTree {
     private SchemaElementNode rootNode;
 
     public SchemaTree(SchemaElement root) {
+        SchemaElement normalized = LinguisticMatching.normalization(root.getInitialName(), root);
         this.nodes = new HashMap<>();
-        this.addRootNode(root);
-        this.schemaName = root.getInitialName();
+        this.addRootNode(normalized);
+        this.schemaName = normalized.getInitialName();
         this.schemaTree = null;
     }
 
@@ -24,7 +25,8 @@ public class SchemaTree {
     }
 
     public void addNode(String name, SchemaElementNode parent, ArrayList<SchemaElementNode> children, SchemaElement current) {
-        SchemaElementNode newNode = new SchemaElementNode(name, parent, children, current);
+        SchemaElement normalized = LinguisticMatching.normalization(name, current);
+        SchemaElementNode newNode = new SchemaElementNode(name, parent, children, normalized);
         //parent.children.add(newNode);
         nodes.put(name, newNode);
     }

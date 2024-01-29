@@ -20,7 +20,7 @@ public class StructuralSimilarity {
         for (SchemaElementNode s1: sLeaves) {
             for (SchemaElementNode t1: sLeaves) {
                 StringPair pair = new StringPair(s1.name,t1.name);
-                if (sims.get("wsim").get(pair) > th_accept) {
+                if (sims.get("wsim").get(pair) != null && sims.get("wsim").get(pair) > th_accept) {
                     sStrongLink.add(s1);
                     tStrongLink.add(t1);
                 }

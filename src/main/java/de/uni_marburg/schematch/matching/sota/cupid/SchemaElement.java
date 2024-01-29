@@ -25,6 +25,13 @@ class SchemaElement {
         this.initialName = name;
     }
 
+    public SchemaElement(String name, String dataType, List<String> categories) {
+        this.categories = categories;
+        this.dataType = dataType;
+        this.tokens = new ArrayList<>();
+        this.initialName = name;
+    }
+
     public void addCategory(String category) {
         this.categories.add(category);
     }
