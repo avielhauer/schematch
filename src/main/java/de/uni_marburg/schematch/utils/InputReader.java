@@ -243,8 +243,10 @@ public class InputReader {
     
     public static Collection<FunctionalDependency> readFDFile(Path filePath, Table table, Map<Column, Collection<FunctionalDependency>> map) throws IOException{
         Set<FunctionalDependency> fds = new HashSet<>();
-        if(!filePath.toFile().exists())
+        if(!filePath.toFile().exists()) {
+            filePath.toFile().getParentFile().mkdirs();
             filePath.toFile().createNewFile();
+        }
         List<String> lines = Files.readAllLines(filePath);
         for (String line : lines) {
             if(line.isEmpty() || line.isBlank())
@@ -282,8 +284,10 @@ public class InputReader {
 
     public static Collection<UniqueColumnCombination> readUCCFile(Path filePath, Table table, Map<Column, Collection<UniqueColumnCombination>> map) throws IOException{
         Set<UniqueColumnCombination> uccs = new HashSet<>();
-        if(!filePath.toFile().exists())
+        if(!filePath.toFile().exists()) {
+            filePath.toFile().getParentFile().mkdirs();
             filePath.toFile().createNewFile();
+        }
         List<String> lines = Files.readAllLines(filePath);
         for (String line : lines) {
             if(line.isEmpty() || line.isBlank())
@@ -315,8 +319,10 @@ public class InputReader {
 
     public static Collection<InclusionDependency> readINDFile(Path filePath, List<Table> leftDatabase, List<Table> rightDatabase, Map<Column, Collection<InclusionDependency>> map) throws IOException{
         Set<InclusionDependency> inds = new HashSet<>();
-        if(!filePath.toFile().exists())
+        if(!filePath.toFile().exists()) {
+            filePath.toFile().getParentFile().mkdirs();
             filePath.toFile().createNewFile();
+        }
         List<String> lines = Files.readAllLines(filePath);
         for (String line : lines) {
             if(line.isEmpty() || line.isBlank())
