@@ -24,6 +24,10 @@ packageName: "metadata"
 ---
 name: "ExtremaMatcher"
 packageName: "metadata"
+---
+name: "ConstancyMatcher"
+packageName: "metadata"
+
 
 # Similarity matchers
 ---
