@@ -19,7 +19,7 @@ public class PropagationNode{
     private float sim;
     private float simCandidate;
 
-    protected void setInitialSim(float initialSim){
+    public void setInitialSim(float initialSim){
         this.initialSim = initialSim;
         this.sim = initialSim;
         this.lastSim = -1F;
