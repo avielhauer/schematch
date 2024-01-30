@@ -15,11 +15,13 @@ import de.metanome.backend.input.file.DefaultFileInputGenerator;
 import de.metanome.backend.result_receiver.ResultCache;
 import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Table;
+import de.uni_marburg.schematch.utils.MetadataUtils;
 import org.apache.commons.io.output.NullOutputStream;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.nio.file.Path;
 import java.util.*;
 
 
@@ -57,7 +59,9 @@ public class MetanomeImpl{
                 });
 
                 List<Result> tempResults = resultReceiver.fetchNewResults();
-                allResults.addAll(getUCCs(table, tempResults));
+                Collection<? extends UniqueColumnCombination> ucCs = getUCCs(table, tempResults);
+                allResults.addAll(ucCs);
+                if(Metanome.SAVE) MetadataUtils.saveUCCs(MetadataUtils.getMetadataPathFromTable(Path.of(table.getPath())), ucCs);
             }
         }
         catch (AlgorithmExecutionException | FileNotFoundException e) {
@@ -94,7 +98,9 @@ public class MetanomeImpl{
             });
 
             List<Result> results = resultReceiver.fetchNewResults();
-            return new ArrayList<>(getINDs(tables, results));
+            ArrayList<InclusionDependency> inclusionDependencies = new ArrayList<>(getINDs(tables, results));
+            if(Metanome.SAVE) MetadataUtils.saveINDs(MetadataUtils.getMetadataRootPathFromTable(Path.of(tables.get(0).getPath())), inclusionDependencies);
+            return inclusionDependencies;
         }
         catch (AlgorithmExecutionException | IOException e) {
             e.printStackTrace();
@@ -122,7 +128,9 @@ public class MetanomeImpl{
                 });
 
                 List<Result> results = resultReceiver.fetchNewResults();
-                allResults.addAll(getFDs(table, results));
+                Collection<? extends FunctionalDependency> fDs = getFDs(table, results);
+                allResults.addAll(fDs);
+                if(Metanome.SAVE) MetadataUtils.saveFDs(MetadataUtils.getMetadataPathFromTable(Path.of(table.getPath())), fDs);
             }
         } catch (AlgorithmExecutionException | FileNotFoundException e) {
             e.printStackTrace();
@@ -209,18 +217,19 @@ public class MetanomeImpl{
     }
 
     private static InclusionDependency createInclusionDependency(List<Table> tables, de.metanome.algorithm_integration.results.InclusionDependency resultCast) {
-        Table depTable = getTableByName(tables, resultCast.getDependant().getColumnIdentifiers().get(0).getTableIdentifier());
+        Table depTable = getTableByName(tables, resultCast.getDependant().getColumnIdentifiers().get(0).getTableIdentifier().replace(".csv", ""));
         List<Column> dep = resultCast.getDependant().getColumnIdentifiers().stream()
                 .map(ColumnIdentifier::getColumnIdentifier)
                 .map(x -> depTable.getColumns().get(depTable.getLabels().indexOf(x)))
                 .toList();
-        Table refTable = getTableByName(tables, resultCast.getReferenced().getColumnIdentifiers().get(0).getTableIdentifier());
+        Table refTable = getTableByName(tables, resultCast.getReferenced().getColumnIdentifiers().get(0).getTableIdentifier().replace(".csv", ""));
         List<Column> ref = resultCast.getReferenced().getColumnIdentifiers().stream()
                 .map(ColumnIdentifier::getColumnIdentifier)
                 .map(x -> refTable.getColumns().get(refTable.getLabels().indexOf(x)))
                 .toList();
         return new InclusionDependency(dep, ref);
     }
+
     public static Table getTableByName(List<Table> tables, String tableName) {
         Optional<Table> matchingTable = tables.stream()
                 .filter(table -> table.getName().equals(tableName))

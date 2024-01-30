@@ -26,7 +26,6 @@ public class Metanome {
             return cacheExecutor.execute(tables);
         }
         List<T> results = defaultExecutor.execute(tables);
-        if(SAVE) MetadataUtils.save(results);
         return results;
     }
 

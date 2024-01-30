@@ -5,9 +5,10 @@ import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.data.metadata.PdepTuple;
 import de.uni_marburg.schematch.data.metadata.dependency.Dependency;
 import de.uni_marburg.schematch.data.metadata.dependency.FunctionalDependency;
+import de.uni_marburg.schematch.data.metadata.dependency.InclusionDependency;
+import de.uni_marburg.schematch.data.metadata.dependency.UniqueColumnCombination;
 
-import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -115,6 +116,55 @@ public class MetadataUtils {
         }
     }
 
-    public static <T extends Dependency> void save(List<T> results) {
+    public static Path getMetadataPathFromTable(Path path) {
+        return getMetadataPath(path, true);
+    }
+
+    public static Path getMetadataRootPathFromTable(Path path) {
+        return getMetadataPath(path, false);
+    }
+
+    public static Path getMetadataPath(Path path, boolean includeFileName) {
+        String fileNameWithoutExtension = path.getFileName().toString().replaceFirst("[.][^.]+$", "");
+
+        Path parentDirectory = path.getParent();
+
+        if (parentDirectory != null) {
+            String folderName = parentDirectory.getFileName().toString();
+
+            Path metadataFolder = parentDirectory.getParent().resolve("metadata");
+
+            Path stFolder = metadataFolder.resolve(folderName);
+
+            if (Files.exists(stFolder) && Files.isDirectory(stFolder)) {
+                return includeFileName ? stFolder.resolve(fileNameWithoutExtension) : stFolder;
+            }
+        }
+        return null;
+    }
+
+    public static void saveDeps(Path path, Collection<? extends Dependency> objects, String fileName) {
+        Path filePath = path.resolve(fileName);
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath.toFile()))) {
+            for (Dependency object : objects) {
+                writer.write(object.toString());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void saveINDs(Path path, Collection<? extends InclusionDependency> inds) {
+        saveDeps(path, inds, "inds.txt");
+    }
+
+    public static void saveUCCs(Path path, Collection<? extends UniqueColumnCombination> uccs) {
+        saveDeps(path, uccs, "UCC_results.txt");
+    }
+
+    public static void saveFDs(Path path, Collection<? extends FunctionalDependency> fDs) {
+        saveDeps(path, fDs, "FD_results.txt");
     }
 }

@@ -21,15 +21,13 @@ public class FunctionalDependency implements Dependency{
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("[");
-        for (Column column : determinant) {
-            sb.append(column.getLabel());
-            sb.append(", ");
-        }
-        sb.delete(sb.length() - 2, sb.length()); // Remove the trailing ", "
-        sb.append("]");
+        StringBuilder sb = new StringBuilder();
+        addColumns(sb, determinant);
         sb.append(" --> ");
+        sb.append(dependant.getTable().getName());
+        sb.append(".csv.");
         sb.append(dependant.getLabel());
         return sb.toString();
     }
+
 }

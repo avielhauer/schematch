@@ -7,6 +7,7 @@ import de.uni_marburg.schematch.data.metadata.DatabaseMetadata;
 import de.uni_marburg.schematch.data.metadata.ScenarioMetadata;
 import de.uni_marburg.schematch.data.metadata.dependency.FunctionalDependency;
 import de.uni_marburg.schematch.data.metadata.dependency.InclusionDependency;
+import de.uni_marburg.schematch.data.metadata.dependency.Metanome;
 import de.uni_marburg.schematch.data.metadata.dependency.UniqueColumnCombination;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
@@ -194,11 +195,14 @@ public class InputReader {
                 Path uccFilePath = metadataFolderPath.resolve(table.getName()).resolve("UCC_results.txt");
 
                 Collection<FunctionalDependency> datasetFDs = readFDFile(fdFilePath, table, fdMap);
+                if(datasetFDs.isEmpty())
+                    datasetFDs = Metanome.executeFD(List.of(table));
                 for (FunctionalDependency fd : datasetFDs) {
                     fd.setPdepTuple(MetadataUtils.getPdep(fd));
                 }
                 Collection<UniqueColumnCombination> datasetUCCs = readUCCFile(uccFilePath, table, uccMap);
-
+                if(datasetUCCs.isEmpty())
+                    datasetUCCs = Metanome.executeUCC(List.of(table));
                 fds.addAll(datasetFDs);
                 uccs.addAll(datasetUCCs);
             }
@@ -237,8 +241,12 @@ public class InputReader {
 
     public static Collection<FunctionalDependency> readFDFile(Path filePath, Table table, Map<Column, Collection<FunctionalDependency>> map) throws IOException{
         Set<FunctionalDependency> fds = new HashSet<>();
+        if(!filePath.toFile().exists())
+            filePath.toFile().createNewFile();
         List<String> lines = Files.readAllLines(filePath);
         for (String line : lines) {
+            if(line.isEmpty() || line.isBlank())
+                continue;
             String[] split = line.split(" --> ");
             if(split[0].equalsIgnoreCase("[]"))
                 continue;
@@ -258,8 +266,12 @@ public class InputReader {
 
     public static Collection<UniqueColumnCombination> readUCCFile(Path filePath, Table table, Map<Column, Collection<UniqueColumnCombination>> map) throws IOException{
         Set<UniqueColumnCombination> uccs = new HashSet<>();
+        if(!filePath.toFile().exists())
+            filePath.toFile().createNewFile();
         List<String> lines = Files.readAllLines(filePath);
         for (String line : lines) {
+            if(line.isEmpty() || line.isBlank())
+                continue;
             if(line.equalsIgnoreCase("[]"))
                 continue;
             Collection<Column> columns = (Collection<Column>) extractColumnsFromString(line, table);
@@ -287,8 +299,12 @@ public class InputReader {
 
     public static Collection<InclusionDependency> readINDFile(Path filePath, List<Table> leftDatabase, List<Table> rightDatabase, Map<Column, Collection<InclusionDependency>> map) throws IOException{
         Set<InclusionDependency> inds = new HashSet<>();
+        if(!filePath.toFile().exists())
+            filePath.toFile().createNewFile();
         List<String> lines = Files.readAllLines(filePath);
         for (String line : lines) {
+            if(line.isEmpty() || line.isBlank())
+                continue;
             String[] split = line.split(" --> ");
             Collection<String[]> supersetCCString = (Collection<String[]>) extractColumnsFromString(split[0], null);
             Collection<Column> supersetCC = extractINDs(filePath, leftDatabase, supersetCCString);
