@@ -2,10 +2,13 @@ package de.uni_marburg.schematch.data.metadata.dependency;
 
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.utils.InputReader;
+import de.uni_marburg.schematch.utils.MetadataUtils;
+import org.hibernate.event.spi.SaveOrUpdateEvent;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -28,6 +31,7 @@ public class MetanomeCache{
         try {
             for (Table table : tables) {
                 fds.addAll(InputReader.readFDFile(Path.of(table.getPath()), table, new HashMap<>()));
+
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
