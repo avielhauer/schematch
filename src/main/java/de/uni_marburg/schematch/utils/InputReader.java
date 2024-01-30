@@ -239,7 +239,8 @@ public class InputReader {
             throw new RuntimeException(e);
         }
     }
-
+    
+    
     public static Collection<FunctionalDependency> readFDFile(Path filePath, Table table, Map<Column, Collection<FunctionalDependency>> map) throws IOException{
         Set<FunctionalDependency> fds = new HashSet<>();
         if(!filePath.toFile().exists())
@@ -249,20 +250,34 @@ public class InputReader {
             if(line.isEmpty() || line.isBlank())
                 continue;
             String[] split = line.split(" --> ");
-            if(split[0].equalsIgnoreCase("[]"))
-                continue;
-            Collection<Column> leftCC = (Collection<Column>) extractColumnsFromString(split[0], table);
-            for(String right : split[1].split(",")){
-                Column rightC = table.getColumn(table.getLabels().indexOf(right.trim().split(".csv.")[1]));
-                FunctionalDependency fd = new FunctionalDependency(leftCC, rightC);
-                fds.add(fd);
-                map.computeIfAbsent(rightC, k -> new ArrayList<>()).add(fd);
-                for (Column left: leftCC){
-                    map.computeIfAbsent(left, k -> new ArrayList<>()).add(fd);
+            if(split[0].equalsIgnoreCase("[]")) {
+                for (String right : split[1].split(",")) {
+                    Column rightC = table.getColumn(table.getLabels().indexOf(right.trim().split(".csv.")[1]));
+                    for (Column leftCol : table.getColumns()){
+                        if(leftCol.getLabel().equals(right))
+                            continue;
+                        List<Column> leftCC = List.of(leftCol);
+                        extracted(map, leftCC, rightC, fds);
+                    }
+                }
+            } else {
+                Collection<Column> leftCC = (Collection<Column>) extractColumnsFromString(split[0], table);
+                for (String right : split[1].split(",")) {
+                    Column rightC = table.getColumn(table.getLabels().indexOf(right.trim().split(".csv.")[1]));
+                    extracted(map, leftCC, rightC, fds);
                 }
             }
         }
         return fds;
+    }
+
+    private static void extracted(Map<Column, Collection<FunctionalDependency>> map, Collection<Column> leftCC, Column rightC, Set<FunctionalDependency> fds) {
+        FunctionalDependency fd = new FunctionalDependency(leftCC, rightC);
+        fds.add(fd);
+        map.computeIfAbsent(rightC, k -> new ArrayList<>()).add(fd);
+        for (Column left : leftCC) {
+            map.computeIfAbsent(left, k -> new ArrayList<>()).add(fd);
+        }
     }
 
     public static Collection<UniqueColumnCombination> readUCCFile(Path filePath, Table table, Map<Column, Collection<UniqueColumnCombination>> map) throws IOException{
