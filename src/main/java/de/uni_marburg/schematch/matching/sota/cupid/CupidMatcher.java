@@ -3,10 +3,15 @@ package de.uni_marburg.schematch.matching.sota.cupid;
 import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.data.metadata.Datatype;
+import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matching.TablePairMatcher;
+import de.uni_marburg.schematch.matchtask.MatchTask;
+import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
+import de.uni_marburg.schematch.utils.ArrayUtils;
 import edu.stanford.nlp.util.Triple;
 
+import java.io.IOException;
 import java.math.BigInteger;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -15,12 +20,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * TODO: Implement Cupid Matcher
  */
-public class CupidMatcher extends TablePairMatcher {
+public class CupidMatcher extends Matcher {
+
+
     @Override
-    public float[][] match(TablePair tablePair) {
-        Triple<SchemaTree,SchemaTree,Set<String>> treePairInfo = buildTreesFromTables(tablePair);
-        //treePair.getFirst().printSchemaTree();
-        //Standard Config:
+    public float[][] match(MatchTask matchTask, MatchingStep matchStep) {
         float leaf_w_struct = 0.2f;
         float w_struct = 0.2f;
         float th_accept = 0.7f;
@@ -29,25 +33,75 @@ public class CupidMatcher extends TablePairMatcher {
         float c_inc = 1.2f;
         float c_dec = 0.9f;
         float th_ns = 0.7f;
-        int parallelism = 1;
-        Map<String, Map<StringPair, Float>> sims = treeMatch(
-                treePairInfo.first,
-                treePairInfo.second,
-                treePairInfo.third,
-                leaf_w_struct,
-                w_struct,
-                th_accept,
-                th_high,
-                th_low,
-                c_inc,
-                c_dec,
-                th_ns,
-                parallelism
-        );
+        int parallelism = 128;
+        WordNetFunctionalities wnf = null;
+        try {
+            wnf = new WordNetFunctionalities();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-        Map<String, Map<StringPair, Float>> newSims = recomputewsim(treePairInfo.first, treePairInfo.second, sims, w_struct, th_accept);
+        List<TablePair> tablePairs = matchTask.getTablePairs();
 
-        return mapSimilarityMatrix(tablePair, newSims);
+        float[][] simMatrix = matchTask.getEmptySimMatrix();
+        List<Pair<Set<String>,SchemaTree>> trees = new ArrayList<>();
+
+        for (TablePair tablePair : tablePairs) {
+            Pair<Set<String>,SchemaTree> sourceTree = get(trees, tablePair.getSourceTable());
+            Pair<Set<String>,SchemaTree> targetTree = get(trees, tablePair.getTargetTable());
+            if (sourceTree == null) {
+                sourceTree = buildTreeFromTable(tablePair.getSourceTable());
+                trees.add(sourceTree);
+            }
+            if (targetTree == null) {
+                targetTree = buildTreeFromTable(tablePair.getTargetTable());
+                trees.add(targetTree);
+            }
+            Set<String> categories = new HashSet<String>();
+            categories.addAll(sourceTree.getFirst());
+            categories.addAll(targetTree.getFirst());
+
+            Map<String, Map<StringPair, Float>> sims = treeMatch(
+                    sourceTree.getSecond(),
+                    targetTree.getSecond(),
+                    categories,
+                    leaf_w_struct,
+                    w_struct,
+                    th_accept,
+                    th_high,
+                    th_low,
+                    c_inc,
+                    c_dec,
+                    th_ns,
+                    parallelism,
+                    wnf
+            );
+
+            Map<String, Map<StringPair, Float>> newSims = recomputewsim(
+                    sourceTree.getSecond(),
+                    targetTree.getSecond(),
+                    sims,
+                    w_struct,
+                    th_accept,
+                    wnf
+            );
+
+
+            int sourceTableOffset = tablePair.getSourceTable().getOffset();
+            int targetTableOffset = tablePair.getTargetTable().getOffset();
+            ArrayUtils.insertSubmatrixInMatrix(mapSimilarityMatrix(tablePair, newSims), simMatrix, sourceTableOffset, targetTableOffset);
+        }
+
+        return simMatrix;
+    }
+
+    private Pair<Set<String>, SchemaTree> get(List<Pair<Set<String>, SchemaTree>> trees, Table table) {
+        for (Pair<Set<String>, SchemaTree> pair: trees) {
+            if (pair.getSecond().getHashCode() == table.hashCode()) {
+                return pair;
+            }
+        }
+        return null;
     }
 
     private float[][] mapSimilarityMatrix(TablePair tablePair, Map<String, Map<StringPair, Float>> sims) {
@@ -56,17 +110,19 @@ public class CupidMatcher extends TablePairMatcher {
         List<Column> sourceColumns = tablePair.getSourceTable().getColumns();
         List<Column> targetColumns = tablePair.getTargetTable().getColumns();
 
+        Map<StringPair, Float> wsims = sims.get("wsim");
+
         for (int i = 0; i < sourceColumns.size(); i++) {
             for (int j = 0; j < targetColumns.size(); j++) {
                 StringPair p = new StringPair(sourceColumns.get(i).getLabel(), targetColumns.get(j).getLabel());
-                symMatrix[i][j] = sims.get("wsim").get(p);
+                symMatrix[i][j] = wsims.get(p);
             }
         }
 
         return symMatrix;
     }
 
-    private Map<String, Map<StringPair, Float>> recomputewsim(SchemaTree sourceTree, SchemaTree targetTree, Map<String, Map<StringPair, Float>> sims, float wStruct, float thAccept) {
+    private Map<String, Map<StringPair, Float>> recomputewsim(SchemaTree sourceTree, SchemaTree targetTree, Map<String, Map<StringPair, Float>> sims, float wStruct, float thAccept, WordNetFunctionalities wnf) {
         List<SchemaElementNode> sPostOrder = sourceTree.postOrder();
         List<SchemaElementNode> tPostOrder = targetTree.postOrder();
 
@@ -81,7 +137,7 @@ public class CupidMatcher extends TablePairMatcher {
                     StringPair pair = new StringPair(s.name,t.name);
                     float lsim;
                     if (!sims.get("lsim").containsKey(pair)) {
-                        lsim = (float) new LinguisticMatching().computeLsim(s.getCurrent(),t.getCurrent());
+                        lsim = (float) new LinguisticMatching(wnf).computeLsim(s.getCurrent(),t.getCurrent());
                     } else {
                         lsim = sims.get("lsim").get(pair);
                     }
@@ -110,10 +166,12 @@ public class CupidMatcher extends TablePairMatcher {
             float cInc,
             float cDec,
             float thNs,
-            int parallelism
+            int parallelism,
+            WordNetFunctionalities wnf
     ) {
-        Map<String, Map<String, Double>> compatibilityTable = new LinguisticMatching().computeCompatibility(categories);
-        Map<StringPair, Double> lSims = new LinguisticMatching().comparison(sourceTree, targetTree, compatibilityTable, thNs, parallelism);
+        LinguisticMatching linguisticMatching = new LinguisticMatching(wnf);
+        Map<String, Map<String, Double>> compatibilityTable = linguisticMatching.computeCompatibility(categories);
+        Map<StringPair, Float> lSims = linguisticMatching.comparison(sourceTree, targetTree, compatibilityTable, thNs, parallelism);
         List<SchemaElementNode> sLeaves = sourceTree.getLeaves();
         List<SchemaElementNode> tLeaves = targetTree.getLeaves();
         Map<String, Map<StringPair, Float>> sims = getSims(sLeaves, tLeaves, compatibilityTable, lSims, leafWStruct);
@@ -125,7 +183,7 @@ public class CupidMatcher extends TablePairMatcher {
                 StringPair pair = new StringPair(s.name, t.name);
                 if (s.height() == t.height()) {
                     float ssim = StructuralSimilarity.computeSSim(s, t, sims, thAccept);
-                    if (Double.isNaN(ssim)) {
+                    if (Float.isNaN(ssim)) {
                         continue;
                     }
                     if (!lSims.containsKey(pair)) {
@@ -152,10 +210,10 @@ public class CupidMatcher extends TablePairMatcher {
             List<SchemaElementNode> sLeaves,
             List<SchemaElementNode> tLeaves,
             Map<String, Map<String, Double>> compatibilityTable,
-            Map<StringPair, Double> lsimsDouble,
+            Map<StringPair, Float> lsims,
             float leafWStruct) {
         Map<String, Map<StringPair, Float>> sims = new HashMap<>();
-        Map<StringPair, Float> lsim = doubleDictToFloat(lsimsDouble);
+        Map<StringPair, Float> lsim = lsims;
         Map<StringPair, Float> ssim = new HashMap<>();
         Map<StringPair, Float> wsim = new HashMap<>();
         for (SchemaElementNode s : sLeaves) {
@@ -178,6 +236,7 @@ public class CupidMatcher extends TablePairMatcher {
     }
 
     private Map<StringPair, Float> doubleDictToFloat(Map<StringPair, Double> dict) {
+
         Map<StringPair, Float> newDict = new HashMap<>();
         for (StringPair pair : dict.keySet()) {
             newDict.put(pair, dict.get(pair).floatValue());
@@ -213,30 +272,43 @@ public class CupidMatcher extends TablePairMatcher {
     public Triple<SchemaTree,SchemaTree,Set<String>> buildTreesFromTables(TablePair tablePair) {
         HashSet<String> categories = new HashSet<>();
 
-        SchemaTree sourceTree = new SchemaTree(new SchemaElement("DB__" + tablePair.getSourceTable().getName(), "DB"));
-        SchemaTree targetTree = new SchemaTree(new SchemaElement("DB__" + tablePair.getTargetTable().getName(), "DB"));
+        SchemaTree sourceTree = new SchemaTree(new SchemaElement("DB__" + tablePair.getSourceTable().getName(), "DB"), tablePair.getSourceTable().hashCode());
+        SchemaTree targetTree = new SchemaTree(new SchemaElement("DB__" + tablePair.getTargetTable().getName(), "DB"), tablePair.getTargetTable().hashCode());
 
         sourceTree.addNode(tablePair.getSourceTable().getName(), sourceTree.getRoot(), new ArrayList<>(), new SchemaElement(tablePair.getSourceTable().getName(), "tableRoot"));
         targetTree.addNode(tablePair.getTargetTable().getName(), targetTree.getRoot(), new ArrayList<>(), new SchemaElement(tablePair.getTargetTable().getName(), "tableRoot"));
 
         for (Column column : tablePair.getSourceTable().getColumns()) {
-            categories = addColumn(sourceTree, column,categories);
+            categories.add(addColumn(sourceTree, column));
         }
 
         for (Column column : tablePair.getTargetTable().getColumns()) {
-            categories = addColumn(targetTree, column,categories);
+            categories.add(addColumn(targetTree, column));
         }
 
         return new Triple<SchemaTree,SchemaTree,Set<String>>(sourceTree,targetTree,categories);
     }
 
-    private HashSet<String> addColumn(SchemaTree targetTree, Column column, HashSet<String> categories) {
+    private Pair<Set<String>,SchemaTree> buildTreeFromTable(Table table) {
+        HashSet<String> categories = new HashSet<>();
+
+        SchemaTree tree = new SchemaTree(new SchemaElement("DB__" + table.getName(), "DB"), table.hashCode());
+
+        tree.addNode(table.getName(), tree.getRoot(), new ArrayList<>(), new SchemaElement(table.getName(), "tableRoot"));
+
+        for (Column column : table.getColumns()) {
+            categories.add(addColumn(tree, column));
+        }
+
+        return new Pair<>(categories, tree);
+    }
+
+    private String addColumn(SchemaTree targetTree, Column column) {
         String datatype = convertDatatype(column);
-        categories.add(datatype);
         SchemaElement schemtmp = new SchemaElement(column.getLabel(), datatype);
         schemtmp.addCategory(datatype);
         targetTree.addNode(column.getLabel(), targetTree.getRoot().getChildren().get(0), new ArrayList<>(), schemtmp);
-        return categories;
+        return datatype;
     }
 
     private static String convertDatatype(Datatype datatype) {
@@ -374,6 +446,7 @@ public class CupidMatcher extends TablePairMatcher {
         }
     }
 
+    /*
     public static void main(String[] args) {
         CupidMatcher cm = new CupidMatcher();
         ArrayList<String> t1Labels = new ArrayList<>();
@@ -394,4 +467,5 @@ public class CupidMatcher extends TablePairMatcher {
         float[][] res = cm.match(tp);
         System.out.print("test");
     }
+     */
 }

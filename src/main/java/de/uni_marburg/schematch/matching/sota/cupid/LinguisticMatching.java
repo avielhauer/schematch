@@ -20,6 +20,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class LinguisticMatching {
+    private WordNetFunctionalities wordNetFunctionalities = null;
+
+    public LinguisticMatching(WordNetFunctionalities wordNetFunctionalities) {
+        this.wordNetFunctionalities = wordNetFunctionalities;
+    }
 
     private static String snakeCase(String name) {
         String s1 = name.replaceAll("(.)([A-Z][a-z]+)", "$1_$2");
@@ -156,19 +161,19 @@ public class LinguisticMatching {
         return compatibilityTable;
     }
 
-    public Map<StringPair, Double> comparison(SchemaTree sourceTree,
+    public Map<StringPair, Float> comparison(SchemaTree sourceTree,
                                               SchemaTree targetTree,
                                               Map<String, Map<String, Double>> compatibilityTable,
                                               double thNs,
                                               int parallelism) {
         List<Pair<SchemaElementNode, SchemaElementNode>> elementsToCompare = generateParallelLsimInput(sourceTree, targetTree, compatibilityTable, thNs);
-        Map<StringPair, Double> lsims = new HashMap<>();
+        Map<StringPair, Float> lsims = new HashMap<>();
 
         if (parallelism == 1) {
             for (Pair<SchemaElementNode, SchemaElementNode> pairNode : elementsToCompare) {
                 Pair<SchemaElement, SchemaElement> pair = new Pair<>(pairNode.getFirst().current, pairNode.getFirst().current);
                 Pair<StringPair, Double> lsimProcVal = lsimProc(pair, compatibilityTable);
-                lsims.put(lsimProcVal.getFirst(), lsimProcVal.getSecond());
+                lsims.put(lsimProcVal.getFirst(), lsimProcVal.getSecond().floatValue());
             }
         } else {
             ExecutorService executor = Executors.newFixedThreadPool(parallelism);
@@ -176,7 +181,7 @@ public class LinguisticMatching {
                 Pair<SchemaElement, SchemaElement> pair = new Pair<>(pairNode.getFirst().current, pairNode.getFirst().current);
                 executor.submit(() -> {
                     Pair<StringPair, Double> lsimProcVal = lsimProc(pair, compatibilityTable);
-                    lsims.put(lsimProcVal.getFirst(), lsimProcVal.getSecond());
+                    lsims.put(lsimProcVal.getFirst(), lsimProcVal.getSecond().floatValue());
                 });
             }
             executor.shutdown();
@@ -325,8 +330,7 @@ public class LinguisticMatching {
     }
 
     private Set<ISynset> getSynonyms(String word) throws IOException {
-        WordNetFunctionalities wordNet = new WordNetFunctionalities();
-        return wordNet.getAllSynonymsets(word);
+        return wordNetFunctionalities.getAllSynonymsets(word);
     }
 
     private double computeSimilarityWordnet(String word1, String word2) {
@@ -348,7 +352,6 @@ public class LinguisticMatching {
 
             double max = -1.0;
             int index = 1;
-            WordNetFunctionalities wordNetFunctionalities = new WordNetFunctionalities();
             WS4JConfiguration.getInstance().setMemoryDB(false);
             WS4JConfiguration.getInstance().setMFS(true);
             ILexicalDatabase db = new MITWordNet(new RAMDictionary(wordNetFunctionalities.dict, 2));
@@ -447,6 +450,7 @@ public class LinguisticMatching {
         return maxCategory;
     }
 
+    /*
     public static void main(String[] args) throws IOException {
         LinguisticMatching linguisticMatching = new LinguisticMatching();
 
@@ -464,4 +468,5 @@ public class LinguisticMatching {
 
         System.out.println(test);
     }
+     */
 }
