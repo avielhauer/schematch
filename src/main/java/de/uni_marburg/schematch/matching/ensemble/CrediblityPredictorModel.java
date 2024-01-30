@@ -32,9 +32,8 @@ public class CrediblityPredictorModel implements Serializable {
     public List<MatchTask> matchTasks=new ArrayList<>();
     public List<ColumnPair> colomnPairs=new ArrayList<>();
     List<Matcher> matchers=new ArrayList<>();
-    MatchStep matchSteps;
-    public CrediblityPredictorModel(MatchingStep matchSteps) {
-        this.matchSteps=matchSteps;
+    public CrediblityPredictorModel() {
+
     }
 
     public void addMatcher(Matcher matcher)
@@ -74,7 +73,6 @@ public class CrediblityPredictorModel implements Serializable {
             i++;
         }
 
-
         for (Matcher m : matchers) {
 
             if (newMatcher.equals(m))
@@ -82,7 +80,7 @@ public class CrediblityPredictorModel implements Serializable {
                 newInstance.setValue(i, 1);
             else newInstance.setValue(i, 0);
             i++;
-            }
+        }
 
 
         return linearRegression.classifyInstance(newInstance);

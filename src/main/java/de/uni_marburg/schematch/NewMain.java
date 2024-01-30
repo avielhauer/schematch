@@ -66,7 +66,7 @@ public class NewMain {
         // Step 4: run second line matchers (ensemble matchers and other matchers using output of first line matchers)
 
 
-        CrediblityPredictorModel cmc=new CrediblityPredictorModel(firstLineStep);
+        CrediblityPredictorModel cmc=new CrediblityPredictorModel();
 
         // loop over datasets
 

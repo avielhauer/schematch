@@ -1,26 +1,22 @@
 package de.uni_marburg.schematch.matching.ensemble;
 
-import com.fasterxml.jackson.databind.deser.DataFormatReaders;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.matching.Matcher;
-import de.uni_marburg.schematch.matching.TablePairMatcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
-import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
+import de.uni_marburg.schematch.utils.ArrayUtils;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-public class CMCMatcher extends TablePairMatcher {
+public class CMCMatcher extends Matcher {
     public  CMCMatcher(MatchingStep matchStep, ArrayList<Feature> featureList, ArrayList<Matcher> matchers,ArrayList<MatchTask> matchTasks) {
         try {
 
 
-            crediblityPredictorModel = new CrediblityPredictorModel(matchStep);
+            crediblityPredictorModel = new CrediblityPredictorModel();
             for (Feature f : featureList)
                 crediblityPredictorModel.addFeature(f);
             for (Matcher m:matchers)
@@ -45,23 +41,10 @@ public class CMCMatcher extends TablePairMatcher {
 
     CrediblityPredictorModel crediblityPredictorModel;
 
-    public float matchColumnPair(ColumnPair columnPair) throws CrediblityPredictorModel.ModelTrainedException {
-        List<Matcher> matchers=crediblityPredictorModel.matchers;
-        for(Matcher m:crediblityPredictorModel.matchers)
-        {
-            if(crediblityPredictorModel.isTrained)
-            {
-                //here generate the similarity
-            }
-            else {
-                throw new CrediblityPredictorModel.ModelTrainedException();
-            }
-        }
-        return 0;
-    }
 
-    @Override
-    public float[][] match(TablePair tablePair) throws CrediblityPredictorModel.ModelTrainedException {
+
+
+    public float[][] match(TablePair tablePair, MatchTask matchTask, MatchingStep matchStep) {
         Table sourceTable = tablePair.getSourceTable();
         Table targetTable = tablePair.getTargetTable();
         float[][] simMatrix = tablePair.getEmptySimMatrix();
@@ -69,11 +52,43 @@ public class CMCMatcher extends TablePairMatcher {
             for (int j = 0; j < targetTable.getNumColumns(); j++) {
                 {
 
-                    simMatrix[i][j] = matchColumnPair(new ColumnPair(sourceTable.getColumn(i),targetTable.getColumn(j)));
+                    try {
+                        double sumAcc=0;
+                        double nominator=0;
+
+
+                        for (Matcher m : crediblityPredictorModel.matchers) {
+                            float sim = matchTask.getSimMatrixFromPreviousMatchStep(matchStep,m)[i][j];
+                            float acc= (float) crediblityPredictorModel.predictaccuracy(new ColumnPair(sourceTable.getColumn(i),targetTable.getColumn(j)),m);
+                            nominator+=sim*acc;
+                            sumAcc+=acc;
+                        }
+                        simMatrix[i][j] = (float) (nominator/sumAcc);
+                    } catch (CrediblityPredictorModel.ModelTrainedException e) {
+                        System.out.println("Sim Not Found");
+                    } catch (Exception e) {
+                        System.out.println("Model not Trained");
+                    }
                 }
             }
         }
         return simMatrix;
     }
 
+    @Override
+    public float[][] match(MatchTask matchTask, MatchingStep matchStep) {
+        List<TablePair> tablePairs = matchTask.getTablePairs();
+
+        float[][] simMatrix = matchTask.getEmptySimMatrix();
+
+        for (TablePair tablePair : tablePairs) {
+            float[][] tablePairSimMatrix;
+            tablePairSimMatrix = this.match(tablePair,matchTask,matchStep);
+            int sourceTableOffset = tablePair.getSourceTable().getOffset();
+            int targetTableOffset = tablePair.getTargetTable().getOffset();
+            ArrayUtils.insertSubmatrixInMatrix(tablePairSimMatrix, simMatrix, sourceTableOffset, targetTableOffset);
+        }
+
+        return simMatrix;
+    }
 }

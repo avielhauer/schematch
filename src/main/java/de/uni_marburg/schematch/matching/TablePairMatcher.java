@@ -15,7 +15,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public abstract class TablePairMatcher extends Matcher {
-    public abstract float[][] match(TablePair tablePair) throws CrediblityPredictorModel.ModelTrainedException;
+    public abstract float[][] match(TablePair tablePair) ;
 
     @Override
     public float[][] match(MatchTask matchTask, MatchingStep matchStep) {
@@ -25,11 +25,7 @@ public abstract class TablePairMatcher extends Matcher {
 
         for (TablePair tablePair : tablePairs) {
             float[][] tablePairSimMatrix = new float[0][];
-            try {
-                tablePairSimMatrix = this.match(tablePair);
-            } catch (CrediblityPredictorModel.ModelTrainedException e) {
-                e.printStackTrace();
-            }
+            tablePairSimMatrix = this.match(tablePair);
             int sourceTableOffset = tablePair.getSourceTable().getOffset();
             int targetTableOffset = tablePair.getTargetTable().getOffset();
             ArrayUtils.insertSubmatrixInMatrix(tablePairSimMatrix, simMatrix, sourceTableOffset, targetTableOffset);
