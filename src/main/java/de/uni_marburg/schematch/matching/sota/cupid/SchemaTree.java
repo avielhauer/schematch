@@ -1,5 +1,7 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
 
+import lombok.Getter;
+
 import java.util.*;
 
 public class SchemaTree {
@@ -7,11 +9,14 @@ public class SchemaTree {
     private String schemaName;
     private SchemaElementNode schemaTree;
 
+    @Getter
+    private int hashCode;
 
 
     private SchemaElementNode rootNode;
 
-    public SchemaTree(SchemaElement root) {
+    public SchemaTree(SchemaElement root, int hashCode) {
+        this.hashCode = hashCode;
         SchemaElement normalized = LinguisticMatching.normalization(root.getInitialName(), root);
         this.nodes = new HashMap<>();
         this.addRootNode(normalized);
