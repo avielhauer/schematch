@@ -92,7 +92,7 @@ class DatasetEncryptor:
             fds = fp.readlines()
 
         with open(target_file_path, "w") as fp:
-            fp.writelines([self.encrypt_fd_line(line) for line in fds])
+            fp.writelines([self.encrypt_fd_line(line)+"\n" for line in fds])
 
     def encrypt_ucc_file(self, ucc_file_path, target_file_path):
         with open(ucc_file_path, "r") as fp:
@@ -116,7 +116,7 @@ class DatasetEncryptor:
             lines = fp.readlines()
 
         with open(target_file_path, "w") as fp:
-            fp.writelines([self.encrypt_ind_line(line) for line in lines])
+            fp.writelines([self.encrypt_ind_line(line)+"\n" for line in lines])
 
     def encrypt_ind_line(self, line):
         left, right = line.split(" --> ")
@@ -132,7 +132,7 @@ class DatasetEncryptor:
         if not token:
             return token
         delimeter = ".csv."
-        return self.encrypt_table(token.split(delimeter)[0]) + delimeter + self.encrypt_column(token.split(delimeter)[1])
+        return self.encrypt_table(token.split(delimeter)[0].strip()) + delimeter + self.encrypt_column(token.split(delimeter)[1].strip())
 
     def encrypt_data_csv_file(self, csv_path, target_path):
         encrypted_rows = []
