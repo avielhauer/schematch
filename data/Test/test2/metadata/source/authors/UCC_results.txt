@@ -1,0 +1,6 @@
+[authors.csv.aid]
+[authors.csv.name]
+[authors.csv.username]
+[authors.csv.income]
+[authors.csv.dob]
+[authors.csv.address]
