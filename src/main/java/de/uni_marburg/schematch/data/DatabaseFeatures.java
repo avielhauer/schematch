@@ -45,13 +45,33 @@ public class DatabaseFeatures {
         return encoded;
     }
 
+    private double getEntropy(final List<String> values){
+        int total = values.size();
+
+        Map<String, Integer> frequencyCounter = new HashMap<>();
+        for (String value : values) {
+            frequencyCounter.put(value, frequencyCounter.getOrDefault(value, 0) + 1);
+        }
+
+        // Calculate entropy
+        double entropy = 0.0;
+        for (Map.Entry<String, Integer> entry : frequencyCounter.entrySet()) {
+            double probability = (double) entry.getValue() / total;
+            entropy -= probability * Math.log(probability) / Math.log(2);
+        }
+
+        return entropy;
+    }
+
     public DatabaseFeatures(final Database database){
         this.database = database;
         for (Table table : database.getTables()){
             for(Column column: table.getColumns()){
                 double avgLength = getAverageLength(column.getValues());
+                double entropy = getEntropy(column.getValues());
                 List<Double> featureVector = new ArrayList<>();
                 featureVector.add(avgLength);
+                featureVector.add(entropy);
                 featureVector.addAll(getDatatypeEncoded(column));
                 if(features.containsKey(table.getName())){
                     Map<String, List<Double>> column_map = features.get(table.getName());
