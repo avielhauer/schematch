@@ -9,7 +9,7 @@ import java.awt.*;
 import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
-
+//Ok
 public class SQL2Graph extends SimpleDirectedGraph<Object, LabeledEdge> {
 
     private final String DB_TYPE_NODE = "DB";
