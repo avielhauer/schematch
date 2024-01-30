@@ -1,3 +1,2 @@
 [authors.csv.authorid]
 [authors.csv.full_name]
-[authors.csv.dob]
