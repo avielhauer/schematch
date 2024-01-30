@@ -2,8 +2,6 @@ package de.uni_marburg.schematch.data.metadata.dependency;
 
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.utils.InputReader;
-import de.uni_marburg.schematch.utils.MetadataUtils;
-import org.hibernate.event.spi.SaveOrUpdateEvent;
 
 import java.io.IOException;
 import java.nio.file.Path;
