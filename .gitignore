@@ -33,3 +33,4 @@
 hs_err_pid*
 replay_pid*
 output.csv
+src/main/java/de/uni_marburg/schematch/FeatureTestMain.java

@@ -218,10 +218,10 @@ public class NewMain {
         }
 
 */
-        cmc.addFeature(new Feature("f1"));
-        cmc.addFeature(new Feature("f2"));
-        cmc.addFeature(new Feature("f3"));
-        cmc.addFeature(new Feature("f4"));
+//        cmc.addFeature(new Feature("f1"));
+//        cmc.addFeature(new Feature("f2"));
+//        cmc.addFeature(new Feature("f3"));
+//        cmc.addFeature(new Feature("f4"));
         for (Matcher matcher:firstLineMatchers)
         {
             cmc.addMatcher(matcher);
