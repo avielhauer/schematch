@@ -13,8 +13,10 @@ public interface Dependency {
             sb.append(column.getLabel());
             sb.append(", ");
         }
-        if(!referenced.isEmpty())
+        // remove  trailing ", "
+        if(!referenced.isEmpty()){
             sb.delete(sb.length() - 2, sb.length());
+        }
         sb.append("]");
     }
 }
