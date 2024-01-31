@@ -1,5 +1,6 @@
 package de.uni_marburg.schematch.matching.metadata;
 
+import de.uni_marburg.schematch.Main;
 import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.data.metadata.Datatype;
@@ -8,6 +9,8 @@ import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.GeoLocation;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,6 +22,7 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class ExtremaMatcher extends TablePairMatcher {
+    final static Logger log = LogManager.getLogger(ExtremaMatcher.class);
 
     @Override
     public float[][] match(TablePair tablePair) {
@@ -233,7 +237,7 @@ public class ExtremaMatcher extends TablePairMatcher {
         int min = Math.min(sourceMin, targetMin);
         int maxDif = Math.abs(sourceMax - targetMax);
         int minDif = Math.abs(sourceMin - targetMin);
-        int dif = maxDif + minDif;
+        int dif = maxDif - minDif;
         int full = max - min + 1;
         int common = full - dif;
         return (float) common / full;
@@ -244,7 +248,7 @@ public class ExtremaMatcher extends TablePairMatcher {
         float min = Math.min(sourceMin, targetMin);
         float maxDif = Math.abs(sourceMax - targetMax);
         float minDif = Math.abs(sourceMin - targetMin);
-        float dif = maxDif + minDif;
+        float dif = maxDif - minDif;
         float full = max - min + 1;
         float common = full - dif;
         return common / full;
@@ -255,7 +259,7 @@ public class ExtremaMatcher extends TablePairMatcher {
         long min = sourceMin.before(targetMin) ? sourceMin.getTime() : targetMin.getTime();
         long maxDif = sourceMax.getTime() - targetMax.getTime();
         long minDif = sourceMin.getTime() - targetMin.getTime();
-        long dif = maxDif + minDif;
+        long dif = maxDif - minDif;
         long full = max - min + 1;
         long common = full - dif;
         return (float) common / full;
