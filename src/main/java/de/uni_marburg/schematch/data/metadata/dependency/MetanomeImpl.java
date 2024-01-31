@@ -153,7 +153,7 @@ public class MetanomeImpl{
         hyUCC.setBooleanConfigurationValue(HyUCC.Identifier.NULL_EQUALS_NULL.name(), Parameters.NULL_EQUALS_NULL);
         hyUCC.setBooleanConfigurationValue(HyUCC.Identifier.VALIDATE_PARALLEL.name(), Parameters.VALIDATE_PARALLEL);
         hyUCC.setBooleanConfigurationValue(HyUCC.Identifier.ENABLE_MEMORY_GUARDIAN.name(), Parameters.ENABLE_MEMORY_GUARDIAN);
-        hyUCC.setIntegerConfigurationValue(HyUCC.Identifier.MAX_UCC_SIZE.name(), Parameters.MAX_SEARCH_SPACE_LEVEL);
+        hyUCC.setIntegerConfigurationValue(HyUCC.Identifier.MAX_UCC_SIZE.name(), 1);
         hyUCC.setIntegerConfigurationValue(HyUCC.Identifier.INPUT_ROW_LIMIT.name(), Parameters.FILE_MAX_ROWS);
         hyUCC.setResultReceiver(resultReceiver);
         return hyUCC;
@@ -165,7 +165,7 @@ public class MetanomeImpl{
         hyFD.setBooleanConfigurationValue(HyFD.Identifier.NULL_EQUALS_NULL.name(), Parameters.NULL_EQUALS_NULL);
         hyFD.setBooleanConfigurationValue(HyFD.Identifier.VALIDATE_PARALLEL.name(), Parameters.VALIDATE_PARALLEL);
         hyFD.setBooleanConfigurationValue(HyFD.Identifier.ENABLE_MEMORY_GUARDIAN.name(), Parameters.ENABLE_MEMORY_GUARDIAN);
-        hyFD.setIntegerConfigurationValue(HyFD.Identifier.MAX_DETERMINANT_SIZE.name(), Parameters.MAX_SEARCH_SPACE_LEVEL);
+        hyFD.setIntegerConfigurationValue(HyFD.Identifier.MAX_DETERMINANT_SIZE.name(), 1);
         hyFD.setResultReceiver(resultReceiver);
         return hyFD;
     }
@@ -257,9 +257,9 @@ public class MetanomeImpl{
 
     //BLAME THE AUTHORS @METANOME ALGORITHMS
     private static void suppressSysout(Runnable method) throws RuntimeException{
-        PrintStream originalOut = System.out;
-        System.setOut(new PrintStream(new NullOutputStream()));
+//        PrintStream originalOut = System.out;
+//        System.setOut(new PrintStream(new NullOutputStream()));
         method.run();
-        System.setOut(originalOut);
+//        System.setOut(originalOut);
     }
 }

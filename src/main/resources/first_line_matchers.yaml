@@ -41,18 +41,18 @@ packageName: "similarity.label"
 ---
 name: "LongestCommonSubsequenceMatcher"
 packageName: "similarity.label"
----
-name: "JaccardInstanceMatcher"
-packageName: "similarity.tokenizedinstance"
----
-name: "DiceInstanceMatcher"
-packageName: "similarity.tokenizedinstance"
----
-name: "OverlapInstanceMatcher"
-packageName: "similarity.tokenizedinstance"
----
-name: "SetCosineInstanceMatcher"
-packageName: "similarity.tokenizedinstance"
+#---
+#name: "JaccardInstanceMatcher"
+#packageName: "similarity.tokenizedinstance"
+#---
+#name: "DiceInstanceMatcher"
+#packageName: "similarity.tokenizedinstance"
+#---
+#name: "OverlapInstanceMatcher"
+#packageName: "similarity.tokenizedinstance"
+#---
+#name: "SetCosineInstanceMatcher"
+#packageName: "similarity.tokenizedinstance"
 ---
 name: "JaccardLabelMatcher"
 packageName: "similarity.tokenizedlabel"
