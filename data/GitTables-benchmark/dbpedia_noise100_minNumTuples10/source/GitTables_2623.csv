@@ -1,0 +1,13 @@
+,,,,,,,,,
+b1227,0.3644909969,narI,nitrate reductase A subunit gamma,Energy production and conversion,narGHJI,"RpoD,RstA,Fis,IHF,NarL,Fnr",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG10640
+b1226,0.3589267775999999,narJ,nitrate reductase 1 molybdenum cofactor assembly chaperone,Energy production and conversion,narGHJI,"RpoD,RstA,Fis,IHF,NarL,Fnr",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG10641
+b1225,0.3421562708,narH,nitrate reductase A subunit beta,Energy production and conversion,narGHJI,"RpoD,RstA,Fis,IHF,NarL,Fnr",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG10639
+b1224,0.2529852934,narG,nitrate reductase A subunit alpha,Energy production and conversion,narGHJI,"RpoD,YcjW,RstA,Fis,IHF,NarL,Fnr",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG10638
+b1223,0.2150042389999999,narK,nitrate:nitrite antiporter NarK,Inorganic ion transport and metabolism,narK,"RpoD,Fis,IHF,NarL,Fnr,Nac",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG10642
+b3367,0.1090596735,nirC,nitrite transporter NirC,Inorganic ion transport and metabolism,nirBDC-cysG,"RpoD,Cra,Crp,IHF,NarL,NarP,Fis,H-NS,Fnr",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG10654
+b1475,0.0995693391,fdnH,formate dehydrogenase N subunit beta,Energy production and conversion,fdnGHI,"RpoD,NarP,NarL,Fnr",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG11228
+b1474,0.0808818105999999,fdnG,formate dehydrogenase N subunit alpha,Energy production and conversion,fdnGHI,"RpoD,NarP,NarL,Fnr",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG11227
+b3369,0.0803904501,yhfL,DUF4223 domain-containing lipoprotein YhfL,Function unknown,yhfL,Nac,False,False,https://ecocyc.org/gene?orgid=ECOLI&id=G7722
+b1228,0.0802764384999999,ychS,putative uncharacterized protein YchS,No COG annotation,,,False,False,https://ecocyc.org/gene?orgid=ECOLI&id=G6631
+b2208,-0.1073377638,napF,ferredoxin-type protein,Energy production and conversion,napFDAGHBC-ccmABCDEFGH,"RpoD,FlhDC,ModE,IscR,NarP,NarL,Fnr,Lrp",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG12068
+b2207,-0.1298309502,napD,NapA signal peptide-binding chaperone NapD,Inorganic ion transport and metabolism,napFDAGHBC-ccmABCDEFGH,"RpoD,FlhDC,ModE,IscR,NarP,NarL,Fnr",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG12143

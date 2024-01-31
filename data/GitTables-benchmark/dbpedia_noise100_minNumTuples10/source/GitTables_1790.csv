@@ -1,0 +1,27 @@
+,,,,,
+"org.apache.commons.math3.dfp.Dfp#Dfp#multiplyFast#?,int#1620",1.0,1.0,2.0,nans == INFINITE && x != 0,_
+"org.apache.commons.math3.dfp.Dfp#Dfp#multiply#?,Dfp#1524",1.0,1.0,2.0,x.nans == INFINITE && nans == FINITE && mant[mant.length - 1] != 0,_
+"org.apache.commons.math3.dfp.Dfp#int#round#?,int#1479",0.25,0.25,0.5,DfpField.FLAG_OVERFLOW>0,_
+"org.apache.commons.math3.dfp.Dfp#Dfp#dotrap#?,int,String,Dfp,Dfp#2278",0.2,0.2,0.3999999999999999,result.exp - ERR_SCALE>=type,_
+"org.apache.commons.math3.dfp.Dfp#?#Dfp#?,DfpField,String#389",0.125,0.2,0.2666666666666666,sciexp * 10 + fpexp.charAt(i) - '0'<p,_
+org.apache.commons.math3.dfp.Dfp#String#toString#?#2056,0.1111111111111111,0.1111111111111111,0.2222222222222223,!(nans == INFINITE),_
+"org.apache.commons.math3.dfp.Dfp#int#compare#?,Dfp,Dfp#969",0.0999999999999999,0.0999999999999999,0.2,0<=0,_
+"org.apache.commons.math3.dfp.Dfp#boolean#unequal#?,Dfp#931",0.1111111111111111,0.1111111111111111,0.1736111111111111,isNaN() || x.isNaN() || field.getRadixDigits() != x.field.getRadixDigits(),_
+"org.apache.commons.math3.dfp.Dfp#boolean#equals#?,Object#906",0.1111111111111111,0.1111111111111111,0.1328502415458937,isNaN() || x.isNaN() || field.getRadixDigits() != x.field.getRadixDigits(),_
+org.apache.commons.math3.dfp.DfpField#int#getIEEEFlags#?#284,0.0476190476190476,0.0625,0.1101190476190476,ieeeFlags<=0,_
+org.apache.commons.math3.dfp.Dfp#String#dfp2string#?#2217,0.0769230769230768,0.0769230769230768,0.103238866396761,sign < 0,_
+org.apache.commons.math3.dfp.Dfp#void#shiftRight#?#682,0.0277777777777777,0.0285714285714285,0.0563492063492063,mant[i + 1]==i,_
+org.apache.commons.math3.dfp.DfpField#void#clearIEEEFlags#?#298,0.0476190476190476,0.0,0.0476190476190476,,_
+"org.apache.commons.math3.dfp.DfpField#void#setIEEEFlagsBits#?,int#331",0.0217391304347825,0.0217391304347825,0.0434782608695651,bits & (FLAG_INVALID | FLAG_DIV_ZERO | FLAG_OVERFLOW| FLAG_UNDERFLOW| FLAG_INEXACT)<=bits,_
+"org.apache.commons.math3.dfp.DfpField#Dfp#newDfp#?,String#386",0.0434782608695651,0.0,0.0434782608695651,,_
+"org.apache.commons.math3.dfp.Dfp#Dfp#newInstance#?,Dfp#597",0.0217391304347825,0.0217391304347825,0.0434782608695651,!(field.getRadixDigits() != d.field.getRadixDigits()),_
+org.apache.commons.math3.dfp.Dfp#int#getRadixDigits#?#642,0.0204081632653061,0.0204081632653061,0.0408163265306122,field.getRadixDigits()!=0,_
+"org.apache.commons.math3.dfp.Dfp#Dfp#multiply#?,int#1603",0.037037037037037,0.0,0.037037037037037,,GT
+org.apache.commons.math3.dfp.DfpField#int#getRadixDigits#?#251,0.0181818181818181,0.0181818181818181,0.0363636363636363,radixDigits>=0,_
+org.apache.commons.math3.dfp.DfpField#Dfp#getZero#?#403,0.0222222222222222,0.0,0.0222222222222222,,_
+org.apache.commons.math3.dfp.Dfp#Dfp#getZero#?#649,0.0222222222222222,0.0,0.0222222222222222,,_
+org.apache.commons.math3.dfp.Dfp#DfpField#getField#?#635,0.0222222222222222,0.0,0.0222222222222222,,_
+"org.apache.commons.math3.dfp.Dfp#Dfp#trap#?,int,String,Dfp,Dfp,Dfp#2303",0.0217391304347825,0.0,0.0217391304347825,,_
+org.apache.commons.math3.dfp.Dfp#boolean#isNaN#?#879,0.0204081632653061,0.0,0.0204081632653061,,_
+"org.apache.commons.math3.dfp.Dfp#?#Dfp#?,Dfp#323",0.0204081632653061,0.0,0.0204081632653061,,_
+org.apache.commons.math3.dfp.DfpField#RoundingMode#getRoundingMode#?#269,0.0196078431372549,0.0,0.0196078431372549,,_

@@ -1,0 +1,120 @@
+ä»£å·,è¯­æ³,åè
+T_ABSTRACT,abstract,æ½è±¡ç±»ï¼èª PHP 5.0.0 èµ·å¯ç¨ï¼
+T_AND_EQUAL,&=,èµå¼è¿ç®ç¬¦
+T_ARRAY,array(),array()ï¼æ°ç»è¯­æ³
+T_ARRAY_CAST,(array),ç±»åè½¬æ¢
+T_AS,as,foreach
+T_BAD_CHARACTER,,"å¨ ASCII 32 ä¹åé¤äº \t (0x09), \n (0x0a) å \r (0x0d) ä»¥å¤çä»»ä½å­ç¬¦"
+T_BOOLEAN_AND,&&,é»è¾è¿ç®ç¬¦
+T_BOOLEAN_OR,||,é»è¾è¿ç®ç¬¦
+T_BOOL_CAST,(bool) æ (boolean),ç±»åè½¬æ¢
+T_BREAK,break,break
+T_CASE,case,switch
+T_CATCH,catch,å¼å¸¸å¤çï¼èª PHP 5.0.0 èµ·å¯ç¨ï¼
+T_CHARACTER,,
+T_CLASS,class,ç±»åå¯¹è±¡
+T_CLONE,clone,ç±»åå¯¹è±¡ãä»ç¨äº PHP 5ã
+T_CLOSE_TAG,?> æ %>,
+T_COMMENT,// æ #ï¼ä»¥å PHP 5 ä¸ç /* */,æ³¨é
+T_CONCAT_EQUAL,.=,èµå¼è¿ç®ç¬¦
+T_CONST,const,
+T_CONSTANT_ENCAPSED_STRING,"""foo"" æ 'bar'",å­ç¬¦ä¸²è¯­æ³
+T_CONTINUE,continue,
+T_CURLY_OPEN,,
+T_DEC,--,éå¢/éåè¿ç®ç¬¦
+T_DECLARE,declare,declare
+T_DEFAULT,default,switch
+T_DIV_EQUAL,/=,èµå¼è¿ç®ç¬¦
+T_DNUMBER,0.12ï¼ç­ç­,æµ®ç¹æ°
+T_DOC_COMMENT,/** */,PHPDoc é£æ ¼çæ³¨éï¼ä»ç¨äº PHP 5ï¼
+T_DO,do,do..while
+T_DOLLAR_OPEN_CURLY_BRACES,${,å¤æåéè§£æè¯­æ³
+T_DOUBLE_ARROW,=>,æ°ç»è¯­æ³
+T_DOUBLE_CAST,"(real), (double) æ (float)",ç±»åè½¬æ¢
+T_DOUBLE_COLON,::,è§ä¸é¢ç T_PAAMAYIM_NEKUDOTAYIM
+T_ECHO,echo,echo
+T_ELSE,else,else
+T_ELSEIF,elseif,elseif
+T_EMPTY,empty,empty()
+T_ENCAPSED_AND_WHITESPACE,,
+T_ENDDECLARE,enddeclare,declareï¼æ¿ä»£è¯­æ³
+T_ENDFOR,endfor,forï¼æ¿ä»£è¯­æ³
+T_ENDFOREACH,endforeach,foreachï¼æ¿ä»£è¯­æ³
+T_ENDIF,endif,ifï¼æ¿ä»£è¯­æ³
+T_ENDSWITCH,endswitch,switchï¼æ¿ä»£è¯­æ³
+T_ENDWHILE,endwhile,whileï¼æ¿ä»£è¯­æ³
+T_END_HEREDOC,,heredoc è¯­æ³
+T_EVAL,eval(),eval()
+T_EXIT,exit æ die,"exit(), die()"
+T_EXTENDS,extends,extendsï¼ç±»åå¯¹è±¡
+T_FILE,__FILE__,å¸¸é
+T_FINAL,final,Final å³é®å­ï¼èª PHP 5.0.0 èµ·å¯ç¨ï¼
+T_FOR,for,for
+T_FOREACH,foreach,foreach
+T_FUNCTION,function æ cfunction,å½æ°
+T_GLOBAL,global,åéèå´
+T_HALT_COMPILER,__halt_compiler(),__halt_compilerï¼èª PHP 5.1.0 èµ·å¯ç¨ï¼
+T_IF,if,if
+T_IMPLEMENTS,implements,å¯¹è±¡æ¥å£ï¼èª PHP 5.0.0 èµ·å¯ç¨ï¼
+T_INC,++,éå¢ï¼éåè¿ç®ç¬¦
+T_INCLUDE,include(),include
+T_INCLUDE_ONCE,include_once(),include_once
+T_INLINE_HTML,,
+T_INSTANCEOF,instanceof,type operatorsï¼ä» PHP5ï¼
+T_INT_CAST,(int) æ (integer),ç±»åè½¬æ¢
+T_INTERFACE,interface,å¯¹è±¡æ¥å£ï¼èª PHP 5.0.0 èµ·å¯ç¨ï¼
+T_ISSET,isset(),isset()
+T_IS_EQUAL,==,æ¯è¾è¿ç®ç¬¦
+T_IS_GREATER_OR_EQUAL,>=,æ¯è¾è¿ç®ç¬¦
+T_IS_IDENTICAL,===,æ¯è¾è¿ç®ç¬¦
+T_IS_NOT_EQUAL,!= or <>,æ¯è¾è¿ç®ç¬¦
+T_IS_NOT_IDENTICAL,!==,æ¯è¾è¿ç®ç¬¦
+T_IS_SMALLER_OR_EQUAL,<=,æ¯è¾è¿ç®ç¬¦
+T_LINE,__LINE__,å¸¸é
+T_LIST,list(),list()
+T_LNUMBER,123ï¼012ï¼0x1acï¼ç­ç­,æ´å
+T_LOGICAL_AND,and,é»è¾è¿ç®ç¬¦
+T_LOGICAL_OR,or,é»è¾è¿ç®ç¬¦
+T_LOGICAL_XOR,xor,é»è¾è¿ç®ç¬¦
+T_MINUS_EQUAL,-=,èµå¼è¿ç®ç¬¦
+T_ML_COMMENT,/* å */,æ³¨éï¼ä»ç¨äº PHP 4ï¼
+T_MOD_EQUAL,%=,èµå¼è¿ç®ç¬¦
+T_MUL_EQUAL,*=,èµå¼è¿ç®ç¬¦
+T_NEW,new,ç±»åå¯¹è±¡
+T_NUM_STRING,,
+T_OBJECT_CAST,(object),ç±»åè½¬æ¢
+T_OBJECT_OPERATOR,->,ç±»åå¯¹è±¡
+T_OPEN_TAG,,ä» HTML è½¬ä¹
+T_OPEN_TAG_WITH_ECHO,,ä» HTML è½¬ä¹
+T_OR_EQUAL,|=,èµå¼è¿ç®ç¬¦
+T_PAAMAYIM_NEKUDOTAYIM,::,::ãä¹å®ä¹ä¸º T_DOUBLE_COLONã
+T_PLUS_EQUAL,+=,èµå¼è¿ç®ç¬¦
+T_PRINT,print(),print
+T_PRIVATE,private,ç±»åå¯¹è±¡ãä»ç¨äº PHP 5ã
+T_PUBLIC,public,ç±»åå¯¹è±¡ãä»ç¨äº PHP 5ã
+T_PROTECTED,protected,ç±»åå¯¹è±¡ãä»ç¨äº PHP 5ã
+T_REQUIRE,require(),require
+T_REQUIRE_ONCE,require_once(),require_once
+T_RETURN,return,è¿åå¼
+T_SL,<<,ä½è¿ç®ç¬¦
+T_SL_EQUAL,<<=,èµå¼è¿ç®ç¬¦
+T_SR,>>,ä½è¿ç®ç¬¦
+T_SR_EQUAL,>>=,èµå¼è¿ç®ç¬¦
+T_START_HEREDOC,<<<,heredoc è¯­æ³
+T_STATIC,static,åéèå´
+T_STRING,,
+T_STRING_CAST,(string),ç±»åè½¬æ¢
+T_STRING_VARNAME,,
+T_SWITCH,switch,switch
+T_THROW,throw,å¼å¸¸å¤çï¼èª PHP 5.0.0 èµ·å¯ç¨ï¼
+T_TRY,try,å¼å¸¸å¤çï¼èª PHP 5.0.0 èµ·å¯ç¨ï¼
+T_UNSET,unset(),unset()
+T_UNSET_CAST,(unset),ï¼æ ææ¡£; ç±»åä¸º NULLï¼
+T_USE,use,ï¼æªå®ç°ï¼
+T_VAR,var,ç±»åå¯¹è±¡
+T_VARIABLE,$foo,åé
+T_WHILE,while,whileï¼do..while
+T_WHITESPACE,,
+T_XOR_EQUAL,^=,èµå¼è¿ç®ç¬¦
+T_FUNC_C,__FUNCTION__,å¸¸éï¼èª PHP 4.3.0 èµ·å¯ç¨
+T_CLASS_C,__CLASS__,å¸¸éï¼èª PHP 4.3.0 èµ·å¯ç¨

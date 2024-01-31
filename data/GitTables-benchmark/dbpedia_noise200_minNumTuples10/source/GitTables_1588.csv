@@ -1,0 +1,55 @@
+,,,,,
+"org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField#void#appendTo#?,StringBuffer,Calendar#1005",1.0,1.0,2.0,!(value == 0),_
+org.apache.commons.lang3.time.FastDateParser$TextStrategy#boolean#isNumber#?#570,1.0,0.0,1.0,,_
+"org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule#void#appendTo#?,StringBuffer,Calendar#1134",0.5,0.5,1.0,!(zone.useDaylightTime() && calendar.get(Calendar.DST_OFFSET) != 0),GT
+"org.apache.commons.lang3.time.FastDatePrinter$UnpaddedNumberField#void#appendTo#?,StringBuffer,int#734",0.3333333333333333,0.3333333333333333,0.6666666666666667,value < 100,_
+"org.apache.commons.lang3.time.FastDatePrinter#String#getTimeZoneDisplay#?,TimeZone,boolean,int,Locale#1085",0.2857142857142857,0.2857142857142857,0.5714285714285714,!(prior != null),_
+"org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey#boolean#equals#?,Object#1241",0.2857142857142857,0.2857142857142857,0.5714285714285714,obj instanceof TimeZoneDisplayKey,_
+"org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey#?#TimeZoneDisplayKey#?,TimeZone,boolean,int,Locale#1218",0.2857142857142857,0.2857142857142857,0.5714285714285714,daylight,_
+org.apache.commons.lang3.time.FastDatePrinter#List<Rule>#parsePattern#?#259,0.2857142857142857,0.2857142857142857,0.5714285714285714,!(tokenLen >= 4),_
+"org.apache.commons.lang3.time.FastDatePrinter$TextField#void#appendTo#?,StringBuffer,Calendar#692",0.2857142857142857,0.0,0.2857142857142857,,_
+org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey#int#hashCode#?#1230,0.2857142857142857,0.0,0.2857142857142857,,_
+org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule#int#estimateLength#?#1126,0.2857142857142857,0.0,0.2857142857142857,,_
+"org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule#?#TimeZoneNameRule#?,TimeZone,Locale,int#1110",0.2857142857142857,0.0,0.2857142857142857,,GT
+"org.apache.commons.lang3.time.FastDateFormat#FastDateFormat#getInstance#?,String#119",0.2222222222222222,0.0,0.2222222222222222,,_
+org.apache.commons.lang3.time.FastDatePrinter$TextField#int#estimateLength#?#678,0.0833333333333333,0.0833333333333333,0.1666666666666667,--i >= 0,_
+org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField#int#estimateLength#?#996,0.1666666666666666,0.0,0.1666666666666666,,_
+"org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField#?#TwelveHourField#?,NumberRule#988",0.1666666666666666,0.0,0.1666666666666666,,_
+"org.apache.commons.lang3.time.FormatCache#F#getInstance#?,String,TimeZone,Locale#76",0.1333333333333333,0.1333333333333333,0.1636363636363635,locale == null,_
+"org.apache.commons.lang3.time.FastDateParser#Strategy#getLocaleSpecificStrategy#?,int,Calendar#499",0.0952380952380952,0.0952380952380952,0.1377912867274568,!(inCache != null),_
+"org.apache.commons.lang3.time.FastDateParser$NumberStrategy#?#NumberStrategy#?,int#617",0.125,0.0,0.125,,_
+"org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy#?#TimeZoneStrategy#?,Locale#688",0.0526315789473684,0.0526315789473684,0.1052631578947369,"id.startsWith(""GMT"")",_
+"org.apache.commons.lang3.time.FastDateParser#StringBuilder#escapeRegex#?,StringBuilder,String,boolean#305",0.048780487804878,0.0526315789473684,0.1014120667522465,!(unquote),_
+"org.apache.commons.lang3.time.FastDateParser#Strategy#getStrategy#?,String,Calendar#450",0.0952380952380952,0.0,0.0952380952380952,,_
+org.apache.commons.lang3.time.FastDatePrinter$UnpaddedNumberField#int#estimateLength#?#716,0.0952380952380952,0.0,0.0952380952380952,,_
+"org.apache.commons.lang3.time.FastDatePrinter#NumberRule#selectNumberRule#?,int,int#359",0.0952380952380952,0.0,0.0952380952380952,,_
+"org.apache.commons.lang3.time.FastDatePrinter$UnpaddedNumberField#?#UnpaddedNumberField#?,int#708",0.0952380952380952,0.0,0.0952380952380952,,_
+"org.apache.commons.lang3.time.FastDatePrinter$TextField#?#TextField#?,int,String[]#669",0.0833333333333333,0.0,0.0833333333333333,,_
+"org.apache.commons.lang3.time.FastDatePrinter$TwoDigitNumberField#void#appendTo#?,StringBuffer,int#888",0.0408163265306122,0.0416666666666666,0.0824829931972789,value < 100,_
+org.apache.commons.lang3.time.FormatCache$MultipartKey#int#hashCode#?#199,0.0294117647058823,0.0377358490566037,0.0671476137624861,!(hashCode == 0),_
+"org.apache.commons.lang3.time.FastDatePrinter#String#parseToken#?,String,int[]#310",0.0327868852459016,0.0327868852459016,0.0630899155489319,pattern.charAt(i + 1)==c,_
+org.apache.commons.lang3.time.FastDatePrinter#void#init#?#153,0.0303030303030302,0.032258064516129,0.0625610948191592,mRules[i].estimateLength()<i,_
+"org.apache.commons.lang3.time.FastDateParser$TextStrategy#boolean#addRegex#?,FastDateParser,StringBuilder#582",0.0606060606060605,0.0,0.0606060606060605,,_
+"org.apache.commons.lang3.time.FastDateParser$TextStrategy#?#TextStrategy#?,int,Calendar,Locale#561",0.0606060606060605,0.0,0.0606060606060605,,_
+"org.apache.commons.lang3.time.FastDateParser#Map<String,Integer>#getDisplayNames#?,int,Calendar,Locale#346",0.0606060606060605,0.0,0.0606060606060605,,_
+"org.apache.commons.lang3.time.FastDateFormat#String#format#?,Calendar#420",0.054054054054054,0.0,0.054054054054054,,_
+org.apache.commons.lang3.time.FastDateParser$CopyQuotedStrategy#boolean#isNumber#?#526,0.0266666666666666,0.0266666666666666,0.0533333333333332,!(c == '\''),_
+"org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy#boolean#addRegex#?,FastDateParser,StringBuilder#722",0.0526315789473684,0.0,0.0526315789473684,,_
+org.apache.commons.lang3.time.FastDateParser#void#init#?#140,0.0259740259740259,0.0259740259740259,0.0506653839987173,"currentStrategy.addRegex(this,regex)",_
+"org.apache.commons.lang3.time.FastDateParser$NumberStrategy#boolean#addRegex#?,FastDateParser,StringBuilder#633",0.0246913580246913,0.0246913580246913,0.0493827160493827,!(parser.isNextNumber()),_
+"org.apache.commons.lang3.time.FastDatePrinter#StringBuffer#format#?,Calendar,StringBuffer#441",0.0454545454545454,0.0,0.0454545454545454,,_
+"org.apache.commons.lang3.time.FastDatePrinter#String#format#?,Calendar#415",0.0454545454545454,0.0,0.0454545454545454,,_
+"org.apache.commons.lang3.time.FastDatePrinter$CharacterLiteral#void#appendTo#?,StringBuffer,Calendar#616",0.0425531914893616,0.0,0.0425531914893616,,_
+"org.apache.commons.lang3.time.FastDatePrinter$TwoDigitNumberField#void#appendTo#?,StringBuffer,Calendar#880",0.0408163265306122,0.0,0.0408163265306122,,_
+"org.apache.commons.lang3.time.FastDatePrinter#StringBuffer#applyRules#?,Calendar,StringBuffer#456",0.04,0.0,0.04,,_
+"org.apache.commons.lang3.time.FastDateFormat#?#FastDateFormat#?,String,TimeZone,Locale#370",0.0392156862745097,0.0,0.0392156862745097,,_
+"org.apache.commons.lang3.time.FastDatePrinter$TwoDigitNumberField#?#TwoDigitNumberField#?,int#864",0.0363636363636363,0.0,0.0363636363636363,,_
+org.apache.commons.lang3.time.FastDatePrinter$TwoDigitNumberField#int#estimateLength#?#872,0.0363636363636363,0.0,0.0363636363636363,,_
+"org.apache.commons.lang3.time.FastDatePrinter$CharacterLiteral#?#CharacterLiteral#?,char#600",0.032258064516129,0.0,0.032258064516129,,_
+org.apache.commons.lang3.time.FastDatePrinter$CharacterLiteral#int#estimateLength#?#608,0.032258064516129,0.0,0.032258064516129,,_
+"org.apache.commons.lang3.time.FastDatePrinter#?#FastDatePrinter#?,String,TimeZone,Locale#137",0.03125,0.0,0.03125,,_
+"org.apache.commons.lang3.time.FormatCache$MultipartKey#?#MultipartKey#?,Object#180",0.0294117647058823,0.0,0.0294117647058823,,_
+"org.apache.commons.lang3.time.FastDateParser$CopyQuotedStrategy#boolean#addRegex#?,FastDateParser,StringBuilder#538",0.0256410256410256,0.0,0.0256410256410256,,_
+"org.apache.commons.lang3.time.FastDateParser$CopyQuotedStrategy#?#CopyQuotedStrategy#?,String#517",0.0256410256410256,0.0,0.0256410256410256,,_
+"org.apache.commons.lang3.time.FastDateParser#?#FastDateParser#?,String,TimeZone,Locale#98",0.0253164556962025,0.0,0.0253164556962025,,_
+org.apache.commons.lang3.time.FastDateParser#boolean#isNextNumber#?#367,0.0246913580246913,0.0,0.0246913580246913,,_

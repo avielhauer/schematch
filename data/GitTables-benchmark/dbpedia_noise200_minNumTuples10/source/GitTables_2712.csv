@@ -1,0 +1,8 @@
+,,,,,,,
+product_brand.access_product_brand_product_manager,product.brand,product_brand.model_product_brand,base.group_partner_manager,1,0,0,0
+access_product_brand_manager,product.brand manager,product_brand.model_product_brand,sales_team.group_sale_manager,1,1,1,1
+base.access_ir_exports_group_system,ir_exports group_system,base.model_ir_exports,base.group_user,1,1,1,0
+base.access_ir_exports_line_group_system,ir_exports_line group_system,base.model_ir_exports_line,base.group_user,1,1,1,0
+access_ir_exports_group_system_manager,ir_exports group_system,base.model_ir_exports,base.group_system,1,1,1,1
+access_ir_exports_line_group_system_manager,ir_exports_line group_system,base.model_ir_exports_line,base.group_system,1,1,1,1
+access_account_invoice_contact_report,account.invoice.contact.report,model_account_invoice_contact_report,base.group_user,1,1,1,0

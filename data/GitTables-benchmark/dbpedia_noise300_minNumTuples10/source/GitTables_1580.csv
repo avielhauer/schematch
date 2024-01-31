@@ -1,0 +1,33 @@
+,,,,,
+"org.apache.commons.math.complex.Complex#Complex#divide#?,Complex#258",0.7071067811865475,0.7071067811865475,1.0722551528566582,divisor.isZero,GT
+org.apache.commons.math.complex.Complex#Complex#atan#?#583,0.4082482904638631,0.4082482904638631,0.7618016810571369,!(isNaN),_
+org.apache.commons.math.complex.Complex#String#toString#?#1183,0.7071067811865475,0.0,0.7071067811865475,,_
+"org.apache.commons.math.util.FastMath#double#atan2#?,double,double#3004",0.2672612419124244,0.2672612419124244,0.5345224838248488,x == Double.POSITIVE_INFINITY,_
+"org.apache.commons.math.complex.Complex#Complex#multiply#?,Complex#425",0.2672612419124244,0.2672612419124244,0.4033440054003787,Double.isInfinite(real) || Double.isInfinite(imaginary) || Double.isInfinite(factor.real)|| Double.isInfinite(factor.imaginary),_
+"org.apache.commons.math.complex.Complex#boolean#equals#?,Object#328",0.2886751345948129,0.2886751345948129,0.3977840797128091,c.isNaN,_
+"org.apache.commons.math.util.FastMath#double#log#?,double,double[]#1284",0.1666666666666666,0.1714985851425088,0.3381652518091754,!(hiPrec != null),_
+org.apache.commons.math.complex.Complex#Complex#log#?#750,0.1825741858350553,0.1825741858350553,0.3368775357971473,!(isNaN),_
+org.apache.commons.math.complex.Complex#double#abs#?#121,0.2132007163556104,0.2132007163556104,0.3344685288737769,isInfinite(),_
+"org.apache.commons.math.complex.Complex#Complex#add#?,Complex#160",0.1622214211307625,0.1622214211307625,0.3096633772856597,!(isNaN || addend.isNaN),_
+"org.apache.commons.math.complex.Complex#Complex#subtract#?,Complex#493",0.1507556722888818,0.1507556722888818,0.2921770285261913,!(isNaN || subtrahend.isNaN),_
+org.apache.commons.math.complex.Complex#boolean#isNaN#?#379,0.1543033499620919,0.0,0.1543033499620919,,_
+"org.apache.commons.math.util.MathUtils#void#checkNotNull#?,Object#2334",0.0636929755298482,0.0638225646272602,0.1275155401571084,!(o == null),_
+"org.apache.commons.math.complex.Complex#?#Complex#?,double,double#106",0.1097642599896903,0.0,0.1097642599896903,,_
+org.apache.commons.math.complex.Complex#boolean#isInfinite#?#392,0.1066003581778052,0.0,0.1066003581778052,,_
+"org.apache.commons.math.complex.Complex#Complex#createComplex#?,double,double#1131",0.0790569415042094,0.0,0.0790569415042094,,_
+org.apache.commons.math.complex.Complex#double#getReal#?#368,0.0671156055214024,0.0,0.0671156055214024,,_
+org.apache.commons.math.complex.Complex#double#getImaginary#?#359,0.0668153104781061,0.0,0.0668153104781061,,_
+"org.apache.commons.math.util.FastMath#double#log#?,double#1256",0.0442807442770047,0.0,0.0442807442770047,,_
+"org.apache.commons.math.util.FastMath#double#abs#?,double#3410",0.0242108750622079,0.0,0.0242108750622079,,_
+org.apache.commons.math.util.FastMath#void#buildSinCosTables#?#1930,0.0,0.0,0.0,,_
+"org.apache.commons.math.util.FastMath#void#resplit#?,double#1062",0.0,0.0,0.0,,_
+"org.apache.commons.math.util.FastMath#double[]#slowLog#?,double#1743",0.0,0.0,0.0,,_
+"org.apache.commons.math.util.FastMath#void#quadMult#?,double,double,double#1155",0.0,0.0,0.0,,_
+"org.apache.commons.math.util.FastMath#void#splitMult#?,double,double,double#1086",0.0,0.0,0.0,,_
+"org.apache.commons.math.util.FastMath#double#slowCos#?,double,double#1848",0.0,0.0,0.0,,_
+"org.apache.commons.math.util.FastMath#void#split#?,double,double#1049",0.0,0.0,0.0,,_
+"org.apache.commons.math.util.FastMath#double#slowSin#?,double,double#1793",0.0,0.0,0.0,,_
+"org.apache.commons.math.util.FastMath#void#splitReciprocal#?,double,double#1120",0.0,0.0,0.0,,_
+"org.apache.commons.math.util.FastMath#double#slowexp#?,double,double#1024",0.0,0.0,0.0,,_
+"org.apache.commons.math.util.FastMath#double#expint#?,int,double#1233",0.0,0.0,0.0,,_
+"org.apache.commons.math.util.FastMath#void#splitAdd#?,double,double,double#1098",0.0,0.0,0.0,,_

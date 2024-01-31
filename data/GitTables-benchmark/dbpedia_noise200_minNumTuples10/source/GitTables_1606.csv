@@ -1,0 +1,21 @@
+,,,,,
+org.apache.commons.lang.time.FastDateFormat#List#parsePattern#?#619,0.0,1.1389977280879937,0.6833986368527961,tokenLen >= 4,_
+"org.apache.commons.lang.time.FastDateFormat#FastDateFormat#getDateInstance#?,int,TimeZone,Locale#285",0.0,0.6666666666666666,0.4,!(locale != null),GT
+org.apache.commons.lang.time.FastDateFormat$Pair#int#hashCode#?#1738,0.0,0.5000000000000001,0.3,(mObj1 == null ? 0 : mObj1.hashCode()) + (mObj2 == null ? 0 : mObj2.hashCode())==0,_
+"org.apache.commons.lang.time.FastDateFormat#?#FastDateFormat#?,String,TimeZone,Locale#551",0.0,0.2269439696520236,0.1361663817912141,!(locale == null),_
+"org.apache.commons.lang.time.FastDateFormat#String#parseToken#?,String,int[]#740",0.0,0.1730769230769231,0.1038461538461538,c == '\'',_
+org.apache.commons.lang.time.FastDateFormat#void#init#?#566,0.0,0.0220675216003859,0.0132405129602315,mRules[i].estimateLength()==i,_
+org.apache.commons.lang.time.FastDateFormat#int#hashCode#?#1007,0.0,0.0220675216003859,0.0132405129602315,total>=0,_
+"org.apache.commons.lang.time.FastDateFormat#FastDateFormat#getInstance#?,String,TimeZone,Locale#214",0.0,0.0104914769213232,0.0062948861527939,format == null,_
+"org.apache.commons.lang.time.FastDateFormat$TimeZoneNameRule#?#TimeZoneNameRule#?,TimeZone,boolean,Locale,int#1544",0.0,0.0,0.0,!(timeZoneForced),_
+org.apache.commons.lang.time.FastDateFormat$CharacterLiteral#int#estimateLength#?#1089,0.0,0.0,0.0,1>0,_
+org.apache.commons.lang.time.FastDateFormat$TextField#int#estimateLength#?#1161,0.0,0.0,0.0,max>0,_
+"org.apache.commons.lang.time.FastDateFormat$PaddedNumberField#?#PaddedNumberField#?,int,int#1273",0.0,0.0,0.0,!(size < 3),_
+"org.apache.commons.lang.time.FastDateFormat$Pair#boolean#equals#?,Object#1717",0.0,0.0,0.0,!(this == obj),_
+"org.apache.commons.lang.time.FastDateFormat#FastDateFormat#getDateTimeInstance#?,int,int,TimeZone,Locale#462",0.0,0.0,0.0,!(timeZone != null),GT
+org.apache.commons.lang.time.FastDateFormat$TwelveHourField#int#estimateLength#?#1455,0.0,0.0,0.0,mRule.estimateLength()>=0,_
+org.apache.commons.lang.time.FastDateFormat$TwoDigitNumberField#int#estimateLength#?#1340,0.0,0.0,0.0,2>=0,_
+org.apache.commons.lang.time.FastDateFormat$PaddedNumberField#int#estimateLength#?#1285,0.0,0.0,0.0,4>=0,_
+org.apache.commons.lang.time.FastDateFormat$StringLiteral#int#estimateLength#?#1120,0.0,0.0,0.0,mValue.length()>0,_
+org.apache.commons.lang.time.FastDateFormat$UnpaddedNumberField#int#estimateLength#?#1193,0.0,0.0,0.0,4!=0,_
+org.apache.commons.lang.time.FastDateFormat$TimeZoneNameRule#int#estimateLength#?#1560,0.0,0.0,0.0,4>=0,_

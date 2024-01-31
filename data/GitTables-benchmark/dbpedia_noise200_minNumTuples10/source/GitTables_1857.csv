@@ -1,0 +1,7 @@
+,,
+1,ReplaceConstant,org.geotools.filter.function.Collection_MedianFunction.setParameters(Ljava/util/List;)V:108 - ReplaceConstant - 0 -> 1
+2,ReplaceComparisonOperator,org.geotools.filter.function.Collection_MedianFunction.evaluate(Ljava/lang/Object;)Ljava/lang/Object;:113 - ReplaceComparisonOperator != null -> = null
+3,ReplaceConstant,org.geotools.filter.function.Collection_MedianFunction.evaluate(Ljava/lang/Object;)Ljava/lang/Object;:114 - ReplaceConstant - 0 -> 1
+4,ReplaceConstant,org.geotools.filter.function.Collection_MedianFunction.evaluate(Ljava/lang/Object;)Ljava/lang/Object;:116 - ReplaceConstant - 0 -> 1
+5,ReplaceComparisonOperator,org.geotools.filter.function.Collection_MedianFunction.evaluate(Ljava/lang/Object;)Ljava/lang/Object;:119 - ReplaceComparisonOperator == -> !=
+6,ReplaceComparisonOperator,org.geotools.filter.function.Collection_MedianFunction.evaluate(Ljava/lang/Object;)Ljava/lang/Object;:124 - ReplaceComparisonOperator = null -> != null

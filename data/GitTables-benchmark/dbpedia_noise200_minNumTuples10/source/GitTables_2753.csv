@@ -1,0 +1,14 @@
+,,,,,,,
+access_to_affiliate_code_user,to.affiliate.code.manager,model_to_affiliate_code,group_to_affiliate_manager,1,1,1,1
+access_to_affiliate_code_portal,to.affiliate.code.portal,model_to_affiliate_code,base.group_portal,1,0,0,0
+access_to_affiliate_commission_user,to.affiliate.commission.user,model_to_affiliate_commission,group_to_affiliate_user,1,1,1,1
+access_to_affiliate_commission_line_user,to.affiliate.commission.line.user,model_to_affiliate_commission_line,group_to_affiliate_user,1,1,1,1
+access_to_affiliate_commission_portal,to.affiliate.commission.portal,model_to_affiliate_commission,base.group_portal,1,0,0,0
+access_to_affiliate_payment_user,to.affiliate.payment.user,model_to_affiliate_payment,group_to_affiliate_user,1,1,1,1
+access_to_affiliate_payment_portal,to.affiliate.payment.portal,model_to_affiliate_payment,base.group_portal,1,1,1,1
+access_ir_sequence_portal,ir.sequence.portal,base.model_ir_sequence,base.group_portal,1,1,1,0
+access_to_affiliate_commission_rule_manager,to.affiliate.commission.rule.manager,model_to_affiliate_commission_rule,group_to_affiliate_manager,1,1,1,1
+access_to_affiliate_commission_rule_line_manager,to.affiliate.commission.rule.line.manager,model_to_affiliate_commission_rule_line,group_to_affiliate_manager,1,1,1,1
+access_to_affiliate_referrer_analysis_user,to.affiliate.referrer.analysis.user,model_to_affiliate_referrer_analysis,group_to_affiliate_user,1,1,1,1
+access_to_report_affiliate_referrer_analysis_user,to.report.affiliate.referrer.analysis.user,model_to_report_affiliate_referrer_analysis,group_to_affiliate_user,1,1,1,1
+access_to_product_pricelist_item_manager,product.pricelist.item.manager,product.model_product_pricelist_item,base.group_sale_manager,1,1,1,1

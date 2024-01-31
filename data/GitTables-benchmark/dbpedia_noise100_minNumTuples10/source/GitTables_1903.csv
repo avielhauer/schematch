@@ -1,0 +1,6 @@
+,,,
+org/assertj/core/api/AbstractPredicateLikeAssert.AbstractPredicateLikeAssert,(Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/lang/Class;)V,21,1
+org/assertj/core/api/AbstractPredicateLikeAssert.acceptsInternal,(Ljava/lang/Object;)Lorg/assertj/core/api/AbstractPredicateLikeAssert;,30,2
+org/assertj/core/api/AbstractPredicateLikeAssert.rejectsInternal,(Ljava/lang/Object;)Lorg/assertj/core/api/AbstractPredicateLikeAssert;,30,2
+org/assertj/core/api/AbstractPredicateLikeAssert.acceptsAllInternal,(Ljava/lang/Iterable;)Lorg/assertj/core/api/AbstractPredicateLikeAssert;,24,1
+org/assertj/core/api/AbstractPredicateLikeAssert.rejectsAllInternal,(Ljava/lang/Iterable;)Lorg/assertj/core/api/AbstractPredicateLikeAssert;,24,1

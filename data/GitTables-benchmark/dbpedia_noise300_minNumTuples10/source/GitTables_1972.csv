@@ -1,0 +1,17 @@
+,,,
+org/assertj/core/api/AbstractCompletableFutureAssert.AbstractCompletableFutureAssert,(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Class;)V,11,1
+org/assertj/core/api/AbstractCompletableFutureAssert.isDone,()Lorg/assertj/core/api/AbstractCompletableFutureAssert;,27,2
+org/assertj/core/api/AbstractCompletableFutureAssert.isNotDone,()Lorg/assertj/core/api/AbstractCompletableFutureAssert;,27,2
+org/assertj/core/api/AbstractCompletableFutureAssert.isCompletedExceptionally,()Lorg/assertj/core/api/AbstractCompletableFutureAssert;,27,2
+org/assertj/core/api/AbstractCompletableFutureAssert.isNotCompletedExceptionally,()Lorg/assertj/core/api/AbstractCompletableFutureAssert;,27,2
+org/assertj/core/api/AbstractCompletableFutureAssert.isCancelled,()Lorg/assertj/core/api/AbstractCompletableFutureAssert;,27,2
+org/assertj/core/api/AbstractCompletableFutureAssert.isNotCancelled,()Lorg/assertj/core/api/AbstractCompletableFutureAssert;,27,2
+org/assertj/core/api/AbstractCompletableFutureAssert.isCompleted,()Lorg/assertj/core/api/AbstractCompletableFutureAssert;,34,3
+org/assertj/core/api/AbstractCompletableFutureAssert.isNotCompleted,()Lorg/assertj/core/api/AbstractCompletableFutureAssert;,32,3
+org/assertj/core/api/AbstractCompletableFutureAssert.isCompletedWithValue,(Ljava/lang/Object;)Lorg/assertj/core/api/AbstractCompletableFutureAssert;,40,2
+org/assertj/core/api/AbstractCompletableFutureAssert.isCompletedWithValueMatching,(Ljava/util/function/Predicate;)Lorg/assertj/core/api/AbstractCompletableFutureAssert;,9,1
+org/assertj/core/api/AbstractCompletableFutureAssert.isCompletedWithValueMatching,(Ljava/util/function/Predicate;Ljava/lang/String;)Lorg/assertj/core/api/AbstractCompletableFutureAssert;,12,1
+org/assertj/core/api/AbstractCompletableFutureAssert.isCompletedWithValueMatching,(Ljava/util/function/Predicate;Lorg/assertj/core/presentation/PredicateDescription;)Lorg/assertj/core/api/AbstractCompletableFutureAssert;,38,2
+org/assertj/core/api/AbstractCompletableFutureAssert.hasFailed,()Lorg/assertj/core/api/AbstractCompletableFutureAssert;,34,3
+org/assertj/core/api/AbstractCompletableFutureAssert.hasNotFailed,()Lorg/assertj/core/api/AbstractCompletableFutureAssert;,32,3
+org/assertj/core/api/AbstractCompletableFutureAssert.hasFailedWithThrowableThat,()Lorg/assertj/core/api/AbstractThrowableAssert;,30,2
