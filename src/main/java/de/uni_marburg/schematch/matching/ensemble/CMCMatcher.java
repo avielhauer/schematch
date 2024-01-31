@@ -31,6 +31,11 @@ public class CMCMatcher extends Matcher {
 
         }
     }
+    public CMCMatcher(CrediblityPredictorModel model)
+    {
+        crediblityPredictorModel=model;
+
+    }
     public CrediblityPredictorModel getCrediblityPredictorModel() {
         return crediblityPredictorModel;
     }
@@ -57,7 +62,7 @@ public class CMCMatcher extends Matcher {
                         double nominator=0;
 
 
-                        for (Matcher m : crediblityPredictorModel.matchers) {
+                        for (Matcher m : matchTask.getFirstLineMatchers()) {
                             float sim = matchTask.getSimMatrixFromPreviousMatchStep(matchStep,m)[i][j];
                             float acc= (float) crediblityPredictorModel.predictaccuracy(new ColumnPair(sourceTable.getColumn(i),targetTable.getColumn(j)),m);
                             nominator+=sim*acc;
@@ -67,7 +72,7 @@ public class CMCMatcher extends Matcher {
                     } catch (CrediblityPredictorModel.ModelTrainedException e) {
                         System.out.println("Sim Not Found");
                     } catch (Exception e) {
-                        System.out.println("Model not Trained");
+                        e.printStackTrace();
                     }
                 }
             }

@@ -10,26 +10,7 @@ import de.uni_marburg.schematch.utils.ModelUtils;
 
 public class MyMain {
     public static void main(String[] args) {
-       /* CrediblityPredictorModel crediblityPredictorModel=new CrediblityPredictorModel();
-        try {
-            ModelUtils.loadDataToModel(crediblityPredictorModel);
 
-            crediblityPredictorModel.addFeature(new Feature("f1"));
-            crediblityPredictorModel.addFeature(new Feature("f2"));
-            crediblityPredictorModel.addFeature(new Feature("f3"));
-            crediblityPredictorModel.addFeature(new Feature("f4"));
-            crediblityPredictorModel.addMatcher(new CosineMatcher());
-            crediblityPredictorModel.addMatcher(new HammingMatcher());
-            crediblityPredictorModel.prepareData();
-        } catch (CrediblityPredictorModel.ModelTrainedException e) {
-            throw new RuntimeException(e);
-        }
-
-        */
-        Matcher token=new CosineMatcher();
-        System.out.println(token.toString());
-        System.out.println(token.getClass());
-        System.out.println(token.getClass().getName());
 
     }
 }
