@@ -72,16 +72,20 @@ public class CrediblityPredictorModel implements Serializable {
             newInstance.setValue(i,feature.calculateScore(columnPair));
             i++;
         }
-
+        boolean found=false;
         for (Matcher m : matchers) {
 
-            if (newMatcher.equals(m))
+            if (newMatcher.toString().equals(m.toString()))
+            {
 
                 newInstance.setValue(i, 1);
+                found=true;
+            }
             else newInstance.setValue(i, 0);
             i++;
         }
-
+        if(!found)
+            throw new Exception("Matcher not Found");
 
         return linearRegression.classifyInstance(newInstance);
     }
