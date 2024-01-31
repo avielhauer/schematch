@@ -1,19 +1,14 @@
-package de.uni_marburg.schematch.matching.ensemble;
+package de.uni_marburg.schematch.matching.ensemble.features;
 
 import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
 
 import java.util.Random;
 
-public class Feature {
-    public Feature(String name) {
-        Name = name;
+public class FeatureRandom extends Feature{
+    public FeatureRandom(String name) {
+        this.setName(name);
     }
 
-    public String getName() {
-        return Name;
-    }
-
-    String Name;
     public double calculateScore(ColumnPair columnPair)
     {
         Random random=new Random();

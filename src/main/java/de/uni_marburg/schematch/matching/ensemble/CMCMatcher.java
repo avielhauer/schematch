@@ -2,6 +2,7 @@ package de.uni_marburg.schematch.matching.ensemble;
 
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.matching.Matcher;
+import de.uni_marburg.schematch.matching.ensemble.features.Feature;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CMCMatcher extends Matcher {
-    public  CMCMatcher(MatchingStep matchStep, ArrayList<Feature> featureList, ArrayList<Matcher> matchers,ArrayList<MatchTask> matchTasks) {
+    public  CMCMatcher(MatchingStep matchStep, ArrayList<Feature> featureList, ArrayList<Matcher> matchers, ArrayList<MatchTask> matchTasks) {
         try {
 
 

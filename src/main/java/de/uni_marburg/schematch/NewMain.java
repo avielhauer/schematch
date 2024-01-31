@@ -10,7 +10,7 @@ import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matching.MatcherFactory;
 import de.uni_marburg.schematch.matching.ensemble.CMCMatcher;
 import de.uni_marburg.schematch.matching.ensemble.CrediblityPredictorModel;
-import de.uni_marburg.schematch.matching.ensemble.Feature;
+import de.uni_marburg.schematch.matching.ensemble.features.Feature;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
