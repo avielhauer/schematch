@@ -1,4 +1,11 @@
 package de.uni_marburg.schematch.matching.ensemble.features.labelFeatures;
 
-public class FeatureLabelComponents {
+import de.uni_marburg.schematch.matching.ensemble.features.Feature;
+import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
+
+public class FeatureLabelComponents extends Feature {
+    @Override
+    public double calculateScore(ColumnPair columnPair) {
+        return 0;
+    }
 }
