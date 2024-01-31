@@ -1,17 +1,15 @@
 package de.uni_marburg.schematch.matching.ensemble;
 
 import de.uni_marburg.schematch.data.Column;
-import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.matching.Matcher;
+import de.uni_marburg.schematch.matching.ensemble.features.Feature;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
-import de.uni_marburg.schematch.utils.ModelUtils;
 import lombok.SneakyThrows;
-import org.apache.commons.lang3.NotImplementedException;
 import weka.classifiers.functions.LinearRegression;
 import weka.core.Instance;
 import weka.core.Instances;
