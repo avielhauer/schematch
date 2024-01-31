@@ -7,6 +7,7 @@ import de.uni_marburg.schematch.data.metadata.DatabaseMetadata;
 import de.uni_marburg.schematch.data.metadata.ScenarioMetadata;
 import de.uni_marburg.schematch.data.metadata.dependency.FunctionalDependency;
 import de.uni_marburg.schematch.data.metadata.dependency.InclusionDependency;
+import de.uni_marburg.schematch.data.metadata.dependency.Metanome;
 import de.uni_marburg.schematch.data.metadata.dependency.UniqueColumnCombination;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
@@ -194,8 +195,14 @@ public class InputReader {
                 Path uccFilePath = metadataFolderPath.resolve(table.getName()).resolve("UCC_results.txt");
 
                 Collection<FunctionalDependency> datasetFDs = readFDFile(fdFilePath, table, fdMap);
+                if(datasetFDs.isEmpty())
+                    datasetFDs = Metanome.executeFD(List.of(table));
+                for (FunctionalDependency fd : datasetFDs) {
+                    fd.setPdepTuple(MetadataUtils.getPdep(fd));
+                }
                 Collection<UniqueColumnCombination> datasetUCCs = readUCCFile(uccFilePath, table, uccMap);
-
+                if(datasetUCCs.isEmpty())
+                    datasetUCCs = Metanome.executeUCC(List.of(table));
                 fds.addAll(datasetFDs);
                 uccs.addAll(datasetUCCs);
             }
@@ -203,6 +210,7 @@ public class InputReader {
             metadata.getIndMap().putAll(indMap);
             metadata.getFdMap().putAll(fdMap);
             metadata.getUccMap().putAll(uccMap);
+
             return metadata;
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -230,32 +238,59 @@ public class InputReader {
             throw new RuntimeException(e);
         }
     }
-
-    private static Collection<FunctionalDependency> readFDFile(Path filePath, Table table, Map<Column, Collection<FunctionalDependency>> map) throws IOException{
+    
+    
+    public static Collection<FunctionalDependency> readFDFile(Path filePath, Table table, Map<Column, Collection<FunctionalDependency>> map) throws IOException{
         Set<FunctionalDependency> fds = new HashSet<>();
+        if(!filePath.toFile().exists()) {
+            filePath.toFile().getParentFile().mkdirs();
+            filePath.toFile().createNewFile();
+        }
         List<String> lines = Files.readAllLines(filePath);
         for (String line : lines) {
-            String[] split = line.split(" --> ");
-            if(split[0].equalsIgnoreCase("[]"))
+            if(line.isEmpty() || line.isBlank())
                 continue;
-            Collection<Column> leftCC = (Collection<Column>) extractColumnsFromString(split[0], table);
-            for(String right : split[1].split(",")){
-                Column rightC = table.getColumn(table.getLabels().indexOf(right.trim().split(".csv.")[1]));
-                FunctionalDependency fd = new FunctionalDependency(leftCC, rightC);
-                fds.add(fd);
-                map.computeIfAbsent(rightC, k -> new ArrayList<>()).add(fd);
-                for (Column left: leftCC){
-                    map.computeIfAbsent(left, k -> new ArrayList<>()).add(fd);
+            String[] split = line.split(" --> ");
+            if(split[0].equalsIgnoreCase("[]")) {
+                for (String right : split[1].split(",")) {
+                    Column rightC = table.getColumn(table.getLabels().indexOf(right.trim().split(".csv.")[1]));
+                    for (Column leftCol : table.getColumns()){
+                        if(leftCol.getLabel().equals(right))
+                            continue;
+                        List<Column> leftCC = List.of(leftCol);
+                        extracted(map, leftCC, rightC, fds);
+                    }
+                }
+            } else {
+                Collection<Column> leftCC = (Collection<Column>) extractColumnsFromString(split[0], table);
+                for (String right : split[1].split(",")) {
+                    Column rightC = table.getColumn(table.getLabels().indexOf(right.trim().split(".csv.")[1]));
+                    extracted(map, leftCC, rightC, fds);
                 }
             }
         }
         return fds;
     }
 
-    private static Collection<UniqueColumnCombination> readUCCFile(Path filePath, Table table, Map<Column, Collection<UniqueColumnCombination>> map) throws IOException{
+    private static void extracted(Map<Column, Collection<FunctionalDependency>> map, Collection<Column> leftCC, Column rightC, Set<FunctionalDependency> fds) {
+        FunctionalDependency fd = new FunctionalDependency(leftCC, rightC);
+        fds.add(fd);
+        map.computeIfAbsent(rightC, k -> new ArrayList<>()).add(fd);
+        for (Column left : leftCC) {
+            map.computeIfAbsent(left, k -> new ArrayList<>()).add(fd);
+        }
+    }
+
+    public static Collection<UniqueColumnCombination> readUCCFile(Path filePath, Table table, Map<Column, Collection<UniqueColumnCombination>> map) throws IOException{
         Set<UniqueColumnCombination> uccs = new HashSet<>();
+        if(!filePath.toFile().exists()) {
+            filePath.toFile().getParentFile().mkdirs();
+            filePath.toFile().createNewFile();
+        }
         List<String> lines = Files.readAllLines(filePath);
         for (String line : lines) {
+            if(line.isEmpty() || line.isBlank())
+                continue;
             if(line.equalsIgnoreCase("[]"))
                 continue;
             Collection<Column> columns = (Collection<Column>) extractColumnsFromString(line, table);
@@ -268,31 +303,38 @@ public class InputReader {
         return uccs;
     }
 
-    private static Collection<InclusionDependency> readINDFile(Path filePath, Database leftDatabase, Database rightDatabase, Map<Column, Collection<InclusionDependency>> map) throws IOException{
+    public static Collection<InclusionDependency> readINDFile(Path filePath, Database leftDatabase, Database rightDatabase, Map<Column, Collection<InclusionDependency>> map) throws IOException {
+        return readINDFile(filePath, leftDatabase.getTables(), rightDatabase.getTables(), map);
+    }
+
+    public static Table getTableByName(String tableName, List<Table> tables) {
+        for (Table table : tables) {
+            if (table.getName().equals(tableName)) {
+                return table;
+            }
+        }
+        return null;
+    }
+
+    public static Collection<InclusionDependency> readINDFile(Path filePath, List<Table> leftDatabase, List<Table> rightDatabase, Map<Column, Collection<InclusionDependency>> map) throws IOException{
         Set<InclusionDependency> inds = new HashSet<>();
+        if(!filePath.toFile().exists()) {
+            filePath.toFile().getParentFile().mkdirs();
+            filePath.toFile().createNewFile();
+        }
         List<String> lines = Files.readAllLines(filePath);
         for (String line : lines) {
+            if(line.isEmpty() || line.isBlank())
+                continue;
             String[] split = line.split(" --> ");
             Collection<String[]> supersetCCString = (Collection<String[]>) extractColumnsFromString(split[0], null);
-            Collection<Column> supersetCC = new ArrayList<>();
-            for(String[] tableColumnPair: supersetCCString){
-                Table table = leftDatabase.getTableByName(tableColumnPair[0]);
-                if(table == null)
-                    throw new RuntimeException("While reading in metadata from " + filePath + " an error occurred, table " + tableColumnPair[0] + " cannot be found!");
-                supersetCC.add(table.getColumn(table.getLabels().indexOf(tableColumnPair[1])));
-            }
+            Collection<Column> supersetCC = extractINDs(filePath, leftDatabase, supersetCCString);
             for(String right : split[1].split("], ")){
                 right = right.trim();
                 if(right.charAt(right.length()-1) != ']')
                     right = right + "]";
                 Collection<String[]> subsetCCString = (Collection<String[]>) extractColumnsFromString(right, null);
-                Collection<Column> subsetCC = new ArrayList<>();
-                for(String[] tableColumnPair: subsetCCString){
-                    Table table = rightDatabase.getTableByName(tableColumnPair[0]);
-                    if(table == null)
-                        throw new RuntimeException("While reading in metadata from " + filePath + " an error occurred, table " + tableColumnPair[0] + " cannot be found!");
-                    subsetCC.add(table.getColumn(table.getLabels().indexOf(tableColumnPair[1])));
-                }
+                Collection<Column> subsetCC = extractINDs(filePath, rightDatabase, subsetCCString);
                 InclusionDependency ind = new InclusionDependency(subsetCC, supersetCC);
                 inds.add(ind);
                 for (Column left: subsetCC){
@@ -304,6 +346,17 @@ public class InputReader {
             }
         }
         return inds;
+    }
+
+    private static Collection<Column> extractINDs(Path filePath, List<Table> rightDatabase, Collection<String[]> subsetCCString) {
+        Collection<Column> setCC = new ArrayList<>();
+        for(String[] tableColumnPair: subsetCCString){
+            Table table = getTableByName(tableColumnPair[0], rightDatabase);
+            if(table == null)
+                throw new RuntimeException("While reading in metadata from " + filePath + " an error occurred, table " + tableColumnPair[0] + " cannot be found!");
+            setCC.add(table.getColumn(table.getLabels().indexOf(tableColumnPair[1])));
+        }
+        return setCC;
     }
 
     private static Collection<?> extractColumnsFromString(String input, Table table) {

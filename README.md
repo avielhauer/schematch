@@ -15,7 +15,7 @@ If you encounter any problems or have any questions, do not hesitate to write a 
 #### Topic 1: State-of-the-Art Matchers
 Team members: TODO
 #### Topic 2: Metadata Matchers
-Team members: TODO
+Team members: Leif Reuter, Lars Reuter
 #### Topic 3: Similarity Matrix Boosting (Similarity Flooding)
 Team members: TODO
 #### Topic 4: Similarity Matrix Boosting (Other)

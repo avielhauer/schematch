@@ -1,6 +1,7 @@
 package de.uni_marburg.schematch.data;
 
 import de.uni_marburg.schematch.preprocessing.tokenization.Tokenizer;
+import de.uni_marburg.schematch.data.metadata.Datatype;
 import lombok.Data;
 
 import java.util.HashMap;
@@ -10,18 +11,10 @@ import java.util.Set;
 
 @Data
 public class Column {
-    public enum Datatype {
-        STRING,
-        INTEGER,
-        FLOAT,
-        DATE,
-        TEXT, // long string (e.g., comments or descriptions)
-        GEO_LOCATION
-    }
-
     private Table table;
     private final String label;
     private Datatype datatype;
+    private HashMap<Datatype, Double> dataTypeScores;
     /**
      * All values are represented as String.
      * See {@link #datatype} for more specific interpretation.
@@ -33,7 +26,8 @@ public class Column {
     public Column(String label, List<String> values) {
         this.label = label;
         this.values = values;
-        this.datatype = Datatype.STRING;
+        this.datatype = null;
+        this.dataTypeScores = null;
         this.tokenizedLabel = new HashMap<>();
         this.tokenizedValues = new HashMap<>();
     }
@@ -46,6 +40,21 @@ public class Column {
     @Override
     public String toString() {
         return this.label + "___" + this.table.getName();
+    }
+
+    public Datatype getDatatype() {
+        if (this.datatype == null) {
+            this.datatype = Datatype.determineDatatype(getDataTypeScores());
+        }
+        return this.datatype;
+    }
+
+    public HashMap<Datatype, Double> getDataTypeScores() {
+        if (this.dataTypeScores == null) {
+            this.dataTypeScores = Datatype.calculateScores(this);
+            this.datatype = Datatype.determineDatatype(dataTypeScores);
+        }
+        return dataTypeScores;
     }
 
     public Set<String> getLabelTokens(Tokenizer tokenizer) {
