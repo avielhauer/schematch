@@ -32,11 +32,6 @@ public class DatabaseMetadata {
                 .filter(fd -> fd.getPdepTuple().gpdep >= lowerBound).toList();
     }
 
-    public Collection<FunctionalDependency> getGpdepFDs(int size, double lowerBound){
-        return fds.stream()
-                .filter(fd -> (fd.getDeterminant().size() < size && fd.getPdepTuple().gpdep >= lowerBound)).toList();
-    }
-
     public Collection<FunctionalDependency> getGpdepFDs(Column columnName, double lowerBound){
         return fdMap.get(columnName).stream()
                 .filter(fd -> fd.getPdepTuple().gpdep >= lowerBound).toList();
@@ -55,11 +50,6 @@ public class DatabaseMetadata {
     public Collection<UniqueColumnCombination> getUniqueColumnCombinations(Column columnName, int size){
         return uccMap.get(columnName).stream().filter(e -> e.getColumnCombination().size() <= size).toList();
     }
-
-    public Collection<UniqueColumnCombination> getUniqueColumnCombinations(int size){
-        return uccs.stream().filter(e -> e.getColumnCombination().size() <= size).toList();
-    }
-
     public Collection<InclusionDependency> getInclusionDependencies(Column columnName, int size){
         return indMap.get(columnName).stream().filter(e -> e.getDependant().size() <= size).toList();
     }
