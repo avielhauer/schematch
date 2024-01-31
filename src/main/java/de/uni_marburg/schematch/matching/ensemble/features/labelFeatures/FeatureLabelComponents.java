@@ -13,7 +13,7 @@ public class FeatureLabelComponents extends Feature {
     ));
     @Override
     public double calculateScore(ColumnPair columnPair) {
-        initiateK(1.0/Math.max(Double.valueOf(columnPair.getSourceColumn().getLabel().length()),Double.valueOf(columnPair.getTargetColumn().getLabel().length())));
+        initiateK(Double.valueOf(columnPair.getSourceColumn().getLabel().length()),Double.valueOf(columnPair.getTargetColumn().getLabel().length()));
         return calculateScoreOfFeatrue(getSemanticFrequency(columnPair.getSourceColumn()),getSemanticFrequency(columnPair.getTargetColumn()));
     }
 
