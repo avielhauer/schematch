@@ -11,6 +11,7 @@ import de.uni_marburg.schematch.matching.MatcherFactory;
 import de.uni_marburg.schematch.matching.ensemble.CMCMatcher;
 import de.uni_marburg.schematch.matching.ensemble.CrediblityPredictorModel;
 import de.uni_marburg.schematch.matching.ensemble.features.Feature;
+import de.uni_marburg.schematch.matching.ensemble.features.FeatureRandom;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
@@ -218,10 +219,10 @@ public class NewMain {
         }
 
 */
-//        cmc.addFeature(new Feature("f1"));
-//        cmc.addFeature(new Feature("f2"));
-//        cmc.addFeature(new Feature("f3"));
-//        cmc.addFeature(new Feature("f4"));
+        cmc.addFeature(new FeatureRandom("f1"));
+        cmc.addFeature(new FeatureRandom("f2"));
+        cmc.addFeature(new FeatureRandom("f3"));
+        cmc.addFeature(new FeatureRandom("f4"));
         for (Matcher matcher:firstLineMatchers)
         {
             cmc.addMatcher(matcher);

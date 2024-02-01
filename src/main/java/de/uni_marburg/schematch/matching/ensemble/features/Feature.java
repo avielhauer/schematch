@@ -9,12 +9,19 @@ public abstract class Feature {
     String name;
     double k;
 
+    public Feature(String name){
+        this.setName(name);
+    }
+
     public String getName() {
         return name;
     }
 
-    public void setName(){
+    public void setName(String suffix){
         this.name = this.getClass().getName();
+        if (!suffix.isEmpty()){
+            this.name = this.name + " description: " + suffix;
+        }
     }
 
 

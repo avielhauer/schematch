@@ -1,4 +1,4 @@
-package de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures;
+package de.uni_marburg.schematch.matching.ensemble.features;
 
 import de.uni_marburg.schematch.matching.ensemble.features.Feature;
 
@@ -6,6 +6,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public abstract class FeatureInstace extends Feature {
+    public FeatureInstace(String name) {
+        super(name);
+    }
+
     public List<Double> calculateAverage(List<List<Double>> toAverage){
         return toAverage.stream()
                 .map(innerList -> innerList.stream()

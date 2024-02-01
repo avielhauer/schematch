@@ -11,6 +11,11 @@ public class FeatureLabelComponents extends Feature {
     final static ArrayList<String> SEMANTIC_COMPONENTS = new ArrayList<>(Arrays.asList(
             " ", "_", "-"
     ));
+
+    public FeatureLabelComponents(String name) {
+        super(name);
+    }
+
     @Override
     public double calculateScore(ColumnPair columnPair) {
         initiateK(Double.valueOf(columnPair.getSourceColumn().getLabel().length()),Double.valueOf(columnPair.getTargetColumn().getLabel().length()));

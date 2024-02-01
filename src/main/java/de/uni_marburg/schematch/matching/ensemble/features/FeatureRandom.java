@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class FeatureRandom extends Feature{
     public FeatureRandom(String name) {
-        this.setName();
+        super(name);
     }
 
     public double calculateScore(ColumnPair columnPair)
