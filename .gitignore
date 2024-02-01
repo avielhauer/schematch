@@ -11,6 +11,9 @@
 /data/Valentine-TPC-DI*
 
 
+# Build files
+dependency-reduced-pom.xml
+
 # IntelliJ
 /.idea
 
