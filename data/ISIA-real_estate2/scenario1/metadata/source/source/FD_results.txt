@@ -1,0 +1,1041 @@
+[] --> source.csv.type
+[source.csv.house_address] --> source.csv.house_description
+[source.csv.house_address] --> source.csv.house_price
+[source.csv.house_address] --> source.csv.agent_name
+[source.csv.house_address] --> source.csv.building_area
+[source.csv.house_address] --> source.csv.agent_email
+[source.csv.house_address] --> source.csv.school
+[source.csv.house_address] --> source.csv.agent_phone
+[source.csv.house_address] --> source.csv.firm_name
+[source.csv.house_address] --> source.csv.firm_address
+[source.csv.house_address] --> source.csv.utilities
+[source.csv.house_address] --> source.csv.lot_area
+[source.csv.house_address] --> source.csv.num_rooms
+[source.csv.house_address] --> source.csv.garage
+[source.csv.house_address] --> source.csv.fireplace
+[source.csv.house_address] --> source.csv.sewer
+[source.csv.house_address] --> source.csv.water
+[source.csv.house_address] --> source.csv.electricity
+[source.csv.house_description] --> source.csv.fireplace
+[source.csv.house_description, source.csv.house_price] --> source.csv.lot_area
+[source.csv.house_description, source.csv.house_price] --> source.csv.sewer
+[source.csv.house_description, source.csv.house_price] --> source.csv.water
+[source.csv.firm_address, source.csv.house_description, source.csv.house_price] --> source.csv.house_address
+[source.csv.house_description, source.csv.house_price, source.csv.utilities] --> source.csv.house_address
+[source.csv.house_description, source.csv.house_price, source.csv.utilities] --> source.csv.agent_name
+[source.csv.house_description, source.csv.house_price, source.csv.utilities] --> source.csv.building_area
+[source.csv.house_description, source.csv.house_price, source.csv.utilities] --> source.csv.agent_email
+[source.csv.house_description, source.csv.house_price, source.csv.utilities] --> source.csv.school
+[source.csv.house_description, source.csv.house_price, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.house_description, source.csv.house_price, source.csv.utilities] --> source.csv.firm_name
+[source.csv.house_description, source.csv.house_price, source.csv.utilities] --> source.csv.num_rooms
+[source.csv.garage, source.csv.house_description, source.csv.house_price] --> source.csv.house_address
+[source.csv.garage, source.csv.house_description, source.csv.house_price] --> source.csv.agent_name
+[source.csv.garage, source.csv.house_description, source.csv.house_price] --> source.csv.building_area
+[source.csv.garage, source.csv.house_description, source.csv.house_price] --> source.csv.agent_email
+[source.csv.garage, source.csv.house_description, source.csv.house_price] --> source.csv.school
+[source.csv.garage, source.csv.house_description, source.csv.house_price] --> source.csv.agent_phone
+[source.csv.garage, source.csv.house_description, source.csv.house_price] --> source.csv.firm_name
+[source.csv.garage, source.csv.house_description, source.csv.house_price] --> source.csv.num_rooms
+[source.csv.agent_name, source.csv.house_description] --> source.csv.house_address
+[source.csv.agent_name, source.csv.house_description] --> source.csv.house_price
+[source.csv.agent_name, source.csv.house_description] --> source.csv.building_area
+[source.csv.agent_name, source.csv.house_description] --> source.csv.school
+[source.csv.agent_name, source.csv.house_description] --> source.csv.utilities
+[source.csv.agent_name, source.csv.house_description] --> source.csv.lot_area
+[source.csv.agent_name, source.csv.house_description] --> source.csv.num_rooms
+[source.csv.agent_name, source.csv.house_description] --> source.csv.garage
+[source.csv.agent_name, source.csv.house_description] --> source.csv.sewer
+[source.csv.agent_name, source.csv.house_description] --> source.csv.water
+[source.csv.agent_name, source.csv.house_description] --> source.csv.electricity
+[source.csv.building_area, source.csv.house_description] --> source.csv.house_address
+[source.csv.building_area, source.csv.house_description] --> source.csv.house_price
+[source.csv.building_area, source.csv.house_description] --> source.csv.agent_name
+[source.csv.building_area, source.csv.house_description] --> source.csv.agent_email
+[source.csv.building_area, source.csv.house_description] --> source.csv.school
+[source.csv.building_area, source.csv.house_description] --> source.csv.agent_phone
+[source.csv.building_area, source.csv.house_description] --> source.csv.firm_name
+[source.csv.building_area, source.csv.house_description] --> source.csv.firm_address
+[source.csv.building_area, source.csv.house_description] --> source.csv.utilities
+[source.csv.building_area, source.csv.house_description] --> source.csv.lot_area
+[source.csv.building_area, source.csv.house_description] --> source.csv.num_rooms
+[source.csv.building_area, source.csv.house_description] --> source.csv.garage
+[source.csv.building_area, source.csv.house_description] --> source.csv.sewer
+[source.csv.building_area, source.csv.house_description] --> source.csv.water
+[source.csv.building_area, source.csv.house_description] --> source.csv.electricity
+[source.csv.agent_email, source.csv.house_description] --> source.csv.house_address
+[source.csv.agent_email, source.csv.house_description] --> source.csv.house_price
+[source.csv.agent_email, source.csv.house_description] --> source.csv.agent_name
+[source.csv.agent_email, source.csv.house_description] --> source.csv.building_area
+[source.csv.agent_email, source.csv.house_description] --> source.csv.school
+[source.csv.agent_email, source.csv.house_description] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.house_description] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.house_description] --> source.csv.firm_address
+[source.csv.agent_email, source.csv.house_description] --> source.csv.utilities
+[source.csv.agent_email, source.csv.house_description] --> source.csv.lot_area
+[source.csv.agent_email, source.csv.house_description] --> source.csv.num_rooms
+[source.csv.agent_email, source.csv.house_description] --> source.csv.garage
+[source.csv.agent_email, source.csv.house_description] --> source.csv.sewer
+[source.csv.agent_email, source.csv.house_description] --> source.csv.water
+[source.csv.agent_email, source.csv.house_description] --> source.csv.electricity
+[source.csv.house_description, source.csv.school] --> source.csv.house_address
+[source.csv.house_description, source.csv.school] --> source.csv.house_price
+[source.csv.house_description, source.csv.school] --> source.csv.agent_name
+[source.csv.house_description, source.csv.school] --> source.csv.building_area
+[source.csv.house_description, source.csv.school] --> source.csv.agent_email
+[source.csv.house_description, source.csv.school] --> source.csv.agent_phone
+[source.csv.house_description, source.csv.school] --> source.csv.firm_name
+[source.csv.house_description, source.csv.school] --> source.csv.firm_address
+[source.csv.house_description, source.csv.school] --> source.csv.utilities
+[source.csv.house_description, source.csv.school] --> source.csv.lot_area
+[source.csv.house_description, source.csv.school] --> source.csv.num_rooms
+[source.csv.house_description, source.csv.school] --> source.csv.garage
+[source.csv.house_description, source.csv.school] --> source.csv.sewer
+[source.csv.house_description, source.csv.school] --> source.csv.water
+[source.csv.house_description, source.csv.school] --> source.csv.electricity
+[source.csv.agent_phone, source.csv.house_description] --> source.csv.house_address
+[source.csv.agent_phone, source.csv.house_description] --> source.csv.house_price
+[source.csv.agent_phone, source.csv.house_description] --> source.csv.agent_name
+[source.csv.agent_phone, source.csv.house_description] --> source.csv.building_area
+[source.csv.agent_phone, source.csv.house_description] --> source.csv.agent_email
+[source.csv.agent_phone, source.csv.house_description] --> source.csv.school
+[source.csv.agent_phone, source.csv.house_description] --> source.csv.firm_name
+[source.csv.agent_phone, source.csv.house_description] --> source.csv.firm_address
+[source.csv.agent_phone, source.csv.house_description] --> source.csv.utilities
+[source.csv.agent_phone, source.csv.house_description] --> source.csv.lot_area
+[source.csv.agent_phone, source.csv.house_description] --> source.csv.num_rooms
+[source.csv.agent_phone, source.csv.house_description] --> source.csv.garage
+[source.csv.agent_phone, source.csv.house_description] --> source.csv.sewer
+[source.csv.agent_phone, source.csv.house_description] --> source.csv.water
+[source.csv.agent_phone, source.csv.house_description] --> source.csv.electricity
+[source.csv.firm_name, source.csv.house_description] --> source.csv.house_address
+[source.csv.firm_name, source.csv.house_description] --> source.csv.house_price
+[source.csv.firm_name, source.csv.house_description] --> source.csv.agent_name
+[source.csv.firm_name, source.csv.house_description] --> source.csv.building_area
+[source.csv.firm_name, source.csv.house_description] --> source.csv.agent_email
+[source.csv.firm_name, source.csv.house_description] --> source.csv.school
+[source.csv.firm_name, source.csv.house_description] --> source.csv.agent_phone
+[source.csv.firm_name, source.csv.house_description] --> source.csv.firm_address
+[source.csv.firm_name, source.csv.house_description] --> source.csv.utilities
+[source.csv.firm_name, source.csv.house_description] --> source.csv.lot_area
+[source.csv.firm_name, source.csv.house_description] --> source.csv.num_rooms
+[source.csv.firm_name, source.csv.house_description] --> source.csv.garage
+[source.csv.firm_name, source.csv.house_description] --> source.csv.sewer
+[source.csv.firm_name, source.csv.house_description] --> source.csv.water
+[source.csv.firm_name, source.csv.house_description] --> source.csv.electricity
+[source.csv.firm_address, source.csv.house_description] --> source.csv.utilities
+[source.csv.firm_address, source.csv.house_description] --> source.csv.garage
+[source.csv.firm_address, source.csv.house_description, source.csv.lot_area] --> source.csv.house_address
+[source.csv.firm_address, source.csv.house_description, source.csv.lot_area] --> source.csv.agent_name
+[source.csv.firm_address, source.csv.house_description, source.csv.lot_area] --> source.csv.building_area
+[source.csv.firm_address, source.csv.house_description, source.csv.lot_area] --> source.csv.agent_email
+[source.csv.firm_address, source.csv.house_description, source.csv.lot_area] --> source.csv.school
+[source.csv.firm_address, source.csv.house_description, source.csv.lot_area] --> source.csv.agent_phone
+[source.csv.firm_address, source.csv.house_description, source.csv.lot_area] --> source.csv.firm_name
+[source.csv.firm_address, source.csv.house_description, source.csv.lot_area] --> source.csv.num_rooms
+[source.csv.firm_address, source.csv.house_description, source.csv.sewer] --> source.csv.house_address
+[source.csv.firm_address, source.csv.house_description, source.csv.sewer] --> source.csv.agent_name
+[source.csv.firm_address, source.csv.house_description, source.csv.sewer] --> source.csv.building_area
+[source.csv.firm_address, source.csv.house_description, source.csv.sewer] --> source.csv.agent_email
+[source.csv.firm_address, source.csv.house_description, source.csv.sewer] --> source.csv.school
+[source.csv.firm_address, source.csv.house_description, source.csv.sewer] --> source.csv.agent_phone
+[source.csv.firm_address, source.csv.house_description, source.csv.sewer] --> source.csv.firm_name
+[source.csv.firm_address, source.csv.house_description, source.csv.sewer] --> source.csv.num_rooms
+[source.csv.firm_address, source.csv.house_description, source.csv.water] --> source.csv.house_address
+[source.csv.firm_address, source.csv.house_description, source.csv.water] --> source.csv.agent_name
+[source.csv.firm_address, source.csv.house_description, source.csv.water] --> source.csv.building_area
+[source.csv.firm_address, source.csv.house_description, source.csv.water] --> source.csv.agent_email
+[source.csv.firm_address, source.csv.house_description, source.csv.water] --> source.csv.school
+[source.csv.firm_address, source.csv.house_description, source.csv.water] --> source.csv.agent_phone
+[source.csv.firm_address, source.csv.house_description, source.csv.water] --> source.csv.firm_name
+[source.csv.firm_address, source.csv.house_description, source.csv.water] --> source.csv.num_rooms
+[source.csv.electricity, source.csv.firm_address, source.csv.house_description] --> source.csv.house_address
+[source.csv.electricity, source.csv.firm_address, source.csv.house_description] --> source.csv.agent_name
+[source.csv.electricity, source.csv.firm_address, source.csv.house_description] --> source.csv.building_area
+[source.csv.electricity, source.csv.firm_address, source.csv.house_description] --> source.csv.agent_email
+[source.csv.electricity, source.csv.firm_address, source.csv.house_description] --> source.csv.school
+[source.csv.electricity, source.csv.firm_address, source.csv.house_description] --> source.csv.agent_phone
+[source.csv.electricity, source.csv.firm_address, source.csv.house_description] --> source.csv.firm_name
+[source.csv.electricity, source.csv.firm_address, source.csv.house_description] --> source.csv.num_rooms
+[source.csv.house_description, source.csv.utilities] --> source.csv.firm_address
+[source.csv.house_description, source.csv.utilities] --> source.csv.garage
+[source.csv.house_description, source.csv.lot_area, source.csv.utilities] --> source.csv.house_address
+[source.csv.house_description, source.csv.lot_area, source.csv.utilities] --> source.csv.agent_name
+[source.csv.house_description, source.csv.lot_area, source.csv.utilities] --> source.csv.building_area
+[source.csv.house_description, source.csv.lot_area, source.csv.utilities] --> source.csv.agent_email
+[source.csv.house_description, source.csv.lot_area, source.csv.utilities] --> source.csv.school
+[source.csv.house_description, source.csv.lot_area, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.house_description, source.csv.lot_area, source.csv.utilities] --> source.csv.firm_name
+[source.csv.house_description, source.csv.lot_area, source.csv.utilities] --> source.csv.num_rooms
+[source.csv.house_description, source.csv.sewer, source.csv.utilities] --> source.csv.house_address
+[source.csv.house_description, source.csv.sewer, source.csv.utilities] --> source.csv.agent_name
+[source.csv.house_description, source.csv.sewer, source.csv.utilities] --> source.csv.building_area
+[source.csv.house_description, source.csv.sewer, source.csv.utilities] --> source.csv.agent_email
+[source.csv.house_description, source.csv.sewer, source.csv.utilities] --> source.csv.school
+[source.csv.house_description, source.csv.sewer, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.house_description, source.csv.sewer, source.csv.utilities] --> source.csv.firm_name
+[source.csv.house_description, source.csv.sewer, source.csv.utilities] --> source.csv.num_rooms
+[source.csv.house_description, source.csv.utilities, source.csv.water] --> source.csv.house_address
+[source.csv.house_description, source.csv.utilities, source.csv.water] --> source.csv.agent_name
+[source.csv.house_description, source.csv.utilities, source.csv.water] --> source.csv.building_area
+[source.csv.house_description, source.csv.utilities, source.csv.water] --> source.csv.agent_email
+[source.csv.house_description, source.csv.utilities, source.csv.water] --> source.csv.school
+[source.csv.house_description, source.csv.utilities, source.csv.water] --> source.csv.agent_phone
+[source.csv.house_description, source.csv.utilities, source.csv.water] --> source.csv.firm_name
+[source.csv.house_description, source.csv.utilities, source.csv.water] --> source.csv.num_rooms
+[source.csv.electricity, source.csv.house_description, source.csv.utilities] --> source.csv.house_address
+[source.csv.electricity, source.csv.house_description, source.csv.utilities] --> source.csv.agent_name
+[source.csv.electricity, source.csv.house_description, source.csv.utilities] --> source.csv.building_area
+[source.csv.electricity, source.csv.house_description, source.csv.utilities] --> source.csv.agent_email
+[source.csv.electricity, source.csv.house_description, source.csv.utilities] --> source.csv.school
+[source.csv.electricity, source.csv.house_description, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.electricity, source.csv.house_description, source.csv.utilities] --> source.csv.firm_name
+[source.csv.electricity, source.csv.house_description, source.csv.utilities] --> source.csv.num_rooms
+[source.csv.house_description, source.csv.lot_area] --> source.csv.house_price
+[source.csv.house_description, source.csv.lot_area] --> source.csv.sewer
+[source.csv.house_description, source.csv.lot_area] --> source.csv.water
+[source.csv.house_description, source.csv.lot_area] --> source.csv.electricity
+[source.csv.garage, source.csv.house_description, source.csv.lot_area] --> source.csv.house_address
+[source.csv.garage, source.csv.house_description, source.csv.lot_area] --> source.csv.agent_name
+[source.csv.garage, source.csv.house_description, source.csv.lot_area] --> source.csv.building_area
+[source.csv.garage, source.csv.house_description, source.csv.lot_area] --> source.csv.agent_email
+[source.csv.garage, source.csv.house_description, source.csv.lot_area] --> source.csv.school
+[source.csv.garage, source.csv.house_description, source.csv.lot_area] --> source.csv.agent_phone
+[source.csv.garage, source.csv.house_description, source.csv.lot_area] --> source.csv.firm_name
+[source.csv.garage, source.csv.house_description, source.csv.lot_area] --> source.csv.num_rooms
+[source.csv.house_description, source.csv.num_rooms] --> source.csv.house_address
+[source.csv.house_description, source.csv.num_rooms] --> source.csv.house_price
+[source.csv.house_description, source.csv.num_rooms] --> source.csv.agent_name
+[source.csv.house_description, source.csv.num_rooms] --> source.csv.building_area
+[source.csv.house_description, source.csv.num_rooms] --> source.csv.agent_email
+[source.csv.house_description, source.csv.num_rooms] --> source.csv.school
+[source.csv.house_description, source.csv.num_rooms] --> source.csv.agent_phone
+[source.csv.house_description, source.csv.num_rooms] --> source.csv.firm_name
+[source.csv.house_description, source.csv.num_rooms] --> source.csv.firm_address
+[source.csv.house_description, source.csv.num_rooms] --> source.csv.utilities
+[source.csv.house_description, source.csv.num_rooms] --> source.csv.lot_area
+[source.csv.house_description, source.csv.num_rooms] --> source.csv.garage
+[source.csv.house_description, source.csv.num_rooms] --> source.csv.sewer
+[source.csv.house_description, source.csv.num_rooms] --> source.csv.water
+[source.csv.house_description, source.csv.num_rooms] --> source.csv.electricity
+[source.csv.garage, source.csv.house_description] --> source.csv.firm_address
+[source.csv.garage, source.csv.house_description] --> source.csv.utilities
+[source.csv.garage, source.csv.house_description, source.csv.sewer] --> source.csv.house_address
+[source.csv.garage, source.csv.house_description, source.csv.sewer] --> source.csv.agent_name
+[source.csv.garage, source.csv.house_description, source.csv.sewer] --> source.csv.building_area
+[source.csv.garage, source.csv.house_description, source.csv.sewer] --> source.csv.agent_email
+[source.csv.garage, source.csv.house_description, source.csv.sewer] --> source.csv.school
+[source.csv.garage, source.csv.house_description, source.csv.sewer] --> source.csv.agent_phone
+[source.csv.garage, source.csv.house_description, source.csv.sewer] --> source.csv.firm_name
+[source.csv.garage, source.csv.house_description, source.csv.sewer] --> source.csv.num_rooms
+[source.csv.garage, source.csv.house_description, source.csv.water] --> source.csv.house_address
+[source.csv.garage, source.csv.house_description, source.csv.water] --> source.csv.agent_name
+[source.csv.garage, source.csv.house_description, source.csv.water] --> source.csv.building_area
+[source.csv.garage, source.csv.house_description, source.csv.water] --> source.csv.agent_email
+[source.csv.garage, source.csv.house_description, source.csv.water] --> source.csv.school
+[source.csv.garage, source.csv.house_description, source.csv.water] --> source.csv.agent_phone
+[source.csv.garage, source.csv.house_description, source.csv.water] --> source.csv.firm_name
+[source.csv.garage, source.csv.house_description, source.csv.water] --> source.csv.num_rooms
+[source.csv.electricity, source.csv.garage, source.csv.house_description] --> source.csv.house_address
+[source.csv.electricity, source.csv.garage, source.csv.house_description] --> source.csv.agent_name
+[source.csv.electricity, source.csv.garage, source.csv.house_description] --> source.csv.building_area
+[source.csv.electricity, source.csv.garage, source.csv.house_description] --> source.csv.agent_email
+[source.csv.electricity, source.csv.garage, source.csv.house_description] --> source.csv.school
+[source.csv.electricity, source.csv.garage, source.csv.house_description] --> source.csv.agent_phone
+[source.csv.electricity, source.csv.garage, source.csv.house_description] --> source.csv.firm_name
+[source.csv.electricity, source.csv.garage, source.csv.house_description] --> source.csv.num_rooms
+[source.csv.house_description, source.csv.sewer] --> source.csv.house_price
+[source.csv.house_description, source.csv.sewer] --> source.csv.lot_area
+[source.csv.house_description, source.csv.sewer] --> source.csv.water
+[source.csv.house_description, source.csv.sewer] --> source.csv.electricity
+[source.csv.house_description, source.csv.water] --> source.csv.house_price
+[source.csv.house_description, source.csv.water] --> source.csv.lot_area
+[source.csv.house_description, source.csv.water] --> source.csv.sewer
+[source.csv.house_description, source.csv.water] --> source.csv.electricity
+[source.csv.electricity, source.csv.house_description] --> source.csv.house_price
+[source.csv.electricity, source.csv.house_description] --> source.csv.lot_area
+[source.csv.electricity, source.csv.house_description] --> source.csv.sewer
+[source.csv.electricity, source.csv.house_description] --> source.csv.water
+[source.csv.house_price] --> source.csv.electricity
+[source.csv.agent_name, source.csv.house_price] --> source.csv.building_area
+[source.csv.agent_name, source.csv.house_price] --> source.csv.school
+[source.csv.agent_name, source.csv.house_price] --> source.csv.num_rooms
+[source.csv.agent_name, source.csv.house_price] --> source.csv.garage
+[source.csv.agent_name, source.csv.house_price] --> source.csv.fireplace
+[source.csv.agent_name, source.csv.house_price] --> source.csv.sewer
+[source.csv.agent_name, source.csv.house_price] --> source.csv.water
+[source.csv.agent_name, source.csv.house_price, source.csv.utilities] --> source.csv.house_address
+[source.csv.agent_name, source.csv.house_price, source.csv.utilities] --> source.csv.house_description
+[source.csv.agent_name, source.csv.house_price, source.csv.lot_area] --> source.csv.house_address
+[source.csv.agent_name, source.csv.house_price, source.csv.lot_area] --> source.csv.house_description
+[source.csv.agent_name, source.csv.house_price, source.csv.lot_area] --> source.csv.utilities
+[source.csv.building_area, source.csv.house_price] --> source.csv.school
+[source.csv.building_area, source.csv.house_price] --> source.csv.garage
+[source.csv.building_area, source.csv.house_price] --> source.csv.fireplace
+[source.csv.building_area, source.csv.house_price] --> source.csv.sewer
+[source.csv.building_area, source.csv.house_price] --> source.csv.water
+[source.csv.building_area, source.csv.house_price, source.csv.lot_area] --> source.csv.utilities
+[source.csv.building_area, source.csv.house_price, source.csv.num_rooms] --> source.csv.agent_name
+[source.csv.building_area, source.csv.house_price, source.csv.num_rooms] --> source.csv.agent_email
+[source.csv.building_area, source.csv.house_price, source.csv.num_rooms] --> source.csv.agent_phone
+[source.csv.building_area, source.csv.house_price, source.csv.num_rooms] --> source.csv.firm_name
+[source.csv.building_area, source.csv.house_price, source.csv.num_rooms] --> source.csv.firm_address
+[source.csv.agent_email, source.csv.house_price] --> source.csv.agent_name
+[source.csv.agent_email, source.csv.house_price] --> source.csv.building_area
+[source.csv.agent_email, source.csv.house_price] --> source.csv.school
+[source.csv.agent_email, source.csv.house_price] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.house_price] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.house_price] --> source.csv.firm_address
+[source.csv.agent_email, source.csv.house_price] --> source.csv.num_rooms
+[source.csv.agent_email, source.csv.house_price] --> source.csv.garage
+[source.csv.agent_email, source.csv.house_price] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.house_price] --> source.csv.sewer
+[source.csv.agent_email, source.csv.house_price] --> source.csv.water
+[source.csv.agent_email, source.csv.house_price, source.csv.utilities] --> source.csv.house_address
+[source.csv.agent_email, source.csv.house_price, source.csv.utilities] --> source.csv.house_description
+[source.csv.agent_email, source.csv.house_price, source.csv.lot_area] --> source.csv.house_address
+[source.csv.agent_email, source.csv.house_price, source.csv.lot_area] --> source.csv.house_description
+[source.csv.agent_email, source.csv.house_price, source.csv.lot_area] --> source.csv.utilities
+[source.csv.house_price, source.csv.school] --> source.csv.building_area
+[source.csv.house_price, source.csv.school] --> source.csv.garage
+[source.csv.house_price, source.csv.school] --> source.csv.fireplace
+[source.csv.house_price, source.csv.school] --> source.csv.sewer
+[source.csv.house_price, source.csv.school] --> source.csv.water
+[source.csv.house_price, source.csv.lot_area, source.csv.school] --> source.csv.utilities
+[source.csv.house_price, source.csv.num_rooms, source.csv.school] --> source.csv.agent_name
+[source.csv.house_price, source.csv.num_rooms, source.csv.school] --> source.csv.agent_email
+[source.csv.house_price, source.csv.num_rooms, source.csv.school] --> source.csv.agent_phone
+[source.csv.house_price, source.csv.num_rooms, source.csv.school] --> source.csv.firm_name
+[source.csv.house_price, source.csv.num_rooms, source.csv.school] --> source.csv.firm_address
+[source.csv.agent_phone, source.csv.house_price] --> source.csv.agent_name
+[source.csv.agent_phone, source.csv.house_price] --> source.csv.building_area
+[source.csv.agent_phone, source.csv.house_price] --> source.csv.agent_email
+[source.csv.agent_phone, source.csv.house_price] --> source.csv.school
+[source.csv.agent_phone, source.csv.house_price] --> source.csv.firm_name
+[source.csv.agent_phone, source.csv.house_price] --> source.csv.firm_address
+[source.csv.agent_phone, source.csv.house_price] --> source.csv.num_rooms
+[source.csv.agent_phone, source.csv.house_price] --> source.csv.garage
+[source.csv.agent_phone, source.csv.house_price] --> source.csv.fireplace
+[source.csv.agent_phone, source.csv.house_price] --> source.csv.sewer
+[source.csv.agent_phone, source.csv.house_price] --> source.csv.water
+[source.csv.agent_phone, source.csv.house_price, source.csv.utilities] --> source.csv.house_address
+[source.csv.agent_phone, source.csv.house_price, source.csv.utilities] --> source.csv.house_description
+[source.csv.agent_phone, source.csv.house_price, source.csv.lot_area] --> source.csv.house_address
+[source.csv.agent_phone, source.csv.house_price, source.csv.lot_area] --> source.csv.house_description
+[source.csv.agent_phone, source.csv.house_price, source.csv.lot_area] --> source.csv.utilities
+[source.csv.firm_name, source.csv.house_price] --> source.csv.agent_name
+[source.csv.firm_name, source.csv.house_price] --> source.csv.building_area
+[source.csv.firm_name, source.csv.house_price] --> source.csv.agent_email
+[source.csv.firm_name, source.csv.house_price] --> source.csv.school
+[source.csv.firm_name, source.csv.house_price] --> source.csv.agent_phone
+[source.csv.firm_name, source.csv.house_price] --> source.csv.firm_address
+[source.csv.firm_name, source.csv.house_price] --> source.csv.num_rooms
+[source.csv.firm_name, source.csv.house_price] --> source.csv.garage
+[source.csv.firm_name, source.csv.house_price] --> source.csv.fireplace
+[source.csv.firm_name, source.csv.house_price] --> source.csv.sewer
+[source.csv.firm_name, source.csv.house_price] --> source.csv.water
+[source.csv.firm_name, source.csv.house_price, source.csv.utilities] --> source.csv.house_address
+[source.csv.firm_name, source.csv.house_price, source.csv.utilities] --> source.csv.house_description
+[source.csv.firm_name, source.csv.house_price, source.csv.lot_area] --> source.csv.house_address
+[source.csv.firm_name, source.csv.house_price, source.csv.lot_area] --> source.csv.house_description
+[source.csv.firm_name, source.csv.house_price, source.csv.lot_area] --> source.csv.utilities
+[source.csv.firm_address, source.csv.house_price] --> source.csv.agent_name
+[source.csv.firm_address, source.csv.house_price] --> source.csv.building_area
+[source.csv.firm_address, source.csv.house_price] --> source.csv.agent_email
+[source.csv.firm_address, source.csv.house_price] --> source.csv.school
+[source.csv.firm_address, source.csv.house_price] --> source.csv.agent_phone
+[source.csv.firm_address, source.csv.house_price] --> source.csv.firm_name
+[source.csv.firm_address, source.csv.house_price] --> source.csv.num_rooms
+[source.csv.firm_address, source.csv.house_price] --> source.csv.garage
+[source.csv.firm_address, source.csv.house_price] --> source.csv.fireplace
+[source.csv.firm_address, source.csv.house_price] --> source.csv.sewer
+[source.csv.firm_address, source.csv.house_price] --> source.csv.water
+[source.csv.firm_address, source.csv.house_price, source.csv.utilities] --> source.csv.house_address
+[source.csv.firm_address, source.csv.house_price, source.csv.utilities] --> source.csv.house_description
+[source.csv.firm_address, source.csv.house_price, source.csv.lot_area] --> source.csv.house_address
+[source.csv.firm_address, source.csv.house_price, source.csv.lot_area] --> source.csv.house_description
+[source.csv.firm_address, source.csv.house_price, source.csv.lot_area] --> source.csv.utilities
+[source.csv.house_price, source.csv.utilities] --> source.csv.lot_area
+[source.csv.house_price, source.csv.utilities] --> source.csv.garage
+[source.csv.house_price, source.csv.utilities] --> source.csv.fireplace
+[source.csv.house_price, source.csv.num_rooms, source.csv.utilities] --> source.csv.house_address
+[source.csv.house_price, source.csv.num_rooms, source.csv.utilities] --> source.csv.house_description
+[source.csv.house_price, source.csv.num_rooms, source.csv.utilities] --> source.csv.agent_name
+[source.csv.house_price, source.csv.num_rooms, source.csv.utilities] --> source.csv.building_area
+[source.csv.house_price, source.csv.num_rooms, source.csv.utilities] --> source.csv.agent_email
+[source.csv.house_price, source.csv.num_rooms, source.csv.utilities] --> source.csv.school
+[source.csv.house_price, source.csv.num_rooms, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.house_price, source.csv.num_rooms, source.csv.utilities] --> source.csv.firm_name
+[source.csv.house_price, source.csv.num_rooms, source.csv.utilities] --> source.csv.firm_address
+[source.csv.house_price, source.csv.num_rooms, source.csv.utilities] --> source.csv.sewer
+[source.csv.house_price, source.csv.num_rooms, source.csv.utilities] --> source.csv.water
+[source.csv.house_price, source.csv.sewer, source.csv.utilities] --> source.csv.building_area
+[source.csv.house_price, source.csv.sewer, source.csv.utilities] --> source.csv.school
+[source.csv.house_price, source.csv.utilities, source.csv.water] --> source.csv.building_area
+[source.csv.house_price, source.csv.utilities, source.csv.water] --> source.csv.school
+[source.csv.house_price, source.csv.lot_area] --> source.csv.fireplace
+[source.csv.house_price, source.csv.lot_area, source.csv.num_rooms] --> source.csv.house_address
+[source.csv.house_price, source.csv.lot_area, source.csv.num_rooms] --> source.csv.house_description
+[source.csv.house_price, source.csv.lot_area, source.csv.num_rooms] --> source.csv.agent_name
+[source.csv.house_price, source.csv.lot_area, source.csv.num_rooms] --> source.csv.building_area
+[source.csv.house_price, source.csv.lot_area, source.csv.num_rooms] --> source.csv.agent_email
+[source.csv.house_price, source.csv.lot_area, source.csv.num_rooms] --> source.csv.school
+[source.csv.house_price, source.csv.lot_area, source.csv.num_rooms] --> source.csv.agent_phone
+[source.csv.house_price, source.csv.lot_area, source.csv.num_rooms] --> source.csv.firm_name
+[source.csv.house_price, source.csv.lot_area, source.csv.num_rooms] --> source.csv.firm_address
+[source.csv.house_price, source.csv.lot_area, source.csv.num_rooms] --> source.csv.utilities
+[source.csv.house_price, source.csv.lot_area, source.csv.num_rooms] --> source.csv.garage
+[source.csv.house_price, source.csv.lot_area, source.csv.num_rooms] --> source.csv.sewer
+[source.csv.house_price, source.csv.lot_area, source.csv.num_rooms] --> source.csv.water
+[source.csv.garage, source.csv.house_price, source.csv.lot_area] --> source.csv.utilities
+[source.csv.garage, source.csv.house_price, source.csv.lot_area, source.csv.sewer] --> source.csv.building_area
+[source.csv.garage, source.csv.house_price, source.csv.lot_area, source.csv.sewer] --> source.csv.school
+[source.csv.garage, source.csv.house_price, source.csv.lot_area, source.csv.water] --> source.csv.building_area
+[source.csv.garage, source.csv.house_price, source.csv.lot_area, source.csv.water] --> source.csv.school
+[source.csv.garage, source.csv.house_price, source.csv.num_rooms] --> source.csv.sewer
+[source.csv.garage, source.csv.house_price, source.csv.num_rooms] --> source.csv.water
+[source.csv.fireplace, source.csv.house_price, source.csv.num_rooms] --> source.csv.garage
+[source.csv.fireplace, source.csv.house_price, source.csv.num_rooms] --> source.csv.sewer
+[source.csv.fireplace, source.csv.house_price, source.csv.num_rooms] --> source.csv.water
+[source.csv.house_price, source.csv.num_rooms, source.csv.sewer] --> source.csv.garage
+[source.csv.house_price, source.csv.num_rooms, source.csv.water] --> source.csv.garage
+[source.csv.garage, source.csv.house_price] --> source.csv.fireplace
+[source.csv.house_price, source.csv.sewer] --> source.csv.fireplace
+[source.csv.house_price, source.csv.sewer] --> source.csv.water
+[source.csv.house_price, source.csv.water] --> source.csv.fireplace
+[source.csv.house_price, source.csv.water] --> source.csv.sewer
+[source.csv.agent_name] --> source.csv.agent_email
+[source.csv.agent_name] --> source.csv.agent_phone
+[source.csv.agent_name] --> source.csv.firm_name
+[source.csv.agent_name] --> source.csv.firm_address
+[source.csv.agent_name, source.csv.building_area] --> source.csv.fireplace
+[source.csv.agent_name, source.csv.building_area, source.csv.num_rooms, source.csv.school] --> source.csv.house_price
+[source.csv.agent_name, source.csv.building_area, source.csv.garage, source.csv.school] --> source.csv.house_price
+[source.csv.agent_name, source.csv.building_area, source.csv.utilities] --> source.csv.school
+[source.csv.agent_name, source.csv.building_area, source.csv.utilities] --> source.csv.lot_area
+[source.csv.agent_name, source.csv.building_area, source.csv.utilities] --> source.csv.sewer
+[source.csv.agent_name, source.csv.building_area, source.csv.utilities] --> source.csv.water
+[source.csv.agent_name, source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.house_address
+[source.csv.agent_name, source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.house_description
+[source.csv.agent_name, source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.house_price
+[source.csv.agent_name, source.csv.building_area, source.csv.garage, source.csv.utilities] --> source.csv.house_address
+[source.csv.agent_name, source.csv.building_area, source.csv.garage, source.csv.utilities] --> source.csv.house_description
+[source.csv.agent_name, source.csv.building_area, source.csv.garage, source.csv.utilities] --> source.csv.house_price
+[source.csv.agent_name, source.csv.building_area, source.csv.electricity, source.csv.utilities] --> source.csv.house_address
+[source.csv.agent_name, source.csv.building_area, source.csv.electricity, source.csv.utilities] --> source.csv.house_description
+[source.csv.agent_name, source.csv.building_area, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.house_address
+[source.csv.agent_name, source.csv.building_area, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.house_description
+[source.csv.agent_name, source.csv.building_area, source.csv.lot_area, source.csv.num_rooms, source.csv.water] --> source.csv.house_address
+[source.csv.agent_name, source.csv.building_area, source.csv.lot_area, source.csv.num_rooms, source.csv.water] --> source.csv.house_description
+[source.csv.agent_name, source.csv.building_area, source.csv.garage, source.csv.lot_area, source.csv.sewer] --> source.csv.house_address
+[source.csv.agent_name, source.csv.building_area, source.csv.garage, source.csv.lot_area, source.csv.sewer] --> source.csv.house_description
+[source.csv.agent_name, source.csv.building_area, source.csv.garage, source.csv.lot_area, source.csv.water] --> source.csv.house_address
+[source.csv.agent_name, source.csv.building_area, source.csv.garage, source.csv.lot_area, source.csv.water] --> source.csv.house_description
+[source.csv.agent_name, source.csv.building_area, source.csv.lot_area, source.csv.sewer] --> source.csv.utilities
+[source.csv.agent_name, source.csv.building_area, source.csv.lot_area, source.csv.water] --> source.csv.utilities
+[source.csv.agent_name, source.csv.building_area, source.csv.electricity, source.csv.lot_area] --> source.csv.house_address
+[source.csv.agent_name, source.csv.building_area, source.csv.electricity, source.csv.lot_area] --> source.csv.house_description
+[source.csv.agent_name, source.csv.building_area, source.csv.electricity, source.csv.lot_area] --> source.csv.utilities
+[source.csv.agent_name, source.csv.building_area, source.csv.num_rooms] --> source.csv.garage
+[source.csv.agent_name, source.csv.building_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.house_price
+[source.csv.agent_name, source.csv.building_area, source.csv.num_rooms, source.csv.water] --> source.csv.house_price
+[source.csv.agent_name, source.csv.building_area, source.csv.garage] --> source.csv.num_rooms
+[source.csv.agent_name, source.csv.building_area, source.csv.garage, source.csv.sewer] --> source.csv.house_price
+[source.csv.agent_name, source.csv.building_area, source.csv.garage, source.csv.sewer] --> source.csv.electricity
+[source.csv.agent_name, source.csv.building_area, source.csv.garage, source.csv.water] --> source.csv.house_price
+[source.csv.agent_name, source.csv.building_area, source.csv.garage, source.csv.water] --> source.csv.electricity
+[source.csv.agent_name, source.csv.building_area, source.csv.sewer] --> source.csv.school
+[source.csv.agent_name, source.csv.building_area, source.csv.sewer] --> source.csv.water
+[source.csv.agent_name, source.csv.building_area, source.csv.water] --> source.csv.school
+[source.csv.agent_name, source.csv.building_area, source.csv.water] --> source.csv.sewer
+[source.csv.agent_name, source.csv.building_area, source.csv.electricity] --> source.csv.house_price
+[source.csv.agent_name, source.csv.building_area, source.csv.electricity] --> source.csv.school
+[source.csv.agent_name, source.csv.building_area, source.csv.electricity] --> source.csv.num_rooms
+[source.csv.agent_name, source.csv.building_area, source.csv.electricity] --> source.csv.garage
+[source.csv.agent_name, source.csv.building_area, source.csv.electricity] --> source.csv.sewer
+[source.csv.agent_name, source.csv.building_area, source.csv.electricity] --> source.csv.water
+[source.csv.agent_name, source.csv.school] --> source.csv.sewer
+[source.csv.agent_name, source.csv.school] --> source.csv.water
+[source.csv.agent_name, source.csv.school, source.csv.utilities] --> source.csv.fireplace
+[source.csv.agent_name, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.house_address
+[source.csv.agent_name, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.house_description
+[source.csv.agent_name, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.house_price
+[source.csv.agent_name, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.building_area
+[source.csv.agent_name, source.csv.garage, source.csv.school, source.csv.utilities] --> source.csv.house_address
+[source.csv.agent_name, source.csv.garage, source.csv.school, source.csv.utilities] --> source.csv.house_description
+[source.csv.agent_name, source.csv.garage, source.csv.school, source.csv.utilities] --> source.csv.house_price
+[source.csv.agent_name, source.csv.garage, source.csv.school, source.csv.utilities] --> source.csv.building_area
+[source.csv.agent_name, source.csv.lot_area, source.csv.school] --> source.csv.utilities
+[source.csv.agent_name, source.csv.lot_area, source.csv.school] --> source.csv.fireplace
+[source.csv.agent_name, source.csv.lot_area, source.csv.num_rooms, source.csv.school] --> source.csv.house_address
+[source.csv.agent_name, source.csv.lot_area, source.csv.num_rooms, source.csv.school] --> source.csv.house_description
+[source.csv.agent_name, source.csv.lot_area, source.csv.num_rooms, source.csv.school] --> source.csv.house_price
+[source.csv.agent_name, source.csv.lot_area, source.csv.num_rooms, source.csv.school] --> source.csv.building_area
+[source.csv.agent_name, source.csv.garage, source.csv.lot_area, source.csv.school] --> source.csv.house_address
+[source.csv.agent_name, source.csv.garage, source.csv.lot_area, source.csv.school] --> source.csv.house_description
+[source.csv.agent_name, source.csv.garage, source.csv.lot_area, source.csv.school] --> source.csv.house_price
+[source.csv.agent_name, source.csv.garage, source.csv.lot_area, source.csv.school] --> source.csv.building_area
+[source.csv.agent_name, source.csv.num_rooms, source.csv.school] --> source.csv.garage
+[source.csv.agent_name, source.csv.num_rooms, source.csv.school] --> source.csv.fireplace
+[source.csv.agent_name, source.csv.num_rooms, source.csv.school] --> source.csv.electricity
+[source.csv.agent_name, source.csv.garage, source.csv.school] --> source.csv.num_rooms
+[source.csv.agent_name, source.csv.garage, source.csv.school] --> source.csv.fireplace
+[source.csv.agent_name, source.csv.garage, source.csv.school] --> source.csv.electricity
+[source.csv.agent_name, source.csv.lot_area, source.csv.utilities] --> source.csv.fireplace
+[source.csv.agent_name, source.csv.garage, source.csv.lot_area, source.csv.sewer, source.csv.utilities] --> source.csv.num_rooms
+[source.csv.agent_name, source.csv.garage, source.csv.lot_area, source.csv.utilities, source.csv.water] --> source.csv.num_rooms
+[source.csv.agent_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.lot_area
+[source.csv.agent_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.garage
+[source.csv.agent_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.fireplace
+[source.csv.agent_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.sewer
+[source.csv.agent_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.water
+[source.csv.agent_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_name, source.csv.garage, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_name, source.csv.fireplace, source.csv.utilities] --> source.csv.lot_area
+[source.csv.agent_name, source.csv.sewer, source.csv.utilities] --> source.csv.water
+[source.csv.agent_name, source.csv.utilities, source.csv.water] --> source.csv.sewer
+[source.csv.agent_name, source.csv.garage, source.csv.lot_area, source.csv.num_rooms] --> source.csv.fireplace
+[source.csv.agent_name, source.csv.garage, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.utilities
+[source.csv.agent_name, source.csv.fireplace, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.utilities
+[source.csv.agent_name, source.csv.fireplace, source.csv.garage, source.csv.lot_area, source.csv.sewer] --> source.csv.utilities
+[source.csv.agent_name, source.csv.electricity, source.csv.garage, source.csv.lot_area, source.csv.sewer] --> source.csv.utilities
+[source.csv.agent_name, source.csv.electricity, source.csv.garage, source.csv.lot_area, source.csv.sewer] --> source.csv.num_rooms
+[source.csv.agent_name, source.csv.electricity, source.csv.garage, source.csv.lot_area, source.csv.water] --> source.csv.num_rooms
+[source.csv.agent_name, source.csv.electricity, source.csv.garage, source.csv.lot_area] --> source.csv.fireplace
+[source.csv.agent_name, source.csv.lot_area, source.csv.sewer] --> source.csv.water
+[source.csv.agent_name, source.csv.fireplace, source.csv.num_rooms] --> source.csv.garage
+[source.csv.agent_name, source.csv.num_rooms, source.csv.sewer] --> source.csv.water
+[source.csv.agent_name, source.csv.num_rooms, source.csv.sewer] --> source.csv.electricity
+[source.csv.agent_name, source.csv.num_rooms, source.csv.water] --> source.csv.electricity
+[source.csv.agent_name, source.csv.electricity, source.csv.num_rooms] --> source.csv.water
+[source.csv.agent_name, source.csv.fireplace, source.csv.garage, source.csv.sewer] --> source.csv.num_rooms
+[source.csv.agent_name, source.csv.fireplace, source.csv.garage, source.csv.sewer] --> source.csv.electricity
+[source.csv.agent_name, source.csv.fireplace, source.csv.garage, source.csv.water] --> source.csv.num_rooms
+[source.csv.agent_name, source.csv.fireplace, source.csv.garage, source.csv.water] --> source.csv.electricity
+[source.csv.agent_name, source.csv.garage, source.csv.sewer] --> source.csv.water
+[source.csv.agent_name, source.csv.fireplace, source.csv.sewer] --> source.csv.water
+[source.csv.agent_email, source.csv.building_area] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.building_area, source.csv.school] --> source.csv.water
+[source.csv.agent_email, source.csv.agent_phone, source.csv.building_area, source.csv.lot_area, source.csv.school] --> source.csv.utilities
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_name, source.csv.lot_area, source.csv.school] --> source.csv.utilities
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_address, source.csv.lot_area, source.csv.school] --> source.csv.utilities
+[source.csv.agent_email, source.csv.building_area, source.csv.lot_area, source.csv.num_rooms, source.csv.school] --> source.csv.house_address
+[source.csv.agent_email, source.csv.building_area, source.csv.lot_area, source.csv.num_rooms, source.csv.school] --> source.csv.house_description
+[source.csv.agent_email, source.csv.building_area, source.csv.lot_area, source.csv.num_rooms, source.csv.school] --> source.csv.utilities
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.lot_area, source.csv.school] --> source.csv.utilities
+[source.csv.agent_email, source.csv.building_area, source.csv.num_rooms, source.csv.school] --> source.csv.house_price
+[source.csv.agent_email, source.csv.building_area, source.csv.num_rooms, source.csv.school] --> source.csv.agent_name
+[source.csv.agent_email, source.csv.building_area, source.csv.num_rooms, source.csv.school] --> source.csv.electricity
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.school] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.school] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.school] --> source.csv.electricity
+[source.csv.agent_email, source.csv.agent_phone, source.csv.building_area, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.house_address
+[source.csv.agent_email, source.csv.agent_phone, source.csv.building_area, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.house_description
+[source.csv.agent_email, source.csv.agent_phone, source.csv.building_area, source.csv.lot_area, source.csv.num_rooms, source.csv.water] --> source.csv.house_address
+[source.csv.agent_email, source.csv.agent_phone, source.csv.building_area, source.csv.lot_area, source.csv.num_rooms, source.csv.water] --> source.csv.house_description
+[source.csv.agent_email, source.csv.agent_phone, source.csv.building_area, source.csv.electricity, source.csv.lot_area, source.csv.num_rooms] --> source.csv.house_address
+[source.csv.agent_email, source.csv.agent_phone, source.csv.building_area, source.csv.electricity, source.csv.lot_area, source.csv.num_rooms] --> source.csv.house_description
+[source.csv.agent_email, source.csv.agent_phone, source.csv.building_area, source.csv.lot_area, source.csv.sewer] --> source.csv.utilities
+[source.csv.agent_email, source.csv.agent_phone, source.csv.building_area, source.csv.lot_area, source.csv.water] --> source.csv.utilities
+[source.csv.agent_email, source.csv.agent_phone, source.csv.building_area, source.csv.electricity, source.csv.lot_area] --> source.csv.utilities
+[source.csv.agent_email, source.csv.agent_phone, source.csv.building_area, source.csv.num_rooms] --> source.csv.agent_name
+[source.csv.agent_email, source.csv.agent_phone, source.csv.building_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.house_price
+[source.csv.agent_email, source.csv.agent_phone, source.csv.building_area, source.csv.num_rooms, source.csv.water] --> source.csv.house_price
+[source.csv.agent_email, source.csv.agent_phone, source.csv.building_area, source.csv.electricity, source.csv.num_rooms] --> source.csv.house_price
+[source.csv.agent_email, source.csv.agent_phone, source.csv.building_area, source.csv.water] --> source.csv.school
+[source.csv.agent_email, source.csv.agent_phone, source.csv.building_area, source.csv.electricity] --> source.csv.school
+[source.csv.agent_email, source.csv.agent_phone, source.csv.building_area, source.csv.electricity] --> source.csv.garage
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_name, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.house_address
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_name, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.house_description
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_name, source.csv.lot_area, source.csv.num_rooms, source.csv.water] --> source.csv.house_address
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_name, source.csv.lot_area, source.csv.num_rooms, source.csv.water] --> source.csv.house_description
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.firm_name, source.csv.lot_area, source.csv.num_rooms] --> source.csv.house_address
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.firm_name, source.csv.lot_area, source.csv.num_rooms] --> source.csv.house_description
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_name, source.csv.lot_area, source.csv.sewer] --> source.csv.utilities
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_name, source.csv.lot_area, source.csv.water] --> source.csv.utilities
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.firm_name, source.csv.lot_area] --> source.csv.utilities
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_name, source.csv.num_rooms] --> source.csv.agent_name
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_name, source.csv.num_rooms, source.csv.sewer] --> source.csv.house_price
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_name, source.csv.num_rooms, source.csv.water] --> source.csv.house_price
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.firm_name, source.csv.num_rooms] --> source.csv.house_price
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_name, source.csv.water] --> source.csv.school
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.firm_name] --> source.csv.school
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.firm_name] --> source.csv.garage
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_address] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_address] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_address, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.house_address
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_address, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.house_description
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_address, source.csv.lot_area, source.csv.num_rooms, source.csv.water] --> source.csv.house_address
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_address, source.csv.lot_area, source.csv.num_rooms, source.csv.water] --> source.csv.house_description
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.firm_address, source.csv.lot_area, source.csv.num_rooms] --> source.csv.house_address
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.firm_address, source.csv.lot_area, source.csv.num_rooms] --> source.csv.house_description
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_address, source.csv.lot_area, source.csv.sewer] --> source.csv.utilities
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_address, source.csv.lot_area, source.csv.water] --> source.csv.utilities
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.firm_address, source.csv.lot_area] --> source.csv.utilities
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_address, source.csv.num_rooms] --> source.csv.agent_name
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_address, source.csv.num_rooms, source.csv.sewer] --> source.csv.house_price
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_address, source.csv.num_rooms, source.csv.water] --> source.csv.house_price
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.firm_address, source.csv.num_rooms] --> source.csv.house_price
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_address, source.csv.sewer] --> source.csv.school
+[source.csv.agent_email, source.csv.building_area, source.csv.firm_address, source.csv.water] --> source.csv.school
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.firm_address] --> source.csv.school
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.firm_address] --> source.csv.garage
+[source.csv.agent_email, source.csv.building_area, source.csv.utilities] --> source.csv.school
+[source.csv.agent_email, source.csv.building_area, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.building_area, source.csv.utilities] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.building_area, source.csv.utilities] --> source.csv.firm_address
+[source.csv.agent_email, source.csv.building_area, source.csv.utilities] --> source.csv.lot_area
+[source.csv.agent_email, source.csv.building_area, source.csv.utilities] --> source.csv.sewer
+[source.csv.agent_email, source.csv.building_area, source.csv.utilities] --> source.csv.water
+[source.csv.agent_email, source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.house_address
+[source.csv.agent_email, source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.house_description
+[source.csv.agent_email, source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.house_price
+[source.csv.agent_email, source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.agent_name
+[source.csv.agent_email, source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.garage
+[source.csv.agent_email, source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.utilities] --> source.csv.garage
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.house_address
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.house_description
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.utilities
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.lot_area, source.csv.num_rooms, source.csv.water] --> source.csv.house_address
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.lot_area, source.csv.num_rooms, source.csv.water] --> source.csv.house_description
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.lot_area, source.csv.num_rooms, source.csv.water] --> source.csv.utilities
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.garage, source.csv.lot_area, source.csv.num_rooms] --> source.csv.house_address
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.garage, source.csv.lot_area, source.csv.num_rooms] --> source.csv.house_description
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.garage, source.csv.lot_area, source.csv.num_rooms] --> source.csv.utilities
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.num_rooms, source.csv.sewer] --> source.csv.house_price
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.num_rooms, source.csv.sewer] --> source.csv.agent_name
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.num_rooms, source.csv.sewer] --> source.csv.school
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.num_rooms, source.csv.sewer] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.num_rooms, source.csv.sewer] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.num_rooms, source.csv.sewer] --> source.csv.firm_address
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.num_rooms, source.csv.water] --> source.csv.house_price
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.num_rooms, source.csv.water] --> source.csv.agent_name
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.num_rooms, source.csv.water] --> source.csv.school
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.num_rooms, source.csv.water] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.num_rooms, source.csv.water] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.num_rooms, source.csv.water] --> source.csv.firm_address
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.garage, source.csv.num_rooms] --> source.csv.house_price
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.garage, source.csv.num_rooms] --> source.csv.agent_name
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.garage, source.csv.num_rooms] --> source.csv.school
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.garage, source.csv.num_rooms] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.garage, source.csv.num_rooms] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity, source.csv.garage, source.csv.num_rooms] --> source.csv.firm_address
+[source.csv.agent_email, source.csv.building_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.electricity
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.sewer] --> source.csv.electricity
+[source.csv.agent_email, source.csv.building_area, source.csv.garage, source.csv.water] --> source.csv.electricity
+[source.csv.agent_email, source.csv.building_area, source.csv.sewer] --> source.csv.water
+[source.csv.agent_email, source.csv.building_area, source.csv.water] --> source.csv.sewer
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity] --> source.csv.sewer
+[source.csv.agent_email, source.csv.building_area, source.csv.electricity] --> source.csv.water
+[source.csv.agent_phone, source.csv.building_area, source.csv.school] --> source.csv.sewer
+[source.csv.agent_phone, source.csv.building_area, source.csv.school] --> source.csv.water
+[source.csv.building_area, source.csv.firm_name, source.csv.school] --> source.csv.sewer
+[source.csv.building_area, source.csv.firm_name, source.csv.school] --> source.csv.water
+[source.csv.building_area, source.csv.firm_address, source.csv.school] --> source.csv.sewer
+[source.csv.building_area, source.csv.firm_address, source.csv.school] --> source.csv.water
+[source.csv.building_area, source.csv.electricity, source.csv.firm_address, source.csv.num_rooms, source.csv.school] --> source.csv.agent_phone
+[source.csv.building_area, source.csv.electricity, source.csv.firm_address, source.csv.num_rooms, source.csv.school] --> source.csv.firm_name
+[source.csv.building_area, source.csv.electricity, source.csv.firm_address, source.csv.garage, source.csv.school] --> source.csv.agent_phone
+[source.csv.building_area, source.csv.electricity, source.csv.firm_address, source.csv.garage, source.csv.school] --> source.csv.firm_name
+[source.csv.building_area, source.csv.electricity, source.csv.fireplace, source.csv.firm_address, source.csv.school] --> source.csv.agent_phone
+[source.csv.building_area, source.csv.electricity, source.csv.fireplace, source.csv.firm_address, source.csv.school] --> source.csv.firm_name
+[source.csv.building_area, source.csv.school, source.csv.utilities] --> source.csv.fireplace
+[source.csv.building_area, source.csv.num_rooms, source.csv.school, source.csv.sewer, source.csv.utilities] --> source.csv.house_address
+[source.csv.building_area, source.csv.num_rooms, source.csv.school, source.csv.sewer, source.csv.utilities] --> source.csv.house_description
+[source.csv.building_area, source.csv.num_rooms, source.csv.school, source.csv.sewer, source.csv.utilities] --> source.csv.house_price
+[source.csv.building_area, source.csv.num_rooms, source.csv.school, source.csv.sewer, source.csv.utilities] --> source.csv.agent_name
+[source.csv.building_area, source.csv.num_rooms, source.csv.school, source.csv.utilities, source.csv.water] --> source.csv.house_address
+[source.csv.building_area, source.csv.num_rooms, source.csv.school, source.csv.utilities, source.csv.water] --> source.csv.house_description
+[source.csv.building_area, source.csv.num_rooms, source.csv.school, source.csv.utilities, source.csv.water] --> source.csv.house_price
+[source.csv.building_area, source.csv.num_rooms, source.csv.school, source.csv.utilities, source.csv.water] --> source.csv.agent_name
+[source.csv.building_area, source.csv.electricity, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.house_address
+[source.csv.building_area, source.csv.electricity, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.house_description
+[source.csv.building_area, source.csv.electricity, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.house_price
+[source.csv.building_area, source.csv.electricity, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.agent_name
+[source.csv.building_area, source.csv.electricity, source.csv.school, source.csv.utilities] --> source.csv.sewer
+[source.csv.building_area, source.csv.electricity, source.csv.school, source.csv.utilities] --> source.csv.water
+[source.csv.building_area, source.csv.num_rooms, source.csv.school] --> source.csv.garage
+[source.csv.building_area, source.csv.num_rooms, source.csv.school] --> source.csv.fireplace
+[source.csv.building_area, source.csv.garage, source.csv.school] --> source.csv.fireplace
+[source.csv.building_area, source.csv.school, source.csv.sewer] --> source.csv.water
+[source.csv.building_area, source.csv.school, source.csv.water] --> source.csv.sewer
+[source.csv.agent_phone, source.csv.building_area] --> source.csv.firm_name
+[source.csv.agent_phone, source.csv.building_area] --> source.csv.firm_address
+[source.csv.agent_phone, source.csv.building_area] --> source.csv.fireplace
+[source.csv.agent_phone, source.csv.building_area, source.csv.utilities] --> source.csv.lot_area
+[source.csv.agent_phone, source.csv.building_area, source.csv.utilities] --> source.csv.water
+[source.csv.agent_phone, source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.house_address
+[source.csv.agent_phone, source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.house_description
+[source.csv.agent_phone, source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.house_price
+[source.csv.agent_phone, source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.agent_name
+[source.csv.agent_phone, source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.agent_email
+[source.csv.agent_phone, source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.school
+[source.csv.agent_phone, source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.sewer
+[source.csv.agent_phone, source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_phone, source.csv.building_area, source.csv.garage, source.csv.utilities] --> source.csv.agent_email
+[source.csv.agent_phone, source.csv.building_area, source.csv.garage, source.csv.utilities] --> source.csv.school
+[source.csv.agent_phone, source.csv.building_area, source.csv.garage, source.csv.utilities] --> source.csv.sewer
+[source.csv.agent_phone, source.csv.building_area, source.csv.garage, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_phone, source.csv.building_area, source.csv.num_rooms] --> source.csv.garage
+[source.csv.agent_phone, source.csv.building_area, source.csv.num_rooms, source.csv.water] --> source.csv.school
+[source.csv.agent_phone, source.csv.building_area, source.csv.num_rooms, source.csv.water] --> source.csv.sewer
+[source.csv.agent_phone, source.csv.building_area, source.csv.electricity, source.csv.num_rooms] --> source.csv.school
+[source.csv.agent_phone, source.csv.building_area, source.csv.electricity, source.csv.num_rooms] --> source.csv.sewer
+[source.csv.agent_phone, source.csv.building_area, source.csv.garage, source.csv.water] --> source.csv.school
+[source.csv.agent_phone, source.csv.building_area, source.csv.garage, source.csv.water] --> source.csv.sewer
+[source.csv.agent_phone, source.csv.building_area, source.csv.electricity, source.csv.garage] --> source.csv.school
+[source.csv.agent_phone, source.csv.building_area, source.csv.electricity, source.csv.garage] --> source.csv.sewer
+[source.csv.agent_phone, source.csv.building_area, source.csv.sewer] --> source.csv.school
+[source.csv.agent_phone, source.csv.building_area, source.csv.sewer] --> source.csv.water
+[source.csv.agent_phone, source.csv.building_area, source.csv.electricity] --> source.csv.water
+[source.csv.building_area, source.csv.firm_name] --> source.csv.agent_phone
+[source.csv.building_area, source.csv.firm_name] --> source.csv.firm_address
+[source.csv.building_area, source.csv.firm_name] --> source.csv.fireplace
+[source.csv.building_area, source.csv.firm_name, source.csv.utilities] --> source.csv.lot_area
+[source.csv.building_area, source.csv.firm_name, source.csv.utilities] --> source.csv.water
+[source.csv.building_area, source.csv.firm_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.house_address
+[source.csv.building_area, source.csv.firm_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.house_description
+[source.csv.building_area, source.csv.firm_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.house_price
+[source.csv.building_area, source.csv.firm_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.agent_name
+[source.csv.building_area, source.csv.firm_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.agent_email
+[source.csv.building_area, source.csv.firm_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.school
+[source.csv.building_area, source.csv.firm_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.sewer
+[source.csv.building_area, source.csv.firm_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.electricity
+[source.csv.building_area, source.csv.firm_name, source.csv.garage, source.csv.utilities] --> source.csv.agent_email
+[source.csv.building_area, source.csv.firm_name, source.csv.garage, source.csv.utilities] --> source.csv.school
+[source.csv.building_area, source.csv.firm_name, source.csv.garage, source.csv.utilities] --> source.csv.sewer
+[source.csv.building_area, source.csv.firm_name, source.csv.garage, source.csv.utilities] --> source.csv.electricity
+[source.csv.building_area, source.csv.firm_name, source.csv.num_rooms] --> source.csv.garage
+[source.csv.building_area, source.csv.firm_name, source.csv.num_rooms, source.csv.water] --> source.csv.school
+[source.csv.building_area, source.csv.firm_name, source.csv.num_rooms, source.csv.water] --> source.csv.sewer
+[source.csv.building_area, source.csv.electricity, source.csv.firm_name, source.csv.num_rooms] --> source.csv.school
+[source.csv.building_area, source.csv.electricity, source.csv.firm_name, source.csv.num_rooms] --> source.csv.sewer
+[source.csv.building_area, source.csv.firm_name, source.csv.garage, source.csv.water] --> source.csv.school
+[source.csv.building_area, source.csv.firm_name, source.csv.garage, source.csv.water] --> source.csv.sewer
+[source.csv.building_area, source.csv.electricity, source.csv.firm_name, source.csv.garage] --> source.csv.school
+[source.csv.building_area, source.csv.electricity, source.csv.firm_name, source.csv.garage] --> source.csv.sewer
+[source.csv.building_area, source.csv.firm_name, source.csv.sewer] --> source.csv.school
+[source.csv.building_area, source.csv.firm_name, source.csv.sewer] --> source.csv.water
+[source.csv.building_area, source.csv.electricity, source.csv.firm_name] --> source.csv.water
+[source.csv.building_area, source.csv.firm_address, source.csv.utilities] --> source.csv.lot_area
+[source.csv.building_area, source.csv.firm_address, source.csv.utilities] --> source.csv.fireplace
+[source.csv.building_area, source.csv.firm_address, source.csv.utilities] --> source.csv.water
+[source.csv.building_area, source.csv.firm_address, source.csv.num_rooms, source.csv.utilities] --> source.csv.house_address
+[source.csv.building_area, source.csv.firm_address, source.csv.num_rooms, source.csv.utilities] --> source.csv.house_description
+[source.csv.building_area, source.csv.firm_address, source.csv.num_rooms, source.csv.utilities] --> source.csv.house_price
+[source.csv.building_area, source.csv.firm_address, source.csv.num_rooms, source.csv.utilities] --> source.csv.agent_name
+[source.csv.building_area, source.csv.firm_address, source.csv.num_rooms, source.csv.utilities] --> source.csv.agent_email
+[source.csv.building_area, source.csv.firm_address, source.csv.num_rooms, source.csv.utilities] --> source.csv.school
+[source.csv.building_area, source.csv.firm_address, source.csv.num_rooms, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.building_area, source.csv.firm_address, source.csv.num_rooms, source.csv.utilities] --> source.csv.firm_name
+[source.csv.building_area, source.csv.firm_address, source.csv.num_rooms, source.csv.utilities] --> source.csv.sewer
+[source.csv.building_area, source.csv.firm_address, source.csv.num_rooms, source.csv.utilities] --> source.csv.electricity
+[source.csv.building_area, source.csv.firm_address, source.csv.garage, source.csv.utilities] --> source.csv.agent_email
+[source.csv.building_area, source.csv.firm_address, source.csv.garage, source.csv.utilities] --> source.csv.school
+[source.csv.building_area, source.csv.firm_address, source.csv.garage, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.building_area, source.csv.firm_address, source.csv.garage, source.csv.utilities] --> source.csv.firm_name
+[source.csv.building_area, source.csv.firm_address, source.csv.garage, source.csv.utilities] --> source.csv.sewer
+[source.csv.building_area, source.csv.firm_address, source.csv.garage, source.csv.utilities] --> source.csv.electricity
+[source.csv.building_area, source.csv.firm_address, source.csv.sewer, source.csv.utilities] --> source.csv.school
+[source.csv.building_area, source.csv.electricity, source.csv.firm_address, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.building_area, source.csv.electricity, source.csv.firm_address, source.csv.utilities] --> source.csv.firm_name
+[source.csv.building_area, source.csv.firm_address, source.csv.lot_area, source.csv.sewer] --> source.csv.water
+[source.csv.building_area, source.csv.electricity, source.csv.firm_address, source.csv.lot_area] --> source.csv.water
+[source.csv.building_area, source.csv.firm_address, source.csv.num_rooms] --> source.csv.garage
+[source.csv.building_area, source.csv.fireplace, source.csv.firm_address, source.csv.num_rooms, source.csv.sewer] --> source.csv.school
+[source.csv.building_area, source.csv.fireplace, source.csv.firm_address, source.csv.num_rooms, source.csv.water] --> source.csv.school
+[source.csv.building_area, source.csv.electricity, source.csv.fireplace, source.csv.firm_address, source.csv.num_rooms] --> source.csv.school
+[source.csv.building_area, source.csv.electricity, source.csv.fireplace, source.csv.firm_address, source.csv.num_rooms] --> source.csv.agent_phone
+[source.csv.building_area, source.csv.electricity, source.csv.fireplace, source.csv.firm_address, source.csv.num_rooms] --> source.csv.firm_name
+[source.csv.building_area, source.csv.firm_address, source.csv.num_rooms, source.csv.sewer] --> source.csv.water
+[source.csv.building_area, source.csv.firm_address, source.csv.num_rooms, source.csv.water] --> source.csv.sewer
+[source.csv.building_area, source.csv.electricity, source.csv.firm_address, source.csv.num_rooms] --> source.csv.sewer
+[source.csv.building_area, source.csv.electricity, source.csv.firm_address, source.csv.num_rooms] --> source.csv.water
+[source.csv.building_area, source.csv.fireplace, source.csv.firm_address, source.csv.garage, source.csv.sewer] --> source.csv.school
+[source.csv.building_area, source.csv.fireplace, source.csv.firm_address, source.csv.garage, source.csv.water] --> source.csv.school
+[source.csv.building_area, source.csv.electricity, source.csv.fireplace, source.csv.firm_address, source.csv.garage] --> source.csv.school
+[source.csv.building_area, source.csv.electricity, source.csv.fireplace, source.csv.firm_address, source.csv.garage] --> source.csv.agent_phone
+[source.csv.building_area, source.csv.electricity, source.csv.fireplace, source.csv.firm_address, source.csv.garage] --> source.csv.firm_name
+[source.csv.building_area, source.csv.firm_address, source.csv.garage, source.csv.sewer] --> source.csv.water
+[source.csv.building_area, source.csv.firm_address, source.csv.garage, source.csv.water] --> source.csv.sewer
+[source.csv.building_area, source.csv.electricity, source.csv.firm_address, source.csv.garage] --> source.csv.sewer
+[source.csv.building_area, source.csv.electricity, source.csv.firm_address, source.csv.garage] --> source.csv.water
+[source.csv.building_area, source.csv.fireplace, source.csv.firm_address, source.csv.sewer] --> source.csv.water
+[source.csv.building_area, source.csv.electricity, source.csv.fireplace, source.csv.firm_address] --> source.csv.water
+[source.csv.building_area, source.csv.electricity, source.csv.firm_address, source.csv.sewer] --> source.csv.water
+[source.csv.building_area, source.csv.num_rooms, source.csv.utilities] --> source.csv.lot_area
+[source.csv.building_area, source.csv.garage, source.csv.num_rooms, source.csv.sewer, source.csv.utilities] --> source.csv.water
+[source.csv.building_area, source.csv.electricity, source.csv.garage, source.csv.num_rooms, source.csv.utilities] --> source.csv.sewer
+[source.csv.building_area, source.csv.electricity, source.csv.garage, source.csv.num_rooms, source.csv.utilities] --> source.csv.water
+[source.csv.building_area, source.csv.num_rooms, source.csv.utilities, source.csv.water] --> source.csv.sewer
+[source.csv.building_area, source.csv.electricity, source.csv.garage, source.csv.sewer, source.csv.utilities] --> source.csv.water
+[source.csv.building_area, source.csv.garage, source.csv.utilities, source.csv.water] --> source.csv.sewer
+[source.csv.building_area, source.csv.garage, source.csv.num_rooms, source.csv.water] --> source.csv.sewer
+[source.csv.agent_email, source.csv.school] --> source.csv.sewer
+[source.csv.agent_email, source.csv.agent_phone, source.csv.garage, source.csv.school, source.csv.water] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.agent_phone, source.csv.electricity, source.csv.garage, source.csv.school] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.firm_name, source.csv.school] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.firm_name, source.csv.garage, source.csv.school, source.csv.water] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.electricity, source.csv.firm_name, source.csv.garage, source.csv.school] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.firm_address, source.csv.lot_area, source.csv.school] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.fireplace, source.csv.firm_address, source.csv.school] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.school, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.school, source.csv.utilities] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.school, source.csv.utilities] --> source.csv.firm_address
+[source.csv.agent_email, source.csv.school, source.csv.utilities] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.school, source.csv.utilities] --> source.csv.water
+[source.csv.agent_email, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_email, source.csv.garage, source.csv.school, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_email, source.csv.garage, source.csv.lot_area, source.csv.num_rooms, source.csv.school] --> source.csv.utilities
+[source.csv.agent_email, source.csv.fireplace, source.csv.lot_area, source.csv.num_rooms, source.csv.school] --> source.csv.utilities
+[source.csv.agent_email, source.csv.lot_area, source.csv.num_rooms, source.csv.school, source.csv.water] --> source.csv.utilities
+[source.csv.agent_email, source.csv.electricity, source.csv.lot_area, source.csv.num_rooms, source.csv.school] --> source.csv.utilities
+[source.csv.agent_email, source.csv.garage, source.csv.lot_area, source.csv.school] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.garage, source.csv.lot_area, source.csv.school] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.garage, source.csv.lot_area, source.csv.school] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.garage, source.csv.lot_area, source.csv.school] --> source.csv.water
+[source.csv.agent_email, source.csv.garage, source.csv.lot_area, source.csv.school] --> source.csv.electricity
+[source.csv.agent_email, source.csv.lot_area, source.csv.school, source.csv.water] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.electricity, source.csv.lot_area, source.csv.school] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.num_rooms, source.csv.school] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.num_rooms, source.csv.school] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.num_rooms, source.csv.school] --> source.csv.firm_address
+[source.csv.agent_email, source.csv.garage, source.csv.num_rooms, source.csv.school] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.garage, source.csv.num_rooms, source.csv.school] --> source.csv.water
+[source.csv.agent_email, source.csv.garage, source.csv.num_rooms, source.csv.school] --> source.csv.electricity
+[source.csv.agent_email, source.csv.fireplace, source.csv.num_rooms, source.csv.school] --> source.csv.electricity
+[source.csv.agent_email, source.csv.num_rooms, source.csv.school, source.csv.water] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.electricity, source.csv.num_rooms, source.csv.school] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.garage, source.csv.school] --> source.csv.firm_address
+[source.csv.agent_email, source.csv.fireplace, source.csv.garage, source.csv.school] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.fireplace, source.csv.garage, source.csv.school] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.fireplace, source.csv.garage, source.csv.school] --> source.csv.electricity
+[source.csv.agent_email, source.csv.garage, source.csv.school, source.csv.water] --> source.csv.electricity
+[source.csv.agent_email, source.csv.fireplace, source.csv.school] --> source.csv.water
+[source.csv.agent_email, source.csv.electricity, source.csv.school] --> source.csv.water
+[source.csv.agent_email, source.csv.agent_phone] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.agent_phone] --> source.csv.firm_address
+[source.csv.agent_email, source.csv.agent_phone, source.csv.garage, source.csv.lot_area, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_email, source.csv.agent_phone, source.csv.num_rooms, source.csv.utilities] --> source.csv.sewer
+[source.csv.agent_email, source.csv.agent_phone, source.csv.num_rooms, source.csv.utilities] --> source.csv.water
+[source.csv.agent_email, source.csv.agent_phone, source.csv.num_rooms, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_email, source.csv.agent_phone, source.csv.garage, source.csv.lot_area, source.csv.num_rooms] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.agent_phone, source.csv.garage, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.utilities
+[source.csv.agent_email, source.csv.agent_phone, source.csv.fireplace, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.utilities
+[source.csv.agent_email, source.csv.agent_phone, source.csv.electricity, source.csv.garage, source.csv.lot_area, source.csv.sewer] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.firm_name] --> source.csv.firm_address
+[source.csv.agent_email, source.csv.firm_name, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.firm_name, source.csv.garage, source.csv.lot_area, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_email, source.csv.firm_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.sewer
+[source.csv.agent_email, source.csv.firm_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.water
+[source.csv.agent_email, source.csv.firm_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_email, source.csv.firm_name, source.csv.garage, source.csv.lot_area, source.csv.num_rooms] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.firm_name, source.csv.garage, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.utilities
+[source.csv.agent_email, source.csv.fireplace, source.csv.firm_name, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.utilities
+[source.csv.agent_email, source.csv.electricity, source.csv.firm_name, source.csv.garage, source.csv.lot_area, source.csv.sewer] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.firm_name, source.csv.num_rooms] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.firm_name, source.csv.garage] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.firm_name, source.csv.sewer] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.firm_name, source.csv.water] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.electricity, source.csv.firm_name] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.firm_address, source.csv.lot_area, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.firm_address, source.csv.garage, source.csv.lot_area, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_email, source.csv.firm_address, source.csv.num_rooms, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.firm_address, source.csv.num_rooms, source.csv.utilities] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.firm_address, source.csv.num_rooms, source.csv.utilities] --> source.csv.sewer
+[source.csv.agent_email, source.csv.firm_address, source.csv.num_rooms, source.csv.utilities] --> source.csv.water
+[source.csv.agent_email, source.csv.firm_address, source.csv.num_rooms, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_email, source.csv.fireplace, source.csv.firm_address, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.firm_address, source.csv.sewer, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.firm_address, source.csv.sewer, source.csv.utilities] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.firm_address, source.csv.utilities, source.csv.water] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.firm_address, source.csv.utilities, source.csv.water] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.electricity, source.csv.firm_address, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.electricity, source.csv.firm_address, source.csv.utilities] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.firm_address, source.csv.lot_area] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.firm_address, source.csv.lot_area, source.csv.num_rooms] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.firm_address, source.csv.garage, source.csv.lot_area, source.csv.num_rooms] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.firm_address, source.csv.garage, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.utilities
+[source.csv.agent_email, source.csv.fireplace, source.csv.firm_address, source.csv.lot_area, source.csv.num_rooms, source.csv.sewer] --> source.csv.utilities
+[source.csv.agent_email, source.csv.firm_address, source.csv.garage, source.csv.lot_area] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.electricity, source.csv.firm_address, source.csv.garage, source.csv.lot_area, source.csv.sewer] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.firm_address, source.csv.lot_area, source.csv.sewer] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.firm_address, source.csv.lot_area, source.csv.water] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.electricity, source.csv.firm_address, source.csv.lot_area] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.firm_address, source.csv.garage, source.csv.num_rooms] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.firm_address, source.csv.garage, source.csv.num_rooms] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.fireplace, source.csv.firm_address, source.csv.num_rooms] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.fireplace, source.csv.firm_address, source.csv.garage] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.fireplace, source.csv.firm_address] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.fireplace, source.csv.firm_address, source.csv.sewer] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.fireplace, source.csv.firm_address, source.csv.water] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.electricity, source.csv.fireplace, source.csv.firm_address] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.garage, source.csv.lot_area, source.csv.utilities] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.garage, source.csv.lot_area, source.csv.sewer, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_email, source.csv.garage, source.csv.lot_area, source.csv.utilities, source.csv.water] --> source.csv.electricity
+[source.csv.agent_email, source.csv.lot_area, source.csv.sewer, source.csv.utilities, source.csv.water] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.num_rooms, source.csv.utilities] --> source.csv.fireplace
+[source.csv.agent_email, source.csv.garage, source.csv.num_rooms, source.csv.sewer, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.garage, source.csv.num_rooms, source.csv.sewer, source.csv.utilities] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.garage, source.csv.num_rooms, source.csv.sewer, source.csv.utilities] --> source.csv.firm_address
+[source.csv.agent_email, source.csv.garage, source.csv.num_rooms, source.csv.utilities, source.csv.water] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.garage, source.csv.num_rooms, source.csv.utilities, source.csv.water] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.garage, source.csv.num_rooms, source.csv.utilities, source.csv.water] --> source.csv.firm_address
+[source.csv.agent_email, source.csv.electricity, source.csv.garage, source.csv.num_rooms, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.agent_email, source.csv.electricity, source.csv.garage, source.csv.num_rooms, source.csv.utilities] --> source.csv.firm_name
+[source.csv.agent_email, source.csv.electricity, source.csv.garage, source.csv.num_rooms, source.csv.utilities] --> source.csv.firm_address
+[source.csv.agent_email, source.csv.num_rooms, source.csv.sewer, source.csv.utilities] --> source.csv.lot_area
+[source.csv.agent_email, source.csv.num_rooms, source.csv.sewer, source.csv.utilities] --> source.csv.water
+[source.csv.agent_email, source.csv.num_rooms, source.csv.sewer, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_email, source.csv.num_rooms, source.csv.utilities, source.csv.water] --> source.csv.lot_area
+[source.csv.agent_email, source.csv.num_rooms, source.csv.utilities, source.csv.water] --> source.csv.sewer
+[source.csv.agent_email, source.csv.electricity, source.csv.num_rooms, source.csv.utilities] --> source.csv.lot_area
+[source.csv.agent_email, source.csv.electricity, source.csv.num_rooms, source.csv.utilities] --> source.csv.sewer
+[source.csv.agent_email, source.csv.electricity, source.csv.num_rooms, source.csv.utilities] --> source.csv.water
+[source.csv.agent_email, source.csv.garage, source.csv.sewer, source.csv.utilities] --> source.csv.water
+[source.csv.agent_email, source.csv.garage, source.csv.utilities, source.csv.water] --> source.csv.sewer
+[source.csv.agent_email, source.csv.fireplace, source.csv.utilities, source.csv.water] --> source.csv.sewer
+[source.csv.agent_email, source.csv.electricity, source.csv.fireplace, source.csv.utilities] --> source.csv.lot_area
+[source.csv.agent_email, source.csv.fireplace, source.csv.garage, source.csv.lot_area, source.csv.sewer] --> source.csv.electricity
+[source.csv.agent_email, source.csv.fireplace, source.csv.garage, source.csv.lot_area, source.csv.water] --> source.csv.electricity
+[source.csv.agent_email, source.csv.garage, source.csv.lot_area, source.csv.sewer] --> source.csv.water
+[source.csv.agent_email, source.csv.garage, source.csv.num_rooms, source.csv.sewer] --> source.csv.water
+[source.csv.agent_email, source.csv.garage, source.csv.num_rooms, source.csv.sewer] --> source.csv.electricity
+[source.csv.agent_email, source.csv.electricity, source.csv.garage, source.csv.num_rooms] --> source.csv.water
+[source.csv.agent_email, source.csv.fireplace, source.csv.num_rooms, source.csv.sewer] --> source.csv.electricity
+[source.csv.agent_email, source.csv.electricity, source.csv.num_rooms, source.csv.sewer] --> source.csv.water
+[source.csv.agent_email, source.csv.num_rooms, source.csv.water] --> source.csv.electricity
+[source.csv.agent_email, source.csv.fireplace, source.csv.sewer] --> source.csv.water
+[source.csv.agent_phone, source.csv.school] --> source.csv.firm_name
+[source.csv.agent_phone, source.csv.school] --> source.csv.firm_address
+[source.csv.agent_phone, source.csv.school, source.csv.utilities] --> source.csv.sewer
+[source.csv.agent_phone, source.csv.school, source.csv.utilities] --> source.csv.water
+[source.csv.agent_phone, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.agent_email
+[source.csv.agent_phone, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_phone, source.csv.garage, source.csv.school, source.csv.utilities] --> source.csv.agent_email
+[source.csv.agent_phone, source.csv.garage, source.csv.school, source.csv.utilities] --> source.csv.electricity
+[source.csv.agent_phone, source.csv.garage, source.csv.lot_area, source.csv.school] --> source.csv.sewer
+[source.csv.agent_phone, source.csv.lot_area, source.csv.school, source.csv.water] --> source.csv.sewer
+[source.csv.agent_phone, source.csv.num_rooms, source.csv.school] --> source.csv.sewer
+[source.csv.agent_phone, source.csv.fireplace, source.csv.num_rooms, source.csv.school] --> source.csv.water
+[source.csv.agent_phone, source.csv.fireplace, source.csv.garage, source.csv.school] --> source.csv.water
+[source.csv.firm_name, source.csv.school] --> source.csv.firm_address
+[source.csv.firm_name, source.csv.school, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.firm_name, source.csv.school, source.csv.utilities] --> source.csv.sewer
+[source.csv.firm_name, source.csv.school, source.csv.utilities] --> source.csv.water
+[source.csv.firm_name, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.agent_email
+[source.csv.firm_name, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.electricity
+[source.csv.firm_name, source.csv.garage, source.csv.school, source.csv.utilities] --> source.csv.agent_email
+[source.csv.firm_name, source.csv.garage, source.csv.school, source.csv.utilities] --> source.csv.electricity
+[source.csv.fireplace, source.csv.firm_name, source.csv.garage, source.csv.lot_area, source.csv.school] --> source.csv.sewer
+[source.csv.firm_name, source.csv.lot_area, source.csv.school, source.csv.water] --> source.csv.sewer
+[source.csv.firm_name, source.csv.num_rooms, source.csv.school] --> source.csv.agent_phone
+[source.csv.firm_name, source.csv.num_rooms, source.csv.school] --> source.csv.sewer
+[source.csv.fireplace, source.csv.firm_name, source.csv.num_rooms, source.csv.school] --> source.csv.water
+[source.csv.fireplace, source.csv.firm_name, source.csv.garage, source.csv.school] --> source.csv.water
+[source.csv.fireplace, source.csv.firm_name, source.csv.school] --> source.csv.agent_phone
+[source.csv.firm_name, source.csv.school, source.csv.sewer] --> source.csv.agent_phone
+[source.csv.firm_name, source.csv.school, source.csv.water] --> source.csv.agent_phone
+[source.csv.firm_address, source.csv.garage, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.agent_email
+[source.csv.firm_address, source.csv.garage, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.firm_address, source.csv.garage, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.firm_name
+[source.csv.firm_address, source.csv.garage, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.electricity
+[source.csv.firm_address, source.csv.garage, source.csv.school, source.csv.utilities] --> source.csv.sewer
+[source.csv.firm_address, source.csv.garage, source.csv.school, source.csv.utilities] --> source.csv.water
+[source.csv.electricity, source.csv.firm_address, source.csv.garage, source.csv.school, source.csv.utilities] --> source.csv.agent_email
+[source.csv.electricity, source.csv.firm_address, source.csv.school, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.electricity, source.csv.firm_address, source.csv.school, source.csv.utilities] --> source.csv.firm_name
+[source.csv.electricity, source.csv.firm_address, source.csv.school, source.csv.utilities] --> source.csv.sewer
+[source.csv.electricity, source.csv.firm_address, source.csv.school, source.csv.utilities] --> source.csv.water
+[source.csv.electricity, source.csv.firm_address, source.csv.garage, source.csv.num_rooms, source.csv.school] --> source.csv.sewer
+[source.csv.school, source.csv.utilities] --> source.csv.lot_area
+[source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.fireplace
+[source.csv.num_rooms, source.csv.school, source.csv.sewer, source.csv.utilities] --> source.csv.agent_email
+[source.csv.num_rooms, source.csv.school, source.csv.sewer, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.num_rooms, source.csv.school, source.csv.sewer, source.csv.utilities] --> source.csv.firm_name
+[source.csv.num_rooms, source.csv.school, source.csv.sewer, source.csv.utilities] --> source.csv.firm_address
+[source.csv.num_rooms, source.csv.school, source.csv.sewer, source.csv.utilities] --> source.csv.electricity
+[source.csv.num_rooms, source.csv.school, source.csv.utilities, source.csv.water] --> source.csv.agent_email
+[source.csv.num_rooms, source.csv.school, source.csv.utilities, source.csv.water] --> source.csv.agent_phone
+[source.csv.num_rooms, source.csv.school, source.csv.utilities, source.csv.water] --> source.csv.firm_name
+[source.csv.num_rooms, source.csv.school, source.csv.utilities, source.csv.water] --> source.csv.firm_address
+[source.csv.num_rooms, source.csv.school, source.csv.utilities, source.csv.water] --> source.csv.electricity
+[source.csv.electricity, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.agent_email
+[source.csv.electricity, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.electricity, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.firm_name
+[source.csv.electricity, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.firm_address
+[source.csv.electricity, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.sewer
+[source.csv.electricity, source.csv.num_rooms, source.csv.school, source.csv.utilities] --> source.csv.water
+[source.csv.garage, source.csv.school, source.csv.utilities] --> source.csv.fireplace
+[source.csv.school, source.csv.sewer, source.csv.utilities] --> source.csv.water
+[source.csv.school, source.csv.utilities, source.csv.water] --> source.csv.sewer
+[source.csv.electricity, source.csv.num_rooms, source.csv.school, source.csv.water] --> source.csv.sewer
+[source.csv.agent_phone, source.csv.firm_name] --> source.csv.firm_address
+[source.csv.agent_phone, source.csv.firm_address] --> source.csv.firm_name
+[source.csv.agent_phone, source.csv.garage, source.csv.lot_area, source.csv.utilities] --> source.csv.fireplace
+[source.csv.agent_phone, source.csv.electricity, source.csv.garage, source.csv.lot_area, source.csv.utilities] --> source.csv.agent_email
+[source.csv.agent_phone, source.csv.num_rooms, source.csv.utilities] --> source.csv.lot_area
+[source.csv.agent_phone, source.csv.garage, source.csv.num_rooms, source.csv.utilities] --> source.csv.fireplace
+[source.csv.agent_phone, source.csv.garage, source.csv.num_rooms, source.csv.utilities] --> source.csv.sewer
+[source.csv.agent_phone, source.csv.garage, source.csv.num_rooms, source.csv.utilities] --> source.csv.water
+[source.csv.agent_phone, source.csv.electricity, source.csv.garage, source.csv.num_rooms, source.csv.utilities] --> source.csv.agent_email
+[source.csv.agent_phone, source.csv.fireplace, source.csv.num_rooms, source.csv.utilities] --> source.csv.water
+[source.csv.agent_phone, source.csv.num_rooms, source.csv.sewer, source.csv.utilities] --> source.csv.fireplace
+[source.csv.agent_phone, source.csv.num_rooms, source.csv.sewer, source.csv.utilities] --> source.csv.water
+[source.csv.agent_phone, source.csv.electricity, source.csv.num_rooms, source.csv.sewer, source.csv.utilities] --> source.csv.agent_email
+[source.csv.agent_phone, source.csv.num_rooms, source.csv.utilities, source.csv.water] --> source.csv.fireplace
+[source.csv.agent_phone, source.csv.electricity, source.csv.fireplace, source.csv.garage, source.csv.utilities] --> source.csv.agent_email
+[source.csv.agent_phone, source.csv.garage, source.csv.sewer, source.csv.utilities] --> source.csv.water
+[source.csv.agent_phone, source.csv.garage, source.csv.utilities, source.csv.water] --> source.csv.sewer
+[source.csv.agent_phone, source.csv.fireplace, source.csv.sewer, source.csv.utilities] --> source.csv.water
+[source.csv.agent_phone, source.csv.electricity, source.csv.fireplace, source.csv.utilities] --> source.csv.lot_area
+[source.csv.agent_phone, source.csv.num_rooms] --> source.csv.firm_name
+[source.csv.agent_phone, source.csv.num_rooms] --> source.csv.firm_address
+[source.csv.agent_phone, source.csv.electricity, source.csv.fireplace, source.csv.garage, source.csv.num_rooms] --> source.csv.water
+[source.csv.agent_phone, source.csv.fireplace, source.csv.num_rooms, source.csv.sewer] --> source.csv.water
+[source.csv.agent_phone, source.csv.garage] --> source.csv.firm_name
+[source.csv.agent_phone, source.csv.garage] --> source.csv.firm_address
+[source.csv.agent_phone, source.csv.fireplace, source.csv.garage, source.csv.sewer] --> source.csv.water
+[source.csv.agent_phone, source.csv.sewer] --> source.csv.firm_name
+[source.csv.agent_phone, source.csv.sewer] --> source.csv.firm_address
+[source.csv.agent_phone, source.csv.water] --> source.csv.firm_name
+[source.csv.agent_phone, source.csv.water] --> source.csv.firm_address
+[source.csv.agent_phone, source.csv.electricity] --> source.csv.firm_name
+[source.csv.agent_phone, source.csv.electricity] --> source.csv.firm_address
+[source.csv.firm_name, source.csv.garage, source.csv.lot_area, source.csv.utilities] --> source.csv.fireplace
+[source.csv.electricity, source.csv.firm_name, source.csv.garage, source.csv.lot_area, source.csv.utilities] --> source.csv.agent_email
+[source.csv.firm_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.lot_area
+[source.csv.firm_name, source.csv.garage, source.csv.num_rooms, source.csv.utilities] --> source.csv.fireplace
+[source.csv.firm_name, source.csv.garage, source.csv.num_rooms, source.csv.utilities] --> source.csv.sewer
+[source.csv.firm_name, source.csv.garage, source.csv.num_rooms, source.csv.utilities] --> source.csv.water
+[source.csv.electricity, source.csv.firm_name, source.csv.garage, source.csv.num_rooms, source.csv.utilities] --> source.csv.agent_email
+[source.csv.fireplace, source.csv.firm_name, source.csv.num_rooms, source.csv.utilities] --> source.csv.water
+[source.csv.firm_name, source.csv.num_rooms, source.csv.sewer, source.csv.utilities] --> source.csv.fireplace
+[source.csv.firm_name, source.csv.num_rooms, source.csv.sewer, source.csv.utilities] --> source.csv.water
+[source.csv.firm_name, source.csv.num_rooms, source.csv.utilities, source.csv.water] --> source.csv.fireplace
+[source.csv.electricity, source.csv.fireplace, source.csv.firm_name, source.csv.garage, source.csv.utilities] --> source.csv.agent_email
+[source.csv.firm_name, source.csv.garage, source.csv.sewer, source.csv.utilities] --> source.csv.water
+[source.csv.firm_name, source.csv.garage, source.csv.utilities, source.csv.water] --> source.csv.sewer
+[source.csv.electricity, source.csv.firm_name, source.csv.garage, source.csv.utilities] --> source.csv.agent_phone
+[source.csv.fireplace, source.csv.firm_name, source.csv.sewer, source.csv.utilities] --> source.csv.water
+[source.csv.electricity, source.csv.fireplace, source.csv.firm_name, source.csv.utilities] --> source.csv.lot_area
+[source.csv.firm_name, source.csv.num_rooms] --> source.csv.firm_address
+[source.csv.firm_name, source.csv.garage, source.csv.num_rooms] --> source.csv.agent_phone
+[source.csv.electricity, source.csv.fireplace, source.csv.firm_name, source.csv.garage, source.csv.num_rooms] --> source.csv.water
+[source.csv.fireplace, source.csv.firm_name, source.csv.num_rooms, source.csv.sewer] --> source.csv.water
+[source.csv.fireplace, source.csv.firm_name, source.csv.garage, source.csv.sewer] --> source.csv.water
+[source.csv.electricity, source.csv.fireplace, source.csv.firm_name, source.csv.garage] --> source.csv.agent_phone
+[source.csv.electricity, source.csv.firm_name] --> source.csv.firm_address
+[source.csv.firm_address, source.csv.garage, source.csv.lot_area, source.csv.utilities] --> source.csv.fireplace
+[source.csv.firm_address, source.csv.num_rooms, source.csv.utilities] --> source.csv.lot_area
+[source.csv.firm_address, source.csv.garage, source.csv.num_rooms, source.csv.utilities] --> source.csv.fireplace
+[source.csv.firm_address, source.csv.garage, source.csv.num_rooms, source.csv.utilities, source.csv.water] --> source.csv.sewer
+[source.csv.firm_address, source.csv.num_rooms, source.csv.sewer, source.csv.utilities] --> source.csv.fireplace
+[source.csv.firm_address, source.csv.num_rooms, source.csv.sewer, source.csv.utilities] --> source.csv.water
+[source.csv.firm_address, source.csv.num_rooms, source.csv.utilities, source.csv.water] --> source.csv.fireplace
+[source.csv.firm_address, source.csv.garage, source.csv.sewer, source.csv.utilities] --> source.csv.water
+[source.csv.fireplace, source.csv.firm_address, source.csv.sewer, source.csv.utilities] --> source.csv.water
+[source.csv.electricity, source.csv.fireplace, source.csv.firm_address, source.csv.utilities] --> source.csv.lot_area
+[source.csv.electricity, source.csv.garage, source.csv.num_rooms, source.csv.utilities, source.csv.water] --> source.csv.sewer
