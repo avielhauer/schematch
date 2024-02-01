@@ -1,11 +1,23 @@
 [] --> negozio.csv.indirizzo2
-[negozio.csv.capo_personale_id] --> negozio.csv.negozio_id
+[negozio.csv.indirizzo_id] --> negozio.csv.indirizzo
+[negozio.csv.indirizzo_id] --> negozio.csv.telefono
+[negozio.csv.indirizzo_id] --> negozio.csv.città_id
+[negozio.csv.indirizzo_id] --> negozio.csv.codice_postale
+[negozio.csv.indirizzo_id] --> negozio.csv.distretto
+[negozio.csv.indirizzo] --> negozio.csv.indirizzo_id
+[negozio.csv.indirizzo] --> negozio.csv.telefono
+[negozio.csv.indirizzo] --> negozio.csv.città_id
+[negozio.csv.indirizzo] --> negozio.csv.codice_postale
+[negozio.csv.indirizzo] --> negozio.csv.distretto
+[negozio.csv.telefono] --> negozio.csv.codice_postale
+[negozio.csv.città_id, negozio.csv.telefono] --> negozio.csv.indirizzo_id
+[negozio.csv.città_id, negozio.csv.telefono] --> negozio.csv.indirizzo
+[negozio.csv.città_id, negozio.csv.telefono] --> negozio.csv.distretto
+[negozio.csv.distretto, negozio.csv.telefono] --> negozio.csv.indirizzo_id
+[negozio.csv.distretto, negozio.csv.telefono] --> negozio.csv.indirizzo
+[negozio.csv.distretto, negozio.csv.telefono] --> negozio.csv.città_id
 [negozio.csv.città_id, negozio.csv.codice_postale] --> negozio.csv.distretto
 [negozio.csv.città_id, negozio.csv.distretto] --> negozio.csv.codice_postale
-[negozio.csv.città_id, negozio.csv.telefono] --> negozio.csv.distretto, negozio.csv.indirizzo, negozio.csv.indirizzo_id
 [negozio.csv.codice_postale, negozio.csv.distretto] --> negozio.csv.città_id
-[negozio.csv.distretto, negozio.csv.telefono] --> negozio.csv.città_id, negozio.csv.indirizzo, negozio.csv.indirizzo_id
-[negozio.csv.indirizzo] --> negozio.csv.città_id, negozio.csv.codice_postale, negozio.csv.distretto, negozio.csv.indirizzo_id, negozio.csv.telefono
-[negozio.csv.indirizzo_id] --> negozio.csv.città_id, negozio.csv.codice_postale, negozio.csv.distretto, negozio.csv.indirizzo, negozio.csv.telefono
 [negozio.csv.negozio_id] --> negozio.csv.capo_personale_id
-[negozio.csv.telefono] --> negozio.csv.codice_postale
+[negozio.csv.capo_personale_id] --> negozio.csv.negozio_id
