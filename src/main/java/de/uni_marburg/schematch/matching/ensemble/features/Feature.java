@@ -2,6 +2,7 @@ package de.uni_marburg.schematch.matching.ensemble.features;
 
 import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
 
+import java.util.List;
 import java.util.Random;
 
 public abstract class Feature {
@@ -27,8 +28,12 @@ public abstract class Feature {
         return calculateScoreOfFeatrue(column1,column2,k);
     }
 
-    public void initiateK (double value1,double value2){
-        this.k = 1.0/Math.max(value1,value2);
+    public void initiateK (double columnValue1,double columnValue2){
+        this.k = 1.0/Math.max(columnValue1,columnValue2);
+    }
+
+    public void initiateK (List<Double> twoColumnDoubleVal){
+        initiateK(twoColumnDoubleVal.get(0),twoColumnDoubleVal.get(1));
     }
 
     public abstract double calculateScore(ColumnPair columnPair);
