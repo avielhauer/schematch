@@ -27,11 +27,15 @@ params:
 #---
 #name: "ConstancyMatcher"
 #packageName: "metadata"
+#---
+#name: "FirstDigitMatcher"
+#packageName: "metadata"
+#---
+#name: "DecimalsMatcher"
+#packageName: "metadata"
 ---
-name: "FirstDigitMatcher"
+name: "SizeMatcher"
 packageName: "metadata"
-
-
 # Similarity matchers
 #---
 #name: "LevenshteinMatcher"
