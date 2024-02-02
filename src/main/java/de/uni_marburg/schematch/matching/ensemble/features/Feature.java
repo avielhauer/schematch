@@ -46,6 +46,11 @@ public abstract class Feature {
     public abstract double calculateScore(ColumnPair columnPair);
 
 
-
+    public double calc(double x,double y)
+    {
+        double diff=1/(Math.pow(Math.abs(x-y),4)+1);
+        double avg=(x+y)/2;
+        return diff*avg;
+    }
 
 }
