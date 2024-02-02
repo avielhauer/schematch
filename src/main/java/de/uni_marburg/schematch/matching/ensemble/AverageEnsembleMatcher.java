@@ -1,6 +1,8 @@
 package de.uni_marburg.schematch.matching.ensemble;
 
 import de.uni_marburg.schematch.matching.Matcher;
+import de.uni_marburg.schematch.matchtask.MatchTask;
+import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.Configuration;
 import lombok.Data;
@@ -11,6 +13,7 @@ import java.util.Random;
 @Data
 @NoArgsConstructor
 public class AverageEnsembleMatcher extends Matcher {
+    /*
     @Override
     public float[][] match(TablePair tablePair) {
 
@@ -38,6 +41,7 @@ public class AverageEnsembleMatcher extends Matcher {
         }
         return simMatrix;
     }
+    */
 
     private float[] divideBy(float[] sum, int length) {
         float[] res=new float[sum.length];
@@ -59,5 +63,10 @@ public class AverageEnsembleMatcher extends Matcher {
         }
         System.out.println("didn't Work");
         return null;
+    }
+
+    @Override
+    public float[][] match(MatchTask matchTask, MatchingStep matchStep) {
+        return new float[0][];
     }
 }

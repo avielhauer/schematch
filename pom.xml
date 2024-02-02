@@ -21,6 +21,7 @@
             <version>1.10.0</version>
         </dependency>
 
+
         <!-- log4j2 -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -90,6 +91,11 @@
             <artifactId>junit-jupiter</artifactId>
             <version>5.8.1</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>nz.ac.waikato.cms.weka</groupId>
+            <artifactId>weka-stable</artifactId>
+            <version>3.6.10</version>
         </dependency>
     </dependencies>
 
