@@ -22,8 +22,18 @@ import java.util.concurrent.Executors;
 public class LinguisticMatching {
     private WordNetFunctionalities wordNetFunctionalities = null;
 
+    private WuPalmer wuPalmer = null;
+
+    private ILexicalDatabase db = null;
+
+    private Levenshtein levenshtein = new Levenshtein();
+
     public LinguisticMatching(WordNetFunctionalities wordNetFunctionalities) {
         this.wordNetFunctionalities = wordNetFunctionalities;
+        WS4JConfiguration.getInstance().setMemoryDB(false);
+        WS4JConfiguration.getInstance().setMFS(true);
+        this.db = new MITWordNet(new RAMDictionary(wordNetFunctionalities.dict, 2));
+        this.wuPalmer = new WuPalmer(db);
     }
 
     private static String snakeCase(String name) {
@@ -171,14 +181,14 @@ public class LinguisticMatching {
 
         if (parallelism == 1) {
             for (Pair<SchemaElementNode, SchemaElementNode> pairNode : elementsToCompare) {
-                Pair<SchemaElement, SchemaElement> pair = new Pair<>(pairNode.getFirst().current, pairNode.getFirst().current);
+                Pair<SchemaElement, SchemaElement> pair = new Pair<>(pairNode.getFirst().current, pairNode.getSecond().current);
                 Pair<StringPair, Double> lsimProcVal = lsimProc(pair, compatibilityTable);
                 lsims.put(lsimProcVal.getFirst(), lsimProcVal.getSecond().floatValue());
             }
         } else {
             ExecutorService executor = Executors.newFixedThreadPool(parallelism);
             for (Pair<SchemaElementNode, SchemaElementNode> pairNode : elementsToCompare) {
-                Pair<SchemaElement, SchemaElement> pair = new Pair<>(pairNode.getFirst().current, pairNode.getFirst().current);
+                Pair<SchemaElement, SchemaElement> pair = new Pair<>(pairNode.getFirst().current, pairNode.getSecond().current);
                 executor.submit(() -> {
                     Pair<StringPair, Double> lsimProcVal = lsimProc(pair, compatibilityTable);
                     lsims.put(lsimProcVal.getFirst(), lsimProcVal.getSecond().floatValue());
@@ -333,6 +343,7 @@ public class LinguisticMatching {
         return wordNetFunctionalities.getAllSynonymsets(word);
     }
 
+
     private double computeSimilarityWordnet(String word1, String word2) {
         // check (word1 & word2 not in lemmas) is not nessecary, bc for every IWord, the method .getLemma() is never null
         try {
@@ -352,10 +363,6 @@ public class LinguisticMatching {
 
             double max = -1.0;
             int index = 1;
-            WS4JConfiguration.getInstance().setMemoryDB(false);
-            WS4JConfiguration.getInstance().setMFS(true);
-            ILexicalDatabase db = new MITWordNet(new RAMDictionary(wordNetFunctionalities.dict, 2));
-            WuPalmer wuPalmer = new WuPalmer(db);
 
             for (Pair<ISynset, ISynset> pair : productOfBothISynsetSets) {
                 ISynset s1 = pair.getFirst();
@@ -383,7 +390,6 @@ public class LinguisticMatching {
     }
 
     private float computeSimilarityLeven(String word1, String word2) {
-        Levenshtein levenshtein = new Levenshtein();
         return levenshtein.compare(word1, word2);
     }
 
@@ -449,24 +455,4 @@ public class LinguisticMatching {
         }
         return maxCategory;
     }
-
-    /*
-    public static void main(String[] args) throws IOException {
-        LinguisticMatching linguisticMatching = new LinguisticMatching();
-
-        System.out.println(linguisticMatching.computeSimilarityWordnet("ship", "boat"));
-
-        SchemaElement s = new SchemaElement("articleid","text");
-        s.addCategory("text");
-        s = LinguisticMatching.normalization(s.getInitialName(),s);
-
-        SchemaElement t = new SchemaElement("articleid","text");
-        t.addCategory("text");
-        t = LinguisticMatching.normalization(t.getInitialName(),t);
-
-        double test = new LinguisticMatching().nameSimilarityElements(s,t);
-
-        System.out.println(test);
-    }
-     */
 }

@@ -5,6 +5,7 @@ import de.uni_marburg.schematch.boosting.SimMatrixBoosting;
 import de.uni_marburg.schematch.evaluation.metric.Metric;
 import de.uni_marburg.schematch.evaluation.metric.MetricFactory;
 import de.uni_marburg.schematch.matching.ensemble.RandomEnsembleMatcher;
+import de.uni_marburg.schematch.matching.sota.cupid.CupidSimMatrixBoosting;
 import de.uni_marburg.schematch.matchtask.matchstep.*;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.GroundTruthTablePairsGenerator;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.NaiveTablePairsGenerator;
@@ -33,7 +34,7 @@ public class Main {
         MatcherFactory matcherFactory = new MatcherFactory();
         // FIXME: make sim matrix boosting configurable via .yaml files
         // Configure similarity matrix boosting here for now
-        SimMatrixBoosting firstLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
+        SimMatrixBoosting firstLineSimMatrixBoosting = new CupidSimMatrixBoosting();
         SimMatrixBoosting secondLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
 
         log.info("Setting up matching steps as specified in config");
