@@ -1,0 +1,22 @@
+[fodors_zagats_target.csv.id] --> fodors_zagats_target.csv.name
+[fodors_zagats_target.csv.id] --> fodors_zagats_target.csv.class
+[fodors_zagats_target.csv.id] --> fodors_zagats_target.csv.phone
+[fodors_zagats_target.csv.id] --> fodors_zagats_target.csv.addr
+[fodors_zagats_target.csv.id] --> fodors_zagats_target.csv.type
+[fodors_zagats_target.csv.id] --> fodors_zagats_target.csv.city
+[fodors_zagats_target.csv.name] --> fodors_zagats_target.csv.id
+[fodors_zagats_target.csv.name] --> fodors_zagats_target.csv.class
+[fodors_zagats_target.csv.name] --> fodors_zagats_target.csv.phone
+[fodors_zagats_target.csv.name] --> fodors_zagats_target.csv.addr
+[fodors_zagats_target.csv.name] --> fodors_zagats_target.csv.type
+[fodors_zagats_target.csv.name] --> fodors_zagats_target.csv.city
+[fodors_zagats_target.csv.class] --> fodors_zagats_target.csv.id
+[fodors_zagats_target.csv.class] --> fodors_zagats_target.csv.name
+[fodors_zagats_target.csv.class] --> fodors_zagats_target.csv.phone
+[fodors_zagats_target.csv.class] --> fodors_zagats_target.csv.addr
+[fodors_zagats_target.csv.class] --> fodors_zagats_target.csv.type
+[fodors_zagats_target.csv.class] --> fodors_zagats_target.csv.city
+[fodors_zagats_target.csv.phone] --> fodors_zagats_target.csv.addr
+[fodors_zagats_target.csv.phone] --> fodors_zagats_target.csv.city
+[fodors_zagats_target.csv.addr, fodors_zagats_target.csv.type] --> fodors_zagats_target.csv.phone
+[fodors_zagats_target.csv.addr, fodors_zagats_target.csv.type] --> fodors_zagats_target.csv.city

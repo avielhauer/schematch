@@ -1,0 +1,12 @@
+[Borrow.csv.Date] --> Borrow.csv.ID
+[Borrow.csv.Date] --> Borrow.csv.Name
+[Borrow.csv.Date] --> Borrow.csv.Person
+[Borrow.csv.Date] --> Borrow.csv.PName
+[Borrow.csv.ID] --> Borrow.csv.Name
+[Borrow.csv.ID, Borrow.csv.Person] --> Borrow.csv.Date
+[Borrow.csv.ID, Borrow.csv.PName] --> Borrow.csv.Date
+[Borrow.csv.Name] --> Borrow.csv.ID
+[Borrow.csv.Name, Borrow.csv.Person] --> Borrow.csv.Date
+[Borrow.csv.Name, Borrow.csv.PName] --> Borrow.csv.Date
+[Borrow.csv.Person] --> Borrow.csv.PName
+[Borrow.csv.PName] --> Borrow.csv.Person
