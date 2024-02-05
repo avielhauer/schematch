@@ -12,7 +12,8 @@ import java.util.List;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class SizeMatcher extends TablePairMatcher {
+
+public class MeanLength extends TablePairMatcher{
 
     @Override
     public float[][] match(TablePair tablePair) {
@@ -25,14 +26,6 @@ public class SizeMatcher extends TablePairMatcher {
             for (int j = 0; j < targetTable.getNumColumns(); j++) {
                 Column targetColumn = targetTable.getColumn(j);
                 Datatype targetType = targetColumn.getDatatype();
-                if (sourceType != Datatype.INTEGER && sourceType != Datatype.FLOAT) {
-                    simMatrix[i][j] = 0.0f;
-                    continue;
-                }
-                if (targetType != Datatype.INTEGER && targetType != Datatype.FLOAT) {
-                    simMatrix[i][j] = 0.0f;
-                    continue;
-                }
                 simMatrix[i][j] = calculateScore(sourceTable.getColumn(i).getValues(), targetTable.getColumn(j).getValues());
             }
         }
@@ -41,31 +34,39 @@ public class SizeMatcher extends TablePairMatcher {
 
     private float calculateScore(List<String> sourceColumn, List<String> targetColumn) {
 
-        int maxSourceDigits = 0;
-        int maxTargetDigits = 0;
-        int numSourceDigits;
-        int numTargetDigits;
+        int i = 1;
+        int j = 1;
+        int SourceLength = 0;
+        int TargetLength = 0;
 
         for (String s : sourceColumn) {
-            if (s.isEmpty()) continue;
-            numSourceDigits = s.contains(".") ? s.length() - 1 : s.length();
-            if (numSourceDigits > maxSourceDigits) {
-                maxSourceDigits = numSourceDigits;
+            if (s.isEmpty()){
+                ++i;
+                continue;
             }
+            SourceLength = SourceLength + s.length();
+            ++i;
         }
+        int SourceMean = SourceLength / i;
 
         for (String t : targetColumn) {
-            if (t.isEmpty()) continue;
-            numTargetDigits = t.contains(".") ? t.length() - 1 : t.length();
-            if (numTargetDigits > maxTargetDigits) {
-                maxTargetDigits = numTargetDigits;
+            if (t.isEmpty()){
+                ++j;
+                continue;
             }
+            TargetLength = TargetLength + t.length();
+            ++j;
         }
+        int TargetMean = TargetLength / j;
 
-        if (maxTargetDigits > maxSourceDigits) {
-            return (float) (maxSourceDigits / maxTargetDigits);
+        if (TargetMean == 0) return 0.0f;
+
+        if (TargetMean > SourceMean) {
+            return (float) (SourceMean / TargetMean);
         }
-        if (maxSourceDigits == 0) return 0.0f;
-        return (float) maxTargetDigits / maxSourceDigits;
+        if (SourceMean == 0) return 0.0f;
+        return (float) TargetMean / SourceMean;
     }
 }
+
+

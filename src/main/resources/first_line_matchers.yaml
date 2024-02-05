@@ -33,8 +33,20 @@ params:
 #---
 #name: "DecimalsMatcher"
 #packageName: "metadata"
+#---
+#name: "SizeMatcher"
+#packageName: "metadata"
+#---
+#name: "MinimumLength"
+#packageName: "metadata"
+#---
+#name: "MaximumLength"
+#packageName: "metadata"
+#---
+#name: "MeanLength"
+#packageName: "metadata"
 ---
-name: "SizeMatcher"
+name: "MedianLength"
 packageName: "metadata"
 # Similarity matchers
 #---

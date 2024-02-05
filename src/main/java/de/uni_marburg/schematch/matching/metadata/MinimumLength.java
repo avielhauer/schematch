@@ -12,7 +12,8 @@ import java.util.List;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class SizeMatcher extends TablePairMatcher {
+
+public class MinimumLength extends TablePairMatcher{
 
     @Override
     public float[][] match(TablePair tablePair) {
@@ -25,14 +26,6 @@ public class SizeMatcher extends TablePairMatcher {
             for (int j = 0; j < targetTable.getNumColumns(); j++) {
                 Column targetColumn = targetTable.getColumn(j);
                 Datatype targetType = targetColumn.getDatatype();
-                if (sourceType != Datatype.INTEGER && sourceType != Datatype.FLOAT) {
-                    simMatrix[i][j] = 0.0f;
-                    continue;
-                }
-                if (targetType != Datatype.INTEGER && targetType != Datatype.FLOAT) {
-                    simMatrix[i][j] = 0.0f;
-                    continue;
-                }
                 simMatrix[i][j] = calculateScore(sourceTable.getColumn(i).getValues(), targetTable.getColumn(j).getValues());
             }
         }
@@ -41,31 +34,32 @@ public class SizeMatcher extends TablePairMatcher {
 
     private float calculateScore(List<String> sourceColumn, List<String> targetColumn) {
 
-        int maxSourceDigits = 0;
-        int maxTargetDigits = 0;
+        int minSourceDigits = 100000;
+        int minTargetDigits = 100000;
         int numSourceDigits;
         int numTargetDigits;
 
         for (String s : sourceColumn) {
             if (s.isEmpty()) continue;
-            numSourceDigits = s.contains(".") ? s.length() - 1 : s.length();
-            if (numSourceDigits > maxSourceDigits) {
-                maxSourceDigits = numSourceDigits;
+            numSourceDigits = s.length();
+            if (numSourceDigits < minSourceDigits) {
+                minSourceDigits = numSourceDigits;
             }
         }
 
         for (String t : targetColumn) {
             if (t.isEmpty()) continue;
-            numTargetDigits = t.contains(".") ? t.length() - 1 : t.length();
-            if (numTargetDigits > maxTargetDigits) {
-                maxTargetDigits = numTargetDigits;
+            numTargetDigits = t.length();
+            if (numTargetDigits < minTargetDigits) {
+                minTargetDigits = numTargetDigits;
             }
         }
 
-        if (maxTargetDigits > maxSourceDigits) {
-            return (float) (maxSourceDigits / maxTargetDigits);
+        if (minTargetDigits > minSourceDigits) {
+            return (float) (minSourceDigits / minTargetDigits);
         }
-        if (maxSourceDigits == 0) return 0.0f;
-        return (float) maxTargetDigits / maxSourceDigits;
+        if (minSourceDigits == 0) return 0.0f;
+        return (float) minTargetDigits / minSourceDigits;
     }
+
 }

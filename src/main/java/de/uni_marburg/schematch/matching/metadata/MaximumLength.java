@@ -12,7 +12,8 @@ import java.util.List;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class SizeMatcher extends TablePairMatcher {
+
+public class MaximumLength extends TablePairMatcher{
 
     @Override
     public float[][] match(TablePair tablePair) {
@@ -25,14 +26,6 @@ public class SizeMatcher extends TablePairMatcher {
             for (int j = 0; j < targetTable.getNumColumns(); j++) {
                 Column targetColumn = targetTable.getColumn(j);
                 Datatype targetType = targetColumn.getDatatype();
-                if (sourceType != Datatype.INTEGER && sourceType != Datatype.FLOAT) {
-                    simMatrix[i][j] = 0.0f;
-                    continue;
-                }
-                if (targetType != Datatype.INTEGER && targetType != Datatype.FLOAT) {
-                    simMatrix[i][j] = 0.0f;
-                    continue;
-                }
                 simMatrix[i][j] = calculateScore(sourceTable.getColumn(i).getValues(), targetTable.getColumn(j).getValues());
             }
         }
@@ -48,7 +41,7 @@ public class SizeMatcher extends TablePairMatcher {
 
         for (String s : sourceColumn) {
             if (s.isEmpty()) continue;
-            numSourceDigits = s.contains(".") ? s.length() - 1 : s.length();
+            numSourceDigits = s.length();
             if (numSourceDigits > maxSourceDigits) {
                 maxSourceDigits = numSourceDigits;
             }
@@ -56,7 +49,7 @@ public class SizeMatcher extends TablePairMatcher {
 
         for (String t : targetColumn) {
             if (t.isEmpty()) continue;
-            numTargetDigits = t.contains(".") ? t.length() - 1 : t.length();
+            numTargetDigits = t.length();
             if (numTargetDigits > maxTargetDigits) {
                 maxTargetDigits = numTargetDigits;
             }
@@ -69,3 +62,4 @@ public class SizeMatcher extends TablePairMatcher {
         return (float) maxTargetDigits / maxSourceDigits;
     }
 }
+
