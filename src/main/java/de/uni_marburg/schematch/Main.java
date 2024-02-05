@@ -3,6 +3,7 @@ package de.uni_marburg.schematch;
 import de.uni_marburg.schematch.boosting.IdentitySimMatrixBoosting;
 import de.uni_marburg.schematch.boosting.SimFloodingSimMatrixBoosting;
 import de.uni_marburg.schematch.boosting.SimMatrixBoosting;
+import de.uni_marburg.schematch.boosting.StructuredBoostingTester;
 import de.uni_marburg.schematch.evaluation.metric.Metric;
 import de.uni_marburg.schematch.evaluation.metric.MetricFactory;
 import de.uni_marburg.schematch.matching.ensemble.RandomEnsembleMatcher;
@@ -35,7 +36,7 @@ public class Main {
 
         // FIXME: make sim matrix boosting configurable via .yaml files
         // Configure similarity matrix boosting here for now
-        SimMatrixBoosting firstLineSimMatrixBoosting = new SimFloodingSimMatrixBoosting();
+        SimMatrixBoosting firstLineSimMatrixBoosting = new StructuredBoostingTester();
         SimMatrixBoosting secondLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
 
         log.info("Setting up matching steps as specified in config");

@@ -64,7 +64,7 @@ public class AdditionalInformationReader {
                 Column column = extractColumnFromString(headerNames.get(i), table);
                 column.getMetadata().getStringMetaMap().put(rowKey, record.get(i));
                 if(Objects.equals(rowKey, "datatype")){
-                    column.setDatatype(column.getMetadata().getDatatype());
+                   // column.setDatatype(column.getMetadata().getDatatype());
                 }
             }
         }

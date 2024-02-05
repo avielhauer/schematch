@@ -1,6 +1,7 @@
 package de.uni_marburg.schematch.matchtask.matchstep;
 
 import de.uni_marburg.schematch.boosting.SimMatrixBoosting;
+import de.uni_marburg.schematch.boosting.StructuredBoostingTester;
 import de.uni_marburg.schematch.evaluation.metric.Metric;
 import de.uni_marburg.schematch.evaluation.performance.Performance;
 import de.uni_marburg.schematch.matching.Matcher;
@@ -13,6 +14,7 @@ import lombok.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.File;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
@@ -48,10 +50,14 @@ public class SimMatrixBoostingStep extends MatchStep {
             }
             if (boostedSimMatrix == null) {
                 log.debug("Processing " + this.line + ". line sim matrix boosting on matcher: " + matcher.toString());
-                boostedSimMatrix = this.simMatrixBoosting.run(matchTask, this, matchTask.getSimMatrixFromPreviousMatchStep(this, matcher));
+                boostedSimMatrix = this.simMatrixBoosting.run(matchTask, this, matchTask.getSimMatrixFromPreviousMatchStep(this, matcher), matcher);
             }
             matchTask.setSimMatrix(this, matcher, boostedSimMatrix);
         }
+        String path = "structured_results/" + matchTask.getDataset().getName()+"/";
+        new File(path).mkdirs();
+        StructuredBoostingTester.writeResults(path+matchTask.getScenario().getName());
+        System.exit(5);
     }
 
     @Override

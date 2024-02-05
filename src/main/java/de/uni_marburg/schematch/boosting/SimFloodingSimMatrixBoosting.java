@@ -2,23 +2,15 @@ package de.uni_marburg.schematch.boosting;
 
 import de.uni_marburg.schematch.boosting.sf_algorithm.db_2_graph.*;
 import de.uni_marburg.schematch.boosting.sf_algorithm.flooding.Flooder;
-import de.uni_marburg.schematch.boosting.sf_algorithm.flooding.FlooderA;
 import de.uni_marburg.schematch.boosting.sf_algorithm.flooding.FlooderC;
 import de.uni_marburg.schematch.boosting.sf_algorithm.propagation_graph.*;
 import de.uni_marburg.schematch.boosting.sf_algorithm.similarity_calculator.SimilarityCalculator;
-import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.metadata.dependency.FunctionalDependency;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.SimMatrixBoostingStep;
-import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
-import de.uni_marburg.schematch.similarity.SimilarityMeasure;
-import de.uni_marburg.schematch.similarity.string.Levenshtein;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.List;
-import java.util.function.Function;
 
 /**
  * Similarity Flooding Matrix Boosting

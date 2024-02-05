@@ -1,5 +1,6 @@
 package de.uni_marburg.schematch.boosting;
 
+import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.SimMatrixBoostingStep;
 import org.apache.logging.log4j.LogManager;
