@@ -3,9 +3,11 @@ package de.uni_marburg.schematch.boosting.sf_algorithm.db_2_graph;
 import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Database;
 import de.uni_marburg.schematch.data.Table;
+import de.uni_marburg.schematch.data.metadata.DatabaseMetadata;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Collection;
 import java.util.List;
 
 public class SQL2Graph extends DBGraph{
@@ -17,13 +19,19 @@ public class SQL2Graph extends DBGraph{
 
     @Override
     protected void generateGraph(){
+
+        Collection metadata = this.getDatabase().getMetadata().getFds();
+        System.out.println(metadata);
         // Add Database Vertex
         Database database = this.getDatabase();
+
+        /*
         this.addVertex("Database");
         this.addVertex(database.getName());
         this.addVertex(database);
         this.addEdge(database, "Database", new LabeledEdge("type"));
         this.addEdge(database, database.getName(), new LabeledEdge("name"));
+         */
         // Add ColumnTypes
         this.addVertex("ColumnType");
         for(Column.Datatype type : Column.Datatype.values()){
@@ -41,7 +49,7 @@ public class SQL2Graph extends DBGraph{
             this.addVertex(table.getName());
 
             // connect Database with Table
-            this.addEdge(database, table, new LabeledEdge("table"));
+            //this.addEdge(database, table, new LabeledEdge("table"));
             this.addEdge(table, "Table", new LabeledEdge("type"));
             this.addEdge(table, table.getName(), new LabeledEdge("name"));
             //Add Columns

@@ -42,8 +42,8 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
     @Override
     public float[][] run(MatchTask matchTask, SimMatrixBoostingStep matchStep, float[][] simMatrix){
         // Create a DatabaseGraph
-        DBGraph dbGraphSource = new FD2Graph(matchTask.getScenario().getSourceDatabase());
-        DBGraph dbGraphTarget = new FD2Graph(matchTask.getScenario().getTargetDatabase());
+        DBGraph dbGraphSource = new SQL2Graph(matchTask.getScenario().getSourceDatabase());
+        DBGraph dbGraphTarget = new SQL2Graph(matchTask.getScenario().getTargetDatabase());
 
         // Create SimilarityCalculator
         SimilarityCalculator levenshteinCalculator = new SimilarityCalculator(matchTask, simMatrix) {
@@ -55,11 +55,11 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
         };
 
         // Create PropagationGraph
-        PropagationGraph<PropagationNode> pGraph = new InversedWaterWeightingGraph(dbGraphSource, dbGraphTarget, levenshteinCalculator);
+        PropagationGraph<PropagationNode> pGraph = new WaterWeightingGraph(dbGraphSource, dbGraphTarget, levenshteinCalculator);
         // Create Flooder
         Flooder flooder = new FlooderC(pGraph);
 
-        float[][] boostedMatrix = flooder.flood(500, 0.0000001F);
+        float[][] boostedMatrix = flooder.flood(2113, 0.0000001F);
        // this.exportToCsv(matchTask.getMatcher);
         return boostedMatrix;
     }
