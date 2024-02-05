@@ -1,0 +1,8 @@
+[dblp.csv.title] --> dblp.csv.authors
+[dblp.csv.authors] --> dblp.csv.title
+[dblp.csv.title] --> dblp.csv.year
+[dblp.csv.title] --> dblp.csv.venue
+[dblp.csv.year, dblp.csv.venue] --> dblp.csv.title
+[dblp.csv.authors] --> dblp.csv.year
+[dblp.csv.authors] --> dblp.csv.venue
+[dblp.csv.year, dblp.csv.venue] --> dblp.csv.authors

@@ -1,0 +1,1 @@
+[beer_a.csv.beer_name, beer_a.csv.brew_factory_name]
