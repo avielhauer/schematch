@@ -38,17 +38,19 @@ public abstract class SimilarityCalculator{
         if(objectA.getClass().equals(Float.class)) return calcFloatSim((float) objectA, (float) objectB);
         if(objectA.getClass().equals(String.class)) return calcStringSim((String) objectA, (String) objectB);
         if(objectA.getClass().equals(Column.class)) return calcColumnSim(node);
-        return 0F;
+        return calcOtherSim(objectA, objectB);
     }
 
-    public abstract float calcStringSim(String stringA, String stringB);
+    protected abstract float calcStringSim(String stringA, String stringB);
 
     private float calcColumnSim(PropagationNode node){
         if(!this.columnSimilarity.containsKey(node)) return 0F;
         return this.columnSimilarity.get(node);
     }
 
-    private float calcFloatSim(float floatA, float floatB){
-        return 0F;
+    protected float calcFloatSim(float floatA, float floatB){
+        return Math.abs(floatA-floatB) / Math.max(floatA, floatB);
     }
+
+    protected abstract float calcOtherSim(Object objectA, Object objectB);
 }

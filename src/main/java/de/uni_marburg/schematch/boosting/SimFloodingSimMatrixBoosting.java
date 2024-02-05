@@ -7,6 +7,7 @@ import de.uni_marburg.schematch.boosting.sf_algorithm.flooding.FlooderC;
 import de.uni_marburg.schematch.boosting.sf_algorithm.propagation_graph.*;
 import de.uni_marburg.schematch.boosting.sf_algorithm.similarity_calculator.SimilarityCalculator;
 import de.uni_marburg.schematch.data.Column;
+import de.uni_marburg.schematch.data.metadata.dependency.FunctionalDependency;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.SimMatrixBoostingStep;
@@ -17,6 +18,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.List;
+import java.util.function.Function;
 
 /**
  * Similarity Flooding Matrix Boosting
@@ -27,24 +29,34 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
     @Override
     public float[][] run(MatchTask matchTask, SimMatrixBoostingStep matchStep, float[][] simMatrix){
         // Create a DatabaseGraph
-        DBGraph dbGraphSource = new FD2Graph(matchTask.getScenario().getSourceDatabase());
-        DBGraph dbGraphTarget = new FD2Graph(matchTask.getScenario().getTargetDatabase());
+        DBGraph dbGraphSource = new FDExtraNode2_2Graph(matchTask.getScenario().getSourceDatabase());
+        DBGraph dbGraphTarget = new FDExtraNode2_2Graph(matchTask.getScenario().getTargetDatabase());
 
         // Create SimilarityCalculator
-        SimilarityCalculator levenshteinCalculator = new SimilarityCalculator(matchTask, simMatrix) {
-            final SimilarityMeasure<String> stringMeasure = new Levenshtein();
+        SimilarityCalculator simCalculator = new SimilarityCalculator(matchTask, simMatrix) {
             @Override
-            public float calcStringSim(String stringA, String stringB){
-                return stringMeasure.compare(stringA, stringB);
+            protected float calcStringSim(String stringA, String stringB){
+                return 0f;
+            }
+
+            @Override
+            protected float calcOtherSim(Object objectA, Object objectB){
+                if(objectA.getClass() == FunctionalDependency.class){
+                    FunctionalDependency fdA = (FunctionalDependency) objectA;
+                    FunctionalDependency fdB = (FunctionalDependency) objectB;
+                    float result = this.calcFloatSim((float) fdA.getPdepTuple().gpdep, (float) fdB.getPdepTuple().gpdep);
+                    return result;
+                }
+                return 0f;
             }
         };
 
         // Create PropagationGraph
-        PropagationGraph<PropagationNode> pGraph = new InversedWaterWeightingGraph(dbGraphSource, dbGraphTarget, levenshteinCalculator);
+        PropagationGraph<PropagationNode> pGraph = new ConstantWeightingGraph(dbGraphSource, dbGraphTarget, simCalculator);
         // Create Flooder
         Flooder flooder = new FlooderC(pGraph);
 
-        float[][] boostedMatrix = flooder.flood(1000, 0.0000001F);
+        float[][] boostedMatrix = flooder.flood(1, 0.0000001F);
 
         return boostedMatrix;
     }
