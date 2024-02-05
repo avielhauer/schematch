@@ -25,7 +25,7 @@ public class FeatureInstanceString extends FeatureInstace {
         }
         List<Double> result =  calculateAverage(doubleScoreToStringBaseline);
         initiateK(result);
-        return calculateScoreOfFeatrue(result.get(0),result.get(1));
+        return calc(result.get(0),result.get(1));
     }
 
     private double calculateStringRatio(String string){
