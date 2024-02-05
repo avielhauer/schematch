@@ -6,36 +6,56 @@
 #  seed: [42, 2023]
 
 # Metadata matchers
-#---
-#name: "DatatypeMatcher"
-#packageName: "metadata"
-#---
-#name: "NumberOfRowsMatcher"
-#packageName: "metadata"
-#---
-#name: "NullPercentageMatcher"
-#packageName: "metadata"
-#---
-#name: "DistinctCountMatcher"
-#packageName: "metadata"
-#---
-#name: "UniquenessMatcher"
-#packageName: "metadata"
-#---
-#name: "ExtremaMatcher"
-#packageName: "metadata"
-#---
-#name: "ConstancyMatcher"
-#packageName: "metadata"
-#---
-#name: "FirstDigitMatcher"
-#packageName: "metadata"
-#---
-#name: "LabelMatcher"
-#packageName: "metadata"
+---
+name: "DatatypeMatcher"
+packageName: "metadata"
+---
+name: "NumberOfRowsMatcher"
+packageName: "metadata"
+---
+name: "NullPercentageMatcher"
+packageName: "metadata"
+---
+name: "DistinctCountMatcher"
+packageName: "metadata"
+---
+name: "UniquenessMatcher"
+packageName: "metadata"
+---
+name: "ExtremaMatcher"
+packageName: "metadata"
+---
+name: "ConstancyMatcher"
+packageName: "metadata"
+---
+name: "FirstDigitMatcher"
+packageName: "metadata"
+---
+name: "LabelMatcher"
+packageName: "metadata"
 ---
 name: "QuartilesMatcher"
 packageName: "metadata"
+---
+name: "DecimalsMatcher"
+packageName: "metadata"
+---
+name: "SizeMatcher"
+packageName: "metadata"
+---
+name: "MinimumLength"
+packageName: "metadata"
+---
+name: "MaximumLength"
+packageName: "metadata"
+---
+name: "MeanLength"
+packageName: "metadata"
+---
+name: "MedianLength"
+packageName: "metadata"
+
+
 
 # Similarity matchers
 #---
