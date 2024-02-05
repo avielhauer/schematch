@@ -16,7 +16,7 @@ public class CupidSimMatrixBoosting implements SimMatrixBoosting {
     public float[][] run(MatchTask matchTask, SimMatrixBoostingStep matchStep, float[][] simMatrix) {
         float leaf_w_struct = 0.2f;
         float w_struct = 0.2f;
-        float th_accept = 0.7f;
+        float th_accept = 0.0f;
         float th_high = 0.6f;
         float th_low = 0.35f;
         float c_inc = 1.2f;
