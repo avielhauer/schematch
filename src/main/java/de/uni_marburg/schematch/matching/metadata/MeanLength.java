@@ -1,8 +1,6 @@
 package de.uni_marburg.schematch.matching.metadata;
 
-import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Table;
-import de.uni_marburg.schematch.data.metadata.Datatype;
 import de.uni_marburg.schematch.matching.TablePairMatcher;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import lombok.Data;
@@ -13,7 +11,7 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = true)
 
-public class MeanLength extends TablePairMatcher{
+public class MeanLength extends TablePairMatcher {
 
     @Override
     public float[][] match(TablePair tablePair) {
@@ -21,11 +19,7 @@ public class MeanLength extends TablePairMatcher{
         Table targetTable = tablePair.getTargetTable();
         float[][] simMatrix = tablePair.getEmptySimMatrix();
         for (int i = 0; i < sourceTable.getNumColumns(); i++) {
-            Column sourceColumn = sourceTable.getColumn(i);
-            Datatype sourceType = sourceColumn.getDatatype();
             for (int j = 0; j < targetTable.getNumColumns(); j++) {
-                Column targetColumn = targetTable.getColumn(j);
-                Datatype targetType = targetColumn.getDatatype();
                 simMatrix[i][j] = calculateScore(sourceTable.getColumn(i).getValues(), targetTable.getColumn(j).getValues());
             }
         }
@@ -40,7 +34,7 @@ public class MeanLength extends TablePairMatcher{
         int TargetLength = 0;
 
         for (String s : sourceColumn) {
-            if (s.isEmpty()){
+            if (s.isEmpty()) {
                 ++i;
                 continue;
             }
@@ -50,7 +44,7 @@ public class MeanLength extends TablePairMatcher{
         int SourceMean = SourceLength / i;
 
         for (String t : targetColumn) {
-            if (t.isEmpty()){
+            if (t.isEmpty()) {
                 ++j;
                 continue;
             }

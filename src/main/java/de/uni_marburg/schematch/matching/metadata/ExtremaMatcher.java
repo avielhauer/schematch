@@ -9,10 +9,6 @@ import de.uni_marburg.schematch.utils.GeoLocation;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
