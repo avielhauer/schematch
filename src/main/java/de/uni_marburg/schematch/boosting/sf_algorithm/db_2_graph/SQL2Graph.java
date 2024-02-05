@@ -19,11 +19,14 @@ public class SQL2Graph extends DBGraph{
     protected void generateGraph(){
         // Add Database Vertex
         Database database = this.getDatabase();
+
+        /*
         this.addVertex("Database");
         this.addVertex(database.getName());
         this.addVertex(database);
         this.addEdge(database, "Database", new LabeledEdge("type"));
         this.addEdge(database, database.getName(), new LabeledEdge("name"));
+         */
         // Add ColumnTypes
         this.addVertex("ColumnType");
         for(Column.Datatype type : Column.Datatype.values()){
@@ -41,7 +44,7 @@ public class SQL2Graph extends DBGraph{
             this.addVertex(table.getName());
 
             // connect Database with Table
-            this.addEdge(database, table, new LabeledEdge("table"));
+            //this.addEdge(database, table, new LabeledEdge("table"));
             this.addEdge(table, "Table", new LabeledEdge("type"));
             this.addEdge(table, table.getName(), new LabeledEdge("name"));
             //Add Columns
