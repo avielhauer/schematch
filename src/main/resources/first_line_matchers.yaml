@@ -1,9 +1,9 @@
 # State-of-the-Art matchers
----
-name: "RandomMatcher"
-packageName: "sota"
-params:
-  seed: [42, 2023]
+#---
+#name: "RandomMatcher"
+#packageName: "sota"
+#params:
+#  seed: [42, 2023]
 
 # Metadata matchers
 #---
@@ -27,9 +27,14 @@ params:
 #---
 #name: "ConstancyMatcher"
 #packageName: "metadata"
+#---
+#name: "FirstDigitMatcher"
+#packageName: "metadata"
+#---
+#name: "LabelMatcher"
+#packageName: "metadata"
 ---
-name: "FirstDigitMatcher"
-packageName: "metadata"
+name: 
 
 
 # Similarity matchers
