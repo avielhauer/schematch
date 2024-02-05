@@ -34,8 +34,8 @@
 #name: "LabelMatcher"
 #packageName: "metadata"
 ---
-name: 
-
+name: "QuartilesMatcher"
+packageName: "metadata"
 
 # Similarity matchers
 #---
