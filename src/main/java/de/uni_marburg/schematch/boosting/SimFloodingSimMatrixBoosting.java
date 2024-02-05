@@ -59,7 +59,7 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
         // Create Flooder
         Flooder flooder = new FlooderC(pGraph);
 
-        float[][] boostedMatrix = flooder.flood(500, 0.0000001F);
+        float[][] boostedMatrix = flooder.flood(2113, 0.0000001F);
        // this.exportToCsv(matchTask.getMatcher);
         return boostedMatrix;
     }
