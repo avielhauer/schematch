@@ -1,0 +1,19 @@
+[itunes_amazon_source.csv.id] --> itunes_amazon_source.csv.Song_Name
+[itunes_amazon_source.csv.id] --> itunes_amazon_source.csv.Album_Name
+[itunes_amazon_source.csv.id] --> itunes_amazon_source.csv.Artist_Name
+[itunes_amazon_source.csv.id] --> itunes_amazon_source.csv.CopyRight
+[itunes_amazon_source.csv.id] --> itunes_amazon_source.csv.Released
+[itunes_amazon_source.csv.id] --> itunes_amazon_source.csv.Time
+[itunes_amazon_source.csv.id] --> itunes_amazon_source.csv.Genre
+[itunes_amazon_source.csv.id] --> itunes_amazon_source.csv.Price
+[itunes_amazon_source.csv.Album_Name, itunes_amazon_source.csv.Artist_Name, itunes_amazon_source.csv.CopyRight, itunes_amazon_source.csv.Song_Name] --> itunes_amazon_source.csv.Price
+[itunes_amazon_source.csv.Album_Name, itunes_amazon_source.csv.Song_Name, itunes_amazon_source.csv.Time] --> itunes_amazon_source.csv.Artist_Name
+[itunes_amazon_source.csv.Album_Name, itunes_amazon_source.csv.Song_Name, itunes_amazon_source.csv.Time] --> itunes_amazon_source.csv.Price
+[itunes_amazon_source.csv.Artist_Name, itunes_amazon_source.csv.CopyRight, itunes_amazon_source.csv.Released, itunes_amazon_source.csv.Song_Name] --> itunes_amazon_source.csv.Price
+[itunes_amazon_source.csv.Artist_Name, itunes_amazon_source.csv.CopyRight, itunes_amazon_source.csv.Genre, itunes_amazon_source.csv.Song_Name] --> itunes_amazon_source.csv.Price
+[itunes_amazon_source.csv.Artist_Name, itunes_amazon_source.csv.Genre, itunes_amazon_source.csv.Song_Name, itunes_amazon_source.csv.Time] --> itunes_amazon_source.csv.Price
+[itunes_amazon_source.csv.CopyRight, itunes_amazon_source.csv.Song_Name, itunes_amazon_source.csv.Time] --> itunes_amazon_source.csv.Artist_Name
+[itunes_amazon_source.csv.CopyRight, itunes_amazon_source.csv.Song_Name, itunes_amazon_source.csv.Time] --> itunes_amazon_source.csv.Price
+[itunes_amazon_source.csv.Released, itunes_amazon_source.csv.Song_Name, itunes_amazon_source.csv.Time] --> itunes_amazon_source.csv.Artist_Name
+[itunes_amazon_source.csv.Released, itunes_amazon_source.csv.Song_Name, itunes_amazon_source.csv.Time] --> itunes_amazon_source.csv.Price
+[itunes_amazon_source.csv.Genre, itunes_amazon_source.csv.Price, itunes_amazon_source.csv.Song_Name, itunes_amazon_source.csv.Time] --> itunes_amazon_source.csv.Artist_Name

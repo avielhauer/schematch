@@ -1,0 +1,33 @@
+[Purchase.csv.Price] --> Purchase.csv.CID
+[Purchase.csv.Price] --> Purchase.csv.CName
+[Purchase.csv.Price] --> Purchase.csv.A
+[Purchase.csv.Price] --> Purchase.csv.PID
+[Purchase.csv.Price] --> Purchase.csv.ProductName
+[Purchase.csv.Price] --> Purchase.csv.M
+[Purchase.csv.Price] --> Purchase.csv.Category
+[Purchase.csv.CID] --> Purchase.csv.CName
+[Purchase.csv.CID] --> Purchase.csv.A
+[Purchase.csv.CID, Purchase.csv.PID] --> Purchase.csv.Price
+[Purchase.csv.CID, Purchase.csv.PID] --> Purchase.csv.M
+[Purchase.csv.CID, Purchase.csv.ProductName] --> Purchase.csv.Price
+[Purchase.csv.CID, Purchase.csv.ProductName] --> Purchase.csv.M
+[Purchase.csv.CID, Purchase.csv.Category] --> Purchase.csv.M
+[Purchase.csv.CName] --> Purchase.csv.CID
+[Purchase.csv.CName] --> Purchase.csv.A
+[Purchase.csv.CName, Purchase.csv.PID] --> Purchase.csv.Price
+[Purchase.csv.CName, Purchase.csv.PID] --> Purchase.csv.M
+[Purchase.csv.CName, Purchase.csv.ProductName] --> Purchase.csv.Price
+[Purchase.csv.CName, Purchase.csv.ProductName] --> Purchase.csv.M
+[Purchase.csv.CName, Purchase.csv.Category] --> Purchase.csv.M
+[Purchase.csv.A] --> Purchase.csv.CID
+[Purchase.csv.A] --> Purchase.csv.CName
+[Purchase.csv.A, Purchase.csv.PID] --> Purchase.csv.Price
+[Purchase.csv.A, Purchase.csv.PID] --> Purchase.csv.M
+[Purchase.csv.A, Purchase.csv.ProductName] --> Purchase.csv.Price
+[Purchase.csv.A, Purchase.csv.ProductName] --> Purchase.csv.M
+[Purchase.csv.A, Purchase.csv.Category] --> Purchase.csv.M
+[Purchase.csv.PID] --> Purchase.csv.ProductName
+[Purchase.csv.PID] --> Purchase.csv.Category
+[Purchase.csv.ProductName] --> Purchase.csv.PID
+[Purchase.csv.ProductName] --> Purchase.csv.Category
+[Purchase.csv.M] --> Purchase.csv.Category

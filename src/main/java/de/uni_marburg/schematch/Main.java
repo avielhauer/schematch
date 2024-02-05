@@ -31,34 +31,25 @@ public class Main {
         log.info("Starting Schematch");
 
         Configuration config = Configuration.getInstance();
-
-        log.info("Instantiating table pair generation");
-        TablePairsGenerator tablePairsGenerator = new NaiveTablePairsGenerator();
-
-        log.info("Instantiating matchers");
         MatcherFactory matcherFactory = new MatcherFactory();
 
-        List<Matcher> firstLineMatchers = matcherFactory.createMatchersFromConfig(1);
-        List<Matcher> secondLineMatchers = matcherFactory.createMatchersFromConfig(2);
-
-        log.info("Instantiating sim matrix boosting");
         // FIXME: make sim matrix boosting configurable via .yaml files
         // Configure similarity matrix boosting here for now
         SimMatrixBoosting firstLineSimMatrixBoosting = new SimFloodingSimMatrixBoosting();
         SimMatrixBoosting secondLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
 
-        log.info("Instantiating metrics");
-        MetricFactory metricFactory = new MetricFactory();
-        List<Metric> metrics = metricFactory.createMetricsFromConfig();
-
         log.info("Setting up matching steps as specified in config");
         List<MatchStep> matchSteps = new ArrayList<>();
         // Step 1: generate candidate table pairs to match
+        log.info("Instantiating table pair generation");
+        TablePairsGenerator tablePairsGenerator = new NaiveTablePairsGenerator();
         matchSteps.add(new TablePairGenerationStep(
                 config.isSaveOutputTablePairGeneration(),
                 config.isEvaluateTablePairGeneration(),
                 tablePairsGenerator));
         // Step 2: run first line matchers (i.e., matchers that use table data to match)
+        log.info("Instantiating first-line matchers");
+        List<Matcher> firstLineMatchers = matcherFactory.createMatchersFromConfig(1);
         matchSteps.add(new MatchingStep(
                 config.isSaveOutputFirstLineMatchers(),
                 config.isEvaluateFirstLineMatchers(),
@@ -66,6 +57,7 @@ public class Main {
                 firstLineMatchers));
         // Step 3: run similarity matrix boosting on the output of first line matchers
         if (config.isRunSimMatrixBoostingOnFirstLineMatchers()) {
+            log.info("Instantiating sim matrix boosting for first-line");
             matchSteps.add(new SimMatrixBoostingStep(
                     config.isSaveOutputSimMatrixBoostingOnFirstLineMatchers(),
                     config.isEvaluateSimMatrixBoostingOnFirstLineMatchers(),
@@ -74,6 +66,8 @@ public class Main {
         }
         // Step 4: run second line matchers (ensemble matchers and other matchers using output of first line matchers)
         if (config.isRunSecondLineMatchers()) {
+            log.info("Instantiating second-line matchers");
+            List<Matcher> secondLineMatchers = matcherFactory.createMatchersFromConfig(2);
             matchSteps.add(new MatchingStep(
                     config.isSaveOutputSecondLineMatchers(),
                     config.isEvaluateSecondLineMatchers(),
@@ -81,6 +75,7 @@ public class Main {
                     secondLineMatchers));
             // Step 5: run similarity matrix boosting on the output of second line matchers
             if (config.isRunSimMatrixBoostingOnSecondLineMatchers()) {
+                log.info("Instantiating sim matrix boosting for second-line");
                 matchSteps.add(new SimMatrixBoostingStep(
                         config.isSaveOutputSimMatrixBoostingOnSecondLineMatchers(),
                         config.isEvaluateSimMatrixBoostingOnSecondLineMatchers(),
@@ -88,6 +83,10 @@ public class Main {
                         secondLineSimMatrixBoosting));
             }
         }
+
+        log.info("Instantiating metrics");
+        MetricFactory metricFactory = new MetricFactory();
+        List<Metric> metrics = metricFactory.createMetricsFromConfig();
 
         EvalWriter evalWriter = null;
         if (ConfigUtils.anyEvaluate()) {
