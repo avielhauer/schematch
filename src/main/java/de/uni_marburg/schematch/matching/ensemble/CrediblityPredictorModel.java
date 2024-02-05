@@ -157,7 +157,6 @@ public class CrediblityPredictorModel implements Serializable {
         saveListToFile(dataPath,data);
 
 
-        System.out.println("heere header"+header);
     }
 
 
@@ -194,7 +193,6 @@ public class CrediblityPredictorModel implements Serializable {
                                 }
                                 if(n1>-1&&n2>-1)
                                 {
-                                    System.out.println(n1 +"   "+n2);
                                     return simsOfMatcher[srcIndex+n1][trgIndex+n2];
                                 }
 
@@ -239,7 +237,7 @@ public class CrediblityPredictorModel implements Serializable {
         }
         if(n1>-1&&n2>-1)
         {
-            System.out.println(n1 +"   "+n2);
+
             return gTable[srcIndex+n1][trgIndex+n2];
         }
         else throw new SimilarityNotFoundExeption();

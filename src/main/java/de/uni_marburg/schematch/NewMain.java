@@ -12,6 +12,10 @@ import de.uni_marburg.schematch.matching.ensemble.CMCMatcher;
 import de.uni_marburg.schematch.matching.ensemble.CrediblityPredictorModel;
 import de.uni_marburg.schematch.matching.ensemble.features.Feature;
 import de.uni_marburg.schematch.matching.ensemble.features.FeatureRandom;
+import de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures.FeatrueInstanceUniqueness;
+import de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures.FeatureInstanceNumericDistribution;
+import de.uni_marburg.schematch.matching.ensemble.features.labelFeatures.FeatureLabelComponents;
+import de.uni_marburg.schematch.matching.ensemble.features.labelFeatures.FeatureLabelLength;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
@@ -219,10 +223,10 @@ public class NewMain {
         }
 
 */
-        cmc.addFeature(new FeatureRandom("f1"));
-        cmc.addFeature(new FeatureRandom("f2"));
-        cmc.addFeature(new FeatureRandom("f3"));
-        cmc.addFeature(new FeatureRandom("f4"));
+        cmc.addFeature(new FeatureLabelComponents("Components"));
+        cmc.addFeature(new FeatureLabelLength("label length",5,8,12));
+        cmc.addFeature(new FeatrueInstanceUniqueness("uniquness"));
+        cmc.addFeature(new FeatureInstanceNumericDistribution("numeric"));
         for (Matcher matcher:firstLineMatchers)
         {
             cmc.addMatcher(matcher);

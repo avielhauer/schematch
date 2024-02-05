@@ -20,7 +20,7 @@ public abstract class Feature {
     public void setName(String suffix){
         this.name = this.getClass().getName();
         if (!suffix.isEmpty()){
-            this.name = this.name + " description: " + suffix;
+            this.name = suffix;
         }
     }
 

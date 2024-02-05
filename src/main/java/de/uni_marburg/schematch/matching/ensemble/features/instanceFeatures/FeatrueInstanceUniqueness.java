@@ -5,6 +5,7 @@ import de.uni_marburg.schematch.matching.ensemble.features.Feature;
 import de.uni_marburg.schematch.matching.ensemble.features.FeatureInstace;
 import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
 
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,14 +16,21 @@ public class FeatrueInstanceUniqueness extends FeatureInstace {
 
     @Override
     public double calculateScore(ColumnPair columnPair) {
-        double x= calcUniqueness(columnPair.getSourceColumn());
-        double y= calcUniqueness(columnPair.getTargetColumn());
+        try {
 
-        return calc(x,y);
+            double x= calcUniqueness(columnPair.getSourceColumn());
+            double y= calcUniqueness(columnPair.getTargetColumn());
+
+            return calc(x,y);
+        }
+        catch (IllegalArgumentException e){
+            return 0;
+        }
     }
 
     private double calcUniqueness(Column targetColumn) {
-
+        if(targetColumn.getValues().size()==0)
+            throw new IllegalArgumentException("Colomns are Empty");
         Set<String> set=new HashSet<>();
         for(String s:targetColumn.getValues())
             set.add(s);
