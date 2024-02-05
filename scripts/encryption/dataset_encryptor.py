@@ -2,6 +2,7 @@ import glob
 import os
 from abc import abstractmethod
 import csv
+from pathlib import Path
 
 CUR_DIR = os.path.dirname(os.path.realpath(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
@@ -34,7 +35,7 @@ class DatasetEncryptor:
             self.encrypt_source(scenario)
             self.encrypt_target(scenario)
             self.encrypt_ground_truth(scenario)
-            self.encrypt_metadata(scenario)
+            self.copy_empty_metadata(scenario)
 
     def encrypt_source(self, scenario_dir):
         self.encrypt_data_folder(scenario_dir, os.path.join(scenario_dir, "source"))
@@ -65,6 +66,30 @@ class DatasetEncryptor:
             to_file = source_table + "___" + target_table + ".csv"
             with open(os.path.join(self.encrypted_dataset_dir, os.path.basename(scenario), "ground_truth", to_file), "w") as fp:
                 fp.writelines(lines)
+
+    def copy_empty_metadata(self, scenario):
+        self.copy_database_inds(os.path.join(scenario, "metadata"))
+        self.copy_schema_metadata(scenario, "source")
+        self.copy_schema_metadata(scenario, "target")
+
+    def copy_database_inds(self, metadata_folder):
+        target_folder = os.path.join(self.encrypted_dataset_dir, os.path.basename(os.path.dirname(metadata_folder)), "metadata")
+        os.makedirs(target_folder, exist_ok=True)
+        (Path(target_folder) / "source-to-target-inds.txt").touch()
+        (Path(target_folder) / "target-to-source-inds.txt").touch()
+
+    def copy_schema_metadata(self, scenario_path, subfolder_name):
+        target_folder = os.path.join(self.encrypted_dataset_dir, os.path.basename(scenario_path), "metadata", subfolder_name)
+        os.makedirs(target_folder, exist_ok=True)
+        (Path(target_folder) / "inds.txt").touch()
+        for folder in glob.glob(os.path.join(scenario_path, "metadata", subfolder_name, "*/")):
+            target_table_folder = os.path.join(target_folder, self.encrypt_table(os.path.basename(os.path.dirname(folder))))
+            os.makedirs(target_table_folder, exist_ok=True)
+            (Path(target_table_folder) / "FD_results.txt").touch()
+            (Path(target_table_folder) / "UCC_results.txt").touch()
+
+    # Before we had a Metanome wrapper to update metadata, we simply encrypted the existing metadata files - this
+    # is error-prone (metadata might change), but perhaps useful for other use-cases. So code is currently "dead".
     def encrypt_metadata(self, scenario):
         self.encrypt_database_inds(os.path.join(scenario, "metadata"))
         self.encrypt_schema_metadata(scenario, "source")
