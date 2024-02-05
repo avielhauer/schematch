@@ -31,11 +31,11 @@ public class DataCompatibilityTable {
         varcharMap.put("int", 0.1);
 
         Map<String, Double> nvarcharMap = new HashMap<>();
-        textMap.put("text", 0.9);
-        textMap.put("keyword", 0.9);
-        textMap.put("varchar", 0.9);
-        textMap.put("nchar", 0.8);
-        textMap.put("char", 0.6);
+        nvarcharMap.put("text", 0.9);
+        nvarcharMap.put("keyword", 0.9);
+        nvarcharMap.put("varchar", 0.9);
+        nvarcharMap.put("nchar", 0.8);
+        nvarcharMap.put("char", 0.6);
 
         Map<String, Double> ncharMap = new HashMap<>();
         ncharMap.put("text", 0.7);
@@ -108,18 +108,18 @@ public class DataCompatibilityTable {
         bigintMap.put("integer", 0.8);
 
         Map<String, Double> shortMap = new HashMap<>();
-        textMap.put("long", 0.6);
-        textMap.put("int", 0.8);
-        textMap.put("bigint", 0.6);
-        textMap.put("smallint", 1.0);
-        textMap.put("integer", 0.8);
+        shortMap.put("long", 0.6);
+        shortMap.put("int", 0.8);
+        shortMap.put("bigint", 0.6);
+        shortMap.put("smallint", 1.0);
+        shortMap.put("integer", 0.8);
 
         Map<String, Double> smallintMap = new HashMap<>();
-        textMap.put("long", 0.6);
-        textMap.put("int", 0.8);
-        textMap.put("bigint", 0.6);
-        textMap.put("short", 1.0);
-        textMap.put("integer", 0.6);
+        smallintMap.put("long", 0.6);
+        smallintMap.put("int", 0.8);
+        smallintMap.put("bigint", 0.6);
+        smallintMap.put("short", 1.0);
+        smallintMap.put("integer", 0.6);
 
 
         table.put("text", textMap);
