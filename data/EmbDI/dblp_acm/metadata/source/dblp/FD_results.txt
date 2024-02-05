@@ -1,0 +1,33 @@
+[dblp.csv.title] --> dblp.csv.author_3
+[dblp.csv.title] --> dblp.csv.author_1
+[dblp.csv.author_3] --> dblp.csv.author_4
+[dblp.csv.title] --> dblp.csv.year
+[dblp.csv.title] --> dblp.csv.venue
+[dblp.csv.title] --> dblp.csv.author_2
+[dblp.csv.author_1] --> dblp.csv.title
+[dblp.csv.year] --> dblp.csv.author_1
+[dblp.csv.title] --> dblp.csv.author_4
+[dblp.csv.author_2] --> dblp.csv.author_1
+[dblp.csv.author_1] --> dblp.csv.author_2
+[dblp.csv.year] --> dblp.csv.title
+[dblp.csv.author_1] --> dblp.csv.author_4
+[dblp.csv.year] --> dblp.csv.author_2
+[dblp.csv.author_1] --> dblp.csv.venue
+[dblp.csv.author_1] --> dblp.csv.author_3
+[dblp.csv.author_1] --> dblp.csv.year
+[dblp.csv.author_2] --> dblp.csv.author_3
+[dblp.csv.author_2] --> dblp.csv.year
+[dblp.csv.year] --> dblp.csv.author_3
+[dblp.csv.venue, dblp.csv.author_3] --> dblp.csv.author_1
+[dblp.csv.year] --> dblp.csv.venue
+[dblp.csv.author_2] --> dblp.csv.author_4
+[dblp.csv.venue, dblp.csv.author_3] --> dblp.csv.year
+[dblp.csv.author_4, dblp.csv.venue] --> dblp.csv.author_3
+[dblp.csv.year] --> dblp.csv.author_4
+[dblp.csv.venue] --> dblp.csv.author_4
+[dblp.csv.author_4, dblp.csv.venue] --> dblp.csv.year
+[dblp.csv.venue, dblp.csv.author_3] --> dblp.csv.author_2
+[dblp.csv.author_2] --> dblp.csv.venue
+[dblp.csv.author_2] --> dblp.csv.title
+[dblp.csv.venue, dblp.csv.author_3] --> dblp.csv.title
+[dblp.csv.author_4, dblp.csv.venue] --> dblp.csv.author_2

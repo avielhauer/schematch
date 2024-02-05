@@ -1,0 +1,9 @@
+[beer_a.csv.brew_factory_name] --> beer_a.csv.beer_name
+[beer_a.csv.beer_name] --> beer_a.csv.brew_factory_name
+[beer_a.csv.beer_name] --> beer_a.csv.abv
+[beer_a.csv.beer_name] --> beer_a.csv.style
+[beer_a.csv.abv] --> beer_a.csv.beer_name
+[beer_a.csv.brew_factory_name] --> beer_a.csv.style
+[beer_a.csv.abv] --> beer_a.csv.brew_factory_name
+[beer_a.csv.abv] --> beer_a.csv.style
+[beer_a.csv.brew_factory_name] --> beer_a.csv.abv

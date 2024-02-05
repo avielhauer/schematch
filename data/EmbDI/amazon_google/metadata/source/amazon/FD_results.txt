@@ -1,0 +1,6 @@
+[amazon.csv.title] --> amazon.csv.price
+[amazon.csv.title] --> amazon.csv.manufacturer
+[amazon.csv.manufacturer] --> amazon.csv.title
+[amazon.csv.price] --> amazon.csv.title
+[amazon.csv.price] --> amazon.csv.manufacturer
+[amazon.csv.manufacturer] --> amazon.csv.price

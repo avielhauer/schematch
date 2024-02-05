@@ -1,0 +1,25 @@
+[fodors.csv.addr] --> fodors.csv.city
+[fodors.csv.class] --> fodors.csv.addr
+[fodors.csv.name] --> fodors.csv.class
+[fodors.csv.class] --> fodors.csv.type
+[fodors.csv.class] --> fodors.csv.phone
+[fodors.csv.class] --> fodors.csv.name
+[fodors.csv.name] --> fodors.csv.type
+[fodors.csv.phone] --> fodors.csv.name
+[fodors.csv.phone] --> fodors.csv.addr
+[fodors.csv.phone] --> fodors.csv.type
+[fodors.csv.name] --> fodors.csv.phone
+[fodors.csv.addr] --> fodors.csv.name
+[fodors.csv.name] --> fodors.csv.addr
+[fodors.csv.addr] --> fodors.csv.type
+[fodors.csv.addr] --> fodors.csv.phone
+[fodors.csv.phone] --> fodors.csv.class
+[fodors.csv.addr] --> fodors.csv.class
+[fodors.csv.class] --> fodors.csv.city
+[fodors.csv.type, fodors.csv.city] --> fodors.csv.name
+[fodors.csv.type, fodors.csv.city] --> fodors.csv.phone
+[fodors.csv.phone] --> fodors.csv.city
+[fodors.csv.type, fodors.csv.city] --> fodors.csv.class
+[fodors.csv.name] --> fodors.csv.city
+[fodors.csv.type] --> fodors.csv.city
+[fodors.csv.type, fodors.csv.city] --> fodors.csv.addr

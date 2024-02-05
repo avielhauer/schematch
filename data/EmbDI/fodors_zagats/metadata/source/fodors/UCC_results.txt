@@ -1,0 +1,5 @@
+[fodors.csv.class]
+[fodors.csv.name, fodors.csv.phone]
+[fodors.csv.addr, fodors.csv.name]
+[fodors.csv.city, fodors.csv.name]
+[fodors.csv.phone, fodors.csv.type]
