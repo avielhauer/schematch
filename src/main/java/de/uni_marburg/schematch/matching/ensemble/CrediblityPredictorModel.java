@@ -103,7 +103,7 @@ public class CrediblityPredictorModel implements Serializable {
             linearRegression = new LinearRegression();
             linearRegression.buildClassifier(instances);
             isTrained=true;
-            System.out.println(linearRegression);
+//            System.out.println(linearRegression);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -157,7 +157,7 @@ public class CrediblityPredictorModel implements Serializable {
         saveListToFile(dataPath,data);
 
 
-        System.out.println("heere header"+header);
+//        System.out.println("heere header"+header);
     }
 
 
@@ -194,7 +194,7 @@ public class CrediblityPredictorModel implements Serializable {
                                 }
                                 if(n1>-1&&n2>-1)
                                 {
-                                    System.out.println(n1 +"   "+n2);
+//                                    System.out.println(n1 +"   "+n2);
                                     return simsOfMatcher[srcIndex+n1][trgIndex+n2];
                                 }
 
@@ -239,7 +239,7 @@ public class CrediblityPredictorModel implements Serializable {
         }
         if(n1>-1&&n2>-1)
         {
-            System.out.println(n1 +"   "+n2);
+//            System.out.println(n1 +"   "+n2);
             return gTable[srcIndex+n1][trgIndex+n2];
         }
         else throw new SimilarityNotFoundExeption();
@@ -267,7 +267,7 @@ public class CrediblityPredictorModel implements Serializable {
                 writer.write(line);
                 writer.newLine();
             }
-            System.out.println("Data saved to " + filePath);
+//            System.out.println("Data saved to " + filePath);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

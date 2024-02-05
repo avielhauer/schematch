@@ -10,6 +10,7 @@ public class FeatureLabelLength extends Feature{
     int upper;
     public FeatureLabelLength(String name,int low ,int middle, int upper) {
         super(name);
+        //TODO zaza fragen, wie diese definiert werden? wird im testrun jetzt erstmal außenvor gelassen
         this.low=low;
         this.middle=middle;
         this.upper=upper;

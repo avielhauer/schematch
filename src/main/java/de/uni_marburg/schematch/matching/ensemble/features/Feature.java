@@ -21,6 +21,7 @@ public abstract class Feature {
         if (!suffix.isEmpty()){
             this.name = this.name + " description: " + suffix;
         }
+        System.out.println("Feature: " + name + " wurde instanziiert");
     }
 
     @Deprecated

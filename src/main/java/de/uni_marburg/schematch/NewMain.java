@@ -12,6 +12,11 @@ import de.uni_marburg.schematch.matching.ensemble.CMCMatcher;
 import de.uni_marburg.schematch.matching.ensemble.CrediblityPredictorModel;
 import de.uni_marburg.schematch.matching.ensemble.features.Feature;
 import de.uni_marburg.schematch.matching.ensemble.features.FeatureRandom;
+import de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures.FeatrueInstanceUniqueness;
+import de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures.FeatureInstanceNumericDistribution;
+import de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures.FeatureInstanceString;
+import de.uni_marburg.schematch.matching.ensemble.features.labelFeatures.FeatureLabelComponents;
+import de.uni_marburg.schematch.matching.ensemble.features.labelFeatures.FeatureLabelLength;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
@@ -193,36 +198,44 @@ public class NewMain {
 
 
         }
-/*
-        int i = 0;
-        for (Configuration.DatasetConfiguration datasetConfiguration : config.getDatasetConfigurations()) {
-            if ( i == 0) {
-            Dataset dataset = new Dataset(datasetConfiguration);
-            log.info("Starting experiments for dataset " + dataset.getName() + " with " + dataset.getScenarioNames().size() + " scenarios");
 
-            // loop over scenarios
-            for (String scenarioName : dataset.getScenarioNames()) {
+//        int i = 0;
+//        for (Configuration.DatasetConfiguration datasetConfiguration : config.getDatasetConfigurations()) {
+//            if ( i <=1 ) {
+//            Dataset dataset = new Dataset(datasetConfiguration);
+//            log.info("Starting experiments for dataset " + dataset.getName() + " with " + dataset.getScenarioNames().size() + " scenarios");
+//
+//            // loop over scenarios
+//            for (String scenarioName : dataset.getScenarioNames()) {
+//
+//                    Scenario scenario = new Scenario(dataset.getPath() + File.separator + scenarioName);
+//                    log.debug("Starting experiments for dataset " + dataset.getName() + ", scenario: " + scenario.getPath());
+//
+//                    MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps, metrics);
+//                    matchTask.runSteps();
+//                    cmc.matchTasks.add(matchTask);
+//                    i++;
+//
+//
+//            }
+//        } else {
+//            break;
+//        }
+//        }
 
-                    Scenario scenario = new Scenario(dataset.getPath() + File.separator + scenarioName);
-                    log.debug("Starting experiments for dataset " + dataset.getName() + ", scenario: " + scenario.getPath());
 
-                    MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps, metrics);
-                    matchTask.runSteps();
-                    cmc.matchTasks.add(matchTask);
-                    i++;
+        //add for Random Fatures
+//        cmc.addFeature(new FeatureRandom("f1"));
+//        cmc.addFeature(new FeatureRandom("f2"));
+//        cmc.addFeature(new FeatureRandom("f3"));
+//        cmc.addFeature(new FeatureRandom("f4"));
 
+//        cmc.addFeature(new FeatrueInstanceUniqueness("Instance_Uniqueness"));
+        cmc.addFeature(new FeatureInstanceNumericDistribution("Instance_NumericDistribution"));
+        cmc.addFeature(new FeatureInstanceString("Instance_String"));
+        cmc.addFeature(new FeatureLabelComponents("Label_Components"));
+//        cmc.addFeature(new FeatureLabelLength("Label_Length",));
 
-            }
-        } else {
-            break;
-        }
-        }
-
-*/
-        cmc.addFeature(new FeatureRandom("f1"));
-        cmc.addFeature(new FeatureRandom("f2"));
-        cmc.addFeature(new FeatureRandom("f3"));
-        cmc.addFeature(new FeatureRandom("f4"));
         for (Matcher matcher:firstLineMatchers)
         {
             cmc.addMatcher(matcher);
