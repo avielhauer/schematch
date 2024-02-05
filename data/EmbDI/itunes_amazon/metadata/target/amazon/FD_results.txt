@@ -1,0 +1,14 @@
+[amazon.csv.album_name, amazon.csv.artist_name, amazon.csv.copyright, amazon.csv.song_name] --> amazon.csv.released
+[amazon.csv.album_name, amazon.csv.artist_name, amazon.csv.copyright, amazon.csv.song_name] --> amazon.csv.genre
+[amazon.csv.album_name, amazon.csv.copyright, amazon.csv.song_name, amazon.csv.time] --> amazon.csv.released
+[amazon.csv.album_name, amazon.csv.copyright, amazon.csv.song_name, amazon.csv.time] --> amazon.csv.genre
+[amazon.csv.album_name, amazon.csv.song_name, amazon.csv.time] --> amazon.csv.artist_name
+[amazon.csv.album_name, amazon.csv.song_name, amazon.csv.time] --> amazon.csv.price
+[amazon.csv.album_name, amazon.csv.genre, amazon.csv.song_name, amazon.csv.time] --> amazon.csv.released
+[amazon.csv.album_name, amazon.csv.artist_name, amazon.csv.copyright, amazon.csv.time] --> amazon.csv.released
+[amazon.csv.album_name, amazon.csv.artist_name, amazon.csv.copyright, amazon.csv.time] --> amazon.csv.genre
+[amazon.csv.album_name, amazon.csv.artist_name, amazon.csv.copyright, amazon.csv.price] --> amazon.csv.released
+[amazon.csv.album_name, amazon.csv.artist_name, amazon.csv.copyright, amazon.csv.price] --> amazon.csv.genre
+[amazon.csv.album_name, amazon.csv.released] --> amazon.csv.artist_name
+[amazon.csv.album_name, amazon.csv.released] --> amazon.csv.genre
+[amazon.csv.album_name, amazon.csv.artist_name, amazon.csv.genre] --> amazon.csv.released

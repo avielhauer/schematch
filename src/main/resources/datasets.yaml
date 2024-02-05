@@ -8,6 +8,12 @@ path: "Efes-bib"
 name: "Efes-music"
 path: "Efes-music"
 ---
+name: "EmbDI"
+path: "EmbDI"
+---
+name: "EmbDI-encrypted"
+path: "EmbDI_md5_encrypted"
+---
 name: "ISIA-inventory"
 path: "ISIA-inventory"
 ---

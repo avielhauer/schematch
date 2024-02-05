@@ -1,0 +1,4 @@
+[walmart.csv.title] --> walmart.csv.brand
+[walmart.csv.title] --> walmart.csv.category
+[walmart.csv.modelno, walmart.csv.title] --> walmart.csv.price
+[walmart.csv.brand, walmart.csv.modelno, walmart.csv.price] --> walmart.csv.category

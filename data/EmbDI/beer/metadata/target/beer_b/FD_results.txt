@@ -1,0 +1,3 @@
+[beer_b.csv.beer_name] --> beer_b.csv.brew_factory_name
+[beer_b.csv.beer_name] --> beer_b.csv.abv
+[beer_b.csv.beer_name] --> beer_b.csv.style

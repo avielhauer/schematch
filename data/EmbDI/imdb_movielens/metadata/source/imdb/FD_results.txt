@@ -1,0 +1,128 @@
+[imdb.csv.title] --> imdb.csv.color
+[imdb.csv.actor_3, imdb.csv.title] --> imdb.csv.actor_2
+[imdb.csv.actor_3, imdb.csv.title] --> imdb.csv.director
+[imdb.csv.actor_3, imdb.csv.title] --> imdb.csv.actor_1
+[imdb.csv.actor_3, imdb.csv.title] --> imdb.csv.year
+[imdb.csv.actor_3, imdb.csv.title] --> imdb.csv.production_countries
+[imdb.csv.actor_3, imdb.csv.title] --> imdb.csv.original_language
+[imdb.csv.actor_3, imdb.csv.title] --> imdb.csv.content_rating
+[imdb.csv.actor_3, imdb.csv.title] --> imdb.csv.vote_average
+[imdb.csv.actor_2, imdb.csv.title] --> imdb.csv.director
+[imdb.csv.actor_2, imdb.csv.title] --> imdb.csv.actor_1
+[imdb.csv.actor_2, imdb.csv.title] --> imdb.csv.year
+[imdb.csv.actor_2, imdb.csv.title] --> imdb.csv.production_countries
+[imdb.csv.actor_2, imdb.csv.title] --> imdb.csv.original_language
+[imdb.csv.actor_2, imdb.csv.title] --> imdb.csv.content_rating
+[imdb.csv.actor_2, imdb.csv.title] --> imdb.csv.vote_average
+[imdb.csv.director, imdb.csv.title] --> imdb.csv.actor_2
+[imdb.csv.director, imdb.csv.title] --> imdb.csv.actor_1
+[imdb.csv.director, imdb.csv.title] --> imdb.csv.year
+[imdb.csv.director, imdb.csv.title] --> imdb.csv.production_countries
+[imdb.csv.director, imdb.csv.title] --> imdb.csv.original_language
+[imdb.csv.director, imdb.csv.title] --> imdb.csv.content_rating
+[imdb.csv.director, imdb.csv.title] --> imdb.csv.vote_average
+[imdb.csv.actor_1, imdb.csv.title] --> imdb.csv.actor_2
+[imdb.csv.actor_1, imdb.csv.title] --> imdb.csv.director
+[imdb.csv.actor_1, imdb.csv.title] --> imdb.csv.year
+[imdb.csv.actor_1, imdb.csv.title] --> imdb.csv.production_countries
+[imdb.csv.actor_1, imdb.csv.title] --> imdb.csv.original_language
+[imdb.csv.actor_1, imdb.csv.title] --> imdb.csv.content_rating
+[imdb.csv.actor_1, imdb.csv.title] --> imdb.csv.vote_average
+[imdb.csv.title, imdb.csv.year] --> imdb.csv.actor_2
+[imdb.csv.title, imdb.csv.year] --> imdb.csv.director
+[imdb.csv.title, imdb.csv.year] --> imdb.csv.actor_1
+[imdb.csv.title, imdb.csv.year] --> imdb.csv.production_countries
+[imdb.csv.title, imdb.csv.year] --> imdb.csv.original_language
+[imdb.csv.title, imdb.csv.year] --> imdb.csv.content_rating
+[imdb.csv.title, imdb.csv.year] --> imdb.csv.vote_average
+[imdb.csv.production_countries, imdb.csv.title] --> imdb.csv.actor_2
+[imdb.csv.production_countries, imdb.csv.title] --> imdb.csv.director
+[imdb.csv.production_countries, imdb.csv.title] --> imdb.csv.actor_1
+[imdb.csv.production_countries, imdb.csv.title] --> imdb.csv.year
+[imdb.csv.production_countries, imdb.csv.title] --> imdb.csv.original_language
+[imdb.csv.production_countries, imdb.csv.title] --> imdb.csv.content_rating
+[imdb.csv.production_countries, imdb.csv.title] --> imdb.csv.vote_average
+[imdb.csv.original_language, imdb.csv.title] --> imdb.csv.actor_2
+[imdb.csv.original_language, imdb.csv.title] --> imdb.csv.director
+[imdb.csv.original_language, imdb.csv.title] --> imdb.csv.actor_1
+[imdb.csv.original_language, imdb.csv.title] --> imdb.csv.year
+[imdb.csv.original_language, imdb.csv.title] --> imdb.csv.production_countries
+[imdb.csv.original_language, imdb.csv.title] --> imdb.csv.content_rating
+[imdb.csv.original_language, imdb.csv.title] --> imdb.csv.vote_average
+[imdb.csv.content_rating, imdb.csv.title] --> imdb.csv.actor_2
+[imdb.csv.content_rating, imdb.csv.title] --> imdb.csv.director
+[imdb.csv.content_rating, imdb.csv.title] --> imdb.csv.actor_1
+[imdb.csv.content_rating, imdb.csv.title] --> imdb.csv.year
+[imdb.csv.content_rating, imdb.csv.title] --> imdb.csv.production_countries
+[imdb.csv.content_rating, imdb.csv.title] --> imdb.csv.original_language
+[imdb.csv.content_rating, imdb.csv.title] --> imdb.csv.vote_average
+[imdb.csv.title, imdb.csv.vote_average] --> imdb.csv.actor_2
+[imdb.csv.title, imdb.csv.vote_average] --> imdb.csv.director
+[imdb.csv.title, imdb.csv.vote_average] --> imdb.csv.actor_1
+[imdb.csv.title, imdb.csv.vote_average] --> imdb.csv.year
+[imdb.csv.title, imdb.csv.vote_average] --> imdb.csv.production_countries
+[imdb.csv.title, imdb.csv.vote_average] --> imdb.csv.original_language
+[imdb.csv.title, imdb.csv.vote_average] --> imdb.csv.content_rating
+[imdb.csv.actor_2, imdb.csv.actor_3] --> imdb.csv.color
+[imdb.csv.actor_2, imdb.csv.actor_3, imdb.csv.director] --> imdb.csv.original_language
+[imdb.csv.actor_2, imdb.csv.actor_3, imdb.csv.content_rating, imdb.csv.director, imdb.csv.vote_average] --> imdb.csv.actor_1
+[imdb.csv.actor_1, imdb.csv.actor_2, imdb.csv.actor_3, imdb.csv.vote_average] --> imdb.csv.content_rating
+[imdb.csv.actor_2, imdb.csv.actor_3, imdb.csv.year] --> imdb.csv.title
+[imdb.csv.actor_2, imdb.csv.actor_3, imdb.csv.year] --> imdb.csv.director
+[imdb.csv.actor_2, imdb.csv.actor_3, imdb.csv.year] --> imdb.csv.actor_1
+[imdb.csv.actor_2, imdb.csv.actor_3, imdb.csv.year] --> imdb.csv.production_countries
+[imdb.csv.actor_2, imdb.csv.actor_3, imdb.csv.year] --> imdb.csv.content_rating
+[imdb.csv.actor_2, imdb.csv.actor_3, imdb.csv.year] --> imdb.csv.vote_average
+[imdb.csv.actor_2, imdb.csv.actor_3, imdb.csv.production_countries] --> imdb.csv.original_language
+[imdb.csv.actor_2, imdb.csv.actor_3, imdb.csv.content_rating] --> imdb.csv.original_language
+[imdb.csv.actor_1, imdb.csv.actor_3, imdb.csv.director, imdb.csv.production_countries] --> imdb.csv.color
+[imdb.csv.actor_3, imdb.csv.director, imdb.csv.year] --> imdb.csv.title
+[imdb.csv.actor_3, imdb.csv.director, imdb.csv.year] --> imdb.csv.actor_2
+[imdb.csv.actor_3, imdb.csv.director, imdb.csv.year] --> imdb.csv.actor_1
+[imdb.csv.actor_3, imdb.csv.director, imdb.csv.year] --> imdb.csv.production_countries
+[imdb.csv.actor_3, imdb.csv.director, imdb.csv.year] --> imdb.csv.content_rating
+[imdb.csv.actor_3, imdb.csv.director, imdb.csv.year] --> imdb.csv.vote_average
+[imdb.csv.actor_3, imdb.csv.director, imdb.csv.year] --> imdb.csv.color
+[imdb.csv.actor_3, imdb.csv.director, imdb.csv.production_countries] --> imdb.csv.original_language
+[imdb.csv.actor_3, imdb.csv.content_rating, imdb.csv.director] --> imdb.csv.original_language
+[imdb.csv.actor_3, imdb.csv.director, imdb.csv.vote_average] --> imdb.csv.original_language
+[imdb.csv.actor_1, imdb.csv.actor_3] --> imdb.csv.original_language
+[imdb.csv.actor_1, imdb.csv.actor_3, imdb.csv.year] --> imdb.csv.title
+[imdb.csv.actor_1, imdb.csv.actor_3, imdb.csv.year] --> imdb.csv.actor_2
+[imdb.csv.actor_1, imdb.csv.actor_3, imdb.csv.year] --> imdb.csv.director
+[imdb.csv.actor_1, imdb.csv.actor_3, imdb.csv.year] --> imdb.csv.production_countries
+[imdb.csv.actor_1, imdb.csv.actor_3, imdb.csv.year] --> imdb.csv.content_rating
+[imdb.csv.actor_1, imdb.csv.actor_3, imdb.csv.year] --> imdb.csv.vote_average
+[imdb.csv.actor_1, imdb.csv.actor_3, imdb.csv.year] --> imdb.csv.color
+[imdb.csv.actor_1, imdb.csv.actor_3, imdb.csv.production_countries, imdb.csv.vote_average] --> imdb.csv.color
+[imdb.csv.actor_1, imdb.csv.actor_3, imdb.csv.content_rating] --> imdb.csv.color
+[imdb.csv.actor_3, imdb.csv.year] --> imdb.csv.original_language
+[imdb.csv.actor_2, imdb.csv.director, imdb.csv.year] --> imdb.csv.production_countries
+[imdb.csv.actor_2, imdb.csv.director, imdb.csv.year] --> imdb.csv.original_language
+[imdb.csv.actor_2, imdb.csv.director, imdb.csv.year] --> imdb.csv.color
+[imdb.csv.actor_2, imdb.csv.content_rating, imdb.csv.director, imdb.csv.year] --> imdb.csv.actor_1
+[imdb.csv.actor_2, imdb.csv.content_rating, imdb.csv.director, imdb.csv.year] --> imdb.csv.vote_average
+[imdb.csv.actor_2, imdb.csv.director, imdb.csv.vote_average, imdb.csv.year] --> imdb.csv.actor_1
+[imdb.csv.actor_2, imdb.csv.director, imdb.csv.vote_average, imdb.csv.year] --> imdb.csv.content_rating
+[imdb.csv.actor_2, imdb.csv.director, imdb.csv.production_countries] --> imdb.csv.original_language
+[imdb.csv.actor_2, imdb.csv.director, imdb.csv.vote_average] --> imdb.csv.original_language
+[imdb.csv.actor_1, imdb.csv.actor_2] --> imdb.csv.original_language
+[imdb.csv.actor_1, imdb.csv.actor_2, imdb.csv.year] --> imdb.csv.director
+[imdb.csv.actor_1, imdb.csv.actor_2, imdb.csv.year] --> imdb.csv.production_countries
+[imdb.csv.actor_1, imdb.csv.actor_2, imdb.csv.year] --> imdb.csv.content_rating
+[imdb.csv.actor_1, imdb.csv.actor_2, imdb.csv.year] --> imdb.csv.vote_average
+[imdb.csv.actor_1, imdb.csv.actor_2, imdb.csv.year] --> imdb.csv.color
+[imdb.csv.actor_2, imdb.csv.production_countries, imdb.csv.year] --> imdb.csv.original_language
+[imdb.csv.actor_2, imdb.csv.content_rating, imdb.csv.year] --> imdb.csv.original_language
+[imdb.csv.actor_2, imdb.csv.content_rating, imdb.csv.vote_average, imdb.csv.year] --> imdb.csv.color
+[imdb.csv.actor_2, imdb.csv.vote_average, imdb.csv.year] --> imdb.csv.original_language
+[imdb.csv.actor_2, imdb.csv.color, imdb.csv.content_rating, imdb.csv.production_countries, imdb.csv.vote_average] --> imdb.csv.original_language
+[imdb.csv.actor_1, imdb.csv.director] --> imdb.csv.original_language
+[imdb.csv.actor_1, imdb.csv.director, imdb.csv.year] --> imdb.csv.production_countries
+[imdb.csv.actor_1, imdb.csv.content_rating, imdb.csv.director, imdb.csv.year] --> imdb.csv.color
+[imdb.csv.actor_1, imdb.csv.content_rating, imdb.csv.director, imdb.csv.vote_average, imdb.csv.year] --> imdb.csv.actor_2
+[imdb.csv.actor_1, imdb.csv.color, imdb.csv.director, imdb.csv.vote_average, imdb.csv.year] --> imdb.csv.actor_2
+[imdb.csv.actor_1, imdb.csv.color, imdb.csv.director, imdb.csv.vote_average, imdb.csv.year] --> imdb.csv.content_rating
+[imdb.csv.content_rating, imdb.csv.director, imdb.csv.production_countries, imdb.csv.year] --> imdb.csv.color
+[imdb.csv.content_rating, imdb.csv.director, imdb.csv.vote_average, imdb.csv.year] --> imdb.csv.color
+[imdb.csv.director, imdb.csv.vote_average, imdb.csv.year] --> imdb.csv.original_language

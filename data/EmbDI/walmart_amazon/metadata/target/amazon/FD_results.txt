@@ -1,0 +1,1 @@
+[amazon.csv.category, amazon.csv.modelno, amazon.csv.title] --> amazon.csv.brand

@@ -1,0 +1,217 @@
+[movielens.csv.actor_2, movielens.csv.actor_3, movielens.csv.director, movielens.csv.title] --> movielens.csv.production_companies
+[movielens.csv.actor_2, movielens.csv.actor_3, movielens.csv.original_language, movielens.csv.production_companies, movielens.csv.title] --> movielens.csv.production_countries
+[movielens.csv.actor_2, movielens.csv.actor_3, movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.production_countries
+[movielens.csv.actor_2, movielens.csv.actor_3, movielens.csv.production_countries, movielens.csv.title] --> movielens.csv.production_companies
+[movielens.csv.actor_2, movielens.csv.actor_3, movielens.csv.original_language, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_1
+[movielens.csv.actor_1, movielens.csv.actor_3, movielens.csv.production_companies, movielens.csv.title] --> movielens.csv.actor_2
+[movielens.csv.actor_1, movielens.csv.actor_3, movielens.csv.production_companies, movielens.csv.title] --> movielens.csv.production_countries
+[movielens.csv.actor_1, movielens.csv.actor_3, movielens.csv.original_language, movielens.csv.title] --> movielens.csv.actor_2
+[movielens.csv.actor_1, movielens.csv.actor_3, movielens.csv.genres, movielens.csv.original_language, movielens.csv.title] --> movielens.csv.production_companies
+[movielens.csv.actor_1, movielens.csv.actor_3, movielens.csv.genres, movielens.csv.original_language, movielens.csv.title] --> movielens.csv.production_countries
+[movielens.csv.actor_1, movielens.csv.actor_3, movielens.csv.genres, movielens.csv.title] --> movielens.csv.actor_2
+[movielens.csv.actor_1, movielens.csv.actor_3, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_2
+[movielens.csv.actor_3, movielens.csv.director, movielens.csv.title] --> movielens.csv.production_countries
+[movielens.csv.actor_3, movielens.csv.director, movielens.csv.title] --> movielens.csv.status
+[movielens.csv.actor_3, movielens.csv.director, movielens.csv.production_companies, movielens.csv.title] --> movielens.csv.actor_2
+[movielens.csv.actor_3, movielens.csv.director, movielens.csv.original_language, movielens.csv.title] --> movielens.csv.actor_2
+[movielens.csv.actor_3, movielens.csv.director, movielens.csv.original_language, movielens.csv.title] --> movielens.csv.production_companies
+[movielens.csv.actor_3, movielens.csv.director, movielens.csv.genres, movielens.csv.title] --> movielens.csv.actor_2
+[movielens.csv.actor_3, movielens.csv.director, movielens.csv.genres, movielens.csv.title] --> movielens.csv.actor_1
+[movielens.csv.actor_3, movielens.csv.director, movielens.csv.genres, movielens.csv.title] --> movielens.csv.production_companies
+[movielens.csv.actor_3, movielens.csv.director, movielens.csv.genres, movielens.csv.title] --> movielens.csv.original_language
+[movielens.csv.actor_3, movielens.csv.director, movielens.csv.genres, movielens.csv.title] --> movielens.csv.vote_average
+[movielens.csv.actor_3, movielens.csv.director, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_2
+[movielens.csv.actor_3, movielens.csv.director, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_1
+[movielens.csv.actor_3, movielens.csv.director, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.production_companies
+[movielens.csv.actor_3, movielens.csv.production_companies, movielens.csv.title, movielens.csv.year] --> movielens.csv.production_countries
+[movielens.csv.actor_3, movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average, movielens.csv.year] --> movielens.csv.release_date_rounded
+[movielens.csv.actor_3, movielens.csv.genres, movielens.csv.original_language, movielens.csv.production_companies, movielens.csv.title] --> movielens.csv.actor_1
+[movielens.csv.actor_3, movielens.csv.genres, movielens.csv.production_companies, movielens.csv.title] --> movielens.csv.production_countries
+[movielens.csv.actor_3, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.actor_2
+[movielens.csv.actor_3, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.actor_1
+[movielens.csv.actor_3, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.production_companies
+[movielens.csv.actor_3, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.production_countries
+[movielens.csv.actor_3, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.original_language
+[movielens.csv.actor_3, movielens.csv.genres, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.vote_average
+[movielens.csv.actor_3, movielens.csv.release_date_rounded, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.genres
+[movielens.csv.actor_3, movielens.csv.production_countries, movielens.csv.title, movielens.csv.year] --> movielens.csv.production_companies
+[movielens.csv.actor_3, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average, movielens.csv.year] --> movielens.csv.release_date_rounded
+[movielens.csv.actor_3, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average, movielens.csv.year] --> movielens.csv.genres
+[movielens.csv.actor_3, movielens.csv.original_language, movielens.csv.production_countries, movielens.csv.title] --> movielens.csv.production_companies
+[movielens.csv.actor_3, movielens.csv.genres, movielens.csv.original_language, movielens.csv.production_countries, movielens.csv.title] --> movielens.csv.actor_1
+[movielens.csv.actor_3, movielens.csv.original_language, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_2
+[movielens.csv.actor_3, movielens.csv.original_language, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_1
+[movielens.csv.actor_3, movielens.csv.genres, movielens.csv.production_countries, movielens.csv.title] --> movielens.csv.production_companies
+[movielens.csv.actor_3, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.production_companies
+[movielens.csv.actor_3, movielens.csv.title, movielens.csv.year] --> movielens.csv.actor_2
+[movielens.csv.actor_3, movielens.csv.title, movielens.csv.year] --> movielens.csv.original_language
+[movielens.csv.actor_3, movielens.csv.genres, movielens.csv.title, movielens.csv.year] --> movielens.csv.actor_1
+[movielens.csv.actor_3, movielens.csv.genres, movielens.csv.title, movielens.csv.year] --> movielens.csv.production_companies
+[movielens.csv.actor_3, movielens.csv.genres, movielens.csv.title, movielens.csv.year] --> movielens.csv.release_date_rounded
+[movielens.csv.actor_3, movielens.csv.genres, movielens.csv.title, movielens.csv.year] --> movielens.csv.production_countries
+[movielens.csv.actor_3, movielens.csv.genres, movielens.csv.title, movielens.csv.year] --> movielens.csv.vote_average
+[movielens.csv.actor_3, movielens.csv.title, movielens.csv.vote_average, movielens.csv.year] --> movielens.csv.actor_1
+[movielens.csv.actor_3, movielens.csv.genres, movielens.csv.original_language, movielens.csv.title] --> movielens.csv.actor_2
+[movielens.csv.actor_3, movielens.csv.genres, movielens.csv.original_language, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_1
+[movielens.csv.actor_3, movielens.csv.genres, movielens.csv.original_language, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.production_companies
+[movielens.csv.actor_3, movielens.csv.genres, movielens.csv.original_language, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.production_countries
+[movielens.csv.actor_3, movielens.csv.genres, movielens.csv.title] --> movielens.csv.status
+[movielens.csv.actor_3, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.status
+[movielens.csv.actor_1, movielens.csv.actor_2, movielens.csv.director, movielens.csv.genres, movielens.csv.title] --> movielens.csv.production_companies
+[movielens.csv.actor_1, movielens.csv.actor_2, movielens.csv.production_companies, movielens.csv.title] --> movielens.csv.production_countries
+[movielens.csv.actor_1, movielens.csv.actor_2, movielens.csv.production_countries, movielens.csv.title] --> movielens.csv.production_companies
+[movielens.csv.actor_1, movielens.csv.actor_2, movielens.csv.genres, movielens.csv.original_language, movielens.csv.title] --> movielens.csv.production_companies
+[movielens.csv.actor_1, movielens.csv.actor_2, movielens.csv.genres, movielens.csv.original_language, movielens.csv.title] --> movielens.csv.production_countries
+[movielens.csv.actor_1, movielens.csv.actor_2, movielens.csv.genres, movielens.csv.title] --> movielens.csv.actor_3
+[movielens.csv.actor_1, movielens.csv.actor_2, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_3
+[movielens.csv.actor_2, movielens.csv.director, movielens.csv.title] --> movielens.csv.status
+[movielens.csv.actor_2, movielens.csv.director, movielens.csv.genres, movielens.csv.production_companies, movielens.csv.title] --> movielens.csv.actor_3
+[movielens.csv.actor_2, movielens.csv.director, movielens.csv.genres, movielens.csv.production_companies, movielens.csv.title] --> movielens.csv.actor_1
+[movielens.csv.actor_2, movielens.csv.director, movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_3
+[movielens.csv.actor_2, movielens.csv.director, movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_1
+[movielens.csv.actor_2, movielens.csv.director, movielens.csv.original_language, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_3
+[movielens.csv.actor_2, movielens.csv.director, movielens.csv.original_language, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_1
+[movielens.csv.actor_2, movielens.csv.director, movielens.csv.genres, movielens.csv.production_countries, movielens.csv.title] --> movielens.csv.actor_3
+[movielens.csv.actor_2, movielens.csv.director, movielens.csv.genres, movielens.csv.production_countries, movielens.csv.title] --> movielens.csv.actor_1
+[movielens.csv.actor_2, movielens.csv.director, movielens.csv.genres, movielens.csv.title] --> movielens.csv.original_language
+[movielens.csv.actor_2, movielens.csv.director, movielens.csv.genres, movielens.csv.title] --> movielens.csv.vote_average
+[movielens.csv.actor_2, movielens.csv.production_companies, movielens.csv.title, movielens.csv.year] --> movielens.csv.production_countries
+[movielens.csv.actor_2, movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average, movielens.csv.year] --> movielens.csv.release_date_rounded
+[movielens.csv.actor_2, movielens.csv.genres, movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_3
+[movielens.csv.actor_2, movielens.csv.genres, movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_1
+[movielens.csv.actor_2, movielens.csv.genres, movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.production_countries
+[movielens.csv.actor_2, movielens.csv.genres, movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.original_language
+[movielens.csv.actor_2, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.actor_3
+[movielens.csv.actor_2, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.actor_1
+[movielens.csv.actor_2, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.production_companies
+[movielens.csv.actor_2, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.production_countries
+[movielens.csv.actor_2, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.original_language
+[movielens.csv.actor_2, movielens.csv.genres, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.vote_average
+[movielens.csv.actor_2, movielens.csv.release_date_rounded, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.genres
+[movielens.csv.actor_2, movielens.csv.production_countries, movielens.csv.title, movielens.csv.year] --> movielens.csv.production_companies
+[movielens.csv.actor_2, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average, movielens.csv.year] --> movielens.csv.release_date_rounded
+[movielens.csv.actor_2, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average, movielens.csv.year] --> movielens.csv.genres
+[movielens.csv.actor_2, movielens.csv.original_language, movielens.csv.production_countries, movielens.csv.title] --> movielens.csv.production_companies
+[movielens.csv.actor_2, movielens.csv.genres, movielens.csv.production_countries, movielens.csv.title] --> movielens.csv.production_companies
+[movielens.csv.actor_2, movielens.csv.genres, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_3
+[movielens.csv.actor_2, movielens.csv.genres, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_1
+[movielens.csv.actor_2, movielens.csv.genres, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.original_language
+[movielens.csv.actor_2, movielens.csv.title, movielens.csv.year] --> movielens.csv.original_language
+[movielens.csv.actor_2, movielens.csv.genres, movielens.csv.title, movielens.csv.year] --> movielens.csv.actor_3
+[movielens.csv.actor_2, movielens.csv.genres, movielens.csv.title, movielens.csv.year] --> movielens.csv.actor_1
+[movielens.csv.actor_2, movielens.csv.genres, movielens.csv.title, movielens.csv.year] --> movielens.csv.production_companies
+[movielens.csv.actor_2, movielens.csv.genres, movielens.csv.title, movielens.csv.year] --> movielens.csv.release_date_rounded
+[movielens.csv.actor_2, movielens.csv.genres, movielens.csv.title, movielens.csv.year] --> movielens.csv.production_countries
+[movielens.csv.actor_2, movielens.csv.genres, movielens.csv.title, movielens.csv.year] --> movielens.csv.vote_average
+[movielens.csv.actor_2, movielens.csv.title, movielens.csv.vote_average, movielens.csv.year] --> movielens.csv.actor_3
+[movielens.csv.actor_2, movielens.csv.title, movielens.csv.vote_average, movielens.csv.year] --> movielens.csv.actor_1
+[movielens.csv.actor_2, movielens.csv.genres, movielens.csv.title] --> movielens.csv.status
+[movielens.csv.actor_2, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.status
+[movielens.csv.actor_1, movielens.csv.director, movielens.csv.title] --> movielens.csv.status
+[movielens.csv.actor_1, movielens.csv.director, movielens.csv.genres, movielens.csv.title] --> movielens.csv.production_countries
+[movielens.csv.actor_1, movielens.csv.director, movielens.csv.genres, movielens.csv.title] --> movielens.csv.original_language
+[movielens.csv.actor_1, movielens.csv.director, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_3
+[movielens.csv.actor_1, movielens.csv.director, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_2
+[movielens.csv.actor_1, movielens.csv.director, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.production_companies
+[movielens.csv.actor_1, movielens.csv.director, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.production_countries
+[movielens.csv.actor_1, movielens.csv.production_companies, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_3
+[movielens.csv.actor_1, movielens.csv.production_companies, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_2
+[movielens.csv.actor_1, movielens.csv.production_companies, movielens.csv.title, movielens.csv.year] --> movielens.csv.release_date_rounded
+[movielens.csv.actor_1, movielens.csv.production_companies, movielens.csv.title, movielens.csv.year] --> movielens.csv.production_countries
+[movielens.csv.actor_1, movielens.csv.genres, movielens.csv.production_companies, movielens.csv.title] --> movielens.csv.original_language
+[movielens.csv.actor_1, movielens.csv.genres, movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_3
+[movielens.csv.actor_1, movielens.csv.genres, movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_2
+[movielens.csv.actor_1, movielens.csv.genres, movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.production_countries
+[movielens.csv.actor_1, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.actor_3
+[movielens.csv.actor_1, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.actor_2
+[movielens.csv.actor_1, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.production_companies
+[movielens.csv.actor_1, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.production_countries
+[movielens.csv.actor_1, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.original_language
+[movielens.csv.actor_1, movielens.csv.genres, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.vote_average
+[movielens.csv.actor_1, movielens.csv.release_date_rounded, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.genres
+[movielens.csv.actor_1, movielens.csv.production_countries, movielens.csv.title, movielens.csv.year] --> movielens.csv.production_companies
+[movielens.csv.actor_1, movielens.csv.production_countries, movielens.csv.title, movielens.csv.year] --> movielens.csv.release_date_rounded
+[movielens.csv.actor_1, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average, movielens.csv.year] --> movielens.csv.genres
+[movielens.csv.actor_1, movielens.csv.genres, movielens.csv.production_countries, movielens.csv.title] --> movielens.csv.original_language
+[movielens.csv.actor_1, movielens.csv.title, movielens.csv.year] --> movielens.csv.actor_3
+[movielens.csv.actor_1, movielens.csv.title, movielens.csv.year] --> movielens.csv.actor_2
+[movielens.csv.actor_1, movielens.csv.title, movielens.csv.year] --> movielens.csv.original_language
+[movielens.csv.actor_1, movielens.csv.genres, movielens.csv.title, movielens.csv.year] --> movielens.csv.production_companies
+[movielens.csv.actor_1, movielens.csv.genres, movielens.csv.title, movielens.csv.year] --> movielens.csv.release_date_rounded
+[movielens.csv.actor_1, movielens.csv.genres, movielens.csv.title, movielens.csv.year] --> movielens.csv.production_countries
+[movielens.csv.actor_1, movielens.csv.genres, movielens.csv.title, movielens.csv.year] --> movielens.csv.vote_average
+[movielens.csv.actor_1, movielens.csv.genres, movielens.csv.original_language, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.production_countries
+[movielens.csv.actor_1, movielens.csv.genres, movielens.csv.title] --> movielens.csv.status
+[movielens.csv.actor_1, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.status
+[movielens.csv.director, movielens.csv.production_companies, movielens.csv.title] --> movielens.csv.production_countries
+[movielens.csv.director, movielens.csv.production_companies, movielens.csv.title] --> movielens.csv.status
+[movielens.csv.director, movielens.csv.genres, movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_3
+[movielens.csv.director, movielens.csv.genres, movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_2
+[movielens.csv.director, movielens.csv.genres, movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_1
+[movielens.csv.director, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.actor_3
+[movielens.csv.director, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.actor_2
+[movielens.csv.director, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.actor_1
+[movielens.csv.director, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.production_companies
+[movielens.csv.director, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.production_countries
+[movielens.csv.director, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.original_language
+[movielens.csv.director, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.genres
+[movielens.csv.director, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.vote_average
+[movielens.csv.director, movielens.csv.production_countries, movielens.csv.title] --> movielens.csv.status
+[movielens.csv.director, movielens.csv.genres, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_3
+[movielens.csv.director, movielens.csv.genres, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_2
+[movielens.csv.director, movielens.csv.genres, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_1
+[movielens.csv.director, movielens.csv.genres, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.production_companies
+[movielens.csv.director, movielens.csv.title, movielens.csv.year] --> movielens.csv.actor_3
+[movielens.csv.director, movielens.csv.title, movielens.csv.year] --> movielens.csv.actor_2
+[movielens.csv.director, movielens.csv.title, movielens.csv.year] --> movielens.csv.actor_1
+[movielens.csv.director, movielens.csv.title, movielens.csv.year] --> movielens.csv.production_companies
+[movielens.csv.director, movielens.csv.title, movielens.csv.year] --> movielens.csv.release_date_rounded
+[movielens.csv.director, movielens.csv.title, movielens.csv.year] --> movielens.csv.production_countries
+[movielens.csv.director, movielens.csv.title, movielens.csv.year] --> movielens.csv.original_language
+[movielens.csv.director, movielens.csv.title, movielens.csv.year] --> movielens.csv.genres
+[movielens.csv.director, movielens.csv.title, movielens.csv.year] --> movielens.csv.vote_average
+[movielens.csv.director, movielens.csv.original_language, movielens.csv.title] --> movielens.csv.status
+[movielens.csv.director, movielens.csv.genres, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.original_language
+[movielens.csv.director, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.status
+[movielens.csv.production_companies, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.actor_3
+[movielens.csv.production_companies, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.actor_2
+[movielens.csv.production_companies, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.actor_1
+[movielens.csv.production_companies, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.production_countries
+[movielens.csv.production_companies, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.original_language
+[movielens.csv.genres, movielens.csv.production_companies, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.vote_average
+[movielens.csv.production_companies, movielens.csv.release_date_rounded, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.genres
+[movielens.csv.genres, movielens.csv.production_companies, movielens.csv.production_countries, movielens.csv.title, movielens.csv.year] --> movielens.csv.vote_average
+[movielens.csv.genres, movielens.csv.production_companies, movielens.csv.production_countries, movielens.csv.title] --> movielens.csv.status
+[movielens.csv.genres, movielens.csv.production_companies, movielens.csv.title, movielens.csv.year] --> movielens.csv.original_language
+[movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average, movielens.csv.year] --> movielens.csv.production_countries
+[movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average, movielens.csv.year] --> movielens.csv.original_language
+[movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average, movielens.csv.year] --> movielens.csv.genres
+[movielens.csv.genres, movielens.csv.production_companies, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.status
+[movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.status
+[movielens.csv.genres, movielens.csv.production_countries, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.original_language
+[movielens.csv.genres, movielens.csv.original_language, movielens.csv.release_date_rounded, movielens.csv.title] --> movielens.csv.production_countries
+[movielens.csv.original_language, movielens.csv.release_date_rounded, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_3
+[movielens.csv.original_language, movielens.csv.release_date_rounded, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_2
+[movielens.csv.original_language, movielens.csv.release_date_rounded, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_1
+[movielens.csv.original_language, movielens.csv.release_date_rounded, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.production_companies
+[movielens.csv.original_language, movielens.csv.release_date_rounded, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.production_countries
+[movielens.csv.original_language, movielens.csv.release_date_rounded, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.genres
+[movielens.csv.genres, movielens.csv.release_date_rounded, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_3
+[movielens.csv.genres, movielens.csv.release_date_rounded, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_2
+[movielens.csv.genres, movielens.csv.release_date_rounded, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.actor_1
+[movielens.csv.genres, movielens.csv.release_date_rounded, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.production_companies
+[movielens.csv.genres, movielens.csv.release_date_rounded, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.production_countries
+[movielens.csv.genres, movielens.csv.release_date_rounded, movielens.csv.title, movielens.csv.vote_average] --> movielens.csv.original_language
+[movielens.csv.original_language, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average, movielens.csv.year] --> movielens.csv.production_companies
+[movielens.csv.original_language, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average, movielens.csv.year] --> movielens.csv.genres
+[movielens.csv.genres, movielens.csv.production_countries, movielens.csv.title, movielens.csv.year] --> movielens.csv.original_language
+[movielens.csv.genres, movielens.csv.production_countries, movielens.csv.title, movielens.csv.vote_average, movielens.csv.year] --> movielens.csv.production_companies
+[movielens.csv.title, movielens.csv.year] --> movielens.csv.status
+[movielens.csv.actor_3, movielens.csv.director, movielens.csv.original_language, movielens.csv.production_companies, movielens.csv.production_countries, movielens.csv.release_date_rounded, movielens.csv.vote_average] --> movielens.csv.status
+[movielens.csv.actor_2, movielens.csv.director, movielens.csv.production_companies, movielens.csv.production_countries, movielens.csv.release_date_rounded, movielens.csv.vote_average] --> movielens.csv.status
+[movielens.csv.actor_2, movielens.csv.director, movielens.csv.production_companies, movielens.csv.release_date_rounded, movielens.csv.vote_average] --> movielens.csv.actor_3
+[movielens.csv.actor_2, movielens.csv.director, movielens.csv.original_language, movielens.csv.production_countries, movielens.csv.release_date_rounded, movielens.csv.vote_average] --> movielens.csv.status
+[movielens.csv.actor_1, movielens.csv.director, movielens.csv.production_companies, movielens.csv.production_countries, movielens.csv.release_date_rounded, movielens.csv.vote_average] --> movielens.csv.status
+[movielens.csv.actor_1, movielens.csv.director, movielens.csv.original_language, movielens.csv.production_countries, movielens.csv.release_date_rounded, movielens.csv.vote_average] --> movielens.csv.status
+[movielens.csv.director, movielens.csv.genres, movielens.csv.production_countries, movielens.csv.release_date_rounded, movielens.csv.vote_average] --> movielens.csv.status
+[movielens.csv.release_date_rounded] --> movielens.csv.year

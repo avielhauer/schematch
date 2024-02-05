@@ -1,0 +1,4 @@
+[imdb.csv.actor_3, imdb.csv.title]
+[imdb.csv.actor_2, imdb.csv.actor_3, imdb.csv.year]
+[imdb.csv.actor_3, imdb.csv.director, imdb.csv.year]
+[imdb.csv.actor_1, imdb.csv.actor_3, imdb.csv.year]

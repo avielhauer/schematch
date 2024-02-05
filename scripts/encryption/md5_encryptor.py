@@ -17,6 +17,6 @@ class MD5Encryptor(DatasetEncryptor):
 
 
 if __name__ == "__main__":
-    for dataset in ["Efes-bib"]:
+    for dataset in ["EmbDI"]:
         encoder = MD5Encryptor(dataset)
         encoder.encrypt()

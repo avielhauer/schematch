@@ -1,0 +1,2 @@
+[zagats.csv.class]
+[zagats.csv.name]

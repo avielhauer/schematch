@@ -1,0 +1,14 @@
+[zagats.csv.class] --> zagats.csv.name
+[zagats.csv.class] --> zagats.csv.phone
+[zagats.csv.class] --> zagats.csv.addr
+[zagats.csv.class] --> zagats.csv.type
+[zagats.csv.class] --> zagats.csv.city
+[zagats.csv.name] --> zagats.csv.class
+[zagats.csv.name] --> zagats.csv.phone
+[zagats.csv.name] --> zagats.csv.addr
+[zagats.csv.name] --> zagats.csv.type
+[zagats.csv.name] --> zagats.csv.city
+[zagats.csv.phone] --> zagats.csv.addr
+[zagats.csv.phone] --> zagats.csv.city
+[zagats.csv.addr, zagats.csv.type] --> zagats.csv.phone
+[zagats.csv.addr, zagats.csv.type] --> zagats.csv.city
