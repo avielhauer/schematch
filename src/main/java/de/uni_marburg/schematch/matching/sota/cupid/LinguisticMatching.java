@@ -24,15 +24,13 @@ public class LinguisticMatching {
 
     private WuPalmer wuPalmer = null;
 
-    private ILexicalDatabase db = null;
-
-    private Levenshtein levenshtein = new Levenshtein();
+    private final Levenshtein levenshtein = new Levenshtein();
 
     public LinguisticMatching(WordNetFunctionalities wordNetFunctionalities) {
         this.wordNetFunctionalities = wordNetFunctionalities;
         WS4JConfiguration.getInstance().setMemoryDB(false);
         WS4JConfiguration.getInstance().setMFS(true);
-        this.db = new MITWordNet(new RAMDictionary(wordNetFunctionalities.dict, 2));
+        ILexicalDatabase db = new MITWordNet(new RAMDictionary(wordNetFunctionalities.dict, 2));
         this.wuPalmer = new WuPalmer(db);
     }
 
@@ -339,7 +337,7 @@ public class LinguisticMatching {
         return totalSum;
     }
 
-    private Set<ISynset> getSynonyms(String word) throws IOException {
+    public Set<ISynset> getSynonyms(String word) throws IOException {
         return wordNetFunctionalities.getAllSynonymsets(word);
     }
 

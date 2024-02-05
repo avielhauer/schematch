@@ -1,7 +1,12 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
 
 import edu.mit.jwi.Dictionary;
+import edu.mit.jwi.RAMDictionary;
 import edu.mit.jwi.item.*;
+import edu.uniba.di.lacam.kdde.lexical_db.ILexicalDatabase;
+import edu.uniba.di.lacam.kdde.lexical_db.MITWordNet;
+import edu.uniba.di.lacam.kdde.ws4j.similarity.WuPalmer;
+import edu.uniba.di.lacam.kdde.ws4j.util.WS4JConfiguration;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -10,13 +15,14 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class WordNetFunctionalities {
 
     Dictionary dict;
 
     public WordNetFunctionalities() throws IOException {
-        String path = "src/main/resources/WordNet/dict";
+        String path = "src/main/resources/WordNet/dict/";
         URL url = new URL("file", null, path);
         this.dict = new Dictionary(url);
         dict.open();
@@ -44,5 +50,16 @@ public class WordNetFunctionalities {
             }
         }
         return result;
+    }
+
+    public static void main(String[] args) throws IOException {
+        WS4JConfiguration.getInstance().setMemoryDB(false);
+        WS4JConfiguration.getInstance().setMFS(true);
+        WordNetFunctionalities wordNetFunctionalities = new WordNetFunctionalities();
+        LinguisticMatching linguisticMatching = new LinguisticMatching(wordNetFunctionalities);
+        ILexicalDatabase db = new MITWordNet(new RAMDictionary(wordNetFunctionalities.dict, 3));
+        WuPalmer wu = new WuPalmer(db);
+
+        System.out.println(wu.calcRelatednessOfWords("dog","cat"));
     }
 }
