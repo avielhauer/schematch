@@ -10,10 +10,8 @@ import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matching.MatcherFactory;
 import de.uni_marburg.schematch.matching.ensemble.CMCMatcher;
 import de.uni_marburg.schematch.matching.ensemble.CrediblityPredictorModel;
-import de.uni_marburg.schematch.matching.ensemble.features.Feature;
-import de.uni_marburg.schematch.matching.ensemble.features.FeatureRandom;
 import de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures.FeatrueInstanceUniqueness;
-import de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures.FeatureInstanceNumericDistribution;
+import de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures.FeatureInstanceNumeric;
 import de.uni_marburg.schematch.matching.ensemble.features.labelFeatures.FeatureLabelComponents;
 import de.uni_marburg.schematch.matching.ensemble.features.labelFeatures.FeatureLabelLength;
 import de.uni_marburg.schematch.matchtask.MatchTask;
@@ -52,7 +50,7 @@ public class NewMain {
         MatcherFactory matcherFactory = new MatcherFactory();
         List<Matcher> firstLineMatchers = matcherFactory.createMatchersFromConfig(1);
         List<Matcher> secondLineMatchers = matcherFactory.createMatchersFromConfig(2);
-        secondLineMatchers.add(new CMCMatcher(crediblityPredictorModel,20));
+        secondLineMatchers.add(new CMCMatcher(crediblityPredictorModel,3));
         log.info("Instantiating sim matrix boosting");
         // FIXME: make sim matrix boosting configurable via .yaml files
         // Configure similarity matrix boosting here for now
@@ -183,19 +181,23 @@ public class NewMain {
         // loop over datasets
 
 
-        Configuration.DatasetConfiguration datasetConfiguration=config.getDatasetConfigurations().get(0);
-        Dataset dataset = new Dataset(datasetConfiguration);
-        log.info("Starting experiments for dataset " + dataset.getName() + " with " + dataset.getScenarioNames().size() + " scenarios");
-        // loop over scenarios
-        for (String scenarioName : dataset.getScenarioNames()) {
-            Scenario scenario = new Scenario(dataset.getPath() + File.separator + scenarioName);
-            log.debug("Starting experiments for dataset " + dataset.getName() + ", scenario: " + scenario.getPath());
+        List<Configuration.DatasetConfiguration> buildingList = List.of(config.getDatasetConfigurations().get(1),config.getDatasetConfigurations().get(2),config.getDatasetConfigurations().get(3));
+        for (Configuration.DatasetConfiguration datasetConfiguration : buildingList) {
+            Dataset dataset = new Dataset(datasetConfiguration);
+            log.info("Starting experiments for dataset " + dataset.getName() + " with " + dataset.getScenarioNames().size() + " scenarios");
 
-            MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps, metrics);
-            matchTask.runSteps();
-            cmc.matchTasks.add(matchTask);
+            // loop over scenarios
+            for (String scenarioName : dataset.getScenarioNames()) {
+
+                Scenario scenario = new Scenario(dataset.getPath() + File.separator + scenarioName);
+                log.debug("Starting experiments for dataset " + dataset.getName() + ", scenario: " + scenario.getPath());
+                System.out.println("hier");
+                MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps, metrics);
+                matchTask.runSteps();
+                cmc.matchTasks.add(matchTask);
 
 
+            }
         }
 /*
         int i = 0;
@@ -224,9 +226,11 @@ public class NewMain {
 
 */
         cmc.addFeature(new FeatureLabelComponents("Components"));
-        cmc.addFeature(new FeatureLabelLength("label length",5,8,12));
+        cmc.addFeature(new FeatureLabelLength("label length",3,5,8));
         cmc.addFeature(new FeatrueInstanceUniqueness("uniquness"));
-        cmc.addFeature(new FeatureInstanceNumericDistribution("numeric"));
+        cmc.addFeature(new FeatureInstanceNumeric("numeric"));
+        cmc.addFeature(new FeatureInstanceNumeric("numeric"));
+
         for (Matcher matcher:firstLineMatchers)
         {
             cmc.addMatcher(matcher);

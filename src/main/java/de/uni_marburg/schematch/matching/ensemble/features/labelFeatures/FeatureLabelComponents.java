@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class FeatureLabelComponents extends Feature {
     final static ArrayList<String> SEMANTIC_COMPONENTS = new ArrayList<>(Arrays.asList(
-            " ", "_", "-"
+            " ", "_", "-","xxx"
     ));
 
     public FeatureLabelComponents(String name) {
@@ -29,6 +29,9 @@ public class FeatureLabelComponents extends Feature {
                 result++;
             }
 
+        }
+        if (result > 0) {
+            System.out.println(result);
         }
         return result;
     }
