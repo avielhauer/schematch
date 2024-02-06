@@ -1,2 +1,3 @@
+[city.csv.city_id] --> city.csv.city
+[city.csv.city_id] --> city.csv.country_id
 [city.csv.city, city.csv.country_id] --> city.csv.city_id
-[city.csv.city_id] --> city.csv.city, city.csv.country_id

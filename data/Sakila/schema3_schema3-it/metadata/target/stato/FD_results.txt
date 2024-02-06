@@ -1,2 +1,2 @@
-[stato.csv.stato] --> stato.csv.stato_id
 [stato.csv.stato_id] --> stato.csv.stato
+[stato.csv.stato] --> stato.csv.stato_id
