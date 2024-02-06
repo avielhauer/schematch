@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CMCMatcher extends Matcher {
-    public  CMCMatcher(MatchingStep matchStep, ArrayList<Feature> featureList, ArrayList<Matcher> matchers, ArrayList<MatchTask> matchTasks) {
+    private float c;
+    public  CMCMatcher(MatchingStep matchStep, ArrayList<Feature> featureList, ArrayList<Matcher> matchers, ArrayList<MatchTask> matchTasks,float c) {
         try {
-
-
+            this.c=c;
             crediblityPredictorModel = new CrediblityPredictorModel();
             for (Feature f : featureList)
                 crediblityPredictorModel.addFeature(f);
@@ -66,7 +66,9 @@ public class CMCMatcher extends Matcher {
                         for (Matcher m : matchTask.getFirstLineMatchers()) {
                             float sim = matchTask.getSimMatrixFromPreviousMatchStep(matchStep,m)[i][j];
                             float acc= (float) crediblityPredictorModel.predictaccuracy(new ColumnPair(sourceTable.getColumn(i),targetTable.getColumn(j)),m);
+                            acc= (float) Math.exp(-1*c*acc);
                             nominator+=sim*acc;
+
                             sumAcc+=acc;
                         }
                         simMatrix[i][j] = (float) (nominator/sumAcc);
