@@ -21,9 +21,9 @@ public class Scenario {
         this.name = StringUtils.getFolderName(path);
         this.sourceDatabase = new Database(this.path + File.separator + Configuration.getInstance().getDefaultSourceDatabaseDir());
         this.targetDatabase = new Database(this.path + File.separator + Configuration.getInstance().getDefaultTargetDatabaseDir());
-        // TODO: read dependencies on demand
-        if (Configuration.getInstance().isReadDependencies()) {
+        // Scenario metadata disabled by PR #20
+        /*if (Configuration.getInstance().isReadDependencies()) {
             this.metadata = InputReader.readScenarioMetadata(this.path, sourceDatabase, targetDatabase);
-        }
+        }*/
     }
 }
