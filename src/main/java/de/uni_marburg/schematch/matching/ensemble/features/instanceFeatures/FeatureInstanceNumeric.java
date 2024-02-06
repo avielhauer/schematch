@@ -20,7 +20,7 @@ public class FeatureInstanceNumeric extends FeatureInstace {
         List<Boolean> isColumnNumeric = new ArrayList<>();
 
         for (Column c : columns) {
-            if(c.getDatatype().equals(Column.Datatype.INTEGER)){
+            if(c.getDatatype().equals(Column.Datatype.INTEGER) || c.getDatatype().equals(Column.Datatype.FLOAT)){
                 isColumnNumeric.add(true);
             }else {
                 isColumnNumeric.add(!c.getValues().stream().map(this::isNumeric).collect(Collectors.toList()).contains(false));

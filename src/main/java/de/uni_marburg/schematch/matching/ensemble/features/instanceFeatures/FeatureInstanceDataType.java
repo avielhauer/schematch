@@ -11,6 +11,6 @@ public class FeatureInstanceDataType extends FeatureInstace {
 
     @Override
     public double calculateScore(ColumnPair columnPair) {
-        return 0;
+        return columnPair.getSourceColumn().getDatatype().equals(columnPair.getTargetColumn().getDatatype())?1:0;
     }
 }

@@ -10,7 +10,10 @@ import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matching.MatcherFactory;
 import de.uni_marburg.schematch.matching.ensemble.CMCMatcher;
 import de.uni_marburg.schematch.matching.ensemble.CrediblityPredictorModel;
+import de.uni_marburg.schematch.matching.ensemble.features.Feature;
+import de.uni_marburg.schematch.matching.ensemble.features.FeatureRandom;
 import de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures.FeatrueInstanceUniqueness;
+import de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures.FeatureInstanceDataType;
 import de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures.FeatureInstanceNumeric;
 import de.uni_marburg.schematch.matching.ensemble.features.labelFeatures.FeatureLabelComponents;
 import de.uni_marburg.schematch.matching.ensemble.features.labelFeatures.FeatureLabelLength;
@@ -36,7 +39,22 @@ import static de.uni_marburg.schematch.Main.log;
 
 public class NewMain {
     public static void main(String[] args) throws Exception {
-        CrediblityPredictorModel crediblityPredictorModel=buildModel();
+        List<Feature> features = List.of(
+                new FeatureLabelComponents("Components"),
+                new FeatureLabelLength("label length",3,5,8),
+                new FeatrueInstanceUniqueness("uniquness"),
+                new FeatureInstanceNumeric("numeric"),
+                new FeatureInstanceDataType("Datatype"));
+
+        CrediblityPredictorModel crediblityPredictorModel=buildModel(features);
+
+        List<Feature> featureRandom = List.of(  new FeatureRandom("r1"),
+                new FeatureRandom("r2"),
+                new FeatureRandom("r3"),
+                new FeatureRandom("r4"),
+                new FeatureRandom("r5"));
+
+        CrediblityPredictorModel crediblityPredictorModelRandomFeatures = buildModel(featureRandom);
 
         log.info("Starting Schematch");
 
@@ -51,6 +69,13 @@ public class NewMain {
         List<Matcher> firstLineMatchers = matcherFactory.createMatchersFromConfig(1);
         List<Matcher> secondLineMatchers = matcherFactory.createMatchersFromConfig(2);
         secondLineMatchers.add(new CMCMatcher(crediblityPredictorModel,3));
+        secondLineMatchers.add(new CMCMatcher(crediblityPredictorModel,7));
+        secondLineMatchers.add(new CMCMatcher(crediblityPredictorModel,10));
+        secondLineMatchers.add(new CMCMatcher(crediblityPredictorModel,20));
+
+        secondLineMatchers.add(new CMCMatcher(crediblityPredictorModelRandomFeatures,6));
+
+
         log.info("Instantiating sim matrix boosting");
         // FIXME: make sim matrix boosting configurable via .yaml files
         // Configure similarity matrix boosting here for now
@@ -141,7 +166,7 @@ public class NewMain {
         log.info("Ending Schematch");
     }
 
-    private static CrediblityPredictorModel buildModel() throws Exception {
+    private static CrediblityPredictorModel buildModel(List<Feature> features) throws Exception {
         Configuration config = Configuration.getInstance();
 
 
@@ -225,11 +250,9 @@ public class NewMain {
         }
 
 */
-        cmc.addFeature(new FeatureLabelComponents("Components"));
-        cmc.addFeature(new FeatureLabelLength("label length",3,5,8));
-        cmc.addFeature(new FeatrueInstanceUniqueness("uniquness"));
-        cmc.addFeature(new FeatureInstanceNumeric("numeric"));
-        cmc.addFeature(new FeatureInstanceNumeric("numeric"));
+        for (Feature f : features){
+        cmc.addFeature(f);
+        }
 
         for (Matcher matcher:firstLineMatchers)
         {
