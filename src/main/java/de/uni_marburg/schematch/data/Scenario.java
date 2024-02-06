@@ -5,11 +5,10 @@ import de.uni_marburg.schematch.utils.Configuration;
 import de.uni_marburg.schematch.utils.InputReader;
 import de.uni_marburg.schematch.utils.StringUtils;
 import lombok.Data;
-import lombok.Getter;
 
 import java.io.File;
 
-@Getter
+@Data
 public class Scenario {
     private final Dataset dataset;
     private final String path;

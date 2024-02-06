@@ -1,1 +1,11 @@
-[] --> film.csv.costo_sostituzione, film.csv.data_rilascio, film.csv.descrizione, film.csv.durata, film.csv.durata_noleggio, film.csv.film_id, film.csv.lingua, film.csv.lingua_originale, film.csv.tariffa_noleggio, film.csv.titolo, film.csv.voto
+[] --> film.csv.film_id
+[] --> film.csv.titolo
+[] --> film.csv.descrizione
+[] --> film.csv.data_rilascio
+[] --> film.csv.lingua
+[] --> film.csv.lingua_originale
+[] --> film.csv.durata_noleggio
+[] --> film.csv.tariffa_noleggio
+[] --> film.csv.durata
+[] --> film.csv.costo_sostituzione
+[] --> film.csv.voto

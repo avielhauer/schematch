@@ -1,5 +1,4 @@
 [cliente.csv.cliente_id]
-[cliente.csv.nome]
 [cliente.csv.cognome]
 [cliente.csv.email]
 [cliente.csv.indirizzo_id]
@@ -7,3 +6,6 @@
 [cliente.csv.città_id]
 [cliente.csv.codice_postale]
 [cliente.csv.telefono]
+[cliente.csv.distretto, cliente.csv.nome]
+[cliente.csv.negozio_id, cliente.csv.nome]
+[cliente.csv.data_creazione, cliente.csv.nome]

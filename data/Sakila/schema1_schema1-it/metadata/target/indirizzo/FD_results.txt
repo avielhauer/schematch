@@ -1,5 +1,15 @@
-[] --> indirizzo.csv.codice_postale, indirizzo.csv.indirizzo2, indirizzo.csv.telefono
-[indirizzo.csv.città_id] --> indirizzo.csv.distretto, indirizzo.csv.indirizzo, indirizzo.csv.indirizzo_id
-[indirizzo.csv.distretto] --> indirizzo.csv.città_id, indirizzo.csv.indirizzo, indirizzo.csv.indirizzo_id
-[indirizzo.csv.indirizzo] --> indirizzo.csv.città_id, indirizzo.csv.distretto, indirizzo.csv.indirizzo_id
-[indirizzo.csv.indirizzo_id] --> indirizzo.csv.città_id, indirizzo.csv.distretto, indirizzo.csv.indirizzo
+[] --> indirizzo.csv.indirizzo2
+[] --> indirizzo.csv.codice_postale
+[] --> indirizzo.csv.telefono
+[indirizzo.csv.indirizzo_id] --> indirizzo.csv.indirizzo
+[indirizzo.csv.indirizzo_id] --> indirizzo.csv.distretto
+[indirizzo.csv.indirizzo_id] --> indirizzo.csv.città_id
+[indirizzo.csv.indirizzo] --> indirizzo.csv.indirizzo_id
+[indirizzo.csv.indirizzo] --> indirizzo.csv.distretto
+[indirizzo.csv.indirizzo] --> indirizzo.csv.città_id
+[indirizzo.csv.distretto] --> indirizzo.csv.indirizzo_id
+[indirizzo.csv.distretto] --> indirizzo.csv.indirizzo
+[indirizzo.csv.distretto] --> indirizzo.csv.città_id
+[indirizzo.csv.città_id] --> indirizzo.csv.indirizzo_id
+[indirizzo.csv.città_id] --> indirizzo.csv.indirizzo
+[indirizzo.csv.città_id] --> indirizzo.csv.distretto

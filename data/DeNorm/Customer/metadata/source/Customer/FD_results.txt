@@ -1,0 +1,33 @@
+[Customer.csv.Price] --> Customer.csv.CustomerID
+[Customer.csv.Price] --> Customer.csv.CustomerName
+[Customer.csv.Price] --> Customer.csv.Age
+[Customer.csv.Price] --> Customer.csv.ProductID
+[Customer.csv.Price] --> Customer.csv.ProductName
+[Customer.csv.Price] --> Customer.csv.Manufacturer
+[Customer.csv.Price] --> Customer.csv.Category
+[Customer.csv.CustomerID] --> Customer.csv.CustomerName
+[Customer.csv.CustomerID] --> Customer.csv.Age
+[Customer.csv.CustomerID, Customer.csv.ProductID] --> Customer.csv.Price
+[Customer.csv.CustomerID, Customer.csv.ProductID] --> Customer.csv.Manufacturer
+[Customer.csv.CustomerID, Customer.csv.ProductName] --> Customer.csv.Price
+[Customer.csv.CustomerID, Customer.csv.ProductName] --> Customer.csv.Manufacturer
+[Customer.csv.Category, Customer.csv.CustomerID] --> Customer.csv.Manufacturer
+[Customer.csv.CustomerName] --> Customer.csv.CustomerID
+[Customer.csv.CustomerName] --> Customer.csv.Age
+[Customer.csv.CustomerName, Customer.csv.ProductID] --> Customer.csv.Price
+[Customer.csv.CustomerName, Customer.csv.ProductID] --> Customer.csv.Manufacturer
+[Customer.csv.CustomerName, Customer.csv.ProductName] --> Customer.csv.Price
+[Customer.csv.CustomerName, Customer.csv.ProductName] --> Customer.csv.Manufacturer
+[Customer.csv.Category, Customer.csv.CustomerName] --> Customer.csv.Manufacturer
+[Customer.csv.Age] --> Customer.csv.CustomerID
+[Customer.csv.Age] --> Customer.csv.CustomerName
+[Customer.csv.Age, Customer.csv.ProductID] --> Customer.csv.Price
+[Customer.csv.Age, Customer.csv.ProductID] --> Customer.csv.Manufacturer
+[Customer.csv.Age, Customer.csv.ProductName] --> Customer.csv.Price
+[Customer.csv.Age, Customer.csv.ProductName] --> Customer.csv.Manufacturer
+[Customer.csv.Age, Customer.csv.Category] --> Customer.csv.Manufacturer
+[Customer.csv.ProductID] --> Customer.csv.ProductName
+[Customer.csv.ProductID] --> Customer.csv.Category
+[Customer.csv.ProductName] --> Customer.csv.ProductID
+[Customer.csv.ProductName] --> Customer.csv.Category
+[Customer.csv.Manufacturer] --> Customer.csv.Category

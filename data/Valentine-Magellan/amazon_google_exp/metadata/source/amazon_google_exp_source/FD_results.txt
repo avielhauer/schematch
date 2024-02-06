@@ -1,0 +1,4 @@
+[amazon_google_exp_source.csv.id] --> amazon_google_exp_source.csv.title
+[amazon_google_exp_source.csv.id] --> amazon_google_exp_source.csv.manufacturer
+[amazon_google_exp_source.csv.id] --> amazon_google_exp_source.csv.price
+[amazon_google_exp_source.csv.price, amazon_google_exp_source.csv.title] --> amazon_google_exp_source.csv.manufacturer

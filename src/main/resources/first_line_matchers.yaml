@@ -63,10 +63,9 @@ active: true
 name: "UniquenessMatcher"
 packageName: "metadata"
 active: true
----
-name: "ExtremaMatcher"
-packageName: "metadata"
-active: true
+#--- (see issue #16)
+#name: "ExtremaMatcher"
+#packageName: "metadata"
 
 # Similarity matchers
 ---
