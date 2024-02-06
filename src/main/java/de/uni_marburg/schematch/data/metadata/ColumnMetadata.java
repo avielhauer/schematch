@@ -21,18 +21,18 @@ public class ColumnMetadata {
         return stringMetaMap.get(field);
     }
 
-    public Column.Datatype getDatatype(){
+    public Datatype getDatatype(){
         switch(stringMetaMap.get("datatype")) {
             case "INTEGER":
-                return Column.Datatype.INTEGER;
+                return Datatype.INTEGER;
             case "FLOAT":
-                return Column.Datatype.FLOAT;
+                return Datatype.FLOAT;
             case "TEXT":
-                return Column.Datatype.TEXT;
+                return Datatype.TEXT;
             case "DATE":
-                return Column.Datatype.DATE;
+                return Datatype.DATE;
             default:
-                return Column.Datatype.STRING;
+                return Datatype.STRING;
         }
     }
 }

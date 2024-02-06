@@ -4,6 +4,7 @@ import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Dataset;
 import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.data.Table;
+import de.uni_marburg.schematch.data.metadata.Datatype;
 import de.uni_marburg.schematch.utils.AdditionalInformationWriter;
 import de.uni_marburg.schematch.utils.Configuration;
 import org.apache.logging.log4j.LogManager;
@@ -90,7 +91,7 @@ public class AdditionalMetadataGenerator {
     }
 
     private static void fetchDatatype(Column column, SimpleDateFormat dateFormat){
-        Column.Datatype datatype = Column.Datatype.INTEGER;
+        Datatype datatype = Datatype.INTEGER;
         for(String value : column.getValues()){
             switch(datatype){
                 case INTEGER:
@@ -99,7 +100,7 @@ public class AdditionalMetadataGenerator {
                         break;
                     }
                     catch (NumberFormatException e){
-                        datatype = Column.Datatype.FLOAT;
+                        datatype = Datatype.FLOAT;
                     }
                 case FLOAT:
                     try{
@@ -107,7 +108,7 @@ public class AdditionalMetadataGenerator {
                         break;
                     }
                     catch (NumberFormatException e){
-                        datatype = Column.Datatype.DATE;
+                        datatype = Datatype.DATE;
                     }
                 case DATE:
                     try{
@@ -116,15 +117,15 @@ public class AdditionalMetadataGenerator {
                             break;
                         }
                         else{
-                            datatype = Column.Datatype.STRING;
+                            datatype = Datatype.STRING;
                         }
                     }
                     catch (ParseException e){
-                        datatype = Column.Datatype.STRING;
+                        datatype = Datatype.STRING;
                     }
                 case STRING:
                     if(value.length() >= 100) {
-                    datatype = Column.Datatype.TEXT;
+                    datatype = Datatype.TEXT;
                     }
                     else{
                         break;
