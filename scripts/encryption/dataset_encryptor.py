@@ -14,6 +14,7 @@ class DatasetEncryptor:
         self.dataset_dir = os.path.join(DATA_DIR, self.dataset)
         self.scenario_dirs = glob.glob(os.path.join(self.dataset_dir, "*"))
         self.encrypted_dataset_dir = os.path.join(DATA_DIR, self.encrypt_dataset_name(self.dataset))
+        self.encrypting_target = False
 
     @abstractmethod
     def encrypt_dataset_name(self, dataset_name):
@@ -32,7 +33,9 @@ class DatasetEncryptor:
 
     def encrypt(self):
         for scenario in self.scenario_dirs:
+            self.encrypting_target = False
             self.encrypt_source(scenario)
+            self.encrypting_target = True
             self.encrypt_target(scenario)
             self.encrypt_ground_truth(scenario)
             self.copy_empty_metadata(scenario)
@@ -57,7 +60,9 @@ class DatasetEncryptor:
         csv_files = glob.glob(os.path.join(scenario, "ground_truth", "*.csv"))
         for csv_file in csv_files:
             source_table, target_table = os.path.basename(csv_file).split("___")
+            self.encrypting_target = True
             target_table = self.encrypt_table(target_table[:-4])
+            self.encrypting_target = False
             source_table = self.encrypt_table(source_table)
 
             with open(csv_file, "r") as fp:
@@ -69,7 +74,9 @@ class DatasetEncryptor:
 
     def copy_empty_metadata(self, scenario):
         self.copy_database_inds(os.path.join(scenario, "metadata"))
+        self.encrypting_target = False
         self.copy_schema_metadata(scenario, "source")
+        self.encrypting_target = True
         self.copy_schema_metadata(scenario, "target")
 
     def copy_database_inds(self, metadata_folder):

@@ -7,16 +7,25 @@ class MD5Encryptor(DatasetEncryptor):
         return dataset_name + "_md5_encrypted"
 
     def encrypt_data(self, data):
-        return hashlib.md5(data.encode()).hexdigest()
+        if self.encrypting_target:
+            return hashlib.md5((data+"_target").encode()).hexdigest()
+        else:
+            return hashlib.md5((data+"_source").encode()).hexdigest()
 
     def encrypt_table(self, table):
-        return hashlib.md5(table.encode()).hexdigest()
+        if self.encrypting_target:
+            return hashlib.md5((table+"_target").encode()).hexdigest()
+        else:
+            return hashlib.md5((table+"_source").encode()).hexdigest()
 
     def encrypt_column(self, column):
-        return hashlib.md5(column.encode()).hexdigest()
+        if self.encrypting_target:
+            return hashlib.md5((column+"_target").encode()).hexdigest()
+        else:
+            return hashlib.md5((column+"_source").encode()).hexdigest()
 
 
 if __name__ == "__main__":
-    for dataset in ["EmbDI"]:
+    for dataset in ["EmbDI", "Sakila", "Pubs"]:
         encoder = MD5Encryptor(dataset)
         encoder.encrypt()
