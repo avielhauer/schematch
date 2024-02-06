@@ -21,7 +21,7 @@ public class FDExtraNode2_2Graph extends DBGraph {
         List<FunctionalDependency> sortedFDs = fds.stream()
                 .sorted(Comparator.comparingDouble(fd -> -fd.getPdepTuple().gpdep)).toList();
 
-        List<FunctionalDependency> chosenFDs = sortedFDs.subList(0, Math.min(10, sortedFDs.size()));
+        List<FunctionalDependency> chosenFDs = sortedFDs.subList(0, Math.min(3, sortedFDs.size()));
 
 
         // Create graph:

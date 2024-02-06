@@ -18,6 +18,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Getter
 @EqualsAndHashCode(callSuper = true)
@@ -54,10 +55,9 @@ public class SimMatrixBoostingStep extends MatchStep {
             }
             matchTask.setSimMatrix(this, matcher, boostedSimMatrix);
         }
-        String path = "structured_results/" + matchTask.getDataset().getName()+"/";
+        String path = "structured_results/";
         new File(path).mkdirs();
-        StructuredBoostingTester.writeResults(path+matchTask.getScenario().getName());
-        System.exit(5);
+        StructuredBoostingTester.writeResults(path, matchTask.getDataset().getName()+":"+matchTask.getScenario().getName());
     }
 
     @Override

@@ -6,7 +6,6 @@ import de.uni_marburg.schematch.boosting.sf_algorithm.flooding.FlooderC;
 import de.uni_marburg.schematch.boosting.sf_algorithm.propagation_graph.*;
 import de.uni_marburg.schematch.boosting.sf_algorithm.similarity_calculator.SimilarityCalculator;
 import de.uni_marburg.schematch.data.metadata.dependency.FunctionalDependency;
-import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.SimMatrixBoostingStep;
 import org.apache.logging.log4j.LogManager;
@@ -15,8 +14,14 @@ import org.apache.logging.log4j.Logger;
 /**
  * Similarity Flooding Matrix Boosting
  */
+
 public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
     private final static Logger log = LogManager.getLogger(SimFloodingSimMatrixBoosting.class);
+    private final int max_iterations;
+
+    public SimFloodingSimMatrixBoosting(int max_iterations){
+        this.max_iterations = max_iterations;
+    }
 
     @Override
     public float[][] run(MatchTask matchTask, SimMatrixBoostingStep matchStep, float[][] simMatrix){
@@ -48,7 +53,7 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
         // Create Flooder
         Flooder flooder = new FlooderC(pGraph);
 
-        float[][] boostedMatrix = flooder.flood(1, 0.0000001F);
+        float[][] boostedMatrix = flooder.flood(this.max_iterations, 0.0000001F);
 
         return boostedMatrix;
     }

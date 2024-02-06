@@ -12,20 +12,20 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
-import java.util.Map;
 import java.util.concurrent.Future;
 
 public class StructuredBoostingTester implements SimMatrixBoosting{
     private final static Logger log = LogManager.getLogger(StructuredBoostingTester.class);
     static Map<Metric, Map<String, Map<Matcher, Float>>> result = new HashMap<>();
+    static List<Matcher> matcherList = new ArrayList<>();
+    static StringBuilder header = new StringBuilder(",,,");
+    static String sessionId = UUID.randomUUID().toString();
 
     @Override
     public float[][] run(MatchTask matchTask, SimMatrixBoostingStep matchStep, float[][] simMatrix, Matcher matcher) {
@@ -36,7 +36,7 @@ public class StructuredBoostingTester implements SimMatrixBoosting{
         futureList.add(original);
 
         Future<FloodingResult> simFloodingAFuture = executor.submit( () -> {
-            SimMatrixBoosting simFloodingA = new SimFloodingSimMatrixBoosting();
+            SimMatrixBoosting simFloodingA = new SimFloodingSimMatrixBoosting(1);
             float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
             return new FloodingResult("floodingA", "standard", resultMatrix);
         });
@@ -69,20 +69,30 @@ public class StructuredBoostingTester implements SimMatrixBoosting{
        throw new RuntimeException("StructuredBoostingTester is not made for implementation into schematch.");
     }
 
-    public static void writeResults(String path){
+    public static void writeResults(String path, String scenarioName){
         for (Metric metric : result.keySet()){
-            String csvFile = path + metric.toString() + ".csv";
-            List<Matcher> matcherList = new ArrayList<>();
-            try (FileWriter writer = new FileWriter(csvFile)) {
-                StringBuilder header = new StringBuilder();
-                header.append(",");
-                StringBuilder content = new StringBuilder();
+            boolean editedHeader = false;
+            String csvFile = path+sessionId+".csv";
+            try (FileWriter writer = new FileWriter(csvFile, true)) {
+
+                StringBuilder content = new StringBuilder("\n"+scenarioName);
+                content.append(",");
+                content.append(metric);
+                content.append(",");
+                boolean needComma = false;
                 for(String id : result.get(metric).keySet()){
+                    if(needComma){
+                        content.append(",,");
+                    }
+                    else {
+                        needComma = true;
+                    }
                     content.append(id).append(",");
                     for(Matcher matcher : result.get(metric).get(id).keySet()){
                         if(!matcherList.contains(matcher)){
                             matcherList.add(matcher);
                             header.append(matcher).append(",");
+                            editedHeader = true;
                         }
                     }
                     for(Matcher matcher : matcherList){
@@ -90,10 +100,11 @@ public class StructuredBoostingTester implements SimMatrixBoosting{
                     }
                     content.append("\n");
                 }
-                writer.append(header);
-                writer.append("\n");
+                if(editedHeader){
+                    writer.append(header);
+                    writer.append("\n");
+                }
                 writer.append(content);
-                log.debug("hiu");
             } catch (IOException e) {
                 e.printStackTrace();
             }
