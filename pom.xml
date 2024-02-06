@@ -27,6 +27,12 @@
         </dependency>
 
 
+            <!-- Other dependencies -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+            <version>3.6.1</version> <!-- Or the latest version available -->
+        </dependency>
 
         <!-- log4j2 -->
         <dependency>

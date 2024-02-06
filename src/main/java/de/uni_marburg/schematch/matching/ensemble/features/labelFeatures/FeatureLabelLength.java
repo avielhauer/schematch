@@ -24,13 +24,13 @@ public class FeatureLabelLength extends Feature{
     }
 
     private double calcScore(String label) {
-        if(label.length()<low){
+        if(label.length()<=low){
 
             return (label.length()/low)*0.3;
         }
-        else if(label.length()<middle){
+        else if(label.length()<=middle){
 
-            return (label.length()/middle)*0.6;
+            return (label.length()/upper)*0.6;
         }
         else
         {
