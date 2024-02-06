@@ -18,27 +18,34 @@ public class FD2Graph extends DBGraph {
 
     @Override
     protected void generateGraph() {
-        List<String> selectedTableNames = getSelectedTableNames();
+        Collection<FunctionalDependency> fds = getDatabase().getMetadata().getFds();
 
-        for (String tableName : selectedTableNames) {
-            Table table = getDatabase().getTableByName(tableName);
+        List<FunctionalDependency> sortedFDs = fds.stream()
+                .sorted(Comparator.comparing(FunctionalDependency::getSortingCriteria))
+                .collect(Collectors.toList());
+
+        for (Table table : getDatabase().getTables()) {
             if (table != null) {
                 for (Column column : table.getColumns()) {
                     addVertex(column);
                 }
+            }
+        }
 
+        for (FunctionalDependency fd : sortedFDs) {
+          //  System.out.println("Processing FD: " + fd);
 
-                List<FunctionalDependency> sortedFDs = table.getFunctionalDependencies().stream()
-                        .sorted(Comparator.comparing(FunctionalDependency::getSortingCriteria))
-                        .collect(Collectors.toList());
+            Collection<Column> dependentColumns = fd.getDependentColumns();
+            for (Column dependentColumn : dependentColumns) {
+                //System.out.println("Processing dependentColumn: " + dependentColumn);
 
+                for (Column column : fd.getDeterminant()) {
+                  //  System.out.println("Processing determinant column: " + column);
 
-                for (FunctionalDependency fd : sortedFDs) {
-                    Collection<Column> dependentColumns = fd.getDependentColumns();
-
-                    for (Column dependentColumn : dependentColumns) {
-                        if (vertexSet().contains(dependentColumn)) {
-                            addEdge(fd.getDeterminantColumn(), dependentColumn, new LabeledEdge("FD"));
+                    if (!column.equals(dependentColumn)) {
+                        if (vertexSet().contains(column) && vertexSet().contains(dependentColumn)) {
+                          //  System.out.println("Adding edge: " + column + " -> " + dependentColumn);
+                            addEdge(column, dependentColumn, new LabeledEdge("FD"));
                         }
                     }
                 }
@@ -46,10 +53,6 @@ public class FD2Graph extends DBGraph {
         }
     }
 
-
-    private List<String> getSelectedTableNames() {
-        return Arrays.asList("Table1", "Table2");
-    }
-
-
 }
+
+

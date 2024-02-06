@@ -42,8 +42,8 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
     @Override
     public float[][] run(MatchTask matchTask, SimMatrixBoostingStep matchStep, float[][] simMatrix){
         // Create a DatabaseGraph
-        DBGraph dbGraphSource = new SQL2Graph(matchTask.getScenario().getSourceDatabase());
-        DBGraph dbGraphTarget = new SQL2Graph(matchTask.getScenario().getTargetDatabase());
+        DBGraph dbGraphSource = new FD2Graph(matchTask.getScenario().getSourceDatabase());
+        DBGraph dbGraphTarget = new FD2Graph(matchTask.getScenario().getTargetDatabase());
 
         // Create SimilarityCalculator
         SimilarityCalculator levenshteinCalculator = new SimilarityCalculator(matchTask, simMatrix) {

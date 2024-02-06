@@ -55,8 +55,8 @@ writeCacheFirstLineMatchers: False
 runSimMatrixBoostingOnFirstLineMatchers: True
 saveOutputSimMatrixBoostingOnFirstLineMatchers: True
 evaluateSimMatrixBoostingOnFirstLineMatchers: True
-readCacheSimMatrixBoostingOnFirstLineMatchers: True
-writeCacheSimMatrixBoostingOnFirstLineMatchers: True
+readCacheSimMatrixBoostingOnFirstLineMatchers: False
+writeCacheSimMatrixBoostingOnFirstLineMatchers: False
 # Step 4: run second line matchers (ensemble matchers and other matchers using output of first line matchers)
 runSecondLineMatchers: False
 saveOutputSecondLineMatchers: False
