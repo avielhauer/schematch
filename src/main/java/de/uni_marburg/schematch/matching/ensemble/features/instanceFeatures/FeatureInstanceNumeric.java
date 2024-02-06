@@ -1,20 +1,18 @@
 package de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures;
 
 import de.uni_marburg.schematch.data.Column;
-import de.uni_marburg.schematch.matching.ensemble.features.Feature;
 import de.uni_marburg.schematch.matching.ensemble.features.FeatureInstace;
 import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.apache.commons.math3.stat.inference.KolmogorovSmirnovTest;
 
 
-public class FeatureInstanceNumericDistribution extends FeatureInstace {
-    public FeatureInstanceNumericDistribution(String name) {
+public class FeatureInstanceNumeric extends FeatureInstace {
+    public FeatureInstanceNumeric(String name) {
         super(name);
     }
 
@@ -30,6 +28,7 @@ public class FeatureInstanceNumericDistribution extends FeatureInstace {
                 isColumnNumeric.add(!c.getValues().stream().map(this::isNumeric).collect(Collectors.toList()).contains(false));
             }
         }
+
         return isColumnNumeric.contains(false)?0:1;
     }
 

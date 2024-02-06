@@ -10,10 +10,8 @@ import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matching.MatcherFactory;
 import de.uni_marburg.schematch.matching.ensemble.CMCMatcher;
 import de.uni_marburg.schematch.matching.ensemble.CrediblityPredictorModel;
-import de.uni_marburg.schematch.matching.ensemble.features.Feature;
-import de.uni_marburg.schematch.matching.ensemble.features.FeatureRandom;
 import de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures.FeatrueInstanceUniqueness;
-import de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures.FeatureInstanceNumericDistribution;
+import de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures.FeatureInstanceNumeric;
 import de.uni_marburg.schematch.matching.ensemble.features.labelFeatures.FeatureLabelComponents;
 import de.uni_marburg.schematch.matching.ensemble.features.labelFeatures.FeatureLabelLength;
 import de.uni_marburg.schematch.matchtask.MatchTask;
@@ -52,7 +50,7 @@ public class NewMain {
         MatcherFactory matcherFactory = new MatcherFactory();
         List<Matcher> firstLineMatchers = matcherFactory.createMatchersFromConfig(1);
         List<Matcher> secondLineMatchers = matcherFactory.createMatchersFromConfig(2);
-        secondLineMatchers.add(new CMCMatcher(crediblityPredictorModel,20));
+        secondLineMatchers.add(new CMCMatcher(crediblityPredictorModel,3));
         log.info("Instantiating sim matrix boosting");
         // FIXME: make sim matrix boosting configurable via .yaml files
         // Configure similarity matrix boosting here for now
@@ -183,19 +181,23 @@ public class NewMain {
         // loop over datasets
 
 
-        Configuration.DatasetConfiguration datasetConfiguration=config.getDatasetConfigurations().get(0);
-        Dataset dataset = new Dataset(datasetConfiguration);
-        log.info("Starting experiments for dataset " + dataset.getName() + " with " + dataset.getScenarioNames().size() + " scenarios");
-        // loop over scenarios
-        for (String scenarioName : dataset.getScenarioNames()) {
-            Scenario scenario = new Scenario(dataset.getPath() + File.separator + scenarioName);
-            log.debug("Starting experiments for dataset " + dataset.getName() + ", scenario: " + scenario.getPath());
+        List<Configuration.DatasetConfiguration> buildingList = List.of(config.getDatasetConfigurations().get(1),config.getDatasetConfigurations().get(2),config.getDatasetConfigurations().get(3));
+        for (Configuration.DatasetConfiguration datasetConfiguration : buildingList) {
+            Dataset dataset = new Dataset(datasetConfiguration);
+            log.info("Starting experiments for dataset " + dataset.getName() + " with " + dataset.getScenarioNames().size() + " scenarios");
 
-            MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps, metrics);
-            matchTask.runSteps();
-            cmc.matchTasks.add(matchTask);
+            // loop over scenarios
+            for (String scenarioName : dataset.getScenarioNames()) {
+
+                Scenario scenario = new Scenario(dataset.getPath() + File.separator + scenarioName);
+                log.debug("Starting experiments for dataset " + dataset.getName() + ", scenario: " + scenario.getPath());
+                System.out.println("hier");
+                MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps, metrics);
+                matchTask.runSteps();
+                cmc.matchTasks.add(matchTask);
 
 
+            }
         }
 /*
         int i = 0;
@@ -224,109 +226,11 @@ public class NewMain {
 
 */
         cmc.addFeature(new FeatureLabelComponents("Components"));
-        cmc.addFeature(new FeatureLabelLength("label length",3,6,8));
+        cmc.addFeature(new FeatureLabelLength("label length",3,5,8));
         cmc.addFeature(new FeatrueInstanceUniqueness("uniquness"));
-        cmc.addFeature(new FeatureInstanceNumericDistribution("numeric"));
-        for (Matcher matcher:firstLineMatchers)
-        {
-            cmc.addMatcher(matcher);
-        }
-        cmc.train();
+        cmc.addFeature(new FeatureInstanceNumeric("numeric"));
+        cmc.addFeature(new FeatureInstanceNumeric("numeric"));
 
-
-        log.info("See results directory for more detailed performance and similarity matrices results.");
-
-        Date END_TIMESTAMP = new Date();
-        long durationInMillis =  END_TIMESTAMP.getTime() - START_TIMESTAMP.getTime();
-        log.info("Total time: " + DurationFormatUtils.formatDuration(durationInMillis, "HH:mm:ss:SSS"));
-
-        log.info("Ending Schematch");
-        return cmc;
-    }
-    private static CrediblityPredictorModel buildModel2() throws Exception {
-        Configuration config = Configuration.getInstance();
-
-
-        log.info("Instantiating table pair generation");
-        TablePairsGenerator tablePairsGenerator = new NaiveTablePairsGenerator();
-
-        log.info("Instantiating matchers");
-        MatcherFactory matcherFactory = new MatcherFactory();
-        List<Matcher> firstLineMatchers = matcherFactory.createMatchersFromConfig(1);
-
-
-        log.info("Instantiating metrics");
-        MetricFactory metricFactory = new MetricFactory();
-        List<Metric> metrics = metricFactory.createMetricsFromConfig();
-
-        log.info("Setting up matching steps as specified in config");
-        List<MatchStep> matchSteps = new ArrayList<>();
-        // Step 1: generate candidate table pairs to match
-        matchSteps.add(new TablePairGenerationStep(
-                config.isSaveOutputTablePairGeneration(),
-                config.isEvaluateTablePairGeneration(),
-                tablePairsGenerator));
-        // Step 2: run first line matchers (i.e., matchers that use table data to match)
-        MatchingStep firstLineStep = new MatchingStep(
-                config.isSaveOutputFirstLineMatchers(),
-                config.isEvaluateFirstLineMatchers(),
-                1,
-                firstLineMatchers);
-        matchSteps.add(firstLineStep);
-        // Step 3: run similarity matrix boosting on the output of first line matchers
-
-        // Step 4: run second line matchers (ensemble matchers and other matchers using output of first line matchers)
-
-
-        CrediblityPredictorModel cmc=new CrediblityPredictorModel();
-
-        // loop over datasets
-
-
-        Configuration.DatasetConfiguration datasetConfiguration=config.getDatasetConfigurations().get(0);
-        Dataset dataset = new Dataset(datasetConfiguration);
-        log.info("Starting experiments for dataset " + dataset.getName() + " with " + dataset.getScenarioNames().size() + " scenarios");
-        // loop over scenarios
-        for (String scenarioName : dataset.getScenarioNames()) {
-            Scenario scenario = new Scenario(dataset.getPath() + File.separator + scenarioName);
-            log.debug("Starting experiments for dataset " + dataset.getName() + ", scenario: " + scenario.getPath());
-
-            MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps, metrics);
-            matchTask.runSteps();
-            cmc.matchTasks.add(matchTask);
-
-
-        }
-/*
-        int i = 0;
-        for (Configuration.DatasetConfiguration datasetConfiguration : config.getDatasetConfigurations()) {
-            if ( i == 0) {
-            Dataset dataset = new Dataset(datasetConfiguration);
-            log.info("Starting experiments for dataset " + dataset.getName() + " with " + dataset.getScenarioNames().size() + " scenarios");
-
-            // loop over scenarios
-            for (String scenarioName : dataset.getScenarioNames()) {
-
-                    Scenario scenario = new Scenario(dataset.getPath() + File.separator + scenarioName);
-                    log.debug("Starting experiments for dataset " + dataset.getName() + ", scenario: " + scenario.getPath());
-
-                    MatchTask matchTask = new MatchTask(dataset, scenario, matchSteps, metrics);
-                    matchTask.runSteps();
-                    cmc.matchTasks.add(matchTask);
-                    i++;
-
-
-            }
-        } else {
-            break;
-        }
-        }
-
-*/
-        cmc.addFeature(new FeatureLabelComponents("Components"));
-        cmc.addFeature(new FeatureLabelLength("label length",3,6,8));
-        cmc.addFeature(new FeatrueInstanceUniqueness("uniquness"));
-        cmc.addFeature(new FeatureInstanceNumericDistribution("numeric"));
         for (Matcher matcher:firstLineMatchers)
         {
             cmc.addMatcher(matcher);
