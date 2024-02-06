@@ -22,26 +22,164 @@ import java.util.concurrent.Future;
 
 public class StructuredBoostingTester implements SimMatrixBoosting{
     private final static Logger log = LogManager.getLogger(StructuredBoostingTester.class);
-    static Map<Metric, Map<String, Map<Matcher, Float>>> result = new HashMap<>();
+    static Map<Metric, Map<String, Map<Matcher, Float>>> result = new LinkedHashMap<>();
     static List<Matcher> matcherList = new ArrayList<>();
     static StringBuilder header = new StringBuilder(",,,");
     static String sessionId = UUID.randomUUID().toString();
 
     @Override
     public float[][] run(MatchTask matchTask, SimMatrixBoostingStep matchStep, float[][] simMatrix, Matcher matcher) {
-        ExecutorService executor = Executors.newCachedThreadPool();
+        ExecutorService executor = Executors.newFixedThreadPool(32);
 
         List<Future<FloodingResult>> futureList = new ArrayList<>();
         Future<FloodingResult> original = executor.submit( () -> new FloodingResult("original", "", simMatrix));
         futureList.add(original);
 
-        Future<FloodingResult> simFloodingAFuture = executor.submit( () -> {
-            SimMatrixBoosting simFloodingA = new SimFloodingSimMatrixBoosting(1);
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test1(1, 5, true);
             float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
-            return new FloodingResult("floodingA", "standard", resultMatrix);
-        });
-        futureList.add(simFloodingAFuture);
+            return new FloodingResult("test1", "max_it:1_num_FD:5_fd_sim:gpdep", resultMatrix);
+        }));
 
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test1(1, 10, true);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test1", "max_it:1_num_FD:10_fd_sim:gpdep", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test1(5, 5, true);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test1", "max_it:5_num_FD:5_fd_sim:gpdep", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test1(5, 10, true);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test1", "max_it:5_num_FD:10_fd_sim:gpdep", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test1(100, 10, true);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test1", "max_it:100_num_FD:10_fd_sim:gpdep", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test1(100, 5, true);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test1", "max_it:100_num_FD:5_fd_sim:gpdep", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test1(1, 5, false);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test1", "max_it:1_num_FD:5_fd_sim:gpdep", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test1(1, 10, false);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test1", "max_it:1_num_FD:10_fd_sim:1", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test1(5, 5, false);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test1", "max_it:5_num_FD:5_fd_sim:1", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test1(5, 10, false);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test1", "max_it:5_num_FD:10_fd_sim:1", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test1(100, 10, false);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test1", "max_it:100_num_FD:10_fd_sim:1", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test1(100, 5, false);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test1", "max_it:100_num_FD:5_fd_sim:1", resultMatrix);
+        }));
+
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test2(1, 5);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test2", "max_it:1_num_FD:5_fd", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test2(1, 10);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test2", "max_it:1_num_FD:10", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test2(5, 5);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test2", "max_it:5_num_FD:5_fd", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test2(5, 10);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test2", "max_it:5_num_FD:10", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test2(100, 10);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test2", "max_it:100_num_FD:10", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test2(100, 5);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test2", "max_it:100_num_FD:5", resultMatrix);
+        }));
+
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test3(1, true, false);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test3", "max_it:1_flooder:C_weighting:normal", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test3(5, true, false);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test3", "max_it:5_flooder:C_weighting:normal", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test3(100, true, false);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test3", "max_it:100_flooder:C_weighting:normal", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test3(1, true, true);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test3", "max_it:1_flooder:C_weighting:inv", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test3(5, true, true);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test3", "max_it:5_flooder:C_weighting:inv", resultMatrix);
+        }));
+
+        futureList.add(executor.submit( () -> {
+            SimMatrixBoosting simFloodingA = new Test3(100, true, true);
+            float[][] resultMatrix = simFloodingA.run(matchTask, matchStep, simMatrix, matcher);
+            return new FloodingResult("test3", "max_it:100_flooder:C_weighting:inv", resultMatrix);
+        }));
 
         for (Future<FloodingResult> future : futureList) {
             try {
@@ -50,10 +188,10 @@ public class StructuredBoostingTester implements SimMatrixBoosting{
                 String id = floodingResult.getName()+"_"+floodingResult.getConfig();
                 for (Metric metric : performances.keySet()){
                     if (!StructuredBoostingTester.result.containsKey(metric)){
-                        result.put(metric, new HashMap<String, Map<Matcher, Float>>());
+                        result.put(metric, new LinkedHashMap<String, Map<Matcher, Float>>());
                     }
                     if(!StructuredBoostingTester.result.get(metric).containsKey(id)){
-                        StructuredBoostingTester.result.get(metric).put(id, new HashMap<Matcher, Float>());
+                        StructuredBoostingTester.result.get(metric).put(id, new LinkedHashMap<Matcher, Float>());
                     }
                     StructuredBoostingTester.result.get(metric).get(id).put(matcher, performances.get(metric).getGlobalScore());
                 }
@@ -61,6 +199,7 @@ public class StructuredBoostingTester implements SimMatrixBoosting{
                     e.printStackTrace();
                 }
         }
+        executor.shutdown();
         return simMatrix;
     }
 
@@ -109,7 +248,7 @@ public class StructuredBoostingTester implements SimMatrixBoosting{
                 e.printStackTrace();
             }
         }
-        result = new HashMap<>();
+        result = new LinkedHashMap<>();
     }
 }
 

@@ -1,14 +1,11 @@
 package de.uni_marburg.schematch;
 
 import de.uni_marburg.schematch.boosting.IdentitySimMatrixBoosting;
-import de.uni_marburg.schematch.boosting.SimFloodingSimMatrixBoosting;
 import de.uni_marburg.schematch.boosting.SimMatrixBoosting;
 import de.uni_marburg.schematch.boosting.StructuredBoostingTester;
 import de.uni_marburg.schematch.evaluation.metric.Metric;
 import de.uni_marburg.schematch.evaluation.metric.MetricFactory;
-import de.uni_marburg.schematch.matching.ensemble.RandomEnsembleMatcher;
 import de.uni_marburg.schematch.matchtask.matchstep.*;
-import de.uni_marburg.schematch.matchtask.tablepair.generators.GroundTruthTablePairsGenerator;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.NaiveTablePairsGenerator;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.TablePairsGenerator;
 import de.uni_marburg.schematch.data.*;

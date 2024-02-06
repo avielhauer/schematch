@@ -1,13 +1,4 @@
 ---
-name: "DeNorm"
-path: "DeNorm"
----
-name: "Efes-bib"
-path: "Efes-bib"
----
-name: "Efes-music"
-path: "Efes-music"
----
 name: "ISIA-inventory"
 path: "ISIA-inventory"
 ---

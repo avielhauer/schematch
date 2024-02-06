@@ -1,9 +1,13 @@
 package de.uni_marburg.schematch.boosting;
 
-import de.uni_marburg.schematch.boosting.sf_algorithm.db_2_graph.*;
+import de.uni_marburg.schematch.boosting.sf_algorithm.db_2_graph.DBGraph;
+import de.uni_marburg.schematch.boosting.sf_algorithm.db_2_graph.FD2Graph1;
+import de.uni_marburg.schematch.boosting.sf_algorithm.db_2_graph.FD2Graph2;
 import de.uni_marburg.schematch.boosting.sf_algorithm.flooding.Flooder;
 import de.uni_marburg.schematch.boosting.sf_algorithm.flooding.FlooderC;
-import de.uni_marburg.schematch.boosting.sf_algorithm.propagation_graph.*;
+import de.uni_marburg.schematch.boosting.sf_algorithm.propagation_graph.ConstantWeightingGraph;
+import de.uni_marburg.schematch.boosting.sf_algorithm.propagation_graph.PropagationGraph;
+import de.uni_marburg.schematch.boosting.sf_algorithm.propagation_graph.PropagationNode;
 import de.uni_marburg.schematch.boosting.sf_algorithm.similarity_calculator.SimilarityCalculator;
 import de.uni_marburg.schematch.data.metadata.dependency.FunctionalDependency;
 import de.uni_marburg.schematch.matchtask.MatchTask;
@@ -15,36 +19,33 @@ import org.apache.logging.log4j.Logger;
  * Similarity Flooding Matrix Boosting
  */
 
-public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
-    private final static Logger log = LogManager.getLogger(SimFloodingSimMatrixBoosting.class);
+public class Test2 implements SimMatrixBoosting {
+    private final static Logger log = LogManager.getLogger(Test2.class);
     private final int max_iterations;
+    private final int numberOfFDs;
 
-    public SimFloodingSimMatrixBoosting(int max_iterations){
+    public Test2(int max_iterations, int numberOfFDs){
+        this.numberOfFDs = numberOfFDs;
         this.max_iterations = max_iterations;
     }
 
     @Override
     public float[][] run(MatchTask matchTask, SimMatrixBoostingStep matchStep, float[][] simMatrix){
+        log.debug("Test2");
         // Create a DatabaseGraph
-        DBGraph dbGraphSource = new FDExtraNode2_2Graph(matchTask.getScenario().getSourceDatabase());
-        DBGraph dbGraphTarget = new FDExtraNode2_2Graph(matchTask.getScenario().getTargetDatabase());
+        DBGraph dbGraphSource = new FD2Graph2(matchTask.getScenario().getSourceDatabase(), this.numberOfFDs);
+        DBGraph dbGraphTarget = new FD2Graph2(matchTask.getScenario().getTargetDatabase(), this.numberOfFDs);
 
         // Create SimilarityCalculator
         SimilarityCalculator simCalculator = new SimilarityCalculator(matchTask, simMatrix) {
             @Override
-            protected float calcStringSim(String stringA, String stringB){
-                return 0f;
+            protected float calcStringSim(String stringA, String stringB) {
+                return 0;
             }
 
             @Override
-            protected float calcOtherSim(Object objectA, Object objectB){
-                if(objectA.getClass() == FunctionalDependency.class){
-                    FunctionalDependency fdA = (FunctionalDependency) objectA;
-                    FunctionalDependency fdB = (FunctionalDependency) objectB;
-                    float result = this.calcFloatSim((float) fdA.getPdepTuple().gpdep, (float) fdB.getPdepTuple().gpdep);
-                    return result;
-                }
-                return 0f;
+            protected float calcOtherSim(Object objectA, Object objectB) {
+                return 0;
             }
         };
 

@@ -29,11 +29,13 @@ public abstract class DBGraph extends DefaultDirectedGraph<Object, LabeledEdge> 
     public DBGraph(Database database){
         super(LabeledEdge.class);
         this.database = database;
-        this.generateGraph();
-        log.debug("Generated new DB-Graph with {} vertices and {} edges.", this.vertexSet().size(), this.edgeSet().size());
     }
 
-    protected abstract void generateGraph();
+
+
+    protected void generateGraph(){
+        log.debug("Generated new DB-Graph with {} vertices and {} edges.", this.vertexSet().size(), this.edgeSet().size());
+    }
 
     public final void addDBGraph(DBGraph that){
         for(Object vertex : that.vertexSet()){
