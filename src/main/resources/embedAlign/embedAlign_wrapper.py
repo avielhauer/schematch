@@ -210,12 +210,13 @@ def match(
             nx.read_graphml(source_graph_file, node_type=str),
             "/home/fabian/Desktop/MP/repos/schematch/" + features_dir + "/source.json",
         )
-        graphA.remove_random_ics(float(config["dropConstraints"]))
-        graphA.remove_random_columns(float(config["dropColumns"]))
         graphB = EmbedGraph(
             nx.read_graphml(target_graph_file, node_type=str),
             "/home/fabian/Desktop/MP/repos/schematch/" + features_dir + "/target.json",
         )
+        graphA.normalize_features(graphB) # normalizes both graph's features
+        graphA.remove_random_ics(float(config["dropConstraints"]))
+        graphA.remove_random_columns(float(config["dropColumns"]))
 
         representationCache: RepresentationCache = get_embeddings(
             graphA,

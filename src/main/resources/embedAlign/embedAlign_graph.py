@@ -23,6 +23,7 @@ def extract_table(node_label):
 def load_feature_dict(path):
     with open(path, "r") as fp:
         dict = json.loads(json.load(fp))
+    dict = {table: {column: np.asarray(features) for column, features in columns.items()} for table, columns in dict.items()}
     return dict
 
 
@@ -86,15 +87,20 @@ class EmbedGraph:
             for value in values.values():
                 return len(value)
 
+    def get_features_shape(self):
+        for table in self.feature_dict.values():
+            for features in table.values():
+                return features.shape
+
     def get_features(self):
         lookup = {}
-        empty_dict_feature_list = [
+        empty_dict_feature_list = np.asarray([
             0.0 for _ in range(self.default_feature_vector_length_dict)
-        ]
+        ])
         for i, k in enumerate(NODE_TYPES):
             feature = [0.0 for _ in range(len(NODE_TYPES))]
             feature[i] = 1.0
-            lookup[k] = feature
+            lookup[k] = np.asarray(feature)
         encodings = []
         for node in self.graph.nodes:
             type_one_hot_encodings = lookup[extract_node_type(node)]
@@ -103,6 +109,35 @@ class EmbedGraph:
                 features = self.feature_dict[extract_table(node)][extract_column(node)]
             else:
                 features = empty_dict_feature_list
-            encodings.append(type_one_hot_encodings + features)
+            encodings.append(np.concatenate((type_one_hot_encodings, features)))
 
         return np.asarray(encodings)
+
+    def normalize_features(self, other_graph):
+        assert self.get_features_shape() == other_graph.get_features_shape()
+        min_feature_values = np.full_like(self.get_features_shape(), np.inf, dtype=float)
+        max_feature_values = np.full_like(self.get_features_shape(), np.NINF, dtype=float)
+        for tables in list(self.feature_dict.values()) + list(other_graph.feature_dict.values()):
+            for feature in tables.values():
+                min_feature_values = np.minimum(min_feature_values, feature)
+                max_feature_values = np.maximum(max_feature_values, feature)
+
+        scale_features = max_feature_values - min_feature_values
+        scale_features[scale_features == 0.0] = 1.0
+        scale_features = 1.0 / scale_features
+
+        self.feature_dict = {
+            table: {
+                column: (features - min_feature_values) * scale_features
+                for column, features in columns.items()
+            }
+            for table, columns in self.feature_dict.items()
+        }
+
+        other_graph.feature_dict = {
+            table: {
+                column: (features - min_feature_values) * scale_features
+                for column, features in columns.items()
+            }
+            for table, columns in other_graph.feature_dict.items()
+        }

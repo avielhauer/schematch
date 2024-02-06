@@ -64,18 +64,22 @@ class RepresentationCache:
         )
 
     def get_filtered_sm(self, source_table, target_table):
-        source_indices = [i for i, node in enumerate(self.source_table_nodes_sorted_as_given) if extract_table(node) == source_table]
-        target_indices = [i for i, node in enumerate(self.target_table_nodes_sorted_as_given) if extract_table(node) == target_table]
-
+        source_indices_lookup = {node: i for i, node in enumerate(self.source_table_nodes_sorted_as_given) if extract_table(node) == source_table}
+        target_indices_lookup = {node: i for i, node in enumerate(self.target_table_nodes_sorted_as_given) if extract_table(node) == target_table}
+        filtered_original_source_column_nodes = [node for node in self.source_all_original_table_nodes_sorted_as_given if extract_table(node) == source_table]
+        filtered_original_target_column_nodes = [node for node in self.target_all_original_table_nodes_sorted_as_given if extract_table(node) == target_table]
         sm = np.zeros(
             (
-                len(source_indices),
-                len(target_indices),
+                len(filtered_original_source_column_nodes),
+                len(filtered_original_target_column_nodes),
             )
         )
 
-        for sm_i, csr_i in enumerate(source_indices):
-            for sm_j, csr_j in enumerate(target_indices):
-                sm[sm_i][sm_j] = self.csr_k_similar_sm.getrow(csr_i).getcol(csr_j).toarray()[0][0]
+        for sm_i, source_node in enumerate(filtered_original_source_column_nodes):
+            for sm_j, target_node in enumerate(filtered_original_target_column_nodes):
+                if source_node in source_indices_lookup and target_node in target_indices_lookup:
+                    sm[sm_i][sm_j] = self.csr_k_similar_sm.getrow(source_indices_lookup[source_node]).getcol(target_indices_lookup[target_node]).toarray()[0][0]
+                else:
+                    sm[sm_i][sm_j] = -404.0
 
         return sm

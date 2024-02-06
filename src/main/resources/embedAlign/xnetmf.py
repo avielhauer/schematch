@@ -139,8 +139,10 @@ def get_features(graph, rep_method, verbose = True):
 def compute_similarity(graph, rep_method, vec1, vec2, node_attributes = None, node_indices = None):
     dist = rep_method.gammastruc * np.linalg.norm(vec1 - vec2) #compare distances between structural identities
     if graph.node_attributes is not None:
-        #distance is number of disagreeing attributes
-        attr_dist = np.sum(graph.node_attributes[node_indices[0]] != graph.node_attributes[node_indices[1]])
+        # previousle (in REGAL), distance is number of disagreeing attributes
+        # as we use real world values, we instead use the euclidean distance, as also proposed in the REGAL paper
+        # prev: attr_dist = np.sum(graph.node_attributes[node_indices[0]] != graph.node_attributes[node_indices[1]])
+        attr_dist = np.sqrt(np.sum((graph.node_attributes[node_indices[0]] - graph.node_attributes[node_indices[1]])**2))
         dist += rep_method.gammaattr * attr_dist
     return np.exp(-dist) #convert distances (weighted by coefficients on structure and attributes) to similarities
 
