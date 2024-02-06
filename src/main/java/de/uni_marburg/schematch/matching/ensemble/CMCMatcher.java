@@ -32,8 +32,9 @@ public class CMCMatcher extends Matcher {
 
         }
     }
-    public CMCMatcher(CrediblityPredictorModel model)
+    public CMCMatcher(CrediblityPredictorModel model,float c)
     {
+        this.c=c;
         crediblityPredictorModel=model;
 
     }

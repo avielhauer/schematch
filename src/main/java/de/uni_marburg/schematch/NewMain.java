@@ -52,7 +52,7 @@ public class NewMain {
         MatcherFactory matcherFactory = new MatcherFactory();
         List<Matcher> firstLineMatchers = matcherFactory.createMatchersFromConfig(1);
         List<Matcher> secondLineMatchers = matcherFactory.createMatchersFromConfig(2);
-        secondLineMatchers.add(new CMCMatcher(crediblityPredictorModel));
+        secondLineMatchers.add(new CMCMatcher(crediblityPredictorModel,20));
         log.info("Instantiating sim matrix boosting");
         // FIXME: make sim matrix boosting configurable via .yaml files
         // Configure similarity matrix boosting here for now
