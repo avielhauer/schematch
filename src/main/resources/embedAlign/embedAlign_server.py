@@ -20,6 +20,7 @@ if __name__ == "__main__":
             "source_table",
             "target_table",
             "features_dir",
+            "get_k_highest_sm"
         ]
 
         CONFIG_KEYS = [
@@ -39,6 +40,7 @@ if __name__ == "__main__":
             "../../../../" + request.args.get("target_graph_path"),
             request.args.get("target_table"),
             request.args.get("features_dir"),
+            bool(eval(request.args.get("get_k_highest_sm"))),
             config,
         )
 

@@ -49,6 +49,7 @@ public class Node2VecMatcher extends TablePairMatcher {
                     new ImmutablePair<>("target_graph_path", target.getGraph().exportPath().toString()),
                     new ImmutablePair<>("target_table", targetTable.getName()),
                     new ImmutablePair<>("features_dir", "target/features/" + scenario.getDataset().getName() + "/" + scenario.getName()),
+                    new ImmutablePair<>("get_k_highest_sm", "True"),
                     new ImmutablePair<>("dropColumns", String.valueOf(dropColumns)),
                     new ImmutablePair<>("dropConstraints", String.valueOf(dropConstraints)),
                     new ImmutablePair<>("xNetMFGammaStruc", String.valueOf(xNetMFGammaStruc)),

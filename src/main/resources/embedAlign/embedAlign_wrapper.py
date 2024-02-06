@@ -2,7 +2,6 @@ import re
 import json
 
 import networkx as nx
-import matplotlib.pyplot as plt
 from node2vec import Node2Vec
 import numpy as np
 
@@ -94,11 +93,11 @@ def get_sm(source_table: str, target_table: str, rep_cache: RepresentationCache)
     for i, source_node in enumerate(all_original_source_nodes):
         for j, target_node in enumerate(all_original_target_nodes):
             if (
-                source_node in rep_cache.column_embeddings_source
-                and target_node in rep_cache.column_embeddings_target
+                source_node in rep_cache.column_embeddings_source_lookup
+                and target_node in rep_cache.column_embeddings_target_lookup
             ):
-                source_emb = rep_cache.column_embeddings_source[source_node]
-                target_emb = rep_cache.column_embeddings_target[target_node]
+                source_emb = rep_cache.column_embeddings_source_lookup[source_node]
+                target_emb = rep_cache.column_embeddings_target_lookup[target_node]
                 sm[i][j] = np.dot(source_emb, target_emb) / (
                     np.linalg.norm(source_emb) * np.linalg.norm(target_emb)
                 )
@@ -149,6 +148,11 @@ def get_embeddings(
         )
     elif EMBEDDING_GENERATION == "XNET":
         combined_graph = nx.compose(graphA.graph, graphB.graph)
+        for node_a, node_combined in zip(
+            list(graphA.graph.nodes) + list(graphB.graph.nodes),
+            list(combined_graph.nodes),
+        ):
+            assert node_a == node_combined
         embeddings_combined = embed_xnetmf(
             combined_graph,
             np.concatenate((graphA.get_features(), graphB.get_features()), axis=0),
@@ -183,6 +187,7 @@ def match(
     target_graph_file,
     target_table,
     features_dir,
+    get_k_highest_sm,
     config,
 ):
     key = (
@@ -225,7 +230,10 @@ def match(
     # graphA_emb = representationCache.get_source_embeddings(source_table)
     # graphB_emb = representationCache.get_target_embeddings(target_table)
 
-    alignment_matrix = get_sm(source_table, target_table, representationCache)
+    if get_k_highest_sm:
+        alignment_matrix = representationCache.get_filtered_sm(source_table, target_table) # Only compute top 2 probabilities
+    else:
+        alignment_matrix = get_sm(source_table, target_table, representationCache)
 
     print(alignment_matrix)
     return "\n".join([" ".join([str(x) for x in row]) for row in alignment_matrix])
