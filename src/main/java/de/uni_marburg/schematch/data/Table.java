@@ -30,4 +30,8 @@ public class Table {
     public Column getColumn(int n) {
         return this.columns.get(n);
     }
+
+    public Column getColumnByName(String name) {
+        return this.columns.stream().filter(column -> column.getLabel().equals(name)).findFirst().orElseThrow();
+    }
 }

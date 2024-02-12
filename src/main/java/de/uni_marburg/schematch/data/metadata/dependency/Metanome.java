@@ -17,6 +17,10 @@ public class Metanome {
         return executeOperation(tables, MetanomeCache::executeFD, MetanomeImpl::executeFD, "FD");
     }
 
+    public static List<FunctionalDependency> executeApproximateFD(List<Table> tables) {
+        return executeOperation(tables, MetanomeCache::executeFD, MetanomeImpl::executeApproximateFD, "FD");
+    }
+
     public static List<InclusionDependency> executeIND(List<Table> tables) {
         return executeOperation(tables, MetanomeCache::executeIND, MetanomeImpl::executeIND, "IND");
     }

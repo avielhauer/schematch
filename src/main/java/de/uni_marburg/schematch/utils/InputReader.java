@@ -195,8 +195,10 @@ public class InputReader {
                 Path uccFilePath = metadataFolderPath.resolve(table.getName()).resolve("UCC_results.txt");
 
                 Collection<FunctionalDependency> datasetFDs = readFDFile(fdFilePath, table, fdMap);
-                if(datasetFDs.isEmpty())
-                    datasetFDs = Metanome.executeFD(List.of(table));
+                if(true) { //datasetFDs.isEmpty()) {
+//                    datasetFDs = Metanome.executeFD(List.of(table));
+                    datasetFDs = Metanome.executeApproximateFD(List.of(table));
+                }
                 for (FunctionalDependency fd : datasetFDs) {
                     fd.setPdepTuple(MetadataUtils.getPdep(fd));
                 }

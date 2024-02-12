@@ -16,13 +16,21 @@ import de.metanome.backend.result_receiver.ResultCache;
 import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.utils.MetadataUtils;
-import org.apache.commons.io.output.NullOutputStream;
+import de.uni_marburg.schematch.utils.PythonUtils;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintStream;
+import java.net.http.HttpResponse;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 public class MetanomeImpl{
@@ -34,6 +42,10 @@ public class MetanomeImpl{
 
     public static List<FunctionalDependency> executeFD(List<Table> tables) {
         return executeHyFD(tables);
+    }
+
+    public static List<FunctionalDependency> executeApproximateFD(List<Table> tables) {
+        return executePyro(tables);
     }
 
 
@@ -134,6 +146,43 @@ public class MetanomeImpl{
             }
         } catch (AlgorithmExecutionException | FileNotFoundException e) {
             e.printStackTrace();
+        }
+        return allResults;
+    }
+
+    private static List<FunctionalDependency> executePyro(List<Table> tables) {
+        List<FunctionalDependency> allResults = new ArrayList<>();
+
+        for (Table table : tables) {
+            List<FunctionalDependency> results = new ArrayList<>();
+
+            suppressSysout(() -> {
+                try {
+                    HttpResponse<String> response = PythonUtils.sendHttpRequest(6001, List.of(Pair.of("table", table.getPath())));
+                    if (response.body().isEmpty()) {
+                        return;
+                    }
+
+                    Iterator<String> fdIterator = Arrays.stream(response.body().split("\n")).iterator();
+                    while (fdIterator.hasNext()) {
+                        try {
+                            Collection<Column> determinants = Arrays.stream(fdIterator.next().split("\\|")).map(
+                                    table::getColumnByName
+                            ).collect(Collectors.toSet());
+                            Column dependant = table.getColumnByName(fdIterator.next());
+                            results.add(new FunctionalDependency(determinants, dependant));
+                        } catch (NoSuchElementException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+
+                } catch (IOException | InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+
+            allResults.addAll(results);
+            if(Metanome.SAVE) MetadataUtils.saveFDs(MetadataUtils.getMetadataPathFromTable(Path.of(table.getPath())), results);
         }
         return allResults;
     }
