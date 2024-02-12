@@ -16,9 +16,10 @@ public class MetadataUtils {
         int N = dependant.getValues().size();
         Map<String, Integer> frequencyMapDep = createFrequencyMap(dependant);
         Map<String, Integer> frequencyMapDet = createFrequencyMap(determinant, N);
+        Map<String, Map<String, Integer>> frequencyMapDepByDet = createFrequencyMapGroupedByDeterminant(determinant, dependant, N);
 
-        double pdep = 1.0;
-        double gpdep = gpdep(frequencyMapDet, frequencyMapDep,N);
+        double pdep = pdepAB(frequencyMapDet, frequencyMapDepByDet, N);
+        double gpdep = gpdep(pdep, frequencyMapDet, frequencyMapDep,N);
         return new PdepTuple(pdep, gpdep);
     }
 
@@ -37,8 +38,17 @@ public class MetadataUtils {
         return result / (N*N);
     }
 
-    public static double gpdep(Map<String, Integer> valuesA, Map<String, Integer> valuesB, int N) {
-        double pdepAB = 1;
+    private static double pdepAB(Map<String, Integer> valuesA, Map<String, Map<String, Integer>> valuesBByA, int N) {
+        double result = 0;
+        for (Map.Entry<String, Integer> aValue : valuesA.entrySet()) {
+            for (Integer count : valuesBByA.get(aValue.getKey()).values()) {
+                result += (double) (count * count) / aValue.getValue();
+            }
+        }
+        return result / N;
+    }
+
+    public static double gpdep(double pdepAB, Map<String, Integer> valuesA, Map<String, Integer> valuesB, int N) {
         double epdepAB = epdep(valuesA.size(), valuesB, N);
 
         return pdepAB - epdepAB;
@@ -64,6 +74,23 @@ public class MetadataUtils {
             }
             String key = concatenatedValue.toString();
             frequencyMap.put(key, frequencyMap.getOrDefault(key, 0) + 1);
+        }
+
+        return frequencyMap;
+    }
+
+    public static Map<String, Map<String, Integer>> createFrequencyMapGroupedByDeterminant(Collection<Column> determinant, Column dependant, int size) {
+        Map<String, Map<String, Integer>> frequencyMap = new HashMap<>();
+
+        for (int i = 0; i < size; i++) {
+            StringBuilder concatenatedValue = new StringBuilder();
+            for (Column col : determinant) {
+                concatenatedValue.append(col.getValues().get(i));
+            }
+            String key = concatenatedValue.toString();
+            Map<String, Integer> frequencyMapByDet = frequencyMap.computeIfAbsent(key, k -> new HashMap<>());
+            String dependantKey = dependant.getValues().get(i);
+            frequencyMapByDet.put(dependantKey, frequencyMapByDet.getOrDefault(dependantKey, 0) + 1);
         }
 
         return frequencyMap;
