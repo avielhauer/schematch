@@ -2,3 +2,11 @@
 name: "NonBinaryPrecisionAtGroundTruth"
 #---
 #name: "NonBinaryPrecisionAtNumGroundTruth"
+---
+name: "F1"
+---
+name: "Precision"
+---
+name: "Recall"
+---
+name: "Accuracy"
