@@ -4,59 +4,59 @@ name: "Node2VecMatcher"
 packageName: "metadata"
 active: true
 params:
-  xNetMFGammaAttr: [1, 2]
-  xNetMFGammaStruc: [1, 2]
+  xNetMFGammaAttr: [0, 1]
+  xNetMFGammaStruc: [1]
   filterKNearest: ["True", "False"]
 # Similarity matchers
 ---
 name: "LevenshteinMatcher"
 packageName: "similarity.label"
-active: false
+active: true
 ---
 name: "CosineMatcher"
 packageName: "similarity.label"
-active: false
+active: true
 ---
 name: "HammingMatcher"
 packageName: "similarity.label"
-active: false
+active: true
 ---
 name: "JaroWinklerMatcher"
 packageName: "similarity.label"
-active: false
+active: true
 ---
 name: "LongestCommonSubsequenceMatcher"
 packageName: "similarity.label"
-active: false
+active: true
 ---
 name: "JaccardInstanceMatcher"
 packageName: "similarity.tokenizedinstance"
-active: false
+active: true
 ---
 name: "DiceInstanceMatcher"
 packageName: "similarity.tokenizedinstance"
-active: false
+active: true
 ---
 name: "OverlapInstanceMatcher"
 packageName: "similarity.tokenizedinstance"
-active: false
+active: true
 ---
 name: "SetCosineInstanceMatcher"
 packageName: "similarity.tokenizedinstance"
-active: false
+active: true
 ---
 name: "JaccardLabelMatcher"
 packageName: "similarity.tokenizedlabel"
-active: false
+active: true
 ---
 name: "DiceLabelMatcher"
 packageName: "similarity.tokenizedlabel"
-active: false
+active: true
 ---
 name: "OverlapLabelMatcher"
 packageName: "similarity.tokenizedlabel"
-active: false
+active: true
 ---
 name: "SetCosineLabelMatcher"
 packageName: "similarity.tokenizedlabel"
-active: false
+active: true

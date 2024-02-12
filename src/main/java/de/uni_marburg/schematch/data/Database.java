@@ -38,7 +38,7 @@ public class Database {
         // set numColumns
         numColumns = currentOffset;
 
-        this.graph = new TransitivityReductionDatabaseGraph(this);
+        this.graph = new MetaNodesDatabaseGraph(this);
         this.databaseFeatures = new DatabaseFeatures(this);
         this.databaseFeatures.exportFeatures("target/features/" + scenario.getDataset().getName() +  "/" + scenario.getName());
     }

@@ -237,11 +237,11 @@ def match(
     else:
         graphA = EmbedGraph(
             nx.read_graphml(source_graph_file, node_type=str),
-            "/home/fabian/Desktop/MP/repos/schematch/" + features_dir + "/source.json",
+            "../../../../" + features_dir + "/source.json",
         )
         graphB = EmbedGraph(
             nx.read_graphml(target_graph_file, node_type=str),
-            "/home/fabian/Desktop/MP/repos/schematch/" + features_dir + "/target.json",
+            "../../../../" + features_dir + "/target.json",
         )
         graphA.normalize_features(graphB)  # normalizes both graph's features
         graphA.remove_random_ics(float(config["dropConstraints"]))

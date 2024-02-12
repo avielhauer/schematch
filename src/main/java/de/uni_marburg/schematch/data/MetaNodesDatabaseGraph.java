@@ -15,16 +15,18 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class MetaNodesDatabaseGraph extends DatabaseGraph {
     private final Logger logger = LogManager.getLogger(this.getClass());
     private static Integer globalGraphCounter = 1;
 
-    private final Integer MAX_UCC_SIZE = 1;
-    private final Integer MAX_FD_SIZE = 1;
+    private final Integer MAX_UCC_SIZE = 3;
+    private final Integer MAX_FD_SIZE = 3;
 
     private final Database database;
     private final SimpleDirectedGraph<String, DefaultEdge> graph = new SimpleDirectedGraph<>(DefaultEdge.class);
@@ -54,8 +56,8 @@ public class MetaNodesDatabaseGraph extends DatabaseGraph {
 //        graph.addVertex(fdMetaNode());
 
         for (Table table : database.getTables()) {
-//            graph.addVertex(tableNode(table));
-//            addEdge(graphRoot(), tableNode(table), true);
+            graph.addVertex(tableNode(table));
+            addEdge(graphRoot(), tableNode(table), true);
 
             for (Column column : table.getColumns()) {
                 graph.addVertex(columnNode(column));
@@ -84,7 +86,13 @@ public class MetaNodesDatabaseGraph extends DatabaseGraph {
             fds = database.getMetadata().getMeaningfulFunctionalDependencies(maxFdSize, new HashSet<>());
             maxFdSize--;
         } while (fds.size() > maxConstraintsSize && maxFdSize > 1);
-        fds.stream().map(database.getMetadata()::subsumeFunctionalDependencyViaInclusionDependency).forEach(this::addFd);
+//        fds = fds.stream()
+//                .sorted(Comparator.comparingDouble((FunctionalDependency fd) -> fd.getPdepTuple().gpdep).reversed())
+//                .limit(fds.size() / 2)
+//                .filter(fd -> fd.getPdepTuple().gpdep > 0)
+//                .toList();
+        fds.forEach(this::addFd);
+//        fds.stream().map(database.getMetadata()::subsumeFunctionalDependencyViaInclusionDependency).forEach(this::addFd);
     }
 
     public Path exportPath() {
