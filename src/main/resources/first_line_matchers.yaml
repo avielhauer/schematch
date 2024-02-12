@@ -1,72 +1,12 @@
 # State-of-the-Art matchers
 ---
-name: "RandomMatcher"
-packageName: "sota"
-active: false
-params:
-  seed: [42, 2023]
----
-name: "EmbdiMatcher"
-packageName: "sota"
-active: false
-params:
-  serverPort: 5001
-  sm_mode: ["dot_product_similarity", "binary_from_embdi"]
----
-name: "LeapmeMatcher"
-packageName: "sota"
-active: false
-params:
-  serverPort: 5000
-  information: "both" # ["values", "names", "both"]
-  features: "both" # ["embeddings", "no-embeddings", "both"]
----
 name: "Node2VecMatcher"
 packageName: "metadata"
 active: true
 params:
-  dropColumns: [0.0, 0.1, 0.2, 0.3]
-  dropConstraints: [0.0, 0.1, 0.2, 0.3]
----
-name: "EmbdiMatcher"
-packageName: "sota"
-active: false
-params:
-  serverPort: 5001
-  sm_mode: ["dot_product_similarity", "binary_from_embdi"]
----
-name: "LeapmeMatcher"
-packageName: "sota"
-active: false
-params:
-  serverPort: 5000
-  information: "both" # ["values", "names", "both"]
-  features: "both" # ["embeddings", "no-embeddings", "both"]
-# Metadata matchers
----
-name: "DatatypeMatcher"
-packageName: "metadata"
-active: true
----
-name: "NumberOfRowsMatcher"
-packageName: "metadata"
-active: true
----
-name: "NullPercentageMatcher"
-packageName: "metadata"
-active: true
----
-name: "DistinctCountMatcher"
-packageName: "metadata"
-active: true
----
-name: "UniquenessMatcher"
-packageName: "metadata"
-active: true
-#--- (see issue #16)
-#name: "ExtremaMatcher"
-#packageName: "metadata"
-
+  xNetMFGammaAttr: [1, 2]
+  xNetMFGammaStruc: [1, 2]
+  filterKNearest: ["True", "False"]
 # Similarity matchers
 ---
 name: "LevenshteinMatcher"
