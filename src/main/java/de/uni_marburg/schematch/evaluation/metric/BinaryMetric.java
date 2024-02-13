@@ -50,14 +50,15 @@ public abstract class BinaryMetric extends Metric {
             float simScore = simVector[i];
             if (simScore >= 0.5) {
                 if (groundTruthVector[i] == 1) {
-                    results.TP += simScore;
+                    results.TP += 1;
                 } else {
-                    results.FP += simScore;
+                    results.FP += 1;
                 }
             } else {
                 if (groundTruthVector[i] == 1) {
-                    results.FN += simScore;
+                    results.FN += 1;
                 } else {
+
                     results.TN += 1;
                 }
             }
