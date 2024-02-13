@@ -1,35 +1,24 @@
 package de.uni_marburg.schematch.evaluation.metric;
 
-import de.uni_marburg.schematch.evaluation.Evaluator;
-import de.uni_marburg.schematch.evaluation.performance.Performance;
+import de.uni_marburg.schematch.utils.MetricUtils;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class NonBinaryPrecisionAtNumGroundTruth extends Metric {
     @Override
     public float run(int[] groundTruthVector, float[] simVector) {
-        int numGT = 0;
-        for (int i : groundTruthVector) {
-            numGT += i;
-        }
+        List<Integer> sortedSimIndices = MetricUtils.getSortedSimIndices(groundTruthVector, simVector);
+        List<Integer> groundTruthIndices = MetricUtils.getGroundTruthIndices(groundTruthVector);
 
         float totalSimScoreTP = 0;
         float totalSimScoreFP = 0;
 
-        float[] sortedSimVector = simVector.clone();
-        Arrays.sort(sortedSimVector);
-
-        float simScoreAtNumGT = sortedSimVector[numGT];
-
-        // flag all scores >= simScoreAtNumGT as TP/FP
-        for (int i = 0; i < groundTruthVector.length; i++) {
-            float simScore = simVector[i];
-            if (simScore >= simScoreAtNumGT) {
-                if (groundTruthVector[i] == 1) {
-                    totalSimScoreTP += simScore;
-                } else {
-                    totalSimScoreFP += simScore;
-                }
+        for (int i = 0; i < groundTruthIndices.size(); i++) {
+            int currSimIndex = sortedSimIndices.get(i);
+            if (groundTruthIndices.contains(currSimIndex)) {
+                totalSimScoreTP += simVector[currSimIndex];
+            } else {
+                totalSimScoreFP += simVector[currSimIndex];
             }
         }
 
