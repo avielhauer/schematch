@@ -51,6 +51,9 @@ public class Configuration {
     private String performanceSummaryFileName;
     private String outputDir;
 
+    private float partialFDMaxError;
+    private boolean recomputeAllFDs;
+
     // FIXME: refactor to use log4j custom log level instead
     private int logLevelResults;
 

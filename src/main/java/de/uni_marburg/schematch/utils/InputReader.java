@@ -195,7 +195,7 @@ public class InputReader {
                 Path uccFilePath = metadataFolderPath.resolve(table.getName()).resolve("UCC_results.txt");
 
                 Collection<FunctionalDependency> datasetFDs = readFDFile(fdFilePath, table, fdMap);
-                if(true) { //datasetFDs.isEmpty()) {
+                if(Configuration.getInstance().isRecomputeAllFDs() || datasetFDs.isEmpty()) {
 //                    datasetFDs = Metanome.executeFD(List.of(table));
                     datasetFDs = Metanome.executeApproximateFD(List.of(table));
                 }
@@ -266,7 +266,7 @@ public class InputReader {
                 }
             } else {
                 Collection<Column> leftCC = (Collection<Column>) extractColumnsFromString(split[0], table);
-                for (String right : split[1].split(",")) {
+                for (String right : split[1].split("\\(")[0].split(",")) {
                     Column rightC = table.getColumn(table.getLabels().indexOf(right.trim().split(".csv.")[1]));
                     extracted(map, leftCC, rightC, fds);
                 }

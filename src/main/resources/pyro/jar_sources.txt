@@ -1,0 +1,2 @@
+https://github.com/HPI-Information-Systems/pyro/releases/tag/v1.0
+https://github.com/sekruse/metanome-cli/releases/tag/v1.1.0

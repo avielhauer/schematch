@@ -1,12 +1,16 @@
 import json
 import os
-import time
+import sys
 
 from flask import Flask, request
 import argparse
 
 
 if __name__ == "__main__":
+    if "metanome-cli-1.1.0.jar" not in os.listdir() or "pyro-distro-1.0-SNAPSHOT-distro.jar" not in os.listdir():
+        print("Required jar files for Pyro missing.")
+        sys.exit(1)
+
     parser = argparse.ArgumentParser()
     # When running in container, we need to listen on all interfaces.
     parser.add_argument("--pyro_host", default="0.0.0.0")
@@ -18,7 +22,8 @@ if __name__ == "__main__":
     @app.route("/match")
     def _match():
         ARGS = [
-            "table"
+            "table",
+            "max_error"
         ]
 
         CONFIG_KEYS = []
@@ -27,17 +32,17 @@ if __name__ == "__main__":
                 return "", 400
 
         config = {k: request.args.get(k) for k in CONFIG_KEYS}
-        return "\n".join(run_pyro(request.args.get("table"))), 200
+        return "\n".join(run_pyro(request.args.get("table"), request.args.get("max_error"))), 200
 
 
-    def run_pyro(table_file):
+    def run_pyro(table_file, max_error):
         classpath = "metanome-cli-1.1.0.jar:pyro-distro-1.0-SNAPSHOT-distro.jar"
         main_class = "de.metanome.cli.App"
         algorithm = "de.hpi.isg.pyro.algorithms.Pyro"
         input_key = "inputFile"
         input_file = table_file
         separator = ","
-        max_ucc_error = "0.03"
+        max_ucc_error = max_error
         output = "file"
 
         # Assemble the command

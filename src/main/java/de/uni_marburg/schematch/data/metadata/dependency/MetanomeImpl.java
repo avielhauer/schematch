@@ -15,12 +15,15 @@ import de.metanome.backend.input.file.DefaultFileInputGenerator;
 import de.metanome.backend.result_receiver.ResultCache;
 import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Table;
+import de.uni_marburg.schematch.utils.Configuration;
 import de.uni_marburg.schematch.utils.MetadataUtils;
 import de.uni_marburg.schematch.utils.PythonUtils;
+import org.apache.commons.io.output.NullOutputStream;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.net.http.HttpResponse;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -158,7 +161,10 @@ public class MetanomeImpl{
 
             suppressSysout(() -> {
                 try {
-                    HttpResponse<String> response = PythonUtils.sendMatchRequest(6001, List.of(Pair.of("table", table.getPath())));
+                    HttpResponse<String> response = PythonUtils.sendMatchRequest(6001, List.of(
+                            Pair.of("table", table.getPath()),
+                            Pair.of("max_error", Float.toString(Configuration.getInstance().getPartialFDMaxError()))
+                    ));
                     if (response.body().isEmpty()) {
                         return;
                     }
@@ -170,7 +176,9 @@ public class MetanomeImpl{
                                     table::getColumnByName
                             ).collect(Collectors.toSet());
                             Column dependant = table.getColumnByName(fdIterator.next());
-                            results.add(new FunctionalDependency(determinants, dependant));
+                            FunctionalDependency fd = new FunctionalDependency(determinants, dependant);
+                            fd.setPdepTuple(MetadataUtils.getPdep(fd));
+                            results.add(fd);
                         } catch (NoSuchElementException e) {
                             throw new RuntimeException(e);
                         }
@@ -306,9 +314,9 @@ public class MetanomeImpl{
 
     //BLAME THE AUTHORS @METANOME ALGORITHMS
     private static void suppressSysout(Runnable method) throws RuntimeException{
-//        PrintStream originalOut = System.out;
-//        System.setOut(new PrintStream(new NullOutputStream()));
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(new NullOutputStream()));
         method.run();
-//        System.setOut(originalOut);
+        System.setOut(originalOut);
     }
 }
