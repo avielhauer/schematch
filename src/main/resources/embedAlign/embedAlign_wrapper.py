@@ -2,6 +2,7 @@ import re
 import json
 
 import networkx as nx
+from pyvis.network import Network
 from node2vec import Node2Vec
 import numpy as np
 
@@ -20,6 +21,36 @@ def embed_xnetmf(graph, features, xNetMFGammaAttr, xNetMFGammaStruc):
     graph = REGAL_config.Graph(adj=nx.adjacency_matrix(graph), node_attributes=features)
     return REGAL_xnetmf.get_representations(graph, repmethod)
 
+
+def one_hot_encoding_lookup(labels):
+    labels = set(labels)
+    lookup = {}
+    for label in labels:
+        if not label in lookup:
+            feature = np.zeros(len(labels))
+            feature[len(lookup)] = 1.0
+            lookup[label] = feature
+    return lookup
+
+
+def encode(labels, lookup):
+    return np.asarray([lookup[label] for label in labels])
+
+
+def extract_features_from_names(graphA, graphB):
+    labelsA = [node.split("|")[2] for node in graphA.nodes]
+    labelsB = [node.split("|")[2] for node in graphB.nodes]
+    lookup = one_hot_encoding_lookup(set(labelsA + labelsB))
+    return encode(labelsA, lookup), encode(labelsB, lookup)
+
+def visualize_graph(graph, title='test.html'):
+    net = Network(height="1500px", notebook=True, directed=True)
+    net.from_nx(graph)
+    for node in net.nodes:
+
+        if "SIBLING_CLUSTER" in node['label']:
+            node['color'] = "red"
+    net.show(title)
 
 def align_shapes(embed1, embed2):
     assert embed1.shape[1] == embed2.shape[1]
@@ -206,11 +237,11 @@ def match(
     else:
         graphA = EmbedGraph(
             nx.read_graphml(source_graph_file, node_type=str),
-            "/home/fabian/Desktop/MP/repos/schematch/" + features_dir + "/source.json",
+            "../../../../" + features_dir + "/source.json",
         )
         graphB = EmbedGraph(
             nx.read_graphml(target_graph_file, node_type=str),
-            "/home/fabian/Desktop/MP/repos/schematch/" + features_dir + "/target.json",
+            "../../../../" + features_dir + "/target.json",
         )
         graphA.normalize_features(graphB)  # normalizes both graph's features
         graphA.remove_random_ics(float(config["dropConstraints"]))

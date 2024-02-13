@@ -35,4 +35,8 @@ public class Table {
         String[] splitPath = path.split("/data");
         return splitPath[splitPath.length-1];
     }
+
+    public Column getColumnByName(String name) {
+        return this.columns.stream().filter(column -> column.getLabel().equals(name)).findFirst().orElseThrow();
+    }
 }

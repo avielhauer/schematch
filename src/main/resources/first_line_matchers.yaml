@@ -4,8 +4,8 @@ name: "Node2VecMatcher"
 packageName: "metadata"
 active: true
 params:
-  xNetMFGammaAttr: [1, 2]
-  xNetMFGammaStruc: [1, 2]
+  xNetMFGammaAttr: [0, 1]
+  xNetMFGammaStruc: [1]
   filterKNearest: ["True", "False"]
 # Similarity matchers
 ---

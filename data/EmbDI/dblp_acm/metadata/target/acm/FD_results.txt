@@ -1,0 +1,31 @@
+[acm.csv.title] --> acm.csv.venue
+[acm.csv.title] --> acm.csv.author_3
+[acm.csv.title] --> acm.csv.author_1
+[acm.csv.author_1] --> acm.csv.title
+[acm.csv.title] --> acm.csv.author_2
+[acm.csv.title] --> acm.csv.year
+[acm.csv.author_3] --> acm.csv.author_4
+[acm.csv.title] --> acm.csv.author_4
+[acm.csv.author_1] --> acm.csv.author_3
+[acm.csv.author_1] --> acm.csv.author_4
+[acm.csv.author_2] --> acm.csv.author_3
+[acm.csv.author_1] --> acm.csv.venue
+[acm.csv.author_1] --> acm.csv.author_2
+[acm.csv.author_2] --> acm.csv.author_4
+[acm.csv.author_2, acm.csv.year] --> acm.csv.title
+[acm.csv.author_2, acm.csv.year] --> acm.csv.author_1
+[acm.csv.author_2, acm.csv.year] --> acm.csv.venue
+[acm.csv.venue, acm.csv.year] --> acm.csv.author_3
+[acm.csv.venue, acm.csv.year] --> acm.csv.author_4
+[acm.csv.year, acm.csv.author_3] --> acm.csv.venue
+[acm.csv.year, acm.csv.author_3] --> acm.csv.author_1
+[acm.csv.author_1] --> acm.csv.year
+[acm.csv.year, acm.csv.author_3] --> acm.csv.title
+[acm.csv.year, acm.csv.author_3] --> acm.csv.author_2
+[acm.csv.author_4, acm.csv.year] --> acm.csv.author_3
+[acm.csv.author_2, acm.csv.venue] --> acm.csv.year
+[acm.csv.venue, acm.csv.year] --> acm.csv.author_2
+[acm.csv.author_2, acm.csv.venue] --> acm.csv.author_1
+[acm.csv.author_2, acm.csv.venue] --> acm.csv.title
+[acm.csv.venue, acm.csv.year] --> acm.csv.title
+[acm.csv.venue, acm.csv.year] --> acm.csv.author_1

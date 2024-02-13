@@ -25,7 +25,6 @@ dependency-reduced-pom.xml
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.nar
 *.ear

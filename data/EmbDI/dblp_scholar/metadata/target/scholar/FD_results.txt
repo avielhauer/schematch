@@ -1,0 +1,8 @@
+[scholar.csv.title] --> scholar.csv.authors
+[scholar.csv.authors] --> scholar.csv.title
+[scholar.csv.authors] --> scholar.csv.venue
+[scholar.csv.authors] --> scholar.csv.year
+[scholar.csv.title] --> scholar.csv.venue
+[scholar.csv.title] --> scholar.csv.year
+[scholar.csv.year, scholar.csv.venue] --> scholar.csv.title
+[scholar.csv.year, scholar.csv.venue] --> scholar.csv.authors

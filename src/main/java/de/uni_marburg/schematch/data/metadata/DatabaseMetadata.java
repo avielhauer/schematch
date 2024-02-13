@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -31,6 +32,11 @@ public class DatabaseMetadata {
     public Collection<FunctionalDependency> getGpdepFDs(double lowerBound){
         return fds.stream()
                 .filter(fd -> fd.getPdepTuple().gpdep >= lowerBound).toList();
+    }
+
+    public Collection<FunctionalDependency> getGpdepFDs(double lowerBound, int size){
+        return fds.stream()
+                .filter(fd -> fd.getDeterminant().size() <= size && fd.getPdepTuple().gpdep >= lowerBound).toList();
     }
 
     public Collection<FunctionalDependency> getGpdepFDs(Column columnName, double lowerBound){
@@ -67,13 +73,76 @@ public class DatabaseMetadata {
                                                                                 HashSet<UniqueColumnCombination> uccLookup) {  // TODO change
         return fds.stream()
                 .filter(fd -> fd.getDeterminant().size() <= size
+                        && fd.getPdepTuple().pdep >= 0.9
                         && !uccLookup.contains(new UniqueColumnCombination(fd.getDeterminant()))
                 ).toList();
     }
     public Collection<FunctionalDependency> getMeaningfulFunctionalDependencies(Column column, int size) {
         return fdMap.get(column).stream()
                 .filter(fd -> fd.getDeterminant().size() <= size
+                        && fd.getPdepTuple().pdep >= 0.9
                         && !getUccs().contains(new UniqueColumnCombination(fd.getDeterminant()))
                 ).toList();
+    }
+
+
+    public FunctionalDependency subsumeFunctionalDependencyViaInclusionDependency(FunctionalDependency fd) {
+        FunctionalDependency outputFd = new FunctionalDependency(fd.getDeterminant(), fd.getDependant());
+        boolean changed = false;
+        // TODO: do recursively
+        for (InclusionDependency id : inds) {
+            if (id.getDependant().size() == fd.getDeterminant().size() && id.getDependant().containsAll(fd.getDeterminant())) {
+                outputFd.setDeterminant(id.getReferenced());
+                changed = true;
+            }
+            if (id.getDependant().size() == 1 && id.getDependant().contains(fd.getDependant())) {
+                if (id.getReferenced().size() > 1) {
+                    throw new RuntimeException("Inclusion dependencies with multiple references columns are not yet supported by ID rewriting.");
+                }
+
+                outputFd.setDependant(id.getReferenced().stream().toList().get(0));
+                changed = true;
+            }
+        }
+
+        if (changed) {
+            return subsumeFunctionalDependencyViaInclusionDependency(outputFd);
+        }
+
+        return outputFd;
+    }
+
+    public void setUCCs(Collection<UniqueColumnCombination> uccs){
+        this.uccs = uccs;
+        uccMap.clear();
+        for(UniqueColumnCombination ucc: uccs){
+            for (Column left: ucc.getColumnCombination()){
+                uccMap.computeIfAbsent(left, k -> new ArrayList<>()).add(ucc);
+            }
+        }
+    }
+
+    public void setFDs(Collection<FunctionalDependency> fds){
+        this.fds = fds;
+        fdMap.clear();
+        for (FunctionalDependency fd: fds){
+            fdMap.computeIfAbsent(fd.getDependant(), k -> new ArrayList<>()).add(fd);
+            for (Column left: fd.getDeterminant()){
+                fdMap.computeIfAbsent(left, k -> new ArrayList<>()).add(fd);
+            }
+        }
+    }
+
+    public void setINDs(Collection<InclusionDependency> inds){
+        this.inds = inds;
+        indMap.clear();
+        for (InclusionDependency ind : inds){
+            for (Column left: ind.getSuperset()){
+                indMap.computeIfAbsent(left, k -> new ArrayList<>()).add(ind);
+            }
+            for (Column left: ind.getSubset()){
+                indMap.computeIfAbsent(left, k -> new ArrayList<>()).add(ind);
+            }
+        }
     }
 }
