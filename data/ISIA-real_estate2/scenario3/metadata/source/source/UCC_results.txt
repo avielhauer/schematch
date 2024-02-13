@@ -1,0 +1,7 @@
+[source.csv.house_street]
+[source.csv.houses_agent_id]
+[source.csv.house_price, source.csv.houses_agent_last_name]
+[source.csv.house_price, source.csv.houses_agent_first_name]
+[source.csv.house_price, source.csv.house_zip_code]
+[source.csv.agent_phone_number, source.csv.house_price]
+[source.csv.house_city, source.csv.house_price]
