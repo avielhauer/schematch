@@ -1,4 +1,4 @@
 [google.csv.title] --> google.csv.price
-[google.csv.price] --> google.csv.title
 [google.csv.title] --> google.csv.manufacturer
+[google.csv.price] --> google.csv.title
 [google.csv.price] --> google.csv.manufacturer
