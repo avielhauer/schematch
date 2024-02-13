@@ -10,9 +10,9 @@
 #---
 #name: "ISIA-inventory"
 #path: "ISIA-inventory"
-#---
-#name: "ISIA-real_estate2"
-#path: "ISIA-real_estate2"
+---
+name: "ISIA-real_estate2"
+path: "ISIA-real_estate2"
 #---
 #name: "Pubs"
 #path: "Pubs"
@@ -25,6 +25,6 @@
 #---
 #name: "Valentine-Wikidata"
 #path: "Valentine-Wikidata"
----
-name: "EmbDI"
-path: "EmbDI"
+#---
+#name: "EmbDI"
+#path: "EmbDI"

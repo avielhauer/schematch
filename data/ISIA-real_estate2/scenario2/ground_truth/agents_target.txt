@@ -1,0 +1,7 @@
+agents.agent_name = target.agent_first_name
+agents.agent_name = target.agent_last_name
+agents.agent_first_name = target.agent_first_name
+agents.agent_last_name = target.agent_last_name
+agents.agent_area_code = target.agent_area_code
+agents.agent_phone_number = target.agent_phone_number
+agents.agent_email = target.agent_email
