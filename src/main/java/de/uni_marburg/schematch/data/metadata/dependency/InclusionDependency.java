@@ -24,21 +24,12 @@ public class InclusionDependency implements Dependency{
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("[");
-        for (Column column : dependant) {
-            sb.append(column.getLabel());
-            sb.append(", ");
-        }
-        sb.delete(sb.length() - 2, sb.length());
-        sb.append("]");
-        sb.append(" =] ");
-        sb.append("[");
-        for (Column column : referenced) {
-            sb.append(column.getLabel());
-            sb.append(", ");
-        }
-        sb.delete(sb.length() - 2, sb.length());
-        sb.append("]");
+        StringBuilder sb = new StringBuilder();
+        addColumns(sb, dependant);
+        sb.append(" --> ");
+        addColumns(sb, referenced);
         return sb.toString();
     }
+
+
 }

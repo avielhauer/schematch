@@ -54,7 +54,6 @@ public class PythonUtils {
     }
 
     public static HttpResponse<String> sendMatchRequest(Integer serverPort, List<Pair<String, String>> parameters) throws IOException, InterruptedException {
-
         StringBuilder uri_builder = new StringBuilder();
         uri_builder.append("http://127.0.0.1:").append(serverPort).append("/match");
         if (!parameters.isEmpty()) {

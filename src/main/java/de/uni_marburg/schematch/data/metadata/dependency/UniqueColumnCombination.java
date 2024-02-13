@@ -29,13 +29,9 @@ public class UniqueColumnCombination implements Dependency{
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("[");
-        for (Column column : columnCombination) {
-            sb.append(column.getLabel());
-            sb.append(", ");
-        }
-        sb.delete(sb.length() - 2, sb.length());
-        sb.append("]");
+        StringBuilder sb = new StringBuilder();
+        addColumns(sb, columnCombination);
         return sb.toString();
     }
+
 }
