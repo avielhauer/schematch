@@ -97,10 +97,18 @@ public class MatchTask {
         this.groundTruthMatrix = new int[this.numSourceColumns][this.numTargetColumns];
 
         for (TablePair tablePair : this.tablePairs) {
-            int[][] gtMatrix = InputReader.readGroundTruthFile(basePath + File.separator + tablePair.toString() + ".csv");
+            String pathToTablePairGT = basePath + File.separator + tablePair.toString() + ".csv";
+            int[][] gtMatrix = InputReader.readGroundTruthFile(pathToTablePairGT);
             if (gtMatrix == null) {
                 gtMatrix = tablePair.getEmptyGTMatrix();
             }
+            else if (gtMatrix.length != tablePair.getSourceTable().getNumColumns()) {
+                throw new IllegalStateException("Number of rows in ground truth does not match number of columns in source table: " + pathToTablePairGT);
+            }
+            else if (gtMatrix[0].length != tablePair.getTargetTable().getNumColumns()) {
+                throw new IllegalStateException("Number of columns in ground truth does not match number of columns in target table: " + pathToTablePairGT);
+            }
+
             int sourceTableOffset = tablePair.getSourceTable().getOffset();
             int targetTableOffset = tablePair.getTargetTable().getOffset();
             ArrayUtils.insertSubmatrixInMatrix(gtMatrix, this.groundTruthMatrix, sourceTableOffset, targetTableOffset);
