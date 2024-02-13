@@ -72,12 +72,14 @@ public class DatabaseMetadata {
                                                                                 HashSet<UniqueColumnCombination> uccLookup) {  // TODO change
         return fds.stream()
                 .filter(fd -> fd.getDeterminant().size() <= size
+                        && fd.getPdepTuple().pdep >= 0.9
                         && !uccLookup.contains(new UniqueColumnCombination(fd.getDeterminant()))
                 ).toList();
     }
     public Collection<FunctionalDependency> getMeaningfulFunctionalDependencies(Column column, int size) {
         return fdMap.get(column).stream()
                 .filter(fd -> fd.getDeterminant().size() <= size
+                        && fd.getPdepTuple().pdep >= 0.9
                         && !getUccs().contains(new UniqueColumnCombination(fd.getDeterminant()))
                 ).toList();
     }
