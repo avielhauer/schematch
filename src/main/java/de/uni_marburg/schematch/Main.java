@@ -4,9 +4,7 @@ import de.uni_marburg.schematch.boosting.IdentitySimMatrixBoosting;
 import de.uni_marburg.schematch.boosting.SimMatrixBoosting;
 import de.uni_marburg.schematch.evaluation.metric.Metric;
 import de.uni_marburg.schematch.evaluation.metric.MetricFactory;
-import de.uni_marburg.schematch.matching.ensemble.RandomEnsembleMatcher;
 import de.uni_marburg.schematch.matchtask.matchstep.*;
-import de.uni_marburg.schematch.matchtask.tablepair.generators.GroundTruthTablePairsGenerator;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.NaiveTablePairsGenerator;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.TablePairsGenerator;
 import de.uni_marburg.schematch.data.*;
@@ -19,7 +17,9 @@ import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main {
@@ -28,6 +28,13 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         log.info("Starting Schematch");
+
+        log.info("Please give this run a name");
+        BufferedReader stdinReader = new BufferedReader(new InputStreamReader(System.in));
+        String runName = stdinReader.readLine();
+        stdinReader.close();
+        log.info("Using '{}' as run name.", runName);
+        ResultsUtils.setRunName(runName);
 
         Configuration config = Configuration.getInstance();
         MatcherFactory matcherFactory = new MatcherFactory();

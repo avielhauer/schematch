@@ -4,17 +4,19 @@ import de.uni_marburg.schematch.Main;
 import de.uni_marburg.schematch.data.Dataset;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
-import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
+import lombok.Setter;
 
 import java.nio.file.Path;
 
 public class ResultsUtils {
     private final static Configuration config = Configuration.getInstance();
+    @Setter
+    private static String runName = "";
 
     // Base result paths
     public static Path getBaseResultsPath() {
         Configuration config = Configuration.getInstance();
-        return Path.of(config.getResultsDir(), StringUtils.dateToString(Main.START_TIMESTAMP));
+        return Path.of(config.getResultsDir(), StringUtils.dateToString(Main.START_TIMESTAMP) + " " + runName);
     }
     public static Path getBaseResultsPathForDataset(Dataset dataset) {
         return getBaseResultsPath().resolve(dataset.getName());
