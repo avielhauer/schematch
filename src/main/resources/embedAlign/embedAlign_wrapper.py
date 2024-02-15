@@ -16,8 +16,8 @@ EMBEDDINGS_CACHE = {}
 EMBEDDING_GENERATION = "XNET"  # "N2V" "XNET"
 
 
-def embed_xnetmf(graph, features, xNetMFGammaAttr, xNetMFGammaStruc):
-    repmethod = REGAL_config.RepMethod(gammastruc=int(xNetMFGammaStruc), gammaattr=int(xNetMFGammaAttr))
+def embed_xnetmf(graph, features, xNetMFGammaAttrStruc):
+    repmethod = REGAL_config.RepMethod(gammastruc=xNetMFGammaAttrStruc, gammaattr=1-xNetMFGammaAttrStruc)
     graph = REGAL_config.Graph(adj=nx.adjacency_matrix(graph), node_attributes=features)
     return REGAL_xnetmf.get_representations(graph, repmethod)
 
@@ -164,8 +164,7 @@ def get_embeddings(
     target_graph_file,
     dropColumns,
     dropConstraints,
-    xNetMFGammaAttr,
-    xNetMFGammaStruc,
+    xNetMFGammaAttrStruc,
 ):
     if EMBEDDING_GENERATION == "N2V":
         embeddings_source = generate_n2v_embeddings(graphA)
@@ -189,8 +188,7 @@ def get_embeddings(
         embeddings_combined = embed_xnetmf(
             combined_graph,
             np.concatenate((graphA.get_features(), graphB.get_features()), axis=0),
-            xNetMFGammaAttr,
-            xNetMFGammaStruc
+            xNetMFGammaAttrStruc
         )
         assert embeddings_combined.shape[0] == len(graphA.graph.nodes) + len(
             graphB.graph.nodes
@@ -210,8 +208,7 @@ def get_embeddings(
         embeddings_target,
         dropColumns,
         dropConstraints,
-        xNetMFGammaAttr,
-        xNetMFGammaStruc,
+        xNetMFGammaAttrStruc
     )
 
 
@@ -229,8 +226,7 @@ def match(
         target_graph_file,
         config["dropColumns"],
         config["dropConstraints"],
-        config["xNetMFGammaAttr"],
-        config["xNetMFGammaStruc"],
+        float(config["xNetMFGammaStrucAttr"])
     )
     if key in EMBEDDINGS_CACHE:
         representationCache: RepresentationCache = EMBEDDINGS_CACHE[key]
@@ -254,13 +250,12 @@ def match(
             target_graph_file,
             config["dropColumns"],
             config["dropConstraints"],
-            config["xNetMFGammaAttr"],
-            config["xNetMFGammaStruc"]
+            float(config["xNetMFGammaStrucAttr"])
         )
         EMBEDDINGS_CACHE[key] = representationCache
 
     if get_k_highest_sm:
-        alignment_matrix = representationCache.get_filtered_sm(source_table, target_table) # Only compute top 2 probabilities
+        alignment_matrix = representationCache.get_filtered_sm(source_table, target_table) # Only compute top 3 probabilities
     else:
         alignment_matrix = get_sm(source_table, target_table, representationCache)
 

@@ -26,8 +26,7 @@ if __name__ == "__main__":
         CONFIG_KEYS = [
             "dropColumns",
             "dropConstraints",
-            "xNetMFGammaStruc",
-            "xNetMFGammaAttr",
+            "xNetMFGammaStrucAttr",
         ]
         for arg in ARGS + CONFIG_KEYS:
             if arg not in request.args:

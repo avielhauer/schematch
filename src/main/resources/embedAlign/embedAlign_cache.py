@@ -25,10 +25,9 @@ class RepresentationCache:
         embeddingsB,
         dropColumns,
         dropConstraints,
-        xNetMFGammaAttr,
-        xNetMFGammaStruc,
+        xNetMFGammaAttrStruc
     ):
-        self.key = (source_graph_file, target_graph_file, dropColumns, dropConstraints, xNetMFGammaAttr, xNetMFGammaStruc)
+        self.key = (source_graph_file, target_graph_file, dropColumns, dropConstraints, xNetMFGammaAttrStruc)
 
         self.source_table_nodes_sorted_as_given = graphA.mappings["COLUMN"]
         self.source_all_original_table_nodes_sorted_as_given = graphA.original_mappings[

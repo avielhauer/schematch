@@ -9,7 +9,6 @@ import de.uni_marburg.schematch.utils.PythonUtils;
 import lombok.*;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
-import java.lang.reflect.Field;
 import java.net.http.HttpResponse;
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +16,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper=false)
 @NoArgsConstructor
 public class Node2VecMatcher extends TablePairMatcher {
-    private Integer serverPort = 5004;
+    final private Integer serverPort = 5004;
     @Getter
     @Setter
     public double dropColumns = 0.0;
@@ -26,10 +25,7 @@ public class Node2VecMatcher extends TablePairMatcher {
     public double dropConstraints = 0.0;
     @Getter
     @Setter
-    public Integer xNetMFGammaStruc = 1;
-    @Getter
-    @Setter
-    public Integer xNetMFGammaAttr = 1;
+    public double xNetMFGammaStrucAttr = 0.5;
     @Getter
     @Setter
     public String filterKNearest = "True";
@@ -58,8 +54,7 @@ public class Node2VecMatcher extends TablePairMatcher {
                     new ImmutablePair<>("get_k_highest_sm", filterKNearest),
                     new ImmutablePair<>("dropColumns", String.valueOf(dropColumns)),
                     new ImmutablePair<>("dropConstraints", String.valueOf(dropConstraints)),
-                    new ImmutablePair<>("xNetMFGammaStruc", String.valueOf(xNetMFGammaStruc)),
-                    new ImmutablePair<>("xNetMFGammaAttr", String.valueOf(xNetMFGammaAttr))
+                    new ImmutablePair<>("xNetMFGammaStrucAttr", String.valueOf(xNetMFGammaStrucAttr))
             ));
             alignment_matrix = PythonUtils.readMatcherOutput(Arrays.stream(response.body().split("\n")).toList(), tablePair);
 
