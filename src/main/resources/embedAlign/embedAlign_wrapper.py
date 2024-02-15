@@ -218,7 +218,6 @@ def match(
     target_graph_file,
     target_table,
     features_dir,
-    get_k_highest_sm,
     config,
 ):
     key = (
@@ -254,10 +253,11 @@ def match(
         )
         EMBEDDINGS_CACHE[key] = representationCache
 
-    if get_k_highest_sm:
-        alignment_matrix = representationCache.get_filtered_sm(source_table, target_table) # Only compute top 3 probabilities
-    else:
+    top_k_row, top_k_col = int(config["top_k_row"]), int(config["top_k_col"])
+    if top_k_row == 0 and top_k_col == 0:
         alignment_matrix = get_sm(source_table, target_table, representationCache)
+    else:
+        alignment_matrix = representationCache.get_filtered_sm(source_table, target_table, top_k_row=top_k_row, top_k_col=top_k_col)
 
     print(alignment_matrix)
     return "\n".join([" ".join([str(x) for x in row]) for row in alignment_matrix])

@@ -41,7 +41,7 @@ class RepresentationCache:
         self.column_embeddings_target_lookup = get_column_lookup(embeddingsB, graphB.graph)
         self.source_column_embeddings = np.asarray([self.column_embeddings_source_lookup[node] for node in self.source_table_nodes_sorted_as_given])
         self.target_column_embeddings = np.asarray([self.column_embeddings_target_lookup[node] for node in self.target_table_nodes_sorted_as_given])
-        self.csr_k_similar_sm = get_embedding_similarities(self.source_column_embeddings, self.target_column_embeddings, num_top=3)
+        self.csr_k_similar_sm_cache = {}
 
     def get_embeddings(self, table, nodes, lookup):
         embeddings = []
@@ -71,7 +71,7 @@ class RepresentationCache:
             np.linalg.norm(source_emb) * np.linalg.norm(target_emb)
         )
 
-    def get_filtered_sm(self, source_table, target_table, distance="cosine"):
+    def get_filtered_sm(self, source_table, target_table, distance="cosine", top_k_row=2, top_k_col=2):
         source_indices_lookup = {node: i for i, node in enumerate(self.source_table_nodes_sorted_as_given) if extract_table(node) == source_table}
         target_indices_lookup = {node: i for i, node in enumerate(self.target_table_nodes_sorted_as_given) if extract_table(node) == target_table}
         filtered_original_source_column_nodes = [node for node in self.source_all_original_table_nodes_sorted_as_given if extract_table(node) == source_table]
@@ -83,15 +83,23 @@ class RepresentationCache:
             )
         )
 
+        if (top_k_row, top_k_col) not in self.csr_k_similar_sm_cache:
+            self.csr_k_similar_sm_cache[(top_k_row, top_k_col)] = get_embedding_similarities(self.source_column_embeddings, self.target_column_embeddings, top_k_row=top_k_row, top_k_col=top_k_col)
+
+        csr_k_similar_sm = self.csr_k_similar_sm_cache[(top_k_row, top_k_col)]
+
         for sm_i, source_node in enumerate(filtered_original_source_column_nodes):
             for sm_j, target_node in enumerate(filtered_original_target_column_nodes):
                 if source_node in source_indices_lookup and target_node in target_indices_lookup:
-                    csr_value = self.csr_k_similar_sm.getrow(source_indices_lookup[source_node]).getcol(target_indices_lookup[target_node]).toarray()[0][0]
+                    csr_value = csr_k_similar_sm.getrow(source_indices_lookup[source_node]).getcol(target_indices_lookup[target_node]).toarray()[0][0]
                     if csr_value != 0:
                         # TODO: make this distinction when generation the sparse lookup.
+                        # the csr_matrix is built based on euclidean distance. If the ordering based on the euclidean distance is identical to the ordering
+                        # generated using cosine distance, we can simply get the top k euclidean matchings and calculate the cosine sim, to get the top k
+                        # cosine identical matchings.
                         # I think is is only kind of correct (for normalized vectors), but for sure very inefficient.
                         if distance == "euclidean":
-                            sm[sm_i][sm_j] = self.csr_k_similar_sm.getrow(source_indices_lookup[source_node]).getcol(target_indices_lookup[target_node]).toarray()[0][0]
+                            sm[sm_i][sm_j] = csr_k_similar_sm.getrow(source_indices_lookup[source_node]).getcol(target_indices_lookup[target_node]).toarray()[0][0]
                         elif distance == "cosine":
                             sm[sm_i][sm_j] = self.cosine_distance(source_node, target_node)
                 else:

@@ -5,7 +5,8 @@ packageName: "metadata"
 active: true
 params:
   xNetMFGammaStrucAttr: [0.0, 0.5, 1.0]
-  filterKNearest: ["True", "False"]
+  topKRow: [0, 1, 2, 3]
+  topKCol: [0, 2]
 # Similarity matchers
 ---
 name: "LevenshteinMatcher"

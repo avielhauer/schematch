@@ -20,13 +20,14 @@ if __name__ == "__main__":
             "source_table",
             "target_table",
             "features_dir",
-            "get_k_highest_sm"
         ]
 
         CONFIG_KEYS = [
             "dropColumns",
             "dropConstraints",
             "xNetMFGammaStrucAttr",
+            "top_k_row",
+            "top_k_col",
         ]
         for arg in ARGS + CONFIG_KEYS:
             if arg not in request.args:
@@ -39,7 +40,6 @@ if __name__ == "__main__":
             "../../../../" + request.args.get("target_graph_path"),
             request.args.get("target_table"),
             request.args.get("features_dir"),
-            bool(eval(request.args.get("get_k_highest_sm"))),
             config,
         )
 
