@@ -23,10 +23,11 @@ sns.set(rc={"axes.grid": False})
 COLORS = {"True": "blue", "False": "red"}
 
 
-def extract_properties(matcher_desc):
+def extract_properties(matcher_string):
+    matcher_name = matcher_string[:matcher_string.find("(")]
     pattern = r'(\w+)\s*=\s*([^\s:]+)'
-    matches = re.findall(pattern, matcher_desc)
-    return dict(matches)
+    matches = re.findall(pattern, matcher_string)
+    return matcher_name, dict(matches)
 
 
 def create_custom_colormap():
@@ -138,15 +139,6 @@ def visualize_performance(benchmarks):
                     x["perf"] for x in runs
                 ]
                 ratios = [r["ratio"] for r in runs]
-                # plt.text(
-                #     ratios[-1],
-                #     perfomances[-1],
-                #     scenario.replace("_", " "),
-                #     fontsize=12,
-                #     ha="right",
-                #     va="bottom",
-                #     color="black",
-                # )
 
                 label = f"filter {filterKNearest}"
                 if label in seen:
@@ -165,15 +157,55 @@ def visualize_performance(benchmarks):
                     seen.add(label)
 
         plt.legend(loc='center left', bbox_to_anchor=(1, 0.5), fontsize=16)
-        # plt.ylim([0.0, max(throughputs) * 1.5])
-        # plt.xticks(BS)
 
     plt.tight_layout()  # Adjust layout to prevent overlap
-    # plt.savefig("figures/pagesize_read_write.png", dpi=400)
     plt.show()
 
+
+def generalize_benchmark_matchers(benchmarks):
+    generalized_benchmark = {}
+    for dataset, scenario_dict in benchmarks.items():
+        new_scenario_dict = {}
+        for scenario, matcher_dict in scenario_dict.items():
+            new_matcher_dict = {}
+            for matcher_string, performance in matcher_dict.items():
+                matcher_name, props = extract_properties(matcher_string)
+                new_matcher_dict.setdefault(matcher_name, []).append(dict(**{"props": props}, **performance))
+            new_scenario_dict[scenario] = new_matcher_dict
+        generalized_benchmark[dataset] = new_scenario_dict
+    return generalized_benchmark
+
+
+def plot_dataset_evaluation(scenario_dict):
+    num_scenarios = len(scenario_dict)
+    num_columns=2
+    fig, axs = plt.subplots(
+        num_scenarios // num_columns+1, num_columns, figsize=(12, 8), sharey=True
+    )
+
+    for idx, (scenario, ax) in enumerate(zip(scenario_dict.keys(), axs.flatten()), start=1):
+        x_labels = []
+        y = []
+        for matcher, performances in scenario_dict[scenario].items():
+            x_labels.append(matcher)
+            y.append(max([performance["F1"] for performance in performances]))
+        ax.bar(x_labels, y)
+        ax.tick_params(axis='x', labelrotation=90)
+    plt.tight_layout()
+    plt.show()
+
+
+def get_matchers(generalized_benchmark):
+    for scenario_dict in generalized_benchmark.values():
+        for runs in scenario_dict.values():
+            return list(set(runs.keys()))
 
 
 if __name__ == "__main__":
     root_path = sys.argv[1]
     benchmarks = import_benchmark(root_path)
+    generalized_benchmarks = generalize_benchmark_matchers(benchmarks)
+    matchers = get_matchers(generalized_benchmarks)
+
+    for dataset, scenario_dict in generalized_benchmarks.items():
+        plot_dataset_evaluation(scenario_dict, matchers)
