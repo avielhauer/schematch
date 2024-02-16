@@ -9,11 +9,18 @@ import seaborn as sns
 import numpy as np
 import re
 
+PERFORMANCES = {
+    "Accuracy": "Accuracy",
+    "F1": "F1",
+    "Precision": "Precision",
+    "Recall": "Recall",
+    "NonBinaryPrecisionAtGroundTruth": "NonBinaryPrecisionAtGroundTruth"
+}
+
 sns.set_style("whitegrid")
 sns.set(rc={"axes.grid": False})
 
-
-benchmark_root = sys.argv[1]
+COLORS = {"True": "blue", "False": "red"}
 
 
 def extract_properties(matcher_desc):
@@ -21,10 +28,12 @@ def extract_properties(matcher_desc):
     matches = re.findall(pattern, matcher_desc)
     return dict(matches)
 
+
 def create_custom_colormap():
     # Define custom colormap with red to green transition
     cmap_colors = [(0, 1, 0), (1, 0, 0)]  # Red to green
     return LinearSegmentedColormap.from_list("custom_cmap", cmap_colors, N=256)
+
 
 def plot_heatmap(data, data2, dataset, scenario, matcher):
     custom_cmap = create_custom_colormap()
@@ -56,6 +65,7 @@ def plot_heatmap(data, data2, dataset, scenario, matcher):
 
     plt.show()
 
+
 def process_output_file(matcher_file_path, dataset, scenario, matcher):
     with open(matcher_file_path) as fd:
         csvreader = csv.reader(fd)
@@ -69,51 +79,43 @@ def process_output_file(matcher_file_path, dataset, scenario, matcher):
     data2 = np.asarray(data2)
     plot_heatmap(data, data2, dataset, scenario, matcher)
 
-def extract_performance(csv_path):
-    performances = []
+
+def extract_score(csv_path, performance, benchmark_dict):
     with open(csv_path) as fd:
         csvreader = csv.reader(fd)
-
         row1, row2 = list(csvreader)[:2]
         for i, matcher in enumerate(row1):
-            if i == 0:
+            if i == 0: # skip row labels
                 continue
-            if not matcher.startswith("Node2Vec"):
-                continue
-            properties = extract_properties(matcher)
-            properties["perf"] = float(row2[i])
-            properties["ratio"] = float(properties["xNetMFGammaStruc"]) / float(properties["xNetMFGammaAttr"])
-            properties["filterKNearest"] = properties["filterKNearest"][:-1]
-            performances.append(properties)
-    return performances
-
-
-performance = {}
-for dataset in os.listdir(benchmark_root):
-    dataset_path = os.path.join(benchmark_root, dataset)
-    if os.path.isdir(dataset_path) and dataset != "_performances" and dataset.startswith("EmbDI"):
-        performance_dataset = {}
-        # Iterate over scenarios
-        for scenario in os.listdir(dataset_path):
-            scenario_path = os.path.join(dataset_path, scenario)
-            if os.path.isdir(scenario_path) and scenario != "_performances":
+            benchmark_dict.setdefault(matcher, {})[performance] = float(row2[i])
+def import_benchmark(root_path):
+    benchmarks = {}
+    for dataset in os.listdir(root_path):
+        dataset_path = os.path.join(root_path, dataset)
+        if os.path.isdir(dataset_path) and dataset != "_performances" and dataset.startswith("ISIA"):
+            dataset_benchmarks = {}
+            # Iterate over scenarios
+            for scenario in os.listdir(dataset_path):
+                scenario_benchmarks = {}
+                scenario_path = os.path.join(dataset_path, scenario)
+                if not os.path.isdir(scenario_path) or scenario == "_performances":
+                    continue
                 # Now you can perform operations within each scenario
                 print("Dataset:", dataset)
                 print("Scenario:", scenario)
                 # Add your processing logic here
                 outputs_dir = os.path.join(scenario_path, "_outputs", "MatchingStepLine1")
-                for matcher in os.listdir(outputs_dir):
-                    if not matcher.startswith("Node"):
-                        continue
-                    print("matcher: ", matcher)
-                    process_output_file(os.path.join(outputs_dir, matcher), dataset, scenario, matcher)
-                performance_csv = os.path.join(scenario_path, "_performances", "NonBinaryPrecisionAtGroundTruth", "performance_overview_line1.csv")
-                performance_dataset[scenario] = extract_performance(performance_csv)
-        performance[dataset] = performance_dataset
+                # for matcher in os.listdir(outputs_dir):
+                #    process_output_file(os.path.join(outputs_dir, matcher), dataset, scenario, matcher)
+                for performance_filename, performance_name in PERFORMANCES.items():
+                    performance_csv = os.path.join(scenario_path, "_performances", performance_filename,
+                                                   "performance_overview_line1.csv")
+                    extract_score(performance_csv, performance_name, scenario_benchmarks)
+                dataset_benchmarks[scenario] = scenario_benchmarks
+            benchmarks[dataset] = dataset_benchmarks
+    return benchmarks
 
 
-
-COLORS = {"True": "blue", "False": "red"}
 def visualize_performance(benchmarks):
     plt.figure(figsize=(10, 8))
 
@@ -131,7 +133,7 @@ def visualize_performance(benchmarks):
         for scenario, benchmark in benchmarks[dataset].items():
             for filterKNearest in ["True", "False"]:
                 runs = sorted([x for x in benchmark if x["filterKNearest"] == filterKNearest], key=lambda x: x["ratio"])
-                del runs[1] # remove double ratio (1.0) # TODO: make this robust and smarter
+                del runs[1]  # remove double ratio (1.0) # TODO: make this robust and smarter
                 perfomances = [
                     x["perf"] for x in runs
                 ]
@@ -163,13 +165,15 @@ def visualize_performance(benchmarks):
                     seen.add(label)
 
         plt.legend(loc='center left', bbox_to_anchor=(1, 0.5), fontsize=16)
-        #plt.ylim([0.0, max(throughputs) * 1.5])
-        #plt.xticks(BS)
+        # plt.ylim([0.0, max(throughputs) * 1.5])
+        # plt.xticks(BS)
 
     plt.tight_layout()  # Adjust layout to prevent overlap
-    #plt.savefig("figures/pagesize_read_write.png", dpi=400)
+    # plt.savefig("figures/pagesize_read_write.png", dpi=400)
     plt.show()
 
-visualize_performance({dataset : v for dataset, v in performance.items() if dataset.startswith("EmbDI")})
-visualize_performance({dataset : v for dataset, v in performance.items() if dataset.startswith("Sakila")})
-visualize_performance({dataset : v for dataset, v in performance.items() if dataset.startswith("Pubs")})
+
+
+if __name__ == "__main__":
+    root_path = sys.argv[1]
+    benchmarks = import_benchmark(root_path)
