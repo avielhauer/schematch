@@ -15,11 +15,9 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class MetaNodesDatabaseGraph extends DatabaseGraph {
     private final Logger logger = LogManager.getLogger(this.getClass());
@@ -66,7 +64,7 @@ public class MetaNodesDatabaseGraph extends DatabaseGraph {
                     continue;
                 }
 
-                addEdge(graphRoot(), columnNode(column), true);
+                addEdge(tableNode(table), columnNode(column), true);
             }
         }
 
