@@ -5,3 +5,4 @@
 [staff.csv.email]
 [staff.csv.store_id]
 [staff.csv.username]
+[staff.csv.password]
