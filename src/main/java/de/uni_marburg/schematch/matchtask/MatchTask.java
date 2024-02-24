@@ -41,6 +41,7 @@ public class MatchTask {
     private Evaluator evaluator;
     private int cacheRead;
     private int cacheWrite;
+    private boolean transformedDatasets; // Similarity Matrices need to be transformed into original SM before evaluation.
 
     public MatchTask(Dataset dataset, Scenario scenario, List<MatchStep> matchSteps, List<Metric> metrics) {
         this.dataset = dataset;

@@ -177,7 +177,7 @@ public class MetanomeImpl{
                             ).collect(Collectors.toSet());
                             Column dependant = table.getColumnByName(fdIterator.next());
                             FunctionalDependency fd = new FunctionalDependency(determinants, dependant);
-                            fd.setPdepTuple(MetadataUtils.getPdep(fd));
+                            //fd.setPdepTuple(MetadataUtils.getPdep(fd));
                             results.add(fd);
                         } catch (NoSuchElementException e) {
                             throw new RuntimeException(e);

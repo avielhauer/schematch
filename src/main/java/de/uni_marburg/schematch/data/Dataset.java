@@ -13,11 +13,13 @@ import java.util.List;
 public class Dataset {
     private String name;
     private String path;
+    private boolean isDenormalized;
     private List<String> scenarioNames;
 
     public Dataset(Configuration.DatasetConfiguration datasetConfiguration) {
         this.name = datasetConfiguration.getName();
         this.path = datasetConfiguration.getPath();
+        this.isDenormalized = datasetConfiguration.isDenormalized();
         this.scenarioNames = new ArrayList<>();
 
         File dir = new File(this.path);

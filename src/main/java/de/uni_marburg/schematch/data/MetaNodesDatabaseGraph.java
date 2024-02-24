@@ -80,10 +80,7 @@ public class MetaNodesDatabaseGraph extends DatabaseGraph {
 
         int maxFdSize = MAX_FD_SIZE;
         Collection<FunctionalDependency> fds;
-        do {
-            fds = database.getMetadata().getMeaningfulFunctionalDependencies(maxFdSize, new HashSet<>());
-            maxFdSize--;
-        } while (fds.size() > maxConstraintsSize && maxFdSize > 1);
+        fds = database.getMetadata().getMeaningfulFunctionalDependencies(maxFdSize, maxConstraintsSize, new HashSet<>());
 //        fds = fds.stream()
 //                .sorted(Comparator.comparingDouble((FunctionalDependency fd) -> fd.getPdepTuple().gpdep).reversed())
 //                .limit(fds.size() / 2)

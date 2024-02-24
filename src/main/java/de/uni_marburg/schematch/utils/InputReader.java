@@ -199,9 +199,9 @@ public class InputReader {
 //                    datasetFDs = Metanome.executeFD(List.of(table));
                     datasetFDs = Metanome.executeApproximateFD(List.of(table));
                 }
-                for (FunctionalDependency fd : datasetFDs) {
-                    fd.setPdepTuple(MetadataUtils.getPdep(fd));
-                }
+                //for (FunctionalDependency fd : datasetFDs) {
+                //    fd.setPdepTuple(MetadataUtils.getPdep(fd));
+                //}
                 Collection<UniqueColumnCombination> datasetUCCs = readUCCFile(uccFilePath, table, uccMap);
                 if(datasetUCCs.isEmpty())
                     datasetUCCs = Metanome.executeUCC(List.of(table));
