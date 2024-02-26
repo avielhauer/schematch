@@ -49,11 +49,13 @@ public class FunctionalDependency implements Dependency{
         sb.append(dependant.getTable().getName());
         sb.append(".csv.");
         sb.append(dependant.getLabel());
-        sb.append(" (pdep ");
-        sb.append(pdepTuple.pdep);
-        sb.append(", ");
-        sb.append(pdepTuple.gpdep);
-        sb.append(")");
+        if(pdepTuple != null){
+            sb.append(" (pdep ");
+            sb.append(pdepTuple.pdep);
+            sb.append(", ");
+            sb.append(pdepTuple.gpdep);
+            sb.append(")");
+        }
         return sb.toString();
     }
 
