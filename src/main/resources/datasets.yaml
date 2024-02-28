@@ -1,30 +1,12 @@
-#---
-#name: "DeNorm"
-#path: "DeNorm"
-#---
-#name: "Efes-bib"
-#path: "Efes-bib"
-#---
-#name: "Efes-music"
-#path: "Efes-music"
-#---
-#name: "ISIA-inventory"
-#path: "ISIA-inventory"
 ---
-name: "ISIA-real_estate2"
-path: "ISIA-real_estate2"
-#---
-#name: "Pubs"
-#path: "Pubs"
-#---
-#name: "Sakila"
-#path: "Sakila"
-#---
-#name: "Valentine-Magellan"
-#path: "Valentine-Magellan"
-#---
-#name: "Valentine-Wikidata"
-#path: "Valentine-Wikidata"
-#---
-#name: "EmbDI"
-#path: "EmbDI"
+name: "single_table"
+path: "single_table"
+---
+name: "single_table_md5"
+path: "single_table__md5"
+---
+name: "structurally_identical"
+path: "structurally_identical"
+---
+name: "structurally_identical_md5"
+path: "structurally_identical__md5"r

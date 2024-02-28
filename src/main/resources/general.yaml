@@ -23,7 +23,7 @@ performanceOverviewFilePrefix: "performance_overview_"
 # directory name for matcher output results
 outputDir : "_outputs"
 # default base directory where data directories reside
-defaultDatasetBasePath: "data"
+defaultDatasetBasePath: "cosma_data"
 
 # Whether to recompute all FDs even if a dependency file is not empty
 recomputeAllFDs: True
