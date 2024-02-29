@@ -15,7 +15,7 @@ import java.util.List;
 
 @EqualsAndHashCode(callSuper=false)
 @NoArgsConstructor
-public class Node2VecMatcher extends TablePairMatcher {
+public class EmbedAlignMatcher extends TablePairMatcher {
     final private Integer serverPort = 5004;
     @Getter
     @Setter

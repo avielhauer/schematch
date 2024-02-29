@@ -1,6 +1,6 @@
 # State-of-the-Art matchers
 ---
-name: "Node2VecMatcher"
+name: "EmbedAlignMatcher"
 packageName: "metadata"
 active: true
 params:
