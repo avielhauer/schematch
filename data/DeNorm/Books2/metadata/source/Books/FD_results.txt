@@ -1,0 +1,65 @@
+[Books.csv.DueDate] --> Books.csv.BookID
+[Books.csv.DueDate] --> Books.csv.Author
+[Books.csv.DueDate] --> Books.csv.ISBN
+[Books.csv.DueDate] --> Books.csv.Title
+[Books.csv.DueDate] --> Books.csv.Genre
+[Books.csv.DueDate] --> Books.csv.BorrowerID
+[Books.csv.DueDate] --> Books.csv.BorrowerName
+[Books.csv.DueDate] --> Books.csv.BranchID
+[Books.csv.BookID] --> Books.csv.Author
+[Books.csv.BookID] --> Books.csv.ISBN
+[Books.csv.BookID] --> Books.csv.Title
+[Books.csv.BookID] --> Books.csv.Genre
+[Books.csv.BookID] --> Books.csv.BorrowerID
+[Books.csv.BookID] --> Books.csv.BorrowerName
+[Books.csv.BookID] --> Books.csv.BranchID
+[Books.csv.Author] --> Books.csv.BookID
+[Books.csv.Author] --> Books.csv.ISBN
+[Books.csv.Author] --> Books.csv.Title
+[Books.csv.Author] --> Books.csv.Genre
+[Books.csv.Author] --> Books.csv.BorrowerID
+[Books.csv.Author] --> Books.csv.BorrowerName
+[Books.csv.Author] --> Books.csv.BranchID
+[Books.csv.ISBN] --> Books.csv.BookID
+[Books.csv.ISBN] --> Books.csv.Author
+[Books.csv.ISBN] --> Books.csv.Title
+[Books.csv.ISBN] --> Books.csv.Genre
+[Books.csv.ISBN] --> Books.csv.BorrowerID
+[Books.csv.ISBN] --> Books.csv.BorrowerName
+[Books.csv.ISBN] --> Books.csv.BranchID
+[Books.csv.Title] --> Books.csv.BorrowerID
+[Books.csv.Title] --> Books.csv.BorrowerName
+[Books.csv.Genre, Books.csv.Title] --> Books.csv.BookID
+[Books.csv.Genre, Books.csv.Title] --> Books.csv.Author
+[Books.csv.Genre, Books.csv.Title] --> Books.csv.ISBN
+[Books.csv.Genre, Books.csv.Title] --> Books.csv.BranchID
+[Books.csv.BranchID, Books.csv.Title] --> Books.csv.BookID
+[Books.csv.BranchID, Books.csv.Title] --> Books.csv.Author
+[Books.csv.BranchID, Books.csv.Title] --> Books.csv.ISBN
+[Books.csv.BranchID, Books.csv.Title] --> Books.csv.Genre
+[Books.csv.BorrowerID, Books.csv.Genre] --> Books.csv.BookID
+[Books.csv.BorrowerID, Books.csv.Genre] --> Books.csv.Author
+[Books.csv.BorrowerID, Books.csv.Genre] --> Books.csv.ISBN
+[Books.csv.BorrowerID, Books.csv.Genre] --> Books.csv.BranchID
+[Books.csv.BorrowerName, Books.csv.Genre] --> Books.csv.BookID
+[Books.csv.BorrowerName, Books.csv.Genre] --> Books.csv.Author
+[Books.csv.BorrowerName, Books.csv.Genre] --> Books.csv.ISBN
+[Books.csv.BorrowerName, Books.csv.Genre] --> Books.csv.BranchID
+[Books.csv.BranchID, Books.csv.Genre] --> Books.csv.BookID
+[Books.csv.BranchID, Books.csv.Genre] --> Books.csv.Author
+[Books.csv.BranchID, Books.csv.Genre] --> Books.csv.ISBN
+[Books.csv.BranchID, Books.csv.Genre] --> Books.csv.Title
+[Books.csv.BranchID, Books.csv.Genre] --> Books.csv.BorrowerID
+[Books.csv.BranchID, Books.csv.Genre] --> Books.csv.BorrowerName
+[Books.csv.BorrowerID] --> Books.csv.Title
+[Books.csv.BorrowerID] --> Books.csv.BorrowerName
+[Books.csv.BorrowerID, Books.csv.BranchID] --> Books.csv.BookID
+[Books.csv.BorrowerID, Books.csv.BranchID] --> Books.csv.Author
+[Books.csv.BorrowerID, Books.csv.BranchID] --> Books.csv.ISBN
+[Books.csv.BorrowerID, Books.csv.BranchID] --> Books.csv.Genre
+[Books.csv.BorrowerName] --> Books.csv.Title
+[Books.csv.BorrowerName] --> Books.csv.BorrowerID
+[Books.csv.BorrowerName, Books.csv.BranchID] --> Books.csv.BookID
+[Books.csv.BorrowerName, Books.csv.BranchID] --> Books.csv.Author
+[Books.csv.BorrowerName, Books.csv.BranchID] --> Books.csv.ISBN
+[Books.csv.BorrowerName, Books.csv.BranchID] --> Books.csv.Genre

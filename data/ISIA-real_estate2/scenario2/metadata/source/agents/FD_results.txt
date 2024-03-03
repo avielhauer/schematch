@@ -1,0 +1,33 @@
+[agents.csv.agent_id] --> agents.csv.agent_name
+[agents.csv.agent_id] --> agents.csv.agent_last_name
+[agents.csv.agent_id] --> agents.csv.agent_first_name
+[agents.csv.agent_id] --> agents.csv.agent_email
+[agents.csv.agent_id] --> agents.csv.agent_phone_number
+[agents.csv.agent_id] --> agents.csv.agent_area_code
+[agents.csv.agent_name] --> agents.csv.agent_last_name
+[agents.csv.agent_name] --> agents.csv.agent_first_name
+[agents.csv.agent_name] --> agents.csv.agent_email
+[agents.csv.agent_name] --> agents.csv.agent_phone_number
+[agents.csv.agent_name] --> agents.csv.agent_area_code
+[agents.csv.agent_first_name, agents.csv.agent_last_name] --> agents.csv.agent_name
+[agents.csv.agent_first_name, agents.csv.agent_last_name] --> agents.csv.agent_email
+[agents.csv.agent_first_name, agents.csv.agent_last_name] --> agents.csv.agent_phone_number
+[agents.csv.agent_first_name, agents.csv.agent_last_name] --> agents.csv.agent_area_code
+[agents.csv.agent_email, agents.csv.agent_last_name] --> agents.csv.agent_name
+[agents.csv.agent_email, agents.csv.agent_last_name] --> agents.csv.agent_first_name
+[agents.csv.agent_email, agents.csv.agent_last_name] --> agents.csv.agent_phone_number
+[agents.csv.agent_email, agents.csv.agent_last_name] --> agents.csv.agent_area_code
+[agents.csv.agent_last_name, agents.csv.agent_phone_number] --> agents.csv.agent_area_code
+[agents.csv.agent_area_code, agents.csv.agent_last_name] --> agents.csv.agent_phone_number
+[agents.csv.agent_email, agents.csv.agent_first_name] --> agents.csv.agent_name
+[agents.csv.agent_email, agents.csv.agent_first_name] --> agents.csv.agent_last_name
+[agents.csv.agent_email, agents.csv.agent_first_name] --> agents.csv.agent_phone_number
+[agents.csv.agent_email, agents.csv.agent_first_name] --> agents.csv.agent_area_code
+[agents.csv.agent_first_name, agents.csv.agent_phone_number] --> agents.csv.agent_name
+[agents.csv.agent_first_name, agents.csv.agent_phone_number] --> agents.csv.agent_last_name
+[agents.csv.agent_first_name, agents.csv.agent_phone_number] --> agents.csv.agent_email
+[agents.csv.agent_first_name, agents.csv.agent_phone_number] --> agents.csv.agent_area_code
+[agents.csv.agent_area_code, agents.csv.agent_first_name] --> agents.csv.agent_name
+[agents.csv.agent_area_code, agents.csv.agent_first_name] --> agents.csv.agent_last_name
+[agents.csv.agent_area_code, agents.csv.agent_first_name] --> agents.csv.agent_email
+[agents.csv.agent_area_code, agents.csv.agent_first_name] --> agents.csv.agent_phone_number

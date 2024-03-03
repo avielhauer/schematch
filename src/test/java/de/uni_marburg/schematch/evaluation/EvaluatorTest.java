@@ -5,6 +5,7 @@ import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.evaluation.metric.Metric;
 import de.uni_marburg.schematch.evaluation.metric.NonBinaryPrecisionAtGroundTruth;
 import de.uni_marburg.schematch.evaluation.performance.Performance;
+import de.uni_marburg.schematch.utils.Configuration;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -36,6 +37,8 @@ class EvaluatorTest {
                 {0.9f,0.2f,0.6f,0.8f},
                 {0.3f,0.2f,0.0f,0.3f}
         };
+
+        Configuration.getInstance().setEvaluateAttributes(true);
 
         Evaluator evaluator = new Evaluator(metrics, scenario, groundTruthMatrix);
         Performance performance = evaluator.evaluate(simMatrix).get(metrics.get(0));

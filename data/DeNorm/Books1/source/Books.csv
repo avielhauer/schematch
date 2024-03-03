@@ -1,0 +1,6 @@
+BookID,Title,BorrowerID,BorrowerName,DueDate
+1,The Great Gatsby,1001,John Doe,2024-02-15
+2,To Kill a Mockingbird,1002,Jane Smith,2024-03-05
+1,The Great Gatsby,1003,Bob Johnson,2024-02-20
+3,The Catcher in the Rye,1001,John Doe,2024-03-10
+4,1984,1002,Jane Smith,2024-02-25

@@ -1,0 +1,5 @@
+[Books.csv.DueDate]
+[Books.csv.BookID, Books.csv.BorrowerID]
+[Books.csv.BookID, Books.csv.BorrowerName]
+[Books.csv.BorrowerID, Books.csv.Title]
+[Books.csv.BorrowerName, Books.csv.Title]

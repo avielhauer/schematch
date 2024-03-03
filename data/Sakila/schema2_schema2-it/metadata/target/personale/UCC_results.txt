@@ -5,3 +5,4 @@
 [personale.csv.email]
 [personale.csv.negozio_id]
 [personale.csv.nomeutente]
+[personale.csv.password]

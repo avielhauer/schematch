@@ -1,0 +1,10 @@
+[walmart_amazon_source.csv.id] --> walmart_amazon_source.csv.title
+[walmart_amazon_source.csv.id] --> walmart_amazon_source.csv.modelno
+[walmart_amazon_source.csv.id] --> walmart_amazon_source.csv.price
+[walmart_amazon_source.csv.id] --> walmart_amazon_source.csv.brand
+[walmart_amazon_source.csv.id] --> walmart_amazon_source.csv.category
+[walmart_amazon_source.csv.title] --> walmart_amazon_source.csv.brand
+[walmart_amazon_source.csv.title] --> walmart_amazon_source.csv.category
+[walmart_amazon_source.csv.modelno, walmart_amazon_source.csv.title] --> walmart_amazon_source.csv.id
+[walmart_amazon_source.csv.modelno, walmart_amazon_source.csv.title] --> walmart_amazon_source.csv.price
+[walmart_amazon_source.csv.brand, walmart_amazon_source.csv.modelno, walmart_amazon_source.csv.price] --> walmart_amazon_source.csv.category

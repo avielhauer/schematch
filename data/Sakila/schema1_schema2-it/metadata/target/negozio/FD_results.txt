@@ -1,3 +1,6 @@
-[negozio.csv.capo_personale_id] --> negozio.csv.indirizzo_id, negozio.csv.negozio_id
-[negozio.csv.indirizzo_id] --> negozio.csv.capo_personale_id, negozio.csv.negozio_id
-[negozio.csv.negozio_id] --> negozio.csv.capo_personale_id, negozio.csv.indirizzo_id
+[negozio.csv.negozio_id] --> negozio.csv.capo_personale_id
+[negozio.csv.negozio_id] --> negozio.csv.indirizzo_id
+[negozio.csv.capo_personale_id] --> negozio.csv.negozio_id
+[negozio.csv.capo_personale_id] --> negozio.csv.indirizzo_id
+[negozio.csv.indirizzo_id] --> negozio.csv.negozio_id
+[negozio.csv.indirizzo_id] --> negozio.csv.capo_personale_id

@@ -1,1 +1,2 @@
-[inventario.csv.inventario_id] --> inventario.csv.film_id, inventario.csv.negozio_id
+[inventario.csv.inventario_id] --> inventario.csv.film_id
+[inventario.csv.inventario_id] --> inventario.csv.negozio_id

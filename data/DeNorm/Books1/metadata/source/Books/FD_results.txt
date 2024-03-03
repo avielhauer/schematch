@@ -1,0 +1,12 @@
+[Books.csv.DueDate] --> Books.csv.BookID
+[Books.csv.DueDate] --> Books.csv.Title
+[Books.csv.DueDate] --> Books.csv.BorrowerID
+[Books.csv.DueDate] --> Books.csv.BorrowerName
+[Books.csv.BookID] --> Books.csv.Title
+[Books.csv.BookID, Books.csv.BorrowerID] --> Books.csv.DueDate
+[Books.csv.BookID, Books.csv.BorrowerName] --> Books.csv.DueDate
+[Books.csv.Title] --> Books.csv.BookID
+[Books.csv.BorrowerID, Books.csv.Title] --> Books.csv.DueDate
+[Books.csv.BorrowerName, Books.csv.Title] --> Books.csv.DueDate
+[Books.csv.BorrowerID] --> Books.csv.BorrowerName
+[Books.csv.BorrowerName] --> Books.csv.BorrowerID

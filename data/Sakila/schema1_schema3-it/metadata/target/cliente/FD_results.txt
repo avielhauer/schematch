@@ -1,6 +1,34 @@
-[cliente.csv.cliente_id] --> cliente.csv.attivo, cliente.csv.cognome, cliente.csv.data_creazione, cliente.csv.email, cliente.csv.indirizzo_id, cliente.csv.negozio_id, cliente.csv.nome
-[cliente.csv.cognome] --> cliente.csv.attivo, cliente.csv.cliente_id, cliente.csv.data_creazione, cliente.csv.email, cliente.csv.indirizzo_id, cliente.csv.negozio_id, cliente.csv.nome
-[cliente.csv.data_creazione, cliente.csv.nome] --> cliente.csv.cliente_id, cliente.csv.cognome, cliente.csv.email, cliente.csv.indirizzo_id, cliente.csv.negozio_id
-[cliente.csv.email] --> cliente.csv.attivo, cliente.csv.cliente_id, cliente.csv.cognome, cliente.csv.data_creazione, cliente.csv.indirizzo_id, cliente.csv.negozio_id, cliente.csv.nome
-[cliente.csv.indirizzo_id] --> cliente.csv.attivo, cliente.csv.cliente_id, cliente.csv.cognome, cliente.csv.data_creazione, cliente.csv.email, cliente.csv.negozio_id, cliente.csv.nome
+[cliente.csv.cliente_id] --> cliente.csv.cognome
+[cliente.csv.cliente_id] --> cliente.csv.email
+[cliente.csv.cliente_id] --> cliente.csv.indirizzo_id
+[cliente.csv.cliente_id] --> cliente.csv.nome
+[cliente.csv.cliente_id] --> cliente.csv.negozio_id
+[cliente.csv.cliente_id] --> cliente.csv.attivo
+[cliente.csv.cliente_id] --> cliente.csv.data_creazione
+[cliente.csv.cognome] --> cliente.csv.cliente_id
+[cliente.csv.cognome] --> cliente.csv.email
+[cliente.csv.cognome] --> cliente.csv.indirizzo_id
+[cliente.csv.cognome] --> cliente.csv.nome
+[cliente.csv.cognome] --> cliente.csv.negozio_id
+[cliente.csv.cognome] --> cliente.csv.attivo
+[cliente.csv.cognome] --> cliente.csv.data_creazione
+[cliente.csv.email] --> cliente.csv.cliente_id
+[cliente.csv.email] --> cliente.csv.cognome
+[cliente.csv.email] --> cliente.csv.indirizzo_id
+[cliente.csv.email] --> cliente.csv.nome
+[cliente.csv.email] --> cliente.csv.negozio_id
+[cliente.csv.email] --> cliente.csv.attivo
+[cliente.csv.email] --> cliente.csv.data_creazione
+[cliente.csv.indirizzo_id] --> cliente.csv.cliente_id
+[cliente.csv.indirizzo_id] --> cliente.csv.cognome
+[cliente.csv.indirizzo_id] --> cliente.csv.email
+[cliente.csv.indirizzo_id] --> cliente.csv.nome
+[cliente.csv.indirizzo_id] --> cliente.csv.negozio_id
+[cliente.csv.indirizzo_id] --> cliente.csv.attivo
+[cliente.csv.indirizzo_id] --> cliente.csv.data_creazione
 [cliente.csv.nome] --> cliente.csv.attivo
+[cliente.csv.data_creazione, cliente.csv.nome] --> cliente.csv.cliente_id
+[cliente.csv.data_creazione, cliente.csv.nome] --> cliente.csv.cognome
+[cliente.csv.data_creazione, cliente.csv.nome] --> cliente.csv.email
+[cliente.csv.data_creazione, cliente.csv.nome] --> cliente.csv.indirizzo_id
+[cliente.csv.data_creazione, cliente.csv.nome] --> cliente.csv.negozio_id

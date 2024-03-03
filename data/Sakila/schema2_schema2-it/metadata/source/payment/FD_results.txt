@@ -1,17 +1,78 @@
-[payment.csv.amount, payment.csv.customer_id, payment.csv.payment_date, payment.csv.pstaff_id] --> payment.csv.inventory_id, payment.csv.payment_id, payment.csv.rental_id, payment.csv.rstaff_id
-[payment.csv.amount, payment.csv.customer_id, payment.csv.payment_date, payment.csv.rstaff_id] --> payment.csv.inventory_id, payment.csv.payment_id, payment.csv.pstaff_id, payment.csv.rental_id
-[payment.csv.amount, payment.csv.customer_id, payment.csv.pstaff_id, payment.csv.rental_date] --> payment.csv.inventory_id, payment.csv.payment_id, payment.csv.rental_id, payment.csv.rstaff_id
-[payment.csv.amount, payment.csv.customer_id, payment.csv.pstaff_id, payment.csv.return_date] --> payment.csv.inventory_id, payment.csv.payment_id, payment.csv.rental_id, payment.csv.rstaff_id
-[payment.csv.amount, payment.csv.customer_id, payment.csv.rental_date, payment.csv.rstaff_id] --> payment.csv.inventory_id, payment.csv.payment_id, payment.csv.pstaff_id, payment.csv.rental_id
-[payment.csv.amount, payment.csv.customer_id, payment.csv.return_date, payment.csv.rstaff_id] --> payment.csv.inventory_id, payment.csv.payment_id, payment.csv.pstaff_id, payment.csv.rental_id
-[payment.csv.customer_id, payment.csv.inventory_id] --> payment.csv.amount, payment.csv.payment_date, payment.csv.payment_id, payment.csv.pstaff_id, payment.csv.rental_date, payment.csv.rental_id, payment.csv.return_date, payment.csv.rstaff_id
-[payment.csv.customer_id, payment.csv.payment_date] --> payment.csv.return_date
-[payment.csv.customer_id, payment.csv.rental_date] --> payment.csv.return_date
-[payment.csv.customer_id, payment.csv.return_date] --> payment.csv.payment_date, payment.csv.rental_date
-[payment.csv.inventory_id, payment.csv.payment_date] --> payment.csv.amount, payment.csv.customer_id, payment.csv.payment_id, payment.csv.pstaff_id, payment.csv.rental_id, payment.csv.return_date, payment.csv.rstaff_id
-[payment.csv.inventory_id, payment.csv.rental_date] --> payment.csv.amount, payment.csv.customer_id, payment.csv.payment_id, payment.csv.pstaff_id, payment.csv.rental_id, payment.csv.return_date, payment.csv.rstaff_id
-[payment.csv.inventory_id, payment.csv.return_date] --> payment.csv.amount, payment.csv.customer_id, payment.csv.payment_date, payment.csv.payment_id, payment.csv.pstaff_id, payment.csv.rental_date, payment.csv.rental_id, payment.csv.rstaff_id
+[payment.csv.payment_id] --> payment.csv.rental_id
+[payment.csv.payment_id] --> payment.csv.return_date
+[payment.csv.payment_id] --> payment.csv.payment_date
+[payment.csv.payment_id] --> payment.csv.rental_date
+[payment.csv.payment_id] --> payment.csv.inventory_id
+[payment.csv.payment_id] --> payment.csv.customer_id
+[payment.csv.payment_id] --> payment.csv.amount
+[payment.csv.payment_id] --> payment.csv.pstaff_id
+[payment.csv.payment_id] --> payment.csv.rstaff_id
+[payment.csv.rental_id] --> payment.csv.payment_id
+[payment.csv.rental_id] --> payment.csv.return_date
+[payment.csv.rental_id] --> payment.csv.payment_date
+[payment.csv.rental_id] --> payment.csv.rental_date
+[payment.csv.rental_id] --> payment.csv.inventory_id
+[payment.csv.rental_id] --> payment.csv.customer_id
+[payment.csv.rental_id] --> payment.csv.amount
+[payment.csv.rental_id] --> payment.csv.pstaff_id
+[payment.csv.rental_id] --> payment.csv.rstaff_id
+[payment.csv.inventory_id, payment.csv.return_date] --> payment.csv.payment_id
+[payment.csv.inventory_id, payment.csv.return_date] --> payment.csv.rental_id
+[payment.csv.inventory_id, payment.csv.return_date] --> payment.csv.payment_date
+[payment.csv.inventory_id, payment.csv.return_date] --> payment.csv.rental_date
+[payment.csv.inventory_id, payment.csv.return_date] --> payment.csv.customer_id
+[payment.csv.inventory_id, payment.csv.return_date] --> payment.csv.amount
+[payment.csv.inventory_id, payment.csv.return_date] --> payment.csv.pstaff_id
+[payment.csv.inventory_id, payment.csv.return_date] --> payment.csv.rstaff_id
+[payment.csv.customer_id, payment.csv.return_date] --> payment.csv.payment_date
+[payment.csv.customer_id, payment.csv.return_date] --> payment.csv.rental_date
+[payment.csv.amount, payment.csv.customer_id, payment.csv.pstaff_id, payment.csv.return_date] --> payment.csv.payment_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.pstaff_id, payment.csv.return_date] --> payment.csv.rental_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.pstaff_id, payment.csv.return_date] --> payment.csv.inventory_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.pstaff_id, payment.csv.return_date] --> payment.csv.rstaff_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.return_date, payment.csv.rstaff_id] --> payment.csv.payment_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.return_date, payment.csv.rstaff_id] --> payment.csv.rental_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.return_date, payment.csv.rstaff_id] --> payment.csv.inventory_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.return_date, payment.csv.rstaff_id] --> payment.csv.pstaff_id
 [payment.csv.payment_date] --> payment.csv.rental_date
-[payment.csv.payment_id] --> payment.csv.amount, payment.csv.customer_id, payment.csv.inventory_id, payment.csv.payment_date, payment.csv.pstaff_id, payment.csv.rental_date, payment.csv.rental_id, payment.csv.return_date, payment.csv.rstaff_id
+[payment.csv.inventory_id, payment.csv.payment_date] --> payment.csv.payment_id
+[payment.csv.inventory_id, payment.csv.payment_date] --> payment.csv.rental_id
+[payment.csv.inventory_id, payment.csv.payment_date] --> payment.csv.return_date
+[payment.csv.inventory_id, payment.csv.payment_date] --> payment.csv.customer_id
+[payment.csv.inventory_id, payment.csv.payment_date] --> payment.csv.amount
+[payment.csv.inventory_id, payment.csv.payment_date] --> payment.csv.pstaff_id
+[payment.csv.inventory_id, payment.csv.payment_date] --> payment.csv.rstaff_id
+[payment.csv.customer_id, payment.csv.payment_date] --> payment.csv.return_date
+[payment.csv.amount, payment.csv.customer_id, payment.csv.payment_date, payment.csv.pstaff_id] --> payment.csv.payment_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.payment_date, payment.csv.pstaff_id] --> payment.csv.rental_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.payment_date, payment.csv.pstaff_id] --> payment.csv.inventory_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.payment_date, payment.csv.pstaff_id] --> payment.csv.rstaff_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.payment_date, payment.csv.rstaff_id] --> payment.csv.payment_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.payment_date, payment.csv.rstaff_id] --> payment.csv.rental_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.payment_date, payment.csv.rstaff_id] --> payment.csv.inventory_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.payment_date, payment.csv.rstaff_id] --> payment.csv.pstaff_id
 [payment.csv.rental_date] --> payment.csv.payment_date
-[payment.csv.rental_id] --> payment.csv.amount, payment.csv.customer_id, payment.csv.inventory_id, payment.csv.payment_date, payment.csv.payment_id, payment.csv.pstaff_id, payment.csv.rental_date, payment.csv.return_date, payment.csv.rstaff_id
+[payment.csv.inventory_id, payment.csv.rental_date] --> payment.csv.payment_id
+[payment.csv.inventory_id, payment.csv.rental_date] --> payment.csv.rental_id
+[payment.csv.inventory_id, payment.csv.rental_date] --> payment.csv.return_date
+[payment.csv.inventory_id, payment.csv.rental_date] --> payment.csv.customer_id
+[payment.csv.inventory_id, payment.csv.rental_date] --> payment.csv.amount
+[payment.csv.inventory_id, payment.csv.rental_date] --> payment.csv.pstaff_id
+[payment.csv.inventory_id, payment.csv.rental_date] --> payment.csv.rstaff_id
+[payment.csv.customer_id, payment.csv.rental_date] --> payment.csv.return_date
+[payment.csv.amount, payment.csv.customer_id, payment.csv.pstaff_id, payment.csv.rental_date] --> payment.csv.payment_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.pstaff_id, payment.csv.rental_date] --> payment.csv.rental_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.pstaff_id, payment.csv.rental_date] --> payment.csv.inventory_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.pstaff_id, payment.csv.rental_date] --> payment.csv.rstaff_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.rental_date, payment.csv.rstaff_id] --> payment.csv.payment_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.rental_date, payment.csv.rstaff_id] --> payment.csv.rental_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.rental_date, payment.csv.rstaff_id] --> payment.csv.inventory_id
+[payment.csv.amount, payment.csv.customer_id, payment.csv.rental_date, payment.csv.rstaff_id] --> payment.csv.pstaff_id
+[payment.csv.customer_id, payment.csv.inventory_id] --> payment.csv.payment_id
+[payment.csv.customer_id, payment.csv.inventory_id] --> payment.csv.rental_id
+[payment.csv.customer_id, payment.csv.inventory_id] --> payment.csv.return_date
+[payment.csv.customer_id, payment.csv.inventory_id] --> payment.csv.payment_date
+[payment.csv.customer_id, payment.csv.inventory_id] --> payment.csv.rental_date
+[payment.csv.customer_id, payment.csv.inventory_id] --> payment.csv.amount
+[payment.csv.customer_id, payment.csv.inventory_id] --> payment.csv.pstaff_id
+[payment.csv.customer_id, payment.csv.inventory_id] --> payment.csv.rstaff_id

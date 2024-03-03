@@ -1,0 +1,34 @@
+[Employee.csv.EmployeeID] --> Employee.csv.EmployeeName
+[Employee.csv.EmployeeID] --> Employee.csv.ProjectID
+[Employee.csv.EmployeeID] --> Employee.csv.ProjectManager
+[Employee.csv.EmployeeID] --> Employee.csv.ManagerRoom
+[Employee.csv.EmployeeID] --> Employee.csv.Department
+[Employee.csv.EmployeeID] --> Employee.csv.ProjectName
+[Employee.csv.EmployeeID] --> Employee.csv.Salary
+[Employee.csv.EmployeeName] --> Employee.csv.EmployeeID
+[Employee.csv.EmployeeName] --> Employee.csv.ProjectID
+[Employee.csv.EmployeeName] --> Employee.csv.ProjectManager
+[Employee.csv.EmployeeName] --> Employee.csv.ManagerRoom
+[Employee.csv.EmployeeName] --> Employee.csv.Department
+[Employee.csv.EmployeeName] --> Employee.csv.ProjectName
+[Employee.csv.EmployeeName] --> Employee.csv.Salary
+[Employee.csv.ProjectID] --> Employee.csv.ProjectManager
+[Employee.csv.ProjectID] --> Employee.csv.ManagerRoom
+[Employee.csv.ProjectID] --> Employee.csv.ProjectName
+[Employee.csv.ProjectID] --> Employee.csv.Salary
+[Employee.csv.Department, Employee.csv.ProjectID] --> Employee.csv.EmployeeID
+[Employee.csv.Department, Employee.csv.ProjectID] --> Employee.csv.EmployeeName
+[Employee.csv.ProjectManager] --> Employee.csv.ProjectID
+[Employee.csv.ProjectManager] --> Employee.csv.ManagerRoom
+[Employee.csv.ProjectManager] --> Employee.csv.ProjectName
+[Employee.csv.ProjectManager] --> Employee.csv.Salary
+[Employee.csv.Department, Employee.csv.ProjectManager] --> Employee.csv.EmployeeID
+[Employee.csv.Department, Employee.csv.ProjectManager] --> Employee.csv.EmployeeName
+[Employee.csv.ManagerRoom] --> Employee.csv.ProjectID
+[Employee.csv.ManagerRoom] --> Employee.csv.ProjectManager
+[Employee.csv.ManagerRoom] --> Employee.csv.ProjectName
+[Employee.csv.ManagerRoom] --> Employee.csv.Salary
+[Employee.csv.Department, Employee.csv.ManagerRoom] --> Employee.csv.EmployeeID
+[Employee.csv.Department, Employee.csv.ManagerRoom] --> Employee.csv.EmployeeName
+[Employee.csv.ProjectName] --> Employee.csv.Salary
+[Employee.csv.Salary] --> Employee.csv.ProjectName

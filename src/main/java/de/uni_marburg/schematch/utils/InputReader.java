@@ -213,6 +213,7 @@ public class InputReader {
     }
 
 
+    // Deprecated by PR #20
     public static ScenarioMetadata readScenarioMetadata(String inputPath, Database sourceDatabase, Database targetDatabase){
         try {
             Path metadataFolderPath = Paths.get(inputPath, "metadata");
