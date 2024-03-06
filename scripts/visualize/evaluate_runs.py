@@ -106,7 +106,7 @@ def generate_perf_plots_gamma_struc(performances=PERFORMANCES):
     for performance_name, performance_id in performances.items():
         def plot_embed_align_struc(performance_name=performance_name, performance_id=performance_id):
             def plot(matcher_to_performances, ax, fig):
-                n2v_perf = deepcopy(matcher_to_performances["Node2VecMatcher"])
+                n2v_perf = deepcopy(matcher_to_performances["EmbedAlignMatcher"])
                 grouped_perfs = group_performances(n2v_perf, ["topKRow", "topKCol", "dropColumns", "dropConstraints"])
                 sorted_filtered_perfs = {k:sorted(v, key=lambda x: x["props"]["xNetMFGammaStrucAttr"]) for k,v in grouped_perfs.items()}
                 ax.set_title(f"{performance_name} for different xNetMFGammaStrucAttr")
