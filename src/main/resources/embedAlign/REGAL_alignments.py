@@ -14,10 +14,10 @@ def get_embedding_similarities(embed, embed2 = None, sim_measure = "euclidean", 
     if embed2 is None:
         embed2 = embed
 
-    # if top_k_row is not None or top_k_col is not None: #KD tree with only top similarities computed
-    #     kd_sim_source_target = kd_align(embed, embed2, distance_metric=sim_measure, num_top=top_k_row if top_k_row is not None else 0)
-    #     kd_sim_target_source = kd_align(embed2, embed, distance_metric=sim_measure, num_top=top_k_col if top_k_col is not None else 0)
-    #     return kd_sim_target_source.transpose().maximum(kd_sim_source_target)
+    if top_k_row != -1 and top_k_col != -1: #KD tree with only top similarities computed
+        kd_sim_source_target = kd_align(embed, embed2, distance_metric=sim_measure, num_top=top_k_row if top_k_row is not None else 0)
+        kd_sim_target_source = kd_align(embed2, embed, distance_metric=sim_measure, num_top=top_k_col if top_k_col is not None else 0)
+        return kd_sim_target_source.transpose().minimum(kd_sim_source_target)
 
     #All pairwise distance computation
     if sim_measure == "cosine":
