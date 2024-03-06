@@ -4,8 +4,13 @@ import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Database;
 import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.data.Table;
+import de.uni_marburg.schematch.evaluation.metric.MatcherRuntime;
 import de.uni_marburg.schematch.evaluation.metric.Metric;
+import de.uni_marburg.schematch.evaluation.metric.ProfilingRuntime;
 import de.uni_marburg.schematch.evaluation.performance.Performance;
+import de.uni_marburg.schematch.matching.Matcher;
+import de.uni_marburg.schematch.matchtask.MatchTask;
+import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import de.uni_marburg.schematch.utils.ArrayUtils;
 import de.uni_marburg.schematch.utils.Configuration;
 import lombok.Data;
@@ -19,6 +24,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.function.Supplier;
 
 @Data
 public class Evaluator {
@@ -208,6 +214,10 @@ public class Evaluator {
         Map<Metric, Performance> performances = new HashMap<>();
 
         for (Metric metric : this.metrics) {
+            if (!metric.runsOnSimilarityMatrices()) {
+                continue;
+            }
+
             Performance performance = new Performance(metric.run(this.groundTruthVector, simVector));
             if (Configuration.getInstance().isEvaluateAttributes()) {
                 assert this.sourceGroundTruthIndices != null;
@@ -225,5 +235,31 @@ public class Evaluator {
         }
 
         return performances;
+    }
+
+    public <R> R evaluateMatcherRuntime(MatchTask matchTask, MatchStep matchStep, Matcher matcher, Supplier<R> methodToBenchmark) {
+        Pair<R, Float> methodResult = profileRuntime(methodToBenchmark);
+
+        Optional<Metric> runtimeMetric =
+                this.metrics.stream().filter(MatcherRuntime.class::isInstance).findFirst();
+        runtimeMetric.ifPresent(metric -> matchTask.setPerformanceForMatcher(metric, matchStep, matcher, new Performance(
+                methodResult.getRight()
+        )));
+
+        Optional<Metric> profilingMetric =
+                this.metrics.stream().filter(ProfilingRuntime.class::isInstance).findFirst();
+        profilingMetric.ifPresent(metric -> matchTask.setPerformanceForMatcher(metric, matchStep, matcher, new Performance(
+                matchTask.getScenario().getSourceDatabase().getProfilingTime()
+                        + matchTask.getScenario().getTargetDatabase().getProfilingTime()
+        )));
+
+        return methodResult.getLeft();
+    }
+
+    public static <R> Pair<R, Float> profileRuntime(Supplier<R> methodToBenchmark) {
+        long startTime = System.nanoTime();
+        R result = methodToBenchmark.get();
+        long endTime = System.nanoTime();
+        return Pair.of(result, (float) (endTime - startTime) / 1_000_000_000);
     }
 }

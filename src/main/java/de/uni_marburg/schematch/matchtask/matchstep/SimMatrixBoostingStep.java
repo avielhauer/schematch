@@ -48,7 +48,10 @@ public class SimMatrixBoostingStep extends MatchStep {
             }
             if (boostedSimMatrix == null) {
                 log.debug("Processing " + this.line + ". line sim matrix boosting on matcher: " + matcher.toString());
-                boostedSimMatrix = this.simMatrixBoosting.run(matchTask, this, matchTask.getSimMatrixFromPreviousMatchStep(this, matcher));
+                boostedSimMatrix = matchTask.getEvaluator().evaluateMatcherRuntime(
+                        matchTask, this, matcher,
+                        () -> this.simMatrixBoosting.run(matchTask, this, matchTask.getSimMatrixFromPreviousMatchStep(this, matcher))
+                );
             }
             matchTask.setSimMatrix(this, matcher, boostedSimMatrix);
         }

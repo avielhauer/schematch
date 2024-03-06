@@ -4,6 +4,7 @@ import de.uni_marburg.schematch.data.metadata.DatabaseMetadata;
 import de.uni_marburg.schematch.utils.Configuration;
 import de.uni_marburg.schematch.utils.InputReader;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.io.File;
 import java.util.List;
@@ -18,6 +19,8 @@ public class Database {
     private int numColumns;
     private DatabaseGraph graph;
     private DatabaseFeatures databaseFeatures;
+    @Setter
+    private float profilingTime = 0;
 
     public Database(Scenario scenario, String path) {
         this.scenario = scenario;

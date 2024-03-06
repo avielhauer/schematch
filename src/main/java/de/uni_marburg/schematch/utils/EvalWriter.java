@@ -1,6 +1,5 @@
 package de.uni_marburg.schematch.utils;
 
-import de.uni_marburg.schematch.data.Database;
 import de.uni_marburg.schematch.data.Dataset;
 import de.uni_marburg.schematch.evaluation.metric.Metric;
 import de.uni_marburg.schematch.evaluation.performance.Performance;
@@ -116,6 +115,9 @@ public class EvalWriter {
 
             Map<Metric, Map<MatchStep, Map<Matcher, Performance>>> performances = matchTask.getPerformances();
             for (Metric metric : matchTask.getMetrics()) {
+                if (!metric.runsOnSimilarityMatrices()) {
+                    continue;
+                }
                 for (MatchStep matchStep : matchTask.getMatchSteps()) {
                     if (matchStep.isDoEvaluate()) {
                         Path matchStepPath = scenarioPerformancePath.resolve(metric.toString()).resolve(matchStep.toString());

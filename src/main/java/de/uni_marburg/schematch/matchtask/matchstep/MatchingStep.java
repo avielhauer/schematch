@@ -1,5 +1,6 @@
 package de.uni_marburg.schematch.matchtask.matchstep;
 
+import de.uni_marburg.schematch.evaluation.metric.MatcherRuntime;
 import de.uni_marburg.schematch.evaluation.metric.Metric;
 import de.uni_marburg.schematch.evaluation.performance.Performance;
 import de.uni_marburg.schematch.matching.Matcher;
@@ -16,6 +17,7 @@ import org.apache.logging.log4j.Logger;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 
 @Getter
 @EqualsAndHashCode(callSuper = true)
@@ -48,7 +50,12 @@ public class MatchingStep extends MatchStep {
             }
             if (simMatrix == null) {
                 log.debug("Processing " + this.line + ". line matcher " + matcher.toString());
-                simMatrix = matcher.match(matchTask, this);
+
+                // Measure runtime of matcher
+                simMatrix = matchTask.getEvaluator().evaluateMatcherRuntime(
+                        matchTask, this, matcher,
+                        () -> matcher.match(matchTask, this)
+                );
             }
             matchTask.setSimMatrix(this, matcher, simMatrix);
         }

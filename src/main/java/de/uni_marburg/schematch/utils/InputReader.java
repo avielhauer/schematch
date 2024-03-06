@@ -9,12 +9,14 @@ import de.uni_marburg.schematch.data.metadata.dependency.FunctionalDependency;
 import de.uni_marburg.schematch.data.metadata.dependency.InclusionDependency;
 import de.uni_marburg.schematch.data.metadata.dependency.Metanome;
 import de.uni_marburg.schematch.data.metadata.dependency.UniqueColumnCombination;
+import de.uni_marburg.schematch.evaluation.Evaluator;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchStep;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -197,7 +199,10 @@ public class InputReader {
                 Collection<FunctionalDependency> datasetFDs = readFDFile(fdFilePath, table, fdMap);
                 if(Configuration.getInstance().isRecomputeAllFDs() || datasetFDs.isEmpty()) {
 //                    datasetFDs = Metanome.executeFD(List.of(table));
-                    datasetFDs = Metanome.executeApproximateFD(List.of(table));
+                    Pair<Collection<FunctionalDependency>, Float> profilingResult =
+                            Evaluator.profileRuntime(() -> Metanome.executeApproximateFD(List.of(table)));
+                    datasetFDs = profilingResult.getLeft();
+                    database.setProfilingTime(database.getProfilingTime() + profilingResult.getRight());
                 }
                 //for (FunctionalDependency fd : datasetFDs) {
                 //    fd.setPdepTuple(MetadataUtils.getPdep(fd));
