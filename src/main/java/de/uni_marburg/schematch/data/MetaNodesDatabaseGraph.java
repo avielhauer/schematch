@@ -1,7 +1,9 @@
 package de.uni_marburg.schematch.data;
 
 import de.uni_marburg.schematch.data.metadata.dependency.FunctionalDependency;
+import de.uni_marburg.schematch.data.metadata.dependency.Metanome;
 import de.uni_marburg.schematch.data.metadata.dependency.UniqueColumnCombination;
+import de.uni_marburg.schematch.utils.MetadataUtils;
 import lombok.Getter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -88,6 +90,16 @@ public class MetaNodesDatabaseGraph extends DatabaseGraph {
 //                .toList();
         fds.forEach(this::addFd);
 //        fds.stream().map(database.getMetadata()::subsumeFunctionalDependencyViaInclusionDependency).forEach(this::addFd);
+
+        // We might have computed some new pdep scores and want to save those.
+        if (Metanome.SAVE) {
+            for (Table table : database.getTables()) {
+                MetadataUtils.saveFDs(
+                        MetadataUtils.getMetadataPathFromTable(Path.of(table.getPath())),
+                        database.getMetadata().getTableFDs(table)
+                );
+            }
+        }
     }
 
     public Path exportPath() {

@@ -1,6 +1,7 @@
 package de.uni_marburg.schematch.data.metadata;
 
 import de.uni_marburg.schematch.data.Column;
+import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.data.metadata.dependency.FunctionalDependency;
 import de.uni_marburg.schematch.data.metadata.dependency.InclusionDependency;
 import de.uni_marburg.schematch.data.metadata.dependency.UniqueColumnCombination;
@@ -15,6 +16,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Data
 @NoArgsConstructor
@@ -74,6 +76,10 @@ public class DatabaseMetadata {
     public Collection<FunctionalDependency> getMeaningfulFunctionalDependencies() {
         return fds.stream()
                 .filter(fd -> !getUccs().contains(new UniqueColumnCombination(fd.getDeterminant()))).toList();
+    }
+
+    public Collection<FunctionalDependency> getTableFDs(Table table) {
+        return fds.stream().filter(fd -> fd.getDependant().getTable().equals(table)).collect(Collectors.toSet());
     }
 
     public Collection<FunctionalDependency> getMeaningfulFunctionalDependencies(int maxDeterminantSize, int maxNumberOfFDs,

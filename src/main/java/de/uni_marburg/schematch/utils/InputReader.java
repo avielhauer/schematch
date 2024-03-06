@@ -4,6 +4,7 @@ import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Database;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.data.metadata.DatabaseMetadata;
+import de.uni_marburg.schematch.data.metadata.PdepTuple;
 import de.uni_marburg.schematch.data.metadata.ScenarioMetadata;
 import de.uni_marburg.schematch.data.metadata.dependency.FunctionalDependency;
 import de.uni_marburg.schematch.data.metadata.dependency.InclusionDependency;
@@ -25,6 +26,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.regex.Pattern;
 
 public class InputReader {
     private static final Logger log = LogManager.getLogger(InputReader.class);
@@ -258,30 +260,41 @@ public class InputReader {
         for (String line : lines) {
             if(line.isEmpty() || line.isBlank())
                 continue;
-            String[] split = line.split(" --> ");
-            if(split[0].equalsIgnoreCase("[]")) {
-                for (String right : split[1].split(",")) {
+
+            Pattern p = Pattern.compile("\\[(.*)] --> ([^(]+) (\\(pdep (\\d\\.\\d+), (\\d\\.\\d+)\\))?");
+            java.util.regex.Matcher matcher = p.matcher(line);
+            if (!matcher.find()) {
+                throw new RuntimeException("Parsing of FD failed");
+            }
+            PdepTuple pdep = null;
+            if (matcher.group(3) != null) {
+                pdep = new PdepTuple(Float.parseFloat(matcher.group(4)), Float.parseFloat(matcher.group(5)));
+            }
+
+            if (matcher.group(1) == null) {
+                for (String right : matcher.group(2).split(",")) {
                     Column rightC = table.getColumn(table.getLabels().indexOf(right.trim().split(".csv.")[1]));
                     for (Column leftCol : table.getColumns()){
                         if(leftCol.getLabel().equals(right))
                             continue;
                         List<Column> leftCC = List.of(leftCol);
-                        extracted(map, leftCC, rightC, fds);
+                        extracted(map, leftCC, rightC, fds, pdep);
                     }
                 }
             } else {
-                Collection<Column> leftCC = (Collection<Column>) extractColumnsFromString(split[0], table);
-                for (String right : split[1].split("\\(")[0].split(",")) {
+                Collection<Column> leftCC = (Collection<Column>) extractColumnsFromString(matcher.group(1), table);
+                for (String right : matcher.group(1).split(",")) {
                     Column rightC = table.getColumn(table.getLabels().indexOf(right.trim().split(".csv.")[1]));
-                    extracted(map, leftCC, rightC, fds);
+                    extracted(map, leftCC, rightC, fds, pdep);
                 }
             }
         }
         return fds;
     }
 
-    private static void extracted(Map<Column, Collection<FunctionalDependency>> map, Collection<Column> leftCC, Column rightC, Set<FunctionalDependency> fds) {
+    private static void extracted(Map<Column, Collection<FunctionalDependency>> map, Collection<Column> leftCC, Column rightC, Set<FunctionalDependency> fds, PdepTuple pdep) {
         FunctionalDependency fd = new FunctionalDependency(leftCC, rightC);
+        fd.setPdepTuple(pdep);
         fds.add(fd);
         map.computeIfAbsent(rightC, k -> new ArrayList<>()).add(fd);
         for (Column left : leftCC) {
