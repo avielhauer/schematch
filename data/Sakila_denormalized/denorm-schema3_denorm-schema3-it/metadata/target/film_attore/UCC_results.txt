@@ -1,3 +1,0 @@
-[film_attore.csv.attore_id, film_attore.csv.film_id]
-[film_attore.csv.attore_id, film_attore.csv.titolo]
-[film_attore.csv.attore_id, film_attore.csv.descrizione]

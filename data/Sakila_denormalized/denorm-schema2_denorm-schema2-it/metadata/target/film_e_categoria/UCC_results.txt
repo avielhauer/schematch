@@ -1,3 +1,0 @@
-[film_e_categoria.csv.film_id]
-[film_e_categoria.csv.titolo]
-[film_e_categoria.csv.descrizione]
