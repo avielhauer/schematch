@@ -4,6 +4,7 @@ import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Database;
 import de.uni_marburg.schematch.data.Scenario;
 import de.uni_marburg.schematch.data.Table;
+import de.uni_marburg.schematch.evaluation.metric.GraphBuildingRuntime;
 import de.uni_marburg.schematch.evaluation.metric.MatcherRuntime;
 import de.uni_marburg.schematch.evaluation.metric.Metric;
 import de.uni_marburg.schematch.evaluation.metric.ProfilingRuntime;
@@ -251,6 +252,13 @@ public class Evaluator {
         profilingMetric.ifPresent(metric -> matchTask.setPerformanceForMatcher(metric, matchStep, matcher, new Performance(
                 matchTask.getScenario().getSourceDatabase().getProfilingTime()
                         + matchTask.getScenario().getTargetDatabase().getProfilingTime()
+        )));
+
+        Optional<Metric> graphBuildingRuntimeMetric =
+                this.metrics.stream().filter(GraphBuildingRuntime.class::isInstance).findFirst();
+        graphBuildingRuntimeMetric.ifPresent(metric -> matchTask.setPerformanceForMatcher(metric, matchStep, matcher, new Performance(
+                matchTask.getScenario().getSourceDatabase().getGraph().getGraphBuildingTime()
+                + matchTask.getScenario().getTargetDatabase().getGraph().getGraphBuildingTime()
         )));
 
         return methodResult.getLeft();

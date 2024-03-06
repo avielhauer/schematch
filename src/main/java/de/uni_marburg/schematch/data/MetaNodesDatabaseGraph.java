@@ -3,6 +3,7 @@ package de.uni_marburg.schematch.data;
 import de.uni_marburg.schematch.data.metadata.dependency.FunctionalDependency;
 import de.uni_marburg.schematch.data.metadata.dependency.Metanome;
 import de.uni_marburg.schematch.data.metadata.dependency.UniqueColumnCombination;
+import de.uni_marburg.schematch.evaluation.Evaluator;
 import de.uni_marburg.schematch.utils.MetadataUtils;
 import lombok.Getter;
 import org.apache.logging.log4j.LogManager;
@@ -46,8 +47,12 @@ public class MetaNodesDatabaseGraph extends DatabaseGraph {
         this.database = database;
         this.graphId = globalGraphCounter;
         globalGraphCounter++;
-        buildFor(database);
-        exportGraph();
+
+        graphBuildingTime = Evaluator.profileRuntime(() -> {
+            buildFor(database);
+            exportGraph();
+            return 0;
+        }).getRight();
     }
 
     private void buildFor(final Database database) {

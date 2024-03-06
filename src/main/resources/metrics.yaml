@@ -14,3 +14,5 @@ name: "Accuracy"
 name: "MatcherRuntime"
 ---
 name: "ProfilingRuntime"
+---
+name: "GraphBuildingRuntime"
