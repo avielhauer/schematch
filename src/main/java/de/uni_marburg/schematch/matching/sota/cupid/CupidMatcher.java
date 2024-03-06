@@ -22,12 +22,12 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class CupidMatcher extends Matcher {
 
-
+    final float th_accept = 0.7f;
     @Override
     public float[][] match(MatchTask matchTask, MatchingStep matchStep) {
         float leaf_w_struct = 0.2f;
         float w_struct = 0.2f;
-        float th_accept = 0.7f;
+        float th_accept = this.th_accept;
         float th_high = 0.6f;
         float th_low = 0.35f;
         float c_inc = 1.2f;
@@ -130,7 +130,9 @@ public class CupidMatcher extends Matcher {
         List<SchemaElementNode> tPostOrder = targetTree.postOrder();
 
         for (SchemaElementNode s: sPostOrder) {
+            if (s.children.isEmpty()) continue;
             for (SchemaElementNode t: tPostOrder) {
+                if (t.children.isEmpty()) continue;
                 if (s.height() == t.height() && (s.height() > 0 && t.height() > 0)) {
                     float ssim = StructuralSimilarity.computeSSim(s,t,sims,thAccept);
 
@@ -181,7 +183,9 @@ public class CupidMatcher extends Matcher {
         List<SchemaElementNode> tPostOrder = targetTree.postOrder();
 
         for (SchemaElementNode s : sPostOrder) {
+            if (s.children.isEmpty()) continue;
             for (SchemaElementNode t : tPostOrder) {
+                if (t.children.isEmpty()) continue;
                 StringPair pair = new StringPair(s.name, t.name);
                 if (s.height() == t.height()) {
                     float ssim = StructuralSimilarity.computeSSim(s, t, sims, thAccept);
@@ -247,7 +251,7 @@ public class CupidMatcher extends Matcher {
     }
 
     private float computeWeightedSimilarity(float ssim, float lsim, float wStruct) {
-        return ssim * wStruct + (1 - wStruct) * lsim;
+        return wStruct * ssim + ((1 - wStruct) * lsim);
     }
 
     static Pair<Set<String>,SchemaTree> buildTreeFromTable(Table table) {
@@ -278,7 +282,7 @@ public class CupidMatcher extends Matcher {
                 return "date";
             }
             case INTEGER -> {
-                return "integer";
+                return "int";
             }
             case FLOAT -> {
                 return "float";
@@ -287,8 +291,7 @@ public class CupidMatcher extends Matcher {
                 return "bit";
             }
             case GEO_LOCATION -> {
-                //Todo: Extend DataCompatibilityTable with Geo Location
-                return "string";
+                return "geolocation";
             }
             default -> {
                 return "string";
@@ -313,6 +316,7 @@ public class CupidMatcher extends Matcher {
                 boolean isLong = true;
 
                 for (String item : values) {
+                    if (item.isEmpty() || item.isBlank()) continue;
                     try {
                         BigInteger big = new BigInteger(item);
                         try {
@@ -347,64 +351,72 @@ public class CupidMatcher extends Matcher {
                 }
             }
             case FLOAT -> {
-                try {
-                    for (String s : values) {
-                        if (s.contains("e") || s.contains("E")) {
-                            return "float";
-                        }
+                for (String s : values) {
+                    if (s.isEmpty() || s.isBlank()) continue;
+                    try {
+                        float floatValue = Float.parseFloat(s);
+                        double doubleValue = Double.parseDouble(s);
 
-                        String[] parts = s.split("\\.");
-                        int decimalLength = parts[1].length();
-
-                        if (decimalLength <= 7) {
-                            return "float";
+                        if (floatValue != doubleValue) {
+                            return "double";
                         }
+                    } catch (Exception e) {
+                        continue;
                     }
-                } catch (Exception e) {
-                    return "double";
                 }
-                return "double";
+                return "float";
             }
             case BOOLEAN -> {
                 return "bit";
             }
             case GEO_LOCATION -> {
-                //Todo: Extend DataCompatibilityTable with Geo Location
-                return "text";
+                return "geolocation";
             }
             case STRING,TEXT -> {
-                AtomicInteger size = new AtomicInteger();
-                AtomicBoolean isChar = new AtomicBoolean(true);
-                AtomicInteger maxLength = new AtomicInteger();
-                AtomicInteger maxCount = new AtomicInteger();
-                values.forEach(s -> {
-                    size.addAndGet(s.length());
-                    if (s.length() > 1) {
-                        isChar.set(false);
+                int fixedLength = -1;
+                boolean hasVariableLength = false;
+                boolean containsUnicode = false;
+                int maxLength = values.get(0).length();
+                for (String value: values) {
+                    if (value.isEmpty() || value.isBlank()) continue;
+                    if (fixedLength == -1) {
+                        fixedLength = value.length();
+                    } else if (fixedLength != value.length()) {
+                        hasVariableLength = true;
                     }
-                    if (s.length() == maxLength.get()) {
-                        maxCount.addAndGet(1);
+                    if (maxLength < value.length()) {
+                        maxLength = value.length();
                     }
-                    else if (s.length() > maxLength.get()) {
-                        maxLength.set(s.length());
-                        maxCount.set(0);
+                    if (!containsUnicode && !isAscii(value)) {
+                        containsUnicode = true;
                     }
-                });
-                if (isChar.get()) {
-                    return "char";
                 }
-                if (size.get() % values.size() == 0) {
-                    return "nchar";
+                if (containsUnicode) {
+                    if (!hasVariableLength) {
+                        return "nchar";
+                    } else {
+                        return "nvarchar";
+                    }
+                } else {
+                    if (!hasVariableLength) {
+                        if (fixedLength == 1) {
+                            return "char";
+                        } else {
+                            return "text";
+                        }
+                    } else {
+                        return "text";
+                    }
                 }
-                if (maxCount.get() > values.size() / 2) {
-                    return "nvarchar";
-                }
-                return "text";
             }
             default -> {
                 return "text";
             }
         }
+    }
+
+    private static boolean isAscii(String value) {
+        return value.chars().allMatch(c -> c < 128);
     }
 
     /*

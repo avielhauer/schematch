@@ -1,4 +1,10 @@
 ---
 name: "NonBinaryPrecisionAtGroundTruth"
-#---
-#name: "NonBinaryPrecisionAtNumGroundTruth"
+---
+name: "NonBinaryPrecisionAtNumGroundTruth"
+---
+name: "Precision"
+---
+name: "FScore"
+---
+name: "Recall"

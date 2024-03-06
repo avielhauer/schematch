@@ -121,6 +121,8 @@ public class DataCompatibilityTable {
         smallintMap.put("short", 1.0);
         smallintMap.put("integer", 0.6);
 
+        Map<String, Double> geoLocationMap = new HashMap<>();
+
 
         table.put("text", textMap);
         table.put("keyword", keywordMap);
@@ -140,6 +142,7 @@ public class DataCompatibilityTable {
         table.put("bigint", bigintMap);
         table.put("short", shortMap);
         table.put("smallint", smallintMap);
+        table.put("geolocation",geoLocationMap);
     }
 
 
