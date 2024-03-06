@@ -1,12 +1,14 @@
 ---
-name: "single_table"
-path: "single_table"
+name: "ME_single_table__same_data"
+path: "ME_single_table__same_data"
 ---
-name: "single_table_md5"
-path: "single_table__md5"
+name: "ME_single_table__different_data"
+path: "ME_single_table__different_data"
 ---
-name: "structurally_identical"
-path: "structurally_identical"
+name: "ME_structurally_identical_denormalized"
+path: "ME_structurally_identical_denormalized"
+isDenormalized: true
 ---
-name: "structurally_identical_md5"
-path: "structurally_identical__md5"r
+name: "ME_general_denormalized"
+path: "ME_general_denormalized"
+isDenormalized: true
