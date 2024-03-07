@@ -261,7 +261,7 @@ public class InputReader {
             if(line.isEmpty() || line.isBlank())
                 continue;
 
-            Pattern p = Pattern.compile("\\[(.*)] --> ([^(]+) (\\(pdep (\\d\\.\\d+), (\\d\\.\\d+)\\))?");
+            Pattern p = Pattern.compile("\\[(.*)] --> ([^(]+)( \\(pdep (\\d\\.\\d+), (\\d\\.\\d+)\\))?");
             java.util.regex.Matcher matcher = p.matcher(line);
             if (!matcher.find()) {
                 throw new RuntimeException("Parsing of FD failed");
