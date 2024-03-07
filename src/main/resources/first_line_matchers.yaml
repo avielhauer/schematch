@@ -21,6 +21,9 @@ packageName: "metadata"
 ---
 name: "UniquenessMatcher"
 packageName: "metadata"
+---
+name: "InterattributeMatcher"
+packageName: "metadata"
 #--- (see issue #16)
 #name: "ExtremaMatcher"
 #packageName: "metadata"
