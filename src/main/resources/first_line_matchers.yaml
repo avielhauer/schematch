@@ -1,5 +1,9 @@
 # State-of-the-Art matchers
 ---
+name: "EmbdiMatcher"
+packageName: "sota"
+active: false
+---
 name: "EmbedAlignMatcher"
 packageName: "metadata"
 active: true

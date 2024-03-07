@@ -155,10 +155,11 @@ def generate_random_walks(params):
     return walks
 
 def table_identifier(csv_path):
-    path_parts = os.path.normpath(csv_path).split(os.path.sep)
-    table = path_parts[-1][:-4]
-    dataset = path_parts[-3]
-    return f"{dataset}_{table}"
+    #path_parts = os.path.normpath(csv_path).split(os.path.sep)
+    #table = path_parts[-1][:-4]
+    #dataset = path_parts[-3]
+    #return f"{dataset}_{table}"
+    return csv_path
 
 def filter_embeddings(embeddings_path):
     with open(embeddings_path, "r") as emb_f:
@@ -184,29 +185,39 @@ def read_variables_file(var_file):
             variables[default_var] = [default_values[default_var]]
     return variables
 
-def update_params(source1, source2, params):
-    if not source1.startswith("EmbDI") or not source2.startswith("EmbDI"):
-        return params
+def update_params(scenario_path, params):
     try:
-        config = read_variables_file(f"/configs/config-{source1.split('/')[-1].split('.')[0]}_{source2.split('/')[-1].split('.')[0]}-sm")
+        config = read_variables_file(f"/configs/config-{scenario_path.split('/')[-1]}-sm")
         for k,v in config.items():
             params[k] = v
         return params
     except:
-        print(f"could not read specific dataset for {source1} and {source2}", file=sys.stderr)
         return params
 
-def match(input_1, input_2, similarity_matrix_generation_method="dot_product_similarity"):
 
-    execution_specific_params = update_params(input_1, input_2, DEFAULT_PARAMS.copy())
+def import_database(database_folder):
+    dfs = []
+    for file in os.listdir(database_folder):
+        if file.endswith(".csv"):
+            dfs.append(read_csv(os.path.join(database_folder, file)))
+    return pd.concat(dfs, axis=1)
+def import_scenario(scenario_path):
+    source_df = import_database(os.path.join(scenario_path, "source"))
+    target_df = import_database(os.path.join(scenario_path, "target"))
+    return source_df, target_df
 
-    df_1 = read_csv(f"{DATA_DIRECTORY_MOUNT}/{input_1}")
-    df_2 = read_csv(f"{DATA_DIRECTORY_MOUNT}/{input_2}")
+def match(scenario_name, scenario_path, similarity_matrix_generation_method="dot_product_similarity"):
+
+    execution_specific_params = update_params(scenario_path, DEFAULT_PARAMS.copy())
+
+    df_1 ,df_2 = import_scenario(scenario_path)
+    input_1 = scenario_name + "_source"
+    input_2 = scenario_name + "_target"
 
     execution_specific_params["expand_columns"] = ','.join(list(set(list(df_1.columns) + list(df_2.columns))))
     preprocessed = prepare_csv(df_1, df_2, execution_specific_params)
     Path(INFO_FILE_FP).parent.mkdir(parents=True, exist_ok=True)
-    write_info_file([df_1 ,df_2], INFO_FILE_FP, [input_1, input_2])
+    write_info_file([df_1, df_2], INFO_FILE_FP, [input_1, input_2])
     if not os.path.exists(EMBEDDINGS_FP(input_1, input_2)):
         edgelist = generate_edgelist(preprocessed, INFO_FILE_FP)
         walks = generate_random_walks(execution_specific_params)

@@ -112,7 +112,7 @@ public class PythonUtils {
         return parseOutputIntoMatrix(output, simMatrix);
     }
 
-    private static float[][] parseOutputIntoMatrix(List<String> output, float[][] simMatrix) {
+    public static float[][] parseOutputIntoMatrix(List<String> output, float[][] simMatrix) {
         try {
             for (int i = 0; i < simMatrix.length; i++) {
                 String line = output.get(i);

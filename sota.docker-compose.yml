@@ -21,6 +21,9 @@ services:
         source: ./data
         target: /embdi/data
       - type: bind
+        source: ./cosma_data
+        target: /embdi/cosma_data
+      - type: bind
         source: ./target/embdi_cache
         target: /embdi/cache
   ic:
