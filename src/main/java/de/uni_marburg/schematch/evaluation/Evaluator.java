@@ -148,11 +148,11 @@ public class Evaluator {
             Integer sourceIndex = sourcePositionLookup.get(originalMatch.getLeft());
             Integer targetIndex = targetPositionLookup.get(originalMatch.getRight());
             if(sourceIndex == null){
-                log.warn("Could not find " + originalMatch.getLeft() + " in  sourcePositionLookup.");
+                log.warn("Could not find " + originalMatch.getLeft() + " in  sourcePositionLookup, in scenario " + scenario.getName());
                 continue;
             }
             if(targetIndex == null){
-                log.warn("Could not find "+ originalMatch.getRight()+" in targetPositionLookup.");
+                log.warn("Could not find "+ originalMatch.getRight()+" in targetPositionLookup, in scenario " + scenario.getName());
                 continue;
             }
             reconstructedGroundTruthMatrix[sourcePositionLookup.get(originalMatch.getLeft())][targetPositionLookup.get(originalMatch.getRight())] = 1;
