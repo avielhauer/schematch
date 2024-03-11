@@ -261,7 +261,7 @@ public class InputReader {
             if(line.isEmpty() || line.isBlank())
                 continue;
 
-            Pattern p = Pattern.compile("\\[(.*)] --> ([^(]+)( \\(pdep (\\d\\.\\d+), (\\d\\.\\d+)\\))?");
+            Pattern p = Pattern.compile("(\\[.*]) --> ([^(]+)( \\(pdep (\\d\\.\\d+), (\\d\\.\\d+)\\))?");
             java.util.regex.Matcher matcher = p.matcher(line);
             if (!matcher.find()) {
                 throw new RuntimeException("Parsing of FD failed");
@@ -283,7 +283,7 @@ public class InputReader {
                 }
             } else {
                 Collection<Column> leftCC = (Collection<Column>) extractColumnsFromString(matcher.group(1), table);
-                for (String right : matcher.group(1).split(",")) {
+                for (String right : matcher.group(2).split(",")) {
                     Column rightC = table.getColumn(table.getLabels().indexOf(right.trim().split(".csv.")[1]));
                     extracted(map, leftCC, rightC, fds, pdep);
                 }
