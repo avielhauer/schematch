@@ -261,14 +261,15 @@ public class InputReader {
             if(line.isEmpty() || line.isBlank())
                 continue;
 
-            Pattern p = Pattern.compile("(\\[.*]) --> ([^(]+)( \\(pdep (\\d\\.\\d+), (\\d\\.\\d+)\\))?");
+            // pdep scores should not be negative, but maybe there is a computation error somewhere
+            Pattern p = Pattern.compile("(\\[.*]) --> ([^(]+) ?(\\(pdep (-?\\d\\.\\d+(E-\\d+)?), (-?\\d\\.\\d+(E-\\d+)?)\\))?");
             java.util.regex.Matcher matcher = p.matcher(line);
             if (!matcher.find()) {
                 throw new RuntimeException("Parsing of FD failed");
             }
             PdepTuple pdep = null;
             if (matcher.group(3) != null) {
-                pdep = new PdepTuple(Float.parseFloat(matcher.group(4)), Float.parseFloat(matcher.group(5)));
+                pdep = new PdepTuple(Float.parseFloat(matcher.group(4)), Float.parseFloat(matcher.group(6)));
             }
 
             if (matcher.group(1) == null) {
