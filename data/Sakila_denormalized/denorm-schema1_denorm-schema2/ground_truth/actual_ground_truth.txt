@@ -82,5 +82,4 @@ film.length = film.length
 film.replacement_cost = film.replacement_cost
 film.rating = film.rating
 language.language_id = language.language_id
-language.name = film.language
 language.name = language.name
