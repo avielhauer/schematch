@@ -26,6 +26,6 @@ class MD5Encryptor(DatasetEncryptor):
 
 
 if __name__ == "__main__":
-    for dataset in ["EmbDI", "Sakila", "Pubs"]:
+    for dataset in ["Sakila_denormalized"]:
         encoder = MD5Encryptor(dataset)
         encoder.encrypt()

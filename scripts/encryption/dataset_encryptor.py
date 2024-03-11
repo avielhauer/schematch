@@ -56,6 +56,10 @@ class DatasetEncryptor:
             self.encrypt_data_csv_file(csv_file, os.path.join(self.encrypted_dataset_dir, os.path.basename(scenario), os.path.basename(folder_dir), encrypted_table))
 
     def encrypt_ground_truth(self, scenario):
+        if os.path.exists(os.path.join(self.dataset_dir, scenario, "ground_truth", "actual_ground_truth.txt")):
+            self.encrypt_denormalized_dataset(scenario)
+            return
+
         os.makedirs(os.path.join(self.encrypted_dataset_dir, os.path.basename(scenario), "ground_truth"), exist_ok=True)
         csv_files = glob.glob(os.path.join(scenario, "ground_truth", "*.csv"))
         for csv_file in csv_files:
@@ -71,6 +75,49 @@ class DatasetEncryptor:
             to_file = source_table + "___" + target_table + ".csv"
             with open(os.path.join(self.encrypted_dataset_dir, os.path.basename(scenario), "ground_truth", to_file), "w") as fp:
                 fp.writelines(lines)
+    def encrypt_denormalized_dataset(self, scenario):
+        scenario_name = os.path.basename(scenario)
+        os.makedirs(os.path.join(self.encrypted_dataset_dir, scenario_name, "ground_truth"), exist_ok=True)
+        self.encrypt_actual_ground_truth(scenario_name)
+        self.encrypt_mapping(scenario_name, False)
+        self.encrypt_mapping(scenario_name, True)
+    def encrypt_actual_ground_truth(self, scenario_name):
+        with open(os.path.join(self.dataset_dir, scenario_name, "ground_truth", "actual_ground_truth.txt"), "r") as fp:
+            lines = fp.readlines()
+
+        encrypted_lines = []
+
+        for line in lines:
+            source_id = line.split(" = ")[0].strip()
+            target_id = line.split(" = ")[1].strip()
+            self.encrypting_target = False
+            encrypted_source_id = self.encrypt_table(source_id.split(".")[0].strip()) + "." + self.encrypt_column(source_id.split(".")[1].strip())
+            self.encrypting_target = True
+            encrypted_target_id = self.encrypt_table(target_id.split(".")[0].strip()) + "." + self.encrypt_column(target_id.split(".")[1].strip())
+            encrypted_lines.append(encrypted_source_id + " = " + encrypted_target_id + "\n")
+
+        with open(os.path.join(self.encrypted_dataset_dir, scenario_name, "ground_truth", "actual_ground_truth.txt"), "w") as fp:
+            fp.writelines(encrypted_lines)
+
+    def encrypt_mapping(self, scenario_name, is_target):
+        prefix = ("target" if is_target else "source")
+        with open(os.path.join(self.dataset_dir, scenario_name, "ground_truth", prefix + "_mapping.csv"), "r") as fp:
+            lines = fp.readlines()
+
+        encrypted_lines = []
+
+        self.encrypting_target = is_target
+
+        for line in lines:
+            denormed_id = line.split(" = ")[0].strip()
+            original_id = line.split(" = ")[1].strip()
+            encrypted_denormed_id = self.encrypt_table(denormed_id.split(".")[0].strip()) + "." + self.encrypt_column(denormed_id.split(".")[1].strip())
+            encrypted_original_id = self.encrypt_table(original_id.split(".")[0].strip()) + "." + self.encrypt_column(original_id.split(".")[1].strip())
+            encrypted_lines.append(encrypted_denormed_id + " = " + encrypted_original_id + "\n")
+
+        with open(os.path.join(self.encrypted_dataset_dir, scenario_name, "ground_truth", prefix + "_mapping.csv"), "w") as fp:
+            fp.writelines(encrypted_lines)
+
 
     def copy_empty_metadata(self, scenario):
         self.copy_database_inds(os.path.join(scenario, "metadata"))
