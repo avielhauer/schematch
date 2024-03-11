@@ -122,8 +122,8 @@ public class Evaluator {
         try {
             for (String line : Files.readAllLines(pathToOriginalGroundTruth)) {
                 String[] parts = line.split(" = ");
-                String key = parts[0];
-                String value = parts[1];
+                String key = parts[0].strip();
+                String value = parts[1].strip();
                 mappings.add(new ImmutablePair<>(key, value));
             }
         } catch (IOException e) {
