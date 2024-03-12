@@ -62,6 +62,10 @@ if __name__ == "__main__":
                 if len(fd["determinant"]["columnIdentifiers"]) == 0:
                     continue
 
+                # We are not interested in FDs which are too wide as they would just clutter our FD graph
+                if len(fd["determinant"]["columnIdentifiers"]) > 3:
+                    continue
+
                 parsed_fds.append("|".join([det['columnIdentifier'] for det in fd["determinant"]["columnIdentifiers"]]))
                 parsed_fds.append(fd["dependant"]["columnIdentifier"])
             return parsed_fds

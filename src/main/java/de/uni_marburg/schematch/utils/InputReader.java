@@ -284,6 +284,10 @@ public class InputReader {
                 }
             } else {
                 Collection<Column> leftCC = (Collection<Column>) extractColumnsFromString(matcher.group(1), table);
+                if (leftCC.size() > 3) {
+                    continue;
+                }
+
                 for (String right : matcher.group(2).split(",")) {
                     Column rightC = table.getColumn(table.getLabels().indexOf(right.trim().split(".csv.")[1]));
                     extracted(map, leftCC, rightC, fds, pdep);
