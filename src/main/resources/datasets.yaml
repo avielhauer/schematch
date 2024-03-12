@@ -1,14 +1,35 @@
+#---
+#name: "ME_single_table"
+#path: "ME_single_table"
+#---
+#name: "ME_denormalized"
+#path: "ME_denormalized"
+#isDenormalized: true
+
 ---
-name: "ME_single_table__same_data"
-path: "ME_single_table__same_data"
+name: "ENC_single_table"
+path: "ENC_single_table"
 ---
-name: "ME_single_table__different_data"
-path: "ME_single_table__different_data"
----
-name: "ME_structurally_identical_denormalized"
-path: "ME_structurally_identical_denormalized"
+name: "ENC_denormalized"
+path: "ENC_denormalized"
 isDenormalized: true
----
-name: "ME_general_denormalized"
-path: "ME_general_denormalized"
-isDenormalized: true
+
+#---
+#name: "test_denormalized_split"
+#path: "test_denormalized_split"
+#isDenormalized: true
+
+#---
+#name: "ME_single_table__same_data"
+#path: "ME_single_table__same_data"
+#---
+#name: "ME_single_table__different_data"
+#path: "ME_single_table__different_data"
+#---
+#name: "ME_structurally_identical_denormalized"
+#path: "ME_structurally_identical_denormalized"
+#isDenormalized: true
+#---
+#name: "ME_general_denormalized"
+#path: "ME_general_denormalized"
+#isDenormalized: true
