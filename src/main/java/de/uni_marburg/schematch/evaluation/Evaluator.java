@@ -46,7 +46,7 @@ public class Evaluator {
     public Evaluator(List<Metric> metrics, Scenario scenario, int[][] groundTruthMatrix) {
         this.metrics = metrics;
         this.scenario = scenario;
-        if (scenario.getDataset().isDenormalized()) {
+        if (scenario.isDenormalized()) {
             groundTruthMatrix =  reconstructOriginalGroundTruth();
         }
         this.groundTruthMatrix = groundTruthMatrix;
@@ -208,7 +208,7 @@ public class Evaluator {
     }
 
     public Map<Metric, Performance> evaluate(float[][] simMatrix) {
-        if (scenario.getDataset().isDenormalized()) {
+        if (scenario.isDenormalized()) {
             simMatrix = reconstructOriginalSimMatrix(simMatrix);
         }
         float[] simVector = ArrayUtils.flattenMatrix(simMatrix);

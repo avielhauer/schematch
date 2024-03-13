@@ -108,7 +108,6 @@ public class Configuration {
     public static class DatasetConfiguration {
         private String name;
         private String path;
-        public boolean isDenormalized = false;
     }
 
     @Data

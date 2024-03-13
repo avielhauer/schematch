@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.File;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Getter
@@ -31,6 +33,12 @@ public class Database {
         if (Configuration.getInstance().isReadDependencies()) {
             this.metadata = InputReader.readDatabaseMetadata(this);
         }
+        Collections.sort(this.tables, new Comparator<Table>() {
+            @Override
+            public int compare(Table table1, Table table2) {
+                return Integer.compare(table1.getColumns().size(), table2.getColumns().size());
+            }
+        });
 
         // set matrix offsets for tables
         int currentOffset = 0;

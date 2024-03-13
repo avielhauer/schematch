@@ -12,7 +12,6 @@ path: "ENC_single_table"
 ---
 name: "ENC_denormalized"
 path: "ENC_denormalized"
-isDenormalized: true
 
 #---
 #name: "test_denormalized_split"
