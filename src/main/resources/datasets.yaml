@@ -1,22 +1,10 @@
-#---
-#name: "ME_single_table"
-#path: "ME_single_table"
-#---
-#name: "ME_denormalized"
-#path: "ME_denormalized"
-#isDenormalized: true
+---
+name: "ME_all"
+path: "ME_all"
 
 ---
-name: "ENC_single_table"
-path: "ENC_single_table"
----
-name: "ENC_denormalized"
-path: "ENC_denormalized"
-
-#---
-#name: "test_denormalized_split"
-#path: "test_denormalized_split"
-#isDenormalized: true
+name: "ENC_all"
+path: "ENC_all"
 
 #---
 #name: "ME_single_table__same_data"
