@@ -200,7 +200,10 @@ def import_database(database_folder):
     for file in os.listdir(database_folder):
         if file.endswith(".csv"):
             dfs.append(read_csv(os.path.join(database_folder, file)))
-    return pd.concat(dfs, axis=1)
+    concat = pd.concat(dfs, axis=1)
+    concat.columns = [str(id).zfill(5) + c for id, c in enumerate(concat.columns)]
+    return concat
+
 def import_scenario(scenario_path):
     source_df = import_database(os.path.join(scenario_path, "source"))
     target_df = import_database(os.path.join(scenario_path, "target"))
