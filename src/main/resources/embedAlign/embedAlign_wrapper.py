@@ -257,7 +257,7 @@ def match(
     if top_k_row == 0 and top_k_col == 0:
         alignment_matrix = get_sm(source_table, target_table, representationCache)
     else:
-        alignment_matrix = representationCache.get_filtered_sm(source_table, target_table, top_k_row=top_k_row, top_k_col=top_k_col)
+        alignment_matrix = representationCache.get_filtered_sm(source_table, target_table, top_k_row=top_k_row, top_k_col=top_k_col, top_k_by_union=(True if config["top_k_by_union"] == "true" else False))
 
     print(alignment_matrix)
     return "\n".join([" ".join([str(x) for x in row]) for row in alignment_matrix])

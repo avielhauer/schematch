@@ -28,6 +28,7 @@ if __name__ == "__main__":
             "xNetMFGammaStrucAttr",
             "top_k_row",
             "top_k_col",
+            "top_k_by_union"
         ]
         for arg in ARGS + CONFIG_KEYS:
             if arg not in request.args:

@@ -21,7 +21,6 @@ from EmbDI.sentence_generation_strategies import random_walks_generation
 from EmbDI.utils import (TIME_FORMAT, read_edgelist)
 from EmbDI.schema_matching import _produce_match_results , _extract_candidates
 
-DATA_DIRECTORY_MOUNT = "/embdi/data/"
 CACHE_DIRECTORY_MOUNT = "/embdi/cache"
 INFO_FILE_FP = f"{CACHE_DIRECTORY_MOUNT}/info_file.csv"
 EDGELIST_FP = f"{CACHE_DIRECTORY_MOUNT}/edgelist"
@@ -179,20 +178,34 @@ def read_variables_file(var_file):
     with open(var_file, 'r') as fp:
         for i, line in enumerate(fp):
             parameter, values = line.strip().split(':', maxsplit=1)
-            variables[parameter] = values.split(',')
-    for default_var in default_values:
-        if default_var not in variables or variables[default_var][0] == '':
-            variables[default_var] = [default_values[default_var]]
+            try:
+                values = eval(values)
+            except:
+                pass
+            variables[parameter] = values
     return variables
 
 def update_params(scenario_path, params):
-    try:
-        config = read_variables_file(f"/configs/config-{scenario_path.split('/')[-1]}-sm")
-        for k,v in config.items():
-            params[k] = v
+    print(params, flush=True)
+
+    scenario_name = scenario_path.split('/')[-1]
+    print(scenario_name, flush=True)
+
+    if os.path.exists(f"/embdi/configs/config-{scenario_name}-sm"):
+        config = read_variables_file(f"/embdi/configs/config-{scenario_name}-sm")
+    elif scenario_name.startswith("EmbDI_") and os.path.exists(f"/embdi/configs/config-{scenario_name[len('EmbDI_'):]}-sm"):
+        config = read_variables_file(f"/embdi/configs/config-{scenario_name[len('EmbDI_'):]}-sm")
+    else:
+        print(" ----  Did not load variable file ---- ", flush=True)
         return params
-    except:
-        return params
+
+    print(" ----  Loaded variable file ---- ", flush=True)
+    for k,v in config.items():
+        params[k] = v
+    print(params, flush=True)
+    return params
+
+
 
 
 def import_database(database_folder):

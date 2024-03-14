@@ -16,7 +16,15 @@ import java.util.List;
 @EqualsAndHashCode(callSuper=false)
 @NoArgsConstructor
 public class EmbedAlignMatcher extends TablePairMatcher {
-    final private Integer serverPort = 5004;
+    @Getter
+    @Setter
+    public Integer topKRow = 2;
+    @Getter
+    @Setter
+    public Integer topKCol = 2;
+    @Getter
+    @Setter
+    public Boolean topKByUnion = true;
     @Getter
     @Setter
     public double dropColumns = 0.0;
@@ -26,12 +34,7 @@ public class EmbedAlignMatcher extends TablePairMatcher {
     @Getter
     @Setter
     public double xNetMFGammaStrucAttr = 0.5;
-    @Getter
-    @Setter
-    public Integer topKRow = 2;
-    @Getter
-    @Setter
-    public Integer topKCol = 2;
+    final private Integer serverPort = 5004;
 
     @Override
     public float[][] match(TablePair tablePair) {
@@ -39,7 +42,7 @@ public class EmbedAlignMatcher extends TablePairMatcher {
         // Extract Tables
         Table sourceTable = tablePair.getSourceTable();
         Table targetTable = tablePair.getTargetTable();
-        //Extract Columns
+        // Extract Columns
         // Extract and load scenario meta data
         Scenario scenario = tablePair.getScenario();
         // Extract and load database meta data
@@ -58,7 +61,8 @@ public class EmbedAlignMatcher extends TablePairMatcher {
                     new ImmutablePair<>("dropConstraints", String.valueOf(dropConstraints)),
                     new ImmutablePair<>("xNetMFGammaStrucAttr", String.valueOf(xNetMFGammaStrucAttr)),
                     new ImmutablePair<>("top_k_row", String.valueOf(topKRow)),
-                    new ImmutablePair<>("top_k_col", String.valueOf(topKCol))
+                    new ImmutablePair<>("top_k_col", String.valueOf(topKCol)),
+                    new ImmutablePair<>("top_k_by_union", String.valueOf(topKByUnion))
             ));
             alignment_matrix = PythonUtils.readMatcherOutput(Arrays.stream(response.body().split("\n")).toList(), tablePair);
 

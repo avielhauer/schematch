@@ -71,7 +71,7 @@ class RepresentationCache:
             np.linalg.norm(source_emb) * np.linalg.norm(target_emb)
         )
 
-    def get_filtered_sm(self, source_table, target_table, distance="cosine", top_k_row=2, top_k_col=2):
+    def get_filtered_sm(self, source_table, target_table, distance="cosine", top_k_row=2, top_k_col=2, top_k_by_union=True):
         source_indices_lookup = {node: i for i, node in enumerate(self.source_table_nodes_sorted_as_given) if extract_table(node) == source_table}
         target_indices_lookup = {node: i for i, node in enumerate(self.target_table_nodes_sorted_as_given) if extract_table(node) == target_table}
         filtered_original_source_column_nodes = [node for node in self.source_all_original_table_nodes_sorted_as_given if extract_table(node) == source_table]
@@ -83,10 +83,10 @@ class RepresentationCache:
             )
         )
 
-        if (top_k_row, top_k_col) not in self.csr_k_similar_sm_cache:
-            self.csr_k_similar_sm_cache[(top_k_row, top_k_col)] = get_embedding_similarities(self.source_column_embeddings, self.target_column_embeddings, top_k_row=top_k_row, top_k_col=top_k_col)
+        if (top_k_row, top_k_col, top_k_by_union) not in self.csr_k_similar_sm_cache:
+            self.csr_k_similar_sm_cache[(top_k_row, top_k_col, top_k_by_union)] = get_embedding_similarities(self.source_column_embeddings, self.target_column_embeddings, top_k_row=top_k_row, top_k_col=top_k_col, top_k_by_union=top_k_by_union)
 
-        csr_k_similar_sm = self.csr_k_similar_sm_cache[(top_k_row, top_k_col)]
+        csr_k_similar_sm = self.csr_k_similar_sm_cache[(top_k_row, top_k_col, top_k_by_union)]
 
         for sm_i, source_node in enumerate(filtered_original_source_column_nodes):
             for sm_j, target_node in enumerate(filtered_original_target_column_nodes):
