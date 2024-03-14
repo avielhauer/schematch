@@ -16,11 +16,13 @@ public class CupidSimMatrixBoosting implements SimMatrixBoosting {
     public float[][] run(MatchTask matchTask, SimMatrixBoostingStep matchStep, float[][] simMatrix) {
         float leaf_w_struct = 0.2f;
         float w_struct = 0.2f;
-        float th_accept = 0.0f;
+        float th_accept = .7f;
         float th_high = 0.6f;
         float th_low = 0.35f;
         float c_inc = 1.2f;
         float c_dec = 0.9f;
+        float th_ns = 0.7f;
+        int parallelism = 1;
 
         List<TablePair> tablePairs = matchTask.getTablePairs();
 
@@ -149,13 +151,13 @@ public class CupidSimMatrixBoosting implements SimMatrixBoosting {
                         continue;
                     }
                     if (!lSims.containsKey(pair)) {
-                        sims.get("lsim").put(pair, Float.NaN);
+                        sims.get("lsim").put(pair, 0f);
                     }
                     float wsim = computeWeightedSimilarity(ssim, sims.get("lsim").get(pair), wStruct);
                     sims.get("ssim").put(pair, ssim);
                     sims.get("wsim").put(pair, wsim);
                 }
-                if (sims.get("wsim").containsKey(pair)) {
+                if (sims.get("wsim").containsKey(pair) &&  !s.isLeave() && !t.isLeave()) {
                     if (sims.get("wsim").get(pair) > thHigh) {
                         StructuralSimilarity.changeStructuralSimilarity(s.leaves(), t.leaves(), sims, cInc);
                     }
@@ -210,8 +212,7 @@ public class CupidSimMatrixBoosting implements SimMatrixBoosting {
                         continue;
                     }
                     StringPair pair = new StringPair(s.name,t.name);
-                    float lsim;
-                    lsim = sims.get("lsim").getOrDefault(pair, 0f);
+                    float lsim = sims.get("lsim").get(pair);
                     float wsim = computeWeightedSimilarity(ssim,lsim,wStruct);
                     sims.get("ssim").put(pair,ssim);
                     sims.get("lsim").put(pair,lsim);

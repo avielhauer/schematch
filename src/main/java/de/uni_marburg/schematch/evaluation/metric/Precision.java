@@ -2,9 +2,9 @@ package de.uni_marburg.schematch.evaluation.metric;
 
 public class Precision extends Metric{
 
+    float threshold = .5f;
     @Override
     public float run(int[] groundTruthVector, float[] simVector) {
-        float threshold = 0.7f;
         int tp = 0;
         int fp = 0;
         int tn = 0;

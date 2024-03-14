@@ -34,7 +34,7 @@ public class Main {
         MatcherFactory matcherFactory = new MatcherFactory();
         // FIXME: make sim matrix boosting configurable via .yaml files
         // Configure similarity matrix boosting here for now
-        SimMatrixBoosting firstLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
+        SimMatrixBoosting firstLineSimMatrixBoosting = new CupidSimMatrixBoosting();
         SimMatrixBoosting secondLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
 
         log.info("Setting up matching steps as specified in config");

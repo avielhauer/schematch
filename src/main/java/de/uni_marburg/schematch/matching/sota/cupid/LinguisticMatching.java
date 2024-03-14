@@ -16,10 +16,19 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
+import java.util.stream.Collectors;
 
 public class LinguisticMatching {
+
+    public static void main(String[] args) throws IOException {
+        WordNetFunctionalities wnf = new WordNetFunctionalities();
+        LinguisticMatching lm = new LinguisticMatching(wnf);
+        double a = lm.computeSimilarityWordnet("book","person");
+        double b = lm.computeSimilarityWordnet("id","person");
+        double c = a+b;
+        System.out.println(a+ ","+b+","+c);
+    }
     private WordNetFunctionalities wordNetFunctionalities = null;
 
     private WuPalmer wuPalmer = null;
@@ -132,7 +141,6 @@ public class LinguisticMatching {
                         .put(categoryPair.getFirst(), dataCompatibilityTable.get(categoryPair.getSecond())
                                 .get(categoryPair.getFirst()));
             } else {
-
                 Tokenizer tokenizer = new PTBTokenizer(new StringReader(categoryPair.getFirst()), new CoreLabelTokenFactory(), "");
                 List<CoreLabel> tokenStrings = tokenizer.tokenize();
                 List<Token> tokens1 = new ArrayList<>();
@@ -184,13 +192,20 @@ public class LinguisticMatching {
                 lsims.put(lsimProcVal.getFirst(), lsimProcVal.getSecond().floatValue());
             }
         } else {
+            List<Future<Pair<StringPair, Double>>> futures = new ArrayList<>();
             ExecutorService executor = Executors.newFixedThreadPool(parallelism);
             for (Pair<SchemaElementNode, SchemaElementNode> pairNode : elementsToCompare) {
                 Pair<SchemaElement, SchemaElement> pair = new Pair<>(pairNode.getFirst().current, pairNode.getSecond().current);
-                executor.submit(() -> {
-                    Pair<StringPair, Double> lsimProcVal = lsimProc(pair, compatibilityTable);
-                    lsims.put(lsimProcVal.getFirst(), lsimProcVal.getSecond().floatValue());
-                });
+                Future<Pair<StringPair, Double>> future = executor.submit(() -> lsimProc(pair, compatibilityTable));
+                futures.add(future);
+            }
+            try {
+                for (Future<Pair<StringPair, Double>> future: futures) {
+                    Pair<StringPair, Double> pair = future.get();
+                    lsims.put(pair.getFirst(),pair.getSecond().floatValue());
+                }
+            } catch (ExecutionException | InterruptedException e) {
+                throw new RuntimeException(e);
             }
             executor.shutdown();
         }
@@ -225,7 +240,6 @@ public class LinguisticMatching {
             }
         }
 
-
         return result;
     }
 
@@ -255,12 +269,20 @@ public class LinguisticMatching {
         List<String> s_cat = s.getCategories();
         List<String> t_cat = t.getCategories();
 
-        double maxScore = s_cat.stream()
-                .mapToDouble(c -> compatibilityTable.getOrDefault(c, Map.of()).entrySet().stream()
-                        .filter(e -> t_cat.contains(e.getKey()))
-                        .mapToDouble(Map.Entry::getValue)
-                        .max().orElse(0.0))
-                .max().orElse(0.0);
+        double maxScore = 0.0;
+
+        for (String c1: s_cat)
+            if (maxScore == 1.0)
+                break;
+            else if (compatibilityTable.containsKey(c1))
+                for (String c2: t_cat)
+                    if (maxScore == 1.0)
+                        break;
+                    else if (compatibilityTable.get(c1).containsKey(c2))
+                        if (maxScore<compatibilityTable.get(c1).get(c2))
+                            maxScore = compatibilityTable.get(c1).get(c2);
+
+
 
         double nameSimilarityScore = nameSimilarityElements(s, t);
 
@@ -289,7 +311,7 @@ public class LinguisticMatching {
                     t2.add(token);
                 }
             }
-            if (t1.size() == 0 || t2.size() == 0) {
+            if (t1.isEmpty() || t2.isEmpty()) {
                 continue;
             }
             double sim = nameSimilarityTokens(t1, t2);
@@ -348,7 +370,7 @@ public class LinguisticMatching {
             Set<ISynset> allSyns1 = getSynonyms(word1);
             Set<ISynset> allSyns2 = getSynonyms(word2);
 
-            if (allSyns1.size() == 0 || allSyns2.size() == 0) {
+            if (allSyns1.isEmpty() || allSyns2.isEmpty()) {
                 return Double.NaN;
             }
 

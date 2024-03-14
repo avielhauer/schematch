@@ -4,18 +4,13 @@ import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.data.metadata.Datatype;
 import de.uni_marburg.schematch.matching.Matcher;
-import de.uni_marburg.schematch.matching.TablePairMatcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.ArrayUtils;
-import edu.stanford.nlp.util.Triple;
-
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * TODO: Implement Cupid Matcher
@@ -34,7 +29,7 @@ public class CupidMatcher extends Matcher {
         float c_dec = 0.9f;
         float th_ns = 0.7f;
         int parallelism = 1;
-        WordNetFunctionalities wnf = null;
+        WordNetFunctionalities wnf;
         try {
             wnf = new WordNetFunctionalities();
         } catch (IOException e) {
@@ -130,9 +125,7 @@ public class CupidMatcher extends Matcher {
         List<SchemaElementNode> tPostOrder = targetTree.postOrder();
 
         for (SchemaElementNode s: sPostOrder) {
-            if (s.children.isEmpty()) continue;
             for (SchemaElementNode t: tPostOrder) {
-                if (t.children.isEmpty()) continue;
                 if (s.height() == t.height() && (s.height() > 0 && t.height() > 0)) {
                     float ssim = StructuralSimilarity.computeSSim(s,t,sims,thAccept);
 
@@ -183,9 +176,7 @@ public class CupidMatcher extends Matcher {
         List<SchemaElementNode> tPostOrder = targetTree.postOrder();
 
         for (SchemaElementNode s : sPostOrder) {
-            if (s.children.isEmpty()) continue;
             for (SchemaElementNode t : tPostOrder) {
-                if (t.children.isEmpty()) continue;
                 StringPair pair = new StringPair(s.name, t.name);
                 if (s.height() == t.height()) {
                     float ssim = StructuralSimilarity.computeSSim(s, t, sims, thAccept);
@@ -193,13 +184,13 @@ public class CupidMatcher extends Matcher {
                         continue;
                     }
                     if (!lSims.containsKey(pair)) {
-                        sims.get("lsim").put(pair, Float.NaN);
+                        sims.get("lsim").put(pair, 0f);
                     }
                     float wsim = computeWeightedSimilarity(ssim, sims.get("lsim").get(pair), wStruct);
                     sims.get("ssim").put(pair, ssim);
                     sims.get("wsim").put(pair, wsim);
                 }
-                if (sims.get("wsim").containsKey(pair)) {
+                if (sims.get("wsim").containsKey(pair) &&  !s.isLeave() && !t.isLeave()) {
                     if (sims.get("wsim").get(pair) > thHigh) {
                         StructuralSimilarity.changeStructuralSimilarity(s.leaves(), t.leaves(), sims, cInc);
                     }
@@ -257,9 +248,17 @@ public class CupidMatcher extends Matcher {
     static Pair<Set<String>,SchemaTree> buildTreeFromTable(Table table) {
         HashSet<String> categories = new HashSet<>();
 
-        SchemaTree tree = new SchemaTree(new SchemaElement("DB__" + table.getName(), "DB"), table.hashCode());
+        SchemaElement root = new SchemaElement("DB__" + table.getName(), "DB");
+        root.addCategory("Database");
+        categories.add("Database");
 
-        tree.addNode(table.getName(), tree.getRoot(), new ArrayList<>(), new SchemaElement(table.getName(), "tableRoot"));
+        SchemaTree tree = new SchemaTree(root, table.hashCode());
+
+        SchemaElement tableElement = new SchemaElement(table.getName(), "Table");
+        tableElement.addCategory("Table");
+        categories.add("Table");
+
+        tree.addNode(table.getName(), tree.getRoot(), new ArrayList<>(), tableElement);
 
         for (Column column : table.getColumns()) {
             categories.add(addColumn(tree, column));

@@ -23,6 +23,9 @@ public class SchemaElementNode{
         this.current = current;
     }
 
+    public boolean isLeave() {
+        return children.isEmpty();
+    }
 
     public List<SchemaElementNode> postOrder() {
         ArrayList<SchemaElementNode> postOrderList = new ArrayList<>();
