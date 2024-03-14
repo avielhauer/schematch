@@ -101,465 +101,80 @@ public class InterattributeMatcher extends TablePairMatcher {
     }
 
     //called it dependencyMatrix, is essentially the dependencyGraph from the paper
-    private double[][] buildDependencyMatrix(Table table) {
+    public double[][] buildDependencyMatrix(Table table) {
         int numColumns = table.getNumColumns();
         double[][] dependencyMatrix = new double[numColumns][numColumns];
 
-//        for (int i = 0; i <= numColumns; i++) {
-//
-//            int currentColumn = 0;
-//
-//            while (currentColumn <= numColumns) {
-//                List<String> columnValues = table.getColumn(currentColumn).getValues();
-//                if (i == currentColumn) {
-//                    dependencyMatrix[i][currentColumn] = getEntropy(columnValues);
-//                } else {
-//                    dependencyMatrix[i][currentColumn] = calculateMutualInformation();
-//                }
-//                currentColumn++;
-//            }
-//            currentColumn = 0;
-//        }
-
-        fillDependencyMatrix(dependencyMatrix,table);
-
+        for (int i = 0; i < numColumns; i++) {
+            for (int j = 0; j < numColumns; j++) {
+                if (i == j) {
+                    List<String> columnValues = table.getColumn(i).getValues();
+                    dependencyMatrix[i][j] = getEntropy(columnValues);
+                } else {
+                    List<String> column1Values = table.getColumn(i).getValues();
+                    List<String> column2Values = table.getColumn(j).getValues();
+                    dependencyMatrix[i][j] = calculateMutualInformation(column1Values, column2Values);
+                }
+            }
+        }
         for (int i = 0; i < dependencyMatrix.length; i++) {
             for (int j = 0; j < dependencyMatrix[i].length; j++) {
                 System.out.print(dependencyMatrix[i][j] + " ");
             }
             System.out.println();
         }
-
         return dependencyMatrix;
     }
 
-//    private void fillDependencyMatrix(double[][] dependencyMatrix, Table table) {
-//        Set<List<Integer>> uniqueTuples = getColumnIndexCombinations(table);
-//
-//        System.out.println("uniqueTuples");
-//        System.out.println(uniqueTuples);
-//        System.out.println("uniqueTuples size");
-//        System.out.println(uniqueTuples.size());
-//
-//        for (List<Integer> tuple : uniqueTuples) {
-//            int index1 = tuple.get(0);
-//            int index2 = tuple.get(1);
-//
-//            List<String> column1Values = table.getColumn(index1).getValues();
-//            List<String> column2Values = table.getColumn(index2).getValues();
-//
-//            System.out.println("column1Values");
-//            System.out.println(column1Values);
-//
-//            Map<String, Integer> column1ValueFrequencies = getValueFrequency(column1Values);
-//            Map<String, Integer> column2ValueFrequencies = getValueFrequency(column2Values);
-//
-//            Map<Pair<String, String>, Integer> columnsValueTupleFrequencies = getTupleFrequency(column1Values, column2Values);
-//
-//            System.out.println("columnsValueTupleFrequencies");
-//            System.out.println(columnsValueTupleFrequencies);
-//            System.out.println("columnsValueTupleFrequencies size");
-//            System.out.println(columnsValueTupleFrequencies.size());
-//
-//            int numColumns = table.getNumColumns();
-//
-//            for (int i = 0; i <= numColumns; i++) {
-//
-//                int currentColumn = 0;
-//
-//                while (currentColumn <= numColumns) {
-//                    List<String> columnValues = table.getColumn(currentColumn).getValues();
-//                    if (i != currentColumn) {
-//                        int total = column1Values.size();
-//                        double mutualInformation = 0.0;
-//
-//                        //dependencyMatrix[i][currentColumn] = calculateMutualInformation(column1Values, column2Values, column1ValueFrequencies, column2ValueFrequencies, columnsValueTupleFrequencies);
-//                        for (Map.Entry<String, Integer> entry1 : column1ValueFrequencies.entrySet()) {
-//                            for(Map.Entry<String, Integer> entry2 : column2ValueFrequencies.entrySet()) {
-//
-//                                Pair<Integer, Integer> valuePair = Pair.of(entry1.getValue(), entry2.getValue());
-//
-//
-//                                //columnsValueTupleFrequencies.get(valuePair);
-//
-//                                double probabilityEntry1 = (double) entry1.getValue() / total;
-//                                double probabilityEntry2 = (double) entry2.getValue() / total;
-//                                double probabilityEntry1and2 = (double) columnsValueTupleFrequencies.get(valuePair) / total;
-//                                mutualInformation += probabilityEntry1and2 * Math.log(probabilityEntry1and2/(probabilityEntry1*probabilityEntry2)) / Math.log(2);
-//
-//                                dependencyMatrix[i][currentColumn]=mutualInformation;
-//                            }
-//                        }
-//                    }
-//                    else {
-//                        dependencyMatrix[i][currentColumn] = getEntropy(columnValues);
-//                    }
-//                    currentColumn++;
-//                }
-//                currentColumn = 0;
-//            }
-//
-//        }
-//    }
+    private double calculateMutualInformation(List<String> values1, List<String> values2) {
+        int total = values1.size();
+        Map<Pair<String, String>, Integer> columnsValueTupleFrequencies = getTupleFrequency(values1, values2);
+        Map<String, Integer> column1ValueFrequencies = getValueFrequency(values1);
+        Map<String, Integer> column2ValueFrequencies = getValueFrequency(values2);
 
-//    private void fillDependencyMatrix(double[][] dependencyMatrix, Table table) {
-////        Set<List<Integer>> uniqueTuples = getColumnIndexCombinations(table);
-////
-////        System.out.println("uniqueTuples");
-////        System.out.println(uniqueTuples);
-////        System.out.println("uniqueTuples size");
-////        System.out.println(uniqueTuples.size());
-//
-//        for (int k=0; k<table.getNumColumns();k++) {
-//            for(int l=0; l<table.getNumColumns();l++) {
-//
-//                //int index1 = tuple.get(0);
-//                //int index2 = tuple.get(1);
-//
-//                List<String> column1Values = table.getColumn(k).getValues();
-//                List<String> column2Values = table.getColumn(l).getValues();
-//
-//                //System.out.println("column1Values");
-//                //System.out.println(column1Values);
-//
-//                Map<String, Integer> column1ValueFrequencies = getValueFrequency(column1Values);
-//                Map<String, Integer> column2ValueFrequencies = getValueFrequency(column2Values);
-//
-//                Map<Pair<String, String>, Integer> columnsValueTupleFrequencies = getTupleFrequency(column1Values, column2Values);
-//
-//                //System.out.println("columnsValueTupleFrequencies");
-//                //System.out.println(columnsValueTupleFrequencies);
-//                //System.out.println("columnsValueTupleFrequencies size");
-//                //System.out.println(columnsValueTupleFrequencies.size());
-//
-//                int numColumns = table.getNumColumns();
-//
-//                for (int i = 0; i < numColumns; i++) {
-//
-//                    int currentColumn = 0;
-//
-//                    while (currentColumn < numColumns) {
-//                        try {
-//                            List<String> columnValues = table.getColumn(currentColumn).getValues();
-//                            if (i != currentColumn) {
-//                                int total = column1Values.size();
-//                                double mutualInformation = 0.0;
-//
-//                                //dependencyMatrix[i][currentColumn] = calculateMutualInformation(column1Values, column2Values, column1ValueFrequencies, column2ValueFrequencies, columnsValueTupleFrequencies);
-//                                for (Map.Entry<String, Integer> entry1 : column1ValueFrequencies.entrySet()) {
-//                                    for (Map.Entry<String, Integer> entry2 : column2ValueFrequencies.entrySet()) {
-//
-//                                        Pair<Integer, Integer> valuePair = Pair.of(entry1.getValue(), entry2.getValue());
-//
-//
-//                                        //columnsValueTupleFrequencies.get(valuePair);
-//
-//                                        //System.out.println(valuePair.getValue());
-//
-//                                        double probabilityEntry1 = (double) entry1.getValue() / total;
-//                                        double probabilityEntry2 = (double) entry2.getValue() / total;
-//                                        double probabilityEntry1and2 = (double) columnsValueTupleFrequencies.get(valuePair) / total;
-//
-//                                        System.out.println("yee");
-//
-//                                        mutualInformation += probabilityEntry1and2 * Math.log(probabilityEntry1and2 / (probabilityEntry1 * probabilityEntry2)) / Math.log(2);
-//
-//                                        dependencyMatrix[i][currentColumn] = mutualInformation;
-//                                    }
-//                                }
-//                            } else {
-//                                dependencyMatrix[i][currentColumn] = getEntropy(columnValues);
-//                            }
-//                            //currentColumn++;
-//                        }catch (NullPointerException e){
-//                            dependencyMatrix[i][currentColumn]=444;
-//                            //e.printStackTrace();
-//                        }
-//                        currentColumn++;
-//                    }
-//                    currentColumn = 0;
-//                }
-//            }
-//        }
-//    }
-
-//    private void fillDependencyMatrix(double[][] dependencyMatrix, Table table) {
-////        Set<List<Integer>> uniqueTuples = getColumnIndexCombinations(table);
-////
-////        System.out.println("uniqueTuples");
-////        System.out.println(uniqueTuples);
-////        System.out.println("uniqueTuples size");
-////        System.out.println(uniqueTuples.size());
-//
-//        for (int k=0; k<table.getNumColumns();k++) {
-//            for(int l=0; l<table.getNumColumns();l++) {
-//
-//                //int index1 = tuple.get(0);
-//                //int index2 = tuple.get(1);
-//
-//                List<String> column1Values = table.getColumn(k).getValues();
-//                List<String> column2Values = table.getColumn(l).getValues();
-//
-//                //System.out.println("column1Values");
-//                //System.out.println(column1Values);
-//
-//                Map<String, Integer> column1ValueFrequencies = getValueFrequency(column1Values);
-//                Map<String, Integer> column2ValueFrequencies = getValueFrequency(column2Values);
-//
-//                Map<Pair<String, String>, Integer> columnsValueTupleFrequencies = getTupleFrequency(column1Values, column2Values);
-//
-//                //System.out.println("columnsValueTupleFrequencies");
-//                //System.out.println(columnsValueTupleFrequencies);
-//                //System.out.println("columnsValueTupleFrequencies size");
-//                //System.out.println(columnsValueTupleFrequencies.size());
-//
-//                int numColumns = table.getNumColumns();
-//
-//                for (int i = 0; i < numColumns; i++) {
-//
-//                    int currentColumn = 0;
-//
-//                    while (currentColumn < numColumns) {
-//                        try {
-//                            List<String> columnValues = table.getColumn(currentColumn).getValues();
-//                            if (i != currentColumn) {
-//                                int total = column1Values.size();
-//                                double mutualInformation = 0.0;
-//
-//                                //dependencyMatrix[i][currentColumn] = calculateMutualInformation(column1Values, column2Values, column1ValueFrequencies, column2ValueFrequencies, columnsValueTupleFrequencies);
-//                                for (Map.Entry<String, Integer> entry1 : column1ValueFrequencies.entrySet()) {
-//                                    for (Map.Entry<String, Integer> entry2 : column2ValueFrequencies.entrySet()) {
-//
-//                                        Pair<Integer, Integer> valuePair = Pair.of(entry1.getValue(), entry2.getValue());
-//
-//                                        //System.out.println(valuePair);
-//
-//
-//                                        //columnsValueTupleFrequencies.get(valuePair);
-//
-//                                        //System.out.println(valuePair.getValue());
-//
-//                                        double probabilityEntry1 = (double) entry1.getValue() / total;
-//                                        double probabilityEntry2 = (double) entry2.getValue() / total;
-//                                        double probabilityEntry1and2 = (double) columnsValueTupleFrequencies.get(valuePair) / total;
-//
-//                                        System.out.println("yee");
-//
-//                                        mutualInformation += probabilityEntry1and2 * Math.log(probabilityEntry1and2 / (probabilityEntry1 * probabilityEntry2)) / Math.log(2);
-//
-//                                        dependencyMatrix[i][currentColumn] = mutualInformation;
-//                                    }
-//                                }
-//                            } else {
-//                                dependencyMatrix[i][currentColumn] = getEntropy(columnValues);
-//                            }
-//                            //currentColumn++;
-//                        }catch (NullPointerException e){
-//                            dependencyMatrix[i][currentColumn]=444;
-//                            //e.printStackTrace();
-//                        }
-//                        currentColumn++;
-//                    }
-//                    currentColumn = 0;
-//                }
-//            }
-//        }
-//    }
-
-    private void fillDependencyMatrix(double[][] dependencyMatrix, Table table) {
-//        Set<List<Integer>> uniqueTuples = getColumnIndexCombinations(table);
-//
-//        System.out.println("uniqueTuples");
-//        System.out.println(uniqueTuples);
-//        System.out.println("uniqueTuples size");
-//        System.out.println(uniqueTuples.size());
-
-        for (int k=0; k<table.getNumColumns();k++) {
-            for(int l=0; l<table.getNumColumns();l++) {
-
-                //int index1 = tuple.get(0);
-                //int index2 = tuple.get(1);
-
-                List<String> column1Values = table.getColumn(k).getValues();
-                List<String> column2Values = table.getColumn(l).getValues();
-
-                //System.out.println("column1Values");
-                //System.out.println(column1Values);
-
-                Map<String, Integer> column1ValueFrequencies = getValueFrequency(column1Values);
-                Map<String, Integer> column2ValueFrequencies = getValueFrequency(column2Values);
-
-                Map<Pair<String, String>, Integer> columnsValueTupleFrequencies = getTupleFrequency(column1Values, column2Values);
-
-                //System.out.println("columnsValueTupleFrequencies");
-                //System.out.println(columnsValueTupleFrequencies);
-                //System.out.println("columnsValueTupleFrequencies size");
-                //System.out.println(columnsValueTupleFrequencies.size());
-
-                int numColumns = table.getNumColumns();
-
-                for (int i = 0; i < numColumns; i++) {
-
-                    int currentColumn = 0;
-
-                    while (currentColumn < numColumns) {
-                        try {
-                            List<String> columnValues = table.getColumn(currentColumn).getValues();
-                            if (i != currentColumn) {
-                                int total = column1Values.size();
-                                double mutualInformation = 0.0;
-
-                                getMutualInformation(column1ValueFrequencies,column2ValueFrequencies,total,columnsValueTupleFrequencies,dependencyMatrix,i,currentColumn);
-                            } else {
-                                dependencyMatrix[i][currentColumn] = getEntropy(columnValues);
-                            }
-                            //currentColumn++;
-                        }catch (NullPointerException e){
-                            dependencyMatrix[i][currentColumn]=0.0444;
-                            //e.printStackTrace();
-                        }
-                        currentColumn++;
-                    }
-                    currentColumn = 0;
-                }
-            }
-        }
-    }
-
-    public double getMutualInformation(Map<String, Integer> column1ValueFrequencies, Map<String, Integer> column2ValueFrequencies, int total, Map<Pair<String, String>, Integer> columnsValueTupleFrequencies, double[][] dependencyMatrix, int currentRow, int currentColumn){
         double mutualInformation = 0.0;
-
-        //dependencyMatrix[i][currentColumn] = calculateMutualInformation(column1Values, column2Values, column1ValueFrequencies, column2ValueFrequencies, columnsValueTupleFrequencies);
         for (Map.Entry<String, Integer> entry1 : column1ValueFrequencies.entrySet()) {
             for (Map.Entry<String, Integer> entry2 : column2ValueFrequencies.entrySet()) {
-
-                Pair<Integer, Integer> valuePair = Pair.of(entry1.getValue(), entry2.getValue());
-
-                //System.out.println(valuePair);
-
-
-                //columnsValueTupleFrequencies.get(valuePair);
-
-                //System.out.println(valuePair.getValue());
-
+                Pair<String, String> valuePair = Pair.of(entry1.getKey(), entry2.getKey());
+                int frequency = columnsValueTupleFrequencies.getOrDefault(valuePair, 0);
                 double probabilityEntry1 = (double) entry1.getValue() / total;
                 double probabilityEntry2 = (double) entry2.getValue() / total;
-                double probabilityEntry1and2 = (double) columnsValueTupleFrequencies.get(valuePair) / total;
-
-                System.out.println("yee");
-
-                mutualInformation += probabilityEntry1and2 * Math.log(probabilityEntry1and2 / (probabilityEntry1 * probabilityEntry2)) / Math.log(2);
-
-                dependencyMatrix[currentRow][currentColumn] = mutualInformation;
+                double probabilityEntry1and2 = (double) frequency / total;
+                if (probabilityEntry1and2 > 0) {  // Avoid log(0)
+                    mutualInformation += probabilityEntry1and2 * Math.log(probabilityEntry1and2 / (probabilityEntry1 * probabilityEntry2)) / Math.log(2);
+                }
             }
         }
         return mutualInformation;
     }
 
-
-//    private double calculateMutualInformation(double[][] dependencyMatrix, Table table) {
-//        return 0;
-//    }
-
-
-    public Map<String, Integer> getValueFrequency(final List<String> values) {
-        int total = values.size();
-
+    private Map<String, Integer> getValueFrequency(final List<String> values) {
         Map<String, Integer> frequencyCounter = new HashMap<>();
         for (String value : values) {
             frequencyCounter.put(value, frequencyCounter.getOrDefault(value, 0) + 1);
         }
-
         return frequencyCounter;
     }
 
-    public Map<Pair<String, String>, Integer> getTupleFrequency(final List<String> values1,
-                                                                final List<String> values2) {
-        int total = values1.size();
-
+    private Map<Pair<String, String>, Integer> getTupleFrequency(final List<String> values1, final List<String> values2) {
         Map<Pair<String, String>, Integer> frequencyCounter = new HashMap<>();
+        int total = values1.size();
         for (int i = 0; i < total; i++) {
-                Pair<String, String> tuple = Pair.of(values1.get(i), values2.get(i));
-                frequencyCounter.put(tuple, frequencyCounter.getOrDefault(tuple, 0) + 1);
+            Pair<String, String> tuple = Pair.of(values1.get(i), values2.get(i));
+            frequencyCounter.put(tuple, frequencyCounter.getOrDefault(tuple, 0) + 1);
         }
-
         return frequencyCounter;
     }
-
-//    public Map<Pair<String, String>, Integer> getTupleFrequency(final List<String> values1,
-//                                                                final List<String> values2) {
-//        int total = values1.size();
-//
-//        Map<String, Map<String, Integer>> frequencyCounter = new HashMap<>();
-//        for (String value1 : values1) {
-//            for(String value2 : values2) {
-//                //frequencyCounter.put(value1, frequencyCounter.getOrDefault(value, 0) + 1);
-//                frequencyCounter.put(value1, frequencyCounter.put(value2, frequencyCounter.getOrDefault(value2, 0)+1);
-//            }
-//        }
-//
-//
-//        //Map<Pair<String, String>, Integer> frequencyCounter = new HashMap<>();
-//        for (int i = 0; i < total; i++) {
-//            for(int j=0; j<total; j++){
-//                Pair<String, String> tuple = Pair.of(values1.get(i), values2.get(j));
-//                frequencyCounter.put(tuple, frequencyCounter.getOrDefault(tuple, 0) + 1);
-//            }
-//        }
-//
-//        return frequencyCounter;
-//    }
-
-//    public Map<String, Integer> getCombinedValueFrequency(final List<String> values1, final List<String> values2) {
-//        int total = values1.size();
-//
-//
-//        Map<String, Integer> frequencyCounter = new HashMap<>();
-//        for (String value : values) {
-//            frequencyCounter.put(value, frequencyCounter.getOrDefault(value, 0) + 1);
-//        }
-//
-//        return frequencyCounter;
-//    }
-
-    private Set<List<Integer>> getColumnIndexCombinations(Table table) {
-        int amountColumns = table.getColumns().size();
-        Set<List<Integer>> uniqueTuples = new HashSet<>();
-
-        List<Integer> columnIndexes = new ArrayList<>();
-        for (int i = 0; i < amountColumns - 1; i++) {
-            columnIndexes.add(i);
-        }
-
-        for (int i = 0; i < columnIndexes.size(); i++) {
-            for (int j = i + 1; j < columnIndexes.size(); j++) {
-                List<Integer> tuple = new ArrayList<>();
-                tuple.add(columnIndexes.get(i));
-                tuple.add(columnIndexes.get(j));
-                uniqueTuples.add(tuple);
-            }
-        }
-
-        return uniqueTuples;
-    }
-
 
     private double getEntropy(final List<String> values) {
         int total = values.size();
+        Map<String, Integer> frequencyCounter = getValueFrequency(values);
 
-        Map<String, Integer> frequencyCounter = new HashMap<>();
-        for (String value : values) {
-            frequencyCounter.put(value, frequencyCounter.getOrDefault(value, 0) + 1);
-        }
-
-        // Calculate entropy
         double entropy = 0.0;
         for (Map.Entry<String, Integer> entry : frequencyCounter.entrySet()) {
             double probability = (double) entry.getValue() / total;
             entropy -= probability * Math.log(probability) / Math.log(2);
         }
-
         return entropy;
     }
-
 }
