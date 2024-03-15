@@ -125,7 +125,11 @@ public class CupidMatcher extends Matcher {
         List<SchemaElementNode> tPostOrder = targetTree.postOrder();
 
         for (SchemaElementNode s: sPostOrder) {
+            if (s.isLeave())
+                continue;
             for (SchemaElementNode t: tPostOrder) {
+                if (t.isLeave())
+                    continue;
                 if (s.height() == t.height() && (s.height() > 0 && t.height() > 0)) {
                     float ssim = StructuralSimilarity.computeSSim(s,t,sims,thAccept);
 
@@ -176,7 +180,11 @@ public class CupidMatcher extends Matcher {
         List<SchemaElementNode> tPostOrder = targetTree.postOrder();
 
         for (SchemaElementNode s : sPostOrder) {
+            if (s.isLeave())
+                continue;
             for (SchemaElementNode t : tPostOrder) {
+                if (t.isLeave())
+                    continue;
                 StringPair pair = new StringPair(s.name, t.name);
                 if (s.height() == t.height()) {
                     float ssim = StructuralSimilarity.computeSSim(s, t, sims, thAccept);

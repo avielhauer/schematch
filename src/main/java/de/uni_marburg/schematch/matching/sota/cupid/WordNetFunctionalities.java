@@ -22,7 +22,7 @@ public class WordNetFunctionalities {
     Dictionary dict;
 
     public WordNetFunctionalities() throws IOException {
-        String path = "src/main/resources/WordNet/dict/";
+        String path = "src/main/resources/cupid/dict/";
         URL url = new URL("file", null, path);
         this.dict = new Dictionary(url);
         dict.open();

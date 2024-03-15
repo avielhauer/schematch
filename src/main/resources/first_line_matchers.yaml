@@ -2,6 +2,3 @@
 ---
 name: "CupidMatcher"
 packageName: "sota.cupid"
----
-name: "CupidMatcherLinguistic"
-packageName: "sota.cupid"

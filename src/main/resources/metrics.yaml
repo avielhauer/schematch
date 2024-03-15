@@ -2,9 +2,3 @@
 name: "NonBinaryPrecisionAtGroundTruth"
 ---
 name: "NonBinaryPrecisionAtNumGroundTruth"
----
-name: "Precision"
----
-name: "FScore"
----
-name: "Recall"
