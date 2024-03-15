@@ -1,0 +1,8 @@
+ID,Name,Major,CID,CourseName,PID,PName,Department,G
+A,Alice Brown,B,701,Cell B,9001,Dr. Smith,B,1
+B,Bob Johnson,C S,702,Algorithms,9002,Dr. Lee,C S,5
+C,Carol White,H,703,World H,9003,Dr. Davis,H,2
+D,David Green,B,701,Cell B,9001,Dr. Smith,B,B
+E,Emma Black,C,704,Organic C,9004,Dr. Johnson,C,1
+C,Marc Blue,H,703,World H,9003,Dr. Davis,H,2
+B,Florian Johnson,C S,702,Algorithms,9002,Dr. Lee,C S,99

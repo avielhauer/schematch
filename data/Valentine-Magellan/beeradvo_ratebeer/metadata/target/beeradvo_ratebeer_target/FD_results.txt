@@ -1,0 +1,8 @@
+[beeradvo_ratebeer_target.csv.id] --> beeradvo_ratebeer_target.csv.Beer_Name
+[beeradvo_ratebeer_target.csv.id] --> beeradvo_ratebeer_target.csv.Brew_Factory_Name
+[beeradvo_ratebeer_target.csv.id] --> beeradvo_ratebeer_target.csv.ABV
+[beeradvo_ratebeer_target.csv.id] --> beeradvo_ratebeer_target.csv.Style
+[beeradvo_ratebeer_target.csv.Beer_Name] --> beeradvo_ratebeer_target.csv.id
+[beeradvo_ratebeer_target.csv.Beer_Name] --> beeradvo_ratebeer_target.csv.Brew_Factory_Name
+[beeradvo_ratebeer_target.csv.Beer_Name] --> beeradvo_ratebeer_target.csv.ABV
+[beeradvo_ratebeer_target.csv.Beer_Name] --> beeradvo_ratebeer_target.csv.Style

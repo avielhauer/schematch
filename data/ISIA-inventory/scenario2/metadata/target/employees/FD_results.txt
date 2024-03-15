@@ -1,0 +1,171 @@
+[] --> employees.csv.photo
+[employees.csv.employee_id] --> employees.csv.last_name
+[employees.csv.employee_id] --> employees.csv.first_name
+[employees.csv.employee_id] --> employees.csv.birth_date
+[employees.csv.employee_id] --> employees.csv.address
+[employees.csv.employee_id] --> employees.csv.postal_code
+[employees.csv.employee_id] --> employees.csv.home_phone
+[employees.csv.employee_id] --> employees.csv.extension
+[employees.csv.employee_id] --> employees.csv.notes
+[employees.csv.employee_id] --> employees.csv.hire_date
+[employees.csv.employee_id] --> employees.csv.city
+[employees.csv.employee_id] --> employees.csv.title
+[employees.csv.employee_id] --> employees.csv.title_of_courtesy
+[employees.csv.employee_id] --> employees.csv.reports_to
+[employees.csv.employee_id] --> employees.csv.region
+[employees.csv.employee_id] --> employees.csv.country
+[employees.csv.last_name] --> employees.csv.employee_id
+[employees.csv.last_name] --> employees.csv.first_name
+[employees.csv.last_name] --> employees.csv.birth_date
+[employees.csv.last_name] --> employees.csv.address
+[employees.csv.last_name] --> employees.csv.postal_code
+[employees.csv.last_name] --> employees.csv.home_phone
+[employees.csv.last_name] --> employees.csv.extension
+[employees.csv.last_name] --> employees.csv.notes
+[employees.csv.last_name] --> employees.csv.hire_date
+[employees.csv.last_name] --> employees.csv.city
+[employees.csv.last_name] --> employees.csv.title
+[employees.csv.last_name] --> employees.csv.title_of_courtesy
+[employees.csv.last_name] --> employees.csv.reports_to
+[employees.csv.last_name] --> employees.csv.region
+[employees.csv.last_name] --> employees.csv.country
+[employees.csv.first_name] --> employees.csv.employee_id
+[employees.csv.first_name] --> employees.csv.last_name
+[employees.csv.first_name] --> employees.csv.birth_date
+[employees.csv.first_name] --> employees.csv.address
+[employees.csv.first_name] --> employees.csv.postal_code
+[employees.csv.first_name] --> employees.csv.home_phone
+[employees.csv.first_name] --> employees.csv.extension
+[employees.csv.first_name] --> employees.csv.notes
+[employees.csv.first_name] --> employees.csv.hire_date
+[employees.csv.first_name] --> employees.csv.city
+[employees.csv.first_name] --> employees.csv.title
+[employees.csv.first_name] --> employees.csv.title_of_courtesy
+[employees.csv.first_name] --> employees.csv.reports_to
+[employees.csv.first_name] --> employees.csv.region
+[employees.csv.first_name] --> employees.csv.country
+[employees.csv.birth_date] --> employees.csv.employee_id
+[employees.csv.birth_date] --> employees.csv.last_name
+[employees.csv.birth_date] --> employees.csv.first_name
+[employees.csv.birth_date] --> employees.csv.address
+[employees.csv.birth_date] --> employees.csv.postal_code
+[employees.csv.birth_date] --> employees.csv.home_phone
+[employees.csv.birth_date] --> employees.csv.extension
+[employees.csv.birth_date] --> employees.csv.notes
+[employees.csv.birth_date] --> employees.csv.hire_date
+[employees.csv.birth_date] --> employees.csv.city
+[employees.csv.birth_date] --> employees.csv.title
+[employees.csv.birth_date] --> employees.csv.title_of_courtesy
+[employees.csv.birth_date] --> employees.csv.reports_to
+[employees.csv.birth_date] --> employees.csv.region
+[employees.csv.birth_date] --> employees.csv.country
+[employees.csv.address] --> employees.csv.employee_id
+[employees.csv.address] --> employees.csv.last_name
+[employees.csv.address] --> employees.csv.first_name
+[employees.csv.address] --> employees.csv.birth_date
+[employees.csv.address] --> employees.csv.postal_code
+[employees.csv.address] --> employees.csv.home_phone
+[employees.csv.address] --> employees.csv.extension
+[employees.csv.address] --> employees.csv.notes
+[employees.csv.address] --> employees.csv.hire_date
+[employees.csv.address] --> employees.csv.city
+[employees.csv.address] --> employees.csv.title
+[employees.csv.address] --> employees.csv.title_of_courtesy
+[employees.csv.address] --> employees.csv.reports_to
+[employees.csv.address] --> employees.csv.region
+[employees.csv.address] --> employees.csv.country
+[employees.csv.postal_code] --> employees.csv.employee_id
+[employees.csv.postal_code] --> employees.csv.last_name
+[employees.csv.postal_code] --> employees.csv.first_name
+[employees.csv.postal_code] --> employees.csv.birth_date
+[employees.csv.postal_code] --> employees.csv.address
+[employees.csv.postal_code] --> employees.csv.home_phone
+[employees.csv.postal_code] --> employees.csv.extension
+[employees.csv.postal_code] --> employees.csv.notes
+[employees.csv.postal_code] --> employees.csv.hire_date
+[employees.csv.postal_code] --> employees.csv.city
+[employees.csv.postal_code] --> employees.csv.title
+[employees.csv.postal_code] --> employees.csv.title_of_courtesy
+[employees.csv.postal_code] --> employees.csv.reports_to
+[employees.csv.postal_code] --> employees.csv.region
+[employees.csv.postal_code] --> employees.csv.country
+[employees.csv.home_phone] --> employees.csv.employee_id
+[employees.csv.home_phone] --> employees.csv.last_name
+[employees.csv.home_phone] --> employees.csv.first_name
+[employees.csv.home_phone] --> employees.csv.birth_date
+[employees.csv.home_phone] --> employees.csv.address
+[employees.csv.home_phone] --> employees.csv.postal_code
+[employees.csv.home_phone] --> employees.csv.extension
+[employees.csv.home_phone] --> employees.csv.notes
+[employees.csv.home_phone] --> employees.csv.hire_date
+[employees.csv.home_phone] --> employees.csv.city
+[employees.csv.home_phone] --> employees.csv.title
+[employees.csv.home_phone] --> employees.csv.title_of_courtesy
+[employees.csv.home_phone] --> employees.csv.reports_to
+[employees.csv.home_phone] --> employees.csv.region
+[employees.csv.home_phone] --> employees.csv.country
+[employees.csv.extension] --> employees.csv.employee_id
+[employees.csv.extension] --> employees.csv.last_name
+[employees.csv.extension] --> employees.csv.first_name
+[employees.csv.extension] --> employees.csv.birth_date
+[employees.csv.extension] --> employees.csv.address
+[employees.csv.extension] --> employees.csv.postal_code
+[employees.csv.extension] --> employees.csv.home_phone
+[employees.csv.extension] --> employees.csv.notes
+[employees.csv.extension] --> employees.csv.hire_date
+[employees.csv.extension] --> employees.csv.city
+[employees.csv.extension] --> employees.csv.title
+[employees.csv.extension] --> employees.csv.title_of_courtesy
+[employees.csv.extension] --> employees.csv.reports_to
+[employees.csv.extension] --> employees.csv.region
+[employees.csv.extension] --> employees.csv.country
+[employees.csv.notes] --> employees.csv.employee_id
+[employees.csv.notes] --> employees.csv.last_name
+[employees.csv.notes] --> employees.csv.first_name
+[employees.csv.notes] --> employees.csv.birth_date
+[employees.csv.notes] --> employees.csv.address
+[employees.csv.notes] --> employees.csv.postal_code
+[employees.csv.notes] --> employees.csv.home_phone
+[employees.csv.notes] --> employees.csv.extension
+[employees.csv.notes] --> employees.csv.hire_date
+[employees.csv.notes] --> employees.csv.city
+[employees.csv.notes] --> employees.csv.title
+[employees.csv.notes] --> employees.csv.title_of_courtesy
+[employees.csv.notes] --> employees.csv.reports_to
+[employees.csv.notes] --> employees.csv.region
+[employees.csv.notes] --> employees.csv.country
+[employees.csv.hire_date] --> employees.csv.city
+[employees.csv.hire_date] --> employees.csv.title_of_courtesy
+[employees.csv.hire_date] --> employees.csv.region
+[employees.csv.hire_date] --> employees.csv.country
+[employees.csv.hire_date, employees.csv.title] --> employees.csv.employee_id
+[employees.csv.hire_date, employees.csv.title] --> employees.csv.last_name
+[employees.csv.hire_date, employees.csv.title] --> employees.csv.first_name
+[employees.csv.hire_date, employees.csv.title] --> employees.csv.birth_date
+[employees.csv.hire_date, employees.csv.title] --> employees.csv.address
+[employees.csv.hire_date, employees.csv.title] --> employees.csv.postal_code
+[employees.csv.hire_date, employees.csv.title] --> employees.csv.home_phone
+[employees.csv.hire_date, employees.csv.title] --> employees.csv.extension
+[employees.csv.hire_date, employees.csv.title] --> employees.csv.notes
+[employees.csv.hire_date, employees.csv.title] --> employees.csv.reports_to
+[employees.csv.hire_date, employees.csv.reports_to] --> employees.csv.employee_id
+[employees.csv.hire_date, employees.csv.reports_to] --> employees.csv.last_name
+[employees.csv.hire_date, employees.csv.reports_to] --> employees.csv.first_name
+[employees.csv.hire_date, employees.csv.reports_to] --> employees.csv.birth_date
+[employees.csv.hire_date, employees.csv.reports_to] --> employees.csv.address
+[employees.csv.hire_date, employees.csv.reports_to] --> employees.csv.postal_code
+[employees.csv.hire_date, employees.csv.reports_to] --> employees.csv.home_phone
+[employees.csv.hire_date, employees.csv.reports_to] --> employees.csv.extension
+[employees.csv.hire_date, employees.csv.reports_to] --> employees.csv.notes
+[employees.csv.hire_date, employees.csv.reports_to] --> employees.csv.title
+[employees.csv.city] --> employees.csv.region
+[employees.csv.city] --> employees.csv.country
+[employees.csv.city, employees.csv.title] --> employees.csv.reports_to
+[employees.csv.reports_to, employees.csv.title] --> employees.csv.region
+[employees.csv.reports_to, employees.csv.title] --> employees.csv.country
+[employees.csv.region, employees.csv.title] --> employees.csv.reports_to
+[employees.csv.country, employees.csv.title] --> employees.csv.reports_to
+[employees.csv.reports_to, employees.csv.title_of_courtesy] --> employees.csv.region
+[employees.csv.reports_to, employees.csv.title_of_courtesy] --> employees.csv.country
+[employees.csv.region] --> employees.csv.country
+[employees.csv.country] --> employees.csv.region

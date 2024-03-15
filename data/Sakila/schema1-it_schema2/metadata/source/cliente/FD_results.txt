@@ -1,0 +1,128 @@
+[] --> cliente.csv.indirizzo2
+[cliente.csv.cliente_id] --> cliente.csv.cognome
+[cliente.csv.cliente_id] --> cliente.csv.email
+[cliente.csv.cliente_id] --> cliente.csv.indirizzo_id
+[cliente.csv.cliente_id] --> cliente.csv.indirizzo
+[cliente.csv.cliente_id] --> cliente.csv.città_id
+[cliente.csv.cliente_id] --> cliente.csv.codice_postale
+[cliente.csv.cliente_id] --> cliente.csv.telefono
+[cliente.csv.cliente_id] --> cliente.csv.nome
+[cliente.csv.cliente_id] --> cliente.csv.distretto
+[cliente.csv.cliente_id] --> cliente.csv.negozio_id
+[cliente.csv.cliente_id] --> cliente.csv.attivo
+[cliente.csv.cliente_id] --> cliente.csv.data_creazione
+[cliente.csv.cognome] --> cliente.csv.cliente_id
+[cliente.csv.cognome] --> cliente.csv.email
+[cliente.csv.cognome] --> cliente.csv.indirizzo_id
+[cliente.csv.cognome] --> cliente.csv.indirizzo
+[cliente.csv.cognome] --> cliente.csv.città_id
+[cliente.csv.cognome] --> cliente.csv.codice_postale
+[cliente.csv.cognome] --> cliente.csv.telefono
+[cliente.csv.cognome] --> cliente.csv.nome
+[cliente.csv.cognome] --> cliente.csv.distretto
+[cliente.csv.cognome] --> cliente.csv.negozio_id
+[cliente.csv.cognome] --> cliente.csv.attivo
+[cliente.csv.cognome] --> cliente.csv.data_creazione
+[cliente.csv.email] --> cliente.csv.cliente_id
+[cliente.csv.email] --> cliente.csv.cognome
+[cliente.csv.email] --> cliente.csv.indirizzo_id
+[cliente.csv.email] --> cliente.csv.indirizzo
+[cliente.csv.email] --> cliente.csv.città_id
+[cliente.csv.email] --> cliente.csv.codice_postale
+[cliente.csv.email] --> cliente.csv.telefono
+[cliente.csv.email] --> cliente.csv.nome
+[cliente.csv.email] --> cliente.csv.distretto
+[cliente.csv.email] --> cliente.csv.negozio_id
+[cliente.csv.email] --> cliente.csv.attivo
+[cliente.csv.email] --> cliente.csv.data_creazione
+[cliente.csv.indirizzo_id] --> cliente.csv.cliente_id
+[cliente.csv.indirizzo_id] --> cliente.csv.cognome
+[cliente.csv.indirizzo_id] --> cliente.csv.email
+[cliente.csv.indirizzo_id] --> cliente.csv.indirizzo
+[cliente.csv.indirizzo_id] --> cliente.csv.città_id
+[cliente.csv.indirizzo_id] --> cliente.csv.codice_postale
+[cliente.csv.indirizzo_id] --> cliente.csv.telefono
+[cliente.csv.indirizzo_id] --> cliente.csv.nome
+[cliente.csv.indirizzo_id] --> cliente.csv.distretto
+[cliente.csv.indirizzo_id] --> cliente.csv.negozio_id
+[cliente.csv.indirizzo_id] --> cliente.csv.attivo
+[cliente.csv.indirizzo_id] --> cliente.csv.data_creazione
+[cliente.csv.indirizzo] --> cliente.csv.cliente_id
+[cliente.csv.indirizzo] --> cliente.csv.cognome
+[cliente.csv.indirizzo] --> cliente.csv.email
+[cliente.csv.indirizzo] --> cliente.csv.indirizzo_id
+[cliente.csv.indirizzo] --> cliente.csv.città_id
+[cliente.csv.indirizzo] --> cliente.csv.codice_postale
+[cliente.csv.indirizzo] --> cliente.csv.telefono
+[cliente.csv.indirizzo] --> cliente.csv.nome
+[cliente.csv.indirizzo] --> cliente.csv.distretto
+[cliente.csv.indirizzo] --> cliente.csv.negozio_id
+[cliente.csv.indirizzo] --> cliente.csv.attivo
+[cliente.csv.indirizzo] --> cliente.csv.data_creazione
+[cliente.csv.città_id] --> cliente.csv.cliente_id
+[cliente.csv.città_id] --> cliente.csv.cognome
+[cliente.csv.città_id] --> cliente.csv.email
+[cliente.csv.città_id] --> cliente.csv.indirizzo_id
+[cliente.csv.città_id] --> cliente.csv.indirizzo
+[cliente.csv.città_id] --> cliente.csv.codice_postale
+[cliente.csv.città_id] --> cliente.csv.telefono
+[cliente.csv.città_id] --> cliente.csv.nome
+[cliente.csv.città_id] --> cliente.csv.distretto
+[cliente.csv.città_id] --> cliente.csv.negozio_id
+[cliente.csv.città_id] --> cliente.csv.attivo
+[cliente.csv.città_id] --> cliente.csv.data_creazione
+[cliente.csv.codice_postale] --> cliente.csv.cliente_id
+[cliente.csv.codice_postale] --> cliente.csv.cognome
+[cliente.csv.codice_postale] --> cliente.csv.email
+[cliente.csv.codice_postale] --> cliente.csv.indirizzo_id
+[cliente.csv.codice_postale] --> cliente.csv.indirizzo
+[cliente.csv.codice_postale] --> cliente.csv.città_id
+[cliente.csv.codice_postale] --> cliente.csv.telefono
+[cliente.csv.codice_postale] --> cliente.csv.nome
+[cliente.csv.codice_postale] --> cliente.csv.distretto
+[cliente.csv.codice_postale] --> cliente.csv.negozio_id
+[cliente.csv.codice_postale] --> cliente.csv.attivo
+[cliente.csv.codice_postale] --> cliente.csv.data_creazione
+[cliente.csv.telefono] --> cliente.csv.cliente_id
+[cliente.csv.telefono] --> cliente.csv.cognome
+[cliente.csv.telefono] --> cliente.csv.email
+[cliente.csv.telefono] --> cliente.csv.indirizzo_id
+[cliente.csv.telefono] --> cliente.csv.indirizzo
+[cliente.csv.telefono] --> cliente.csv.città_id
+[cliente.csv.telefono] --> cliente.csv.codice_postale
+[cliente.csv.telefono] --> cliente.csv.nome
+[cliente.csv.telefono] --> cliente.csv.distretto
+[cliente.csv.telefono] --> cliente.csv.negozio_id
+[cliente.csv.telefono] --> cliente.csv.attivo
+[cliente.csv.telefono] --> cliente.csv.data_creazione
+[cliente.csv.nome] --> cliente.csv.attivo
+[cliente.csv.distretto, cliente.csv.nome] --> cliente.csv.cliente_id
+[cliente.csv.distretto, cliente.csv.nome] --> cliente.csv.cognome
+[cliente.csv.distretto, cliente.csv.nome] --> cliente.csv.email
+[cliente.csv.distretto, cliente.csv.nome] --> cliente.csv.indirizzo_id
+[cliente.csv.distretto, cliente.csv.nome] --> cliente.csv.indirizzo
+[cliente.csv.distretto, cliente.csv.nome] --> cliente.csv.città_id
+[cliente.csv.distretto, cliente.csv.nome] --> cliente.csv.codice_postale
+[cliente.csv.distretto, cliente.csv.nome] --> cliente.csv.telefono
+[cliente.csv.distretto, cliente.csv.nome] --> cliente.csv.negozio_id
+[cliente.csv.distretto, cliente.csv.nome] --> cliente.csv.data_creazione
+[cliente.csv.negozio_id, cliente.csv.nome] --> cliente.csv.cliente_id
+[cliente.csv.negozio_id, cliente.csv.nome] --> cliente.csv.cognome
+[cliente.csv.negozio_id, cliente.csv.nome] --> cliente.csv.email
+[cliente.csv.negozio_id, cliente.csv.nome] --> cliente.csv.indirizzo_id
+[cliente.csv.negozio_id, cliente.csv.nome] --> cliente.csv.indirizzo
+[cliente.csv.negozio_id, cliente.csv.nome] --> cliente.csv.città_id
+[cliente.csv.negozio_id, cliente.csv.nome] --> cliente.csv.codice_postale
+[cliente.csv.negozio_id, cliente.csv.nome] --> cliente.csv.telefono
+[cliente.csv.negozio_id, cliente.csv.nome] --> cliente.csv.distretto
+[cliente.csv.negozio_id, cliente.csv.nome] --> cliente.csv.data_creazione
+[cliente.csv.data_creazione, cliente.csv.nome] --> cliente.csv.cliente_id
+[cliente.csv.data_creazione, cliente.csv.nome] --> cliente.csv.cognome
+[cliente.csv.data_creazione, cliente.csv.nome] --> cliente.csv.email
+[cliente.csv.data_creazione, cliente.csv.nome] --> cliente.csv.indirizzo_id
+[cliente.csv.data_creazione, cliente.csv.nome] --> cliente.csv.indirizzo
+[cliente.csv.data_creazione, cliente.csv.nome] --> cliente.csv.città_id
+[cliente.csv.data_creazione, cliente.csv.nome] --> cliente.csv.codice_postale
+[cliente.csv.data_creazione, cliente.csv.nome] --> cliente.csv.telefono
+[cliente.csv.data_creazione, cliente.csv.nome] --> cliente.csv.distretto
+[cliente.csv.data_creazione, cliente.csv.nome] --> cliente.csv.negozio_id

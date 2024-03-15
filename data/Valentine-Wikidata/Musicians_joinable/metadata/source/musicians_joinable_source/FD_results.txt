@@ -1,0 +1,28 @@
+[musicians_joinable_source.csv.musician] --> musicians_joinable_source.csv.birthDate
+[musicians_joinable_source.csv.musician] --> musicians_joinable_source.csv.websiteLabel
+[musicians_joinable_source.csv.musician] --> musicians_joinable_source.csv.familyNameLabel
+[musicians_joinable_source.csv.musician] --> musicians_joinable_source.csv.geniusNameLabel
+[musicians_joinable_source.csv.musician] --> musicians_joinable_source.csv.twitterNameLabel
+[musicians_joinable_source.csv.musician] --> musicians_joinable_source.csv.givenNameLabel
+[musicians_joinable_source.csv.musician] --> musicians_joinable_source.csv.recordLabelLabel
+[musicians_joinable_source.csv.musician] --> musicians_joinable_source.csv.residenceLabel
+[musicians_joinable_source.csv.musician] --> musicians_joinable_source.csv.activityStart
+[musicians_joinable_source.csv.musician] --> musicians_joinable_source.csv.ethnicityLabel
+[musicians_joinable_source.csv.musician] --> musicians_joinable_source.csv.religionLabel
+[musicians_joinable_source.csv.musician] --> musicians_joinable_source.csv.numberOfChildren
+[musicians_joinable_source.csv.birthDate, musicians_joinable_source.csv.familyNameLabel, musicians_joinable_source.csv.websiteLabel] --> musicians_joinable_source.csv.numberOfChildren
+[musicians_joinable_source.csv.birthDate, musicians_joinable_source.csv.familyNameLabel, musicians_joinable_source.csv.givenNameLabel, musicians_joinable_source.csv.recordLabelLabel, musicians_joinable_source.csv.websiteLabel] --> musicians_joinable_source.csv.residenceLabel
+[musicians_joinable_source.csv.birthDate, musicians_joinable_source.csv.familyNameLabel, musicians_joinable_source.csv.givenNameLabel, musicians_joinable_source.csv.recordLabelLabel, musicians_joinable_source.csv.websiteLabel] --> musicians_joinable_source.csv.ethnicityLabel
+[musicians_joinable_source.csv.birthDate, musicians_joinable_source.csv.ethnicityLabel, musicians_joinable_source.csv.familyNameLabel, musicians_joinable_source.csv.givenNameLabel, musicians_joinable_source.csv.websiteLabel] --> musicians_joinable_source.csv.residenceLabel
+[musicians_joinable_source.csv.birthDate, musicians_joinable_source.csv.ethnicityLabel, musicians_joinable_source.csv.geniusNameLabel, musicians_joinable_source.csv.givenNameLabel, musicians_joinable_source.csv.websiteLabel] --> musicians_joinable_source.csv.religionLabel
+[musicians_joinable_source.csv.activityStart, musicians_joinable_source.csv.birthDate, musicians_joinable_source.csv.givenNameLabel, musicians_joinable_source.csv.websiteLabel] --> musicians_joinable_source.csv.religionLabel
+[musicians_joinable_source.csv.birthDate, musicians_joinable_source.csv.familyNameLabel, musicians_joinable_source.csv.givenNameLabel, musicians_joinable_source.csv.twitterNameLabel] --> musicians_joinable_source.csv.residenceLabel
+[musicians_joinable_source.csv.birthDate, musicians_joinable_source.csv.familyNameLabel, musicians_joinable_source.csv.recordLabelLabel, musicians_joinable_source.csv.twitterNameLabel] --> musicians_joinable_source.csv.numberOfChildren
+[musicians_joinable_source.csv.activityStart, musicians_joinable_source.csv.birthDate, musicians_joinable_source.csv.familyNameLabel, musicians_joinable_source.csv.twitterNameLabel] --> musicians_joinable_source.csv.numberOfChildren
+[musicians_joinable_source.csv.activityStart, musicians_joinable_source.csv.birthDate, musicians_joinable_source.csv.familyNameLabel, musicians_joinable_source.csv.givenNameLabel] --> musicians_joinable_source.csv.residenceLabel
+[musicians_joinable_source.csv.birthDate, musicians_joinable_source.csv.familyNameLabel, musicians_joinable_source.csv.recordLabelLabel, musicians_joinable_source.csv.residenceLabel] --> musicians_joinable_source.csv.numberOfChildren
+[musicians_joinable_source.csv.activityStart, musicians_joinable_source.csv.birthDate, musicians_joinable_source.csv.familyNameLabel, musicians_joinable_source.csv.residenceLabel] --> musicians_joinable_source.csv.numberOfChildren
+[musicians_joinable_source.csv.birthDate, musicians_joinable_source.csv.ethnicityLabel, musicians_joinable_source.csv.familyNameLabel] --> musicians_joinable_source.csv.numberOfChildren
+[musicians_joinable_source.csv.activityStart, musicians_joinable_source.csv.birthDate, musicians_joinable_source.csv.geniusNameLabel, musicians_joinable_source.csv.givenNameLabel] --> musicians_joinable_source.csv.religionLabel
+[musicians_joinable_source.csv.birthDate, musicians_joinable_source.csv.givenNameLabel] --> musicians_joinable_source.csv.numberOfChildren
+[musicians_joinable_source.csv.birthDate, musicians_joinable_source.csv.givenNameLabel, musicians_joinable_source.csv.recordLabelLabel] --> musicians_joinable_source.csv.religionLabel

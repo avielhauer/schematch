@@ -1,0 +1,8 @@
+CID,CName,A,PID,ProductName,Category,M,Price
+1,xMary Johnsonx,x30,x601,Laptop,Electronics,HP,1200
+2,xRobert Smithx,x45,x602,Refrigerator,Appliances,Samsung,800
+3,xEmily Brownx,x28,x603,Running Shoes,Footwear,Nike,100
+4,xDavid Whitex,x35,x601,Laptop,Electronics,HP,1100
+5,xOlivia Greenx,x40,x604,Coffee Maker,Appliances,Philips,150
+1,xMary Johnsonx,x30,x623,Phone,Electronics,HP,1300
+3,xEmily Brownx,x28,x623,Phone,Electronics,Apple,999999

@@ -1,0 +1,73 @@
+[products.csv.product_id] --> products.csv.product_name
+[products.csv.product_id] --> products.csv.quantity_per_unit
+[products.csv.product_id] --> products.csv.unit_price
+[products.csv.product_id] --> products.csv.units_in_stock
+[products.csv.product_id] --> products.csv.supplier_id
+[products.csv.product_id] --> products.csv.units_on_order
+[products.csv.product_id] --> products.csv.category_id
+[products.csv.product_id] --> products.csv.reorder_level
+[products.csv.product_id] --> products.csv.discontinued
+[products.csv.product_name] --> products.csv.product_id
+[products.csv.product_name] --> products.csv.quantity_per_unit
+[products.csv.product_name] --> products.csv.unit_price
+[products.csv.product_name] --> products.csv.units_in_stock
+[products.csv.product_name] --> products.csv.supplier_id
+[products.csv.product_name] --> products.csv.units_on_order
+[products.csv.product_name] --> products.csv.category_id
+[products.csv.product_name] --> products.csv.reorder_level
+[products.csv.product_name] --> products.csv.discontinued
+[products.csv.quantity_per_unit] --> products.csv.discontinued
+[products.csv.quantity_per_unit, products.csv.unit_price] --> products.csv.supplier_id
+[products.csv.quantity_per_unit, products.csv.unit_price] --> products.csv.units_on_order
+[products.csv.quantity_per_unit, products.csv.unit_price] --> products.csv.category_id
+[products.csv.quantity_per_unit, products.csv.reorder_level, products.csv.unit_price] --> products.csv.product_id
+[products.csv.quantity_per_unit, products.csv.reorder_level, products.csv.unit_price] --> products.csv.product_name
+[products.csv.quantity_per_unit, products.csv.reorder_level, products.csv.unit_price] --> products.csv.units_in_stock
+[products.csv.quantity_per_unit, products.csv.units_in_stock] --> products.csv.product_id
+[products.csv.quantity_per_unit, products.csv.units_in_stock] --> products.csv.product_name
+[products.csv.quantity_per_unit, products.csv.units_in_stock] --> products.csv.unit_price
+[products.csv.quantity_per_unit, products.csv.units_in_stock] --> products.csv.supplier_id
+[products.csv.quantity_per_unit, products.csv.units_in_stock] --> products.csv.units_on_order
+[products.csv.quantity_per_unit, products.csv.units_in_stock] --> products.csv.category_id
+[products.csv.quantity_per_unit, products.csv.units_in_stock] --> products.csv.reorder_level
+[products.csv.quantity_per_unit, products.csv.supplier_id] --> products.csv.category_id
+[products.csv.quantity_per_unit, products.csv.units_on_order] --> products.csv.category_id
+[products.csv.quantity_per_unit, products.csv.reorder_level] --> products.csv.units_on_order
+[products.csv.quantity_per_unit, products.csv.reorder_level] --> products.csv.category_id
+[products.csv.unit_price, products.csv.units_in_stock] --> products.csv.product_id
+[products.csv.unit_price, products.csv.units_in_stock] --> products.csv.product_name
+[products.csv.unit_price, products.csv.units_in_stock] --> products.csv.quantity_per_unit
+[products.csv.unit_price, products.csv.units_in_stock] --> products.csv.supplier_id
+[products.csv.unit_price, products.csv.units_in_stock] --> products.csv.units_on_order
+[products.csv.unit_price, products.csv.units_in_stock] --> products.csv.category_id
+[products.csv.unit_price, products.csv.units_in_stock] --> products.csv.reorder_level
+[products.csv.unit_price, products.csv.units_in_stock] --> products.csv.discontinued
+[products.csv.supplier_id, products.csv.unit_price] --> products.csv.quantity_per_unit
+[products.csv.supplier_id, products.csv.unit_price] --> products.csv.units_on_order
+[products.csv.supplier_id, products.csv.unit_price] --> products.csv.category_id
+[products.csv.supplier_id, products.csv.unit_price] --> products.csv.discontinued
+[products.csv.reorder_level, products.csv.supplier_id, products.csv.unit_price] --> products.csv.product_id
+[products.csv.reorder_level, products.csv.supplier_id, products.csv.unit_price] --> products.csv.product_name
+[products.csv.reorder_level, products.csv.supplier_id, products.csv.unit_price] --> products.csv.units_in_stock
+[products.csv.reorder_level, products.csv.unit_price, products.csv.units_on_order] --> products.csv.product_id
+[products.csv.reorder_level, products.csv.unit_price, products.csv.units_on_order] --> products.csv.product_name
+[products.csv.reorder_level, products.csv.unit_price, products.csv.units_on_order] --> products.csv.quantity_per_unit
+[products.csv.reorder_level, products.csv.unit_price, products.csv.units_on_order] --> products.csv.units_in_stock
+[products.csv.reorder_level, products.csv.unit_price, products.csv.units_on_order] --> products.csv.supplier_id
+[products.csv.reorder_level, products.csv.unit_price, products.csv.units_on_order] --> products.csv.category_id
+[products.csv.category_id, products.csv.unit_price] --> products.csv.units_on_order
+[products.csv.category_id, products.csv.unit_price] --> products.csv.discontinued
+[products.csv.category_id, products.csv.reorder_level, products.csv.unit_price] --> products.csv.product_id
+[products.csv.category_id, products.csv.reorder_level, products.csv.unit_price] --> products.csv.product_name
+[products.csv.category_id, products.csv.reorder_level, products.csv.unit_price] --> products.csv.quantity_per_unit
+[products.csv.category_id, products.csv.reorder_level, products.csv.unit_price] --> products.csv.units_in_stock
+[products.csv.category_id, products.csv.reorder_level, products.csv.unit_price] --> products.csv.supplier_id
+[products.csv.reorder_level, products.csv.unit_price] --> products.csv.discontinued
+[products.csv.supplier_id, products.csv.units_in_stock] --> products.csv.units_on_order
+[products.csv.supplier_id, products.csv.units_in_stock] --> products.csv.category_id
+[products.csv.supplier_id, products.csv.units_in_stock] --> products.csv.discontinued
+[products.csv.reorder_level, products.csv.supplier_id, products.csv.units_in_stock] --> products.csv.product_id
+[products.csv.reorder_level, products.csv.supplier_id, products.csv.units_in_stock] --> products.csv.product_name
+[products.csv.reorder_level, products.csv.supplier_id, products.csv.units_in_stock] --> products.csv.quantity_per_unit
+[products.csv.reorder_level, products.csv.supplier_id, products.csv.units_in_stock] --> products.csv.unit_price
+[products.csv.category_id, products.csv.reorder_level, products.csv.units_in_stock] --> products.csv.discontinued

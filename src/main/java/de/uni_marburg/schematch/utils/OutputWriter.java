@@ -20,10 +20,13 @@ public class OutputWriter {
 
     public static void writeSimMatrix(Path path, MatchTask matchTask, String matcherInfo, float[][] simMatrix) {
         Path pathToFile = path.resolve(matcherInfo + ".csv");
+        boolean isCacheFile = path.toString().startsWith(Configuration.getInstance().getCacheDir());
+
         try {
             Files.createDirectories(pathToFile.getParent());
             BufferedWriter writer = new BufferedWriter(new FileWriter(pathToFile.toString()));
-            if (Configuration.getInstance().isSaveOutputVerbose()) {
+            if (Configuration.getInstance().isSaveOutputVerbose() &&
+                    !isCacheFile) { // always cache plain sim matrices
                 StringBuilder line = new StringBuilder();
                 line.append("Source\\Target");
                 for (Table table : matchTask.getScenario().getTargetDatabase().getTables()) {
@@ -38,7 +41,8 @@ public class OutputWriter {
             for (int i = 0; i < simMatrix.length; i++) {
                 float[] scoreList = simMatrix[i];
                 StringBuilder line = new StringBuilder();
-                if (Configuration.getInstance().isSaveOutputVerbose()) {
+                if (Configuration.getInstance().isSaveOutputVerbose() &&
+                        !isCacheFile) { // always cache plain sim matrices
                     line.append(matchTask.getScenario().getSourceDatabase().getFullColumnNameByIndex(i));
                     line.append(Configuration.getInstance().getDefaultSeparator());
                 }

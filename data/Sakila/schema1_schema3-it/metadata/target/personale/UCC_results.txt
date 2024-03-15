@@ -1,0 +1,8 @@
+[personale.csv.personale_id]
+[personale.csv.nome]
+[personale.csv.cognome]
+[personale.csv.indirizzo_id]
+[personale.csv.email]
+[personale.csv.negozio_id]
+[personale.csv.nomeutente]
+[personale.csv.password]

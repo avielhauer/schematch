@@ -11,10 +11,7 @@ import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
 import de.uni_marburg.schematch.matchtask.matchstep.SimMatrixBoostingStep;
 import de.uni_marburg.schematch.matchtask.matchstep.TablePairGenerationStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
-import de.uni_marburg.schematch.utils.ArrayUtils;
-import de.uni_marburg.schematch.utils.ConfigUtils;
-import de.uni_marburg.schematch.utils.Configuration;
-import de.uni_marburg.schematch.utils.InputReader;
+import de.uni_marburg.schematch.utils.*;
 import lombok.Data;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -42,6 +39,8 @@ public class MatchTask {
     private int[][] groundTruthMatrix;
     private int numSourceColumns, numTargetColumns;
     private Evaluator evaluator;
+    private int cacheRead;
+    private int cacheWrite;
 
     public MatchTask(Dataset dataset, Scenario scenario, List<MatchStep> matchSteps, List<Metric> metrics) {
         this.dataset = dataset;
@@ -55,6 +54,8 @@ public class MatchTask {
         for (Metric metric : metrics) {
             this.performances.put(metric, new HashMap<>());
         }
+        this.cacheRead = 0;
+        this.cacheWrite = 0;
     }
 
     /**
@@ -76,6 +77,12 @@ public class MatchTask {
             matchStep.save(this);
             matchStep.evaluate(this);
         }
+        if (ConfigUtils.anyReadCache()) {
+            log.info("Read " + this.cacheRead + " similarity matrices from cache for scenario " + this.getScenario().getPath());
+        }
+        if (ConfigUtils.anyWriteCache()) {
+            log.info("Wrote " + (this.cacheWrite  - this.cacheRead) + " new similarity matrices to cache for scenario " + this.getScenario().getPath());
+        }
     }
 
     /**
@@ -90,10 +97,18 @@ public class MatchTask {
         this.groundTruthMatrix = new int[this.numSourceColumns][this.numTargetColumns];
 
         for (TablePair tablePair : this.tablePairs) {
-            int[][] gtMatrix = InputReader.readGroundTruthFile(basePath + File.separator + tablePair.toString() + ".csv");
+            String pathToTablePairGT = basePath + File.separator + tablePair.toString() + ".csv";
+            int[][] gtMatrix = InputReader.readGroundTruthFile(pathToTablePairGT);
             if (gtMatrix == null) {
                 gtMatrix = tablePair.getEmptyGTMatrix();
             }
+            else if (gtMatrix.length != tablePair.getSourceTable().getNumColumns()) {
+                throw new IllegalStateException("Number of rows in ground truth does not match number of columns in source table: " + pathToTablePairGT);
+            }
+            else if (gtMatrix[0].length != tablePair.getTargetTable().getNumColumns()) {
+                throw new IllegalStateException("Number of columns in ground truth does not match number of columns in target table: " + pathToTablePairGT);
+            }
+
             int sourceTableOffset = tablePair.getSourceTable().getOffset();
             int targetTableOffset = tablePair.getTargetTable().getOffset();
             ArrayUtils.insertSubmatrixInMatrix(gtMatrix, this.groundTruthMatrix, sourceTableOffset, targetTableOffset);
@@ -169,5 +184,13 @@ public class MatchTask {
 
     public Map<MatchStep, Map<Matcher, Performance>> getPerformancesForMetric(Metric metric) {
         return this.performances.get(metric);
+    }
+
+    public void incrementCacheRead() {
+        this.cacheRead += 1;
+    }
+
+    public void incrementCacheWrite() {
+        this.cacheWrite += 1;
     }
 }

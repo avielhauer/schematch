@@ -16,5 +16,13 @@ class NonBinaryPrecisionAtNumGroundTruthTest {
         float actual = metric.run(gtVector, simVector);
 
         assertEquals(expected, actual, 0.05f);
+
+        simVector = new float[]{0.5f, 0.5f, 0.5f, 0.5f};
+        gtVector = new int[]{1, 0, 0, 1};
+
+        expected = 0;
+        actual = metric.run(gtVector, simVector);
+
+        assertEquals(expected, actual, 0.05f);
     }
 }

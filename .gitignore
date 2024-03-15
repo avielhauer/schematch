@@ -1,9 +1,13 @@
 # Schematch
 /results
+/cache
 /logs
 /target
 /META-INF
 /out
+
+# Build files
+dependency-reduced-pom.xml
 
 # IntelliJ
 /.idea

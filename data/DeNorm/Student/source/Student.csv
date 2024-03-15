@@ -1,0 +1,8 @@
+StudentID,StudentName,Major,CourseID,CourseName,ProfessorID,ProfessorName,Department,Grade
+3001,Alice Brown,Biology,701,Cell Biology,9001,Dr. Smith,Biology,A
+3002,Bob Johnson,Computer Science,702,Algorithms,9002,Dr. Lee,Computer Science,B+
+3003,Carol White,History,703,World History,9003,Dr. Davis,History,A-
+3004,David Green,Biology,701,Cell Biology,9001,Dr. Smith,Biology,B
+3005,Emma Black,Chemistry,704,Organic Chemistry,9004,Dr. Johnson,Chemistry,A+
+3003,Marc Blue,History,703,World History,9003,Dr. Davis,History,A-
+3002,Florian Johnson,Computer Science,702,Algorithms,9002,Dr. Lee,Computer Science,Z

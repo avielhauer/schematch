@@ -1,0 +1,5 @@
+[dblp_acm_target.csv.id] --> dblp_acm_target.csv.title
+[dblp_acm_target.csv.id] --> dblp_acm_target.csv.authors
+[dblp_acm_target.csv.id] --> dblp_acm_target.csv.year
+[dblp_acm_target.csv.id] --> dblp_acm_target.csv.venue
+[dblp_acm_target.csv.title, dblp_acm_target.csv.year] --> dblp_acm_target.csv.venue

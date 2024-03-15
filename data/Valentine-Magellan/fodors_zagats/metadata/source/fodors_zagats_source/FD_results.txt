@@ -1,0 +1,28 @@
+[fodors_zagats_source.csv.id] --> fodors_zagats_source.csv.class
+[fodors_zagats_source.csv.id] --> fodors_zagats_source.csv.name
+[fodors_zagats_source.csv.id] --> fodors_zagats_source.csv.phone
+[fodors_zagats_source.csv.id] --> fodors_zagats_source.csv.addr
+[fodors_zagats_source.csv.id] --> fodors_zagats_source.csv.type
+[fodors_zagats_source.csv.id] --> fodors_zagats_source.csv.city
+[fodors_zagats_source.csv.class] --> fodors_zagats_source.csv.id
+[fodors_zagats_source.csv.class] --> fodors_zagats_source.csv.name
+[fodors_zagats_source.csv.class] --> fodors_zagats_source.csv.phone
+[fodors_zagats_source.csv.class] --> fodors_zagats_source.csv.addr
+[fodors_zagats_source.csv.class] --> fodors_zagats_source.csv.type
+[fodors_zagats_source.csv.class] --> fodors_zagats_source.csv.city
+[fodors_zagats_source.csv.name] --> fodors_zagats_source.csv.type
+[fodors_zagats_source.csv.name, fodors_zagats_source.csv.phone] --> fodors_zagats_source.csv.id
+[fodors_zagats_source.csv.name, fodors_zagats_source.csv.phone] --> fodors_zagats_source.csv.class
+[fodors_zagats_source.csv.addr, fodors_zagats_source.csv.name] --> fodors_zagats_source.csv.id
+[fodors_zagats_source.csv.addr, fodors_zagats_source.csv.name] --> fodors_zagats_source.csv.class
+[fodors_zagats_source.csv.addr, fodors_zagats_source.csv.name] --> fodors_zagats_source.csv.phone
+[fodors_zagats_source.csv.city, fodors_zagats_source.csv.name] --> fodors_zagats_source.csv.id
+[fodors_zagats_source.csv.city, fodors_zagats_source.csv.name] --> fodors_zagats_source.csv.class
+[fodors_zagats_source.csv.city, fodors_zagats_source.csv.name] --> fodors_zagats_source.csv.phone
+[fodors_zagats_source.csv.city, fodors_zagats_source.csv.name] --> fodors_zagats_source.csv.addr
+[fodors_zagats_source.csv.phone] --> fodors_zagats_source.csv.addr
+[fodors_zagats_source.csv.phone] --> fodors_zagats_source.csv.city
+[fodors_zagats_source.csv.phone, fodors_zagats_source.csv.type] --> fodors_zagats_source.csv.id
+[fodors_zagats_source.csv.phone, fodors_zagats_source.csv.type] --> fodors_zagats_source.csv.class
+[fodors_zagats_source.csv.phone, fodors_zagats_source.csv.type] --> fodors_zagats_source.csv.name
+[fodors_zagats_source.csv.addr] --> fodors_zagats_source.csv.city

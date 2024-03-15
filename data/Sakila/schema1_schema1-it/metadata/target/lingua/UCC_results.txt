@@ -1,0 +1,2 @@
+[lingua.csv.lingua_id]
+[lingua.csv.nome]

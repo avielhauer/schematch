@@ -1,0 +1,78 @@
+[pagamento.csv.pagamento_id] --> pagamento.csv.noleggio_id
+[pagamento.csv.pagamento_id] --> pagamento.csv.data_restituzione
+[pagamento.csv.pagamento_id] --> pagamento.csv.data_pagamento
+[pagamento.csv.pagamento_id] --> pagamento.csv.data_noleggio
+[pagamento.csv.pagamento_id] --> pagamento.csv.inventario_id
+[pagamento.csv.pagamento_id] --> pagamento.csv.cliente_id
+[pagamento.csv.pagamento_id] --> pagamento.csv.ammontare
+[pagamento.csv.pagamento_id] --> pagamento.csv.ppersonale_id
+[pagamento.csv.pagamento_id] --> pagamento.csv.npersonale_id
+[pagamento.csv.noleggio_id] --> pagamento.csv.pagamento_id
+[pagamento.csv.noleggio_id] --> pagamento.csv.data_restituzione
+[pagamento.csv.noleggio_id] --> pagamento.csv.data_pagamento
+[pagamento.csv.noleggio_id] --> pagamento.csv.data_noleggio
+[pagamento.csv.noleggio_id] --> pagamento.csv.inventario_id
+[pagamento.csv.noleggio_id] --> pagamento.csv.cliente_id
+[pagamento.csv.noleggio_id] --> pagamento.csv.ammontare
+[pagamento.csv.noleggio_id] --> pagamento.csv.ppersonale_id
+[pagamento.csv.noleggio_id] --> pagamento.csv.npersonale_id
+[pagamento.csv.data_restituzione, pagamento.csv.inventario_id] --> pagamento.csv.pagamento_id
+[pagamento.csv.data_restituzione, pagamento.csv.inventario_id] --> pagamento.csv.noleggio_id
+[pagamento.csv.data_restituzione, pagamento.csv.inventario_id] --> pagamento.csv.data_pagamento
+[pagamento.csv.data_restituzione, pagamento.csv.inventario_id] --> pagamento.csv.data_noleggio
+[pagamento.csv.data_restituzione, pagamento.csv.inventario_id] --> pagamento.csv.cliente_id
+[pagamento.csv.data_restituzione, pagamento.csv.inventario_id] --> pagamento.csv.ammontare
+[pagamento.csv.data_restituzione, pagamento.csv.inventario_id] --> pagamento.csv.ppersonale_id
+[pagamento.csv.data_restituzione, pagamento.csv.inventario_id] --> pagamento.csv.npersonale_id
+[pagamento.csv.cliente_id, pagamento.csv.data_restituzione] --> pagamento.csv.data_pagamento
+[pagamento.csv.cliente_id, pagamento.csv.data_restituzione] --> pagamento.csv.data_noleggio
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_restituzione, pagamento.csv.ppersonale_id] --> pagamento.csv.pagamento_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_restituzione, pagamento.csv.ppersonale_id] --> pagamento.csv.noleggio_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_restituzione, pagamento.csv.ppersonale_id] --> pagamento.csv.inventario_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_restituzione, pagamento.csv.ppersonale_id] --> pagamento.csv.npersonale_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_restituzione, pagamento.csv.npersonale_id] --> pagamento.csv.pagamento_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_restituzione, pagamento.csv.npersonale_id] --> pagamento.csv.noleggio_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_restituzione, pagamento.csv.npersonale_id] --> pagamento.csv.inventario_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_restituzione, pagamento.csv.npersonale_id] --> pagamento.csv.ppersonale_id
+[pagamento.csv.data_pagamento] --> pagamento.csv.data_noleggio
+[pagamento.csv.data_pagamento, pagamento.csv.inventario_id] --> pagamento.csv.pagamento_id
+[pagamento.csv.data_pagamento, pagamento.csv.inventario_id] --> pagamento.csv.noleggio_id
+[pagamento.csv.data_pagamento, pagamento.csv.inventario_id] --> pagamento.csv.data_restituzione
+[pagamento.csv.data_pagamento, pagamento.csv.inventario_id] --> pagamento.csv.cliente_id
+[pagamento.csv.data_pagamento, pagamento.csv.inventario_id] --> pagamento.csv.ammontare
+[pagamento.csv.data_pagamento, pagamento.csv.inventario_id] --> pagamento.csv.ppersonale_id
+[pagamento.csv.data_pagamento, pagamento.csv.inventario_id] --> pagamento.csv.npersonale_id
+[pagamento.csv.cliente_id, pagamento.csv.data_pagamento] --> pagamento.csv.data_restituzione
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_pagamento, pagamento.csv.ppersonale_id] --> pagamento.csv.pagamento_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_pagamento, pagamento.csv.ppersonale_id] --> pagamento.csv.noleggio_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_pagamento, pagamento.csv.ppersonale_id] --> pagamento.csv.inventario_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_pagamento, pagamento.csv.ppersonale_id] --> pagamento.csv.npersonale_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_pagamento, pagamento.csv.npersonale_id] --> pagamento.csv.pagamento_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_pagamento, pagamento.csv.npersonale_id] --> pagamento.csv.noleggio_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_pagamento, pagamento.csv.npersonale_id] --> pagamento.csv.inventario_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_pagamento, pagamento.csv.npersonale_id] --> pagamento.csv.ppersonale_id
+[pagamento.csv.data_noleggio] --> pagamento.csv.data_pagamento
+[pagamento.csv.data_noleggio, pagamento.csv.inventario_id] --> pagamento.csv.pagamento_id
+[pagamento.csv.data_noleggio, pagamento.csv.inventario_id] --> pagamento.csv.noleggio_id
+[pagamento.csv.data_noleggio, pagamento.csv.inventario_id] --> pagamento.csv.data_restituzione
+[pagamento.csv.data_noleggio, pagamento.csv.inventario_id] --> pagamento.csv.cliente_id
+[pagamento.csv.data_noleggio, pagamento.csv.inventario_id] --> pagamento.csv.ammontare
+[pagamento.csv.data_noleggio, pagamento.csv.inventario_id] --> pagamento.csv.ppersonale_id
+[pagamento.csv.data_noleggio, pagamento.csv.inventario_id] --> pagamento.csv.npersonale_id
+[pagamento.csv.cliente_id, pagamento.csv.data_noleggio] --> pagamento.csv.data_restituzione
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_noleggio, pagamento.csv.ppersonale_id] --> pagamento.csv.pagamento_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_noleggio, pagamento.csv.ppersonale_id] --> pagamento.csv.noleggio_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_noleggio, pagamento.csv.ppersonale_id] --> pagamento.csv.inventario_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_noleggio, pagamento.csv.ppersonale_id] --> pagamento.csv.npersonale_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_noleggio, pagamento.csv.npersonale_id] --> pagamento.csv.pagamento_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_noleggio, pagamento.csv.npersonale_id] --> pagamento.csv.noleggio_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_noleggio, pagamento.csv.npersonale_id] --> pagamento.csv.inventario_id
+[pagamento.csv.ammontare, pagamento.csv.cliente_id, pagamento.csv.data_noleggio, pagamento.csv.npersonale_id] --> pagamento.csv.ppersonale_id
+[pagamento.csv.cliente_id, pagamento.csv.inventario_id] --> pagamento.csv.pagamento_id
+[pagamento.csv.cliente_id, pagamento.csv.inventario_id] --> pagamento.csv.noleggio_id
+[pagamento.csv.cliente_id, pagamento.csv.inventario_id] --> pagamento.csv.data_restituzione
+[pagamento.csv.cliente_id, pagamento.csv.inventario_id] --> pagamento.csv.data_pagamento
+[pagamento.csv.cliente_id, pagamento.csv.inventario_id] --> pagamento.csv.data_noleggio
+[pagamento.csv.cliente_id, pagamento.csv.inventario_id] --> pagamento.csv.ammontare
+[pagamento.csv.cliente_id, pagamento.csv.inventario_id] --> pagamento.csv.ppersonale_id
+[pagamento.csv.cliente_id, pagamento.csv.inventario_id] --> pagamento.csv.npersonale_id

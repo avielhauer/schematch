@@ -1,0 +1,2 @@
+[beeradvo_ratebeer_target.csv.id]
+[beeradvo_ratebeer_target.csv.Beer_Name]
