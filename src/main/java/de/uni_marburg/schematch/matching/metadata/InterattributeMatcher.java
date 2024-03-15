@@ -47,6 +47,29 @@ public class InterattributeMatcher extends TablePairMatcher {
         return simMatrix;
     }
 
+    public double calculateCosineSimilarity(double[][] dependencyGraphA, double[][] dependencyGraphB, Map<Integer, Integer> nodeMappings) {
+        double dotProduct = 0.0;
+        double magnitudeA = 0.0;
+        double magnitudeB = 0.0;
+
+        for (int i = 0; i < dependencyGraphA.length; i++) {
+            for (int j = 0; j < dependencyGraphA[i].length; j++) {
+                int mappedI = nodeMappings.getOrDefault(i, -1);
+                int mappedJ = nodeMappings.getOrDefault(j, -1);
+                if (mappedI != -1 && mappedJ != -1) {
+                    dotProduct += dependencyGraphA[i][j] * dependencyGraphB[mappedI][mappedJ];
+                    magnitudeA += Math.pow(dependencyGraphA[i][j], 2);
+                    magnitudeB += Math.pow(dependencyGraphB[mappedI][mappedJ], 2);
+                }
+            }
+        }
+
+        double magnitudeProduct = Math.sqrt(magnitudeA) * Math.sqrt(magnitudeB);
+        if (magnitudeProduct == 0) return 0; // Avoid division by zero
+
+        return dotProduct / magnitudeProduct;
+    }
+
     // Perform hill climb approach to match two graphs
     public Map<Integer, Integer> matchGraphs(double[][] dependencyGraphA, double[][] dependencyGraphB) {
         // Initialize random mapping
@@ -157,20 +180,24 @@ public class InterattributeMatcher extends TablePairMatcher {
     }
 
     public double calculateEuclideanDistance(double[][] dependencyGraphA, double[][] dependencyGraphB, Map<Integer, Integer> nodeMappings) {
-        double sum = 0.0;
-        for (int i = 0; i < dependencyGraphA.length; i++) {
-            for (int j = 0; j < dependencyGraphA[i].length; j++) {
-                int mappedI = nodeMappings.getOrDefault(i, -1); // Get the mapped node index in graph B
-                int mappedJ = nodeMappings.getOrDefault(j, -1); // Get the mapped node index in graph B
-                if (mappedI != -1 && mappedJ != -1) { // If both nodes have matching counterparts in graph B
-                    double mutualInformationA = dependencyGraphA[i][j];
-                    double mutualInformationB = dependencyGraphB[mappedI][mappedJ];
-                    double difference = mutualInformationA - mutualInformationB;
-                    sum += difference * difference; // Add squared difference to the sum
-                }
-            }
-        }
-        return Math.sqrt(sum); // Return the square root of the sum
+//        double sum = 0.0;
+//        for (int i = 0; i < dependencyGraphA.length; i++) {
+//            for (int j = 0; j < dependencyGraphA[i].length; j++) {
+//                int mappedI = nodeMappings.getOrDefault(i, -1); // Get the mapped node index in graph B
+//                int mappedJ = nodeMappings.getOrDefault(j, -1); // Get the mapped node index in graph B
+//                if (mappedI != -1 && mappedJ != -1) { // If both nodes have matching counterparts in graph B
+//                    double mutualInformationA = dependencyGraphA[i][j];
+//                    double mutualInformationB = dependencyGraphB[mappedI][mappedJ];
+//                    double difference = mutualInformationA - mutualInformationB;
+//                    sum += difference * difference; // Add squared difference to the sum
+//                }
+//            }
+//        }
+//        return Math.sqrt(sum); // Return the square root of the sum
+
+
+        return 1-calculateCosineSimilarity(dependencyGraphA, dependencyGraphB, nodeMappings);
+
     }
 
     private double calculateMutualInformation(List<String> values1, List<String> values2) {
