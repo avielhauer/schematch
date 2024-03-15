@@ -21,6 +21,11 @@ public class WordNetFunctionalities {
 
     Dictionary dict;
 
+    /**
+     * Initializes the WordNet dictionary.
+     *
+     * @throws IOException If an error occurs while initializing the dictionary.
+     */
     public WordNetFunctionalities() throws IOException {
         String path = "src/main/resources/cupid/dict/";
         URL url = new URL("file", null, path);
@@ -28,6 +33,12 @@ public class WordNetFunctionalities {
         dict.open();
     }
 
+    /**
+     * Retrieves all possible index words for a given word.
+     *
+     * @param word The word to retrieve index words for.
+     * @return A list of all possible index words for the given word.
+     */
     List<IIndexWord> getAllPossibleWords(String word) {
         List<IIndexWord> result = new ArrayList<>();
 
@@ -41,6 +52,12 @@ public class WordNetFunctionalities {
         return result;
     }
 
+    /**
+     * Retrieves all synonym sets (synsets) for a given word.
+     *
+     * @param word The word to retrieve synonym sets for.
+     * @return A set of all synonym sets (ISynset) for the given word.
+     */
     Set<ISynset> getAllSynonymsets(String word) {
         List<IIndexWord> allPossibleWords = getAllPossibleWords(word);
         Set<ISynset> result = new HashSet<>();
@@ -50,16 +67,5 @@ public class WordNetFunctionalities {
             }
         }
         return result;
-    }
-
-    public static void main(String[] args) throws IOException {
-        WS4JConfiguration.getInstance().setMemoryDB(false);
-        WS4JConfiguration.getInstance().setMFS(true);
-        WordNetFunctionalities wordNetFunctionalities = new WordNetFunctionalities();
-        LinguisticMatching linguisticMatching = new LinguisticMatching(wordNetFunctionalities);
-        ILexicalDatabase db = new MITWordNet(new RAMDictionary(wordNetFunctionalities.dict, 3));
-        WuPalmer wu = new WuPalmer(db);
-
-        System.out.println(wu.calcRelatednessOfWords("dog","cat"));
     }
 }
