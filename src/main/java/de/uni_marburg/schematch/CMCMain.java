@@ -37,7 +37,7 @@ import java.util.List;
 import static de.uni_marburg.schematch.Main.START_TIMESTAMP;
 import static de.uni_marburg.schematch.Main.log;
 
-public class NewMain {
+public class CMCMain {
     public static void main(String[] args) throws Exception {
         List<Feature> features = List.of(
                 new FeatureLabelComponents("Components"),
