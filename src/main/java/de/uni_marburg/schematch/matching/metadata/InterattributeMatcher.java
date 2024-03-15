@@ -22,44 +22,73 @@ public class InterattributeMatcher extends TablePairMatcher {
         Table targetTable = tablePair.getTargetTable();
         float[][] simMatrix = tablePair.getEmptySimMatrix();
 
-        //System.out.println("GUT");
+        double[][] dependencyMatrixSource = buildDependencyMatrix(sourceTable);
+        double[][] dependencyMatrixTarget = buildDependencyMatrix(targetTable);
 
-        double[][]dependencyMatrixSource=buildDependencyMatrix(sourceTable);
-        double[][]dependencyMatrixTarget=buildDependencyMatrix(targetTable);
+        // Perform hill climb approach to match two graphs
+        for (int i = 0; i < simMatrix.length; i++) {
+            for (int j = 0; j < simMatrix[i].length; j++) {
+                Map<Integer, Integer> mapping = matchGraphs(dependencyMatrixSource, dependencyMatrixTarget);
+                // Calculate similarity score based on the mapping
+                // For simplicity, let's assume similarity score is the negative of Euclidean distance
+                double similarityScore = -calculateEuclideanDistance(dependencyMatrixSource, dependencyMatrixTarget, mapping);
+                simMatrix[i][j] = (float) similarityScore;
+            }
+        }
 
-        //System.out.println("GUT");
-
-
-//        for (int i = 0; i < sourceTable.getNumColumns(); i++) {
-//            Datatype sourceType = sourceTable.getColumn(i).getDatatype();
-//            for (int j = 0; j < targetTable.getNumColumns(); j++) {
-//                Datatype targetType = targetTable.getColumn(j).getDatatype();
-//                if (sourceType != Datatype.INTEGER && sourceType != Datatype.FLOAT) {
-//                    simMatrix[i][j] = 0.0f;
-//                    continue;
-//                }
-//                if (targetType != Datatype.INTEGER && targetType != Datatype.FLOAT) {
-//                    simMatrix[i][j] = 0.0f;
-//                    continue;
-//                }
-//                simMatrix[i][j] = calculateScore(sourceTable.getColumn(i).getValues(), targetTable.getColumn(j).getValues());
-//            }
-//        }
-//        return simMatrix;
-
-//        Table sourceTable = tablePair.getSourceTable();
-//        Table targetTable = tablePair.getTargetTable();
-
-//        float[][] simMatrix = tablePair.getEmptySimMatrix();
-
-//        for (int i = 0; i < sourceTable.getNumColumns(); i++) {
-//            for (int j = 0; j < targetTable.getNumColumns(); j++) {
-//
-//            }
-//        }
-
+        System.out.println("SIMILARITY MATRIX:");
+        for (int i = 0; i < simMatrix.length; i++) {
+            for (int j = 0; j < simMatrix[i].length; j++) {
+                System.out.print(simMatrix[i][j] + " ");
+            }
+            System.out.println();
+        }
 
         return simMatrix;
+    }
+
+    // Perform hill climb approach to match two graphs
+    public Map<Integer, Integer> matchGraphs(double[][] dependencyGraphA, double[][] dependencyGraphB) {
+        // Initialize random mapping
+        Map<Integer, Integer> currentMapping = getRandomMapping(dependencyGraphA.length, dependencyGraphB.length);
+        double currentDistance = calculateEuclideanDistance(dependencyGraphA, dependencyGraphB, currentMapping);
+
+        // Hill climb iterations
+        int maxIterations = 1000;
+        for (int iteration = 0; iteration < maxIterations; iteration++) {
+            // Generate a random neighbor mapping
+            Map<Integer, Integer> neighborMapping = getRandomNeighborMapping(currentMapping, dependencyGraphB.length);
+            double neighborDistance = calculateEuclideanDistance(dependencyGraphA, dependencyGraphB, neighborMapping);
+
+            // Accept the neighbor if it improves the distance
+            if (neighborDistance < currentDistance) {
+                currentMapping = neighborMapping;
+                currentDistance = neighborDistance;
+            }
+        }
+
+        return currentMapping;
+    }
+
+    // Generate a random initial mapping
+    private Map<Integer, Integer> getRandomMapping(int sizeA, int sizeB) {
+        Map<Integer, Integer> mapping = new HashMap<>();
+        Random random = new Random();
+        for (int i = 0; i < sizeA; i++) {
+            int randomIndexB = random.nextInt(sizeB);
+            mapping.put(i, randomIndexB);
+        }
+        return mapping;
+    }
+
+    // Generate a random neighbor mapping by perturbing the current mapping
+    private Map<Integer, Integer> getRandomNeighborMapping(Map<Integer, Integer> currentMapping, int sizeB) {
+        Map<Integer, Integer> neighborMapping = new HashMap<>(currentMapping);
+        Random random = new Random();
+        int randomIndexA = random.nextInt(currentMapping.size());
+        int randomIndexB = random.nextInt(sizeB);
+        neighborMapping.put(randomIndexA, randomIndexB);
+        return neighborMapping;
     }
 
     public float[][] hillClimbApproach(double[][]dependencyMatrix1,double[][]dependencyMatrix2){
@@ -117,13 +146,31 @@ public class InterattributeMatcher extends TablePairMatcher {
                 }
             }
         }
-        for (int i = 0; i < dependencyMatrix.length; i++) {
-            for (int j = 0; j < dependencyMatrix[i].length; j++) {
-                System.out.print(dependencyMatrix[i][j] + " ");
-            }
-            System.out.println();
-        }
+//        System.out.println("DEPENDENCY MATRIX:");
+//        for (int i = 0; i < dependencyMatrix.length; i++) {
+//            for (int j = 0; j < dependencyMatrix[i].length; j++) {
+//                System.out.print(dependencyMatrix[i][j] + " ");
+//            }
+//            System.out.println();
+//        }
         return dependencyMatrix;
+    }
+
+    public double calculateEuclideanDistance(double[][] dependencyGraphA, double[][] dependencyGraphB, Map<Integer, Integer> nodeMappings) {
+        double sum = 0.0;
+        for (int i = 0; i < dependencyGraphA.length; i++) {
+            for (int j = 0; j < dependencyGraphA[i].length; j++) {
+                int mappedI = nodeMappings.getOrDefault(i, -1); // Get the mapped node index in graph B
+                int mappedJ = nodeMappings.getOrDefault(j, -1); // Get the mapped node index in graph B
+                if (mappedI != -1 && mappedJ != -1) { // If both nodes have matching counterparts in graph B
+                    double mutualInformationA = dependencyGraphA[i][j];
+                    double mutualInformationB = dependencyGraphB[mappedI][mappedJ];
+                    double difference = mutualInformationA - mutualInformationB;
+                    sum += difference * difference; // Add squared difference to the sum
+                }
+            }
+        }
+        return Math.sqrt(sum); // Return the square root of the sum
     }
 
     private double calculateMutualInformation(List<String> values1, List<String> values2) {
