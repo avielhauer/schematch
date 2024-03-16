@@ -9,6 +9,11 @@ public class Pair<T, U> {
     private final T first;
     private final U second;
 
+    /**
+     * Initiates a Pair of the given object
+     * @param first first object
+     * @param second second object
+     */
     public Pair(T first, U second) {
         this.first = first;
         this.second = second;

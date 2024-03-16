@@ -3,6 +3,14 @@ package de.uni_marburg.schematch.matching.sota.cupid;
 import java.util.*;
 
 public class StructuralSimilarity {
+    /**
+     * Computes structural similarity, dividing the number of strong links with the number of links
+     * @param s source Node
+     * @param t target Node
+     * @param sims Map<String, Map<StringPair, Float>>, needs to contain key "wsim" in the outer map
+     * @param th_accept Threshold at which links are considered strong
+     * @return structural similarity value of the node s and t
+     */
     public static float computeSSim(
             SchemaElementNode s,
             SchemaElementNode t,
@@ -33,6 +41,13 @@ public class StructuralSimilarity {
         return  (float) (sStrongLink.size() + tStrongLink.size()) / (sLeaves.size() + tLeaves.size());
     }
 
+    /**
+     * Increases or decreases the ssim values of sLeaves and tLeaves in sims by the factor of cInc
+     * @param sLeaves source leaves
+     * @param tLeaves target leaves
+     * @param sims Map<String, Map<StringPair, Float>>, needs to contain key "ssim" in the outer map
+     * @param cInc Factor by which the ssims
+     */
     public static void changeStructuralSimilarity(
             List<SchemaElementNode> sLeaves,
             List<SchemaElementNode> tLeaves,
@@ -50,6 +65,12 @@ public class StructuralSimilarity {
         }
     }
 
+    /**
+     * Creates product of the two given SchemaElementNode lists
+     * @param sLeaves SchemaElementNodeList
+     * @param tLeaves SchemaElementNodeList
+     * @return Product of sLeaves and tLeaves
+     */
     public static List<StringPair> product(List<SchemaElementNode> sLeaves, List<SchemaElementNode> tLeaves) {
         ArrayList<StringPair> productList = new ArrayList<StringPair>();
         for (SchemaElementNode s: sLeaves) {

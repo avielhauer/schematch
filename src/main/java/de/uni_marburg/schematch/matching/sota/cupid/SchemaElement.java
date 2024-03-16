@@ -17,7 +17,11 @@ class SchemaElement {
     private String initialName;
 
 
-
+    /**
+     * Initiates a schema element, with the given name and data type
+     * @param name name of the schema element
+     * @param dataType data type of the schema element
+     */
     public SchemaElement(String name, String dataType) {
         this.categories = new ArrayList<>();
         this.dataType = dataType;
@@ -25,17 +29,18 @@ class SchemaElement {
         this.initialName = name;
     }
 
-    public SchemaElement(String name, String dataType, List<String> categories) {
-        this.categories = categories;
-        this.dataType = dataType;
-        this.tokens = new ArrayList<>();
-        this.initialName = name;
-    }
-
+    /**
+     * Adds new category to the schema element object.
+     * @param category category to be added (String)
+     */
     public void addCategory(String category) {
         this.categories.add(category);
     }
 
+    /**
+     * Adds token to the schema element
+     * @param token token to be added (Token)
+     */
     public void addToken(Token token) {
         if (token instanceof Token) {
             this.tokens.add(token);
@@ -44,44 +49,21 @@ class SchemaElement {
         }
     }
 
-    public List<String> getTokensData(List<Token> tokens) {
-        if (tokens == null) {
-            List<String> tokenData = new ArrayList<>();
-            for (Token t : this.tokens) {
-                tokenData.add(t.getData());
-            }
-            return tokenData;
-        } else {
-            List<String> tokenData = new ArrayList<>();
-            for (Token t : tokens) {
-                tokenData.add(t.getData());
-            }
-            return tokenData;
-        }
-    }
-
-    public List<Pair<String, TokenTypes>> getTokensDataAndType(List<Token> tokens) {
-        if (tokens == null) {
-            List<Pair<String, TokenTypes>> tokenDataAndType = new ArrayList<>();
-            for (Token t : this.tokens) {
-                tokenDataAndType.add(new Pair<>(t.getData(), t.getTokenType()));
-            }
-            return tokenDataAndType;
-        } else {
-            List<Pair<String, TokenTypes>> tokenDataAndType = new ArrayList<>();
-            for (Token t : tokens) {
-                tokenDataAndType.add(new Pair<>(t.getData(), t.getTokenType()));
-            }
-            return tokenDataAndType;
-        }
-    }
-
+    /**
+     * Returns a sorted list of tokens
+     * @return sorted list of token (List<Token>)
+     */
     public List<Token> sortByTokenType() {
         List<Token> sortedTokens = new ArrayList<>(this.tokens);
         Collections.sort(sortedTokens, (token1, token2) -> token1.getTokenType().compareTo(token2.getTokenType()));
         return sortedTokens;
     }
 
+    /**
+     * Returns all tokens that are the given token type
+     * @param tokenType token type (String)
+     * @return tokens with type=tokenType (List<Token>)
+     */
     public List<Token> getTokensByTokenType(String tokenType) {
         List<Token> sortedTokens = this.sortByTokenType();
         List<Token> resultTokens = new ArrayList<>();
@@ -93,6 +75,9 @@ class SchemaElement {
         return resultTokens;
     }
 
+    /**
+     * @return all token (List<Token>)
+     */
     public List<Token> getTokens() {
         return tokens;
     }

@@ -1,28 +1,74 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
 
 import de.uni_marburg.schematch.boosting.SimMatrixBoosting;
-import de.uni_marburg.schematch.data.Column;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.SimMatrixBoostingStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.ArrayUtils;
-import org.apache.lucene.document.IntRange;
+import lombok.Getter;
 
 import java.io.IOException;
 import java.util.*;
 
+import static de.uni_marburg.schematch.matching.sota.cupid.TreeMatch.convertSimMatrix;
+
 public class CupidSimMatrixBoosting implements SimMatrixBoosting {
+
+    private final Settings settings;
+
+    /**
+     * Initializes CupidSimMatrixBoosting object with default settings th_accept = 0.7, leaf_w_struct = 0.2, w_struct = 0.2 and
+     * use_simple_data_types = false
+     */
+    public CupidSimMatrixBoosting() {
+        this.settings = new Settings(.7f,.2f,.2f,false);
+    }
+
+    /**
+     * Initializes CupidSimMatrixBoosting object with custom th_accept and use_simple_data_types and default leaf_w_struct = 0.2
+     * and w_struct = 0.2
+     * @param th_accept Threshold for mapping and strong links in the structural matching
+     * @param use_simple_data_types use simple data types (boolean)
+     */
+    public CupidSimMatrixBoosting(float th_accept, boolean use_simple_data_types) {
+        this.settings = new Settings(th_accept,.2f,.2f,use_simple_data_types);
+    }
+
+    /**
+     * Initializes CupidSimMatrixBoosting object with custom th_accept and default leaf_w_struct = 0.2, w_struct = 0.2 and
+     * use_simple_data_types = false
+     * @param th_accept Threshold for mapping and strong links in the structural matching
+     */
+    public CupidSimMatrixBoosting(float th_accept) {
+        this.settings = new Settings(th_accept,.2f,.2f,false);
+    }
+
+    /**
+     * Initializes CupidSimMatrixBoosting object custom settings
+     * @param th_accept Threshold for mapping and strong links in the structural matching
+     * @param leaf_w_struct Weight of the structural similarity, to calculate the weighted similarity between structural
+     *                    similarity and linguistic similarity of the leaf node pairs
+     * @param w_struct Weight of the structural similarity, to calculate the weighted similarity between structural
+     *                similarity and linguistic similarity of the non-leaf node pairs
+     * @param use_simple_data_types use simple data types (boolean)
+     */
+    public CupidSimMatrixBoosting(float th_accept, float leaf_w_struct, float w_struct, boolean use_simple_data_types) {
+        this.settings = new Settings(th_accept,leaf_w_struct,w_struct,use_simple_data_types);
+    }
+
+    /**
+     * Starts cupid sim matrix boosting
+     * @param matchTask MatchTask to match
+     * @param matchStep Current MatchStep (MatchingStep)
+     * @return Similarity matrix for the given match task. Position (i,j) represents the similarity score for
+     * the column pair (i-th source column, j-th target column)
+     */
     @Override
     public float[][] run(MatchTask matchTask, SimMatrixBoostingStep matchStep, float[][] simMatrix) {
-        float leaf_w_struct = 0.2f;
-        float w_struct = 0.2f;
-        float th_accept = .7f;
         float th_high = 0.6f;
         float th_low = 0.35f;
         float c_inc = 1.2f;
         float c_dec = 0.9f;
-        float th_ns = 0.7f;
-        int parallelism = 1;
 
         List<TablePair> tablePairs = matchTask.getTablePairs();
 
@@ -39,25 +85,25 @@ public class CupidSimMatrixBoosting implements SimMatrixBoosting {
             Pair<Set<String>,SchemaTree> sourceTree = CupidMatcher.get(trees, tablePair.getSourceTable());
             Pair<Set<String>,SchemaTree> targetTree = CupidMatcher.get(trees, tablePair.getTargetTable());
             if (sourceTree == null) {
-                sourceTree = CupidMatcher.buildTreeFromTable(tablePair.getSourceTable());
+                sourceTree = new TreeBuilder().buildTreeFromTable(tablePair.getSourceTable(), settings.use_simple_data_types);
                 trees.add(sourceTree);
             }
             if (targetTree == null) {
-                targetTree = CupidMatcher.buildTreeFromTable(tablePair.getTargetTable());
+                targetTree = new TreeBuilder().buildTreeFromTable(tablePair.getTargetTable(), settings.use_simple_data_types);
                 trees.add(targetTree);
             }
             Set<String> categories = new HashSet<String>();
             categories.addAll(sourceTree.getFirst());
             categories.addAll(targetTree.getFirst());
 
-            Map<String, Map<StringPair, Float>> sims = treeMatch(
+            Map<String, Map<StringPair, Float>> sims = new TreeMatch().treeMatch(
                     sourceTree.getSecond(),
                     targetTree.getSecond(),
                     convertSimMatrix(tablePair, simMatrix),
                     categories,
-                    leaf_w_struct,
-                    w_struct,
-                    th_accept,
+                    settings.leaf_w_struct,
+                    settings.w_struct,
+                    settings.th_accept,
                     th_high,
                     th_low,
                     c_inc,
@@ -65,165 +111,23 @@ public class CupidSimMatrixBoosting implements SimMatrixBoosting {
                     linguisticMatching
             );
 
-            Map<String, Map<StringPair, Float>> newSims = recomputewsim(
+            Map<String, Map<StringPair, Float>> newSims = new TreeMatch().recomputewsim(
                     sourceTree.getSecond(),
                     targetTree.getSecond(),
                     sims,
-                    w_struct,
-                    th_accept
+                    settings.w_struct,
+                    settings.th_accept
             );
 
 
             int sourceTableOffset = tablePair.getSourceTable().getOffset();
             int targetTableOffset = tablePair.getTargetTable().getOffset();
-            ArrayUtils.insertSubmatrixInMatrix(mapSimilarityMatrix(tablePair, newSims, th_accept), simMatrix, sourceTableOffset, targetTableOffset);
+            ArrayUtils.insertSubmatrixInMatrix(CupidMatcher.mapSimilarityMatrix(tablePair, newSims.get("wsim"), settings.th_accept), simMatrix, sourceTableOffset, targetTableOffset);
         }
 
         return simMatrix;
     }
 
-    private float[][] mapSimilarityMatrix(TablePair tablePair, Map<String, Map<StringPair, Float>> sims, float th_accept) {
-        float[][] symMatrix = tablePair.getEmptySimMatrix();
-
-        List<Column> sourceColumns = tablePair.getSourceTable().getColumns();
-        List<Column> targetColumns = tablePair.getTargetTable().getColumns();
-
-        Map<StringPair, Float> wsims = sims.get("wsim");
-
-        for (int i = 0; i < sourceColumns.size(); i++) {
-            for (int j = 0; j < targetColumns.size(); j++) {
-                StringPair p = new StringPair(sourceColumns.get(i).getLabel(), targetColumns.get(j).getLabel());
-                float wsim = wsims.get(p);
-                if (wsim >= th_accept) symMatrix[i][j] = wsim;
-            }
-        }
-
-        return symMatrix;
-    }
-
-    private Map<StringPair, Float> convertSimMatrix(TablePair tablePair, float[][] simMatrix) {
-        int sourceTableOffset = tablePair.getSourceTable().getOffset();
-        int targetTableOffset = tablePair.getTargetTable().getOffset();
-
-        Map<StringPair, Float> sims = new HashMap<>();
-
-        for (int x = 0; x < tablePair.getSourceTable().getNumColumns(); x++) {
-            for (int y = 0; y < tablePair.getTargetTable().getNumColumns(); y++) {
-                sims.put(
-                        new StringPair(
-                                tablePair.getSourceTable().getColumn(x).getLabel(),
-                                tablePair.getTargetTable().getColumn(y).getLabel()
-                        ),
-                        simMatrix[x+sourceTableOffset][y+targetTableOffset]
-                );
-            }
-        }
-        return sims;
-    }
-
-    private Map<String, Map<StringPair, Float>> treeMatch(
-            SchemaTree sourceTree,
-            SchemaTree targetTree,
-            Map<StringPair, Float> lSims,
-            Set<String> categories,
-            float leafWStruct,
-            float wStruct,
-            float thAccept,
-            float thHigh,
-            float thLow,
-            float cInc,
-            float cDec,
-            LinguisticMatching linguisticMatching
-    ) {
-        Map<String, Map<String, Double>> compatibilityTable = linguisticMatching.computeCompatibility(categories);
-        List<SchemaElementNode> sLeaves = sourceTree.getLeaves();
-        List<SchemaElementNode> tLeaves = targetTree.getLeaves();
-        Map<String, Map<StringPair, Float>> sims = getSims(sLeaves, tLeaves, compatibilityTable, lSims, leafWStruct);
-        List<SchemaElementNode> sPostOrder = sourceTree.postOrder();
-        List<SchemaElementNode> tPostOrder = targetTree.postOrder();
-
-        for (SchemaElementNode s : sPostOrder) {
-            for (SchemaElementNode t : tPostOrder) {
-                StringPair pair = new StringPair(s.name, t.name);
-                if (s.height() == t.height()) {
-                    float ssim = StructuralSimilarity.computeSSim(s, t, sims, thAccept);
-                    if (Float.isNaN(ssim)) {
-                        continue;
-                    }
-                    if (!lSims.containsKey(pair)) {
-                        sims.get("lsim").put(pair, 0f);
-                    }
-                    float wsim = computeWeightedSimilarity(ssim, sims.get("lsim").get(pair), wStruct);
-                    sims.get("ssim").put(pair, ssim);
-                    sims.get("wsim").put(pair, wsim);
-                }
-                if (sims.get("wsim").containsKey(pair) &&  !s.isLeave() && !t.isLeave()) {
-                    if (sims.get("wsim").get(pair) > thHigh) {
-                        StructuralSimilarity.changeStructuralSimilarity(s.leaves(), t.leaves(), sims, cInc);
-                    }
-                    if (sims.get("wsim").get(pair) < thLow) {
-                        StructuralSimilarity.changeStructuralSimilarity(s.leaves(), t.leaves(), sims, cDec);
-                    }
-                }
-            }
-        }
-        return sims;
-    }
-
-    private Map<String, Map<StringPair, Float>> getSims(
-            List<SchemaElementNode> sLeaves,
-            List<SchemaElementNode> tLeaves,
-            Map<String, Map<String, Double>> compatibilityTable,
-            Map<StringPair, Float> lsims,
-            float leafWStruct) {
-        Map<String, Map<StringPair, Float>> sims = new HashMap<>();
-        Map<StringPair, Float> lsim = lsims;
-        Map<StringPair, Float> ssim = new HashMap<>();
-        Map<StringPair, Float> wsim = new HashMap<>();
-        for (SchemaElementNode s : sLeaves) {
-            for (SchemaElementNode t : tLeaves) {
-                if (compatibilityTable.containsKey(s.current.getDataType()) && compatibilityTable.containsKey(t.current.getDataType())) {
-                    StringPair pair = new StringPair(s.name, t.name);
-                    float ssimVal = compatibilityTable.get(s.current.getDataType()).get(s.current.getDataType()).floatValue();
-                    ssim.put(pair, ssimVal);
-                    float lsimValue = 0f;
-                    if (lsim.get(pair) != null) lsimValue = lsim.get(pair);
-                    float wsimValue = computeWeightedSimilarity(ssimVal, lsimValue, leafWStruct);
-                    wsim.put(pair, wsimValue);
-                }
-            }
-        }
-        sims.put("ssim", ssim);
-        sims.put("lsim", lsim);
-        sims.put("wsim", wsim);
-        return sims;
-    }
-
-    private Map<String, Map<StringPair, Float>> recomputewsim(SchemaTree sourceTree, SchemaTree targetTree, Map<String, Map<StringPair, Float>> sims, float wStruct, float thAccept) {
-        List<SchemaElementNode> sPostOrder = sourceTree.postOrder();
-        List<SchemaElementNode> tPostOrder = targetTree.postOrder();
-
-        for (SchemaElementNode s: sPostOrder) {
-            for (SchemaElementNode t: tPostOrder) {
-                if (s.height() == t.height() && (s.height() > 0 && t.height() > 0)) {
-                    float ssim = StructuralSimilarity.computeSSim(s,t,sims,thAccept);
-
-                    if (Float.isNaN(ssim)) {
-                        continue;
-                    }
-                    StringPair pair = new StringPair(s.name,t.name);
-                    float lsim = sims.get("lsim").get(pair);
-                    float wsim = computeWeightedSimilarity(ssim,lsim,wStruct);
-                    sims.get("ssim").put(pair,ssim);
-                    sims.get("lsim").put(pair,lsim);
-                    sims.get("wsim").put(pair,wsim);
-                }
-            }
-        }
-        return sims;
-    }
-
-    private float computeWeightedSimilarity(float ssim, float lsim, float wStruct) {
-        return ssim * wStruct + (1 - wStruct) * lsim;
-    }
+    @Getter
+    private record Settings(float th_accept, float leaf_w_struct, float w_struct, boolean use_simple_data_types) {}
 }

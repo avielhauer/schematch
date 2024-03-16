@@ -3,8 +3,13 @@ package de.uni_marburg.schematch.matching.sota.cupid;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class DataCompatibilityTable {
     public final Map<String, Map<String, Double>> table;
+
+    /**
+     * Initiates the data compatability table
+     */
     public DataCompatibilityTable() {
         this.table = new HashMap<>();
 

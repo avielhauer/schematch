@@ -24,6 +24,9 @@ import java.util.List;
 public class StopWords {
     private final List<String> stopWords = new ArrayList<>();
 
+    /**
+     * initiates the stop words from the defined text files
+     */
     public StopWords() {
         try {
             BufferedReader br = new BufferedReader(new FileReader("src/main/resources/cupid/nltk-stopwords.txt"));
@@ -38,6 +41,11 @@ public class StopWords {
     }
 
 
+    /**
+     * Checks if the string element is a stop word.
+     * @param element string which should be checked
+     * @return true if element is a stop word, false if element is no stop word
+     */
     boolean isStopWord(String element) {
         return stopWords.contains(element);
     }
