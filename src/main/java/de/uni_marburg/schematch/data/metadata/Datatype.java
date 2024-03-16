@@ -18,18 +18,20 @@ public enum Datatype {
     GEO_LOCATION;
 
     // boolean values
-    final static String[] t = {"1", "true", "t", "yes", "y", "ja", "j"};
-    final static String[] f = {"0", "false", "f", "no", "n", "nein"};
-    final static List<String> patternsT = Arrays.stream(t).toList();
-    final static List<String> patternsF = Arrays.stream(f).toList();
-    final static List<String> booleanPatterns = Stream.concat(patternsT.stream(), patternsF.stream()).toList();
+    private final static String[] nulls = {"-", "nan", "\"\"", "\\", "/", "null"};
+    private final static List<String> nullPatterns = Arrays.stream(nulls).toList();
+    private final static String[] t = {"1", "true", "t", "yes", "y", "ja", "j"};
+    private final static String[] f = {"0", "false", "f", "no", "n", "nein"};
+    private final static List<String> patternsT = Arrays.stream(t).toList();
+    private final static List<String> patternsF = Arrays.stream(f).toList();
+    private final static List<String> booleanPatterns = Stream.concat(patternsT.stream(), patternsF.stream()).toList();
     // geolocation pattern
-    final static Pattern geoLocationPattern = Pattern.compile("-?[0-9]+.[0-9]+,-?[0-9]+.[0-9]+");
+    private final static Pattern geoLocationPattern = Pattern.compile("-?[0-9]+.[0-9]+,-?[0-9]+.[0-9]+");
     // date formats
-    final static SimpleDateFormat sdfDashes = new SimpleDateFormat("dd-MM");
-    final static SimpleDateFormat sdfSlashes = new SimpleDateFormat("dd/MM");
-    final static SimpleDateFormat sdfDots = new SimpleDateFormat("dd.MM");
-    final static SimpleDateFormat[] sdfs = {sdfDashes, sdfSlashes, sdfDots};
+    private final static SimpleDateFormat sdfDashes = new SimpleDateFormat("dd-MM");
+    private final static SimpleDateFormat sdfSlashes = new SimpleDateFormat("dd/MM");
+    private final static SimpleDateFormat sdfDots = new SimpleDateFormat("dd.MM");
+    private final static SimpleDateFormat[] sdfs = {sdfDashes, sdfSlashes, sdfDots};
 
     /**
      * Determines the definitive data type from a list of scores
@@ -322,7 +324,7 @@ public enum Datatype {
     }
 
     private static boolean isNull(String value) {
-        return value.equals("\"\"") || value.isEmpty();
+        return nullPatterns.contains(value.toLowerCase()) || value.isEmpty();
     }
 
 }
