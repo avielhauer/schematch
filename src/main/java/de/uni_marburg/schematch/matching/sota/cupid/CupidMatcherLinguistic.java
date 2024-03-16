@@ -1,6 +1,5 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
 
-import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
@@ -10,9 +9,6 @@ import de.uni_marburg.schematch.utils.ArrayUtils;
 import java.io.IOException;
 import java.util.*;
 
-/**
- * TODO: Implement Cupid Matcher
- */
 public class CupidMatcherLinguistic extends Matcher {
 
     private boolean use_simple_data_types = false;
@@ -67,7 +63,7 @@ public class CupidMatcherLinguistic extends Matcher {
                 targetTree = new TreeBuilder().buildTreeFromTable(tablePair.getTargetTable(), use_simple_data_types);
                 trees.add(targetTree);
             }
-            Set<String> categories = new HashSet<String>();
+            Set<String> categories = new HashSet<>();
             categories.addAll(sourceTree.getFirst());
             categories.addAll(targetTree.getFirst());
 

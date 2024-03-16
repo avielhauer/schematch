@@ -1,7 +1,9 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
 
+import lombok.Getter;
 import lombok.Setter;
 
+@Getter
 public class Token {
     @Setter
     private boolean ignore;

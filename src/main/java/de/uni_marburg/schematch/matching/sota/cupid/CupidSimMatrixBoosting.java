@@ -73,7 +73,7 @@ public class CupidSimMatrixBoosting implements SimMatrixBoosting {
         List<TablePair> tablePairs = matchTask.getTablePairs();
 
         List<Pair<Set<String>,SchemaTree>> trees = new ArrayList<>();
-        WordNetFunctionalities wnf = null;
+        WordNetFunctionalities wnf;
         try {
             wnf = new WordNetFunctionalities();
         } catch (IOException e) {

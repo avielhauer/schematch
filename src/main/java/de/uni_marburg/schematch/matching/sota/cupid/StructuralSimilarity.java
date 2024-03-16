@@ -26,8 +26,8 @@ public class StructuralSimilarity {
 
         if (sLeaves.size() > tLeaves.size()*2 || sLeaves.size()*2 < tLeaves.size()) return Float.NaN;
 
-        HashSet<SchemaElementNode> sStrongLink = new HashSet<SchemaElementNode>();
-        HashSet<SchemaElementNode> tStrongLink = new HashSet<SchemaElementNode>();
+        HashSet<SchemaElementNode> sStrongLink = new HashSet<>();
+        HashSet<SchemaElementNode> tStrongLink = new HashSet<>();
 
         for (SchemaElementNode s1: sLeaves) {
             for (SchemaElementNode t1: tLeaves) {
@@ -72,7 +72,7 @@ public class StructuralSimilarity {
      * @return Product of sLeaves and tLeaves
      */
     public static List<StringPair> product(List<SchemaElementNode> sLeaves, List<SchemaElementNode> tLeaves) {
-        ArrayList<StringPair> productList = new ArrayList<StringPair>();
+        ArrayList<StringPair> productList = new ArrayList<>();
         for (SchemaElementNode s: sLeaves) {
             for (SchemaElementNode t: tLeaves) {
                 productList.add(new StringPair(s.name,t.name));

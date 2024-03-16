@@ -101,7 +101,7 @@ public class CupidMatcher extends Matcher {
                 targetTree = new TreeBuilder().buildTreeFromTable(tablePair.getTargetTable(), settings.use_simple_data_types);
                 trees.add(targetTree);
             }
-            Set<String> categories = new HashSet<String>();
+            Set<String> categories = new HashSet<>();
             categories.addAll(sourceTree.getFirst());
             categories.addAll(targetTree.getFirst());
 

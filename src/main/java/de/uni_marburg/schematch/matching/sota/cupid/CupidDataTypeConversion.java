@@ -63,25 +63,25 @@ public class CupidDataTypeConversion {
                 for (String item : values) {
                     if (item.isEmpty() || item.isBlank()) continue;
                     try {
-                        BigInteger big = new BigInteger(item);
+                        new BigInteger(item);
                         try {
-                            short shortVal = Short.parseShort(item);
+                            Short.parseShort(item);
                         } catch (NumberFormatException e) {
                             isShort = false;
                             try {
-                                int intVal = Integer.parseInt(item);
+                                Integer.parseInt(item);
                             } catch (NumberFormatException e1) {
                                 isInt = false;
                                 try {
-                                    long longVal = Long.parseLong(item);
+                                    Long.parseLong(item);
                                 } catch (NumberFormatException e2) {
                                     isLong = false;
                                     break;
                                 }
                             }
                         }
-                    } catch (NumberFormatException e4) {
-                        continue;
+                    } catch (NumberFormatException ignored) {
+
                     }
                 }
 
@@ -105,8 +105,7 @@ public class CupidDataTypeConversion {
                         if (floatValue != doubleValue) {
                             return "double";
                         }
-                    } catch (Exception e) {
-                        continue;
+                    } catch (Exception ignored) {
                     }
                 }
                 return "float";
