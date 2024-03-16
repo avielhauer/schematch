@@ -37,9 +37,9 @@ public class UniquenessMatcher extends TablePairMatcher {
         HashSet<String> sourceElements = new HashSet<>(sourceValues);
         HashSet<String> targetElements = new HashSet<>(targetValues);
 
-        float sourceDistinctPercentage = (float) sourceElements.size() / sourceValues.size();
-        float targetDistinctPercentage = (float) targetElements.size() / targetValues.size();
+        float sourcePercentage = (float) sourceElements.size() / sourceValues.size();
+        float targetPercentage = (float) targetElements.size() / targetValues.size();
 
-        return (float) (1.0 - Math.round(Math.abs(sourceDistinctPercentage - targetDistinctPercentage) * 100.0) / 100.0);
+        return Math.min(sourcePercentage, targetPercentage) / Math.max(sourcePercentage, targetPercentage);
     }
 }

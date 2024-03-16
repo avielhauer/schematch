@@ -62,7 +62,7 @@ public class ConstancyMatcher extends TablePairMatcher {
         float targetPercentage = (float) maxTarget / target.size();
 
         //normalize to value between 0 and 1
-        return (float) (1.0 - Math.round(Math.abs(sourcePercentage - targetPercentage) * 100.0) / 100.0);
+        return Math.min(sourcePercentage, targetPercentage) / Math.max(sourcePercentage, targetPercentage);
     }
 
 }
