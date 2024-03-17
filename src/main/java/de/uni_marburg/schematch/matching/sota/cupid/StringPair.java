@@ -1,9 +1,22 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
 
+import lombok.Getter;
+
 import java.util.Objects;
 
+@Getter
 public class StringPair {
+    /**
+     * -- GETTER --
+     *
+     * @return returns first string
+     */
     private final String first;
+    /**
+     * -- GETTER --
+     *
+     * @return returns second string
+     */
     private final String second;
 
     /**
@@ -29,17 +42,4 @@ public class StringPair {
         return Objects.hash(first, second);
     }
 
-    /**
-     * @return returns first string
-     */
-    public String getFirst() {
-        return first;
-    }
-
-    /**
-     * @return returns second string
-     */
-    public String getSecond() {
-        return second;
-    }
 }
