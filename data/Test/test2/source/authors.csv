@@ -1,8 +1,0 @@
-aid,name,username,income,famous,alive,dob,address
-0,alice doe,42,43.3,1,true,12-01-93,"67.36,-43.04"
-1,bob smith,bs,42.0,0,false,11/1/1934,"12.3,26.04"
-2,eve smith,123,50.0,1,true,1.1.85,"160.4,-12.3"
-3,tim doe,td,54.3,0,true,14-01-1960,"0.7,-0.7"
-4,eve evil,ee,59.4,1,false,01-14-1960,"0.0,0.0"
-5,bob b.,bb,60.2,1,true,1/11/1934,"-12.34,-12.34"
-6,a. author,a6,14.3,0,false,4.3.60,"180.0,180.0"
