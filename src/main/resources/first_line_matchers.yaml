@@ -54,6 +54,12 @@ packageName: "metadata"
 ---
 name: "MedianLength"
 packageName: "metadata"
+---
+name: "MaximumMatcher"
+packageName: "metadata"
+---
+name: "MinimumMatcher"
+packageName: "metadata"
 
 
 
