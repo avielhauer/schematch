@@ -6,6 +6,9 @@
 /META-INF
 /out
 
+# Build files
+dependency-reduced-pom.xml
+
 # IntelliJ
 /.idea
 

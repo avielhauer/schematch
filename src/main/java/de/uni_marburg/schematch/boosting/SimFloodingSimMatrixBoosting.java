@@ -55,11 +55,11 @@ public class SimFloodingSimMatrixBoosting implements SimMatrixBoosting {
         };
 
         // Create PropagationGraph
-        PropagationGraph<PropagationNode> pGraph = new InversedWaterWeightingGraph(dbGraphSource, dbGraphTarget, levenshteinCalculator);
+        PropagationGraph<PropagationNode> pGraph = new WaterWeightingGraph(dbGraphSource, dbGraphTarget, levenshteinCalculator);
         // Create Flooder
         Flooder flooder = new FlooderC(pGraph);
 
-        float[][] boostedMatrix = flooder.flood(500, 0.0000001F);
+        float[][] boostedMatrix = flooder.flood(2113, 0.0000001F);
        // this.exportToCsv(matchTask.getMatcher);
         return boostedMatrix;
     }

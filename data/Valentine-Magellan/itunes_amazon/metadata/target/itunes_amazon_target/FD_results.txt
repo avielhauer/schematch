@@ -1,0 +1,30 @@
+[itunes_amazon_target.csv.id] --> itunes_amazon_target.csv.Song_Name
+[itunes_amazon_target.csv.id] --> itunes_amazon_target.csv.Album_Name
+[itunes_amazon_target.csv.id] --> itunes_amazon_target.csv.CopyRight
+[itunes_amazon_target.csv.id] --> itunes_amazon_target.csv.Released
+[itunes_amazon_target.csv.id] --> itunes_amazon_target.csv.Artist_Name
+[itunes_amazon_target.csv.id] --> itunes_amazon_target.csv.Time
+[itunes_amazon_target.csv.id] --> itunes_amazon_target.csv.Genre
+[itunes_amazon_target.csv.id] --> itunes_amazon_target.csv.Price
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Released, itunes_amazon_target.csv.Song_Name] --> itunes_amazon_target.csv.Price
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Artist_Name, itunes_amazon_target.csv.Song_Name] --> itunes_amazon_target.csv.CopyRight
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Artist_Name, itunes_amazon_target.csv.Song_Name] --> itunes_amazon_target.csv.Released
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Artist_Name, itunes_amazon_target.csv.Song_Name] --> itunes_amazon_target.csv.Genre
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Artist_Name, itunes_amazon_target.csv.Song_Name] --> itunes_amazon_target.csv.Price
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Song_Name, itunes_amazon_target.csv.Time] --> itunes_amazon_target.csv.CopyRight
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Song_Name, itunes_amazon_target.csv.Time] --> itunes_amazon_target.csv.Released
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Song_Name, itunes_amazon_target.csv.Time] --> itunes_amazon_target.csv.Artist_Name
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Song_Name, itunes_amazon_target.csv.Time] --> itunes_amazon_target.csv.Genre
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Song_Name, itunes_amazon_target.csv.Time] --> itunes_amazon_target.csv.Price
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Genre, itunes_amazon_target.csv.Song_Name] --> itunes_amazon_target.csv.Price
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Released] --> itunes_amazon_target.csv.CopyRight
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Released] --> itunes_amazon_target.csv.Artist_Name
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Released] --> itunes_amazon_target.csv.Genre
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Artist_Name, itunes_amazon_target.csv.Time] --> itunes_amazon_target.csv.CopyRight
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Artist_Name, itunes_amazon_target.csv.Time] --> itunes_amazon_target.csv.Released
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Artist_Name, itunes_amazon_target.csv.Time] --> itunes_amazon_target.csv.Genre
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Artist_Name, itunes_amazon_target.csv.Genre] --> itunes_amazon_target.csv.CopyRight
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Artist_Name, itunes_amazon_target.csv.Genre] --> itunes_amazon_target.csv.Released
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Artist_Name, itunes_amazon_target.csv.Price] --> itunes_amazon_target.csv.CopyRight
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Artist_Name, itunes_amazon_target.csv.Price] --> itunes_amazon_target.csv.Released
+[itunes_amazon_target.csv.Album_Name, itunes_amazon_target.csv.Artist_Name, itunes_amazon_target.csv.Price] --> itunes_amazon_target.csv.Genre

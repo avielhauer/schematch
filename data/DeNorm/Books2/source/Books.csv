@@ -1,0 +1,6 @@
+BookID,Title,Author,Genre,ISBN,BorrowerID,BorrowerName,BranchID,DueDate
+1,The Great Gatsby,F. Scott Fitz,Fiction Drama,978-3-16-148410-0,1001,John Doe,101,2024-02-15
+2,To Kill a Mockingbird,Harper Lee,Fiction Drama,978-0-06-112008-4,1002,Jane Smith,102,2024-03-05
+3,The Catcher in the Rye,J.D. Salinger,Drama,978-0-316-76948-0,1003,Bob Johnson,101,2024-02-20
+4,The Great Gatsby,George Orwell,Sci-Fi,978-0-452-28423-4,1001,John Doe,103,2024-03-10
+2,To Kill a Mockingbird,Harper Lee,Fiction Drama,978-0-06-112008-4,1002,Jane Smith,102,2024-02-25

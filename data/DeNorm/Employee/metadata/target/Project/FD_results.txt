@@ -1,0 +1,34 @@
+[Project.csv.EmployeeID] --> Project.csv.EmployeeName
+[Project.csv.EmployeeID] --> Project.csv.ProjectID
+[Project.csv.EmployeeID] --> Project.csv.ProjectManager
+[Project.csv.EmployeeID] --> Project.csv.ManagerRoom
+[Project.csv.EmployeeID] --> Project.csv.Department
+[Project.csv.EmployeeID] --> Project.csv.ProjectName
+[Project.csv.EmployeeID] --> Project.csv.Salary
+[Project.csv.EmployeeName] --> Project.csv.EmployeeID
+[Project.csv.EmployeeName] --> Project.csv.ProjectID
+[Project.csv.EmployeeName] --> Project.csv.ProjectManager
+[Project.csv.EmployeeName] --> Project.csv.ManagerRoom
+[Project.csv.EmployeeName] --> Project.csv.Department
+[Project.csv.EmployeeName] --> Project.csv.ProjectName
+[Project.csv.EmployeeName] --> Project.csv.Salary
+[Project.csv.ProjectID] --> Project.csv.ProjectManager
+[Project.csv.ProjectID] --> Project.csv.ManagerRoom
+[Project.csv.ProjectID] --> Project.csv.ProjectName
+[Project.csv.ProjectID] --> Project.csv.Salary
+[Project.csv.Department, Project.csv.ProjectID] --> Project.csv.EmployeeID
+[Project.csv.Department, Project.csv.ProjectID] --> Project.csv.EmployeeName
+[Project.csv.ProjectManager] --> Project.csv.ProjectID
+[Project.csv.ProjectManager] --> Project.csv.ManagerRoom
+[Project.csv.ProjectManager] --> Project.csv.ProjectName
+[Project.csv.ProjectManager] --> Project.csv.Salary
+[Project.csv.Department, Project.csv.ProjectManager] --> Project.csv.EmployeeID
+[Project.csv.Department, Project.csv.ProjectManager] --> Project.csv.EmployeeName
+[Project.csv.ManagerRoom] --> Project.csv.ProjectID
+[Project.csv.ManagerRoom] --> Project.csv.ProjectManager
+[Project.csv.ManagerRoom] --> Project.csv.ProjectName
+[Project.csv.ManagerRoom] --> Project.csv.Salary
+[Project.csv.Department, Project.csv.ManagerRoom] --> Project.csv.EmployeeID
+[Project.csv.Department, Project.csv.ManagerRoom] --> Project.csv.EmployeeName
+[Project.csv.ProjectName] --> Project.csv.Salary
+[Project.csv.Salary] --> Project.csv.ProjectName

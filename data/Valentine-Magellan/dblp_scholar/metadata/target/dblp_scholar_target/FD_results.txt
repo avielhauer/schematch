@@ -1,0 +1,4 @@
+[dblp_scholar_target.csv.id] --> dblp_scholar_target.csv.title
+[dblp_scholar_target.csv.id] --> dblp_scholar_target.csv.authors
+[dblp_scholar_target.csv.id] --> dblp_scholar_target.csv.venue
+[dblp_scholar_target.csv.id] --> dblp_scholar_target.csv.year
