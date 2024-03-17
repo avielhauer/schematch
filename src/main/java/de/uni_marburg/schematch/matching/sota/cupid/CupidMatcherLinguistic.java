@@ -60,11 +60,11 @@ public class CupidMatcherLinguistic extends Matcher {
     @Override
     public String toString() {
         return "CupidMatcherLinguistic(" +
-                "thAccept=" + th_accept +
-                "/mapping=" + mapping +
-                "/useSimpleDataTypes" + use_simple_data_types +
-                "/thns=" + th_ns +
-                "/parallelism=" + parallelism +
+                "thaccept=" + th_accept +
+                "_mapping=" + mapping +
+                "_useSimpleDataTypes" + use_simple_data_types +
+                "_thns=" + th_ns +
+                "_parallelism=" + parallelism +
                 ")";
     }
 

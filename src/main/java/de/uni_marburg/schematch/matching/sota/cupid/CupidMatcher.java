@@ -77,17 +77,17 @@ public class CupidMatcher extends Matcher {
     public String toString() {
         return "CupidMatcher(" +
                 "thaccept=" + th_accept +
-                "/mapping=" + mapping +
-                "/leafWStruct=" + leaf_w_struct +
-                "/wStruct=" + w_struct +
-                "/useSimpleDataTypes" + use_simple_data_types +
-                "/wsrecalc=" + wsrecalc +
-                "/thHigh=" + th_high +
-                "/thLow=" + th_low +
-                "/cInc=" + c_inc +
-                "/cDec=" + c_dec +
-                "/thns=" + th_ns +
-                "/parallelism=" + parallelism +
+                "_mapping=" + mapping +
+                "_leafWStruct=" + leaf_w_struct +
+                "_wStruct=" + w_struct +
+                "_useSimpleDataTypes" + use_simple_data_types +
+                "_wsrecalc=" + wsrecalc +
+                "_thHigh=" + th_high +
+                "_thLow=" + th_low +
+                "_cInc=" + c_inc +
+                "_cDec=" + c_dec +
+                "_thns=" + th_ns +
+                "_parallelism=" + parallelism +
                 ")";
     }
 
