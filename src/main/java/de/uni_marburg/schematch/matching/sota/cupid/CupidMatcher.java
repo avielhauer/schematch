@@ -1,63 +1,109 @@
 package de.uni_marburg.schematch.matching.sota.cupid;
 
 import de.uni_marburg.schematch.data.Column;
-import de.uni_marburg.schematch.data.Table;
 import de.uni_marburg.schematch.matching.Matcher;
 import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.ArrayUtils;
-import lombok.Getter;
+import lombok.Setter;
 
 import java.io.IOException;
 import java.util.*;
 
-
-/**
- * TODO: Implement Cupid Matcher
- */
+@Setter
 public class CupidMatcher extends Matcher {
+    /**
+     * Threshold for the mapping and for strong links in the structural similarity
+     */
+    private float th_accept = 0.7f;
+    /**
+     * wsim weight for leaves
+     */
+    private float leaf_w_struct = 0.2f;
+    /**
+     * wsim weights for non-leave nodes
+     */
+    private float w_struct = 0.2f;
+    /**
+     * Threshold for the non-leaf links, if wsim is above th_high, the nodes leaves links ssim will be
+     * increased by c_inc
+     */
+    private float th_high = 0.6f;
+    /**
+     * Threshold for the non-leaf links, if wsim is under th_low, the nodes leaves links ssim will be
+     * decreased by d_dex
+     */
+    private float th_low = 0.35f;
+    /**
+     * Value by which the leaves ssim will be increased
+     */
+    private float c_inc = 1.2f;
+    /**
+     * Value by which the leaves ssim will be decreased
+     */
+    private float c_dec = 0.9f;
+    /**
+     * Threshold to filter out not matching data types in the linguistic matching
+     */
+    private float th_ns = 0.7f;
+    /**
+     * Number of threads used in the linguistic matching
+     */
+    private int parallelism = 1;
 
-    private final Settings settings;
+    /**
+     * When true, the algorithm will run the simple data type detection of Lars and Leif and will map the data type to
+     * the closest Cupid data type.
+     * When false, the algorithm will run an extended data type detection based on the implementation of Lars and Leif,
+     * also considering table values.
+     */
+    private Boolean use_simple_data_types = false;
+    /**
+     * Boolean to decide, if the algorithm should recalculate the wsim, while mapping
+     */
+    private Boolean wsrecalc = true;
+    /**
+     * Whether the algorithm should map, meaning cutting of values under th_acceot
+     */
+    private Boolean mapping = true;
+
+    private Map<Integer, Pair<Set<String>, SchemaTree>> trees = new HashMap<>();
+
+    private WordNetFunctionalities wnf;
+    private LinguisticMatching linguisticMatching;
+
+    @Override
+    public String toString() {
+        return "CupidMatcher(" +
+                "thaccept=" + th_accept +
+                "/mapping=" + mapping +
+                "/leafWStruct=" + leaf_w_struct +
+                "/wStruct=" + w_struct +
+                "/useSimpleDataTypes" + use_simple_data_types +
+                "/wsrecalc=" + wsrecalc +
+                "/thHigh=" + th_high +
+                "/thLow=" + th_low +
+                "/cInc=" + c_inc +
+                "/cDec=" + c_dec +
+                "/thns=" + th_ns +
+                "/parallelism=" + parallelism +
+                ")";
+    }
 
     /**
      * Initializes default setting Cupid Matcher object with th_accept = 0.7, leaf_w_struct = 0.2, w_struct 0.2 and
      * use_simple_data_types = flase
      */
     public CupidMatcher() {
-        this.settings = new Settings(.7f,.2f,.2f,false);
-    }
+        WordNetFunctionalities wnf;
+        try {
+            this.wnf = new WordNetFunctionalities();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-    /**
-     * Initializes Cupid Matcher object with custom th_accept and use_simple_data_types and default leaf_w_struct = 0.2
-     * and w_struct = 0.2
-     * @param th_accept Threshold for mapping and strong links in the structural matching
-     * @param use_simple_data_types use simple data types (boolean)
-     */
-    public CupidMatcher(float th_accept, boolean use_simple_data_types) {
-        this.settings = new Settings(th_accept,.2f,.2f,use_simple_data_types);
-    }
-
-    /**
-     * Initializes Cupid Matcher object with custom th_accept and default leaf_w_struct = 0.2, w_struct = 0.2 and
-     * use_simple_data_types = false
-     * @param th_accept Threshold for mapping and strong links in the structural matching
-     */
-    public CupidMatcher(float th_accept) {
-        this.settings = new Settings(th_accept,.2f,.2f,false);
-    }
-
-    /**
-     * Initializes Cupid Matcher object custom settings
-     * @param th_accept Threshold for mapping and strong links in the structural matching
-     * @param leaf_w_struct Weight of the structural similarity, to calculate the weighted similarity between structural
-     *                    similarity and linguistic similarity of the leaf node pairs
-     * @param w_struct Weight of the structural similarity, to calculate the weighted similarity between structural
-     *                similarity and linguistic similarity of the non-leaf node pairs
-     * @param use_simple_data_types use simple data types (boolean)
-     */
-    public CupidMatcher(float th_accept, float leaf_w_struct, float w_struct, boolean use_simple_data_types) {
-        this.settings = new Settings(th_accept,leaf_w_struct,w_struct,use_simple_data_types);
+        this.linguisticMatching = new LinguisticMatching(this.wnf);
     }
 
     /**
@@ -69,38 +115,30 @@ public class CupidMatcher extends Matcher {
      */
     @Override
     public float[][] match(MatchTask matchTask, MatchingStep matchStep) {
-        float th_high = 0.6f;
-        float th_low = 0.35f;
-        float c_inc = 1.2f;
-        float c_dec = 0.9f;
-        float th_ns = 0.7f;
-        int parallelism = 1;
-        WordNetFunctionalities wnf;
-
-        try {
-            wnf = new WordNetFunctionalities();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        LinguisticMatching linguisticMatching = new LinguisticMatching(wnf);
 
         List<TablePair> tablePairs = matchTask.getTablePairs();
 
         float[][] simMatrix = matchTask.getEmptySimMatrix();
-        List<Pair<Set<String>,SchemaTree>> trees = new ArrayList<>();
 
         for (TablePair tablePair : tablePairs) {
-            Pair<Set<String>,SchemaTree> sourceTree = get(trees, tablePair.getSourceTable());
-            Pair<Set<String>,SchemaTree> targetTree = get(trees, tablePair.getTargetTable());
-            if (sourceTree == null) {
-                sourceTree = new TreeBuilder().buildTreeFromTable(tablePair.getSourceTable(), settings.use_simple_data_types);
-                trees.add(sourceTree);
+            Pair<Set<String>,SchemaTree> sourceTree;
+            int sHash = tablePair.getSourceTable().hashCode();
+            Pair<Set<String>,SchemaTree> targetTree;
+            int tHash = tablePair.getTargetTable().hashCode();
+
+            if (trees.containsKey(sHash)) {
+                sourceTree = trees.get(sHash);
+            } else {
+                sourceTree = new TreeBuilder().buildTreeFromTable(tablePair.getSourceTable(), use_simple_data_types);
+                trees.put(sHash,sourceTree);
             }
-            if (targetTree == null) {
-                targetTree = new TreeBuilder().buildTreeFromTable(tablePair.getTargetTable(), settings.use_simple_data_types);
-                trees.add(targetTree);
+            if (trees.containsKey(tHash)) {
+                targetTree = trees.get(tHash);
+            } else {
+                targetTree = new TreeBuilder().buildTreeFromTable(tablePair.getTargetTable(), use_simple_data_types);
+                trees.put(tHash,targetTree);
             }
+
             Set<String> categories = new HashSet<>();
             categories.addAll(sourceTree.getFirst());
             categories.addAll(targetTree.getFirst());
@@ -109,9 +147,9 @@ public class CupidMatcher extends Matcher {
                     sourceTree.getSecond(),
                     targetTree.getSecond(),
                     categories,
-                    settings.leaf_w_struct,
-                    settings.w_struct,
-                    settings.th_accept,
+                    leaf_w_struct,
+                    w_struct,
+                    th_accept,
                     th_high,
                     th_low,
                     c_inc,
@@ -125,33 +163,26 @@ public class CupidMatcher extends Matcher {
                     sourceTree.getSecond(),
                     targetTree.getSecond(),
                     sims,
-                    settings.w_struct,
-                    settings.th_accept,
+                    w_struct,
+                    th_accept,
                     linguisticMatching
             );
 
 
             int sourceTableOffset = tablePair.getSourceTable().getOffset();
             int targetTableOffset = tablePair.getTargetTable().getOffset();
-            ArrayUtils.insertSubmatrixInMatrix(mapSimilarityMatrix(tablePair, newSims.get("wsim"), settings.th_accept), simMatrix, sourceTableOffset, targetTableOffset);
+
+            float[][] subSimMatrix;
+            if (wsrecalc) {
+                subSimMatrix = mapSimilarityMatrix(tablePair, newSims, th_accept, leaf_w_struct, mapping);
+            } else {
+                subSimMatrix = mapSimilarityMatrix(tablePair, newSims.get("wsim"), th_accept, mapping);
+            }
+
+            ArrayUtils.insertSubmatrixInMatrix(subSimMatrix, simMatrix, sourceTableOffset, targetTableOffset);
         }
 
         return simMatrix;
-    }
-
-    /**
-     * Method to search for Schema tree and its categories in the trees
-     * @param trees list of schema trees
-     * @param table Table of which the schema tree should be loaded
-     * @return schema tree and categories, if they exist, else null
-     */
-    static Pair<Set<String>, SchemaTree> get(List<Pair<Set<String>, SchemaTree>> trees, Table table) {
-        for (Pair<Set<String>, SchemaTree> pair: trees) {
-            if (pair.getSecond().getHashCode() == table.hashCode()) {
-                return pair;
-            }
-        }
-        return null;
     }
 
     /**
@@ -159,10 +190,11 @@ public class CupidMatcher extends Matcher {
      * @param tablePair table pair of the corresponding tables
      * @param sims similarities
      * @param th_accept threshold
+     * @param mapping if mapping with th_accept should be activated
      * @return Similarity matrix for the given match task. Position (i,j) represents the similarity score for
      * the column pair (i-th source column, j-th target column)
      */
-    public static float[][] mapSimilarityMatrix(TablePair tablePair, Map<StringPair, Float> sims, float th_accept) {
+    public static float[][] mapSimilarityMatrix(TablePair tablePair, Map<StringPair, Float> sims, float th_accept, boolean mapping) {
         float[][] symMatrix = tablePair.getEmptySimMatrix();
 
         List<Column> sourceColumns = tablePair.getSourceTable().getColumns();
@@ -175,22 +207,47 @@ public class CupidMatcher extends Matcher {
                 if(sims.containsKey(p)) {
                     wsim = sims.get(p);
                 }
-                if (wsim >= th_accept) symMatrix[i][j] = wsim;
+                if (!mapping || wsim >= th_accept) symMatrix[i][j] = wsim;
             }
         }
 
         return symMatrix;
     }
 
-    @Getter
-    private record Settings(float th_accept, float leaf_w_struct, float w_struct, boolean use_simple_data_types) {
-        @Override
-        public String toString() {
-            return "Settings=" +
-                    "th_accept=" + this.th_accept +
-                    "\\leaf_w_struct=" + this.leaf_w_struct +
-                    "\\w_struct=" + this.w_struct +
-                    "\\use_simple_data_types=" + this.use_simple_data_types + ")";
+    /**
+     * Maps similarity with a value higher than th_Accept to a similarity matrix, with wsim recalculation before mapping
+     * @param tablePair table pair of the corresponding tables
+     * @param sims similarities
+     * @param th_accept threshold
+     * @param leafWStruct weight of ssim
+     * @param mapping if mapping with th_accept should be activated
+     * @return Similarity matrix for the given match task. Position (i,j) represents the similarity score for
+     * the column pair (i-th source column, j-th target column)
+     */
+    public static float[][] mapSimilarityMatrix(TablePair tablePair, Map<String,Map<StringPair, Float>> sims, float th_accept, float leafWStruct, boolean mapping) {
+        if (!sims.containsKey("lsim") && !sims.containsKey("ssim"))
+            throw new RuntimeException();
+        float[][] symMatrix = tablePair.getEmptySimMatrix();
+
+        List<Column> sourceColumns = tablePair.getSourceTable().getColumns();
+        List<Column> targetColumns = tablePair.getTargetTable().getColumns();
+
+        for (int i = 0; i < sourceColumns.size(); i++) {
+            for (int j = 0; j < targetColumns.size(); j++) {
+                StringPair p = new StringPair(sourceColumns.get(i).getLabel(), targetColumns.get(j).getLabel());
+                if(sims.get("ssim").containsKey(p)) {
+                    float ssim = sims.get("ssim").get(p);
+                    float lsim = 0;
+                    if (sims.get("lsim").containsKey(p))
+                        lsim = sims.get("lsim").get(p);
+
+                    float wsim = TreeMatch.computeWeightedSimilarity(ssim,lsim,leafWStruct);
+                    if (!mapping || wsim >= th_accept) symMatrix[i][j] = wsim;
+                }
+
+            }
         }
+
+        return symMatrix;
     }
 }

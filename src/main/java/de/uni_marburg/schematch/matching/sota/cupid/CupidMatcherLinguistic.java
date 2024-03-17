@@ -5,28 +5,70 @@ import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.MatchingStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.ArrayUtils;
+import lombok.Setter;
 
 import java.io.IOException;
 import java.util.*;
 
+@Setter
 public class CupidMatcherLinguistic extends Matcher {
-
-    private boolean use_simple_data_types = false;
+    /**
+     * Threshold for the mapping and for strong links in the structural similarity
+     */
+    private float th_accept = 0.7f;
+    /**
+     * Threshold to filter out not matching data types in the linguistic matching
+     */
+    private float th_ns = 0.7f;
+    /**
+     * Number of threads used in the linguistic matching
+     */
+    private int parallelism = 1;
 
     /**
-     * Initializes CupidMatcherLinguistic object with use_simple_data_types = false
+     * When true, the algorithm will run the simple data type detection of Lars and Leif and will map the data type to
+     * the closest Cupid data type.
+     * When false, the algorithm will run an extended data type detection based on the implementation of Lars and Leif,
+     * also considering table values.
      */
+    private Boolean use_simple_data_types = false;
+    /**
+     * Whether the algorithm should map, meaning cutting of values under th_acceot
+     */
+    private Boolean mapping = true;
+
+    private Map<Integer, Pair<Set<String>, SchemaTree>> trees = new HashMap<>();
+
+    private WordNetFunctionalities wnf;
+
+    private LinguisticMatching linguisticMatching;
+
     public CupidMatcherLinguistic() {
+        try {
+            this.wnf = new WordNetFunctionalities();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
+        this.linguisticMatching = new LinguisticMatching(this.wnf);
     }
 
     /**
-     * Initializes CupidMatcherLinguistic object with custom use_simple_data_types (java)
-     * @param use_simple_data_types use simple data types (boolean)
+     * Custom toString method
+     * @return CupidMatcherLinguistic settings represented as string
      */
-    public CupidMatcherLinguistic(boolean use_simple_data_types) {
-        this.use_simple_data_types = use_simple_data_types;
+    @Override
+    public String toString() {
+        return "CupidMatcherLinguistic(" +
+                "thAccept=" + th_accept +
+                "/mapping=" + mapping +
+                "/useSimpleDataTypes" + use_simple_data_types +
+                "/thns=" + th_ns +
+                "/parallelism=" + parallelism +
+                ")";
     }
+
+
 
     /**
      * @param matchTask MatchTask to match
@@ -36,33 +78,30 @@ public class CupidMatcherLinguistic extends Matcher {
      */
     @Override
     public float[][] match(MatchTask matchTask, MatchingStep matchStep) {
-        float th_ns = 0.7f;
-        int parallelism = 1;
-        WordNetFunctionalities wnf;
-        try {
-            wnf = new WordNetFunctionalities();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        LinguisticMatching linguisticMatching = new LinguisticMatching(wnf);
 
         List<TablePair> tablePairs = matchTask.getTablePairs();
 
         float[][] simMatrix = matchTask.getEmptySimMatrix();
-        List<Pair<Set<String>,SchemaTree>> trees = new ArrayList<>();
 
         for (TablePair tablePair : tablePairs) {
-            Pair<Set<String>,SchemaTree> sourceTree = CupidMatcher.get(trees, tablePair.getSourceTable());
-            Pair<Set<String>,SchemaTree> targetTree = CupidMatcher.get(trees, tablePair.getTargetTable());
-            if (sourceTree == null) {
+            Pair<Set<String>,SchemaTree> sourceTree;
+            int sHash = tablePair.getSourceTable().hashCode();
+            Pair<Set<String>,SchemaTree> targetTree;
+            int tHash = tablePair.getTargetTable().hashCode();
+
+            if (trees.containsKey(sHash)) {
+                sourceTree = trees.get(sHash);
+            } else {
                 sourceTree = new TreeBuilder().buildTreeFromTable(tablePair.getSourceTable(), use_simple_data_types);
-                trees.add(sourceTree);
+                trees.put(sHash,sourceTree);
             }
-            if (targetTree == null) {
+            if (trees.containsKey(tHash)) {
+                targetTree = trees.get(tHash);
+            } else {
                 targetTree = new TreeBuilder().buildTreeFromTable(tablePair.getTargetTable(), use_simple_data_types);
-                trees.add(targetTree);
+                trees.put(tHash,targetTree);
             }
+
             Set<String> categories = new HashSet<>();
             categories.addAll(sourceTree.getFirst());
             categories.addAll(targetTree.getFirst());
@@ -74,7 +113,7 @@ public class CupidMatcherLinguistic extends Matcher {
 
             int sourceTableOffset = tablePair.getSourceTable().getOffset();
             int targetTableOffset = tablePair.getTargetTable().getOffset();
-            ArrayUtils.insertSubmatrixInMatrix(CupidMatcher.mapSimilarityMatrix(tablePair, lSims, 0.0f), simMatrix, sourceTableOffset, targetTableOffset);
+            ArrayUtils.insertSubmatrixInMatrix(CupidMatcher.mapSimilarityMatrix(tablePair, lSims, th_accept, mapping), simMatrix, sourceTableOffset, targetTableOffset);
         }
 
         return simMatrix;

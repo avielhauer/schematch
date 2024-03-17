@@ -5,56 +5,93 @@ import de.uni_marburg.schematch.matchtask.MatchTask;
 import de.uni_marburg.schematch.matchtask.matchstep.SimMatrixBoostingStep;
 import de.uni_marburg.schematch.matchtask.tablepair.TablePair;
 import de.uni_marburg.schematch.utils.ArrayUtils;
-import lombok.Getter;
+import lombok.Setter;
 
 import java.io.IOException;
 import java.util.*;
 
 import static de.uni_marburg.schematch.matching.sota.cupid.TreeMatch.convertSimMatrix;
 
+@Setter
 public class CupidSimMatrixBoosting implements SimMatrixBoosting {
-
-    private final Settings settings;
-
     /**
-     * Initializes CupidSimMatrixBoosting object with default settings th_accept = 0.7, leaf_w_struct = 0.2, w_struct = 0.2 and
-     * use_simple_data_types = false
+     * Threshold for the mapping and for strong links in the structural similarity
      */
+    private float th_accept = 0.7f;
+    /**
+     * wsim weight for leaves
+     */
+    private float leaf_w_struct = 0.2f;
+    /**
+     * wsim weights for non-leave nodes
+     */
+    private float w_struct = 0.2f;
+    /**
+     * Threshold for the non-leaf links, if wsim is above th_high, the nodes leaves links ssim will be
+     * increased by c_inc
+     */
+    private float th_high = 0.6f;
+    /**
+     * Threshold for the non-leaf links, if wsim is under th_low, the nodes leaves links ssim will be
+     * decreased by d_dex
+     */
+    private float th_low = 0.35f;
+    /**
+     * Value by which the leaves ssim will be increased
+     */
+    private float c_inc = 1.2f;
+    /**
+     * Value by which the leaves ssim will be decreased
+     */
+    private float c_dec = 0.9f;
+    /**
+     * When true, the algorithm will run the simple data type detection of Lars and Leif and will map the data type to
+     * the closest Cupid data type.
+     * When false, the algorithm will run an extended data type detection based on the implementation of Lars and Leif,
+     * also considering table values.
+     */
+    private Boolean use_simple_data_types = false;
+    /**
+     * Boolean to decide, if the algorithm should recalculate the wsim, while mapping
+     */
+    private Boolean wsrecalc = true;
+    /**
+     * Whether the algorithm should map, meaning cutting of values under th_acceot
+     */
+    private Boolean mapping = true;
+
+    private WordNetFunctionalities wnf;
+    private LinguisticMatching linguisticMatching;
+    private Map<Integer, Pair<Set<String>, SchemaTree>> trees = new HashMap<>();
+
+    @Override
+    public String toString() {
+        return "CupidSimMatrixBoosting(" +
+                "thaccept=" + th_accept +
+                "/mapping=" + mapping +
+                "/leafWStruct=" + leaf_w_struct +
+                "/wStruct=" + w_struct +
+                "/useSimpleDataTypes" + use_simple_data_types +
+                "/wsrecalc=" + wsrecalc +
+                "/thHigh=" + th_high +
+                "/thLow=" + th_low +
+                "/cInc=" + c_inc +
+                "/cDec=" + c_dec +
+                ")";
+    }
+
     public CupidSimMatrixBoosting() {
-        this.settings = new Settings(.7f,.2f,.2f,false);
+        WordNetFunctionalities wnf;
+        try {
+            this.wnf = new WordNetFunctionalities();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        this.linguisticMatching = new LinguisticMatching(this.wnf);
     }
 
-    /**
-     * Initializes CupidSimMatrixBoosting object with custom th_accept and use_simple_data_types and default leaf_w_struct = 0.2
-     * and w_struct = 0.2
-     * @param th_accept Threshold for mapping and strong links in the structural matching
-     * @param use_simple_data_types use simple data types (boolean)
-     */
-    public CupidSimMatrixBoosting(float th_accept, boolean use_simple_data_types) {
-        this.settings = new Settings(th_accept,.2f,.2f,use_simple_data_types);
-    }
 
-    /**
-     * Initializes CupidSimMatrixBoosting object with custom th_accept and default leaf_w_struct = 0.2, w_struct = 0.2 and
-     * use_simple_data_types = false
-     * @param th_accept Threshold for mapping and strong links in the structural matching
-     */
-    public CupidSimMatrixBoosting(float th_accept) {
-        this.settings = new Settings(th_accept,.2f,.2f,false);
-    }
-
-    /**
-     * Initializes CupidSimMatrixBoosting object custom settings
-     * @param th_accept Threshold for mapping and strong links in the structural matching
-     * @param leaf_w_struct Weight of the structural similarity, to calculate the weighted similarity between structural
-     *                    similarity and linguistic similarity of the leaf node pairs
-     * @param w_struct Weight of the structural similarity, to calculate the weighted similarity between structural
-     *                similarity and linguistic similarity of the non-leaf node pairs
-     * @param use_simple_data_types use simple data types (boolean)
-     */
-    public CupidSimMatrixBoosting(float th_accept, float leaf_w_struct, float w_struct, boolean use_simple_data_types) {
-        this.settings = new Settings(th_accept,leaf_w_struct,w_struct,use_simple_data_types);
-    }
 
     /**
      * Starts cupid sim matrix boosting
@@ -65,33 +102,28 @@ public class CupidSimMatrixBoosting implements SimMatrixBoosting {
      */
     @Override
     public float[][] run(MatchTask matchTask, SimMatrixBoostingStep matchStep, float[][] simMatrix) {
-        float th_high = 0.6f;
-        float th_low = 0.35f;
-        float c_inc = 1.2f;
-        float c_dec = 0.9f;
 
         List<TablePair> tablePairs = matchTask.getTablePairs();
 
-        List<Pair<Set<String>,SchemaTree>> trees = new ArrayList<>();
-        WordNetFunctionalities wnf;
-        try {
-            wnf = new WordNetFunctionalities();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        LinguisticMatching linguisticMatching = new LinguisticMatching(wnf);
-
         for (TablePair tablePair : tablePairs) {
-            Pair<Set<String>,SchemaTree> sourceTree = CupidMatcher.get(trees, tablePair.getSourceTable());
-            Pair<Set<String>,SchemaTree> targetTree = CupidMatcher.get(trees, tablePair.getTargetTable());
-            if (sourceTree == null) {
-                sourceTree = new TreeBuilder().buildTreeFromTable(tablePair.getSourceTable(), settings.use_simple_data_types);
-                trees.add(sourceTree);
+            Pair<Set<String>,SchemaTree> sourceTree;
+            int sHash = tablePair.getSourceTable().hashCode();
+            Pair<Set<String>,SchemaTree> targetTree;
+            int tHash = tablePair.getTargetTable().hashCode();
+
+            if (trees.containsKey(sHash)) {
+                sourceTree = trees.get(sHash);
+            } else {
+                sourceTree = new TreeBuilder().buildTreeFromTable(tablePair.getSourceTable(), use_simple_data_types);
+                trees.put(sHash,sourceTree);
             }
-            if (targetTree == null) {
-                targetTree = new TreeBuilder().buildTreeFromTable(tablePair.getTargetTable(), settings.use_simple_data_types);
-                trees.add(targetTree);
+            if (trees.containsKey(tHash)) {
+                targetTree = trees.get(tHash);
+            } else {
+                targetTree = new TreeBuilder().buildTreeFromTable(tablePair.getTargetTable(), use_simple_data_types);
+                trees.put(tHash,targetTree);
             }
+
             Set<String> categories = new HashSet<String>();
             categories.addAll(sourceTree.getFirst());
             categories.addAll(targetTree.getFirst());
@@ -101,9 +133,9 @@ public class CupidSimMatrixBoosting implements SimMatrixBoosting {
                     targetTree.getSecond(),
                     convertSimMatrix(tablePair, simMatrix),
                     categories,
-                    settings.leaf_w_struct,
-                    settings.w_struct,
-                    settings.th_accept,
+                    leaf_w_struct,
+                    w_struct,
+                    th_accept,
                     th_high,
                     th_low,
                     c_inc,
@@ -115,19 +147,24 @@ public class CupidSimMatrixBoosting implements SimMatrixBoosting {
                     sourceTree.getSecond(),
                     targetTree.getSecond(),
                     sims,
-                    settings.w_struct,
-                    settings.th_accept
+                    w_struct,
+                    th_accept
             );
 
 
             int sourceTableOffset = tablePair.getSourceTable().getOffset();
             int targetTableOffset = tablePair.getTargetTable().getOffset();
-            ArrayUtils.insertSubmatrixInMatrix(CupidMatcher.mapSimilarityMatrix(tablePair, newSims.get("wsim"), settings.th_accept), simMatrix, sourceTableOffset, targetTableOffset);
+
+            float[][] subSimMatrix;
+            if (wsrecalc) {
+                subSimMatrix = CupidMatcher.mapSimilarityMatrix(tablePair, newSims, th_accept, leaf_w_struct, mapping);
+            } else {
+                subSimMatrix = CupidMatcher.mapSimilarityMatrix(tablePair, newSims.get("wsim"), th_accept, mapping);
+            }
+
+            ArrayUtils.insertSubmatrixInMatrix(subSimMatrix, simMatrix, sourceTableOffset, targetTableOffset);
         }
 
         return simMatrix;
     }
-
-    @Getter
-    private record Settings(float th_accept, float leaf_w_struct, float w_struct, boolean use_simple_data_types) {}
 }
