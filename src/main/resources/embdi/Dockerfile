@@ -5,7 +5,7 @@ RUN mkdir /embdi
 WORKDIR /embdi
 
 # install embdi from github
-RUN git clone https://github.com/rcap107/embdi.git
+RUN git clone https://github.com/Tratori/embdi.git
 WORKDIR embdi
 RUN pip install .
 

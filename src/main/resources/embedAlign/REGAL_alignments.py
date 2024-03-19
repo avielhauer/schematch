@@ -10,14 +10,17 @@ from scipy.spatial.distance import cosine
 import matching
 import matching.games
 
-def get_embedding_similarities(embed, embed2 = None, sim_measure = "euclidean", top_k_row = None, top_k_col=None):
+def get_embedding_similarities(embed, embed2 = None, sim_measure = "euclidean", top_k_row = None, top_k_col=None, top_k_by_union=True):
     if embed2 is None:
         embed2 = embed
 
     if top_k_row != -1 and top_k_col != -1: #KD tree with only top similarities computed
         kd_sim_source_target = kd_align(embed, embed2, distance_metric=sim_measure, num_top=top_k_row if top_k_row is not None else 0)
         kd_sim_target_source = kd_align(embed2, embed, distance_metric=sim_measure, num_top=top_k_col if top_k_col is not None else 0)
-        return kd_sim_target_source.transpose().minimum(kd_sim_source_target)
+        if top_k_by_union:
+            return kd_sim_target_source.transpose().minimum(kd_sim_source_target)
+        else:
+            return kd_sim_target_source.transpose().maximum(kd_sim_source_target)
 
     #All pairwise distance computation
     if sim_measure == "cosine":
@@ -110,8 +113,10 @@ def score_embeddings_matrices(embed1, embed2, topk = None, similarity_threshold 
     return score
 
 def kd_align(emb1, emb2, normalize=False, distance_metric = "euclidean", num_top = 50):
-    kd_tree_source_target = KDTree(emb2, metric = distance_metric)
-
+    try:
+        kd_tree_source_target = KDTree(emb2, metric = distance_metric)
+    except:
+        pass
     dist, ind = kd_tree_source_target.query(emb1, k = num_top)
     row = np.array([])
     for i in range(emb1.shape[0]):

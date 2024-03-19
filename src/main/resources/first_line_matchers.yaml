@@ -2,65 +2,66 @@
 ---
 name: "EmbdiMatcher"
 packageName: "sota"
-active: false
+active: true
 ---
 name: "EmbedAlignMatcher"
 packageName: "metadata"
-active: true
+active: false
 params:
-  xNetMFGammaStrucAttr: [0.0, 0.5, 1.0]
-  topKRow: [0, 1, 2, 3]
-  topKCol: [0, 2]
+  xNetMFGammaStrucAttr: [0.5]
+  topKRow: [-1, 0, 1, 2, 3]
+  topKCol: [-1, 0, 1, 2, 3]
+  topKByUnion: [false, true]
 # Similarity matchers
 ---
 name: "LevenshteinMatcher"
 packageName: "similarity.label"
-active: true
+active: false
 ---
 name: "CosineMatcher"
 packageName: "similarity.label"
-active: true
+active: false
 ---
 name: "HammingMatcher"
 packageName: "similarity.label"
-active: true
+active: false
 ---
 name: "JaroWinklerMatcher"
 packageName: "similarity.label"
-active: true
+active: false
 ---
 name: "LongestCommonSubsequenceMatcher"
 packageName: "similarity.label"
-active: true
+active: false
 ---
 name: "JaccardInstanceMatcher"
 packageName: "similarity.tokenizedinstance"
-active: true
+active: false
 ---
 name: "DiceInstanceMatcher"
 packageName: "similarity.tokenizedinstance"
-active: true
+active: false
 ---
 name: "OverlapInstanceMatcher"
 packageName: "similarity.tokenizedinstance"
-active: true
+active: false
 ---
 name: "SetCosineInstanceMatcher"
 packageName: "similarity.tokenizedinstance"
-active: true
+active: false
 ---
 name: "JaccardLabelMatcher"
 packageName: "similarity.tokenizedlabel"
-active: true
+active: false
 ---
 name: "DiceLabelMatcher"
 packageName: "similarity.tokenizedlabel"
-active: true
+active: false
 ---
 name: "OverlapLabelMatcher"
 packageName: "similarity.tokenizedlabel"
-active: true
+active: false
 ---
 name: "SetCosineLabelMatcher"
 packageName: "similarity.tokenizedlabel"
-active: true
+active: false

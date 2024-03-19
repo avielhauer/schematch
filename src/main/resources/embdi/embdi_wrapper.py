@@ -227,8 +227,10 @@ def match(scenario_name, scenario_path, similarity_matrix_generation_method="dot
     execution_specific_params = update_params(scenario_path, DEFAULT_PARAMS.copy())
 
     df_1 ,df_2 = import_scenario(scenario_path)
-    input_1 = scenario_name + "_source"
-    input_2 = scenario_name + "_target"
+
+    dataset_name = scenario_path.split("/")[-2]
+    input_1 = dataset_name + "_" + scenario_name + "_source"
+    input_2 = dataset_name + "_" + scenario_name + "_target"
 
     execution_specific_params["expand_columns"] = ','.join(list(set(list(df_1.columns) + list(df_2.columns))))
     preprocessed = prepare_csv(df_1, df_2, execution_specific_params)
