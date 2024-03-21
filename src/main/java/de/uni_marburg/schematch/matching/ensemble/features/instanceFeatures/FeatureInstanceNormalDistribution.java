@@ -1,6 +1,7 @@
 package de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures;
 
 import de.uni_marburg.schematch.data.Column;
+import de.uni_marburg.schematch.data.metadata.Datatype;
 import de.uni_marburg.schematch.matching.ensemble.features.FeatureInstace;
 import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
 import org.apache.commons.math3.distribution.NormalDistribution;
@@ -23,7 +24,7 @@ public class FeatureInstanceNormalDistribution extends FeatureInstace {
         return calc(getPValue(columnPair.getSourceColumn()),getPValue(columnPair.getTargetColumn()));
     }
     private double getPValue(Column c){
-        if (c.getDatatype() == Column.Datatype.FLOAT||c.getDatatype() == Column.Datatype.INTEGER)
+        if (c.getDatatype() == Datatype.FLOAT||c.getDatatype() == Datatype.INTEGER)
         {
             double[] array=new double[c.getValues().size()];
             List<String> data=c.getValues();

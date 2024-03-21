@@ -1,6 +1,7 @@
 package de.uni_marburg.schematch.matching.ensemble.features.instanceFeatures;
 
 import de.uni_marburg.schematch.data.Column;
+import de.uni_marburg.schematch.data.metadata.Datatype;
 import de.uni_marburg.schematch.matching.ensemble.features.FeatureInstace;
 import de.uni_marburg.schematch.matchtask.columnpair.ColumnPair;
 import org.apache.commons.lang3.StringUtils;
@@ -22,7 +23,7 @@ public class FeatureInstanceNumeric extends FeatureInstace {
         List<Boolean> isColumnNumeric = new ArrayList<>();
 
         for (Column c : columns) {
-            if(c.getDatatype().equals(Column.Datatype.INTEGER) || c.getDatatype().equals(Column.Datatype.FLOAT)){
+            if(c.getDatatype().equals(Datatype.INTEGER) || c.getDatatype().equals(Datatype.FLOAT)){
                 isColumnNumeric.add(true);
             }else {
                 isColumnNumeric.add(!c.getValues().stream().map(this::isNumeric).collect(Collectors.toList()).contains(false));
