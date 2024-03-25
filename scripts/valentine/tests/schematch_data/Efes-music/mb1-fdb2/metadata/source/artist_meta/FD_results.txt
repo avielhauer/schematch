@@ -1,0 +1,1 @@
+[artist_meta.csv.id] --> artist_meta.csv.rating, artist_meta.csv.rating_count

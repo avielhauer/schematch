@@ -1,0 +1,4 @@
+[artist.csv.id]
+[artist.csv.gid]
+[artist.csv.name]
+[artist.csv.sort_name]

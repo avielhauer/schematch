@@ -1,0 +1,10 @@
+[] --> recording.csv.edits_pending, recording.csv.video
+[recording.csv.artist_credit, recording.csv.length] --> recording.csv.last_updated
+[recording.csv.comment, recording.csv.name] --> recording.csv.gid, recording.csv.id, recording.csv.last_updated, recording.csv.length
+[recording.csv.gid] --> recording.csv.artist_credit, recording.csv.comment, recording.csv.id, recording.csv.last_updated, recording.csv.length, recording.csv.name
+[recording.csv.id] --> recording.csv.artist_credit, recording.csv.comment, recording.csv.gid, recording.csv.last_updated, recording.csv.length, recording.csv.name
+[recording.csv.last_updated, recording.csv.name] --> recording.csv.gid, recording.csv.id, recording.csv.length
+[recording.csv.last_updated] --> recording.csv.comment
+[recording.csv.length, recording.csv.name] --> recording.csv.gid, recording.csv.id, recording.csv.last_updated
+[recording.csv.length] --> recording.csv.comment
+[recording.csv.name] --> recording.csv.artist_credit

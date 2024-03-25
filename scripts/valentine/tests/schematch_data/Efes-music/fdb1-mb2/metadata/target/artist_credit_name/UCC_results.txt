@@ -1,0 +1,3 @@
+[artist_credit_name.csv.artist, artist_credit_name.csv.artist_credit]
+[artist_credit_name.csv.artist_credit, artist_credit_name.csv.name]
+[artist_credit_name.csv.artist_credit, artist_credit_name.csv.position]

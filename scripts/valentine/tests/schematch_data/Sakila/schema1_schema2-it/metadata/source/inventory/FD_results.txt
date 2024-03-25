@@ -1,0 +1,2 @@
+[inventory.csv.inventory_id] --> inventory.csv.film_id
+[inventory.csv.inventory_id] --> inventory.csv.store_id

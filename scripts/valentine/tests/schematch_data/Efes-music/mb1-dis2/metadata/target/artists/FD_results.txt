@@ -1,0 +1,2 @@
+[artists.csv.id] --> artists.csv.data_quality, artists.csv.name, artists.csv.profile, artists.csv.realname
+[artists.csv.name] --> artists.csv.data_quality, artists.csv.id, artists.csv.profile, artists.csv.realname

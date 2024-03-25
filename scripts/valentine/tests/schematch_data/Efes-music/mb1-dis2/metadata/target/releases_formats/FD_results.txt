@@ -1,0 +1,2 @@
+[releases_formats.csv.format_id] --> releases_formats.csv.name, releases_formats.csv.qty, releases_formats.csv.release_id, releases_formats.csv.text
+[releases_formats.csv.release_id] --> releases_formats.csv.name, releases_formats.csv.qty, releases_formats.csv.text

@@ -1,0 +1,7 @@
+[medium.csv.id]
+[medium.csv.last_updated, medium.csv.release]
+[medium.csv.name, medium.csv.release]
+[medium.csv.position, medium.csv.release]
+[medium.csv.format, medium.csv.last_updated, medium.csv.track_count]
+[medium.csv.format, medium.csv.name, medium.csv.track_count]
+[medium.csv.format, medium.csv.position, medium.csv.track_count]

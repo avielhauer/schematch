@@ -1,0 +1,301 @@
+città_id,città,stato_id,stato
+21,Alvorada,15,Brazil
+121,Città del Vaticano,41,Holy See (Vatican City State)
+34,Ashdod,48,Israel
+115,Chisinau,61,Moldova
+181,Gijón,87,Spain
+187,Greensboro,103,United States
+203,Higashiosaka,50,Japan
+56,Basel,91,Switzerland
+270,Kirovo-Tšepetsk,80,Russian Federation
+263,Karnal,44,India
+576,Woodridge,8,Australia
+132,Cumaná,104,Venezuela
+198,Halle/Saale,38,Germany
+159,Enshi,23,China
+404,Peoria,103,United States
+216,Idfu,29,Egypt
+262,Kansas City,103,United States
+405,Pereira,24,Colombia
+82,Bislig,75,Philippines
+537,Tieli,23,China
+468,Shanwei,23,China
+8,Adoni,44,India
+315,Lubumbashi,25,"Congo, The Democratic Republic of the"
+9,Ahmadnagar,44,India
+142,Denizli,97,Turkey
+274,Kolpino,80,Russian Federation
+332,Meixian,23,China
+512,Székesfehérvár,43,Hungary
+190,Águas Lindas de Goiás,15,Brazil
+502,Suihua,23,China
+46,Baicheng,23,China
+375,Okara,72,Pakistan
+83,Blumenau,15,Brazil
+408,Pjatigorsk,80,Russian Federation
+478,Siliguri (Shiliguri),44,India
+131,Cuernavaca,60,Mexico
+249,Junan,23,China
+599,Zhoushan,23,China
+544,Toulouse,34,France
+87,Botshabelo,85,South Africa
+430,Richmond Hill,20,Canada
+130,Cuautla,60,Mexico
+594,Zaoyang,23,China
+12,al-Ayn,101,United Arab Emirates
+386,Otsu,50,Japan
+260,Kanazawa,50,Japan
+424,Quilmes,6,Argentina
+470,Sharja,101,United Arab Emirates
+391,Ozamis,75,Philippines
+18,Allappuzha (Alleppey),44,India
+154,El Fuerte,60,Mexico
+364,Newcastle,85,South Africa
+378,Olomouc,26,Czech Republic
+129,Cuauhtémoc,60,Mexico
+573,Warren,103,United States
+94,Brockton,103,United States
+409,Plock,76,Poland
+592,Zalantun,23,China
+362,Nanyang,23,China
+146,Donostia-San Sebastián,87,Spain
+349,Myingyan,64,Myanmar
+78,Bijapur,44,India
+439,Saarbrücken,38,Germany
+124,Coacalco de Berriozábal,60,Mexico
+231,Jaipur,44,India
+179,Gatineau,20,Canada
+586,Yerevan,7,Armenia
+395,Palghat (Palakkad),44,India
+183,Goiânia,15,Brazil
+96,Buenaventura,24,Colombia
+241,Jining,23,China
+105,Cayenne,35,French Guiana
+180,Gaziantep,97,Turkey
+77,Bhusawal,44,India
+31,Arak,46,Iran
+141,Deba Habe,69,Nigeria
+11,Akron,103,United States
+381,Ondo,69,Nigeria
+85,Boksburg,85,South Africa
+209,Hsichuh,92,Taiwan
+291,Laiwu,23,China
+248,Juiz de Fora,15,Brazil
+293,Laohekou,23,China
+193,Haining,23,China
+437,Rustenburg,85,South Africa
+591,Yuzhou,23,China
+444,Salala,71,Oman
+68,Beni-Mellal,62,Morocco
+547,Tsuyama,50,Japan
+72,Bern,91,Switzerland
+107,Chandrapur,44,India
+451,San Felipe del Progreso,60,Mexico
+366,Nha Trang,105,Vietnam
+503,Sullana,74,Peru
+145,Dongying,23,China
+572,Vitória de Santo Antão,15,Brazil
+406,Phnom Penh,18,Cambodia
+36,Ashqelon,48,Israel
+75,Bhimavaram,44,India
+289,La Plata,6,Argentina
+317,Luziânia,15,Brazil
+445,Salamanca,60,Mexico
+223,Ipoh,59,Malaysia
+49,Balašiha,80,Russian Federation
+497,Springs,85,South Africa
+234,Jamalpur,12,Bangladesh
+488,Sokoto,69,Nigeria
+278,Korolev,80,Russian Federation
+245,Joliet,103,United States
+138,Davao,75,Philippines
+575,Witten,38,Germany
+418,Purnea (Purnia),44,India
+490,Sorocaba,15,Brazil
+313,London,20,Canada
+162,Esfahan,46,Iran
+600,Ziguinchor,83,Senegal
+224,Isesaki,50,Japan
+297,Le Mans,34,France
+316,Lungtan,92,Taiwan
+431,Rio Claro,15,Brazil
+434,Ríobamba,28,Ecuador
+325,Mannheim,38,Germany
+460,Santiago de los Caballeros,27,Dominican Republic
+467,Shahr-e Kord,46,Iran
+261,Kanchrapara,44,India
+390,Oyo,69,Nigeria
+88,Bradford,102,United Kingdom
+384,Osmaniye,97,Turkey
+148,Duisburg,38,Germany
+255,Kalisz,76,Poland
+150,Dzerzinsk,80,Russian Federation
+155,El Monte,103,United States
+62,Bayugan,75,Philippines
+301,Lhokseumawe,45,Indonesia
+81,Birgunj,66,Nepal
+352,Nabereznyje Tšelny,80,Russian Federation
+37,Asunción,73,Paraguay
+229,Izumisano,50,Japan
+498,Stara Zagora,17,Bulgaria
+43,Avellaneda,6,Argentina
+30,Araçatuba,15,Brazil
+185,Grand Prairie,103,United States
+499,Sterling Heights,103,United States
+344,Mosul,47,Iraq
+412,Pontianak,45,Indonesia
+523,Tanauan,75,Philippines
+258,Kamjanets-Podilskyi,100,Ukraine
+452,San Juan Bautista Tuxtepec,60,Mexico
+507,Sungai Petani,59,Malaysia
+402,Pavlodar,51,Kazakstan
+457,Santa Fé,6,Argentina
+482,Sivas,97,Turkey
+561,Valencia,104,Venezuela
+176,Gandhinagar,44,India
+596,Zaria,69,Nigeria
+299,Leshan,23,China
+455,Sanaa,107,Yemen
+189,Guarujá,15,Brazil
+459,Santiago de Compostela,87,Spain
+268,Kimchon,86,South Korea
+164,Etawah,44,India
+235,Jaroslavl,80,Russian Federation
+38,Athenai,39,Greece
+369,Novotšerkassk,80,Russian Federation
+399,Pathankot,44,India
+307,Linz,9,Austria
+4,Acuña,60,Mexico
+226,Iwaki,50,Japan
+51,Balurghat,44,India
+535,Tianjin,23,China
+118,Ciomas,45,Indonesia
+206,Hodeida,107,Yemen
+583,Yangor,65,Nauru
+334,Merlo,6,Argentina
+23,Amersfoort,67,Netherlands
+213,Huixquilucan,60,Mexico
+220,Ilorin,69,Nigeria
+329,Masqat,71,Oman
+461,Santo André,15,Brazil
+501,Sucre,14,Bolivia
+389,Owo,69,Nigeria
+259,Kamyšin,80,Russian Federation
+491,Soshanguve,85,South Africa
+310,Ljubertsy,80,Russian Federation
+264,Katihar,44,India
+398,Parbhani,44,India
+188,Guadalajara,60,Mexico
+266,Kilis,97,Turkey
+483,Skikda,2,Algeria
+275,Konotop,100,Ukraine
+306,Lincoln,103,United States
+570,Vilnius,56,Lithuania
+119,Ciparay,45,Indonesia
+175,Fuzhou,23,China
+463,Sasebo,50,Japan
+336,Miraj,44,India
+222,Inegöl,97,Turkey
+173,Funafuti,99,Tuvalu
+93,Brindisi,49,Italy
+273,Klerksdorp,85,South Africa
+298,Lengshuijiang,23,China
+91,Brescia,49,Italy
+486,São Leopoldo,15,Brazil
+73,Bhavnagar,44,India
+102,Caracas,104,Venezuela
+152,Effon-Alaiye,69,Nigeria
+305,Lima,74,Peru
+282,Kuching,59,Malaysia
+489,Songkhla,94,Thailand
+421,Qalyub,29,Egypt
+319,Mahajanga,57,Madagascar
+106,Celaya,60,Mexico
+302,Liaocheng,23,China
+202,Hidalgo,60,Mexico
+417,Pune,44,India
+139,Daxian,23,China
+579,Xi´angtan,23,China
+479,Simferopol,100,Ukraine
+376,Okayama,50,Japan
+98,Cabuyao,75,Philippines
+536,Tiefa,23,China
+552,Ueda,50,Japan
+516,Tafuna,3,American Samoa
+294,Lapu-Lapu,75,Philippines
+217,Ife,69,Nigeria
+511,Syrakusa,49,Italy
+240,Jinchang,23,China
+578,Xi´angfan,23,China
+22,Ambattur,44,India
+211,Hubli-Dharwad,44,India
+215,Ibirité,15,Brazil
+279,Kowloon and New Kowloon,42,Hong Kong
+385,Šostka,100,Ukraine
+182,Gingoog,75,Philippines
+359,Nam Dinh,105,Vietnam
+448,Sambhal,44,India
+465,Sawhaj,29,Egypt
+236,Jastrzebie-Zdrój,76,Poland
+517,Taguig,75,Philippines
+407,Pingxiang,23,China
+54,Banjul,37,Gambia
+466,Serpuhov,80,Russian Federation
+41,Augusta-Richmond County,103,United States
+287,Kuwana,50,Japan
+192,Hagonoy,75,Philippines
+372,Nyeri,52,Kenya
+239,Jhansi,44,India
+528,Tarlac,75,Philippines
+14,al-Manama,11,Bahrain
+558,Usolje-Sibirskoje,80,Russian Federation
+330,Matamoros,60,Mexico
+429,Ranchi,44,India
+584,Yantai,23,China
+436,Ruse,17,Bulgaria
+237,Jedda,82,Saudi Arabia
+221,Imus,75,Philippines
+560,Vaduz,55,Liechtenstein
+3,Abu Dhabi,101,United Arab Emirates
+74,Bhilwara,44,India
+163,Eskisehir,97,Turkey
+151,Ede,67,Netherlands
+147,Dos Quebradas,24,Colombia
+69,Benin City,69,Nigeria
+71,Berhampore (Baharampur),44,India
+92,Brest,34,France
+89,Brasília,15,Brazil
+355,Nagareyama,50,Japan
+207,Hohhot,23,China
+509,Surakarta,45,Indonesia
+328,Maringá,15,Brazil
+244,Johannesburg,85,South Africa
+546,Tsaotun,92,Taiwan
+462,Sanya,23,China
+167,Faaa,36,French Polynesia
+135,Dallas,103,United States
+197,Halisahar,44,India
+337,Mit Ghamr,29,Egypt
+525,Tangail,12,Bangladesh
+238,Jelets,80,Russian Federation
+110,Chapra,44,India
+518,Taizz,107,Yemen
+555,Urawa,50,Japan
+400,Patiala,44,India
+242,Jinzhou,23,China
+125,Coatzacoalcos,60,Mexico
+392,Paarl,85,South Africa
+2,Abha,82,Saudi Arabia
+143,Dhaka,12,Bangladesh
+495,Southend-on-Sea,102,United Kingdom
+10,Akishima,50,Japan
+230,Jaffna,88,Sri Lanka
+59,Batna,2,Algeria
+532,Tegal,45,Indonesia
+300,Lethbridge,20,Canada
+515,Tabuk,82,Saudi Arabia
+519,Talavera,75,Philippines
+413,Poços de Caldas,15,Brazil
+454,San Miguel de Tucumán,6,Argentina
+111,Charlotte Amalie,106,"Virgin Islands, U.S."
+318,Madiun,45,Indonesia

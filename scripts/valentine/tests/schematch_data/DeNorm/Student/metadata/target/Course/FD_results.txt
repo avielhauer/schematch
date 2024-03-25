@@ -1,0 +1,50 @@
+[Course.csv.Name] --> Course.csv.ID
+[Course.csv.Name] --> Course.csv.G
+[Course.csv.Name] --> Course.csv.Major
+[Course.csv.Name] --> Course.csv.CID
+[Course.csv.Name] --> Course.csv.CourseName
+[Course.csv.Name] --> Course.csv.PID
+[Course.csv.Name] --> Course.csv.PName
+[Course.csv.Name] --> Course.csv.Department
+[Course.csv.ID] --> Course.csv.Major
+[Course.csv.ID] --> Course.csv.CID
+[Course.csv.ID] --> Course.csv.CourseName
+[Course.csv.ID] --> Course.csv.PID
+[Course.csv.ID] --> Course.csv.PName
+[Course.csv.ID] --> Course.csv.Department
+[Course.csv.G, Course.csv.Major] --> Course.csv.ID
+[Course.csv.CID, Course.csv.G] --> Course.csv.ID
+[Course.csv.CourseName, Course.csv.G] --> Course.csv.ID
+[Course.csv.G, Course.csv.PID] --> Course.csv.ID
+[Course.csv.G, Course.csv.PName] --> Course.csv.ID
+[Course.csv.Department, Course.csv.G] --> Course.csv.ID
+[Course.csv.Major] --> Course.csv.CID
+[Course.csv.Major] --> Course.csv.CourseName
+[Course.csv.Major] --> Course.csv.PID
+[Course.csv.Major] --> Course.csv.PName
+[Course.csv.Major] --> Course.csv.Department
+[Course.csv.CID] --> Course.csv.Major
+[Course.csv.CID] --> Course.csv.CourseName
+[Course.csv.CID] --> Course.csv.PID
+[Course.csv.CID] --> Course.csv.PName
+[Course.csv.CID] --> Course.csv.Department
+[Course.csv.CourseName] --> Course.csv.Major
+[Course.csv.CourseName] --> Course.csv.CID
+[Course.csv.CourseName] --> Course.csv.PID
+[Course.csv.CourseName] --> Course.csv.PName
+[Course.csv.CourseName] --> Course.csv.Department
+[Course.csv.PID] --> Course.csv.Major
+[Course.csv.PID] --> Course.csv.CID
+[Course.csv.PID] --> Course.csv.CourseName
+[Course.csv.PID] --> Course.csv.PName
+[Course.csv.PID] --> Course.csv.Department
+[Course.csv.PName] --> Course.csv.Major
+[Course.csv.PName] --> Course.csv.CID
+[Course.csv.PName] --> Course.csv.CourseName
+[Course.csv.PName] --> Course.csv.PID
+[Course.csv.PName] --> Course.csv.Department
+[Course.csv.Department] --> Course.csv.Major
+[Course.csv.Department] --> Course.csv.CID
+[Course.csv.Department] --> Course.csv.CourseName
+[Course.csv.Department] --> Course.csv.PID
+[Course.csv.Department] --> Course.csv.PName

@@ -1,0 +1,3 @@
+staff_id,first_name,last_name,email,store_id,active,username,password,address_id,address,address2,district,postal_code,phone,city_id,city,country_id,country
+1,Mike,Hillyer,Mike.Hillyer@sakilastaff.com,1,1,Mike,8cb2237d0679ca88db6464eac60da96345513964,3,23 Workhaven Lane,,Alberta,,14033335568,300,Lethbridge,20,Canada
+2,Jon,Stephens,Jon.Stephens@sakilastaff.com,2,1,Jon,8cb2237d0679ca88db6464eac60da96345513964,4,1411 Lillydale Drive,,QLD,,6172235589,576,Woodridge,8,Australia

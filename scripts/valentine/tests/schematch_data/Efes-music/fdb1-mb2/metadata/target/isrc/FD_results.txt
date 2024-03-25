@@ -1,0 +1,5 @@
+[] --> isrc.csv.edits_pending
+[isrc.csv.created] --> isrc.csv.source
+[isrc.csv.id] --> isrc.csv.created, isrc.csv.isrc, isrc.csv.recording, isrc.csv.source
+[isrc.csv.isrc] --> isrc.csv.created, isrc.csv.id, isrc.csv.recording, isrc.csv.source
+[isrc.csv.recording] --> isrc.csv.created, isrc.csv.id, isrc.csv.isrc, isrc.csv.source

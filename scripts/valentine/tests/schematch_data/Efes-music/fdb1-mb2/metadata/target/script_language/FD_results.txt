@@ -1,0 +1,3 @@
+[] --> script_language.csv.frequency
+[script_language.csv.id] --> script_language.csv.language, script_language.csv.script
+[script_language.csv.language, script_language.csv.script] --> script_language.csv.id

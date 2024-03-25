@@ -1,0 +1,6 @@
+[] --> releases.csv.status
+[releases.csv.country, releases.csv.master_id, releases.csv.notes, releases.csv.released] --> releases.csv.id, releases.csv.title
+[releases.csv.country, releases.csv.master_id, releases.csv.released] --> releases.csv.data_quality
+[releases.csv.country, releases.csv.notes, releases.csv.released] --> releases.csv.data_quality
+[releases.csv.id] --> releases.csv.country, releases.csv.data_quality, releases.csv.master_id, releases.csv.notes, releases.csv.released, releases.csv.title
+[releases.csv.title] --> releases.csv.country, releases.csv.data_quality, releases.csv.id, releases.csv.master_id, releases.csv.notes, releases.csv.released

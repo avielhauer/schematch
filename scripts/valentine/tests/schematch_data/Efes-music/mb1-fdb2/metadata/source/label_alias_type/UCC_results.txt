@@ -1,0 +1,2 @@
+[label_alias_type.csv.id]
+[label_alias_type.csv.name]

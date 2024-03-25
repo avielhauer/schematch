@@ -1,0 +1,12 @@
+[] --> incollection.csv.annote, incollection.csv.note, incollection.csv.num
+[incollection.csv.bktitle, incollection.csv.loc] --> incollection.csv.collid, incollection.csv.title
+[incollection.csv.bktitle] --> incollection.csv.class, incollection.csv.month, incollection.csv.pages, incollection.csv.vol, incollection.csv.year
+[incollection.csv.class, incollection.csv.loc] --> incollection.csv.collid, incollection.csv.title
+[incollection.csv.class] --> incollection.csv.bktitle, incollection.csv.month, incollection.csv.pages, incollection.csv.vol, incollection.csv.year
+[incollection.csv.collid] --> incollection.csv.bktitle, incollection.csv.class, incollection.csv.loc, incollection.csv.month, incollection.csv.pages, incollection.csv.title, incollection.csv.vol, incollection.csv.year
+[incollection.csv.loc, incollection.csv.vol] --> incollection.csv.month
+[incollection.csv.loc, incollection.csv.year] --> incollection.csv.collid, incollection.csv.title
+[incollection.csv.month] --> incollection.csv.vol
+[incollection.csv.pages, incollection.csv.vol] --> incollection.csv.month
+[incollection.csv.title] --> incollection.csv.bktitle, incollection.csv.class, incollection.csv.collid, incollection.csv.loc, incollection.csv.month, incollection.csv.pages, incollection.csv.vol, incollection.csv.year
+[incollection.csv.year] --> incollection.csv.bktitle, incollection.csv.class, incollection.csv.month, incollection.csv.pages, incollection.csv.vol

@@ -1,0 +1,3 @@
+[releases.csv.id]
+[releases.csv.title]
+[releases.csv.country, releases.csv.master_id, releases.csv.notes, releases.csv.released]

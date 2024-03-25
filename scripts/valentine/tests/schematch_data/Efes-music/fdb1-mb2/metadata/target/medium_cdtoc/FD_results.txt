@@ -1,0 +1,5 @@
+[] --> medium_cdtoc.csv.edits_pending
+[medium_cdtoc.csv.cdtoc, medium_cdtoc.csv.medium] --> medium_cdtoc.csv.id
+[medium_cdtoc.csv.cdtoc] --> medium_cdtoc.csv.last_updated
+[medium_cdtoc.csv.id] --> medium_cdtoc.csv.cdtoc, medium_cdtoc.csv.last_updated, medium_cdtoc.csv.medium
+[medium_cdtoc.csv.medium] --> medium_cdtoc.csv.last_updated

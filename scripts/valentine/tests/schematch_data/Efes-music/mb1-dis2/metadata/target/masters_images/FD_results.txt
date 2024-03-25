@@ -1,0 +1,2 @@
+[masters_images.csv.uri150] --> masters_images.csv.height, masters_images.csv.master_id, masters_images.csv.type, masters_images.csv.uri, masters_images.csv.width
+[masters_images.csv.uri] --> masters_images.csv.height, masters_images.csv.master_id, masters_images.csv.type, masters_images.csv.uri150, masters_images.csv.width

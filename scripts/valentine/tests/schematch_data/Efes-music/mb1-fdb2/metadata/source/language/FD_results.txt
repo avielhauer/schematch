@@ -1,0 +1,7 @@
+[language.csv.id] --> language.csv.frequency, language.csv.iso_code_1, language.csv.iso_code_2b, language.csv.iso_code_2t, language.csv.iso_code_3, language.csv.name
+[language.csv.iso_code_2b, language.csv.iso_code_3] --> language.csv.id, language.csv.iso_code_1, language.csv.name
+[language.csv.iso_code_2b] --> language.csv.iso_code_2t
+[language.csv.iso_code_2t, language.csv.iso_code_3] --> language.csv.id, language.csv.iso_code_1, language.csv.name
+[language.csv.iso_code_2t] --> language.csv.iso_code_2b
+[language.csv.iso_code_3] --> language.csv.frequency
+[language.csv.name] --> language.csv.frequency, language.csv.id, language.csv.iso_code_1, language.csv.iso_code_2b, language.csv.iso_code_2t, language.csv.iso_code_3

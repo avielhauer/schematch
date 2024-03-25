@@ -1,0 +1,2 @@
+[artists_images.csv.uri150] --> artists_images.csv.artist_id, artists_images.csv.height, artists_images.csv.type, artists_images.csv.uri, artists_images.csv.width
+[artists_images.csv.uri] --> artists_images.csv.artist_id, artists_images.csv.height, artists_images.csv.type, artists_images.csv.uri150, artists_images.csv.width

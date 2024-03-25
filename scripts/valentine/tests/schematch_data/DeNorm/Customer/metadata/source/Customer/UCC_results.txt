@@ -1,0 +1,7 @@
+[Customer.csv.Price]
+[Customer.csv.CustomerID, Customer.csv.ProductID]
+[Customer.csv.CustomerID, Customer.csv.ProductName]
+[Customer.csv.CustomerName, Customer.csv.ProductID]
+[Customer.csv.CustomerName, Customer.csv.ProductName]
+[Customer.csv.Age, Customer.csv.ProductID]
+[Customer.csv.Age, Customer.csv.ProductName]

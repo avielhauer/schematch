@@ -1,0 +1,6 @@
+[isrc.csv.id]
+[isrc.csv.recording]
+[isrc.csv.isrc]
+[isrc.csv.source]
+[isrc.csv.edits_pending]
+[isrc.csv.created]

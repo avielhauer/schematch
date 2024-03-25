@@ -1,0 +1,2 @@
+[manualpublished.csv.authid] --> manualpublished.csv.manid
+[manualpublished.csv.manid] --> manualpublished.csv.authid

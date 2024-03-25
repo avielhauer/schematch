@@ -1,0 +1,309 @@
+[orders.csv.order_id] --> orders.csv.freight
+[orders.csv.order_id] --> orders.csv.order_date
+[orders.csv.order_id] --> orders.csv.required_date
+[orders.csv.order_id] --> orders.csv.shipped_date
+[orders.csv.order_id] --> orders.csv.customer_id
+[orders.csv.order_id] --> orders.csv.ship_name
+[orders.csv.order_id] --> orders.csv.ship_address
+[orders.csv.order_id] --> orders.csv.ship_postal_code
+[orders.csv.order_id] --> orders.csv.ship_city
+[orders.csv.order_id] --> orders.csv.ship_country
+[orders.csv.order_id] --> orders.csv.ship_region
+[orders.csv.order_id] --> orders.csv.employee_id
+[orders.csv.order_id] --> orders.csv.ship_via
+[orders.csv.freight, orders.csv.order_date] --> orders.csv.order_id
+[orders.csv.freight, orders.csv.order_date] --> orders.csv.required_date
+[orders.csv.freight, orders.csv.order_date] --> orders.csv.shipped_date
+[orders.csv.freight, orders.csv.order_date] --> orders.csv.customer_id
+[orders.csv.freight, orders.csv.order_date] --> orders.csv.ship_name
+[orders.csv.freight, orders.csv.order_date] --> orders.csv.ship_address
+[orders.csv.freight, orders.csv.order_date] --> orders.csv.ship_postal_code
+[orders.csv.freight, orders.csv.order_date] --> orders.csv.ship_city
+[orders.csv.freight, orders.csv.order_date] --> orders.csv.ship_country
+[orders.csv.freight, orders.csv.order_date] --> orders.csv.ship_region
+[orders.csv.freight, orders.csv.order_date] --> orders.csv.employee_id
+[orders.csv.freight, orders.csv.order_date] --> orders.csv.ship_via
+[orders.csv.freight, orders.csv.required_date] --> orders.csv.order_id
+[orders.csv.freight, orders.csv.required_date] --> orders.csv.order_date
+[orders.csv.freight, orders.csv.required_date] --> orders.csv.shipped_date
+[orders.csv.freight, orders.csv.required_date] --> orders.csv.customer_id
+[orders.csv.freight, orders.csv.required_date] --> orders.csv.ship_name
+[orders.csv.freight, orders.csv.required_date] --> orders.csv.ship_address
+[orders.csv.freight, orders.csv.required_date] --> orders.csv.ship_postal_code
+[orders.csv.freight, orders.csv.required_date] --> orders.csv.ship_city
+[orders.csv.freight, orders.csv.required_date] --> orders.csv.ship_country
+[orders.csv.freight, orders.csv.required_date] --> orders.csv.ship_region
+[orders.csv.freight, orders.csv.required_date] --> orders.csv.employee_id
+[orders.csv.freight, orders.csv.required_date] --> orders.csv.ship_via
+[orders.csv.freight, orders.csv.shipped_date] --> orders.csv.order_id
+[orders.csv.freight, orders.csv.shipped_date] --> orders.csv.order_date
+[orders.csv.freight, orders.csv.shipped_date] --> orders.csv.required_date
+[orders.csv.freight, orders.csv.shipped_date] --> orders.csv.customer_id
+[orders.csv.freight, orders.csv.shipped_date] --> orders.csv.ship_name
+[orders.csv.freight, orders.csv.shipped_date] --> orders.csv.ship_address
+[orders.csv.freight, orders.csv.shipped_date] --> orders.csv.ship_postal_code
+[orders.csv.freight, orders.csv.shipped_date] --> orders.csv.ship_city
+[orders.csv.freight, orders.csv.shipped_date] --> orders.csv.ship_country
+[orders.csv.freight, orders.csv.shipped_date] --> orders.csv.ship_region
+[orders.csv.freight, orders.csv.shipped_date] --> orders.csv.employee_id
+[orders.csv.freight, orders.csv.shipped_date] --> orders.csv.ship_via
+[orders.csv.customer_id, orders.csv.employee_id, orders.csv.freight, orders.csv.ship_via] --> orders.csv.order_id
+[orders.csv.customer_id, orders.csv.employee_id, orders.csv.freight, orders.csv.ship_via] --> orders.csv.order_date
+[orders.csv.customer_id, orders.csv.employee_id, orders.csv.freight, orders.csv.ship_via] --> orders.csv.required_date
+[orders.csv.customer_id, orders.csv.employee_id, orders.csv.freight, orders.csv.ship_via] --> orders.csv.shipped_date
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_name, orders.csv.ship_via] --> orders.csv.order_id
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_name, orders.csv.ship_via] --> orders.csv.order_date
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_name, orders.csv.ship_via] --> orders.csv.required_date
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_name, orders.csv.ship_via] --> orders.csv.shipped_date
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_address, orders.csv.ship_via] --> orders.csv.order_id
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_address, orders.csv.ship_via] --> orders.csv.order_date
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_address, orders.csv.ship_via] --> orders.csv.required_date
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_address, orders.csv.ship_via] --> orders.csv.shipped_date
+[orders.csv.freight, orders.csv.ship_postal_code] --> orders.csv.customer_id
+[orders.csv.freight, orders.csv.ship_postal_code] --> orders.csv.ship_name
+[orders.csv.freight, orders.csv.ship_postal_code] --> orders.csv.ship_address
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_postal_code, orders.csv.ship_via] --> orders.csv.order_id
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_postal_code, orders.csv.ship_via] --> orders.csv.order_date
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_postal_code, orders.csv.ship_via] --> orders.csv.required_date
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_postal_code, orders.csv.ship_via] --> orders.csv.shipped_date
+[orders.csv.freight, orders.csv.ship_city] --> orders.csv.customer_id
+[orders.csv.freight, orders.csv.ship_city] --> orders.csv.ship_name
+[orders.csv.freight, orders.csv.ship_city] --> orders.csv.ship_address
+[orders.csv.freight, orders.csv.ship_city] --> orders.csv.ship_postal_code
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_city, orders.csv.ship_via] --> orders.csv.order_id
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_city, orders.csv.ship_via] --> orders.csv.order_date
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_city, orders.csv.ship_via] --> orders.csv.required_date
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_city, orders.csv.ship_via] --> orders.csv.shipped_date
+[orders.csv.freight, orders.csv.ship_country] --> orders.csv.ship_region
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_country] --> orders.csv.customer_id
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_country] --> orders.csv.ship_name
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_country] --> orders.csv.ship_address
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_country] --> orders.csv.ship_postal_code
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_country] --> orders.csv.ship_city
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_country, orders.csv.ship_via] --> orders.csv.order_id
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_country, orders.csv.ship_via] --> orders.csv.order_date
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_country, orders.csv.ship_via] --> orders.csv.required_date
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_country, orders.csv.ship_via] --> orders.csv.shipped_date
+[orders.csv.freight, orders.csv.ship_country, orders.csv.ship_via] --> orders.csv.customer_id
+[orders.csv.freight, orders.csv.ship_country, orders.csv.ship_via] --> orders.csv.ship_name
+[orders.csv.freight, orders.csv.ship_country, orders.csv.ship_via] --> orders.csv.ship_address
+[orders.csv.freight, orders.csv.ship_country, orders.csv.ship_via] --> orders.csv.ship_postal_code
+[orders.csv.freight, orders.csv.ship_country, orders.csv.ship_via] --> orders.csv.ship_city
+[orders.csv.employee_id, orders.csv.freight, orders.csv.ship_via] --> orders.csv.ship_region
+[orders.csv.customer_id, orders.csv.order_date, orders.csv.shipped_date] --> orders.csv.order_id
+[orders.csv.customer_id, orders.csv.order_date, orders.csv.shipped_date] --> orders.csv.freight
+[orders.csv.customer_id, orders.csv.order_date, orders.csv.shipped_date] --> orders.csv.required_date
+[orders.csv.customer_id, orders.csv.order_date, orders.csv.shipped_date] --> orders.csv.employee_id
+[orders.csv.customer_id, orders.csv.order_date, orders.csv.shipped_date] --> orders.csv.ship_via
+[orders.csv.order_date, orders.csv.ship_name, orders.csv.shipped_date] --> orders.csv.order_id
+[orders.csv.order_date, orders.csv.ship_name, orders.csv.shipped_date] --> orders.csv.freight
+[orders.csv.order_date, orders.csv.ship_name, orders.csv.shipped_date] --> orders.csv.required_date
+[orders.csv.order_date, orders.csv.ship_name, orders.csv.shipped_date] --> orders.csv.employee_id
+[orders.csv.order_date, orders.csv.ship_name, orders.csv.shipped_date] --> orders.csv.ship_via
+[orders.csv.order_date, orders.csv.ship_address, orders.csv.shipped_date] --> orders.csv.order_id
+[orders.csv.order_date, orders.csv.ship_address, orders.csv.shipped_date] --> orders.csv.freight
+[orders.csv.order_date, orders.csv.ship_address, orders.csv.shipped_date] --> orders.csv.required_date
+[orders.csv.order_date, orders.csv.ship_address, orders.csv.shipped_date] --> orders.csv.employee_id
+[orders.csv.order_date, orders.csv.ship_address, orders.csv.shipped_date] --> orders.csv.ship_via
+[orders.csv.order_date, orders.csv.ship_postal_code, orders.csv.shipped_date] --> orders.csv.order_id
+[orders.csv.order_date, orders.csv.ship_postal_code, orders.csv.shipped_date] --> orders.csv.freight
+[orders.csv.order_date, orders.csv.ship_postal_code, orders.csv.shipped_date] --> orders.csv.required_date
+[orders.csv.order_date, orders.csv.ship_postal_code, orders.csv.shipped_date] --> orders.csv.employee_id
+[orders.csv.order_date, orders.csv.ship_postal_code, orders.csv.shipped_date] --> orders.csv.ship_via
+[orders.csv.order_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.order_id
+[orders.csv.order_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.freight
+[orders.csv.order_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.required_date
+[orders.csv.order_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.customer_id
+[orders.csv.order_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.ship_name
+[orders.csv.order_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.ship_address
+[orders.csv.order_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.ship_postal_code
+[orders.csv.order_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.employee_id
+[orders.csv.order_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.ship_via
+[orders.csv.order_date, orders.csv.ship_country, orders.csv.ship_region, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.order_id
+[orders.csv.order_date, orders.csv.ship_country, orders.csv.ship_region, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.freight
+[orders.csv.order_date, orders.csv.ship_country, orders.csv.ship_region, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.required_date
+[orders.csv.order_date, orders.csv.ship_country, orders.csv.ship_region, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.customer_id
+[orders.csv.order_date, orders.csv.ship_country, orders.csv.ship_region, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.ship_name
+[orders.csv.order_date, orders.csv.ship_country, orders.csv.ship_region, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.ship_address
+[orders.csv.order_date, orders.csv.ship_country, orders.csv.ship_region, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.ship_postal_code
+[orders.csv.order_date, orders.csv.ship_country, orders.csv.ship_region, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.ship_city
+[orders.csv.order_date, orders.csv.ship_country, orders.csv.ship_region, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.employee_id
+[orders.csv.customer_id, orders.csv.employee_id, orders.csv.order_date] --> orders.csv.order_id
+[orders.csv.customer_id, orders.csv.employee_id, orders.csv.order_date] --> orders.csv.freight
+[orders.csv.customer_id, orders.csv.employee_id, orders.csv.order_date] --> orders.csv.required_date
+[orders.csv.customer_id, orders.csv.employee_id, orders.csv.order_date] --> orders.csv.shipped_date
+[orders.csv.customer_id, orders.csv.employee_id, orders.csv.order_date] --> orders.csv.ship_via
+[orders.csv.customer_id, orders.csv.order_date, orders.csv.ship_via] --> orders.csv.required_date
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_name] --> orders.csv.order_id
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_name] --> orders.csv.freight
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_name] --> orders.csv.required_date
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_name] --> orders.csv.shipped_date
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_name] --> orders.csv.ship_via
+[orders.csv.order_date, orders.csv.ship_name, orders.csv.ship_via] --> orders.csv.required_date
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_address] --> orders.csv.order_id
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_address] --> orders.csv.freight
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_address] --> orders.csv.required_date
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_address] --> orders.csv.shipped_date
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_address] --> orders.csv.ship_via
+[orders.csv.order_date, orders.csv.ship_address, orders.csv.ship_via] --> orders.csv.required_date
+[orders.csv.order_date, orders.csv.ship_postal_code] --> orders.csv.customer_id
+[orders.csv.order_date, orders.csv.ship_postal_code] --> orders.csv.ship_name
+[orders.csv.order_date, orders.csv.ship_postal_code] --> orders.csv.ship_address
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_postal_code] --> orders.csv.order_id
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_postal_code] --> orders.csv.freight
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_postal_code] --> orders.csv.required_date
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_postal_code] --> orders.csv.shipped_date
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_postal_code] --> orders.csv.ship_via
+[orders.csv.order_date, orders.csv.ship_postal_code, orders.csv.ship_via] --> orders.csv.required_date
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_city] --> orders.csv.order_id
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_city] --> orders.csv.freight
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_city] --> orders.csv.required_date
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_city] --> orders.csv.shipped_date
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_city] --> orders.csv.customer_id
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_city] --> orders.csv.ship_name
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_city] --> orders.csv.ship_address
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_city] --> orders.csv.ship_postal_code
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_city] --> orders.csv.ship_via
+[orders.csv.order_date, orders.csv.ship_city, orders.csv.ship_via] --> orders.csv.required_date
+[orders.csv.order_date, orders.csv.ship_city, orders.csv.ship_via] --> orders.csv.customer_id
+[orders.csv.order_date, orders.csv.ship_city, orders.csv.ship_via] --> orders.csv.ship_name
+[orders.csv.order_date, orders.csv.ship_city, orders.csv.ship_via] --> orders.csv.ship_address
+[orders.csv.order_date, orders.csv.ship_city, orders.csv.ship_via] --> orders.csv.ship_postal_code
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_country, orders.csv.ship_region] --> orders.csv.order_id
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_country, orders.csv.ship_region] --> orders.csv.freight
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_country, orders.csv.ship_region] --> orders.csv.customer_id
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_country, orders.csv.ship_region] --> orders.csv.ship_name
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_country, orders.csv.ship_region] --> orders.csv.ship_address
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_country, orders.csv.ship_region] --> orders.csv.ship_postal_code
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_country, orders.csv.ship_region] --> orders.csv.ship_city
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_country] --> orders.csv.required_date
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_country] --> orders.csv.shipped_date
+[orders.csv.employee_id, orders.csv.order_date, orders.csv.ship_country] --> orders.csv.ship_via
+[orders.csv.customer_id, orders.csv.required_date, orders.csv.shipped_date] --> orders.csv.order_id
+[orders.csv.customer_id, orders.csv.required_date, orders.csv.shipped_date] --> orders.csv.freight
+[orders.csv.customer_id, orders.csv.required_date, orders.csv.shipped_date] --> orders.csv.order_date
+[orders.csv.customer_id, orders.csv.required_date, orders.csv.shipped_date] --> orders.csv.employee_id
+[orders.csv.customer_id, orders.csv.required_date, orders.csv.shipped_date] --> orders.csv.ship_via
+[orders.csv.required_date, orders.csv.ship_name, orders.csv.shipped_date] --> orders.csv.order_id
+[orders.csv.required_date, orders.csv.ship_name, orders.csv.shipped_date] --> orders.csv.freight
+[orders.csv.required_date, orders.csv.ship_name, orders.csv.shipped_date] --> orders.csv.order_date
+[orders.csv.required_date, orders.csv.ship_name, orders.csv.shipped_date] --> orders.csv.employee_id
+[orders.csv.required_date, orders.csv.ship_name, orders.csv.shipped_date] --> orders.csv.ship_via
+[orders.csv.required_date, orders.csv.ship_address, orders.csv.shipped_date] --> orders.csv.order_id
+[orders.csv.required_date, orders.csv.ship_address, orders.csv.shipped_date] --> orders.csv.freight
+[orders.csv.required_date, orders.csv.ship_address, orders.csv.shipped_date] --> orders.csv.order_date
+[orders.csv.required_date, orders.csv.ship_address, orders.csv.shipped_date] --> orders.csv.employee_id
+[orders.csv.required_date, orders.csv.ship_address, orders.csv.shipped_date] --> orders.csv.ship_via
+[orders.csv.required_date, orders.csv.ship_postal_code, orders.csv.shipped_date] --> orders.csv.order_id
+[orders.csv.required_date, orders.csv.ship_postal_code, orders.csv.shipped_date] --> orders.csv.freight
+[orders.csv.required_date, orders.csv.ship_postal_code, orders.csv.shipped_date] --> orders.csv.order_date
+[orders.csv.required_date, orders.csv.ship_postal_code, orders.csv.shipped_date] --> orders.csv.employee_id
+[orders.csv.required_date, orders.csv.ship_postal_code, orders.csv.shipped_date] --> orders.csv.ship_via
+[orders.csv.required_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.order_id
+[orders.csv.required_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.freight
+[orders.csv.required_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.order_date
+[orders.csv.required_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.customer_id
+[orders.csv.required_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.ship_name
+[orders.csv.required_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.ship_address
+[orders.csv.required_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.ship_postal_code
+[orders.csv.required_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.employee_id
+[orders.csv.required_date, orders.csv.ship_city, orders.csv.shipped_date] --> orders.csv.ship_via
+[orders.csv.required_date, orders.csv.ship_country, orders.csv.shipped_date] --> orders.csv.order_date
+[orders.csv.required_date, orders.csv.ship_country, orders.csv.ship_region, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.order_id
+[orders.csv.required_date, orders.csv.ship_country, orders.csv.ship_region, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.freight
+[orders.csv.required_date, orders.csv.ship_country, orders.csv.ship_region, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.customer_id
+[orders.csv.required_date, orders.csv.ship_country, orders.csv.ship_region, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.ship_name
+[orders.csv.required_date, orders.csv.ship_country, orders.csv.ship_region, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.ship_address
+[orders.csv.required_date, orders.csv.ship_country, orders.csv.ship_region, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.ship_postal_code
+[orders.csv.required_date, orders.csv.ship_country, orders.csv.ship_region, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.ship_city
+[orders.csv.required_date, orders.csv.ship_country, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.employee_id
+[orders.csv.required_date, orders.csv.ship_region, orders.csv.shipped_date] --> orders.csv.order_date
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.shipped_date] --> orders.csv.order_date
+[orders.csv.customer_id, orders.csv.employee_id, orders.csv.required_date] --> orders.csv.order_id
+[orders.csv.customer_id, orders.csv.employee_id, orders.csv.required_date] --> orders.csv.freight
+[orders.csv.customer_id, orders.csv.employee_id, orders.csv.required_date] --> orders.csv.order_date
+[orders.csv.customer_id, orders.csv.employee_id, orders.csv.required_date] --> orders.csv.shipped_date
+[orders.csv.customer_id, orders.csv.employee_id, orders.csv.required_date] --> orders.csv.ship_via
+[orders.csv.customer_id, orders.csv.required_date, orders.csv.ship_via] --> orders.csv.order_date
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_name] --> orders.csv.order_id
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_name] --> orders.csv.freight
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_name] --> orders.csv.order_date
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_name] --> orders.csv.shipped_date
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_name] --> orders.csv.ship_via
+[orders.csv.required_date, orders.csv.ship_name, orders.csv.ship_via] --> orders.csv.order_date
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_address] --> orders.csv.order_id
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_address] --> orders.csv.freight
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_address] --> orders.csv.order_date
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_address] --> orders.csv.shipped_date
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_address] --> orders.csv.ship_via
+[orders.csv.required_date, orders.csv.ship_address, orders.csv.ship_via] --> orders.csv.order_date
+[orders.csv.required_date, orders.csv.ship_postal_code] --> orders.csv.customer_id
+[orders.csv.required_date, orders.csv.ship_postal_code] --> orders.csv.ship_name
+[orders.csv.required_date, orders.csv.ship_postal_code] --> orders.csv.ship_address
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_postal_code] --> orders.csv.order_id
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_postal_code] --> orders.csv.freight
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_postal_code] --> orders.csv.order_date
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_postal_code] --> orders.csv.shipped_date
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_postal_code] --> orders.csv.ship_via
+[orders.csv.required_date, orders.csv.ship_postal_code, orders.csv.ship_via] --> orders.csv.order_date
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_city] --> orders.csv.order_id
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_city] --> orders.csv.freight
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_city] --> orders.csv.order_date
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_city] --> orders.csv.shipped_date
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_city] --> orders.csv.customer_id
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_city] --> orders.csv.ship_name
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_city] --> orders.csv.ship_address
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_city] --> orders.csv.ship_postal_code
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_city] --> orders.csv.ship_via
+[orders.csv.required_date, orders.csv.ship_city, orders.csv.ship_via] --> orders.csv.order_date
+[orders.csv.required_date, orders.csv.ship_city, orders.csv.ship_via] --> orders.csv.customer_id
+[orders.csv.required_date, orders.csv.ship_city, orders.csv.ship_via] --> orders.csv.ship_name
+[orders.csv.required_date, orders.csv.ship_city, orders.csv.ship_via] --> orders.csv.ship_address
+[orders.csv.required_date, orders.csv.ship_city, orders.csv.ship_via] --> orders.csv.ship_postal_code
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_country, orders.csv.ship_region] --> orders.csv.order_id
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_country, orders.csv.ship_region] --> orders.csv.freight
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_country, orders.csv.ship_region] --> orders.csv.order_date
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_country, orders.csv.ship_region] --> orders.csv.shipped_date
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_country, orders.csv.ship_region] --> orders.csv.customer_id
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_country, orders.csv.ship_region] --> orders.csv.ship_name
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_country, orders.csv.ship_region] --> orders.csv.ship_address
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_country, orders.csv.ship_region] --> orders.csv.ship_postal_code
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_country, orders.csv.ship_region] --> orders.csv.ship_city
+[orders.csv.employee_id, orders.csv.required_date, orders.csv.ship_country] --> orders.csv.ship_via
+[orders.csv.customer_id, orders.csv.employee_id, orders.csv.shipped_date] --> orders.csv.ship_via
+[orders.csv.employee_id, orders.csv.ship_name, orders.csv.shipped_date] --> orders.csv.ship_via
+[orders.csv.employee_id, orders.csv.ship_address, orders.csv.shipped_date] --> orders.csv.ship_via
+[orders.csv.employee_id, orders.csv.ship_postal_code, orders.csv.shipped_date] --> orders.csv.customer_id
+[orders.csv.employee_id, orders.csv.ship_postal_code, orders.csv.shipped_date] --> orders.csv.ship_name
+[orders.csv.employee_id, orders.csv.ship_postal_code, orders.csv.shipped_date] --> orders.csv.ship_address
+[orders.csv.employee_id, orders.csv.ship_postal_code, orders.csv.shipped_date] --> orders.csv.ship_via
+[orders.csv.ship_postal_code, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.customer_id
+[orders.csv.ship_postal_code, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.ship_name
+[orders.csv.ship_postal_code, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.ship_address
+[orders.csv.employee_id, orders.csv.ship_city, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.customer_id
+[orders.csv.employee_id, orders.csv.ship_city, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.ship_name
+[orders.csv.employee_id, orders.csv.ship_city, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.ship_address
+[orders.csv.employee_id, orders.csv.ship_city, orders.csv.ship_via, orders.csv.shipped_date] --> orders.csv.ship_postal_code
+[orders.csv.customer_id] --> orders.csv.ship_name
+[orders.csv.customer_id] --> orders.csv.ship_address
+[orders.csv.customer_id] --> orders.csv.ship_postal_code
+[orders.csv.customer_id] --> orders.csv.ship_city
+[orders.csv.customer_id] --> orders.csv.ship_country
+[orders.csv.customer_id] --> orders.csv.ship_region
+[orders.csv.ship_name] --> orders.csv.customer_id
+[orders.csv.ship_name] --> orders.csv.ship_address
+[orders.csv.ship_name] --> orders.csv.ship_postal_code
+[orders.csv.ship_name] --> orders.csv.ship_city
+[orders.csv.ship_name] --> orders.csv.ship_country
+[orders.csv.ship_name] --> orders.csv.ship_region
+[orders.csv.ship_address] --> orders.csv.customer_id
+[orders.csv.ship_address] --> orders.csv.ship_name
+[orders.csv.ship_address] --> orders.csv.ship_postal_code
+[orders.csv.ship_address] --> orders.csv.ship_city
+[orders.csv.ship_address] --> orders.csv.ship_country
+[orders.csv.ship_address] --> orders.csv.ship_region
+[orders.csv.ship_postal_code] --> orders.csv.ship_city
+[orders.csv.ship_postal_code] --> orders.csv.ship_country
+[orders.csv.ship_postal_code] --> orders.csv.ship_region
+[orders.csv.ship_city] --> orders.csv.ship_country
+[orders.csv.ship_city] --> orders.csv.ship_region

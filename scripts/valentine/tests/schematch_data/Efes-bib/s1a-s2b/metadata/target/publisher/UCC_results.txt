@@ -1,0 +1,2 @@
+[publisher.csv.pubnm]
+[publisher.csv.pubid]

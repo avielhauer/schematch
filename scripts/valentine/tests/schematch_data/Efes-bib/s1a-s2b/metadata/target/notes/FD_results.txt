@@ -1,0 +1,2 @@
+[notes.csv.citkey] --> notes.csv.note
+[notes.csv.note] --> notes.csv.citkey

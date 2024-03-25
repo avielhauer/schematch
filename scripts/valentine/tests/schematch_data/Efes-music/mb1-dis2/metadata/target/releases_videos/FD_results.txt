@@ -1,0 +1,4 @@
+[] --> releases_videos.csv.embed
+[releases_videos.csv.description] --> releases_videos.csv.duration, releases_videos.csv.release_id, releases_videos.csv.title
+[releases_videos.csv.src] --> releases_videos.csv.description, releases_videos.csv.duration, releases_videos.csv.release_id, releases_videos.csv.title
+[releases_videos.csv.title] --> releases_videos.csv.description, releases_videos.csv.duration, releases_videos.csv.release_id

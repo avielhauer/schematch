@@ -1,0 +1,5 @@
+[] --> cover_art.csv.comment, cover_art.csv.edits_pending, cover_art.csv.mime_type
+[cover_art.csv.date_uploaded] --> cover_art.csv.edit, cover_art.csv.id, cover_art.csv.ordering, cover_art.csv.release
+[cover_art.csv.edit] --> cover_art.csv.date_uploaded, cover_art.csv.id, cover_art.csv.ordering, cover_art.csv.release
+[cover_art.csv.id] --> cover_art.csv.date_uploaded, cover_art.csv.edit, cover_art.csv.ordering, cover_art.csv.release
+[cover_art.csv.ordering, cover_art.csv.release] --> cover_art.csv.date_uploaded, cover_art.csv.edit, cover_art.csv.id

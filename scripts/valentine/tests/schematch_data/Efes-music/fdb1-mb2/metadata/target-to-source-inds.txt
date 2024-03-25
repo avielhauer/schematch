@@ -1,0 +1,5 @@
+[area.csv.id] --> [discs.csv.disc_length]
+[area_alias.csv.id] --> [discs.csv.disc_length]
+[language.csv.id] --> [discs.csv.disc_length]
+[medium_format.csv.child_order] --> [discs.csv.revision]
+[tag.csv.ref_count] --> [discs.csv.revision]

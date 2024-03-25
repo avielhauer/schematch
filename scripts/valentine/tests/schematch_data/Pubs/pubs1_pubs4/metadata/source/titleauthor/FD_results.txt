@@ -1,0 +1,3 @@
+[titleauthor.csv.au_id, titleauthor.csv.royaltyper] --> titleauthor.csv.au_ord
+[titleauthor.csv.au_id, titleauthor.csv.title_id] --> titleauthor.csv.au_ord, titleauthor.csv.royaltyper
+[titleauthor.csv.au_ord, titleauthor.csv.title_id] --> titleauthor.csv.au_id, titleauthor.csv.royaltyper

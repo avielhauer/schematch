@@ -1,0 +1,2 @@
+[citjournal.csv.citkey] --> citjournal.csv.jrnlid
+[citjournal.csv.jrnlid] --> citjournal.csv.citkey

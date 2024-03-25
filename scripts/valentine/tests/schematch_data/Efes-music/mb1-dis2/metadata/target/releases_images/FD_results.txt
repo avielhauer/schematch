@@ -1,0 +1,2 @@
+[releases_images.csv.uri150] --> releases_images.csv.height, releases_images.csv.release_id, releases_images.csv.type, releases_images.csv.uri, releases_images.csv.width
+[releases_images.csv.uri] --> releases_images.csv.height, releases_images.csv.release_id, releases_images.csv.type, releases_images.csv.uri150, releases_images.csv.width

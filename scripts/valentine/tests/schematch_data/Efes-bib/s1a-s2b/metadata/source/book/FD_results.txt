@@ -1,0 +1,10 @@
+[] --> book.csv.note, book.csv.pages
+[book.csv.annote, book.csv.year] --> book.csv.bookid, book.csv.class, book.csv.month, book.csv.num, book.csv.publisher, book.csv.title, book.csv.vol
+[book.csv.annote] --> book.csv.loc
+[book.csv.bookid] --> book.csv.annote, book.csv.class, book.csv.loc, book.csv.month, book.csv.num, book.csv.publisher, book.csv.title, book.csv.vol, book.csv.year
+[book.csv.class] --> book.csv.annote, book.csv.bookid, book.csv.loc, book.csv.month, book.csv.num, book.csv.publisher, book.csv.title, book.csv.vol, book.csv.year
+[book.csv.month] --> book.csv.num
+[book.csv.num] --> book.csv.month
+[book.csv.publisher] --> book.csv.annote, book.csv.bookid, book.csv.class, book.csv.loc, book.csv.month, book.csv.num, book.csv.title, book.csv.vol, book.csv.year
+[book.csv.title] --> book.csv.annote, book.csv.bookid, book.csv.class, book.csv.loc, book.csv.month, book.csv.num, book.csv.publisher, book.csv.vol, book.csv.year
+[book.csv.vol] --> book.csv.month, book.csv.num

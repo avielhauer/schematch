@@ -1,0 +1,2 @@
+[release_group_primary_type.csv.id]
+[release_group_primary_type.csv.name]

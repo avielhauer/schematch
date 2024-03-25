@@ -1,0 +1,1 @@
+[] --> misc.csv.annote, misc.csv.class, misc.csv.confloc, misc.csv.howpub, misc.csv.loc, misc.csv.miscid, misc.csv.month, misc.csv.note, misc.csv.num, misc.csv.pages, misc.csv.title, misc.csv.vol, misc.csv.year

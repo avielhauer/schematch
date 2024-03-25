@@ -1,0 +1,7 @@
+[musicians_joinable_target.csv.musicianID]
+[musicians_joinable_target.csv.birthDate, musicians_joinable_target.csv.city, musicians_joinable_target.csv.familyName, musicians_joinable_target.csv.forename, musicians_joinable_target.csv.musicianName, musicians_joinable_target.csv.webpage]
+[musicians_joinable_target.csv.birthDate, musicians_joinable_target.csv.city, musicians_joinable_target.csv.familyName, musicians_joinable_target.csv.fatherName, musicians_joinable_target.csv.forename, musicians_joinable_target.csv.kind, musicians_joinable_target.csv.webpage]
+[musicians_joinable_target.csv.birthDate, musicians_joinable_target.csv.city, musicians_joinable_target.csv.forename, musicians_joinable_target.csv.genderType, musicians_joinable_target.csv.musicianName, musicians_joinable_target.csv.webpage]
+[musicians_joinable_target.csv.birthDate, musicians_joinable_target.csv.city, musicians_joinable_target.csv.forename, musicians_joinable_target.csv.genderType, musicians_joinable_target.csv.kind, musicians_joinable_target.csv.webpage]
+[musicians_joinable_target.csv.birthDate, musicians_joinable_target.csv.city, musicians_joinable_target.csv.familyName, musicians_joinable_target.csv.forename, musicians_joinable_target.csv.genderType, musicians_joinable_target.csv.kind]
+[musicians_joinable_target.csv.birthDate, musicians_joinable_target.csv.city, musicians_joinable_target.csv.forename, musicians_joinable_target.csv.kind, musicians_joinable_target.csv.musicianName]

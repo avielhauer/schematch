@@ -1,0 +1,3 @@
+[releases_identifiers.csv.description, releases_identifiers.csv.value] --> releases_identifiers.csv.type
+[releases_identifiers.csv.release_id, releases_identifiers.csv.value] --> releases_identifiers.csv.description, releases_identifiers.csv.type
+[releases_identifiers.csv.type, releases_identifiers.csv.value] --> releases_identifiers.csv.description

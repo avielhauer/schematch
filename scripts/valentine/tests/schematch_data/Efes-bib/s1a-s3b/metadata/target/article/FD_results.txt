@@ -1,0 +1,30 @@
+[] --> article.csv.fullxxxreferences, article.csv.note, article.csv.oldkey, article.csv.remarks
+[article.csv.abstract, article.csv.month, article.csv.references_] --> article.csv.number
+[article.csv.abstract, article.csv.month, article.csv.volume] --> article.csv.xxxreferences
+[article.csv.abstract, article.csv.month, article.csv.xxxreferences] --> article.csv.number
+[article.csv.abstract, article.csv.month, article.csv.year] --> article.csv.xxxreferences
+[article.csv.abstract, article.csv.number, article.csv.volume] --> article.csv.xxxreferences
+[article.csv.abstract, article.csv.pages] --> article.csv.articleid, article.csv.month, article.csv.references_, article.csv.title, article.csv.volume, article.csv.xxxreferences, article.csv.year
+[article.csv.abstract, article.csv.volume] --> article.csv.references_
+[article.csv.abstract] --> article.csv.refkey
+[article.csv.articleid] --> article.csv.abstract, article.csv.month, article.csv.number, article.csv.pages, article.csv.preliminary, article.csv.references_, article.csv.refkey, article.csv.title, article.csv.volume, article.csv.xxxreferences, article.csv.year
+[article.csv.month, article.csv.pages] --> article.csv.abstract, article.csv.articleid, article.csv.references_, article.csv.refkey, article.csv.title, article.csv.volume, article.csv.xxxreferences, article.csv.year
+[article.csv.month, article.csv.preliminary, article.csv.xxxreferences] --> article.csv.number
+[article.csv.month, article.csv.references_, article.csv.refkey] --> article.csv.number
+[article.csv.month, article.csv.references_, article.csv.xxxreferences] --> article.csv.number
+[article.csv.month, article.csv.volume, article.csv.xxxreferences] --> article.csv.refkey
+[article.csv.month, article.csv.volume] --> article.csv.number, article.csv.references_
+[article.csv.month, article.csv.xxxreferences, article.csv.year] --> article.csv.refkey
+[article.csv.month, article.csv.year] --> article.csv.number, article.csv.references_, article.csv.volume
+[article.csv.number, article.csv.volume, article.csv.xxxreferences] --> article.csv.refkey
+[article.csv.number, article.csv.volume] --> article.csv.month, article.csv.references_
+[article.csv.pages, article.csv.references_] --> article.csv.abstract, article.csv.articleid, article.csv.month, article.csv.refkey, article.csv.title, article.csv.volume, article.csv.xxxreferences, article.csv.year
+[article.csv.pages, article.csv.refkey] --> article.csv.abstract, article.csv.articleid, article.csv.month, article.csv.references_, article.csv.title, article.csv.volume, article.csv.xxxreferences, article.csv.year
+[article.csv.pages, article.csv.volume] --> article.csv.abstract, article.csv.articleid, article.csv.month, article.csv.references_, article.csv.refkey, article.csv.title, article.csv.xxxreferences
+[article.csv.pages, article.csv.xxxreferences] --> article.csv.abstract, article.csv.articleid, article.csv.month, article.csv.references_, article.csv.refkey, article.csv.title, article.csv.volume, article.csv.year
+[article.csv.pages, article.csv.year] --> article.csv.abstract, article.csv.articleid, article.csv.month, article.csv.references_, article.csv.refkey, article.csv.title, article.csv.volume, article.csv.xxxreferences
+[article.csv.pages] --> article.csv.number, article.csv.preliminary
+[article.csv.references_, article.csv.xxxreferences] --> article.csv.refkey
+[article.csv.refkey, article.csv.volume] --> article.csv.references_
+[article.csv.title] --> article.csv.abstract, article.csv.articleid, article.csv.month, article.csv.number, article.csv.pages, article.csv.preliminary, article.csv.references_, article.csv.refkey, article.csv.volume, article.csv.xxxreferences, article.csv.year
+[article.csv.volume] --> article.csv.year

@@ -1,0 +1,7 @@
+[Purchase.csv.Price]
+[Purchase.csv.CID, Purchase.csv.PID]
+[Purchase.csv.CID, Purchase.csv.ProductName]
+[Purchase.csv.CName, Purchase.csv.PID]
+[Purchase.csv.CName, Purchase.csv.ProductName]
+[Purchase.csv.A, Purchase.csv.PID]
+[Purchase.csv.A, Purchase.csv.ProductName]

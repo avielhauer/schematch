@@ -1,0 +1,88 @@
+[artist.csv.area, artist.csv.begin_area, artist.csv.begin_date_day, artist.csv.comment, artist.csv.end_date_day, artist.csv.gender] --> artist.csv.begin_date_month
+[artist.csv.area, artist.csv.begin_area, artist.csv.begin_date_day, artist.csv.comment, artist.csv.end_date_month, artist.csv.gender] --> artist.csv.begin_date_month
+[artist.csv.area, artist.csv.begin_area, artist.csv.begin_date_day, artist.csv.comment, artist.csv.end_date_year, artist.csv.gender] --> artist.csv.begin_date_month
+[artist.csv.area, artist.csv.begin_area, artist.csv.begin_date_day, artist.csv.comment, artist.csv.ended, artist.csv.gender] --> artist.csv.begin_date_month
+[artist.csv.area, artist.csv.begin_area, artist.csv.begin_date_month] --> artist.csv.end_date_day, artist.csv.end_date_month
+[artist.csv.area, artist.csv.begin_area, artist.csv.begin_date_year, artist.csv.comment] --> artist.csv.begin_date_month
+[artist.csv.area, artist.csv.begin_area, artist.csv.begin_date_year] --> artist.csv.begin_date_day
+[artist.csv.area, artist.csv.begin_area, artist.csv.ended] --> artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year
+[artist.csv.area, artist.csv.begin_date_day, artist.csv.begin_date_month] --> artist.csv.end_date_day, artist.csv.end_date_month
+[artist.csv.area, artist.csv.begin_date_day, artist.csv.begin_date_year, artist.csv.comment] --> artist.csv.begin_date_month
+[artist.csv.area, artist.csv.begin_date_day, artist.csv.begin_date_year] --> artist.csv.end_date_day
+[artist.csv.area, artist.csv.begin_date_day, artist.csv.ended] --> artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year
+[artist.csv.area, artist.csv.begin_date_day] --> artist.csv.end_area
+[artist.csv.area, artist.csv.begin_date_month, artist.csv.begin_date_year] --> artist.csv.begin_date_day, artist.csv.end_area, artist.csv.end_date_day, artist.csv.end_date_month
+[artist.csv.area, artist.csv.begin_date_month, artist.csv.comment] --> artist.csv.end_area, artist.csv.end_date_day, artist.csv.end_date_month
+[artist.csv.area, artist.csv.begin_date_month, artist.csv.end_area] --> artist.csv.end_date_day, artist.csv.end_date_month
+[artist.csv.area, artist.csv.begin_date_month, artist.csv.ended] --> artist.csv.end_area, artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year
+[artist.csv.area, artist.csv.begin_date_month, artist.csv.gender] --> artist.csv.end_area, artist.csv.end_date_day, artist.csv.end_date_month
+[artist.csv.area, artist.csv.begin_date_month, artist.csv.type] --> artist.csv.end_area, artist.csv.end_date_day, artist.csv.end_date_month
+[artist.csv.area, artist.csv.begin_date_year, artist.csv.comment, artist.csv.end_area] --> artist.csv.begin_date_month
+[artist.csv.area, artist.csv.begin_date_year, artist.csv.comment, artist.csv.end_date_day] --> artist.csv.begin_date_month
+[artist.csv.area, artist.csv.begin_date_year, artist.csv.end_area] --> artist.csv.begin_date_day
+[artist.csv.area, artist.csv.begin_date_year, artist.csv.end_date_day] --> artist.csv.begin_date_day
+[artist.csv.area, artist.csv.begin_date_year, artist.csv.end_date_month] --> artist.csv.begin_date_day, artist.csv.begin_date_month
+[artist.csv.area, artist.csv.begin_date_year, artist.csv.end_date_year] --> artist.csv.begin_date_day, artist.csv.begin_date_month
+[artist.csv.area, artist.csv.begin_date_year, artist.csv.ended] --> artist.csv.begin_date_day, artist.csv.begin_date_month, artist.csv.end_area, artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year
+[artist.csv.area, artist.csv.end_area, artist.csv.ended] --> artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year
+[artist.csv.area, artist.csv.end_date_day, artist.csv.ended] --> artist.csv.end_date_month, artist.csv.end_date_year
+[artist.csv.area, artist.csv.end_date_day] --> artist.csv.end_area
+[artist.csv.area, artist.csv.end_date_month, artist.csv.ended] --> artist.csv.end_date_year
+[artist.csv.area, artist.csv.end_date_month] --> artist.csv.end_area, artist.csv.end_date_day
+[artist.csv.area, artist.csv.last_updated] --> artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year, artist.csv.gender
+[artist.csv.begin_area, artist.csv.begin_date_day, artist.csv.ended] --> artist.csv.end_date_day
+[artist.csv.begin_area, artist.csv.begin_date_month, artist.csv.begin_date_year] --> artist.csv.begin_date_day, artist.csv.end_date_month
+[artist.csv.begin_area, artist.csv.begin_date_month, artist.csv.ended] --> artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year
+[artist.csv.begin_area, artist.csv.begin_date_year, artist.csv.comment] --> artist.csv.end_date_month
+[artist.csv.begin_area, artist.csv.begin_date_year, artist.csv.ended] --> artist.csv.end_date_month, artist.csv.end_date_year
+[artist.csv.begin_area, artist.csv.begin_date_year] --> artist.csv.end_date_day
+[artist.csv.begin_area, artist.csv.end_date_month, artist.csv.ended] --> artist.csv.end_date_year
+[artist.csv.begin_area, artist.csv.end_date_month] --> artist.csv.end_date_day
+[artist.csv.begin_area] --> artist.csv.end_area
+[artist.csv.begin_date_day, artist.csv.begin_date_month, artist.csv.comment] --> artist.csv.end_area
+[artist.csv.begin_date_day, artist.csv.begin_date_year, artist.csv.comment] --> artist.csv.end_area, artist.csv.end_date_day, artist.csv.end_date_month
+[artist.csv.begin_date_day, artist.csv.comment, artist.csv.ended] --> artist.csv.end_area, artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year
+[artist.csv.begin_date_day, artist.csv.end_area, artist.csv.ended] --> artist.csv.end_date_day
+[artist.csv.begin_date_day, artist.csv.end_date_day] --> artist.csv.end_area
+[artist.csv.begin_date_day, artist.csv.end_date_month, artist.csv.ended] --> artist.csv.end_date_year
+[artist.csv.begin_date_day, artist.csv.end_date_month] --> artist.csv.end_area, artist.csv.end_date_day
+[artist.csv.begin_date_day, artist.csv.last_updated] --> artist.csv.area, artist.csv.begin_date_month, artist.csv.begin_date_year, artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year, artist.csv.gender
+[artist.csv.begin_date_month, artist.csv.begin_date_year, artist.csv.comment] --> artist.csv.begin_date_day, artist.csv.end_area, artist.csv.end_date_day, artist.csv.end_date_month
+[artist.csv.begin_date_month, artist.csv.begin_date_year, artist.csv.end_area] --> artist.csv.end_date_month
+[artist.csv.begin_date_month, artist.csv.begin_date_year, artist.csv.gender] --> artist.csv.begin_date_day
+[artist.csv.begin_date_month, artist.csv.end_area, artist.csv.ended] --> artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year
+[artist.csv.begin_date_month, artist.csv.end_date_day, artist.csv.ended] --> artist.csv.end_date_year
+[artist.csv.begin_date_month, artist.csv.end_date_day] --> artist.csv.end_area, artist.csv.end_date_month
+[artist.csv.begin_date_month, artist.csv.end_date_month, artist.csv.ended] --> artist.csv.end_date_year
+[artist.csv.begin_date_month, artist.csv.end_date_month] --> artist.csv.end_area, artist.csv.end_date_day
+[artist.csv.begin_date_month, artist.csv.last_updated] --> artist.csv.area, artist.csv.begin_date_day, artist.csv.begin_date_year, artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year, artist.csv.gender
+[artist.csv.begin_date_year, artist.csv.comment, artist.csv.end_area] --> artist.csv.end_date_month
+[artist.csv.begin_date_year, artist.csv.comment, artist.csv.ended] --> artist.csv.end_area, artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year
+[artist.csv.begin_date_year, artist.csv.end_area, artist.csv.ended] --> artist.csv.end_date_month, artist.csv.end_date_year
+[artist.csv.begin_date_year, artist.csv.end_area] --> artist.csv.end_date_day
+[artist.csv.begin_date_year, artist.csv.end_date_day, artist.csv.ended] --> artist.csv.end_date_month, artist.csv.end_date_year
+[artist.csv.begin_date_year, artist.csv.end_date_day] --> artist.csv.end_area
+[artist.csv.begin_date_year, artist.csv.end_date_month, artist.csv.ended] --> artist.csv.end_date_year
+[artist.csv.begin_date_year, artist.csv.end_date_month] --> artist.csv.end_area, artist.csv.end_date_day
+[artist.csv.begin_date_year, artist.csv.last_updated] --> artist.csv.area, artist.csv.begin_date_day, artist.csv.begin_date_month, artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year, artist.csv.gender
+[artist.csv.comment, artist.csv.end_date_day, artist.csv.ended] --> artist.csv.end_date_year
+[artist.csv.comment, artist.csv.end_date_day] --> artist.csv.end_area, artist.csv.end_date_month
+[artist.csv.comment, artist.csv.last_updated] --> artist.csv.area, artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year, artist.csv.gender
+[artist.csv.comment] --> artist.csv.edits_pending
+[artist.csv.end_area, artist.csv.end_date_month, artist.csv.ended] --> artist.csv.end_date_year
+[artist.csv.end_area, artist.csv.end_date_month] --> artist.csv.end_date_day
+[artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.ended] --> artist.csv.end_date_year
+[artist.csv.end_date_day, artist.csv.end_date_month] --> artist.csv.end_area
+[artist.csv.end_date_day, artist.csv.gender] --> artist.csv.end_area
+[artist.csv.end_date_day, artist.csv.last_updated] --> artist.csv.area, artist.csv.end_date_month, artist.csv.end_date_year, artist.csv.gender
+[artist.csv.end_date_day, artist.csv.type] --> artist.csv.end_area
+[artist.csv.end_date_month, artist.csv.last_updated] --> artist.csv.area, artist.csv.end_date_day, artist.csv.end_date_year, artist.csv.gender
+[artist.csv.end_date_year, artist.csv.last_updated] --> artist.csv.area, artist.csv.gender
+[artist.csv.end_date_year] --> artist.csv.end_area, artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.ended
+[artist.csv.gender, artist.csv.last_updated] --> artist.csv.area, artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year
+[artist.csv.gid] --> artist.csv.area, artist.csv.begin_area, artist.csv.begin_date_day, artist.csv.begin_date_month, artist.csv.begin_date_year, artist.csv.comment, artist.csv.edits_pending, artist.csv.end_area, artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year, artist.csv.ended, artist.csv.gender, artist.csv.id, artist.csv.last_updated, artist.csv.name, artist.csv.sort_name, artist.csv.type
+[artist.csv.id] --> artist.csv.area, artist.csv.begin_area, artist.csv.begin_date_day, artist.csv.begin_date_month, artist.csv.begin_date_year, artist.csv.comment, artist.csv.edits_pending, artist.csv.end_area, artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year, artist.csv.ended, artist.csv.gender, artist.csv.gid, artist.csv.last_updated, artist.csv.name, artist.csv.sort_name, artist.csv.type
+[artist.csv.last_updated, artist.csv.type] --> artist.csv.area, artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year, artist.csv.gender
+[artist.csv.last_updated] --> artist.csv.begin_area, artist.csv.edits_pending, artist.csv.end_area, artist.csv.ended
+[artist.csv.name] --> artist.csv.area, artist.csv.begin_area, artist.csv.begin_date_day, artist.csv.begin_date_month, artist.csv.begin_date_year, artist.csv.comment, artist.csv.edits_pending, artist.csv.end_area, artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year, artist.csv.ended, artist.csv.gender, artist.csv.gid, artist.csv.id, artist.csv.last_updated, artist.csv.sort_name, artist.csv.type
+[artist.csv.sort_name] --> artist.csv.area, artist.csv.begin_area, artist.csv.begin_date_day, artist.csv.begin_date_month, artist.csv.begin_date_year, artist.csv.comment, artist.csv.edits_pending, artist.csv.end_area, artist.csv.end_date_day, artist.csv.end_date_month, artist.csv.end_date_year, artist.csv.ended, artist.csv.gender, artist.csv.gid, artist.csv.id, artist.csv.last_updated, artist.csv.name, artist.csv.type

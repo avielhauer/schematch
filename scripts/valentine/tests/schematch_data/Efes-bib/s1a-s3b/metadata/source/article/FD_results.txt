@@ -1,0 +1,51 @@
+[] --> article.csv.note
+[article.csv.annote, article.csv.journal, article.csv.month] --> article.csv.articleid, article.csv.class, article.csv.title
+[article.csv.annote, article.csv.journal, article.csv.num] --> article.csv.articleid, article.csv.class, article.csv.title
+[article.csv.annote, article.csv.journal] --> article.csv.loc, article.csv.pages, article.csv.vol, article.csv.year
+[article.csv.annote, article.csv.loc, article.csv.num] --> article.csv.pages
+[article.csv.annote, article.csv.loc, article.csv.vol] --> article.csv.pages
+[article.csv.annote, article.csv.loc, article.csv.year] --> article.csv.journal, article.csv.pages, article.csv.vol
+[article.csv.annote, article.csv.month, article.csv.num] --> article.csv.articleid, article.csv.class, article.csv.journal, article.csv.title, article.csv.vol, article.csv.year
+[article.csv.annote, article.csv.month, article.csv.vol] --> article.csv.articleid, article.csv.class, article.csv.journal, article.csv.num, article.csv.title, article.csv.year
+[article.csv.annote, article.csv.month, article.csv.year] --> article.csv.articleid, article.csv.class, article.csv.journal, article.csv.title
+[article.csv.annote, article.csv.month] --> article.csv.loc, article.csv.pages
+[article.csv.annote, article.csv.num, article.csv.year] --> article.csv.articleid, article.csv.class, article.csv.journal, article.csv.month, article.csv.pages, article.csv.title
+[article.csv.annote, article.csv.pages, article.csv.year] --> article.csv.journal, article.csv.vol
+[article.csv.annote, article.csv.pages] --> article.csv.loc
+[article.csv.annote, article.csv.vol, article.csv.year] --> article.csv.journal, article.csv.pages
+[article.csv.articleid] --> article.csv.annote, article.csv.class, article.csv.journal, article.csv.loc, article.csv.month, article.csv.num, article.csv.pages, article.csv.title, article.csv.vol, article.csv.year
+[article.csv.class, article.csv.journal] --> article.csv.articleid, article.csv.loc, article.csv.month, article.csv.num, article.csv.pages, article.csv.title, article.csv.vol, article.csv.year
+[article.csv.class, article.csv.loc, article.csv.num] --> article.csv.articleid, article.csv.journal, article.csv.month, article.csv.title, article.csv.year
+[article.csv.class, article.csv.loc, article.csv.vol] --> article.csv.articleid, article.csv.journal, article.csv.month, article.csv.title, article.csv.year
+[article.csv.class, article.csv.loc] --> article.csv.pages
+[article.csv.class, article.csv.month] --> article.csv.articleid, article.csv.journal, article.csv.loc, article.csv.num, article.csv.pages, article.csv.title, article.csv.vol, article.csv.year
+[article.csv.class, article.csv.num, article.csv.pages] --> article.csv.articleid, article.csv.journal, article.csv.month, article.csv.title, article.csv.year
+[article.csv.class, article.csv.num] --> article.csv.vol
+[article.csv.class, article.csv.pages, article.csv.vol] --> article.csv.articleid, article.csv.journal, article.csv.month, article.csv.title, article.csv.year
+[article.csv.class, article.csv.pages] --> article.csv.loc
+[article.csv.class, article.csv.vol] --> article.csv.num
+[article.csv.class, article.csv.year] --> article.csv.articleid, article.csv.journal, article.csv.loc, article.csv.month, article.csv.num, article.csv.pages, article.csv.title, article.csv.vol
+[article.csv.class] --> article.csv.annote
+[article.csv.journal, article.csv.loc, article.csv.month] --> article.csv.articleid, article.csv.class, article.csv.title
+[article.csv.journal, article.csv.loc, article.csv.num] --> article.csv.articleid, article.csv.class, article.csv.title
+[article.csv.journal, article.csv.loc] --> article.csv.annote, article.csv.pages, article.csv.vol, article.csv.year
+[article.csv.journal, article.csv.month, article.csv.pages] --> article.csv.articleid, article.csv.class, article.csv.title
+[article.csv.journal, article.csv.month, article.csv.vol] --> article.csv.articleid, article.csv.class, article.csv.title
+[article.csv.journal, article.csv.month, article.csv.year] --> article.csv.articleid, article.csv.class, article.csv.title
+[article.csv.journal, article.csv.month] --> article.csv.num
+[article.csv.journal, article.csv.num, article.csv.pages] --> article.csv.articleid, article.csv.class, article.csv.title
+[article.csv.journal, article.csv.num, article.csv.vol] --> article.csv.articleid, article.csv.class, article.csv.title
+[article.csv.journal, article.csv.num, article.csv.year] --> article.csv.articleid, article.csv.class, article.csv.title
+[article.csv.journal, article.csv.num] --> article.csv.month
+[article.csv.journal, article.csv.pages] --> article.csv.annote, article.csv.loc, article.csv.vol, article.csv.year
+[article.csv.journal, article.csv.vol] --> article.csv.annote, article.csv.loc, article.csv.pages, article.csv.year
+[article.csv.journal, article.csv.year] --> article.csv.annote, article.csv.loc, article.csv.pages, article.csv.vol
+[article.csv.loc, article.csv.month, article.csv.num] --> article.csv.vol
+[article.csv.month, article.csv.pages, article.csv.vol] --> article.csv.num
+[article.csv.month, article.csv.vol] --> article.csv.loc
+[article.csv.month, article.csv.year] --> article.csv.loc, article.csv.num, article.csv.pages, article.csv.vol
+[article.csv.num, article.csv.pages, article.csv.year] --> article.csv.month
+[article.csv.num, article.csv.year] --> article.csv.loc, article.csv.vol
+[article.csv.pages, article.csv.vol] --> article.csv.loc
+[article.csv.title] --> article.csv.annote, article.csv.articleid, article.csv.class, article.csv.journal, article.csv.loc, article.csv.month, article.csv.num, article.csv.pages, article.csv.vol, article.csv.year
+[article.csv.vol, article.csv.year] --> article.csv.loc

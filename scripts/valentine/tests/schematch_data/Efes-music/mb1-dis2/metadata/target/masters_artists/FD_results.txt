@@ -1,0 +1,4 @@
+[] --> masters_artists.csv.role, masters_artists.csv.tracks
+[masters_artists.csv.id] --> masters_artists.csv.anv, masters_artists.csv.join_, masters_artists.csv.master_id, masters_artists.csv.name
+[masters_artists.csv.join_, masters_artists.csv.master_id] --> masters_artists.csv.anv, masters_artists.csv.id, masters_artists.csv.name
+[masters_artists.csv.name] --> masters_artists.csv.anv, masters_artists.csv.id, masters_artists.csv.join_, masters_artists.csv.master_id

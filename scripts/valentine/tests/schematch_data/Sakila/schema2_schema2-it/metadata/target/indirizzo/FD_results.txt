@@ -1,0 +1,62 @@
+[] --> indirizzo.csv.indirizzo2
+[indirizzo.csv.indirizzo_id] --> indirizzo.csv.indirizzo
+[indirizzo.csv.indirizzo_id] --> indirizzo.csv.telefono
+[indirizzo.csv.indirizzo_id] --> indirizzo.csv.città_id
+[indirizzo.csv.indirizzo_id] --> indirizzo.csv.città
+[indirizzo.csv.indirizzo_id] --> indirizzo.csv.codice_postale
+[indirizzo.csv.indirizzo_id] --> indirizzo.csv.distretto
+[indirizzo.csv.indirizzo_id] --> indirizzo.csv.stato_id
+[indirizzo.csv.indirizzo_id] --> indirizzo.csv.stato
+[indirizzo.csv.indirizzo] --> indirizzo.csv.indirizzo_id
+[indirizzo.csv.indirizzo] --> indirizzo.csv.telefono
+[indirizzo.csv.indirizzo] --> indirizzo.csv.città_id
+[indirizzo.csv.indirizzo] --> indirizzo.csv.città
+[indirizzo.csv.indirizzo] --> indirizzo.csv.codice_postale
+[indirizzo.csv.indirizzo] --> indirizzo.csv.distretto
+[indirizzo.csv.indirizzo] --> indirizzo.csv.stato_id
+[indirizzo.csv.indirizzo] --> indirizzo.csv.stato
+[indirizzo.csv.telefono] --> indirizzo.csv.codice_postale
+[indirizzo.csv.città_id, indirizzo.csv.telefono] --> indirizzo.csv.indirizzo_id
+[indirizzo.csv.città_id, indirizzo.csv.telefono] --> indirizzo.csv.indirizzo
+[indirizzo.csv.città_id, indirizzo.csv.telefono] --> indirizzo.csv.distretto
+[indirizzo.csv.città, indirizzo.csv.telefono] --> indirizzo.csv.indirizzo_id
+[indirizzo.csv.città, indirizzo.csv.telefono] --> indirizzo.csv.indirizzo
+[indirizzo.csv.città, indirizzo.csv.telefono] --> indirizzo.csv.distretto
+[indirizzo.csv.distretto, indirizzo.csv.telefono] --> indirizzo.csv.indirizzo_id
+[indirizzo.csv.distretto, indirizzo.csv.telefono] --> indirizzo.csv.indirizzo
+[indirizzo.csv.distretto, indirizzo.csv.telefono] --> indirizzo.csv.città_id
+[indirizzo.csv.distretto, indirizzo.csv.telefono] --> indirizzo.csv.città
+[indirizzo.csv.distretto, indirizzo.csv.telefono] --> indirizzo.csv.stato_id
+[indirizzo.csv.distretto, indirizzo.csv.telefono] --> indirizzo.csv.stato
+[indirizzo.csv.stato_id, indirizzo.csv.telefono] --> indirizzo.csv.indirizzo_id
+[indirizzo.csv.stato_id, indirizzo.csv.telefono] --> indirizzo.csv.indirizzo
+[indirizzo.csv.stato_id, indirizzo.csv.telefono] --> indirizzo.csv.città_id
+[indirizzo.csv.stato_id, indirizzo.csv.telefono] --> indirizzo.csv.città
+[indirizzo.csv.stato_id, indirizzo.csv.telefono] --> indirizzo.csv.distretto
+[indirizzo.csv.stato, indirizzo.csv.telefono] --> indirizzo.csv.indirizzo_id
+[indirizzo.csv.stato, indirizzo.csv.telefono] --> indirizzo.csv.indirizzo
+[indirizzo.csv.stato, indirizzo.csv.telefono] --> indirizzo.csv.città_id
+[indirizzo.csv.stato, indirizzo.csv.telefono] --> indirizzo.csv.città
+[indirizzo.csv.stato, indirizzo.csv.telefono] --> indirizzo.csv.distretto
+[indirizzo.csv.città_id] --> indirizzo.csv.città
+[indirizzo.csv.città_id] --> indirizzo.csv.stato_id
+[indirizzo.csv.città_id] --> indirizzo.csv.stato
+[indirizzo.csv.città_id, indirizzo.csv.codice_postale] --> indirizzo.csv.distretto
+[indirizzo.csv.città_id, indirizzo.csv.distretto] --> indirizzo.csv.codice_postale
+[indirizzo.csv.città] --> indirizzo.csv.città_id
+[indirizzo.csv.città] --> indirizzo.csv.stato_id
+[indirizzo.csv.città] --> indirizzo.csv.stato
+[indirizzo.csv.città, indirizzo.csv.codice_postale] --> indirizzo.csv.distretto
+[indirizzo.csv.città, indirizzo.csv.distretto] --> indirizzo.csv.codice_postale
+[indirizzo.csv.codice_postale, indirizzo.csv.distretto] --> indirizzo.csv.città_id
+[indirizzo.csv.codice_postale, indirizzo.csv.distretto] --> indirizzo.csv.città
+[indirizzo.csv.codice_postale, indirizzo.csv.distretto] --> indirizzo.csv.stato_id
+[indirizzo.csv.codice_postale, indirizzo.csv.distretto] --> indirizzo.csv.stato
+[indirizzo.csv.codice_postale, indirizzo.csv.stato_id] --> indirizzo.csv.città_id
+[indirizzo.csv.codice_postale, indirizzo.csv.stato_id] --> indirizzo.csv.città
+[indirizzo.csv.codice_postale, indirizzo.csv.stato_id] --> indirizzo.csv.distretto
+[indirizzo.csv.codice_postale, indirizzo.csv.stato] --> indirizzo.csv.città_id
+[indirizzo.csv.codice_postale, indirizzo.csv.stato] --> indirizzo.csv.città
+[indirizzo.csv.codice_postale, indirizzo.csv.stato] --> indirizzo.csv.distretto
+[indirizzo.csv.stato_id] --> indirizzo.csv.stato
+[indirizzo.csv.stato] --> indirizzo.csv.stato_id

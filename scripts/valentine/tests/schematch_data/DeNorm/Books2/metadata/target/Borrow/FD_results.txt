@@ -1,0 +1,65 @@
+[Borrow.csv.DueDate] --> Borrow.csv.ID
+[Borrow.csv.DueDate] --> Borrow.csv.Author
+[Borrow.csv.DueDate] --> Borrow.csv.ISBN
+[Borrow.csv.DueDate] --> Borrow.csv.T
+[Borrow.csv.DueDate] --> Borrow.csv.G
+[Borrow.csv.DueDate] --> Borrow.csv.BorrowerID
+[Borrow.csv.DueDate] --> Borrow.csv.BN
+[Borrow.csv.DueDate] --> Borrow.csv.BranchID
+[Borrow.csv.ID] --> Borrow.csv.Author
+[Borrow.csv.ID] --> Borrow.csv.ISBN
+[Borrow.csv.ID] --> Borrow.csv.T
+[Borrow.csv.ID] --> Borrow.csv.G
+[Borrow.csv.ID] --> Borrow.csv.BorrowerID
+[Borrow.csv.ID] --> Borrow.csv.BN
+[Borrow.csv.ID] --> Borrow.csv.BranchID
+[Borrow.csv.Author] --> Borrow.csv.ID
+[Borrow.csv.Author] --> Borrow.csv.ISBN
+[Borrow.csv.Author] --> Borrow.csv.T
+[Borrow.csv.Author] --> Borrow.csv.G
+[Borrow.csv.Author] --> Borrow.csv.BorrowerID
+[Borrow.csv.Author] --> Borrow.csv.BN
+[Borrow.csv.Author] --> Borrow.csv.BranchID
+[Borrow.csv.ISBN] --> Borrow.csv.ID
+[Borrow.csv.ISBN] --> Borrow.csv.Author
+[Borrow.csv.ISBN] --> Borrow.csv.T
+[Borrow.csv.ISBN] --> Borrow.csv.G
+[Borrow.csv.ISBN] --> Borrow.csv.BorrowerID
+[Borrow.csv.ISBN] --> Borrow.csv.BN
+[Borrow.csv.ISBN] --> Borrow.csv.BranchID
+[Borrow.csv.T] --> Borrow.csv.BorrowerID
+[Borrow.csv.T] --> Borrow.csv.BN
+[Borrow.csv.G, Borrow.csv.T] --> Borrow.csv.ID
+[Borrow.csv.G, Borrow.csv.T] --> Borrow.csv.Author
+[Borrow.csv.G, Borrow.csv.T] --> Borrow.csv.ISBN
+[Borrow.csv.G, Borrow.csv.T] --> Borrow.csv.BranchID
+[Borrow.csv.BranchID, Borrow.csv.T] --> Borrow.csv.ID
+[Borrow.csv.BranchID, Borrow.csv.T] --> Borrow.csv.Author
+[Borrow.csv.BranchID, Borrow.csv.T] --> Borrow.csv.ISBN
+[Borrow.csv.BranchID, Borrow.csv.T] --> Borrow.csv.G
+[Borrow.csv.BorrowerID, Borrow.csv.G] --> Borrow.csv.ID
+[Borrow.csv.BorrowerID, Borrow.csv.G] --> Borrow.csv.Author
+[Borrow.csv.BorrowerID, Borrow.csv.G] --> Borrow.csv.ISBN
+[Borrow.csv.BorrowerID, Borrow.csv.G] --> Borrow.csv.BranchID
+[Borrow.csv.BN, Borrow.csv.G] --> Borrow.csv.ID
+[Borrow.csv.BN, Borrow.csv.G] --> Borrow.csv.Author
+[Borrow.csv.BN, Borrow.csv.G] --> Borrow.csv.ISBN
+[Borrow.csv.BN, Borrow.csv.G] --> Borrow.csv.BranchID
+[Borrow.csv.BranchID, Borrow.csv.G] --> Borrow.csv.ID
+[Borrow.csv.BranchID, Borrow.csv.G] --> Borrow.csv.Author
+[Borrow.csv.BranchID, Borrow.csv.G] --> Borrow.csv.ISBN
+[Borrow.csv.BranchID, Borrow.csv.G] --> Borrow.csv.T
+[Borrow.csv.BranchID, Borrow.csv.G] --> Borrow.csv.BorrowerID
+[Borrow.csv.BranchID, Borrow.csv.G] --> Borrow.csv.BN
+[Borrow.csv.BorrowerID] --> Borrow.csv.T
+[Borrow.csv.BorrowerID] --> Borrow.csv.BN
+[Borrow.csv.BorrowerID, Borrow.csv.BranchID] --> Borrow.csv.ID
+[Borrow.csv.BorrowerID, Borrow.csv.BranchID] --> Borrow.csv.Author
+[Borrow.csv.BorrowerID, Borrow.csv.BranchID] --> Borrow.csv.ISBN
+[Borrow.csv.BorrowerID, Borrow.csv.BranchID] --> Borrow.csv.G
+[Borrow.csv.BN] --> Borrow.csv.T
+[Borrow.csv.BN] --> Borrow.csv.BorrowerID
+[Borrow.csv.BN, Borrow.csv.BranchID] --> Borrow.csv.ID
+[Borrow.csv.BN, Borrow.csv.BranchID] --> Borrow.csv.Author
+[Borrow.csv.BN, Borrow.csv.BranchID] --> Borrow.csv.ISBN
+[Borrow.csv.BN, Borrow.csv.BranchID] --> Borrow.csv.G
