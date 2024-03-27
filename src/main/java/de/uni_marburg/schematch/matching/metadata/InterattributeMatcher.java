@@ -32,6 +32,8 @@ public class InterattributeMatcher extends TablePairMatcher {
                 // Calculate similarity score based on the mapping
                 // For simplicity, let's assume similarity score is the negative of Euclidean distance
                 double similarityScore = -calculateEuclideanDistance(dependencyMatrixSource, dependencyMatrixTarget, mapping);
+                // Normalize similarity score to range [0, 1]
+                similarityScore = normalizeSimilarity(similarityScore);
                 simMatrix[i][j] = (float) similarityScore;
             }
         }
@@ -47,46 +49,90 @@ public class InterattributeMatcher extends TablePairMatcher {
         return simMatrix;
     }
 
-    // Perform hill climb approach to match two graphs
-    public Map<Integer, Integer> matchGraphs(double[][] dependencyGraphA, double[][] dependencyGraphB) {
-        // Initialize random mapping
-        Map<Integer, Integer> currentMapping = getRandomMapping(dependencyGraphA.length, dependencyGraphB.length);
-        double currentDistance = calculateEuclideanDistance(dependencyGraphA, dependencyGraphB, currentMapping);
+    private double normalizeSimilarity(double similarityScore) {
+        // Normalize similarity score to range [0, 1]
+        return 1 / (1 + Math.exp(-similarityScore));
+    }
 
-        // Hill climb iterations
-        int maxIterations = 1000;
-        for (int iteration = 0; iteration < maxIterations; iteration++) {
-            // Generate a random neighbor mapping
-            Map<Integer, Integer> neighborMapping = getRandomNeighborMapping(currentMapping, dependencyGraphB.length);
-            double neighborDistance = calculateEuclideanDistance(dependencyGraphA, dependencyGraphB, neighborMapping);
+    public double calculateCosineSimilarity(double[][] dependencyGraphA, double[][] dependencyGraphB, Map<Integer, Integer> nodeMappings) {
+        double dotProduct = 0.0;
+        double magnitudeA = 0.0;
+        double magnitudeB = 0.0;
 
-            // Accept the neighbor if it improves the distance
-            if (neighborDistance < currentDistance) {
-                currentMapping = neighborMapping;
-                currentDistance = neighborDistance;
+        for (int i = 0; i < dependencyGraphA.length; i++) {
+            for (int j = 0; j < dependencyGraphA[i].length; j++) {
+                int mappedI = nodeMappings.getOrDefault(i, -1);
+                int mappedJ = nodeMappings.getOrDefault(j, -1);
+                if (mappedI != -1 && mappedJ != -1) {
+                    dotProduct += dependencyGraphA[i][j] * dependencyGraphB[mappedI][mappedJ];
+                    magnitudeA += Math.pow(dependencyGraphA[i][j], 2);
+                    magnitudeB += Math.pow(dependencyGraphB[mappedI][mappedJ], 2);
+                }
             }
         }
 
-        return currentMapping;
+        double magnitudeProduct = Math.sqrt(magnitudeA) * Math.sqrt(magnitudeB);
+        if (magnitudeProduct == 0) return 0; // Avoid division by zero
+
+        return dotProduct / magnitudeProduct;
     }
 
+    // Perform hill climb approach to match two graphs
+    public Map<Integer, Integer> matchGraphs(double[][] dependencyGraphA, double[][] dependencyGraphB) {
+        double bestDistance = Double.MAX_VALUE;
+        Map<Integer, Integer> bestMapping = null;
+
+        long[] seeds = {12345L, 67890L, 13579L, 24680L, 98765L};
+
+        for (long seed : seeds) {
+            Random random = new Random(seed);
+
+            Map<Integer, Integer> currentMapping = getRandomMapping(dependencyGraphA.length, dependencyGraphB.length, random);
+            double currentDistance = calculateEuclideanDistance(dependencyGraphA, dependencyGraphB, currentMapping);
+
+            // Hill climb iterations
+            int maxIterations = 1000;
+            for (int iteration = 0; iteration < maxIterations; iteration++) {
+                // Generate a random neighbor mapping
+                Map<Integer, Integer> neighborMapping = getRandomNeighborMapping(currentMapping, dependencyGraphB.length, random);
+                double neighborDistance = calculateEuclideanDistance(dependencyGraphA, dependencyGraphB, neighborMapping);
+
+                // Accept the neighbor if it improves the distance
+                if (neighborDistance < currentDistance) {
+                    currentMapping = neighborMapping;
+                    currentDistance = neighborDistance;
+                }
+            }
+
+            // Update best mapping if the current one is better
+            if (currentDistance < bestDistance) {
+                bestDistance = currentDistance;
+                bestMapping = currentMapping;
+            }
+        }
+
+        return bestMapping;
+    }
+
+
     // Generate a random initial mapping
-    private Map<Integer, Integer> getRandomMapping(int sizeA, int sizeB) {
+    private Map<Integer, Integer> getRandomMapping(int sizeA, int sizeB, Random random) {
         Map<Integer, Integer> mapping = new HashMap<>();
-        Random random = new Random();
         for (int i = 0; i < sizeA; i++) {
             int randomIndexB = random.nextInt(sizeB);
+            //System.out.println(randomIndexB);
             mapping.put(i, randomIndexB);
         }
         return mapping;
     }
 
     // Generate a random neighbor mapping by perturbing the current mapping
-    private Map<Integer, Integer> getRandomNeighborMapping(Map<Integer, Integer> currentMapping, int sizeB) {
+    private Map<Integer, Integer> getRandomNeighborMapping(Map<Integer, Integer> currentMapping, int sizeB, Random random) {
         Map<Integer, Integer> neighborMapping = new HashMap<>(currentMapping);
-        Random random = new Random();
         int randomIndexA = random.nextInt(currentMapping.size());
         int randomIndexB = random.nextInt(sizeB);
+        //System.out.println(randomIndexA);
+        //System.out.println(randomIndexB);
         neighborMapping.put(randomIndexA, randomIndexB);
         return neighborMapping;
     }
@@ -157,20 +203,24 @@ public class InterattributeMatcher extends TablePairMatcher {
     }
 
     public double calculateEuclideanDistance(double[][] dependencyGraphA, double[][] dependencyGraphB, Map<Integer, Integer> nodeMappings) {
-        double sum = 0.0;
-        for (int i = 0; i < dependencyGraphA.length; i++) {
-            for (int j = 0; j < dependencyGraphA[i].length; j++) {
-                int mappedI = nodeMappings.getOrDefault(i, -1); // Get the mapped node index in graph B
-                int mappedJ = nodeMappings.getOrDefault(j, -1); // Get the mapped node index in graph B
-                if (mappedI != -1 && mappedJ != -1) { // If both nodes have matching counterparts in graph B
-                    double mutualInformationA = dependencyGraphA[i][j];
-                    double mutualInformationB = dependencyGraphB[mappedI][mappedJ];
-                    double difference = mutualInformationA - mutualInformationB;
-                    sum += difference * difference; // Add squared difference to the sum
-                }
-            }
-        }
-        return Math.sqrt(sum); // Return the square root of the sum
+//        double sum = 0.0;
+//        for (int i = 0; i < dependencyGraphA.length; i++) {
+//            for (int j = 0; j < dependencyGraphA[i].length; j++) {
+//                int mappedI = nodeMappings.getOrDefault(i, -1); // Get the mapped node index in graph B
+//                int mappedJ = nodeMappings.getOrDefault(j, -1); // Get the mapped node index in graph B
+//                if (mappedI != -1 && mappedJ != -1) { // If both nodes have matching counterparts in graph B
+//                    double mutualInformationA = dependencyGraphA[i][j];
+//                    double mutualInformationB = dependencyGraphB[mappedI][mappedJ];
+//                    double difference = mutualInformationA - mutualInformationB;
+//                    sum += difference * difference; // Add squared difference to the sum
+//                }
+//            }
+//        }
+//        return Math.sqrt(sum); // Return the square root of the sum
+
+
+        return 1-calculateCosineSimilarity(dependencyGraphA, dependencyGraphB, nodeMappings);
+
     }
 
     private double calculateMutualInformation(List<String> values1, List<String> values2) {
