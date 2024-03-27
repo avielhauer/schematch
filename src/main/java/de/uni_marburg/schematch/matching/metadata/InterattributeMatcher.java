@@ -79,60 +79,44 @@ public class InterattributeMatcher extends TablePairMatcher {
 
     // Perform hill climb approach to match two graphs
     public Map<Integer, Integer> matchGraphs(double[][] dependencyGraphA, double[][] dependencyGraphB) {
-        double bestDistance = Double.MAX_VALUE;
-        Map<Integer, Integer> bestMapping = null;
+        // Initialize random mapping
+        Map<Integer, Integer> currentMapping = getRandomMapping(dependencyGraphA.length, dependencyGraphB.length);
+        double currentDistance = calculateEuclideanDistance(dependencyGraphA, dependencyGraphB, currentMapping);
 
-        long[] seeds = {12345L, 67890L, 13579L, 24680L, 98765L};
+        // Hill climb iterations
+        int maxIterations = 1000;
+        for (int iteration = 0; iteration < maxIterations; iteration++) {
+            // Generate a random neighbor mapping
+            Map<Integer, Integer> neighborMapping = getRandomNeighborMapping(currentMapping, dependencyGraphB.length);
+            double neighborDistance = calculateEuclideanDistance(dependencyGraphA, dependencyGraphB, neighborMapping);
 
-        for (long seed : seeds) {
-            Random random = new Random(seed);
-
-            Map<Integer, Integer> currentMapping = getRandomMapping(dependencyGraphA.length, dependencyGraphB.length, random);
-            double currentDistance = calculateEuclideanDistance(dependencyGraphA, dependencyGraphB, currentMapping);
-
-            // Hill climb iterations
-            int maxIterations = 1000;
-            for (int iteration = 0; iteration < maxIterations; iteration++) {
-                // Generate a random neighbor mapping
-                Map<Integer, Integer> neighborMapping = getRandomNeighborMapping(currentMapping, dependencyGraphB.length, random);
-                double neighborDistance = calculateEuclideanDistance(dependencyGraphA, dependencyGraphB, neighborMapping);
-
-                // Accept the neighbor if it improves the distance
-                if (neighborDistance < currentDistance) {
-                    currentMapping = neighborMapping;
-                    currentDistance = neighborDistance;
-                }
-            }
-
-            // Update best mapping if the current one is better
-            if (currentDistance < bestDistance) {
-                bestDistance = currentDistance;
-                bestMapping = currentMapping;
+            // Accept the neighbor if it improves the distance
+            if (neighborDistance < currentDistance) {
+                currentMapping = neighborMapping;
+                currentDistance = neighborDistance;
             }
         }
 
-        return bestMapping;
+        return currentMapping;
     }
 
-
     // Generate a random initial mapping
-    private Map<Integer, Integer> getRandomMapping(int sizeA, int sizeB, Random random) {
+    private Map<Integer, Integer> getRandomMapping(int sizeA, int sizeB) {
         Map<Integer, Integer> mapping = new HashMap<>();
+        Random random = new Random();
         for (int i = 0; i < sizeA; i++) {
             int randomIndexB = random.nextInt(sizeB);
-            //System.out.println(randomIndexB);
             mapping.put(i, randomIndexB);
         }
         return mapping;
     }
 
     // Generate a random neighbor mapping by perturbing the current mapping
-    private Map<Integer, Integer> getRandomNeighborMapping(Map<Integer, Integer> currentMapping, int sizeB, Random random) {
+    private Map<Integer, Integer> getRandomNeighborMapping(Map<Integer, Integer> currentMapping, int sizeB) {
         Map<Integer, Integer> neighborMapping = new HashMap<>(currentMapping);
+        Random random = new Random();
         int randomIndexA = random.nextInt(currentMapping.size());
         int randomIndexB = random.nextInt(sizeB);
-        //System.out.println(randomIndexA);
-        //System.out.println(randomIndexB);
         neighborMapping.put(randomIndexA, randomIndexB);
         return neighborMapping;
     }
