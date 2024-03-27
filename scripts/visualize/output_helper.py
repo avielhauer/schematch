@@ -8,8 +8,7 @@ def extract_properties(matcher_string):
     matcher_name = matcher_string[:matcher_string.find("(")]
     pattern = r'(\w+)\s*=\s*([^\s:]+)'
     matches = re.findall(pattern, matcher_string)
-    if matches:
-        matches[-1] = (matches[-1][0], matches[-1][1][:-1])  # remove closing bracket
+    matches = [(match[0].strip(";)"), match[1].strip(";)")) for match in matches]
     return matcher_name, dict(matches)
 
 
