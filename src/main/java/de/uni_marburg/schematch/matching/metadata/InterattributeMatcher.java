@@ -25,25 +25,16 @@ public class InterattributeMatcher extends TablePairMatcher {
         double[][] dependencyMatrixSource = buildDependencyMatrix(sourceTable);
         double[][] dependencyMatrixTarget = buildDependencyMatrix(targetTable);
 
-        // Perform hill climb approach to match two graphs
-        for (int i = 0; i < simMatrix.length; i++) {
-            for (int j = 0; j < simMatrix[i].length; j++) {
-                Map<Integer, Integer> mapping = matchGraphs(dependencyMatrixSource, dependencyMatrixTarget);
-                // Calculate similarity score based on the mapping
-                // For simplicity, let's assume similarity score is the negative of Euclidean distance
-                double similarityScore = -calculateEuclideanDistance(dependencyMatrixSource, dependencyMatrixTarget, mapping);
-                // Normalize similarity score to range [0, 1]
-                similarityScore = normalizeSimilarity(similarityScore);
-                simMatrix[i][j] = (float) similarityScore;
-            }
-        }
+        // Find the best mapping using hill climb approach
+        Map<Integer, Integer> bestMapping = matchGraphs(dependencyMatrixSource, dependencyMatrixTarget);
 
-        System.out.println("SIMILARITY MATRIX:");
-        for (int i = 0; i < simMatrix.length; i++) {
-            for (int j = 0; j < simMatrix[i].length; j++) {
-                System.out.print(simMatrix[i][j] + " ");
+        // Generate the similarity matrix based on the best mapping
+        for (Map.Entry<Integer, Integer> entry : bestMapping.entrySet()) {
+            int sourceIndex = entry.getKey();
+            int targetIndex = entry.getValue();
+            if (sourceIndex < simMatrix.length && targetIndex < simMatrix[sourceIndex].length) {
+                simMatrix[sourceIndex][targetIndex] = 1.0f;
             }
-            System.out.println();
         }
 
         return simMatrix;
@@ -79,26 +70,41 @@ public class InterattributeMatcher extends TablePairMatcher {
 
     // Perform hill climb approach to match two graphs
     public Map<Integer, Integer> matchGraphs(double[][] dependencyGraphA, double[][] dependencyGraphB) {
-        // Initialize random mapping
         Map<Integer, Integer> currentMapping = getRandomMapping(dependencyGraphA.length, dependencyGraphB.length);
-        double currentDistance = calculateEuclideanDistance(dependencyGraphA, dependencyGraphB, currentMapping);
+        double currentSimilarity = calculateCosineSimilarity(dependencyGraphA, dependencyGraphB, currentMapping);
 
         // Hill climb iterations
         int maxIterations = 1000;
         for (int iteration = 0; iteration < maxIterations; iteration++) {
             // Generate a random neighbor mapping
             Map<Integer, Integer> neighborMapping = getRandomNeighborMapping(currentMapping, dependencyGraphB.length);
-            double neighborDistance = calculateEuclideanDistance(dependencyGraphA, dependencyGraphB, neighborMapping);
+            double neighborSimilarity = calculateCosineSimilarity(dependencyGraphA, dependencyGraphB, neighborMapping);
 
-            // Accept the neighbor if it improves the distance
-            if (neighborDistance < currentDistance) {
-                currentMapping = neighborMapping;
-                currentDistance = neighborDistance;
+            // Check if neighbor mapping is valid
+            if (isValidMapping(neighborMapping)) {
+                // Accept the neighbor if it improves the similarity and maintains the constraint
+                if (neighborSimilarity > currentSimilarity) {
+                    currentMapping = neighborMapping;
+                    currentSimilarity = neighborSimilarity;
+                }
             }
         }
 
         return currentMapping;
     }
+
+    private boolean isValidMapping(Map<Integer, Integer> mapping) {
+        Set<Integer> targets = new HashSet<>();
+        for (Integer target : mapping.values()) {
+            if (targets.contains(target)) {
+                // If a target attribute is already mapped, the mapping is invalid
+                return false;
+            }
+            targets.add(target);
+        }
+        return true;
+    }
+
 
     // Generate a random initial mapping
     private Map<Integer, Integer> getRandomMapping(int sizeA, int sizeB) {

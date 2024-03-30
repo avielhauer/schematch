@@ -1,9 +1,9 @@
 # State-of-the-Art matchers
----
-name: "RandomMatcher"
-packageName: "sota"
-params:
-  seed: [42, 2023]
+#---
+#name: "RandomMatcher"
+#packageName: "sota"
+#params:
+#  seed: [42, 2023]
 
 # Metadata matchers
 #name: "DatatypeMatcher"
