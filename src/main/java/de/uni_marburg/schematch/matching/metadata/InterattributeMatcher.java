@@ -127,43 +127,16 @@ public class InterattributeMatcher extends TablePairMatcher {
         return neighborMapping;
     }
 
-    public float[][] hillClimbApproach(double[][]dependencyMatrix1,double[][]dependencyMatrix2){
-        int[] seeds = {1234, 5678, 9012, 3456, 7890};
-
-        for (int seed : seeds) {
-            Random random = new Random(seed);
-
-            dependencyMatrix1=shuffleDependencyMatrix(dependencyMatrix1,random,seed);
-            dependencyMatrix2=shuffleDependencyMatrix(dependencyMatrix2,random,seed);
-
-
-        }
-
-        return null;
-    }
-
-    public double[][] shuffleDependencyMatrix(double[][]dependencyMatrix, Random random, int seed){
-        for (int j = dependencyMatrix.length - 1; j > 0; j--) {
-            int index = random.nextInt(j + 1);
-            double[] temp = dependencyMatrix[index];
-            dependencyMatrix[index] = dependencyMatrix[j];
-            dependencyMatrix[j] = temp;
-        }
-
-        return dependencyMatrix;
-    }
-
-    public static double sumOfColumn(double[][] matrix, int columnIndex) {
-        double sum = 0.0;
-        for (double[] row : matrix) {
-            sum += row[columnIndex];
-        }
-        return sum;
-    }
-
-    public double calculateFitness(double[][]dependencyMatrix1,double[][]dependencyMatrix2){
-        return 0;
-    }
+//    public double[][] shuffleDependencyMatrix(double[][]dependencyMatrix, Random random, int seed){
+//        for (int j = dependencyMatrix.length - 1; j > 0; j--) {
+//            int index = random.nextInt(j + 1);
+//            double[] temp = dependencyMatrix[index];
+//            dependencyMatrix[index] = dependencyMatrix[j];
+//            dependencyMatrix[j] = temp;
+//        }
+//
+//        return dependencyMatrix;
+//    }
 
     //called it dependencyMatrix, is essentially the dependencyGraph from the paper
     public double[][] buildDependencyMatrix(Table table) {
