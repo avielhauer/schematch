@@ -26,12 +26,12 @@ services:
       - type: bind
         source: ./target/embdi_cache
         target: /embdi/cache
-  ic:
-    image: schematch/ic
-    build: src/main/resources/ic
+  prisma:
+    image: schematch/prisma
+    build: src/main/resources/prisma
     ports:
-      - "127.0.0.1:5003:5003"
+      - "127.0.0.1:5004:5004"
     volumes:
       - type: bind
         source: ./target
-        target: /ic/NATool/target
+        target: /target # probably not working

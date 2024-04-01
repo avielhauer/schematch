@@ -1,8 +1,8 @@
 import networkx as nx
 import numpy as np
 
-from embedAlign_graph import EmbedGraph
-from embedAlign_graph import extract_node_type, extract_table
+from prisma_graph import EmbedGraph
+from prisma_graph import extract_node_type, extract_table
 from REGAL_alignments import get_embedding_similarities
 
 

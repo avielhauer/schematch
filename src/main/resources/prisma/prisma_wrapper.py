@@ -8,8 +8,8 @@ import numpy as np
 
 import xnetmf as REGAL_xnetmf
 import config as REGAL_config
-from embedAlign_graph import EmbedGraph, extract_table
-from embedAlign_cache import RepresentationCache
+from prisma_graph import EmbedGraph, extract_table
+from prisma_cache import RepresentationCache
 import unsup_align
 
 EMBEDDINGS_CACHE = {}

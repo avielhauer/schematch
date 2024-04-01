@@ -15,7 +15,7 @@ import java.util.List;
 
 @EqualsAndHashCode(callSuper=false)
 @NoArgsConstructor
-public class EmbedAlignMatcher extends TablePairMatcher {
+public class PRISMAMatcher extends TablePairMatcher {
     @Getter
     @Setter
     public Integer topKRow = 2;

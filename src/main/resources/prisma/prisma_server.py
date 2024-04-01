@@ -1,6 +1,6 @@
 from flask import Flask, request
 import argparse
-from embedAlign_wrapper import match
+from prisma_wrapper import match
 
 
 if __name__ == "__main__":
