@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AUCPRTest {
 
     @Test
-    // expected values taken from Python's sklearn.metrics.roc_auc_score
+    // expected values taken from Python's sklearn.metrics.{auc,precision_recall_curve}
     void run() {
         AUCPR metric = new AUCPR();
 
