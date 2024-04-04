@@ -7,7 +7,7 @@ import java.util.*;
 public class NonBinaryPrecisionAtNumGroundTruth extends Metric {
     @Override
     public float run(int[] groundTruthVector, float[] simVector) {
-        List<Integer> sortedSimIndices = MetricUtils.getSortedSimIndices(groundTruthVector, simVector);
+        List<Integer> sortedSimIndices = MetricUtils.getSortedSimIndices(simVector, groundTruthVector);
         List<Integer> groundTruthIndices = MetricUtils.getGroundTruthIndices(groundTruthVector);
 
         float totalSimScoreTP = 0;
