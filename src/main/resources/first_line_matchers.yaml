@@ -1,8 +1,12 @@
 # State-of-the-Art matchers
 ---
+name: "KangEtNaughton"
+packageName: "metadata"
+active: true
+---
 name: "EmbdiMatcher"
 packageName: "sota"
-active: true
+active: false
 ---
 name: "PRISMAMatcher"
 packageName: "metadata"

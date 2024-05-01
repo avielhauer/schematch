@@ -1,14 +1,14 @@
----
-name: "ME_all"
-path: "ME_all"
-
----
-name: "ENC_all"
-path: "ENC_all"
+#---
+#name: "ME_all"
+#path: "ME_all"
 
 #---
-#name: "ME_single_table__same_data"
-#path: "ME_single_table__same_data"
+#name: "ENC_all"
+#path: "ENC_all"
+
+---
+name: "ME_STDD"
+path: "ME_STDD"
 #---
 #name: "ME_single_table__different_data"
 #path: "ME_single_table__different_data"
