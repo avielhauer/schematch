@@ -14,7 +14,7 @@ import java.util.stream.IntStream;
 @NoArgsConstructor
 public class KangEtNaughton extends TablePairMatcher {
     final private int numSeededRuns = 100;
-
+    final private double normalizedDistanceAlpha = 2.0;
     @Override
     public float[][] match(TablePair tablePair) {
 
@@ -37,14 +37,14 @@ public class KangEtNaughton extends TablePairMatcher {
     }
 
     float[][] HC(double[][] sourceEntropyMatrix, double[][] targetEntropyMatrix, boolean swapped){
-        double maxError = Double.MAX_VALUE;
+        double highestDistanceScore = Double.MIN_VALUE;
         List<Integer> minAlignment = new ArrayList<>();
         Random random = new Random(42);
         for(int i = 0; i < numSeededRuns; i++){
             Pair<List<Integer>, Double> runResult = runSeededHC(sourceEntropyMatrix, targetEntropyMatrix, random);
-            if(runResult.getRight() < maxError){
+            if(runResult.getRight() > highestDistanceScore){
                 minAlignment = runResult.getLeft();
-                maxError = runResult.getRight();
+                highestDistanceScore = runResult.getRight();
             }
         }
         return buildSimilarityMatrix(minAlignment, sourceEntropyMatrix, targetEntropyMatrix, swapped);
@@ -71,7 +71,7 @@ public class KangEtNaughton extends TablePairMatcher {
     }
     Pair<List<Integer>, Double> runSeededHC(double[][] sourceEntropyMatrix, double[][] targetEntropyMatrix, Random random){
         List<Integer> alignments = getInitialAlignments(sourceEntropyMatrix.length, targetEntropyMatrix.length, random);
-        double minError = calculateError(sourceEntropyMatrix, targetEntropyMatrix, alignments);
+        double highestDistanceScore = calculateDistance(sourceEntropyMatrix, targetEntropyMatrix, alignments);
         boolean changed = true;
         while(changed){
             changed = false;
@@ -82,9 +82,9 @@ public class KangEtNaughton extends TablePairMatcher {
                     Integer temp = permutedAlignment.get(i);
                     permutedAlignment.set(i, permutedAlignment.get(j));
                     permutedAlignment.set(j, temp);
-                    double permutedError = calculateError(sourceEntropyMatrix, targetEntropyMatrix, alignments);
-                    if(permutedError < minError){
-                        minError = permutedError;
+                    double permutedDistance = calculateDistance(sourceEntropyMatrix, targetEntropyMatrix, permutedAlignment);
+                    if(permutedDistance > highestDistanceScore){ // Normal distance metric -> the higher, the "better"
+                        highestDistanceScore = permutedDistance;
                         newAlignments = permutedAlignment;
                         changed = true;
                     }
@@ -95,23 +95,26 @@ public class KangEtNaughton extends TablePairMatcher {
                 alignments = newAlignments;
             }
         }
-        return Pair.of(alignments, minError);
+        return Pair.of(alignments, highestDistanceScore);
     }
 
-    private double calculateError(double[][] sourceEntropyMatrix, double[][] targetEntropyMatrix, List<Integer> alignments) {
-        double euclideanDistance = 0;
+    private double calculateDistance(double[][] sourceEntropyMatrix, double[][] targetEntropyMatrix, List<Integer> alignments) {
+        double normalDistance = 0;
         for(int i = 0; i < sourceEntropyMatrix.length; i++){
             for(int j = 0; j < sourceEntropyMatrix.length; j++){
-                if(alignments.get(i) != -1 && alignments.get(j) != -1){ // TODO: verify this is fine.
-                    euclideanDistance += Math.pow(sourceEntropyMatrix[i][j] - targetEntropyMatrix[alignments.get(i)][alignments.get(j)], 2);
+                if(alignments.get(i) == -1 || alignments.get(j) == -1){ // TODO: verify this is fine.
+                    continue;
                 }
+                double a_ij = sourceEntropyMatrix[i][j];
+                double b_ij = targetEntropyMatrix[alignments.get(i)][alignments.get(j)];
+                normalDistance += 1 - (normalizedDistanceAlpha * Math.abs(a_ij - b_ij) / (a_ij + b_ij));
             }
         }
-        return Math.sqrt(euclideanDistance);
+        return normalDistance;
     }
 
     List<Integer> getInitialAlignments(int sourceSize, int targetSize, Random random){
-        List<Integer> alignments = IntStream.range(0, sourceSize).boxed().collect(Collectors.toList());;
+        List<Integer> alignments = IntStream.range(0, sourceSize).boxed().collect(Collectors.toList());
         for(int i = targetSize; i < sourceSize; i++){
             alignments.set(i, -1); // no alignment when source and target are of unequal size (we assume bijective)
         }
