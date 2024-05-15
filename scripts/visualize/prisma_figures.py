@@ -85,6 +85,7 @@ RUNTIME_COLORS = {
     "EmbDI": "#82B366",
     "CS": "gray",
     "I40": "#9673A6",
+    "K&N" : "yellow",
 }
 
 HATCHES = {
@@ -94,7 +95,8 @@ HATCHES = {
     "CS": "x",
     "I40": "+",
     "Profiling": "o",
-    "Pdep Calculation": "+"
+    "Pdep Calculation": "+",
+    "K&N": ".."
 }
 
 def visualize_runtime():
@@ -117,6 +119,8 @@ def visualize_runtime():
         bar_positions = (index * bar_width) + offset * (num_matchers  * bar_width + margin)  # Adjust bar positions for grouping
         all_positions += list(bar_positions)
         for runtime, matcher, pos in zip(runtimes, matchers, bar_positions):
+            if runtime == -1:
+                plt.plot([pos], [0.1], marker='*', color='black', markersize=10, zorder=5)
             plt.bar([pos], [runtime], bar_width, color=RUNTIME_COLORS[matcher], edgecolor='black', label=("" if offset==0 else "_")+ matcher, hatch=HATCHES[matcher], zorder=3)
             #if matcher == "PRISMA":
             #    plt.bar([pos], [runtime * 0.98], bar_width, color=RUNTIME_COLORS[matcher], edgecolor='black', label=("" if offset==0 else "_")+ matcher + " Pdep Calculation", hatch=HATCHES["Pdep Calculation"], zorder=4)
@@ -131,7 +135,7 @@ def visualize_runtime():
     #for matcher, color in RUNTIME_COLORS.items():
     #    handles.append(plt.Line2D([], [], color=color, marker="s", linestyle='None', markersize=10, label=matcher))
     #plt.legend(handles=handles, loc='upper center', bbox_to_anchor=[0.45, 1.2], ncol=5, fontsize=16)
-    plt.legend(loc='upper center', bbox_to_anchor=[0.45, 1.2], ncol=5, fontsize=16, frameon=False)
+    plt.legend(loc='upper center', bbox_to_anchor=[0.45, 1.2], ncol=6, fontsize=16, frameon=False)
 
     plt.tight_layout()
     plt.yticks([1, 10, 100, 1000], ["1", "10", "100", "1000"], fontsize=16)

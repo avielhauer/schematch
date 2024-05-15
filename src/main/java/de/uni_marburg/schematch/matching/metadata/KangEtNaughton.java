@@ -14,7 +14,7 @@ import java.util.stream.IntStream;
 @NoArgsConstructor
 public class KangEtNaughton extends TablePairMatcher {
     final private int numSeededRuns = 100;
-    final private double normalizedDistanceAlpha = 2.0;
+    final private double normalizedDistanceAlpha = 3.0;
 
     @Override
     public float[][] match(TablePair tablePair) {
@@ -40,7 +40,7 @@ public class KangEtNaughton extends TablePairMatcher {
     }
 
     float[][] HillClimbing(double[][] sourceEntropyMatrix, double[][] targetEntropyMatrix, boolean swapped) {
-        double highestDistanceScore = Double.MIN_VALUE;
+        double highestDistanceScore = Double.NEGATIVE_INFINITY;
         List<Integer> minAlignment = new ArrayList<>();
         Random random = new Random(42);
         for (int i = 0; i < numSeededRuns; i++) {
