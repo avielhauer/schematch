@@ -18,9 +18,9 @@ def get_embedding_similarities(embed, embed2 = None, sim_measure = "euclidean", 
         kd_sim_source_target = kd_align(embed, embed2, distance_metric=sim_measure, num_top=top_k_row if top_k_row is not None else 0)
         kd_sim_target_source = kd_align(embed2, embed, distance_metric=sim_measure, num_top=top_k_col if top_k_col is not None else 0)
         if top_k_by_union:
-            return kd_sim_target_source.transpose().minimum(kd_sim_source_target)
-        else:
             return kd_sim_target_source.transpose().maximum(kd_sim_source_target)
+        else:
+            return kd_sim_target_source.transpose().minimum(kd_sim_source_target)
 
     #All pairwise distance computation
     if sim_measure == "cosine":
