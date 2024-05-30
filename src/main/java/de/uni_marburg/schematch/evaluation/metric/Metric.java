@@ -15,4 +15,8 @@ public abstract class Metric {
     public String toString() {
         return this.getClass().getSimpleName();
     }
+
+    public Float aggregatePerformance(float sumScores, int n){
+        return sumScores / n;
+    }
 }

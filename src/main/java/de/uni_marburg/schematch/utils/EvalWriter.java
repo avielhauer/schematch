@@ -71,12 +71,12 @@ public class EvalWriter {
         }
     }
 
-    private void averagePerformances(Map<Metric, Map<MatchStep, Map<Matcher, Performance>>> performances, int n) {
+    private void aggregatePerformances(Map<Metric, Map<MatchStep, Map<Matcher, Performance>>> performances, int n) {
         for (Metric metric : performances.keySet()) {
             for (MatchStep matchStep : performances.get(metric).keySet()) {
                 for (Matcher matcher : performances.get(metric).get(matchStep).keySet()) {
                     float score = performances.get(metric).get(matchStep).get(matcher).getGlobalScore();
-                    performances.get(metric).get(matchStep).get(matcher).setGlobalScore(score/n);
+                    performances.get(metric).get(matchStep).get(matcher).setGlobalScore(metric.aggregatePerformance(score, n));
                 }
             }
         }
@@ -219,14 +219,14 @@ public class EvalWriter {
     }
 
     public void writeDatasetPerformance(Dataset dataset) {
-        averagePerformances(this.datasetPerformances, dataset.getScenarioNames().size());
+        aggregatePerformances(this.datasetPerformances, dataset.getScenarioNames().size());
         Path datasetPerformancePath = ResultsUtils.getPerformancePathForDataset(dataset);
         writePerformance(EvaluationLevel.DATASET, datasetPerformancePath, this.datasetPerformances);
         initializePerformances(this.datasetPerformances);
     }
 
     public void writeOverallPerformance(int numDatasets) {
-        averagePerformances(this.overallPerformances, numDatasets);
+        aggregatePerformances(this.overallPerformances, numDatasets);
         Path overallPerformancePath = ResultsUtils.getPerformancePathForOverall();
         writePerformance(EvaluationLevel.OVERALL, overallPerformancePath, this.overallPerformances);
     }
