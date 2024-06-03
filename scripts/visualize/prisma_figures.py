@@ -24,7 +24,7 @@ def read_csv(path):
 
 COLORS = {
     "Original": "turquoise",
-    "Encoded": "tomato",
+    "Encrypted": "tomato",
 }
 
 MARKER = {
@@ -35,7 +35,7 @@ MARKER = {
 
 LINESTYLE = {
     "Original": "dotted",
-    "Encoded": "dashdot",
+    "Encrypted": "dashdot",
 }
 def visualize_gamma_eval():
     ## generate xNetGammaAttributePlot
@@ -47,7 +47,7 @@ def visualize_gamma_eval():
     plt.rc('font', family='serif')
 
 
-    for i, encoding in enumerate(["Original", "Encoded"]):
+    for i, encoding in enumerate(["Original", "Encrypted"]):
         for j, metric in enumerate(["Precision", "Recall", "F1"]):
             metric_data = [float(x) for x in data[total][1:]]
             plt.plot(gammas, metric_data, marker=MARKER[metric], label=metric, color=COLORS[encoding], linestyle=LINESTYLE[encoding])
@@ -71,7 +71,7 @@ def visualize_gamma_eval():
         handles.append(plt.Line2D([], [], color=color, linestyle=LINESTYLE[encoding], markersize=10, label=encoding))
 
     plt.legend(handles=handles, loc='upper center', bbox_to_anchor=[0.45, 1.2], ncol=5, fontsize=16, frameon=False)
-    plt.xlabel("γ (xNetGammaFeatureVsStructure)", fontsize=19)
+    plt.xlabel("γ (Feature vs Structure)", fontsize=19)
     plt.ylabel("Performance", fontsize=19)
     plt.tight_layout()
     plt.grid()
