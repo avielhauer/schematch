@@ -71,7 +71,7 @@ def visualize_gamma_eval():
         handles.append(plt.Line2D([], [], color=color, linestyle=LINESTYLE[encoding], markersize=10, label=encoding))
 
     plt.legend(handles=handles, loc='upper center', bbox_to_anchor=[0.45, 1.2], ncol=5, fontsize=16, frameon=False)
-    plt.xlabel("γ (Feature vs Structure)", fontsize=19)
+    plt.xlabel("γ (Features vs Structure)", fontsize=19)
     plt.ylabel("Performance", fontsize=19)
     plt.tight_layout()
     plt.grid()
