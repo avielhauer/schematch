@@ -218,6 +218,7 @@ public class EvalWriter {
 
     public void writeDatasetPerformance(Dataset dataset) {
         averagePerformances(this.datasetPerformances, dataset.getScenarioNames().size());
+
         Path datasetPerformancePath = ResultsUtils.getPerformancePathForDataset(dataset);
         writePerformance(EvaluationLevel.DATASET, datasetPerformancePath, this.datasetPerformances);
         initializePerformances(this.datasetPerformances);
