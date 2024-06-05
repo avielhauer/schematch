@@ -1,0 +1,35 @@
+HyFD:
+	inputGenerator: de.metanome.backend.input.file.DefaultFileInputGenerator@6e0f5f7f
+	tableName: release_country.csv (release, country, date_year, date_month, date_day)
+	numAttributes: 5
+	isNullEqualNull: true)
+	maxLhsSize: -1
+inputRowLimit: -1
+
+Progress log: 
+Initializing ...
+Reading data and calculating plis ...
+Sorting plis by number of clusters ...
+Inverting plis ...
+Extracting integer representations for the records ...
+Investigating comparison suggestions ... 
+Sorting clusters ...(1ms)
+Running initial windows ...(0ms)
+Moving window over clusters ... 
+Window signature: [1][2][2][2][2]
+Inducing FD candidates ...
+Validating FDs using plis ...
+	Level 0: 1 elements; (V)(C)(G); 0 intersections; 0 validations; 0 invalid; 0 new candidates; --> 0 FDs
+	Level 1: 2 elements; (V)(C)(G); 4 intersections; 4 validations; 0 invalid; 0 new candidates; --> 4 FDs
+	Level 2: 1 elements; (V)(C)(G); 0 intersections; 0 validations; 0 invalid; 0 new candidates; --> 0 FDs
+	Level 3: 2 elements; (V)(C)(G); 2 intersections; 2 validations; 0 invalid; 0 new candidates; --> 2 FDs
+Translating FD-tree into result format ...
+... done! (6 FDs)
+Time: 34 ms
+
+
+Runtime: 34
+
+Results: 6
+
+release_country

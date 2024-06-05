@@ -1,0 +1,7 @@
+[artist.csv.id]
+[artist.csv.gid]
+[artist.csv.name]
+[artist.csv.sort_name]
+[artist.csv.begin_date_year, artist.csv.last_updated]
+[artist.csv.begin_date_month, artist.csv.end_date_year, artist.csv.last_updated, artist.csv.type]
+[artist.csv.area, artist.csv.end_date_year, artist.csv.last_updated, artist.csv.type]

@@ -41,7 +41,16 @@
     </build>
 
     <dependencies>
-        <!-- apache commons -->
+
+        <!--
+       <dependency>
+           <groupId>com.github.DonatoMeoli</groupId>
+           <artifactId>WS4J</artifactId>
+           <version>master</version>
+       </dependency>
+       -->
+
+       <!-- apache commons -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-text</artifactId>
@@ -123,7 +132,42 @@
             <version>5.8.1</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Java Wordnet Interface -->
+        <dependency>
+            <groupId>edu.mit</groupId>
+            <artifactId>jwi</artifactId>
+            <version>2.2.3</version>
+        </dependency>
+
+        <!-- Tokenizer -->
+        <dependency>
+            <groupId>edu.stanford.nlp</groupId>
+            <artifactId>stanford-corenlp</artifactId>
+            <version>4.5.5</version>
+        </dependency>
+
+        <!-- Alphanumeric-check for Strings -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+
+        <!-- WS4J Wu-Palmer Similarity -->
+        <dependency>
+            <groupId>com.github.dmeoli</groupId>
+            <artifactId>WS4J</artifactId>
+            <version>6c2e0aa588</version>
+        </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

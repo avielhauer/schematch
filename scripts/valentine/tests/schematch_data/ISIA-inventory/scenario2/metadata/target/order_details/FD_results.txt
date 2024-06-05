@@ -1,0 +1,4 @@
+[order_details.csv.discount, order_details.csv.order_id, order_details.csv.quantity, order_details.csv.unit_price] --> order_details.csv.product_id
+[order_details.csv.order_id, order_details.csv.product_id] --> order_details.csv.unit_price
+[order_details.csv.order_id, order_details.csv.product_id] --> order_details.csv.quantity
+[order_details.csv.order_id, order_details.csv.product_id] --> order_details.csv.discount

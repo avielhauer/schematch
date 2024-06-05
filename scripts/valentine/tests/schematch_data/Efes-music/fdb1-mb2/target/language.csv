@@ -1,0 +1,7844 @@
+id,iso_code_2t,iso_code_2b,iso_code_1,name,frequency,iso_code_3
+3858,,,,Liv,1,liv
+4369,,,,Montagnais,1,moe
+4663,,,,Min Nan Chinese,1,nan
+5690,,,,Réunion Creole French,1,rcf
+5808,,,,Yaeyama,1,rys
+6966,,,,Võro,1,vro
+7640,,,,Yue Chinese,1,yue
+3529,,,,Kölsch,1,ksh
+3880,,,,Lakota,1,lkt
+5989,,,,Sindarin,1,sjn
+487,,,,Ghotuo,0,aaa
+488,,,,Alumu-Tesu,0,aab
+489,,,,Ari,0,aac
+490,,,,Amal,0,aad
+491,,,,Arbëreshë Albanian,0,aae
+492,,,,Aranadan,0,aaf
+493,,,,Ambrak,0,aag
+494,,,,Abu' Arapesh,0,aah
+495,,,,Arifama-Miniafia,0,aai
+496,,,,Ankave,0,aak
+497,,,,Afade,0,aal
+498,,,,Aramanik,0,aam
+499,,,,Anambé,0,aan
+500,,,,Algerian Saharan Arabic,0,aao
+501,,,,Pará Arára,0,aap
+502,,,,Eastern Abnaki,0,aaq
+1,aar,aar,aa,Afar,1,aar
+503,,,,Aasáx,0,aas
+504,,,,Arvanitika Albanian,0,aat
+505,,,,Abau,0,aau
+506,,,,Solong,0,aaw
+507,,,,Mandobo Atas,0,aax
+508,,,,Amarasi,0,aaz
+509,,,,Abé,0,aba
+510,,,,Bankon,0,abb
+511,,,,Ambala Ayta,0,abc
+512,,,,Manide,0,abd
+513,,,,Western Abnaki,0,abe
+514,,,,Abai Sungai,0,abf
+515,,,,Abaga,0,abg
+516,,,,Tajiki Arabic,0,abh
+517,,,,Abidji,0,abi
+518,,,,Aka-Bea,0,abj
+2,abk,abk,ab,Abkhazian,1,abk
+338,pol,pol,pl,Polish,2,pol
+519,,,,Lampung Nyo,0,abl
+340,por,por,pt,Portuguese,2,por
+393,spa,spa,es,Spanish,2,spa
+403,swe,swe,sv,Swedish,2,swe
+520,,,,Abanyom,0,abm
+433,tur,tur,tr,Turkish,2,tur
+353,rus,rus,ru,Russian,2,rus
+76,zho,chi,zh,Chinese,2,zho
+18,ara,ara,ar,Arabic,2,ara
+98,ces,cze,cs,Czech,2,ces
+100,dan,dan,da,Danish,2,dan
+145,deu,ger,de,German,2,deu
+521,,,,Abua,0,abn
+522,,,,Abon,0,abo
+523,,,,Abellen Ayta,0,abp
+524,,,,Abaza,0,abq
+525,,,,Abron,0,abr
+526,,,,Ambonese Malay,0,abs
+527,,,,Ambulas,0,abt
+24,art,art,,[Artificial (Other)],1,qaa
+528,,,,Abure,0,abu
+529,,,,Baharna Arabic,0,abv
+530,,,,Pal,0,abw
+531,,,,Inabaknon,0,abx
+532,,,,Aneme Wake,0,aby
+533,,,,Abui,0,abz
+534,,,,Achagua,0,aca
+535,,,,Áncá,0,acb
+536,,,,Gikyode,0,acd
+3,ace,ace,,Achinese,1,ace
+537,,,,Saint Lucian Creole French,0,acf
+4,ach,ach,,Acoli,1,ach
+538,,,,Aka-Cari,0,aci
+539,,,,Aka-Kora,0,ack
+540,,,,Akar-Bale,0,acl
+541,,,,Mesopotamian Arabic,0,acm
+131,fin,fin,fi,Finnish,2,fin
+134,fra,fre,fr,French,2,fra
+195,ita,ita,it,Italian,2,ita
+198,jpn,jpn,ja,Japanese,2,jpn
+284,mul,mul,,[Multiple languages],2,mul
+113,nld,dut,nl,Dutch,2,nld
+309,nor,nor,no,Norwegian,2,nor
+542,,,,Achang,0,acn
+543,,,,Eastern Acipa,0,acp
+544,,,,Ta'izzi-Adeni Arabic,0,acq
+545,,,,Achi,0,acr
+546,,,,Acroá,0,acs
+547,,,,Achterhoeks,0,act
+548,,,,Achuar-Shiwiar,0,acu
+549,,,,Achumawi,0,acv
+550,,,,Hijazi Arabic,0,acw
+551,,,,Omani Arabic,0,acx
+552,,,,Cypriot Arabic,0,acy
+553,,,,Acheron,0,acz
+5,ada,ada,,Adangme,1,ada
+554,,,,Adabe,0,adb
+555,,,,Dzodinka,0,add
+556,,,,Adele,0,ade
+557,,,,Dhofari Arabic,0,adf
+558,,,,Andegerebinha,0,adg
+559,,,,Adhola,0,adh
+560,,,,Adi,0,adi
+561,,,,Adioukrou,0,adj
+562,,,,Galo,0,adl
+563,,,,Adang,0,adn
+564,,,,Abu,0,ado
+565,,,,Adap,0,adp
+566,,,,Adangbe,0,adq
+567,,,,Adonara,0,adr
+568,,,,Adamorobe Sign Language,0,ads
+569,,,,Adnyamathanha,0,adt
+570,,,,Aduge,0,adu
+473,ain,ain,,Ainu,1,ain
+159,ell,gre,el,Greek,2,ell
+120,eng,eng,en,English,2,eng
+10,aka,aka,ak,Akan,1,aka
+673,,,,Batak Angkola,0,akb
+674,,,,Mpur,0,akc
+675,,,,Ukpet-Ehom,0,akd
+676,,,,Akawaio,0,ake
+677,,,,Akpa,0,akf
+678,,,,Anakalangu,0,akg
+679,,,,Angal Heneng,0,akh
+680,,,,Aiome,0,aki
+571,,,,Amundava,0,adw
+572,,,,Amdo Tibetan,0,adx
+6,ady,ady,,Adyghe,1,ady
+573,,,,Adzera,0,adz
+574,,,,Areba,0,aea
+575,,,,Tunisian Arabic,0,aeb
+576,,,,Saidi Arabic,0,aec
+577,,,,Argentine Sign Language,0,aed
+578,,,,Northeast Pashayi,0,aee
+579,,,,Haeke,0,aek
+580,,,,Ambele,0,ael
+581,,,,Arem,0,aem
+582,,,,Armenian Sign Language,0,aen
+583,,,,Aer,0,aeq
+584,,,,Eastern Arrernte,0,aer
+585,,,,Alsea,0,aes
+586,,,,Akeu,0,aeu
+587,,,,Ambakich,0,aew
+588,,,,Amele,0,aey
+589,,,,Aeka,0,aez
+590,,,,Gulf Arabic,0,afb
+591,,,,Andai,0,afd
+592,,,,Putukwam,0,afe
+593,,,,Afghan Sign Language,0,afg
+8,afh,afh,,Afrihili,1,afh
+594,,,,Akrukay,0,afi
+595,,,,Nanubae,0,afk
+596,,,,Defaka,0,afn
+597,,,,Eloyi,0,afo
+598,,,,Tapei,0,afp
+9,afr,afr,af,Afrikaans,1,afr
+599,,,,Afro-Seminole Creole,0,afs
+600,,,,Afitti,0,aft
+601,,,,Awutu,0,afu
+602,,,,Obokuitai,0,afz
+603,,,,Aguano,0,aga
+604,,,,Legbo,0,agb
+605,,,,Agatu,0,agc
+606,,,,Agarabi,0,agd
+607,,,,Angal,0,age
+608,,,,Arguni,0,agf
+609,,,,Angor,0,agg
+610,,,,Ngelima,0,agh
+611,,,,Agariya,0,agi
+612,,,,Argobba,0,agj
+613,,,,Isarog Agta,0,agk
+614,,,,Fembe,0,agl
+615,,,,Angaataha,0,agm
+616,,,,Agutaynen,0,agn
+617,,,,Tainae,0,ago
+618,,,,Aghem,0,agq
+619,,,,Aguaruna,0,agr
+620,,,,Esimbi,0,ags
+621,,,,Central Cagayan Agta,0,agt
+622,,,,Aguacateco,0,agu
+623,,,,Remontado Dumagat,0,agv
+624,,,,Kahua,0,agw
+625,,,,Aghul,0,agx
+626,,,,Southern Alta,0,agy
+627,,,,Mt. Iriga Agta,0,agz
+628,,,,Ahanta,0,aha
+629,,,,Axamb,0,ahb
+630,,,,Qimant,0,ahg
+631,,,,Aghu,0,ahh
+632,,,,Tiagbamrin Aizi,0,ahi
+633,,,,Akha,0,ahk
+634,,,,Igo,0,ahl
+635,,,,Mobumrin Aizi,0,ahm
+636,,,,Àhàn,0,ahn
+637,,,,Ahom,0,aho
+638,,,,Aproumu Aizi,0,ahp
+639,,,,Ahirani,0,ahr
+640,,,,Ashe,0,ahs
+641,,,,Ahtena,0,aht
+642,,,,Arosi,0,aia
+643,,,,Ainu (China),0,aib
+644,,,,Ainbai,0,aic
+645,,,,Alngith,0,aid
+646,,,,Amara,0,aie
+647,,,,Agi,0,aif
+648,,,,Antigua and Barbuda Creole English,0,aig
+649,,,,Ai-Cham,0,aih
+650,,,,Assyrian Neo-Aramaic,0,aii
+651,,,,Lishanid Noshan,0,aij
+652,,,,Ake,0,aik
+653,,,,Aimele,0,ail
+654,,,,Aimol,0,aim
+681,,,,Aka-Jeru,0,akj
+11,akk,akk,,Akkadian,0,akk
+682,,,,Aklanon,0,akl
+655,,,,Aiton,0,aio
+656,,,,Burumakok,0,aip
+657,,,,Aimaq,0,aiq
+658,,,,Airoran,0,air
+659,,,,Nataoran Amis,0,ais
+660,,,,Arikem,0,ait
+661,,,,Aari,0,aiw
+662,,,,Aighon,0,aix
+663,,,,Ali,0,aiy
+664,,,,Aja (Sudan),0,aja
+665,,,,Aja (Benin),0,ajg
+666,,,,Ajië,0,aji
+667,,,,Andajin,0,ajn
+668,,,,South Levantine Arabic,0,ajp
+669,,,,Judeo-Tunisian Arabic,0,ajt
+670,,,,Judeo-Moroccan Arabic,0,aju
+671,,,,Ajawa,0,ajw
+672,,,,Amri Karbi,0,ajz
+683,,,,Aka-Bo,0,akm
+684,,,,Akurio,0,ako
+685,,,,Siwu,0,akp
+686,,,,Ak,0,akq
+687,,,,Araki,0,akr
+688,,,,Akaselem,0,aks
+689,,,,Akolet,0,akt
+690,,,,Akum,0,aku
+691,,,,Akhvakh,0,akv
+692,,,,Akwa,0,akw
+693,,,,Aka-Kede,0,akx
+694,,,,Aka-Kol,0,aky
+695,,,,Alabama,0,akz
+696,,,,Alago,0,ala
+697,,,,Qawasqar,0,alc
+698,,,,Alladian,0,ald
+13,ale,ale,,Aleut,1,ale
+699,,,,Alege,0,alf
+700,,,,Alawa,0,alh
+701,,,,Amaimon,0,ali
+702,,,,Alangan,0,alj
+703,,,,Alak,0,alk
+704,,,,Allar,0,all
+705,,,,Amblong,0,alm
+706,,,,Gheg Albanian,0,aln
+707,,,,Larike-Wakasihu,0,alo
+708,,,,Alune,0,alp
+709,,,,Algonquin,0,alq
+710,,,,Alutor,0,alr
+711,,,,Tosk Albanian,0,als
+474,alt,alt,,Southern Altai,1,alt
+712,,,,'Are'are,0,alu
+713,,,,Alaba-K’abeena,0,alw
+714,,,,Amol,0,alx
+715,,,,Alyawarr,0,aly
+716,,,,Alur,0,alz
+717,,,,Amanayé,0,ama
+718,,,,Ambo,0,amb
+719,,,,Amahuaca,0,amc
+720,,,,Yanesha',0,ame
+721,,,,Hamer-Banna,0,amf
+722,,,,Amurdak,0,amg
+15,amh,amh,am,Amharic,1,amh
+723,,,,Amis,0,ami
+724,,,,Amdang,0,amj
+725,,,,Ambai,0,amk
+726,,,,War-Jaintia,0,aml
+727,,,,Ama (Papua New Guinea),0,amm
+728,,,,Amanab,0,amn
+729,,,,Amo,0,amo
+730,,,,Alamblak,0,amp
+731,,,,Amahai,0,amq
+732,,,,Amarakaeri,0,amr
+733,,,,Southern Amami-Oshima,0,ams
+734,,,,Amto,0,amt
+735,,,,Guerrero Amuzgo,0,amu
+736,,,,Ambelau,0,amv
+737,,,,Western Neo-Aramaic,0,amw
+738,,,,Anmatyerre,0,amx
+739,,,,Ami,0,amy
+740,,,,Atampaya,0,amz
+741,,,,Andaqui,0,ana
+742,,,,Andoa,0,anb
+743,,,,Ngas,0,anc
+744,,,,Ansus,0,and
+745,,,,Xârâcùù,0,ane
+746,,,,Animere,0,anf
+747,,,,Nend,0,anh
+748,,,,Andi,0,ani
+749,,,,Anor,0,anj
+750,,,,Goemai,0,ank
+751,,,,Anu-Hkongso Chin,0,anl
+752,,,,Anal,0,anm
+753,,,,Obolo,0,ann
+754,,,,Andoque,0,ano
+475,anp,anp,,Angika,1,anp
+755,,,,Jarawa (India),0,anq
+756,,,,Andh,0,anr
+757,,,,Anserma,0,ans
+758,,,,Antakarinya,0,ant
+759,,,,Anuak,0,anu
+760,,,,Denya,0,anv
+761,,,,Anaang,0,anw
+762,,,,Andra-Hus,0,anx
+763,,,,Anyin,0,any
+764,,,,Anem,0,anz
+765,,,,Angolar,0,aoa
+766,,,,Abom,0,aob
+767,,,,Pemon,0,aoc
+768,,,,Andarum,0,aod
+769,,,,Angal Enen,0,aoe
+770,,,,Bragat,0,aof
+771,,,,Angoram,0,aog
+772,,,,Arma,0,aoh
+773,,,,Anindilyakwa,0,aoi
+774,,,,Mufian,0,aoj
+775,,,,Arhö,0,aok
+776,,,,Alor,0,aol
+777,,,,Ömie,0,aom
+778,,,,Bumbita Arapesh,0,aon
+779,,,,Aore,0,aor
+780,,,,Taikat,0,aos
+781,,,,A'tong,0,aot
+782,,,,A'ou,0,aou
+783,,,,Atorada,0,aox
+784,,,,Uab Meto,0,aoz
+785,,,,Sa'a,0,apb
+786,,,,North Levantine Arabic,0,apc
+787,,,,Sudanese Arabic,0,apd
+788,,,,Bukiyip,0,ape
+789,,,,Pahanan Agta,0,apf
+790,,,,Ampanang,0,apg
+791,,,,Athpariya,0,aph
+792,,,,Apiaká,0,api
+793,,,,Jicarilla Apache,0,apj
+794,,,,Kiowa Apache,0,apk
+795,,,,Lipan Apache,0,apl
+796,,,,Mescalero-Chiricahua Apache,0,apm
+797,,,,Apinayé,0,apn
+798,,,,Ambul,0,apo
+799,,,,Apma,0,app
+800,,,,A-Pucikwar,0,apq
+801,,,,Arop-Lokep,0,apr
+802,,,,Arop-Sissano,0,aps
+803,,,,Apatani,0,apt
+804,,,,Apurinã,0,apu
+805,,,,Alapmunte,0,apv
+806,,,,Western Apache,0,apw
+807,,,,Aputai,0,apx
+808,,,,Apalaí,0,apy
+809,,,,Safeyoka,0,apz
+810,,,,Archi,0,aqc
+811,,,,Ampari Dogon,0,aqd
+812,,,,Arigidi,0,aqg
+813,,,,Atohwaim,0,aqm
+814,,,,Northern Alta,0,aqn
+815,,,,Atakapa,0,aqp
+816,,,,Arhâ,0,aqr
+817,,,,Akuntsu,0,aqz
+818,,,,Standard Arabic,0,arb
+19,arc,arc,,Official Aramaic (700-300 BCE),0,arc
+819,,,,Arabana,0,ard
+820,,,,Western Arrarnta,0,are
+20,arg,arg,an,Aragonese,1,arg
+821,,,,Arhuaco,0,arh
+822,,,,Arikara,0,ari
+823,,,,Arapaso,0,arj
+824,,,,Arikapú,0,ark
+825,,,,Arabela,0,arl
+22,arn,arn,,Mapudungun,1,arn
+826,,,,Araona,0,aro
+23,arp,arp,,Arapaho,1,arp
+827,,,,Algerian Arabic,0,arq
+828,,,,Karo (Brazil),0,arr
+829,,,,Najdi Arabic,0,ars
+830,,,,Aruá (Amazonas State),0,aru
+16,ang,ang,,"English, Old (ca.450-1100)",1,ang
+831,,,,Arbore,0,arv
+25,arw,arw,,Arawak,1,arw
+832,,,,Aruá (Rodonia State),0,arx
+833,,,,Moroccan Arabic,0,ary
+834,,,,Egyptian Arabic,0,arz
+835,,,,Asu (Tanzania),0,asa
+836,,,,Assiniboine,0,asb
+837,,,,Casuarina Coast Asmat,0,asc
+838,,,,Asas,0,asd
+839,,,,American Sign Language,0,ase
+840,,,,Australian Sign Language,0,asf
+841,,,,Cishingini,0,asg
+842,,,,Abishira,0,ash
+843,,,,Buruwai,0,asi
+844,,,,Nsari,0,asj
+845,,,,Ashkun,0,ask
+846,,,,Asilulu,0,asl
+26,asm,asm,as,Assamese,1,asm
+847,,,,Xingú Asuriní,0,asn
+848,,,,Dano,0,aso
+849,,,,Algerian Sign Language,0,asp
+850,,,,Austrian Sign Language,0,asq
+851,,,,Asuri,0,asr
+852,,,,Ipulo,0,ass
+27,ast,ast,,Asturian,1,ast
+853,,,,Tocantins Asurini,0,asu
+854,,,,Asoa,0,asv
+855,,,,Australian Aborigines Sign Language,0,asw
+856,,,,Muratayak,0,asx
+857,,,,Yaosakor Asmat,0,asy
+858,,,,As,0,asz
+859,,,,Pele-Ata,0,ata
+860,,,,Zaiwa,0,atb
+861,,,,Atsahuaca,0,atc
+862,,,,Ata Manobo,0,atd
+863,,,,Atemble,0,ate
+864,,,,Ivbie North-Okpela-Arhe,0,atg
+865,,,,Attié,0,ati
+866,,,,Atikamekw,0,atj
+867,,,,Ati,0,atk
+868,,,,Mt. Iraya Agta,0,atl
+869,,,,Ata,0,atm
+870,,,,Ashtiani,0,atn
+871,,,,Atong,0,ato
+872,,,,Pudtol Atta,0,atp
+873,,,,Aralle-Tabulahan,0,atq
+874,,,,Waimiri-Atroari,0,atr
+875,,,,Gros Ventre,0,ats
+876,,,,Pamplona Atta,0,att
+877,,,,Reel,0,atu
+878,,,,Northern Altai,0,atv
+879,,,,Atsugewi,0,atw
+880,,,,Arutani,0,atx
+881,,,,Aneityum,0,aty
+882,,,,Arta,0,atz
+883,,,,Asumboa,0,aua
+884,,,,Alugu,0,aub
+885,,,,Waorani,0,auc
+886,,,,Anuta,0,aud
+887,,,,=/Kx'au//'ein,0,aue
+888,,,,Aguna,0,aug
+889,,,,Aushi,0,auh
+890,,,,Anuki,0,aui
+891,,,,Awjilah,0,auj
+892,,,,Heyo,0,auk
+893,,,,Aulua,0,aul
+894,,,,Asu (Nigeria),0,aum
+895,,,,Molmo One,0,aun
+896,,,,Auyokawa,0,auo
+897,,,,Makayam,0,aup
+898,,,,Anus,0,auq
+899,,,,Aruek,0,aur
+900,,,,Austral,0,aut
+901,,,,Auye,0,auu
+902,,,,Awyi,0,auw
+903,,,,Aurá,0,aux
+904,,,,Awiyaana,0,auy
+905,,,,Uzbeki Arabic,0,auz
+30,ava,ava,av,Avaric,1,ava
+906,,,,Avau,0,avb
+907,,,,Alviri-Vidari,0,avd
+31,ave,ave,ae,Avestan,1,ave
+908,,,,Avikam,0,avi
+909,,,,Kotava,0,avk
+910,,,,Eastern Egyptian Bedawi Arabic,0,avl
+911,,,,Angkamuthi,0,avm
+912,,,,Avatime,0,avn
+913,,,,Agavotaguerra,0,avo
+914,,,,Aushiri,0,avs
+915,,,,Au,0,avt
+916,,,,Avokaya,0,avu
+917,,,,Avá-Canoeiro,0,avv
+32,awa,awa,,Awadhi,1,awa
+918,,,,Awa (Papua New Guinea),0,awb
+919,,,,Cicipu,0,awc
+920,,,,Awetí,0,awe
+921,,,,Anguthimri,0,awg
+922,,,,Awbono,0,awh
+923,,,,Aekyom,0,awi
+924,,,,Awabakal,0,awk
+925,,,,Arawum,0,awm
+926,,,,Awngi,0,awn
+927,,,,Awak,0,awo
+928,,,,Awera,0,awr
+929,,,,South Awyu,0,aws
+930,,,,Araweté,0,awt
+931,,,,Central Awyu,0,awu
+932,,,,Jair Awyu,0,awv
+933,,,,Awun,0,aww
+934,,,,Awara,0,awx
+935,,,,Edera Awyu,0,awy
+936,,,,Abipon,0,axb
+937,,,,Ayerrerenge,0,axe
+938,,,,Mato Grosso Arára,0,axg
+939,,,,Yaka (Central African Republic),0,axk
+940,,,,Middle Armenian,0,axm
+941,,,,Xaragure,0,axx
+942,,,,Awar,0,aya
+943,,,,Ayizo Gbe,0,ayb
+944,,,,Southern Aymara,0,ayc
+945,,,,Ayabadhu,0,ayd
+946,,,,Ayere,0,aye
+947,,,,Ginyanga,0,ayg
+948,,,,Hadrami Arabic,0,ayh
+949,,,,Leyigha,0,ayi
+950,,,,Akuku,0,ayk
+951,,,,Libyan Arabic,0,ayl
+33,aym,aym,ay,Aymara,1,aym
+952,,,,Sanaani Arabic,0,ayn
+953,,,,Ayoreo,0,ayo
+954,,,,North Mesopotamian Arabic,0,ayp
+955,,,,Ayi (Papua New Guinea),0,ayq
+956,,,,Central Aymara,0,ayr
+957,,,,Sorsogon Ayta,0,ays
+958,,,,Magbukun Ayta,0,ayt
+959,,,,Ayu,0,ayu
+960,,,,Tayabas Ayta,0,ayy
+961,,,,Mai Brat,0,ayz
+962,,,,Azha,0,aza
+963,,,,South Azerbaijani,0,azb
+964,,,,Eastern Durango Nahuatl,0,azd
+34,aze,aze,az,Azerbaijani,1,aze
+965,,,,San Pedro Amuzgos Amuzgo,0,azg
+966,,,,North Azerbaijani,0,azj
+967,,,,Ipalapa Amuzgo,0,azm
+968,,,,Western Durango Nahuatl,0,azn
+969,,,,Awing,0,azo
+970,,,,Faire Atta,0,azt
+971,,,,Highland Puebla Nahuatl,0,azz
+972,,,,Babatana,0,baa
+973,,,,Bainouk-Gunyuño,0,bab
+974,,,,Badui,0,bac
+975,,,,Baré,0,bae
+976,,,,Nubaca,0,baf
+977,,,,Tuki,0,bag
+978,,,,Bahamas Creole English,0,bah
+979,,,,Barakai,0,baj
+37,bak,bak,ba,Bashkir,1,bak
+38,bal,bal,,Baluchi,1,bal
+39,bam,bam,bm,Bambara,1,bam
+40,ban,ban,,Balinese,1,ban
+980,,,,Waimaha,0,bao
+981,,,,Bantawa,0,bap
+982,,,,Bavarian,0,bar
+42,bas,bas,,Basa,1,bas
+983,,,,Bada (Nigeria),0,bau
+984,,,,Vengo,0,bav
+985,,,,Bambili-Bambui,0,baw
+986,,,,Bamun,0,bax
+987,,,,Batuley,0,bay
+988,,,,Baatonum,0,bba
+989,,,,Barai,0,bbb
+990,,,,Batak Toba,0,bbc
+991,,,,Bau,0,bbd
+992,,,,Bangba,0,bbe
+993,,,,Baibai,0,bbf
+994,,,,Barama,0,bbg
+995,,,,Bugan,0,bbh
+996,,,,Barombi,0,bbi
+997,,,,Ghomálá',0,bbj
+998,,,,Babanki,0,bbk
+999,,,,Bats,0,bbl
+1000,,,,Babango,0,bbm
+1001,,,,Uneapa,0,bbn
+1002,,,,Northern Bobo Madaré,0,bbo
+1003,,,,West Central Banda,0,bbp
+1004,,,,Bamali,0,bbq
+1005,,,,Girawa,0,bbr
+1006,,,,Bakpinka,0,bbs
+1007,,,,Mburku,0,bbt
+1008,,,,Kulung (Nigeria),0,bbu
+1009,,,,Karnai,0,bbv
+1010,,,,Baba,0,bbw
+1011,,,,Bubia,0,bbx
+1012,,,,Befang,0,bby
+1013,,,,Babalia Creole Arabic,0,bbz
+1014,,,,Central Bai,0,bca
+1015,,,,Bainouk-Samik,0,bcb
+1016,,,,Southern Balochi,0,bcc
+1017,,,,North Babar,0,bcd
+1018,,,,Bamenyam,0,bce
+1019,,,,Bamu,0,bcf
+1020,,,,Baga Binari,0,bcg
+1021,,,,Bariai,0,bch
+1022,,,,Baoulé,0,bci
+1023,,,,Bardi,0,bcj
+1024,,,,Bunaba,0,bck
+1025,,,,Central Bikol,0,bcl
+1026,,,,Bannoni,0,bcm
+1027,,,,Bali (Nigeria),0,bcn
+1028,,,,Kaluli,0,bco
+1029,,,,Bali (Democratic Republic of Congo),0,bcp
+1030,,,,Bench,0,bcq
+1031,,,,Babine,0,bcr
+1032,,,,Kohumono,0,bcs
+1033,,,,Bendi,0,bct
+1034,,,,Awad Bing,0,bcu
+1035,,,,Shoo-Minda-Nye,0,bcv
+1036,,,,Bana,0,bcw
+1037,,,,Bacama,0,bcy
+1038,,,,Bainouk-Gunyaamolo,0,bcz
+1039,,,,Bayot,0,bda
+1040,,,,Basap,0,bdb
+1041,,,,Emberá-Baudó,0,bdc
+1042,,,,Bunama,0,bdd
+1043,,,,Bade,0,bde
+1044,,,,Biage,0,bdf
+1045,,,,Bonggi,0,bdg
+1046,,,,Baka (Sudan),0,bdh
+1047,,,,Burun,0,bdi
+1048,,,,Bai,0,bdj
+1049,,,,Budukh,0,bdk
+1050,,,,Indonesian Bajau,0,bdl
+1051,,,,Buduma,0,bdm
+1052,,,,Baldemu,0,bdn
+1053,,,,Morom,0,bdo
+1054,,,,Bende,0,bdp
+1055,,,,Bahnar,0,bdq
+1056,,,,West Coast Bajau,0,bdr
+1057,,,,Burunge,0,bds
+1058,,,,Bokoto,0,bdt
+1059,,,,Oroko,0,bdu
+1060,,,,Bodo Parja,0,bdv
+1061,,,,Baham,0,bdw
+1062,,,,Budong-Budong,0,bdx
+1063,,,,Bandjalang,0,bdy
+1064,,,,Badeshi,0,bdz
+1065,,,,Beaver,0,bea
+1066,,,,Bebele,0,beb
+1067,,,,Iceve-Maci,0,bec
+1068,,,,Bedoanas,0,bed
+1069,,,,Byangsi,0,bee
+1070,,,,Benabena,0,bef
+1071,,,,Belait,0,beg
+1072,,,,Biali,0,beh
+1073,,,,Bekati',0,bei
+44,bej,bej,,Beja,1,bej
+1074,,,,Bebeli,0,bek
+45,bel,bel,be,Belarusian,1,bel
+46,bem,bem,,Bemba,1,bem
+47,ben,ben,bn,Bengali,1,ben
+1075,,,,Beami,0,beo
+1076,,,,Besoa,0,bep
+1077,,,,Beembe,0,beq
+1078,,,,Besme,0,bes
+1079,,,,Guiberoua Béte,0,bet
+1080,,,,Blagar,0,beu
+1081,,,,Daloa Bété,0,bev
+1082,,,,Betawi,0,bew
+1083,,,,Jur Modo,0,bex
+1084,,,,Beli (Papua New Guinea),0,bey
+1085,,,,Bena (Tanzania),0,bez
+1086,,,,Bari,0,bfa
+1087,,,,Pauri Bareli,0,bfb
+1088,,,,Northern Bai,0,bfc
+1089,,,,Bafut,0,bfd
+1090,,,,Betaf,0,bfe
+1091,,,,Bofi,0,bff
+1092,,,,Busang Kayan,0,bfg
+1093,,,,Blafe,0,bfh
+1094,,,,British Sign Language,0,bfi
+1095,,,,Bafanji,0,bfj
+1096,,,,Ban Khor Sign Language,0,bfk
+1097,,,,Banda-Ndélé,0,bfl
+1098,,,,Mmen,0,bfm
+1099,,,,Bunak,0,bfn
+1100,,,,Malba Birifor,0,bfo
+1101,,,,Beba,0,bfp
+1102,,,,Badaga,0,bfq
+1103,,,,Bazigar,0,bfr
+1104,,,,Southern Bai,0,bfs
+1105,,,,Balti,0,bft
+1106,,,,Gahri,0,bfu
+1107,,,,Bondo,0,bfw
+1108,,,,Bantayanon,0,bfx
+1109,,,,Bagheli,0,bfy
+1110,,,,Mahasu Pahari,0,bfz
+1111,,,,Gwamhi-Wuri,0,bga
+1112,,,,Bobongko,0,bgb
+1113,,,,Haryanvi,0,bgc
+1114,,,,Rathwi Bareli,0,bgd
+1115,,,,Bauria,0,bge
+1116,,,,Bangandu,0,bgf
+1117,,,,Bugun,0,bgg
+1118,,,,Giangan,0,bgi
+1119,,,,Bangolan,0,bgj
+1120,,,,Bit,0,bgk
+1121,,,,Bo (Laos),0,bgl
+1122,,,,Baga Mboteni,0,bgm
+1123,,,,Western Balochi,0,bgn
+1124,,,,Baga Koga,0,bgo
+1125,,,,Eastern Balochi,0,bgp
+1126,,,,Bagri,0,bgq
+1127,,,,Bawm Chin,0,bgr
+1128,,,,Tagabawa,0,bgs
+1129,,,,Bughotu,0,bgt
+1130,,,,Mbongno,0,bgu
+1131,,,,Warkay-Bipim,0,bgv
+1132,,,,Bhatri,0,bgw
+1133,,,,Balkan Gagauz Turkish,0,bgx
+1134,,,,Benggoi,0,bgy
+1135,,,,Banggai,0,bgz
+1136,,,,Bharia,0,bha
+1137,,,,Bhili,0,bhb
+1138,,,,Biga,0,bhc
+1139,,,,Bhadrawahi,0,bhd
+1140,,,,Bhaya,0,bhe
+1141,,,,Odiai,0,bhf
+1142,,,,Binandere,0,bhg
+1143,,,,Bukharic,0,bhh
+1144,,,,Bhilali,0,bhi
+1145,,,,Bahing,0,bhj
+1146,,,,Bimin,0,bhl
+1147,,,,Bathari,0,bhm
+1148,,,,Bohtan Neo-Aramaic,0,bhn
+49,bho,bho,,Bhojpuri,1,bho
+1149,,,,Bima,0,bhp
+1150,,,,Tukang Besi South,0,bhq
+1151,,,,Bara Malagasy,0,bhr
+1152,,,,Buwal,0,bhs
+1153,,,,Bhattiyali,0,bht
+1154,,,,Bhunjia,0,bhu
+1155,,,,Bahau,0,bhv
+1156,,,,Biak,0,bhw
+1157,,,,Bhalay,0,bhx
+1158,,,,Bhele,0,bhy
+1159,,,,Bada (Indonesia),0,bhz
+1160,,,,Badimaya,0,bia
+1161,,,,Bissa,0,bib
+1162,,,,Bikaru,0,bic
+1163,,,,Bidiyo,0,bid
+1164,,,,Bepour,0,bie
+1165,,,,Biafada,0,bif
+1166,,,,Biangai,0,big
+1167,,,,Vaghat-Ya-Bijim-Legeri,0,bij
+51,bik,bik,,Bikol,1,bik
+1168,,,,Bile,0,bil
+1169,,,,Bimoba,0,bim
+52,bin,bin,,Bini,1,bin
+1170,,,,Nai,0,bio
+1171,,,,Bila,0,bip
+1172,,,,Bipi,0,biq
+1173,,,,Bisorio,0,bir
+53,bis,bis,bi,Bislama,1,bis
+1174,,,,Berinomo,0,bit
+1175,,,,Biete,0,biu
+1176,,,,Southern Birifor,0,biv
+1177,,,,Kol (Cameroon),0,biw
+1178,,,,Bijori,0,bix
+1179,,,,Birhor,0,biy
+1180,,,,Baloi,0,biz
+1181,,,,Budza,0,bja
+1182,,,,Banggarla,0,bjb
+1183,,,,Bariji,0,bjc
+1184,,,,Biao-Jiao Mien,0,bje
+1185,,,,Barzani Jewish Neo-Aramaic,0,bjf
+1186,,,,Bidyogo,0,bjg
+1187,,,,Bahinemo,0,bjh
+1188,,,,Burji,0,bji
+1189,,,,Kanauji,0,bjj
+1190,,,,Barok,0,bjk
+1191,,,,Bulu (Papua New Guinea),0,bjl
+1192,,,,Bajelani,0,bjm
+1193,,,,Banjar,0,bjn
+1194,,,,Mid-Southern Banda,0,bjo
+1195,,,,Binumarien,0,bjr
+1196,,,,Bajan,0,bjs
+1197,,,,Balanta-Ganja,0,bjt
+1198,,,,Busuu,0,bju
+1199,,,,Bedjond,0,bjv
+1200,,,,Bakwé,0,bjw
+1201,,,,Banao Itneg,0,bjx
+1202,,,,Bayali,0,bjy
+1203,,,,Baruga,0,bjz
+1204,,,,Kyak,0,bka
+1205,,,,Baka (Cameroon),0,bkc
+1206,,,,Binukid,0,bkd
+1207,,,,Beeke,0,bkf
+1208,,,,Buraka,0,bkg
+1209,,,,Bakoko,0,bkh
+1210,,,,Baki,0,bki
+1211,,,,Pande,0,bkj
+1212,,,,Brokskat,0,bkk
+1213,,,,Berik,0,bkl
+1214,,,,Kom (Cameroon),0,bkm
+1215,,,,Bukitan,0,bkn
+1216,,,,Kwa',0,bko
+1217,,,,Boko (Democratic Republic of Congo),0,bkp
+1218,,,,Bakairí,0,bkq
+1219,,,,Bakumpai,0,bkr
+1220,,,,Northern Sorsoganon,0,bks
+1221,,,,Boloki,0,bkt
+1222,,,,Buhid,0,bku
+1223,,,,Bekwarra,0,bkv
+1224,,,,Bekwel,0,bkw
+1225,,,,Baikeno,0,bkx
+1226,,,,Bokyi,0,bky
+1227,,,,Bungku,0,bkz
+54,bla,bla,,Siksika,1,bla
+1228,,,,Bilua,0,blb
+1229,,,,Bella Coola,0,blc
+1230,,,,Bolango,0,bld
+1231,,,,Balanta-Kentohe,0,ble
+1232,,,,Buol,0,blf
+1233,,,,Balau,0,blg
+1234,,,,Kuwaa,0,blh
+1235,,,,Bolia,0,bli
+1236,,,,Bolongan,0,blj
+1237,,,,Pa'o Karen,0,blk
+1238,,,,Biloxi,0,bll
+1239,,,,Beli (Sudan),0,blm
+1240,,,,Southern Catanduanes Bikol,0,bln
+1241,,,,Anii,0,blo
+1242,,,,Blablanga,0,blp
+1243,,,,Baluan-Pam,0,blq
+1244,,,,Blang,0,blr
+1245,,,,Balaesang,0,bls
+1246,,,,Tai Dam,0,blt
+1247,,,,Bolo,0,blv
+1248,,,,Balangao,0,blw
+1249,,,,Mag-Indi Ayta,0,blx
+1250,,,,Notre,0,bly
+1251,,,,Balantak,0,blz
+1252,,,,Lame,0,bma
+1253,,,,Bembe,0,bmb
+1254,,,,Biem,0,bmc
+1255,,,,Baga Manduri,0,bmd
+1256,,,,Limassa,0,bme
+1257,,,,Bom,0,bmf
+1258,,,,Bamwe,0,bmg
+1259,,,,Kein,0,bmh
+1260,,,,Bagirmi,0,bmi
+1261,,,,Bote-Majhi,0,bmj
+1262,,,,Ghayavi,0,bmk
+1263,,,,Bomboli,0,bml
+1264,,,,Northern Betsimisaraka Malagasy,0,bmm
+1265,,,,Bina (Papua New Guinea),0,bmn
+1266,,,,Bambalang,0,bmo
+1267,,,,Bulgebi,0,bmp
+1268,,,,Bomu,0,bmq
+1269,,,,Muinane,0,bmr
+1270,,,,Bilma Kanuri,0,bms
+1271,,,,Biao Mon,0,bmt
+1272,,,,Somba-Siawari,0,bmu
+1273,,,,Bum,0,bmv
+1274,,,,Bomwali,0,bmw
+1275,,,,Baimak,0,bmx
+1276,,,,Bemba (Democratic Republic of Congo),0,bmy
+1277,,,,Baramu,0,bmz
+1278,,,,Bonerate,0,bna
+1279,,,,Bookan,0,bnb
+1280,,,,Bontok,0,bnc
+1281,,,,Banda (Indonesia),0,bnd
+1282,,,,Bintauna,0,bne
+1283,,,,Masiwang,0,bnf
+1284,,,,Benga,0,bng
+1285,,,,Bangi,0,bni
+1286,,,,Eastern Tawbuid,0,bnj
+1287,,,,Bierebo,0,bnk
+1288,,,,Boon,0,bnl
+1289,,,,Batanga,0,bnm
+1290,,,,Bunun,0,bnn
+1291,,,,Bantoanon,0,bno
+1292,,,,Bola,0,bnp
+1293,,,,Bantik,0,bnq
+1294,,,,Butmas-Tur,0,bnr
+1295,,,,Bundeli,0,bns
+1296,,,,Bentong,0,bnu
+1297,,,,Bonerif,0,bnv
+1298,,,,Bisis,0,bnw
+1299,,,,Bangubangu,0,bnx
+1300,,,,Bintulu,0,bny
+1301,,,,Beezen,0,bnz
+1302,,,,Bora,0,boa
+1303,,,,Aweer,0,bob
+416,bod,tib,bo,Tibetan,1,bod
+1304,,,,Mundabli,0,boe
+1305,,,,Bolon,0,bof
+1306,,,,Bamako Sign Language,0,bog
+1307,,,,Boma,0,boh
+1308,,,,Barbareño,0,boi
+1309,,,,Anjam,0,boj
+1310,,,,Bonjo,0,bok
+1311,,,,Bole,0,bol
+1312,,,,Berom,0,bom
+1313,,,,Bine,0,bon
+1314,,,,Tiemacèwè Bozo,0,boo
+1315,,,,Bonkiman,0,bop
+1316,,,,Bogaya,0,boq
+1317,,,,Borôro,0,bor
+56,bos,bos,bs,Bosnian,1,bos
+1318,,,,Bongo,0,bot
+1319,,,,Bondei,0,bou
+1320,,,,Tuwuli,0,bov
+1321,,,,Rema,0,bow
+1322,,,,Buamu,0,box
+1323,,,,Bodo (Central African Republic),0,boy
+1324,,,,Tiéyaxo Bozo,0,boz
+1325,,,,Dakaka,0,bpa
+1326,,,,Barbacoas,0,bpb
+1327,,,,Banda-Banda,0,bpd
+1328,,,,Bonggo,0,bpg
+1329,,,,Botlikh,0,bph
+1330,,,,Bagupi,0,bpi
+1331,,,,Binji,0,bpj
+1332,,,,Orowe,0,bpk
+1333,,,,Broome Pearling Lugger Pidgin,0,bpl
+1334,,,,Biyom,0,bpm
+1335,,,,Dzao Min,0,bpn
+1336,,,,Anasi,0,bpo
+1337,,,,Kaure,0,bpp
+1338,,,,Banda Malay,0,bpq
+1339,,,,Koronadal Blaan,0,bpr
+1340,,,,Sarangani Blaan,0,bps
+1341,,,,Barrow Point,0,bpt
+1342,,,,Bongu,0,bpu
+1343,,,,Bian Marind,0,bpv
+1344,,,,Bo (Papua New Guinea),0,bpw
+1345,,,,Palya Bareli,0,bpx
+1346,,,,Bishnupriya,0,bpy
+1347,,,,Bilba,0,bpz
+1348,,,,Tchumbuli,0,bqa
+1349,,,,Bagusa,0,bqb
+1350,,,,Boko (Benin),0,bqc
+1351,,,,Bung,0,bqd
+1352,,,,Baga Kaloum,0,bqf
+1353,,,,Bago-Kusuntu,0,bqg
+1354,,,,Baima,0,bqh
+1355,,,,Bakhtiari,0,bqi
+1356,,,,Bandial,0,bqj
+1357,,,,Banda-Mbrès,0,bqk
+1358,,,,Bilakura,0,bql
+1359,,,,Wumboko,0,bqm
+1360,,,,Bulgarian Sign Language,0,bqn
+1361,,,,Balo,0,bqo
+1362,,,,Busa,0,bqp
+1363,,,,Biritai,0,bqq
+1364,,,,Burusu,0,bqr
+1365,,,,Bosngun,0,bqs
+1366,,,,Bamukumbit,0,bqt
+1367,,,,Boguru,0,bqu
+1368,,,,Koro Wachi,0,bqv
+1369,,,,Buru (Nigeria),0,bqw
+1370,,,,Baangi,0,bqx
+1371,,,,Bengkala Sign Language,0,bqy
+1372,,,,Bakaka,0,bqz
+57,bra,bra,,Braj,1,bra
+1373,,,,Lave,0,brb
+1374,,,,Berbice Creole Dutch,0,brc
+1375,,,,Baraamu,0,brd
+58,bre,bre,br,Breton,1,bre
+1376,,,,Bera,0,brf
+1377,,,,Baure,0,brg
+1378,,,,Brahui,0,brh
+1379,,,,Mokpwe,0,bri
+1380,,,,Bieria,0,brj
+1381,,,,Birked,0,brk
+1382,,,,Birwa,0,brl
+1383,,,,Barambu,0,brm
+1384,,,,Boruca,0,brn
+1385,,,,Brokkat,0,bro
+1386,,,,Barapasi,0,brp
+1387,,,,Breri,0,brq
+1388,,,,Birao,0,brr
+1389,,,,Baras,0,brs
+1390,,,,Bitare,0,brt
+1391,,,,Eastern Bru,0,bru
+1392,,,,Western Bru,0,brv
+1393,,,,Bellari,0,brw
+1394,,,,Bodo (India),0,brx
+1395,,,,Burui,0,bry
+1396,,,,Bilbil,0,brz
+1397,,,,Abinomn,0,bsa
+1398,,,,Brunei Bisaya,0,bsb
+1399,,,,Bassari,0,bsc
+1400,,,,Wushi,0,bse
+1401,,,,Bauchi,0,bsf
+1402,,,,Bashkardi,0,bsg
+1403,,,,Kati,0,bsh
+1404,,,,Bassossi,0,bsi
+1405,,,,Bangwinji,0,bsj
+1406,,,,Burushaski,0,bsk
+1407,,,,Basa-Gumna,0,bsl
+1408,,,,Busami,0,bsm
+1409,,,,Barasana-Eduria,0,bsn
+1410,,,,Buso,0,bso
+1411,,,,Baga Sitemu,0,bsp
+1412,,,,Bassa,0,bsq
+1413,,,,Bassa-Kontagora,0,bsr
+1414,,,,Akoose,0,bss
+1415,,,,Basketo,0,bst
+1416,,,,Bahonsuai,0,bsu
+1417,,,,Baga Sobané,0,bsv
+1418,,,,Baiso,0,bsw
+1419,,,,Yangkam,0,bsx
+1420,,,,Sabah Bisaya,0,bsy
+1421,,,,Bata,0,bta
+1422,,,,Bati (Cameroon),0,btc
+1423,,,,Batak Dairi,0,btd
+1424,,,,Gamo-Ningi,0,bte
+1425,,,,Birgit,0,btf
+1426,,,,Gagnoa Bété,0,btg
+1427,,,,Biatah Bidayuh,0,bth
+1428,,,,Burate,0,bti
+1429,,,,Bacanese Malay,0,btj
+1430,,,,Bhatola,0,btl
+1431,,,,Batak Mandailing,0,btm
+1432,,,,Ratagnon,0,btn
+1433,,,,Rinconada Bikol,0,bto
+1434,,,,Budibud,0,btp
+1435,,,,Batek,0,btq
+1436,,,,Baetora,0,btr
+1437,,,,Batak Simalungun,0,bts
+1438,,,,Bete-Bendi,0,btt
+1439,,,,Batu,0,btu
+1440,,,,Bateri,0,btv
+1441,,,,Butuanon,0,btw
+1442,,,,Batak Karo,0,btx
+1443,,,,Bobot,0,bty
+1444,,,,Batak Alas-Kluet,0,btz
+60,bua,bua,,Buriat,1,bua
+1445,,,,Bua,0,bub
+1446,,,,Bushi,0,buc
+1447,,,,Ntcham,0,bud
+1448,,,,Beothuk,0,bue
+1449,,,,Bushoong,0,buf
+61,bug,bug,,Buginese,1,bug
+1450,,,,Younuo Bunu,0,buh
+1451,,,,Bongili,0,bui
+1452,,,,Basa-Gurmana,0,buj
+1453,,,,Bugawac,0,buk
+62,bul,bul,bg,Bulgarian,1,bul
+1454,,,,Bulu (Cameroon),0,bum
+1455,,,,Sherbro,0,bun
+1456,,,,Terei,0,buo
+1457,,,,Busoa,0,bup
+1458,,,,Brem,0,buq
+1459,,,,Bokobaru,0,bus
+1460,,,,Bungain,0,but
+1461,,,,Budu,0,buu
+1462,,,,Bun,0,buv
+1463,,,,Bubi,0,buw
+1464,,,,Boghom,0,bux
+1465,,,,Bullom So,0,buy
+1466,,,,Bukwen,0,buz
+1467,,,,Barein,0,bva
+1468,,,,Bube,0,bvb
+1469,,,,Baelelea,0,bvc
+1470,,,,Baeggu,0,bvd
+1471,,,,Berau Malay,0,bve
+1472,,,,Boor,0,bvf
+1473,,,,Bonkeng,0,bvg
+1474,,,,Bure,0,bvh
+1475,,,,Belanda Viri,0,bvi
+1476,,,,Baan,0,bvj
+1477,,,,Bukat,0,bvk
+1478,,,,Bolivian Sign Language,0,bvl
+1479,,,,Bamunka,0,bvm
+1480,,,,Buna,0,bvn
+1481,,,,Bolgo,0,bvo
+1482,,,,Birri,0,bvq
+1483,,,,Burarra,0,bvr
+1484,,,,Bati (Indonesia),0,bvt
+1485,,,,Bukit Malay,0,bvu
+1486,,,,Baniva,0,bvv
+1487,,,,Boga,0,bvw
+1488,,,,Dibole,0,bvx
+1489,,,,Baybayanon,0,bvy
+1490,,,,Bauzi,0,bvz
+1491,,,,Bwatoo,0,bwa
+1492,,,,Namosi-Naitasiri-Serua,0,bwb
+1493,,,,Bwile,0,bwc
+1494,,,,Bwaidoka,0,bwd
+1495,,,,Bwe Karen,0,bwe
+1496,,,,Boselewa,0,bwf
+1497,,,,Barwe,0,bwg
+1498,,,,Bishuo,0,bwh
+1499,,,,Baniwa,0,bwi
+1500,,,,Láá Láá Bwamu,0,bwj
+1501,,,,Bauwaki,0,bwk
+1502,,,,Bwela,0,bwl
+1503,,,,Biwat,0,bwm
+1504,,,,Wunai Bunu,0,bwn
+1505,,,,Boro (Ethiopia),0,bwo
+1506,,,,Mandobo Bawah,0,bwp
+1507,,,,Southern Bobo Madaré,0,bwq
+1508,,,,Bura-Pabir,0,bwr
+1509,,,,Bomboma,0,bws
+1510,,,,Bafaw-Balong,0,bwt
+1511,,,,Buli (Ghana),0,bwu
+1512,,,,Bwa,0,bww
+1513,,,,Bu-Nao Bunu,0,bwx
+1514,,,,Cwi Bwamu,0,bwy
+1515,,,,Bwisi,0,bwz
+1516,,,,Bauro,0,bxa
+1517,,,,Belanda Bor,0,bxb
+1518,,,,Molengue,0,bxc
+1519,,,,Pela,0,bxd
+1520,,,,Birale,0,bxe
+1521,,,,Bilur,0,bxf
+1522,,,,Bangala,0,bxg
+1523,,,,Buhutu,0,bxh
+1524,,,,Pirlatapa,0,bxi
+1525,,,,Bayungu,0,bxj
+1526,,,,Bukusu,0,bxk
+1527,,,,Jalkunan,0,bxl
+1528,,,,Mongolia Buriat,0,bxm
+1529,,,,Burduna,0,bxn
+1530,,,,Barikanchi,0,bxo
+1531,,,,Bebil,0,bxp
+1532,,,,Beele,0,bxq
+1533,,,,Russia Buriat,0,bxr
+1534,,,,Busam,0,bxs
+1535,,,,China Buriat,0,bxu
+1536,,,,Berakou,0,bxv
+1537,,,,Bankagooma,0,bxw
+1538,,,,Borna (Democratic Republic of Congo),0,bxx
+1539,,,,Binahari,0,bxz
+1540,,,,Batak,0,bya
+1541,,,,Bikya,0,byb
+1542,,,,Ubaghara,0,byc
+1543,,,,Benyadu',0,byd
+1544,,,,Pouye,0,bye
+1545,,,,Bete,0,byf
+1546,,,,Baygo,0,byg
+1547,,,,Bhujel,0,byh
+1548,,,,Buyu,0,byi
+1549,,,,Bina (Nigeria),0,byj
+1550,,,,Biao,0,byk
+1551,,,,Bayono,0,byl
+1552,,,,Bidyara,0,bym
+64,byn,byn,,Blin,1,byn
+1553,,,,Biyo,0,byo
+1554,,,,Bumaji,0,byp
+1555,,,,Basay,0,byq
+1556,,,,Baruya,0,byr
+1557,,,,Burak,0,bys
+1558,,,,Berti,0,byt
+1559,,,,Medumba,0,byv
+1560,,,,Belhariya,0,byw
+1561,,,,Qaqet,0,byx
+1562,,,,Buya,0,byy
+1563,,,,Banaro,0,byz
+1564,,,,Bandi,0,bza
+1565,,,,Andio,0,bzb
+1566,,,,Southern Betsimisaraka Malagasy,0,bzc
+1567,,,,Bribri,0,bzd
+1568,,,,Jenaama Bozo,0,bze
+1569,,,,Boikin,0,bzf
+1570,,,,Babuza,0,bzg
+1571,,,,Mapos Buang,0,bzh
+1572,,,,Bisu,0,bzi
+1573,,,,Belize Kriol English,0,bzj
+1574,,,,Nicaragua Creole English,0,bzk
+1575,,,,Boano (Sulawesi),0,bzl
+1576,,,,Bolondo,0,bzm
+1577,,,,Boano (Maluku),0,bzn
+1578,,,,Bozaba,0,bzo
+1579,,,,Kemberano,0,bzp
+1580,,,,Buli (Indonesia),0,bzq
+1581,,,,Biri,0,bzr
+1582,,,,Brazilian Sign Language,0,bzs
+1583,,,,Brithenig,0,bzt
+1584,,,,Burmeso,0,bzu
+1585,,,,Bebe,0,bzv
+1586,,,,Basa (Nigeria),0,bzw
+1587,,,,Kɛlɛngaxo Bozo,0,bzx
+1588,,,,Obanliku,0,bzy
+1589,,,,Evant,0,bzz
+1590,,,,Chortí,0,caa
+1591,,,,Garifuna,0,cab
+1592,,,,Chuj,0,cac
+65,cad,cad,,Caddo,1,cad
+1593,,,,Lehar,0,cae
+1594,,,,Southern Carrier,0,caf
+1595,,,,Nivaclé,0,cag
+1596,,,,Cahuarano,0,cah
+1597,,,,Chané,0,caj
+1598,,,,Kaqchikel,0,cak
+1599,,,,Carolinian,0,cal
+1600,,,,Cemuhî,0,cam
+1601,,,,Chambri,0,can
+1602,,,,Chácobo,0,cao
+1603,,,,Chipaya,0,cap
+1604,,,,Car Nicobarese,0,caq
+67,car,car,,Galibi Carib,1,car
+1605,,,,Tsimané,0,cas
+68,cat,cat,ca,Catalan,1,cat
+1606,,,,Cavineña,0,cav
+1607,,,,Callawalla,0,caw
+1608,,,,Chiquitano,0,cax
+1609,,,,Cayuga,0,cay
+1610,,,,Canichana,0,caz
+1611,,,,Cabiyarí,0,cbb
+1612,,,,Carapana,0,cbc
+1613,,,,Carijona,0,cbd
+1614,,,,Chipiajes,0,cbe
+1615,,,,Chimila,0,cbg
+1616,,,,Cagua,0,cbh
+1617,,,,Chachi,0,cbi
+1618,,,,Ede Cabe,0,cbj
+1619,,,,Chavacano,0,cbk
+1620,,,,Bualkhaw Chin,0,cbl
+1621,,,,Nyahkur,0,cbn
+1622,,,,Izora,0,cbo
+1623,,,,Cashibo-Cacataibo,0,cbr
+1624,,,,Cashinahua,0,cbs
+1625,,,,Chayahuita,0,cbt
+1626,,,,Candoshi-Shapra,0,cbu
+1627,,,,Cacua,0,cbv
+1628,,,,Kinabalian,0,cbw
+1629,,,,Carabayo,0,cby
+1630,,,,Cauca,0,cca
+1631,,,,Chamicuro,0,ccc
+1632,,,,Cafundo Creole,0,ccd
+1633,,,,Chopi,0,cce
+1634,,,,Samba Daka,0,ccg
+1635,,,,Atsam,0,cch
+1636,,,,Kasanga,0,ccj
+1637,,,,Cutchi-Swahili,0,ccl
+1638,,,,Malaccan Creole Malay,0,ccm
+1639,,,,Comaltepec Chinantec,0,cco
+1640,,,,Chakma,0,ccp
+1641,,,,Cacaopera,0,ccr
+1642,,,,Choni,0,cda
+1643,,,,Chenchu,0,cde
+1644,,,,Chiru,0,cdf
+1645,,,,Chamari,0,cdg
+1646,,,,Chambeali,0,cdh
+1647,,,,Chodri,0,cdi
+1648,,,,Churahi,0,cdj
+1649,,,,Chepang,0,cdm
+1650,,,,Chaudangsi,0,cdn
+1651,,,,Min Dong Chinese,0,cdo
+1652,,,,Cinda-Regi-Tiyal,0,cdr
+1653,,,,Chadian Sign Language,0,cds
+1654,,,,Chadong,0,cdy
+1655,,,,Koda,0,cdz
+1656,,,,Lower Chehalis,0,cea
+70,ceb,ceb,,Cebuano,1,ceb
+1657,,,,Chamacoco,0,ceg
+1658,,,,Eastern Khumi Chin,0,cek
+1659,,,,Cen,0,cen
+1660,,,,Centúúm,0,cet
+1661,,,,Dijim-Bwilim,0,cfa
+1662,,,,Cara,0,cfd
+1663,,,,Como Karim,0,cfg
+1664,,,,Falam Chin,0,cfm
+1665,,,,Changriwa,0,cga
+1666,,,,Kagayanen,0,cgc
+1667,,,,Chiga,0,cgg
+1668,,,,Chocangacakha,0,cgk
+72,cha,cha,ch,Chamorro,1,cha
+73,chb,chb,,Chibcha,1,chb
+1669,,,,Catawba,0,chc
+1670,,,,Highland Oaxaca Chontal,0,chd
+74,che,che,ce,Chechen,1,che
+1671,,,,Tabasco Chontal,0,chf
+75,chg,chg,,Chagatai,1,chg
+1672,,,,Chinook,0,chh
+1673,,,,Ojitlán Chinantec,0,chj
+77,chk,chk,,Chuukese,1,chk
+1674,,,,Cahuilla,0,chl
+78,chm,chm,,Mari,1,chm
+79,chn,chn,,Chinook jargon,1,chn
+80,cho,cho,,Choctaw,1,cho
+81,chp,chp,,Chipewyan,1,chp
+1675,,,,Quiotepec Chinantec,0,chq
+82,chr,chr,,Cherokee,1,chr
+1676,,,,Cholón,0,cht
+83,chu,chu,cu,Church Slavic,1,chu
+84,chv,chv,cv,Chuvash,1,chv
+1677,,,,Chuwabu,0,chw
+1678,,,,Chantyal,0,chx
+85,chy,chy,,Cheyenne,1,chy
+1679,,,,Ozumacín Chinantec,0,chz
+1680,,,,Cia-Cia,0,cia
+1681,,,,Ci Gbe,0,cib
+1682,,,,Chickasaw,0,cic
+1683,,,,Chimariko,0,cid
+1684,,,,Cineni,0,cie
+1685,,,,Chinali,0,cih
+1686,,,,Chitkuli Kinnauri,0,cik
+1687,,,,Cimbrian,0,cim
+1688,,,,Cinta Larga,0,cin
+1689,,,,Chiapanec,0,cip
+1690,,,,Tiri,0,cir
+1691,,,,Chippewa,0,ciw
+1692,,,,Chaima,0,ciy
+1693,,,,Western Cham,0,cja
+1694,,,,Chru,0,cje
+1695,,,,Upper Chehalis,0,cjh
+1696,,,,Chamalal,0,cji
+1697,,,,Chokwe,0,cjk
+1698,,,,Eastern Cham,0,cjm
+1699,,,,Chenapian,0,cjn
+1700,,,,Ashéninka Pajonal,0,cjo
+1701,,,,Cabécar,0,cjp
+1702,,,,Shor,0,cjs
+1703,,,,Chuave,0,cjv
+1704,,,,Jinyu Chinese,0,cjy
+1705,,,,Central Kurdish,0,ckb
+1706,,,,Chak,0,ckh
+1707,,,,Cibak,0,ckl
+1708,,,,Anufo,0,cko
+1709,,,,Kajakse,0,ckq
+1710,,,,Kairak,0,ckr
+1711,,,,Tayo,0,cks
+1712,,,,Chukot,0,ckt
+1713,,,,Koasati,0,cku
+1714,,,,Kavalan,0,ckv
+1715,,,,Caka,0,ckx
+1716,,,,Cakfem-Mushere,0,cky
+1717,,,,Cakchiquel-Quiché Mixed Language,0,ckz
+1718,,,,Ron,0,cla
+1719,,,,Chilcotin,0,clc
+1720,,,,Chaldean Neo-Aramaic,0,cld
+1721,,,,Lealao Chinantec,0,cle
+1722,,,,Chilisso,0,clh
+1723,,,,Chakali,0,cli
+1724,,,,Laitu Chin,0,clj
+1725,,,,Idu-Mishmi,0,clk
+1726,,,,Chala,0,cll
+1727,,,,Clallam,0,clm
+1728,,,,Lowland Oaxaca Chontal,0,clo
+1729,,,,Lautu Chin,0,clt
+1730,,,,Caluyanun,0,clu
+1731,,,,Chulym,0,clw
+1732,,,,Eastern Highland Chatino,0,cly
+1733,,,,Maa,0,cma
+1734,,,,Cerma,0,cme
+1735,,,,Classical Mongolian,0,cmg
+1736,,,,Emberá-Chamí,0,cmi
+1737,,,,Campalagian,0,cml
+1738,,,,Michigamea,0,cmm
+1740,,,,Central Mnong,0,cmo
+1741,,,,Mro-Khimi Chin,0,cmr
+1742,,,,Messapic,0,cms
+1743,,,,Camtho,0,cmt
+1744,,,,Changthang,0,cna
+1745,,,,Chinbon Chin,0,cnb
+1746,,,,Côông,0,cnc
+1747,,,,Northern Qiang,0,cng
+1748,,,,Haka Chin,0,cnh
+1749,,,,Asháninka,0,cni
+1750,,,,Khumi Chin,0,cnk
+1751,,,,Lalana Chinantec,0,cnl
+1752,,,,Con,0,cno
+1753,,,,Central Asmat,0,cns
+1754,,,,Tepetotutla Chinantec,0,cnt
+1755,,,,Chenoua,0,cnu
+1756,,,,Ngawn Chin,0,cnw
+1757,,,,Middle Cornish,0,cnx
+1758,,,,Cocos Islands Malay,0,coa
+1759,,,,Chicomuceltec,0,cob
+1760,,,,Cocopa,0,coc
+1761,,,,Cocama-Cocamilla,0,cod
+1762,,,,Koreguaje,0,coe
+1763,,,,Colorado,0,cof
+1764,,,,Chong,0,cog
+1765,,,,Chonyi-Dzihana-Kauma,0,coh
+1766,,,,Cochimi,0,coj
+1767,,,,Santa Teresa Cora,0,cok
+1768,,,,Columbia-Wenatchi,0,col
+1769,,,,Comanche,0,com
+1770,,,,Cofán,0,con
+1771,,,,Comox,0,coo
+87,cop,cop,,Coptic,1,cop
+1772,,,,Coquille,0,coq
+88,cor,cor,kw,Cornish,1,cor
+89,cos,cos,co,Corsican,1,cos
+1773,,,,Caquinte,0,cot
+1774,,,,Wamey,0,cou
+1775,,,,Cao Miao,0,cov
+1776,,,,Cowlitz,0,cow
+1777,,,,Nanti,0,cox
+1778,,,,Coyaima,0,coy
+1779,,,,Chochotec,0,coz
+1780,,,,Palantla Chinantec,0,cpa
+1781,,,,Ucayali-Yurúa Ashéninka,0,cpb
+1782,,,,Ajyíninka Apurucayali,0,cpc
+1783,,,,Cappadocian Greek,0,cpg
+1784,,,,Chinese Pidgin English,0,cpi
+1785,,,,Cherepon,0,cpn
+1786,,,,Capiznon,0,cps
+1787,,,,Pichis Ashéninka,0,cpu
+1788,,,,Pu-Xian Chinese,0,cpx
+1789,,,,South Ucayali Ashéninka,0,cpy
+1790,,,,Chuanqiandian Cluster Miao,0,cqd
+1791,,,,Chilean Quechua,0,cqu
+1792,,,,Chara,0,cra
+1793,,,,Island Carib,0,crb
+1794,,,,Lonwolwol,0,crc
+1795,,,,Coeur d'Alene,0,crd
+93,cre,cre,cr,Cree,1,cre
+1796,,,,Caramanta,0,crf
+1797,,,,Michif,0,crg
+94,crh,crh,,Crimean Tatar,1,crh
+1798,,,,Sãotomense,0,cri
+1799,,,,Southern East Cree,0,crj
+1800,,,,Plains Cree,0,crk
+1801,,,,Northern East Cree,0,crl
+1802,,,,Moose Cree,0,crm
+1803,,,,El Nayar Cora,0,crn
+1804,,,,Crow,0,cro
+1805,,,,Iyo'wujwa Chorote,0,crq
+1806,,,,Carolina Algonquian,0,crr
+1807,,,,Seselwa Creole French,0,crs
+1808,,,,Iyojwa'ja Chorote,0,crt
+1809,,,,Chaura,0,crv
+1810,,,,Chrau,0,crw
+1811,,,,Carrier,0,crx
+1812,,,,Cori,0,cry
+1813,,,,Cruzeño,0,crz
+1814,,,,Chiltepec Chinantec,0,csa
+96,csb,csb,,Kashubian,1,csb
+1815,,,,Catalan Sign Language,0,csc
+1739,,,,Mandarin Chinese,1,cmn
+1816,,,,Chiangmai Sign Language,0,csd
+1817,,,,Czech Sign Language,0,cse
+1818,,,,Cuba Sign Language,0,csf
+1819,,,,Chilean Sign Language,0,csg
+1820,,,,Asho Chin,0,csh
+1821,,,,Coast Miwok,0,csi
+1822,,,,Jola-Kasa,0,csk
+1823,,,,Chinese Sign Language,0,csl
+1824,,,,Central Sierra Miwok,0,csm
+1825,,,,Colombian Sign Language,0,csn
+1826,,,,Sochiapam Chinantec,0,cso
+1827,,,,Croatia Sign Language,0,csq
+1828,,,,Costa Rican Sign Language,0,csr
+1829,,,,Southern Ohlone,0,css
+1830,,,,Northern Ohlone,0,cst
+1831,,,,Sumtu Chin,0,csv
+1832,,,,Swampy Cree,0,csw
+1833,,,,Siyin Chin,0,csy
+1834,,,,Coos,0,csz
+1835,,,,Tataltepec Chatino,0,cta
+1836,,,,Chetco,0,ctc
+1837,,,,Tedim Chin,0,ctd
+1838,,,,Tepinapa Chinantec,0,cte
+1839,,,,Chittagonian,0,ctg
+1840,,,,Thaiphum Chin,0,cth
+1841,,,,Tlacoatzintepec Chinantec,0,ctl
+1842,,,,Chitimacha,0,ctm
+1843,,,,Chhintange,0,ctn
+1844,,,,Emberá-Catío,0,cto
+1845,,,,Western Highland Chatino,0,ctp
+1846,,,,Northern Catanduanes Bikol,0,cts
+1847,,,,Wayanad Chetti,0,ctt
+1848,,,,Chol,0,ctu
+1849,,,,Zacatepec Chatino,0,ctz
+1850,,,,Cua,0,cua
+1851,,,,Cubeo,0,cub
+1852,,,,Usila Chinantec,0,cuc
+1853,,,,Cung,0,cug
+1854,,,,Chuka,0,cuh
+1855,,,,Cuiba,0,cui
+1856,,,,Mashco Piro,0,cuj
+1857,,,,San Blas Kuna,0,cuk
+1858,,,,Culina,0,cul
+1859,,,,Cumeral,0,cum
+1860,,,,Cumanagoto,0,cuo
+1861,,,,Cupeño,0,cup
+1862,,,,Cun,0,cuq
+1863,,,,Chhulung,0,cur
+1864,,,,Teutila Cuicatec,0,cut
+1865,,,,Tai Ya,0,cuu
+1866,,,,Cuvok,0,cuv
+1867,,,,Chukwa,0,cuw
+1868,,,,Tepeuxila Cuicatec,0,cux
+1869,,,,Chug,0,cvg
+1870,,,,Valle Nacional Chinantec,0,cvn
+1871,,,,Kabwa,0,cwa
+1872,,,,Maindo,0,cwb
+1873,,,,Woods Cree,0,cwd
+1874,,,,Kwere,0,cwe
+1875,,,,Chewong,0,cwg
+1876,,,,Kuwaataay,0,cwt
+1877,,,,Nopala Chatino,0,cya
+1878,,,,Cayubaba,0,cyb
+455,cym,wel,cy,Welsh,1,cym
+1879,,,,Cuyonon,0,cyo
+1880,,,,Huizhou Chinese,0,czh
+1881,,,,Knaanic,0,czk
+1882,,,,Zenzontepec Chatino,0,czn
+1883,,,,Min Zhong Chinese,0,czo
+1884,,,,Zotung Chin,0,czt
+1885,,,,Dangaléat,0,daa
+1886,,,,Dambi,0,dac
+1887,,,,Marik,0,dad
+1888,,,,Duupa,0,dae
+1889,,,,Dan,0,daf
+1890,,,,Dagbani,0,dag
+1891,,,,Gwahatike,0,dah
+1892,,,,Day,0,dai
+1893,,,,Dar Fur Daju,0,daj
+99,dak,dak,,Dakota,1,dak
+1894,,,,Dahalo,0,dal
+1895,,,,Damakawa,0,dam
+1896,,,,Daai Chin,0,dao
+1897,,,,Dandami Maria,0,daq
+101,dar,dar,,Dargwa,1,dar
+1898,,,,Daho-Doo,0,das
+1899,,,,Dar Sila Daju,0,dau
+1900,,,,Taita,0,dav
+1901,,,,Davawenyo,0,daw
+1902,,,,Dayi,0,dax
+1903,,,,Dao,0,daz
+1904,,,,Bangi Me,0,dba
+1905,,,,Deno,0,dbb
+1906,,,,Dadiya,0,dbd
+1907,,,,Dabe,0,dbe
+1908,,,,Edopi,0,dbf
+1909,,,,Dogul Dom Dogon,0,dbg
+1910,,,,Doka,0,dbi
+1911,,,,Ida'an,0,dbj
+1912,,,,Dyirbal,0,dbl
+1913,,,,Duguri,0,dbm
+1914,,,,Duriankere,0,dbn
+1915,,,,Dulbu,0,dbo
+1916,,,,Duwai,0,dbp
+1917,,,,Daba,0,dbq
+1918,,,,Dabarre,0,dbr
+1919,,,,Ben Tey Dogon,0,dbt
+1920,,,,Bondum Dom Dogon,0,dbu
+1921,,,,Dungu,0,dbv
+1922,,,,Bankan Tey Dogon,0,dbw
+1923,,,,Dibiyaso,0,dby
+1924,,,,Deccan,0,dcc
+1925,,,,Negerhollands,0,dcr
+1926,,,,Dadi Dadi,0,dda
+1927,,,,Dongotono,0,ddd
+1928,,,,Doondo,0,dde
+1929,,,,Fataluku,0,ddg
+1930,,,,West Goodenough,0,ddi
+1931,,,,Jaru,0,ddj
+1932,,,,Dendi (Benin),0,ddn
+1933,,,,Dido,0,ddo
+1934,,,,Dhudhuroa,0,ddr
+1935,,,,Donno So Dogon,0,dds
+1936,,,,Dawera-Daweloor,0,ddw
+1937,,,,Dagik,0,dec
+1938,,,,Dedua,0,ded
+1939,,,,Dewoin,0,dee
+1940,,,,Dezfuli,0,def
+1941,,,,Degema,0,deg
+1942,,,,Dehwari,0,deh
+1943,,,,Demisa,0,dei
+1944,,,,Dek,0,dek
+103,del,del,,Delaware,1,del
+1945,,,,Dem,0,dem
+104,den,den,,Slave (Athapascan),1,den
+1946,,,,Pidgin Delaware,0,dep
+1947,,,,Dendi (Central African Republic),0,deq
+1948,,,,Deori,0,der
+1949,,,,Desano,0,des
+1950,,,,Domung,0,dev
+1951,,,,Dengese,0,dez
+1952,,,,Southern Dagaare,0,dga
+1953,,,,Bunoge Dogon,0,dgb
+1954,,,,Casiguran Dumagat Agta,0,dgc
+1955,,,,Dagaari Dioula,0,dgd
+1956,,,,Degenan,0,dge
+1957,,,,Doga,0,dgg
+1958,,,,Dghwede,0,dgh
+1959,,,,Northern Dagara,0,dgi
+1960,,,,Dagba,0,dgk
+1961,,,,Andaandi,0,dgl
+1962,,,,Dagoman,0,dgn
+1963,,,,Dogri (individual language),0,dgo
+105,dgr,dgr,,Dogrib,1,dgr
+1964,,,,Dogoso,0,dgs
+1965,,,,Ndrag'ngith,0,dgt
+1966,,,,Degaru,0,dgu
+1967,,,,Daungwurrung,0,dgw
+1968,,,,Doghoro,0,dgx
+1969,,,,Daga,0,dgz
+1970,,,,Dhundari,0,dhd
+1971,,,,Dhangu,0,dhg
+1972,,,,Dhimal,0,dhi
+1973,,,,Dhalandji,0,dhl
+1974,,,,Zemba,0,dhm
+1975,,,,Dhanki,0,dhn
+1976,,,,Dhodia,0,dho
+1977,,,,Dhargari,0,dhr
+1978,,,,Dhaiso,0,dhs
+1979,,,,Dhurga,0,dhu
+1980,,,,Dehu,0,dhv
+1981,,,,Dhanwar (Nepal),0,dhw
+1982,,,,Dia,0,dia
+1983,,,,South Central Dinka,0,dib
+1984,,,,Lakota Dida,0,dic
+1985,,,,Didinga,0,did
+1986,,,,Dieri,0,dif
+1987,,,,Digo,0,dig
+1988,,,,Kumiai,0,dih
+1989,,,,Dimbong,0,dii
+1990,,,,Dai,0,dij
+1991,,,,Southwestern Dinka,0,dik
+1992,,,,Dilling,0,dil
+1993,,,,Dime,0,dim
+106,din,din,,Dinka,1,din
+1994,,,,Dibo,0,dio
+1995,,,,Northeastern Dinka,0,dip
+1996,,,,Dimli (individual language),0,diq
+1997,,,,Dirim,0,dir
+1998,,,,Dimasa,0,dis
+1999,,,,Dirari,0,dit
+2000,,,,Diriku,0,diu
+107,div,div,dv,Divehi,1,div
+2001,,,,Northwestern Dinka,0,diw
+2002,,,,Dixon Reef,0,dix
+2003,,,,Diuwe,0,diy
+2004,,,,Ding,0,diz
+2005,,,,Djadjawurrung,0,dja
+2006,,,,Djinba,0,djb
+2007,,,,Dar Daju Daju,0,djc
+2008,,,,Djamindjung,0,djd
+2009,,,,Zarma,0,dje
+2010,,,,Djangun,0,djf
+2011,,,,Djinang,0,dji
+2012,,,,Djeebbana,0,djj
+2013,,,,Eastern Maroon Creole,0,djk
+2014,,,,Djiwarli,0,djl
+2015,,,,Jamsay Dogon,0,djm
+2016,,,,Djauan,0,djn
+2017,,,,Jangkang,0,djo
+2018,,,,Djambarrpuyngu,0,djr
+2019,,,,Kapriman,0,dju
+2020,,,,Djawi,0,djw
+2021,,,,Dakpakha,0,dka
+2022,,,,Dakka,0,dkk
+2023,,,,Kuijau,0,dkr
+2024,,,,Southeastern Dinka,0,dks
+2025,,,,Mazagway,0,dkx
+2026,,,,Dolgan,0,dlg
+2027,,,,Dalmatian,0,dlm
+2028,,,,Darlong,0,dln
+2029,,,,Duma,0,dma
+2030,,,,Mombo Dogon,0,dmb
+2031,,,,Dimir,0,dmc
+2032,,,,Madhi Madhi,0,dmd
+2033,,,,Dugwor,0,dme
+2034,,,,Upper Kinabatangan,0,dmg
+2035,,,,Domaaki,0,dmk
+2036,,,,Dameli,0,dml
+2037,,,,Dama,0,dmm
+2038,,,,Kemedzung,0,dmo
+2039,,,,East Damar,0,dmr
+2040,,,,Dampelas,0,dms
+2041,,,,Dubu,0,dmu
+2042,,,,Dumpas,0,dmv
+2043,,,,Dema,0,dmx
+2044,,,,Demta,0,dmy
+2045,,,,Upper Grand Valley Dani,0,dna
+2046,,,,Daonda,0,dnd
+2047,,,,Ndendeule,0,dne
+2048,,,,Dungan,0,dng
+2049,,,,Lower Grand Valley Dani,0,dni
+2050,,,,Dengka,0,dnk
+2051,,,,Dzùùngoo,0,dnn
+2052,,,,Danaru,0,dnr
+2053,,,,Mid Grand Valley Dani,0,dnt
+2054,,,,Danau,0,dnu
+2055,,,,Danu,0,dnv
+2056,,,,Western Dani,0,dnw
+2057,,,,Dení,0,dny
+2058,,,,Dom,0,doa
+2059,,,,Dobu,0,dob
+2060,,,,Northern Dong,0,doc
+2061,,,,Doe,0,doe
+2062,,,,Domu,0,dof
+2063,,,,Dong,0,doh
+108,doi,doi,,Dogri,1,doi
+2064,,,,Dondo,0,dok
+2065,,,,Doso,0,dol
+2066,,,,Toura (Papua New Guinea),0,don
+2067,,,,Dongo,0,doo
+2068,,,,Lukpa,0,dop
+2069,,,,Dominican Sign Language,0,doq
+2070,,,,Dori'o,0,dor
+2071,,,,Dogosé,0,dos
+2072,,,,Dass,0,dot
+2073,,,,Dombe,0,dov
+2074,,,,Doyayo,0,dow
+2075,,,,Bussa,0,dox
+2076,,,,Dompo,0,doy
+2077,,,,Dorze,0,doz
+2078,,,,Papar,0,dpp
+2079,,,,Dair,0,drb
+2080,,,,Minderico,0,drc
+2081,,,,Darmiya,0,drd
+2082,,,,Dolpo,0,dre
+2083,,,,Rungus,0,drg
+2084,,,,C'lela,0,dri
+2085,,,,Paakantyi,0,drl
+2086,,,,West Damar,0,drn
+2087,,,,Daro-Matu Melanau,0,dro
+2088,,,,Dura,0,drq
+2089,,,,Dororo,0,drr
+2090,,,,Gedeo,0,drs
+2091,,,,Drents,0,drt
+2092,,,,Rukai,0,dru
+2093,,,,Darai,0,dry
+110,dsb,dsb,,"Sorbian, Lower",1,dsb
+2094,,,,Dutch Sign Language,0,dse
+2095,,,,Daasanach,0,dsh
+2096,,,,Disa,0,dsi
+2097,,,,Danish Sign Language,0,dsl
+2098,,,,Dusner,0,dsn
+2099,,,,Desiya,0,dso
+2100,,,,Tadaksahak,0,dsq
+2101,,,,Daur,0,dta
+2102,,,,Labuk-Kinabatangan Kadazan,0,dtb
+2103,,,,Ditidaht,0,dtd
+2104,,,,Adithinngithigh,0,dth
+2105,,,,Ana Tinga Dogon,0,dti
+2106,,,,Tene Kan Dogon,0,dtk
+2107,,,,Tomo Kan Dogon,0,dtm
+2108,,,,Tommo So Dogon,0,dto
+2109,,,,Central Dusun,0,dtp
+2110,,,,Lotud,0,dtr
+2111,,,,Toro So Dogon,0,dts
+2112,,,,Toro Tegu Dogon,0,dtt
+2113,,,,Tebul Ure Dogon,0,dtu
+2114,,,,Dotyali,0,dty
+111,dua,dua,,Duala,1,dua
+2115,,,,Dubli,0,dub
+2116,,,,Duna,0,duc
+2117,,,,Hun-Saare,0,dud
+2118,,,,Umiray Dumaget Agta,0,due
+2119,,,,Dumbea,0,duf
+2120,,,,Duruma,0,dug
+2121,,,,Dungra Bhil,0,duh
+2122,,,,Dumun,0,dui
+2123,,,,Dhuwal,0,duj
+2124,,,,Uyajitaya,0,duk
+2125,,,,Alabat Island Agta,0,dul
+112,dum,dum,,"Dutch, Middle (ca.1050-1350)",0,dum
+2126,,,,Dusun Deyah,0,dun
+2127,,,,Dupaninan Agta,0,duo
+2128,,,,Duano,0,dup
+2129,,,,Dusun Malang,0,duq
+2130,,,,Dii,0,dur
+2131,,,,Dumi,0,dus
+2132,,,,Drung,0,duu
+2133,,,,Duvle,0,duv
+2134,,,,Dusun Witu,0,duw
+2135,,,,Duungooma,0,dux
+2136,,,,Dicamay Agta,0,duy
+2137,,,,Duli,0,duz
+2138,,,,Duau,0,dva
+2139,,,,Diri,0,dwa
+2140,,,,Dawro,0,dwr
+2141,,,,Dutton World Speedwords,0,dws
+2142,,,,Dawawa,0,dww
+2143,,,,Dyan,0,dya
+2144,,,,Dyaberdyaber,0,dyb
+2145,,,,Dyugun,0,dyd
+2146,,,,Villa Viciosa Agta,0,dyg
+2147,,,,Djimini Senoufo,0,dyi
+2148,,,,Yanda Dom Dogon,0,dym
+2149,,,,Dyangadi,0,dyn
+2150,,,,Jola-Fonyi,0,dyo
+114,dyu,dyu,,Dyula,1,dyu
+2151,,,,Dyaabugay,0,dyy
+2152,,,,Tunzu,0,dza
+2153,,,,Daza,0,dzd
+2154,,,,Dazaga,0,dzg
+2155,,,,Dzalakha,0,dzl
+2156,,,,Dzando,0,dzn
+115,dzo,dzo,dz,Dzongkha,1,dzo
+2157,,,,Ebughu,0,ebg
+2158,,,,Eastern Bontok,0,ebk
+2159,,,,Teke-Ebo,0,ebo
+2160,,,,Ebrié,0,ebr
+2161,,,,Embu,0,ebu
+2162,,,,Eteocretan,0,ecr
+2163,,,,Ecuadorian Sign Language,0,ecs
+2164,,,,Eteocypriot,0,ecy
+2165,,,,E,0,eee
+2166,,,,Efai,0,efa
+2167,,,,Efe,0,efe
+116,efi,efi,,Efik,1,efi
+2168,,,,Ega,0,ega
+2169,,,,Emilian,0,egl
+2170,,,,Eggon,0,ego
+117,egy,egy,,Egyptian (Ancient),0,egy
+2171,,,,Ehueun,0,ehu
+2172,,,,Eipomek,0,eip
+2173,,,,Eitiep,0,eit
+2174,,,,Askopan,0,eiv
+2175,,,,Ejamat,0,eja
+118,eka,eka,,Ekajuk,1,eka
+2176,,,,Ekit,0,eke
+2177,,,,Ekari,0,ekg
+2178,,,,Eki,0,eki
+2179,,,,Standard Estonian,0,ekk
+2180,,,,Kol,0,ekl
+2181,,,,Elip,0,ekm
+2182,,,,Koti,0,eko
+2183,,,,Ekpeye,0,ekp
+2184,,,,Yace,0,ekr
+2185,,,,Eastern Kayah,0,eky
+2186,,,,Elepi,0,ele
+2187,,,,El Hugeirat,0,elh
+2188,,,,Nding,0,eli
+2189,,,,Elkei,0,elk
+121,enm,enm,,"English, Middle (1100-1500)",1,enm
+2190,,,,Eleme,0,elm
+2191,,,,El Molo,0,elo
+2192,,,,Elu,0,elu
+119,elx,elx,,Elamite,1,elx
+2193,,,,Emai-Iuleha-Ora,0,ema
+2194,,,,Embaloh,0,emb
+2195,,,,Emerillon,0,eme
+2196,,,,Eastern Meohang,0,emg
+2197,,,,Mussau-Emira,0,emi
+2198,,,,Eastern Maninkakan,0,emk
+2199,,,,Mamulique,0,emm
+2200,,,,Eman,0,emn
+2201,,,,Emok,0,emo
+2202,,,,Northern Emberá,0,emp
+2203,,,,Pacific Gulf Yupik,0,ems
+2204,,,,Eastern Muria,0,emu
+2205,,,,Emplawas,0,emw
+2206,,,,Erromintxela,0,emx
+2207,,,,Epigraphic Mayan,0,emy
+2208,,,,Apali,0,ena
+2209,,,,Markweeta,0,enb
+2210,,,,En,0,enc
+2211,,,,Ende,0,end
+2212,,,,Forest Enets,0,enf
+2213,,,,Tundra Enets,0,enh
+2214,,,,Engenni,0,enn
+2215,,,,Enggano,0,eno
+2216,,,,Enga,0,enq
+2217,,,,Emumu,0,enr
+2218,,,,Enu,0,enu
+2219,,,,Enwan (Edu State),0,env
+2220,,,,Enwan (Akwa Ibom State),0,enw
+2221,,,,Beti (Côte d'Ivoire),0,eot
+2222,,,,Epie,0,epi
+122,epo,epo,eo,Esperanto,1,epo
+2223,,,,Eravallan,0,era
+2224,,,,Sie,0,erg
+2225,,,,Eruwa,0,erh
+2226,,,,Ogea,0,eri
+2227,,,,South Efate,0,erk
+2228,,,,Horpa,0,ero
+2229,,,,Erre,0,err
+2230,,,,Ersu,0,ers
+2231,,,,Eritai,0,ert
+2232,,,,Erokwanas,0,erw
+2233,,,,Ese Ejja,0,ese
+2234,,,,Eshtehardi,0,esh
+2235,,,,North Alaskan Inupiatun,0,esi
+2236,,,,Northwest Alaska Inupiatun,0,esk
+2237,,,,Egypt Sign Language,0,esl
+2238,,,,Esuma,0,esm
+2239,,,,Salvadoran Sign Language,0,esn
+2240,,,,Estonian Sign Language,0,eso
+2241,,,,Esselen,0,esq
+2242,,,,Central Siberian Yupik,0,ess
+123,est,est,et,Estonian,1,est
+2243,,,,Central Yupik,0,esu
+2244,,,,Etebi,0,etb
+2245,,,,Etchemin,0,etc
+2246,,,,Ethiopian Sign Language,0,eth
+2247,,,,Eton (Vanuatu),0,etn
+2248,,,,Eton (Cameroon),0,eto
+2249,,,,Edolo,0,etr
+2250,,,,Yekhee,0,ets
+2251,,,,Etruscan,0,ett
+2252,,,,Ejagham,0,etu
+2253,,,,Eten,0,etx
+2254,,,,Semimi,0,etz
+41,eus,baq,eu,Basque,1,eus
+2255,,,,Even,0,eve
+2256,,,,Uvbie,0,evh
+2257,,,,Evenki,0,evn
+124,ewe,ewe,ee,Ewe,1,ewe
+125,ewo,ewo,,Ewondo,1,ewo
+2258,,,,Extremaduran,0,ext
+2259,,,,Eyak,0,eya
+2260,,,,Keiyo,0,eyo
+2261,,,,Uzekwe,0,eze
+2262,,,,Fasu,0,faa
+2263,,,,Fa D'ambu,0,fab
+2264,,,,Wagi,0,fad
+2265,,,,Fagani,0,faf
+2266,,,,Finongan,0,fag
+2267,,,,Baissa Fali,0,fah
+2268,,,,Faiwol,0,fai
+2269,,,,Faita,0,faj
+2270,,,,Fang (Cameroon),0,fak
+2271,,,,South Fali,0,fal
+2272,,,,Fam,0,fam
+126,fan,fan,,Fang,1,fan
+127,fao,fao,fo,Faroese,1,fao
+2273,,,,Palor,0,fap
+2274,,,,Fataleka,0,far
+334,fas,per,fa,Persian,1,fas
+128,fat,fat,,Fanti,1,fat
+2275,,,,Fayu,0,fau
+2276,,,,Fala,0,fax
+2277,,,,Southwestern Fars,0,fay
+2278,,,,Northwestern Fars,0,faz
+2279,,,,West Albay Bikol,0,fbl
+2280,,,,Quebec Sign Language,0,fcs
+2281,,,,Feroge,0,fer
+2282,,,,Foia Foia,0,ffi
+2283,,,,Maasina Fulfulde,0,ffm
+2284,,,,Fongoro,0,fgr
+2285,,,,Nobiin,0,fia
+2286,,,,Fyer,0,fie
+129,fij,fij,fj,Fijian,1,fij
+130,fil,fil,,Filipino,1,fil
+136,fro,fro,,"French, Old (842-ca.1400)",1,fro
+2287,,,,Fipa,0,fip
+2288,,,,Firan,0,fir
+2289,,,,Tornedalen Finnish,0,fit
+2290,,,,Fiwaga,0,fiw
+2291,,,,Kirya-Konzəl,0,fkk
+2292,,,,Kven Finnish,0,fkv
+2293,,,,Kalispel-Pend d'Oreille,0,fla
+2294,,,,Foau,0,flh
+2295,,,,Fali,0,fli
+2296,,,,North Fali,0,fll
+2297,,,,Flinders Island,0,fln
+2298,,,,Fuliiru,0,flr
+2299,,,,Tsotsitaal,0,fly
+2300,,,,Fe'fe',0,fmp
+2301,,,,Far Western Muria,0,fmu
+2302,,,,Fanagalo,0,fng
+2303,,,,Fania,0,fni
+2304,,,,Foodo,0,fod
+2305,,,,Foi,0,foi
+2306,,,,Foma,0,fom
+133,fon,fon,,Fon,1,fon
+2307,,,,Fore,0,for
+2308,,,,Siraya,0,fos
+2309,,,,Fernando Po Creole English,0,fpe
+2310,,,,Fas,0,fqs
+2311,,,,Cajun French,0,frc
+2312,,,,Fordata,0,frd
+2313,,,,Frankish,0,frk
+135,frm,frm,,"French, Middle (ca.1400-1600)",0,frm
+2314,,,,Arpitan,0,frp
+2315,,,,Forak,0,frq
+484,frr,frr,,"Frisian, Northern",1,frr
+485,frs,frs,,"Frisian, Eastern",1,frs
+2316,,,,Fortsenal,0,frt
+137,fry,fry,fy,"Frisian, Western",1,fry
+2317,,,,Finnish Sign Language,0,fse
+2318,,,,French Sign Language,0,fsl
+2319,,,,Finland-Swedish Sign Language,0,fss
+2320,,,,Adamawa Fulfulde,0,fub
+2321,,,,Pulaar,0,fuc
+2322,,,,East Futuna,0,fud
+2323,,,,Borgu Fulfulde,0,fue
+2324,,,,Pular,0,fuf
+2325,,,,Western Niger Fulfulde,0,fuh
+2326,,,,Bagirmi Fulfulde,0,fui
+2327,,,,Ko,0,fuj
+138,ful,ful,ff,Fulah,1,ful
+2328,,,,Fum,0,fum
+2329,,,,Fulniô,0,fun
+2330,,,,Central-Eastern Niger Fulfulde,0,fuq
+139,fur,fur,,Friulian,1,fur
+2331,,,,Futuna-Aniwa,0,fut
+2332,,,,Furu,0,fuu
+2333,,,,Nigerian Fulfulde,0,fuv
+2334,,,,Fuyug,0,fuy
+2335,,,,Fur,0,fvr
+2336,,,,Fwâi,0,fwa
+2337,,,,Fwe,0,fwe
+140,gaa,gaa,,Ga,1,gaa
+2338,,,,Gabri,0,gab
+2339,,,,Mixed Great Andamanese,0,gac
+2340,,,,Gaddang,0,gad
+2341,,,,Guarequena,0,gae
+2342,,,,Gende,0,gaf
+2343,,,,Gagauz,0,gag
+2344,,,,Alekano,0,gah
+2345,,,,Borei,0,gai
+2346,,,,Gadsup,0,gaj
+2347,,,,Gamkonora,0,gak
+2348,,,,Galoli,0,gal
+2349,,,,Kandawo,0,gam
+2350,,,,Gan Chinese,0,gan
+2351,,,,Gants,0,gao
+2352,,,,Gal,0,gap
+2353,,,,Gata',0,gaq
+2354,,,,Galeya,0,gar
+2355,,,,Adiwasi Garasia,0,gas
+2356,,,,Kenati,0,gat
+2357,,,,Mudhili Gadaba,0,gau
+2358,,,,Nobonob,0,gaw
+2359,,,,Borana-Arsi-Guji Oromo,0,gax
+141,gay,gay,,Gayo,1,gay
+2360,,,,West Central Oromo,0,gaz
+142,gba,gba,,Gbaya,1,gba
+2361,,,,Kaytetye,0,gbb
+2362,,,,Karadjeri,0,gbd
+2363,,,,Niksek,0,gbe
+2364,,,,Gaikundi,0,gbf
+2365,,,,Gbanziri,0,gbg
+2366,,,,Defi Gbe,0,gbh
+2367,,,,Galela,0,gbi
+2368,,,,Bodo Gadaba,0,gbj
+2369,,,,Gaddi,0,gbk
+2370,,,,Gamit,0,gbl
+2371,,,,Garhwali,0,gbm
+2372,,,,Mo'da,0,gbn
+2373,,,,Northern Grebo,0,gbo
+2374,,,,Gbaya-Bossangoa,0,gbp
+2375,,,,Gbaya-Bozoum,0,gbq
+2376,,,,Gbagyi,0,gbr
+2377,,,,Gbesi Gbe,0,gbs
+2378,,,,Gagadu,0,gbu
+2379,,,,Gbanu,0,gbv
+2380,,,,Eastern Xwla Gbe,0,gbx
+2381,,,,Gbari,0,gby
+2382,,,,Zoroastrian Dari,0,gbz
+2383,,,,Mali,0,gcc
+2384,,,,Ganggalida,0,gcd
+2385,,,,Galice,0,gce
+2386,,,,Guadeloupean Creole French,0,gcf
+2387,,,,Grenadian Creole English,0,gcl
+2388,,,,Gaina,0,gcn
+2389,,,,Guianese Creole French,0,gcr
+2390,,,,Colonia Tovar German,0,gct
+2391,,,,Gade Lohar,0,gda
+2392,,,,Pottangi Ollar Gadaba,0,gdb
+2393,,,,Gugu Badhun,0,gdc
+2394,,,,Gedaged,0,gdd
+2395,,,,Gude,0,gde
+2396,,,,Guduf-Gava,0,gdf
+2397,,,,Ga'dang,0,gdg
+2398,,,,Gadjerawang,0,gdh
+2399,,,,Gundi,0,gdi
+2400,,,,Gurdjar,0,gdj
+2401,,,,Gadang,0,gdk
+2402,,,,Dirasha,0,gdl
+2403,,,,Laal,0,gdm
+2404,,,,Umanakaina,0,gdn
+2405,,,,Ghodoberi,0,gdo
+2406,,,,Mehri,0,gdq
+2407,,,,Wipi,0,gdr
+2408,,,,Ghandruk Sign Language,0,gds
+2409,,,,Gudu,0,gdu
+2410,,,,Godwari,0,gdx
+2411,,,,Geruma,0,gea
+2412,,,,Kire,0,geb
+2413,,,,Gboloo Grebo,0,gec
+2414,,,,Gade,0,ged
+2415,,,,Gengle,0,geg
+2416,,,,Hutterite German,0,geh
+2417,,,,Gebe,0,gei
+2418,,,,Gen,0,gej
+2419,,,,Yiwom,0,gek
+2420,,,,ut-Ma'in,0,gel
+2421,,,,Geme,0,geq
+2422,,,,Geser-Gorom,0,ges
+2423,,,,Gera,0,gew
+2424,,,,Garre,0,gex
+2425,,,,Enya,0,gey
+146,gez,gez,,Geez,1,gez
+2426,,,,Patpatar,0,gfk
+2427,,,,Gafat,0,gft
+2428,,,,Mangetti Dune !Xung,0,gfx
+2429,,,,Gao,0,gga
+2430,,,,Gbii,0,ggb
+2431,,,,Gugadj,0,ggd
+2432,,,,Guragone,0,gge
+2433,,,,Gurgula,0,ggg
+2434,,,,Kungarakany,0,ggk
+2435,,,,Ganglau,0,ggl
+2436,,,,Eastern Gurung,0,ggn
+2437,,,,Southern Gondi,0,ggo
+2438,,,,Aghu Tharnggalu,0,ggr
+2439,,,,Gitua,0,ggt
+2440,,,,Gagu,0,ggu
+2441,,,,Gogodala,0,ggw
+2442,,,,Ghadamès,0,gha
+2443,,,,Hiberno-Scottish Gaelic,0,ghc
+2444,,,,Southern Ghale,0,ghe
+2445,,,,Northern Ghale,0,ghh
+2446,,,,Geko Karen,0,ghk
+2447,,,,Ghulfan,0,ghl
+2448,,,,Ghanongga,0,ghn
+2449,,,,Ghomara,0,gho
+2450,,,,Ghera,0,ghr
+2451,,,,Guhu-Samane,0,ghs
+2452,,,,Kuke,0,ght
+2453,,,,Kitja,0,gia
+2454,,,,Gibanawa,0,gib
+2455,,,,Gail,0,gic
+2456,,,,Gidar,0,gid
+2457,,,,Goaria,0,gig
+147,gil,gil,,Gilbertese,1,gil
+2458,,,,Gimi (Eastern Highlands),0,gim
+2459,,,,Hinukh,0,gin
+2460,,,,Gimi (West New Britain),0,gip
+2461,,,,Green Gelao,0,giq
+2462,,,,Red Gelao,0,gir
+2463,,,,North Giziga,0,gis
+2464,,,,Gitxsan,0,git
+2465,,,,Mulao,0,giu
+2466,,,,White Gelao,0,giw
+2467,,,,Gilima,0,gix
+2468,,,,Giyug,0,giy
+2469,,,,South Giziga,0,giz
+2470,,,,Geji,0,gji
+2471,,,,Kachi Koli,0,gjk
+2472,,,,Gonja,0,gjn
+2473,,,,Gujari,0,gju
+2474,,,,Guya,0,gka
+2475,,,,Ndai,0,gke
+2476,,,,Gokana,0,gkn
+2477,,,,Kok-Nar,0,gko
+2478,,,,Guinea Kpelle,0,gkp
+148,gla,gla,gd,Scottish Gaelic,1,gla
+2479,,,,Bon Gula,0,glc
+2480,,,,Nanai,0,gld
+149,gle,gle,ga,Irish,1,gle
+150,glg,glg,gl,Galician,1,glg
+2481,,,,Northwest Pashayi,0,glh
+2482,,,,Guliguli,0,gli
+2483,,,,Gula Iro,0,glj
+2484,,,,Gilaki,0,glk
+2485,,,,Galambu,0,glo
+2486,,,,Glaro-Twabo,0,glr
+2487,,,,Gula (Chad),0,glu
+151,glv,glv,gv,Manx,1,glv
+2488,,,,Glavda,0,glw
+2489,,,,Gule,0,gly
+2490,,,,Gambera,0,gma
+2491,,,,Gula'alaa,0,gmb
+2492,,,,Mághdì,0,gmd
+152,gmh,gmh,,"German, Middle High (ca.1050-1500)",0,gmh
+2493,,,,Middle Low German,0,gml
+2494,,,,Gbaya-Mbodomo,0,gmm
+2495,,,,Gimnime,0,gmn
+2496,,,,Gumalu,0,gmu
+2497,,,,Gamo,0,gmv
+2498,,,,Magoma,0,gmx
+2499,,,,Mycenaean Greek,0,gmy
+2500,,,,Kaansa,0,gna
+2501,,,,Gangte,0,gnb
+2502,,,,Guanche,0,gnc
+2503,,,,Zulgo-Gemzek,0,gnd
+2504,,,,Ganang,0,gne
+2505,,,,Ngangam,0,gng
+2506,,,,Lere,0,gnh
+2507,,,,Gooniyandi,0,gni
+2508,,,,//Gana,0,gnk
+2509,,,,Gangulu,0,gnl
+2510,,,,Ginuman,0,gnm
+2511,,,,Gumatj,0,gnn
+2512,,,,Northern Gondi,0,gno
+2513,,,,Gana,0,gnq
+2514,,,,Gureng Gureng,0,gnr
+2515,,,,Guntai,0,gnt
+2516,,,,Gnau,0,gnu
+2517,,,,Western Bolivian Guaraní,0,gnw
+2518,,,,Ganzi,0,gnz
+2519,,,,Guro,0,goa
+2520,,,,Playero,0,gob
+2521,,,,Gorakor,0,goc
+2522,,,,Godié,0,god
+2523,,,,Gongduk,0,goe
+2524,,,,Gofa,0,gof
+2525,,,,Gogo,0,gog
+153,goh,goh,,"German, Old High (ca.750-1050)",0,goh
+2526,,,,Gobasi,0,goi
+2527,,,,Gowlan,0,goj
+2528,,,,Gowli,0,gok
+2529,,,,Gola,0,gol
+2530,,,,Goan Konkani,0,gom
+154,gon,gon,,Gondi,1,gon
+2531,,,,Gone Dau,0,goo
+2532,,,,Yeretuar,0,gop
+2533,,,,Gorap,0,goq
+155,gor,gor,,Gorontalo,1,gor
+2534,,,,Gronings,0,gos
+156,got,got,,Gothic,1,got
+2535,,,,Gavar,0,gou
+2536,,,,Gorowa,0,gow
+2537,,,,Gobu,0,gox
+2538,,,,Goundo,0,goy
+2539,,,,Gozarkhani,0,goz
+2540,,,,Gupa-Abawa,0,gpa
+2541,,,,Ghanaian Pidgin English,0,gpe
+2542,,,,Taiap,0,gpn
+2543,,,,Ga'anda,0,gqa
+2544,,,,Guiqiong,0,gqi
+2545,,,,Guana (Brazil),0,gqn
+2546,,,,Gor,0,gqr
+2547,,,,Qau,0,gqu
+2548,,,,Rajput Garasia,0,gra
+157,grb,grb,,Grebo,1,grb
+158,grc,grc,,"Greek, Ancient",1,grc
+2549,,,,Guruntum-Mbaaru,0,grd
+2550,,,,Madi,0,grg
+2551,,,,Gbiri-Niragu,0,grh
+2552,,,,Ghari,0,gri
+2553,,,,Southern Grebo,0,grj
+2554,,,,Kota Marudu Talantang,0,grm
+160,grn,grn,gn,Guarani,1,grn
+2555,,,,Groma,0,gro
+2556,,,,Gorovu,0,grq
+2557,,,,Taznatit,0,grr
+2558,,,,Gresi,0,grs
+2559,,,,Garo,0,grt
+2560,,,,Kistane,0,gru
+2561,,,,Central Grebo,0,grv
+2562,,,,Gweda,0,grw
+2563,,,,Guriaso,0,grx
+2564,,,,Barclayville Grebo,0,gry
+2565,,,,Guramalum,0,grz
+2566,,,,Ghanaian Sign Language,0,gse
+2567,,,,German Sign Language,0,gsg
+2568,,,,Gusilay,0,gsl
+2569,,,,Guatemalan Sign Language,0,gsm
+2570,,,,Gusan,0,gsn
+2571,,,,Southwest Gbaya,0,gso
+2572,,,,Wasembo,0,gsp
+2573,,,,Greek Sign Language,0,gss
+476,gsw,gsw,,"German, Swiss",1,gsw
+2574,,,,Guató,0,gta
+2575,,,,Gbati-ri,0,gti
+2576,,,,Shiki,0,gua
+2577,,,,Guajajára,0,gub
+2578,,,,Wayuu,0,guc
+2579,,,,Yocoboué Dida,0,gud
+2580,,,,Gurinji,0,gue
+2581,,,,Gupapuyngu,0,guf
+2582,,,,Paraguayan Guaraní,0,gug
+2583,,,,Guahibo,0,guh
+2584,,,,Eastern Bolivian Guaraní,0,gui
+161,guj,guj,gu,Gujarati,1,guj
+2585,,,,Gumuz,0,guk
+2586,,,,Sea Island Creole English,0,gul
+2587,,,,Guambiano,0,gum
+2588,,,,Mbyá Guaraní,0,gun
+2589,,,,Guayabero,0,guo
+2590,,,,Gunwinggu,0,gup
+2591,,,,Aché,0,guq
+2592,,,,Farefare,0,gur
+2593,,,,Guinean Sign Language,0,gus
+2594,,,,Maléku Jaíka,0,gut
+2595,,,,Yanomamö,0,guu
+2596,,,,Gey,0,guv
+2597,,,,Gun,0,guw
+2598,,,,Gourmanchéma,0,gux
+2599,,,,Gusii,0,guz
+2600,,,,Guana (Paraguay),0,gva
+2601,,,,Guanano,0,gvc
+2602,,,,Duwet,0,gve
+2603,,,,Golin,0,gvf
+2604,,,,Guajá,0,gvj
+2605,,,,Gulay,0,gvl
+2606,,,,Gurmana,0,gvm
+2607,,,,Kuku-Yalanji,0,gvn
+2608,,,,Gavião Do Jiparaná,0,gvo
+2609,,,,Pará Gavião,0,gvp
+2610,,,,Western Gurung,0,gvr
+2611,,,,Gumawana,0,gvs
+2612,,,,Guyani,0,gvy
+2613,,,,Mbato,0,gwa
+2614,,,,Gwa,0,gwb
+2615,,,,Kalami,0,gwc
+2616,,,,Gawwada,0,gwd
+2617,,,,Gweno,0,gwe
+2618,,,,Gowro,0,gwf
+2619,,,,Moo,0,gwg
+162,gwi,gwi,,Gwich'in,1,gwi
+2620,,,,/Gwi,0,gwj
+2621,,,,Awngthim,0,gwm
+2622,,,,Gwandara,0,gwn
+2623,,,,Gwere,0,gwr
+2624,,,,Gawar-Bati,0,gwt
+2625,,,,Guwamu,0,gwu
+2626,,,,Kwini,0,gww
+2627,,,,Gua,0,gwx
+2628,,,,Wè Southern,0,gxx
+2629,,,,Northwest Gbaya,0,gya
+2630,,,,Garus,0,gyb
+2631,,,,Kayardild,0,gyd
+2632,,,,Gyem,0,gye
+2633,,,,Gungabula,0,gyf
+2634,,,,Gbayi,0,gyg
+2635,,,,Gyele,0,gyi
+2636,,,,Gayil,0,gyl
+2637,,,,Ngäbere,0,gym
+2638,,,,Guyanese Creole English,0,gyn
+2639,,,,Guarayu,0,gyr
+2640,,,,Gunya,0,gyy
+2641,,,,Ganza,0,gza
+2642,,,,Gazi,0,gzi
+2643,,,,Gane,0,gzn
+2644,,,,Han,0,haa
+2645,,,,Hanoi Sign Language,0,hab
+2646,,,,Gurani,0,hac
+2647,,,,Hatam,0,had
+2648,,,,Eastern Oromo,0,hae
+2649,,,,Haiphong Sign Language,0,haf
+2650,,,,Hanga,0,hag
+2651,,,,Hahon,0,hah
+163,hai,hai,,Haida,1,hai
+2652,,,,Hajong,0,haj
+2653,,,,Hakka Chinese,0,hak
+2654,,,,Halang,0,hal
+2655,,,,Hewa,0,ham
+2656,,,,Hangaza,0,han
+2657,,,,Hakö,0,hao
+2658,,,,Hupla,0,hap
+2659,,,,Ha,0,haq
+2660,,,,Harari,0,har
+2661,,,,Haisla,0,has
+164,hat,hat,ht,Haitian Creole,1,hat
+165,hau,hau,ha,Hausa,1,hau
+2662,,,,Havu,0,hav
+166,haw,haw,,Hawaiian,1,haw
+2663,,,,Southern Haida,0,hax
+2664,,,,Haya,0,hay
+2665,,,,Hazaragi,0,haz
+2666,,,,Hamba,0,hba
+2667,,,,Huba,0,hbb
+2668,,,,Heiban,0,hbn
+2669,,,,Ancient Hebrew,0,hbo
+2670,,,sh,Serbo-Croatian,0,hbs
+2671,,,,Habu,0,hbu
+2672,,,,Andaman Creole Hindi,0,hca
+2673,,,,Huichol,0,hch
+2674,,,,Northern Haida,0,hdn
+2675,,,,Honduras Sign Language,0,hds
+2676,,,,Hadiyya,0,hdy
+2677,,,,Northern Qiandong Miao,0,hea
+167,heb,heb,he,Hebrew,1,heb
+2678,,,,Herdé,0,hed
+2679,,,,Helong,0,heg
+2680,,,,Hehe,0,heh
+2681,,,,Heiltsuk,0,hei
+2682,,,,Hemba,0,hem
+168,her,her,hz,Herero,1,her
+2683,,,,Hai//om,0,hgm
+2684,,,,Haigwai,0,hgw
+2685,,,,Hoia Hoia,0,hhi
+2686,,,,Kerak,0,hhr
+2687,,,,Hoyahoya,0,hhy
+2688,,,,Lamang,0,hia
+2689,,,,Hibito,0,hib
+2690,,,,Hidatsa,0,hid
+2691,,,,Fiji Hindi,0,hif
+2692,,,,Kamwe,0,hig
+2693,,,,Pamosu,0,hih
+2694,,,,Hinduri,0,hii
+2695,,,,Hijuk,0,hij
+2696,,,,Seit-Kaitetu,0,hik
+169,hil,hil,,Hiligaynon,1,hil
+171,hin,hin,hi,Hindi,1,hin
+2697,,,,Tsoa,0,hio
+2698,,,,Himarimã,0,hir
+172,hit,hit,,Hittite,0,hit
+2699,,,,Hiw,0,hiw
+2700,,,,Hixkaryána,0,hix
+2701,,,,Haji,0,hji
+2702,,,,Kahe,0,hka
+2703,,,,Hunde,0,hke
+2704,,,,Hunjara-Kaina Ke,0,hkk
+2705,,,,Hong Kong Sign Language,0,hks
+2706,,,,Halia,0,hla
+2707,,,,Halbi,0,hlb
+2708,,,,Halang Doan,0,hld
+2709,,,,Hlersu,0,hle
+2710,,,,Matu Chin,0,hlt
+2711,,,,Hieroglyphic Luwian,0,hlu
+2712,,,,Southern Mashan Hmong,0,hma
+2713,,,,Humburi Senni Songhay,0,hmb
+2714,,,,Central Huishui Hmong,0,hmc
+2715,,,,Large Flowery Miao,0,hmd
+2716,,,,Eastern Huishui Hmong,0,hme
+2717,,,,Hmong Don,0,hmf
+2718,,,,Southwestern Guiyang Hmong,0,hmg
+2719,,,,Southwestern Huishui Hmong,0,hmh
+2720,,,,Northern Huishui Hmong,0,hmi
+2721,,,,Ge,0,hmj
+2722,,,,Maek,0,hmk
+2723,,,,Luopohe Hmong,0,hml
+2724,,,,Central Mashan Hmong,0,hmm
+173,hmn,hmn,,Hmong,1,hmn
+174,hmo,hmo,ho,Hiri Motu,1,hmo
+2725,,,,Northern Mashan Hmong,0,hmp
+2726,,,,Eastern Qiandong Miao,0,hmq
+2727,,,,Hmar,0,hmr
+2728,,,,Southern Qiandong Miao,0,hms
+2729,,,,Hamtai,0,hmt
+2730,,,,Hamap,0,hmu
+2731,,,,Hmong Dô,0,hmv
+2732,,,,Western Mashan Hmong,0,hmw
+2733,,,,Southern Guiyang Hmong,0,hmy
+2734,,,,Hmong Shua,0,hmz
+2735,,,,Mina (Cameroon),0,hna
+2736,,,,Southern Hindko,0,hnd
+2737,,,,Chhattisgarhi,0,hne
+2738,,,,//Ani,0,hnh
+2739,,,,Hani,0,hni
+2740,,,,Hmong Njua,0,hnj
+2741,,,,Hanunoo,0,hnn
+2742,,,,Northern Hindko,0,hno
+2743,,,,Caribbean Hindustani,0,hns
+2744,,,,Hung,0,hnu
+2745,,,,Hoava,0,hoa
+2746,,,,Mari (Madang Province),0,hob
+2747,,,,Ho,0,hoc
+2748,,,,Holma,0,hod
+2749,,,,Horom,0,hoe
+2750,,,,Hobyót,0,hoh
+2751,,,,Holikachuk,0,hoi
+2752,,,,Hadothi,0,hoj
+2753,,,,Holu,0,hol
+2754,,,,Homa,0,hom
+2755,,,,Holoholo,0,hoo
+2756,,,,Hopi,0,hop
+2757,,,,Horo,0,hor
+2758,,,,Ho Chi Minh City Sign Language,0,hos
+2759,,,,Hote,0,hot
+2760,,,,Hovongan,0,hov
+2761,,,,Honi,0,how
+2762,,,,Holiya,0,hoy
+2763,,,,Hozo,0,hoz
+2764,,,,Hpon,0,hpo
+2765,,,,Hawai'i Pidgin Sign Language,0,hps
+2766,,,,Hrangkhol,0,hra
+2767,,,,Hre,0,hre
+2768,,,,Haruku,0,hrk
+2769,,,,Horned Miao,0,hrm
+2770,,,,Haroi,0,hro
+2771,,,,Hértevin,0,hrt
+2772,,,,Hruso,0,hru
+366,hrv,hrv,hr,Croatian,1,hrv
+2773,,,,Hunsrik,0,hrx
+2774,,,,Harzani,0,hrz
+175,hsb,hsb,,"Sorbian, Upper",1,hsb
+2775,,,,Hungarian Sign Language,0,hsh
+2776,,,,Hausa Sign Language,0,hsl
+2777,,,,Xiang Chinese,0,hsn
+2778,,,,Harsusi,0,hss
+2779,,,,Hoti,0,hti
+2780,,,,Minica Huitoto,0,hto
+2781,,,,Hadza,0,hts
+2782,,,,Hitu,0,htu
+2783,,,,Middle Hittite,0,htx
+2784,,,,Huambisa,0,hub
+2785,,,,=/Hua,0,huc
+2786,,,,Huaulu,0,hud
+2787,,,,San Francisco Del Mar Huave,0,hue
+2788,,,,Humene,0,huf
+2789,,,,Huachipaeri,0,hug
+2790,,,,Huilliche,0,huh
+2791,,,,Huli,0,hui
+2792,,,,Northern Guiyang Hmong,0,huj
+2793,,,,Hulung,0,huk
+2794,,,,Hula,0,hul
+2795,,,,Hungana,0,hum
+176,hun,hun,hu,Hungarian,1,hun
+2796,,,,Hu,0,huo
+177,hup,hup,,Hupa,1,hup
+2797,,,,Tsat,0,huq
+2798,,,,Halkomelem,0,hur
+2799,,,,Huastec,0,hus
+2800,,,,Humla,0,hut
+2801,,,,Murui Huitoto,0,huu
+2802,,,,San Mateo Del Mar Huave,0,huv
+2803,,,,Hukumina,0,huw
+2804,,,,Nüpode Huitoto,0,hux
+2805,,,,Hulaulá,0,huy
+2806,,,,Hunzib,0,huz
+2807,,,,Haitian Vodoun Culture Language,0,hvc
+2808,,,,San Dionisio Del Mar Huave,0,hve
+2809,,,,Haveke,0,hvk
+2810,,,,Sabu,0,hvn
+2811,,,,Santa María Del Mar Huave,0,hvv
+2812,,,,Wané,0,hwa
+2813,,,,Hawai'i Creole English,0,hwc
+2814,,,,Hwana,0,hwo
+2815,,,,Hya,0,hya
+21,hye,arm,hy,Armenian,1,hye
+2816,,,,Iaai,0,iai
+2817,,,,Iatmul,0,ian
+2818,,,,Iapama,0,iap
+2819,,,,Purari,0,iar
+178,iba,iba,,Iban,1,iba
+2820,,,,Ibibio,0,ibb
+2821,,,,Iwaidja,0,ibd
+2822,,,,Akpes,0,ibe
+2823,,,,Ibanag,0,ibg
+2824,,,,Ibaloi,0,ibl
+2825,,,,Agoi,0,ibm
+2826,,,,Ibino,0,ibn
+179,ibo,ibo,ig,Igbo,1,ibo
+2827,,,,Ibuoro,0,ibr
+2828,,,,Ibu,0,ibu
+2829,,,,Ibani,0,iby
+2830,,,,Ede Ica,0,ica
+2831,,,,Etkywan,0,ich
+2832,,,,Icelandic Sign Language,0,icl
+2833,,,,Islander Creole English,0,icr
+2834,,,,Idakho-Isukha-Tiriki,0,ida
+2835,,,,Indo-Portuguese,0,idb
+2836,,,,Idon,0,idc
+2837,,,,Ede Idaca,0,idd
+2838,,,,Idere,0,ide
+2839,,,,Idi,0,idi
+181,ido,ido,io,Ido,1,ido
+2840,,,,Indri,0,idr
+2841,,,,Idesa,0,ids
+2842,,,,Idaté,0,idt
+2843,,,,Idoma,0,idu
+2844,,,,Amganad Ifugao,0,ifa
+2845,,,,Batad Ifugao,0,ifb
+2846,,,,Ifè,0,ife
+2847,,,,Ifo,0,iff
+2848,,,,Tuwali Ifugao,0,ifk
+2849,,,,Teke-Fuumu,0,ifm
+2850,,,,Mayoyao Ifugao,0,ifu
+2851,,,,Keley-I Kallahan,0,ify
+2852,,,,Ebira,0,igb
+2853,,,,Igede,0,ige
+2854,,,,Igana,0,igg
+2855,,,,Igala,0,igl
+2856,,,,Kanggape,0,igm
+2857,,,,Ignaciano,0,ign
+2858,,,,Isebe,0,igo
+2859,,,,Interglossa,0,igs
+2860,,,,Igwe,0,igw
+2861,,,,Iha Based Pidgin,0,ihb
+2862,,,,Ihievbe,0,ihi
+2863,,,,Iha,0,ihp
+2864,,,,Bidhawal,0,ihw
+182,iii,iii,ii,Sichuan Yi,1,iii
+2865,,,,Izon,0,ijc
+2866,,,,Biseni,0,ije
+2867,,,,Ede Ije,0,ijj
+2868,,,,Kalabari,0,ijn
+2869,,,,Southeast Ijo,0,ijs
+2870,,,,Eastern Canadian Inuktitut,0,ike
+2871,,,,Iko,0,iki
+2872,,,,Ika,0,ikk
+2873,,,,Ikulu,0,ikl
+2874,,,,Olulumo-Ikom,0,iko
+2875,,,,Ikpeshi,0,ikp
+2876,,,,Inuinnaqtun,0,ikt
+184,iku,iku,iu,Inuktitut,1,iku
+2877,,,,Iku-Gora-Ankwa,0,ikv
+2878,,,,Ikwere,0,ikw
+2879,,,,Ik,0,ikx
+2880,,,,Ikizu,0,ikz
+2881,,,,Ile Ape,0,ila
+2882,,,,Ila,0,ilb
+185,ile,ile,ie,Interlingue,1,ile
+2883,,,,Garig-Ilgar,0,ilg
+2884,,,,Ili Turki,0,ili
+2885,,,,Ilongot,0,ilk
+2886,,,,Iranun,0,ill
+186,ilo,ilo,,Iloko,1,ilo
+2887,,,,International Sign,0,ils
+2888,,,,Ili'uun,0,ilu
+2889,,,,Ilue,0,ilv
+2890,,,,Talur,0,ilw
+2891,,,,Mala Malasar,0,ima
+2892,,,,Imeraguen,0,ime
+2893,,,,Anamgura,0,imi
+2894,,,,Miluk,0,iml
+2895,,,,Imonda,0,imn
+2896,,,,Imbongu,0,imo
+2897,,,,Imroing,0,imr
+2898,,,,Marsian,0,ims
+2899,,,,Milyan,0,imy
+187,ina,ina,ia,Interlingua,1,ina
+2900,,,,Inga,0,inb
+189,ind,ind,id,Indonesian,1,ind
+2901,,,,Degexit'an,0,ing
+191,inh,inh,,Ingush,1,inh
+2902,,,,Jungle Inga,0,inj
+2903,,,,Indonesian Sign Language,0,inl
+2904,,,,Minaean,0,inm
+2905,,,,Isinai,0,inn
+2906,,,,Inoke-Yate,0,ino
+2907,,,,Iñapari,0,inp
+2908,,,,Indian Sign Language,0,ins
+2909,,,,Intha,0,int
+2910,,,,Ineseño,0,inz
+2911,,,,Inor,0,ior
+2912,,,,Tuma-Irumu,0,iou
+2913,,,,Iowa-Oto,0,iow
+2914,,,,Ipili,0,ipi
+192,ipk,ipk,ik,Inupiaq,1,ipk
+2915,,,,Ipiko,0,ipo
+2916,,,,Iquito,0,iqu
+2917,,,,Iresim,0,ire
+2918,,,,Irarutu,0,irh
+2919,,,,Irigwe,0,iri
+2920,,,,Iraqw,0,irk
+2921,,,,Irántxe,0,irn
+2922,,,,Ir,0,irr
+2923,,,,Irula,0,iru
+2924,,,,Kamberau,0,irx
+2925,,,,Iraya,0,iry
+2926,,,,Isabi,0,isa
+2927,,,,Isconahua,0,isc
+2928,,,,Isnag,0,isd
+2929,,,,Italian Sign Language,0,ise
+2930,,,,Irish Sign Language,0,isg
+2931,,,,Esan,0,ish
+2932,,,,Nkem-Nkum,0,isi
+2933,,,,Ishkashimi,0,isk
+180,isl,ice,is,Icelandic,1,isl
+2934,,,,Masimasi,0,ism
+2935,,,,Isanzu,0,isn
+2936,,,,Isoko,0,iso
+2937,,,,Israeli Sign Language,0,isr
+2938,,,,Istriot,0,ist
+2939,,,,Isu (Menchum Division),0,isu
+2980,,,,Jamaican Creole English,1,jam
+2940,,,,Binongan Itneg,0,itb
+2941,,,,Itene,0,ite
+2942,,,,Inlaod Itneg,0,iti
+2943,,,,Judeo-Italian,0,itk
+2944,,,,Itelmen,0,itl
+2945,,,,Itu Mbon Uzo,0,itm
+2946,,,,Itonama,0,ito
+2947,,,,Iteri,0,itr
+2948,,,,Isekiri,0,its
+2949,,,,Maeng Itneg,0,itt
+2950,,,,Itawit,0,itv
+2951,,,,Ito,0,itw
+2952,,,,Itik,0,itx
+2953,,,,Moyadan Itneg,0,ity
+2954,,,,Itzá,0,itz
+2955,,,,Iu Mien,0,ium
+2956,,,,Ibatan,0,ivb
+2957,,,,Ivatan,0,ivv
+2958,,,,I-Wak,0,iwk
+2959,,,,Iwam,0,iwm
+2960,,,,Iwur,0,iwo
+2961,,,,Sepik Iwam,0,iws
+2962,,,,Ixcatec,0,ixc
+2963,,,,Ixil,0,ixl
+2964,,,,Iyayu,0,iya
+2965,,,,Mesaka,0,iyo
+2966,,,,Yaka (Congo),0,iyx
+2968,,,,Izi-Ezaa-Ikwo-Mgbo,0,izi
+2969,,,,Izere,0,izr
+2970,,,,Jamamadí,0,jaa
+2971,,,,Hyam,0,jab
+2972,,,,Popti',0,jac
+2973,,,,Jahanka,0,jad
+2974,,,,Yabem,0,jae
+2975,,,,Jara,0,jaf
+2976,,,,Jah Hut,0,jah
+2977,,,,Zazao,0,jaj
+2978,,,,Jakun,0,jak
+2979,,,,Yalahatan,0,jal
+2981,,,,Jandai,0,jan
+2982,,,,Yanyuwa,0,jao
+2983,,,,Yaqay,0,jaq
+2984,,,,New Caledonian Javanese,0,jas
+2985,,,,Jakati,0,jat
+2986,,,,Yaur,0,jau
+196,jav,jav,jv,Javanese,1,jav
+2987,,,,Jambi Malay,0,jax
+2988,,,,Yan-nhangu,0,jay
+2989,,,,Jawe,0,jaz
+2990,,,,Judeo-Berber,0,jbe
+2991,,,,Arandai,0,jbj
+2992,,,,Barikewa,0,jbk
+2993,,,,Nafusi,0,jbn
+197,jbo,jbo,,Lojban,1,jbo
+2994,,,,Jofotek-Bromnya,0,jbr
+2995,,,,Jabutí,0,jbt
+2996,,,,Jukun Takum,0,jbu
+2997,,,,Yawijibaya,0,jbw
+2998,,,,Jamaican Country Sign Language,0,jcs
+2999,,,,Krymchak,0,jct
+3000,,,,Jad,0,jda
+3001,,,,Jadgali,0,jdg
+3002,,,,Judeo-Tat,0,jdt
+3003,,,,Jebero,0,jeb
+3004,,,,Jerung,0,jee
+3005,,,,Jeng,0,jeg
+3006,,,,Jeh,0,jeh
+3007,,,,Yei,0,jei
+3008,,,,Jeri Kuo,0,jek
+3009,,,,Yelmek,0,jel
+3010,,,,Dza,0,jen
+3011,,,,Jere,0,jer
+3012,,,,Manem,0,jet
+3013,,,,Jonkor Bourmataguil,0,jeu
+3014,,,,Ngbee,0,jgb
+3015,,,,Judeo-Georgian,0,jge
+3016,,,,Gwak,0,jgk
+3017,,,,Ngomba,0,jgo
+3018,,,,Jehai,0,jhi
+3019,,,,Jhankot Sign Language,0,jhs
+3020,,,,Jina,0,jia
+3021,,,,Jibu,0,jib
+3022,,,,Tol,0,jic
+3023,,,,Bu,0,jid
+3024,,,,Jilbe,0,jie
+3025,,,,Djingili,0,jig
+3026,,,,sTodsde,0,jih
+3027,,,,Jiiddu,0,jii
+3028,,,,Jilim,0,jil
+3029,,,,Jimi (Cameroon),0,jim
+3030,,,,Jiamao,0,jio
+3031,,,,Guanyinqiao,0,jiq
+3032,,,,Jita,0,jit
+3033,,,,Youle Jinuo,0,jiu
+3034,,,,Shuar,0,jiv
+3035,,,,Buyuan Jinuo,0,jiy
+3036,,,,Bankal,0,jjr
+3037,,,,Mobwa Karen,0,jkm
+3038,,,,Kubo,0,jko
+3039,,,,Paku Karen,0,jkp
+3040,,,,Koro (India),0,jkr
+3041,,,,Labir,0,jku
+3042,,,,Ngile,0,jle
+3043,,,,Jamaican Sign Language,0,jls
+3044,,,,Dima,0,jma
+3045,,,,Zumbun,0,jmb
+3046,,,,Machame,0,jmc
+3047,,,,Yamdena,0,jmd
+3048,,,,Jimi (Nigeria),0,jmi
+3049,,,,Jumli,0,jml
+3050,,,,Makuri Naga,0,jmn
+3051,,,,Kamara,0,jmr
+3052,,,,Mashi (Nigeria),0,jms
+3053,,,,Mouwase,0,jmw
+2967,,,,Ingrian,1,izh
+3054,,,,Western Juxtlahuaca Mixtec,0,jmx
+3055,,,,Jangshung,0,jna
+3056,,,,Jandavra,0,jnd
+3057,,,,Yangman,0,jng
+3058,,,,Janji,0,jni
+3059,,,,Yemsa,0,jnj
+3060,,,,Rawat,0,jnl
+3061,,,,Jaunsari,0,jns
+3062,,,,Joba,0,job
+3063,,,,Wojenaka,0,jod
+3064,,,,Jorá,0,jor
+3065,,,,Jordanian Sign Language,0,jos
+3066,,,,Jowulu,0,jow
+3067,,,,Jewish Palestinian Aramaic,0,jpa
+3137,,,,Khanty,1,kca
+199,jpr,jpr,,Judeo-Persian,1,jpr
+3068,,,,Jaqaru,0,jqr
+3069,,,,Jarai,0,jra
+200,jrb,jrb,,Judeo-Arabic,1,jrb
+3070,,,,Jiru,0,jrr
+3071,,,,Jorto,0,jrt
+3072,,,,Japrería,0,jru
+3073,,,,Japanese Sign Language,0,jsl
+3074,,,,Júma,0,jua
+3075,,,,Wannu,0,jub
+3076,,,,Jurchen,0,juc
+3077,,,,Worodougou,0,jud
+3078,,,,Hõne,0,juh
+3079,,,,Ngadjuri,0,jui
+3080,,,,Wapan,0,juk
+3081,,,,Jirel,0,jul
+3082,,,,Jumjum,0,jum
+3083,,,,Juang,0,jun
+3084,,,,Jiba,0,juo
+3085,,,,Hupdë,0,jup
+3086,,,,Jurúna,0,jur
+3087,,,,Jumla Sign Language,0,jus
+3088,,,,Jutish,0,jut
+3089,,,,Ju,0,juu
+3090,,,,Wãpha,0,juw
+3091,,,,Juray,0,juy
+3092,,,,Javindo,0,jvd
+3093,,,,Caribbean Javanese,0,jvn
+3094,,,,Jwira-Pepesa,0,jwi
+3095,,,,Jiarong,0,jya
+3096,,,,Judeo-Yemeni Arabic,0,jye
+3097,,,,Jaya,0,jyy
+201,kaa,kaa,,Kara-Kalpak,1,kaa
+202,kab,kab,,Kabyle,1,kab
+203,kac,kac,,Kachin,1,kac
+3098,,,,Adara,0,kad
+3099,,,,Ketangalan,0,kae
+3100,,,,Katso,0,kaf
+3101,,,,Kajaman,0,kag
+3102,,,,Kara (Central African Republic),0,kah
+3103,,,,Karekare,0,kai
+3104,,,,Jju,0,kaj
+3105,,,,Kayapa Kallahan,0,kak
+204,kal,kal,kl,Greenlandic,1,kal
+205,kam,kam,,Kamba,1,kam
+206,kan,kan,kn,Kannada,1,kan
+3106,,,,Xaasongaxango,0,kao
+3107,,,,Bezhta,0,kap
+3108,,,,Capanahua,0,kaq
+208,kas,kas,ks,Kashmiri,1,kas
+144,kat,geo,ka,Georgian,1,kat
+209,kau,kau,kr,Kanuri,1,kau
+3109,,,,Katukína,0,kav
+210,kaw,kaw,,Kawi,0,kaw
+3110,,,,Kao,0,kax
+3111,,,,Kamayurá,0,kay
+211,kaz,kaz,kk,Kazakh,1,kaz
+3112,,,,Kalarko,0,kba
+3113,,,,Kaxuiâna,0,kbb
+3114,,,,Kadiwéu,0,kbc
+212,kbd,kbd,,Kabardian,1,kbd
+3115,,,,Kanju,0,kbe
+3116,,,,Kakauhua,0,kbf
+3117,,,,Khamba,0,kbg
+3118,,,,Camsá,0,kbh
+3119,,,,Kaptiau,0,kbi
+3120,,,,Kari,0,kbj
+3121,,,,Grass Koiari,0,kbk
+3122,,,,Kanembu,0,kbl
+3123,,,,Iwal,0,kbm
+3124,,,,Kare (Central African Republic),0,kbn
+3125,,,,Keliko,0,kbo
+3126,,,,Kabiyè,0,kbp
+3127,,,,Kamano,0,kbq
+3128,,,,Kafa,0,kbr
+3129,,,,Kande,0,kbs
+3130,,,,Abadi,0,kbt
+3131,,,,Kabutra,0,kbu
+3132,,,,Dera (Indonesia),0,kbv
+3133,,,,Kaiep,0,kbw
+3134,,,,Ap Ma,0,kbx
+3135,,,,Manga Kanuri,0,kby
+3136,,,,Duhwa,0,kbz
+3138,,,,Kawacha,0,kcb
+3139,,,,Lubila,0,kcc
+3140,,,,Ngkâlmpw Kanum,0,kcd
+3141,,,,Kaivi,0,kce
+3142,,,,Ukaan,0,kcf
+3143,,,,Tyap,0,kcg
+3144,,,,Vono,0,kch
+3145,,,,Kamantan,0,kci
+3146,,,,Kobiana,0,kcj
+3147,,,,Kalanga,0,kck
+3148,,,,Kela (Papua New Guinea),0,kcl
+3149,,,,Gula (Central African Republic),0,kcm
+3150,,,,Nubi,0,kcn
+3151,,,,Kinalakna,0,kco
+3152,,,,Kanga,0,kcp
+3153,,,,Kamo,0,kcq
+3154,,,,Katla,0,kcr
+3155,,,,Koenoem,0,kcs
+3156,,,,Kaian,0,kct
+3157,,,,Kami (Tanzania),0,kcu
+3158,,,,Kete,0,kcv
+3159,,,,Kabwari,0,kcw
+3160,,,,Kachama-Ganjule,0,kcx
+3161,,,,Korandje,0,kcy
+3162,,,,Konongo,0,kcz
+3163,,,,Worimi,0,kda
+3164,,,,Kutu,0,kdc
+3165,,,,Yankunytjatjara,0,kdd
+3166,,,,Makonde,0,kde
+3167,,,,Mamusi,0,kdf
+3168,,,,Seba,0,kdg
+3169,,,,Tem,0,kdh
+3170,,,,Kumam,0,kdi
+3171,,,,Karamojong,0,kdj
+3172,,,,Numee,0,kdk
+3173,,,,Tsikimba,0,kdl
+3174,,,,Kagoma,0,kdm
+3175,,,,Kunda,0,kdn
+3176,,,,Kaningdon-Nindem,0,kdp
+3177,,,,Koch,0,kdq
+3178,,,,Karaim,0,kdr
+3179,,,,Kuy,0,kdt
+3180,,,,Kadaru,0,kdu
+3181,,,,Koneraw,0,kdw
+3182,,,,Kam,0,kdx
+3183,,,,Keder,0,kdy
+3184,,,,Kwaja,0,kdz
+3185,,,,Kabuverdianu,0,kea
+3186,,,,Kélé,0,keb
+3187,,,,Keiga,0,kec
+3188,,,,Kerewe,0,ked
+3189,,,,Eastern Keres,0,kee
+3190,,,,Kpessi,0,kef
+3191,,,,Tese,0,keg
+3192,,,,Keak,0,keh
+3193,,,,Kei,0,kei
+3194,,,,Kadar,0,kej
+3195,,,,Kekchí,0,kek
+3196,,,,Kela (Democratic Republic of Congo),0,kel
+3197,,,,Kemak,0,kem
+3198,,,,Kenyang,0,ken
+3199,,,,Kakwa,0,keo
+3200,,,,Kaikadi,0,kep
+3201,,,,Kamar,0,keq
+3202,,,,Kera,0,ker
+3203,,,,Kugbo,0,kes
+3204,,,,Ket,0,ket
+3205,,,,Akebu,0,keu
+3206,,,,Kanikkaran,0,kev
+3207,,,,West Kewa,0,kew
+3208,,,,Kukna,0,kex
+3209,,,,Kupia,0,key
+3210,,,,Kukele,0,kez
+3211,,,,Kodava,0,kfa
+3212,,,,Northwestern Kolami,0,kfb
+3213,,,,Konda-Dora,0,kfc
+3214,,,,Korra Koraga,0,kfd
+3215,,,,Kota (India),0,kfe
+3216,,,,Koya,0,kff
+3217,,,,Kudiya,0,kfg
+3218,,,,Kurichiya,0,kfh
+3219,,,,Kannada Kurumba,0,kfi
+3220,,,,Kemiehua,0,kfj
+3221,,,,Kinnauri,0,kfk
+3222,,,,Kung,0,kfl
+3223,,,,Khunsari,0,kfm
+3224,,,,Kuk,0,kfn
+3225,,,,Koro (Côte d'Ivoire),0,kfo
+3226,,,,Korwa,0,kfp
+3227,,,,Korku,0,kfq
+3228,,,,Kachchi,0,kfr
+3229,,,,Bilaspuri,0,kfs
+3230,,,,Kanjari,0,kft
+3231,,,,Katkari,0,kfu
+3232,,,,Kurmukar,0,kfv
+3233,,,,Kharam Naga,0,kfw
+3234,,,,Kullu Pahari,0,kfx
+3235,,,,Kumaoni,0,kfy
+3236,,,,Koromfé,0,kfz
+3237,,,,Koyaga,0,kga
+3238,,,,Kawe,0,kgb
+3239,,,,Kasseng,0,kgc
+3240,,,,Kataang,0,kgd
+3241,,,,Komering,0,kge
+3242,,,,Kube,0,kgf
+3243,,,,Kusunda,0,kgg
+3244,,,,Selangor Sign Language,0,kgi
+3245,,,,Gamale Kham,0,kgj
+3246,,,,Kaiwá,0,kgk
+3247,,,,Kunggari,0,kgl
+3248,,,,Karipúna,0,kgm
+3249,,,,Karingani,0,kgn
+3250,,,,Krongo,0,kgo
+3251,,,,Kaingang,0,kgp
+3252,,,,Kamoro,0,kgq
+3253,,,,Abun,0,kgr
+3254,,,,Kumbainggar,0,kgs
+3255,,,,Somyev,0,kgt
+3256,,,,Kobol,0,kgu
+3257,,,,Karas,0,kgv
+3258,,,,Karon Dori,0,kgw
+3259,,,,Kamaru,0,kgx
+3260,,,,Kyerung,0,kgy
+213,kha,kha,,Khasi,1,kha
+3261,,,,Lü,0,khb
+3262,,,,Tukang Besi North,0,khc
+3263,,,,Bädi Kanum,0,khd
+3264,,,,Korowai,0,khe
+3265,,,,Khuen,0,khf
+3266,,,,Khams Tibetan,0,khg
+3267,,,,Kehu,0,khh
+3268,,,,Kuturmi,0,khj
+3269,,,,Halh Mongolian,0,khk
+3270,,,,Lusi,0,khl
+215,khm,khm,km,"Khmer, Central",1,khm
+3271,,,,Khandesi,0,khn
+216,kho,kho,,Khotanese,0,kho
+3272,,,,Kapori,0,khp
+3273,,,,Koyra Chiini Songhay,0,khq
+3274,,,,Kharia,0,khr
+3275,,,,Kasua,0,khs
+3276,,,,Khamti,0,kht
+3277,,,,Nkhumbi,0,khu
+3278,,,,Khvarshi,0,khv
+3279,,,,Khowar,0,khw
+3280,,,,Kanu,0,khx
+3281,,,,Kele (Democratic Republic of Congo),0,khy
+3282,,,,Keapara,0,khz
+3283,,,,Kim,0,kia
+3284,,,,Koalib,0,kib
+3285,,,,Kickapoo,0,kic
+3286,,,,Koshin,0,kid
+3287,,,,Kibet,0,kie
+3288,,,,Eastern Parbate Kham,0,kif
+3289,,,,Kimaama,0,kig
+3290,,,,Kilmeri,0,kih
+3291,,,,Kitsai,0,kii
+3292,,,,Kilivila,0,kij
+217,kik,kik,ki,Kikuyu,1,kik
+3293,,,,Kariya,0,kil
+3294,,,,Karagas,0,kim
+218,kin,kin,rw,Kinyarwanda,1,kin
+3295,,,,Kiowa,0,kio
+3296,,,,Sheshi Kham,0,kip
+3297,,,,Kosadle,0,kiq
+219,kir,kir,ky,Kirghiz,1,kir
+3298,,,,Kis,0,kis
+3299,,,,Agob,0,kit
+3300,,,,Kirmanjki (individual language),0,kiu
+3301,,,,Kimbu,0,kiv
+3302,,,,Northeast Kiwai,0,kiw
+3303,,,,Khiamniungan Naga,0,kix
+3304,,,,Kirikiri,0,kiy
+3305,,,,Kisi,0,kiz
+3306,,,,Mlap,0,kja
+3307,,,,Q'anjob'al,0,kjb
+3308,,,,Coastal Konjo,0,kjc
+3309,,,,Southern Kiwai,0,kjd
+3310,,,,Kisar,0,kje
+3311,,,,Khalaj,0,kjf
+3312,,,,Khmu,0,kjg
+3313,,,,Khakas,0,kjh
+3314,,,,Zabana,0,kji
+3315,,,,Khinalugh,0,kjj
+3316,,,,Highland Konjo,0,kjk
+3317,,,,Western Parbate Kham,0,kjl
+3318,,,,Kháng,0,kjm
+3319,,,,Kunjen,0,kjn
+3320,,,,Harijan Kinnauri,0,kjo
+3321,,,,Pwo Eastern Karen,0,kjp
+3322,,,,Western Keres,0,kjq
+3323,,,,Kurudu,0,kjr
+3324,,,,East Kewa,0,kjs
+3325,,,,Phrae Pwo Karen,0,kjt
+3326,,,,Kashaya,0,kju
+3327,,,,Ramopa,0,kjx
+3328,,,,Erave,0,kjy
+3329,,,,Bumthangkha,0,kjz
+3330,,,,Kakanda,0,kka
+3331,,,,Kwerisa,0,kkb
+3332,,,,Odoodee,0,kkc
+3333,,,,Kinuku,0,kkd
+3334,,,,Kakabe,0,kke
+3335,,,,Kalaktang Monpa,0,kkf
+3336,,,,Mabaka Valley Kalinga,0,kkg
+3337,,,,Khün,0,kkh
+3338,,,,Kagulu,0,kki
+3339,,,,Kako,0,kkj
+3340,,,,Kokota,0,kkk
+3341,,,,Kosarek Yale,0,kkl
+3342,,,,Kiong,0,kkm
+3343,,,,Kon Keu,0,kkn
+3344,,,,Karko,0,kko
+3345,,,,Gugubera,0,kkp
+3346,,,,Kaiku,0,kkq
+3347,,,,Kir-Balar,0,kkr
+3348,,,,Giiwo,0,kks
+3349,,,,Koi,0,kkt
+3350,,,,Tumi,0,kku
+3351,,,,Kangean,0,kkv
+3352,,,,Teke-Kukuya,0,kkw
+3353,,,,Kohin,0,kkx
+3354,,,,Guguyimidjir,0,kky
+3355,,,,Kaska,0,kkz
+3356,,,,Klamath-Modoc,0,kla
+3357,,,,Kiliwa,0,klb
+3358,,,,Kolbila,0,klc
+3359,,,,Gamilaraay,0,kld
+3360,,,,Kulung (Nepal),0,kle
+3361,,,,Kendeje,0,klf
+3362,,,,Tagakaulo,0,klg
+3363,,,,Weliki,0,klh
+3364,,,,Kalumpang,0,kli
+3365,,,,Turkic Khalaj,0,klj
+3366,,,,Kono (Nigeria),0,klk
+3367,,,,Kagan Kalagan,0,kll
+3368,,,,Migum,0,klm
+3369,,,,Kalenjin,0,kln
+3370,,,,Kapya,0,klo
+3371,,,,Kamasa,0,klp
+3372,,,,Rumu,0,klq
+3373,,,,Khaling,0,klr
+3374,,,,Kalasha,0,kls
+3375,,,,Nukna,0,klt
+3376,,,,Klao,0,klu
+3377,,,,Maskelynes,0,klv
+3378,,,,Lindu,0,klw
+3379,,,,Koluwawa,0,klx
+3380,,,,Kalao,0,kly
+3381,,,,Kabola,0,klz
+3382,,,,Konni,0,kma
+220,kmb,kmb,,Kimbundu,1,kmb
+3383,,,,Southern Dong,0,kmc
+3384,,,,Majukayang Kalinga,0,kmd
+3385,,,,Bakole,0,kme
+3386,,,,Kare (Papua New Guinea),0,kmf
+3387,,,,Kâte,0,kmg
+3388,,,,Kalam,0,kmh
+3389,,,,Kami (Nigeria),0,kmi
+3390,,,,Kumarbhag Paharia,0,kmj
+3391,,,,Limos Kalinga,0,kmk
+3392,,,,Tanudan Kalinga,0,kml
+3393,,,,Kom (India),0,kmm
+3394,,,,Awtuw,0,kmn
+3395,,,,Kwoma,0,kmo
+3396,,,,Gimme,0,kmp
+3397,,,,Kwama,0,kmq
+3398,,,,Northern Kurdish,0,kmr
+3399,,,,Kamasau,0,kms
+3400,,,,Kemtuik,0,kmt
+3401,,,,Kanite,0,kmu
+3402,,,,Karipúna Creole French,0,kmv
+3403,,,,Komo (Democratic Republic of Congo),0,kmw
+3404,,,,Waboda,0,kmx
+3405,,,,Koma,0,kmy
+3406,,,,Khorasani Turkish,0,kmz
+3407,,,,Dera (Nigeria),0,kna
+3408,,,,Lubuagan Kalinga,0,knb
+3409,,,,Central Kanuri,0,knc
+3410,,,,Konda,0,knd
+3411,,,,Kankanaey,0,kne
+3412,,,,Mankanya,0,knf
+3413,,,,Koongo,0,kng
+3414,,,,Kanufi,0,kni
+3415,,,,Western Kanjobal,0,knj
+3416,,,,Kuranko,0,knk
+3417,,,,Keninjal,0,knl
+3418,,,,Kanamarí,0,knm
+3419,,,,Konkani (individual language),0,knn
+3420,,,,Kono (Sierra Leone),0,kno
+3421,,,,Kwanja,0,knp
+3422,,,,Kintaq,0,knq
+3423,,,,Kaningra,0,knr
+3424,,,,Kensiu,0,kns
+3425,,,,Panoan Katukína,0,knt
+3426,,,,Kono (Guinea),0,knu
+3427,,,,Tabo,0,knv
+3428,,,,Kung-Ekoka,0,knw
+3429,,,,Kendayan,0,knx
+3430,,,,Kanyok,0,kny
+3431,,,,Kalamsé,0,knz
+3432,,,,Konomala,0,koa
+3433,,,,Kpati,0,koc
+3434,,,,Kodi,0,kod
+3435,,,,Kacipo-Balesi,0,koe
+3436,,,,Kubi,0,kof
+3437,,,,Cogui,0,kog
+3438,,,,Koyo,0,koh
+3439,,,,Komi-Permyak,0,koi
+3440,,,,Sara Dunjo,0,koj
+221,kok,kok,,Konkani,1,kok
+3441,,,,Kol (Papua New Guinea),0,kol
+222,kom,kom,kv,Komi,1,kom
+223,kon,kon,kg,Kongo,1,kon
+3442,,,,Konzo,0,koo
+3443,,,,Waube,0,kop
+3444,,,,Kota (Gabon),0,koq
+224,kor,kor,ko,Korean,1,kor
+225,kos,kos,,Kosraean,1,kos
+3445,,,,Lagwan,0,kot
+3446,,,,Koke,0,kou
+3447,,,,Kudu-Camo,0,kov
+3448,,,,Kugama,0,kow
+3449,,,,Coxima,0,kox
+3450,,,,Koyukon,0,koy
+3451,,,,Korak,0,koz
+3452,,,,Kutto,0,kpa
+3453,,,,Mullu Kurumba,0,kpb
+3454,,,,Curripaco,0,kpc
+3455,,,,Koba,0,kpd
+226,kpe,kpe,,Kpelle,1,kpe
+3456,,,,Komba,0,kpf
+3457,,,,Kapingamarangi,0,kpg
+3458,,,,Kplang,0,kph
+3459,,,,Kofei,0,kpi
+3460,,,,Karajá,0,kpj
+3461,,,,Kpan,0,kpk
+3462,,,,Kpala,0,kpl
+3463,,,,Koho,0,kpm
+3464,,,,Kepkiriwát,0,kpn
+3465,,,,Ikposo,0,kpo
+3466,,,,Korupun-Sela,0,kpq
+3467,,,,Korafe-Yegha,0,kpr
+3468,,,,Tehit,0,kps
+3469,,,,Karata,0,kpt
+3470,,,,Kafoa,0,kpu
+3471,,,,Komi-Zyrian,0,kpv
+3472,,,,Kobon,0,kpw
+3473,,,,Mountain Koiali,0,kpx
+3474,,,,Koryak,0,kpy
+3475,,,,Kupsabiny,0,kpz
+3476,,,,Mum,0,kqa
+3477,,,,Kovai,0,kqb
+3478,,,,Doromu-Koki,0,kqc
+3479,,,,Koy Sanjaq Surat,0,kqd
+3480,,,,Kalagan,0,kqe
+3481,,,,Kakabai,0,kqf
+3482,,,,Khe,0,kqg
+3483,,,,Kisankasa,0,kqh
+3484,,,,Koitabu,0,kqi
+3485,,,,Koromira,0,kqj
+3486,,,,Kotafon Gbe,0,kqk
+3487,,,,Kyenele,0,kql
+3488,,,,Khisa,0,kqm
+3489,,,,Kaonde,0,kqn
+3490,,,,Eastern Krahn,0,kqo
+3491,,,,Kimré,0,kqp
+3492,,,,Krenak,0,kqq
+3493,,,,Kimaragang,0,kqr
+3494,,,,Northern Kissi,0,kqs
+3495,,,,Klias River Kadazan,0,kqt
+3496,,,,Seroa,0,kqu
+3497,,,,Okolod,0,kqv
+3498,,,,Kandas,0,kqw
+3499,,,,Mser,0,kqx
+3500,,,,Koorete,0,kqy
+3501,,,,Korana,0,kqz
+3502,,,,Kumhali,0,kra
+3503,,,,Karkin,0,krb
+227,krc,krc,,Karachay-Balkar,1,krc
+3504,,,,Kairui-Midiki,0,krd
+3505,,,,Panará,0,kre
+3506,,,,Koro (Vanuatu),0,krf
+3507,,,,Kurama,0,krh
+3508,,,,Krio,0,kri
+3509,,,,Kinaray-A,0,krj
+3510,,,,Kerek,0,krk
+477,krl,krl,,Karelian,1,krl
+3511,,,,Krim,0,krm
+3512,,,,Sapo,0,krn
+3513,,,,Korop,0,krp
+3514,,,,Kru'ng 2,0,krr
+3515,,,,Gbaya (Sudan),0,krs
+3516,,,,Tumari Kanuri,0,krt
+229,kru,kru,,Kurukh,1,kru
+3517,,,,Kavet,0,krv
+3518,,,,Western Krahn,0,krw
+3519,,,,Karon,0,krx
+3520,,,,Kryts,0,kry
+3521,,,,Sota Kanum,0,krz
+3522,,,,Shuwa-Zamani,0,ksa
+3523,,,,Shambala,0,ksb
+3524,,,,Southern Kalinga,0,ksc
+3525,,,,Kuanua,0,ksd
+3526,,,,Kuni,0,kse
+3527,,,,Bafia,0,ksf
+3528,,,,Kusaghe,0,ksg
+3530,,,,Krisa,0,ksi
+3531,,,,Uare,0,ksj
+3532,,,,Kansa,0,ksk
+3533,,,,Kumalu,0,ksl
+3534,,,,Kumba,0,ksm
+3535,,,,Kasiguranin,0,ksn
+3536,,,,Kofa,0,kso
+3537,,,,Kaba,0,ksp
+3538,,,,Kwaami,0,ksq
+3539,,,,Borong,0,ksr
+3540,,,,Southern Kisi,0,kss
+3541,,,,Winyé,0,kst
+3542,,,,Khamyang,0,ksu
+3543,,,,Kusu,0,ksv
+3544,,,,S'gaw Karen,0,ksw
+3545,,,,Kedang,0,ksx
+3546,,,,Kharia Thar,0,ksy
+3547,,,,Kodaku,0,ksz
+3548,,,,Katua,0,kta
+3549,,,,Kambaata,0,ktb
+3550,,,,Kholok,0,ktc
+3551,,,,Kokata,0,ktd
+3552,,,,Nubri,0,kte
+3553,,,,Kwami,0,ktf
+3554,,,,Kalkutung,0,ktg
+3555,,,,Karanga,0,kth
+3556,,,,North Muyu,0,kti
+3557,,,,Plapo Krumen,0,ktj
+3558,,,,Kaniet,0,ktk
+3559,,,,Koroshi,0,ktl
+3560,,,,Kurti,0,ktm
+3561,,,,Karitiâna,0,ktn
+3562,,,,Kuot,0,kto
+3563,,,,Kaduo,0,ktp
+3564,,,,Katabaga,0,ktq
+3565,,,,Kota Marudu Tinagas,0,ktr
+3566,,,,South Muyu,0,kts
+3567,,,,Ketum,0,ktt
+3568,,,,Kituba (Democratic Republic of Congo),0,ktu
+3569,,,,Eastern Katu,0,ktv
+3570,,,,Kato,0,ktw
+3571,,,,Kaxararí,0,ktx
+3572,,,,Kango (Bas-Uélé District),0,kty
+3573,,,,Ju/'hoan,0,ktz
+230,kua,kua,kj,Kuanyama,1,kua
+3574,,,,Kutep,0,kub
+3575,,,,Kwinsu,0,kuc
+3576,,,,'Auhelawa,0,kud
+3577,,,,Kuman,0,kue
+3578,,,,Western Katu,0,kuf
+3579,,,,Kupa,0,kug
+3580,,,,Kushi,0,kuh
+3581,,,,Kuikúro-Kalapálo,0,kui
+3582,,,,Kuria,0,kuj
+3583,,,,Kepo',0,kuk
+3584,,,,Kulere,0,kul
+231,kum,kum,,Kumyk,1,kum
+3585,,,,Kunama,0,kun
+3586,,,,Kumukio,0,kuo
+3587,,,,Kunimaipa,0,kup
+3588,,,,Karipuna,0,kuq
+232,kur,kur,ku,Kurdish,1,kur
+3589,,,,Kusaal,0,kus
+233,kut,kut,,Kutenai,1,kut
+3590,,,,Upper Kuskokwim,0,kuu
+3591,,,,Kur,0,kuv
+3592,,,,Kpagua,0,kuw
+3593,,,,Kukatja,0,kux
+3594,,,,Kuuku-Ya'u,0,kuy
+3595,,,,Kunza,0,kuz
+3596,,,,Bagvalal,0,kva
+3597,,,,Kubu,0,kvb
+3598,,,,Kove,0,kvc
+3599,,,,Kui (Indonesia),0,kvd
+3600,,,,Kalabakan,0,kve
+3601,,,,Kabalai,0,kvf
+3602,,,,Kuni-Boazi,0,kvg
+3603,,,,Komodo,0,kvh
+3604,,,,Kwang,0,kvi
+3605,,,,Psikye,0,kvj
+3606,,,,Korean Sign Language,0,kvk
+3607,,,,Kayaw,0,kvl
+3608,,,,Kendem,0,kvm
+3609,,,,Border Kuna,0,kvn
+3610,,,,Dobel,0,kvo
+3611,,,,Kompane,0,kvp
+3612,,,,Geba Karen,0,kvq
+3613,,,,Kerinci,0,kvr
+3614,,,,Kunggara,0,kvs
+3615,,,,Lahta Karen,0,kvt
+3616,,,,Yinbaw Karen,0,kvu
+3617,,,,Kola,0,kvv
+3618,,,,Wersing,0,kvw
+3619,,,,Parkari Koli,0,kvx
+3620,,,,Yintale Karen,0,kvy
+3621,,,,Tsakwambo,0,kvz
+3622,,,,Dâw,0,kwa
+3623,,,,Kwa,0,kwb
+3624,,,,Likwala,0,kwc
+3625,,,,Kwaio,0,kwd
+3626,,,,Kwerba,0,kwe
+3627,,,,Kwara'ae,0,kwf
+3628,,,,Sara Kaba Deme,0,kwg
+3629,,,,Kowiai,0,kwh
+3630,,,,Awa-Cuaiquer,0,kwi
+3631,,,,Kwanga,0,kwj
+3632,,,,Kwakiutl,0,kwk
+3633,,,,Kofyar,0,kwl
+3634,,,,Kwambi,0,kwm
+3635,,,,Kwangali,0,kwn
+3636,,,,Kwomtari,0,kwo
+3637,,,,Kodia,0,kwp
+3638,,,,Kwak,0,kwq
+3639,,,,Kwer,0,kwr
+3640,,,,Kwese,0,kws
+3641,,,,Kwesten,0,kwt
+3642,,,,Kwakum,0,kwu
+3643,,,,Sara Kaba Náà,0,kwv
+3644,,,,Kwinti,0,kww
+3645,,,,Khirwar,0,kwx
+3646,,,,San Salvador Kongo,0,kwy
+3647,,,,Kwadi,0,kwz
+3648,,,,Kairiru,0,kxa
+3649,,,,Krobu,0,kxb
+3650,,,,Konso,0,kxc
+3651,,,,Brunei,0,kxd
+3652,,,,Kakihum,0,kxe
+3653,,,,Manumanaw Karen,0,kxf
+3654,,,,Karo (Ethiopia),0,kxh
+3655,,,,Keningau Murut,0,kxi
+3656,,,,Kulfa,0,kxj
+3657,,,,Zayein Karen,0,kxk
+3658,,,,Nepali Kurux,0,kxl
+3659,,,,Northern Khmer,0,kxm
+3660,,,,Kanowit-Tanjong Melanau,0,kxn
+3661,,,,Kanoé,0,kxo
+3662,,,,Wadiyara Koli,0,kxp
+3663,,,,Smärky Kanum,0,kxq
+3664,,,,Koro (Papua New Guinea),0,kxr
+3665,,,,Kangjia,0,kxs
+3666,,,,Koiwat,0,kxt
+3667,,,,Kui (India),0,kxu
+3668,,,,Kuvi,0,kxv
+3669,,,,Konai,0,kxw
+3670,,,,Likuba,0,kxx
+3671,,,,Kayong,0,kxy
+3672,,,,Kerewo,0,kxz
+3673,,,,Kwaya,0,kya
+3674,,,,Butbut Kalinga,0,kyb
+3675,,,,Kyaka,0,kyc
+3676,,,,Karey,0,kyd
+3677,,,,Krache,0,kye
+3678,,,,Kouya,0,kyf
+3679,,,,Keyagana,0,kyg
+3680,,,,Karok,0,kyh
+3681,,,,Kiput,0,kyi
+3682,,,,Karao,0,kyj
+3683,,,,Kamayo,0,kyk
+3684,,,,Kalapuya,0,kyl
+3685,,,,Kpatili,0,kym
+3686,,,,Northern Binukidnon,0,kyn
+3687,,,,Kelon,0,kyo
+3688,,,,Kang,0,kyp
+3689,,,,Kenga,0,kyq
+3690,,,,Kuruáya,0,kyr
+3691,,,,Baram Kayan,0,kys
+3692,,,,Kayagar,0,kyt
+3693,,,,Western Kayah,0,kyu
+3694,,,,Kayort,0,kyv
+3695,,,,Kudmali,0,kyw
+3696,,,,Rapoisi,0,kyx
+3697,,,,Kambaira,0,kyy
+3698,,,,Kayabí,0,kyz
+3699,,,,Western Karaboro,0,kza
+3700,,,,Kaibobo,0,kzb
+3701,,,,Bondoukou Kulango,0,kzc
+3702,,,,Kadai,0,kzd
+3703,,,,Kosena,0,kze
+3704,,,,Da'a Kaili,0,kzf
+3705,,,,Kikai,0,kzg
+3706,,,,Kelabit,0,kzi
+3707,,,,Coastal Kadazan,0,kzj
+3708,,,,Kazukuru,0,kzk
+3709,,,,Kayeli,0,kzl
+3710,,,,Kais,0,kzm
+3711,,,,Kokola,0,kzn
+3712,,,,Kaningi,0,kzo
+3713,,,,Kaidipang,0,kzp
+3714,,,,Kaike,0,kzq
+3715,,,,Karang,0,kzr
+3716,,,,Sugut Dusun,0,kzs
+3717,,,,Tambunan Dusun,0,kzt
+3718,,,,Kayupulau,0,kzu
+3719,,,,Komyandaret,0,kzv
+3720,,,,Karirí-Xocó,0,kzw
+3721,,,,Kamarian,0,kzx
+3722,,,,Kango (Tshopo District),0,kzy
+3723,,,,Kalabra,0,kzz
+3724,,,,Southern Subanen,0,laa
+3725,,,,Linear A,0,lab
+3726,,,,Lacandon,0,lac
+234,lad,lad,,Ladino,1,lad
+3727,,,,Pattani,0,lae
+3728,,,,Lafofa,0,laf
+3729,,,,Langi,0,lag
+235,lah,lah,,Lahnda,1,lah
+3730,,,,Lambya,0,lai
+3731,,,,Lango (Uganda),0,laj
+3732,,,,Laka (Nigeria),0,lak
+3733,,,,Lalia,0,lal
+236,lam,lam,,Lamba,1,lam
+3734,,,,Laru,0,lan
+237,lao,lao,lo,Lao,1,lao
+3735,,,,Laka (Chad),0,lap
+3736,,,,Qabiao,0,laq
+3737,,,,Larteh,0,lar
+3738,,,,Lama (Togo),0,las
+238,lat,lat,la,Latin,1,lat
+3739,,,,Laba,0,lau
+239,lav,lav,lv,Latvian,1,lav
+3740,,,,Lauje,0,law
+3741,,,,Tiwa,0,lax
+3742,,,,Lama (Myanmar),0,lay
+3743,,,,Aribwatsa,0,laz
+3744,,,,Lui,0,lba
+3745,,,,Label,0,lbb
+3746,,,,Lakkia,0,lbc
+3747,,,,Lak,0,lbe
+3748,,,,Tinani,0,lbf
+3749,,,,Laopang,0,lbg
+3750,,,,La'bi,0,lbi
+3751,,,,Ladakhi,0,lbj
+3752,,,,Central Bontok,0,lbk
+3753,,,,Libon Bikol,0,lbl
+3754,,,,Lodhi,0,lbm
+3755,,,,Lamet,0,lbn
+3756,,,,Laven,0,lbo
+3757,,,,Wampar,0,lbq
+3758,,,,Lohorung,0,lbr
+3759,,,,Libyan Sign Language,0,lbs
+3760,,,,Lachi,0,lbt
+3761,,,,Labu,0,lbu
+3762,,,,Lavatbura-Lamusong,0,lbv
+3763,,,,Tolaki,0,lbw
+3764,,,,Lawangan,0,lbx
+3765,,,,Lamu-Lamu,0,lby
+3766,,,,Lardil,0,lbz
+3767,,,,Legenyem,0,lcc
+3768,,,,Lola,0,lcd
+3769,,,,Loncong,0,lce
+3770,,,,Lubu,0,lcf
+3771,,,,Luchazi,0,lch
+3772,,,,Lisela,0,lcl
+3773,,,,Tungag,0,lcm
+3774,,,,Western Lawa,0,lcp
+3775,,,,Lisabata-Nuniali,0,lcs
+3776,,,,Dũya,0,ldb
+3777,,,,Luri,0,ldd
+3778,,,,Lenyima,0,ldg
+3779,,,,Lamja-Dengsa-Tola,0,ldh
+3780,,,,Laari,0,ldi
+3781,,,,Lemoro,0,ldj
+3782,,,,Leelau,0,ldk
+3783,,,,Kaan,0,ldl
+3784,,,,Landoma,0,ldm
+3785,,,,Láadan,0,ldn
+3786,,,,Loo,0,ldo
+3787,,,,Tso,0,ldp
+3788,,,,Lufu,0,ldq
+3789,,,,Lega-Shabunda,0,lea
+3790,,,,Lala-Bisa,0,leb
+3791,,,,Leco,0,lec
+3792,,,,Lendu,0,led
+3793,,,,Lyélé,0,lee
+3794,,,,Lelemi,0,lef
+3795,,,,Lengua,0,leg
+3796,,,,Lenje,0,leh
+3797,,,,Lemio,0,lei
+3798,,,,Lengola,0,lej
+3799,,,,Leipon,0,lek
+3800,,,,Lele (Democratic Republic of Congo),0,lel
+3801,,,,Nomaande,0,lem
+3802,,,,Lenca,0,len
+3803,,,,Leti (Cameroon),0,leo
+3804,,,,Lepcha,0,lep
+3805,,,,Lembena,0,leq
+3806,,,,Lenkau,0,ler
+3807,,,,Lese,0,les
+3808,,,,Lesing-Gelimi,0,let
+3809,,,,Kara (Papua New Guinea),0,leu
+3810,,,,Lamma,0,lev
+3811,,,,Ledo Kaili,0,lew
+3812,,,,Luang,0,lex
+3813,,,,Lemolang,0,ley
+240,lez,lez,,Lezghian,1,lez
+3814,,,,Lefa,0,lfa
+3815,,,,Lingua Franca Nova,0,lfn
+3816,,,,Lungga,0,lga
+3817,,,,Laghu,0,lgb
+3818,,,,Lugbara,0,lgg
+3819,,,,Laghuu,0,lgh
+3820,,,,Lengilu,0,lgi
+3821,,,,Lingarak,0,lgk
+3822,,,,Wala,0,lgl
+3823,,,,Lega-Mwenga,0,lgm
+3824,,,,Opuuo,0,lgn
+3825,,,,Logba,0,lgq
+3826,,,,Lengo,0,lgr
+3827,,,,Pahi,0,lgt
+3828,,,,Longgu,0,lgu
+3829,,,,Ligenza,0,lgz
+3830,,,,Laha (Viet Nam),0,lha
+3831,,,,Laha (Indonesia),0,lhh
+3832,,,,Lahu Shi,0,lhi
+3833,,,,Lahul Lohar,0,lhl
+3834,,,,Lhomi,0,lhm
+3835,,,,Lahanan,0,lhn
+3836,,,,Lhokpu,0,lhp
+3837,,,,Mlahsö,0,lhs
+3838,,,,Lo-Toga,0,lht
+3839,,,,Lahu,0,lhu
+3840,,,,West-Central Limba,0,lia
+3841,,,,Likum,0,lib
+3842,,,,Hlai,0,lic
+3843,,,,Nyindrou,0,lid
+3844,,,,Likila,0,lie
+3845,,,,Limbu,0,lif
+3846,,,,Ligbi,0,lig
+3847,,,,Lihir,0,lih
+3848,,,,Lingkhim,0,lii
+3849,,,,Ligurian,0,lij
+3850,,,,Lika,0,lik
+3851,,,,Lillooet,0,lil
+241,lim,lim,li,Limburgish,1,lim
+242,lin,lin,ln,Lingala,1,lin
+3852,,,,Liki,0,lio
+3853,,,,Sekpele,0,lip
+3854,,,,Libido,0,liq
+3855,,,,Liberian English,0,lir
+3856,,,,Lisu,0,lis
+243,lit,lit,lt,Lithuanian,1,lit
+3857,,,,Logorik,0,liu
+3859,,,,Col,0,liw
+3860,,,,Liabuku,0,lix
+3861,,,,Banda-Bambari,0,liy
+3862,,,,Libinza,0,liz
+3863,,,,Rampi,0,lje
+3864,,,,Laiyolo,0,lji
+3865,,,,Li'o,0,ljl
+3866,,,,Lampung Api,0,ljp
+3867,,,,Lakalei,0,lka
+3868,,,,Kabras,0,lkb
+3869,,,,Kucong,0,lkc
+3870,,,,Lakondê,0,lkd
+3871,,,,Kenyi,0,lke
+3872,,,,Lakha,0,lkh
+3873,,,,Laki,0,lki
+3874,,,,Remun,0,lkj
+3875,,,,Laeko-Libuat,0,lkl
+3876,,,,Lakon,0,lkn
+3877,,,,Khayo,0,lko
+3878,,,,Päri,0,lkr
+3879,,,,Kisa,0,lks
+3881,,,,Lokoya,0,lky
+3882,,,,Lala-Roba,0,lla
+3883,,,,Lolo,0,llb
+3884,,,,Lele (Guinea),0,llc
+3885,,,,Ladin,0,lld
+3886,,,,Lele (Papua New Guinea),0,lle
+3887,,,,Hermit,0,llf
+3888,,,,Lole,0,llg
+3889,,,,Lamu,0,llh
+3890,,,,Teke-Laali,0,lli
+3891,,,,Ladji Ladji,0,llj
+3892,,,,Lelak,0,llk
+3893,,,,Lilau,0,lll
+3894,,,,Lasalimu,0,llm
+3895,,,,Lele (Chad),0,lln
+3896,,,,Khlor,0,llo
+3897,,,,North Efate,0,llp
+3898,,,,Lolak,0,llq
+3899,,,,Lithuanian Sign Language,0,lls
+3900,,,,Lau,0,llu
+3901,,,,Lauan,0,llx
+3902,,,,East Limba,0,lma
+3903,,,,Merei,0,lmb
+3904,,,,Limilngan,0,lmc
+3905,,,,Lumun,0,lmd
+3906,,,,Pévé,0,lme
+3907,,,,South Lembata,0,lmf
+3908,,,,Lamogai,0,lmg
+3909,,,,Lambichhong,0,lmh
+3910,,,,Lombi,0,lmi
+3911,,,,West Lembata,0,lmj
+3912,,,,Lamkang,0,lmk
+3913,,,,Hano,0,lml
+3914,,,,Lamam,0,lmm
+3915,,,,Lambadi,0,lmn
+3916,,,,Lombard,0,lmo
+3917,,,,Limbum,0,lmp
+3918,,,,Lamatuka,0,lmq
+3919,,,,Lamalera,0,lmr
+3920,,,,Lamenu,0,lmu
+3921,,,,Lomaiviti,0,lmv
+3922,,,,Lake Miwok,0,lmw
+3923,,,,Laimbue,0,lmx
+3924,,,,Lamboya,0,lmy
+3925,,,,Lumbee,0,lmz
+3926,,,,Langbashe,0,lna
+3927,,,,Mbalanhu,0,lnb
+3928,,,,Lundayeh,0,lnd
+3929,,,,Langobardic,0,lng
+3930,,,,Lanoh,0,lnh
+3931,,,,Daantanai',0,lni
+3932,,,,Leningitij,0,lnj
+3933,,,,South Central Banda,0,lnl
+3934,,,,Langam,0,lnm
+3935,,,,Lorediakarkar,0,lnn
+3936,,,,Lango (Sudan),0,lno
+3937,,,,Lamnso',0,lns
+3938,,,,Longuda,0,lnu
+3939,,,,Lonzo,0,lnz
+3940,,,,Loloda,0,loa
+3941,,,,Lobi,0,lob
+3942,,,,Inonhan,0,loc
+3943,,,,Saluan,0,loe
+3944,,,,Logol,0,lof
+3945,,,,Logo,0,log
+3946,,,,Narim,0,loh
+3947,,,,Loma (Côte d'Ivoire),0,loi
+3948,,,,Lou,0,loj
+3949,,,,Loko,0,lok
+244,lol,lol,,Mongo,1,lol
+3950,,,,Loma (Liberia),0,lom
+3951,,,,Malawi Lomwe,0,lon
+3952,,,,Lombo,0,loo
+3953,,,,Lopa,0,lop
+3954,,,,Lobala,0,loq
+3955,,,,Téén,0,lor
+3956,,,,Loniu,0,los
+3957,,,,Otuho,0,lot
+3958,,,,Louisiana Creole French,0,lou
+3959,,,,Lopi,0,lov
+3960,,,,Tampias Lobu,0,low
+3961,,,,Loun,0,lox
+3962,,,,Loke,0,loy
+245,loz,loz,,Lozi,1,loz
+3963,,,,Lelepa,0,lpa
+3964,,,,Lepki,0,lpe
+3965,,,,Long Phuri Naga,0,lpn
+3966,,,,Lipo,0,lpo
+3967,,,,Lopit,0,lpx
+3968,,,,Rara Bakati',0,lra
+3969,,,,Northern Luri,0,lrc
+3970,,,,Laurentian,0,lre
+3971,,,,Laragia,0,lrg
+3972,,,,Marachi,0,lri
+3973,,,,Loarki,0,lrk
+3974,,,,Lari,0,lrl
+3975,,,,Marama,0,lrm
+3976,,,,Lorang,0,lrn
+3977,,,,Laro,0,lro
+3978,,,,Southern Yamphu,0,lrr
+3979,,,,Larantuka Malay,0,lrt
+3980,,,,Larevat,0,lrv
+3981,,,,Lemerig,0,lrz
+3982,,,,Lasgerdi,0,lsa
+3983,,,,Lishana Deni,0,lsd
+3984,,,,Lusengo,0,lse
+3985,,,,Lyons Sign Language,0,lsg
+3986,,,,Lish,0,lsh
+3987,,,,Lashi,0,lsi
+3988,,,,Latvian Sign Language,0,lsl
+3989,,,,Saamia,0,lsm
+3990,,,,Laos Sign Language,0,lso
+3991,,,,Panamanian Sign Language,0,lsp
+3992,,,,Aruop,0,lsr
+3993,,,,Lasi,0,lss
+3994,,,,Trinidad and Tobago Sign Language,0,lst
+3995,,,,Mauritian Sign Language,0,lsy
+3996,,,,Late Middle Chinese,0,ltc
+3997,,,,Latgalian,0,ltg
+3998,,,,Leti (Indonesia),0,lti
+3999,,,,Latundê,0,ltn
+4000,,,,Tsotso,0,lto
+4001,,,,Tachoni,0,lts
+4002,,,,Latu,0,ltu
+246,ltz,ltz,lb,Luxembourgish,1,ltz
+247,lua,lua,,Luba-Lulua,1,lua
+248,lub,lub,lu,Luba-Katanga,1,lub
+4003,,,,Aringa,0,luc
+4004,,,,Ludian,0,lud
+4005,,,,Luvale,0,lue
+4006,,,,Laua,0,luf
+249,lug,lug,lg,Ganda,1,lug
+250,lui,lui,,Luiseno,1,lui
+4007,,,,Luna,0,luj
+4008,,,,Lunanakha,0,luk
+4009,,,,Olu'bo,0,lul
+4010,,,,Luimbi,0,lum
+251,lun,lun,,Lunda,1,lun
+252,luo,luo,,Luo,1,luo
+4011,,,,Lumbu,0,lup
+4012,,,,Lucumi,0,luq
+4013,,,,Laura,0,lur
+253,lus,lus,,Lushai,1,lus
+4014,,,,Lushootseed,0,lut
+4015,,,,Lumba-Yakkha,0,luu
+4016,,,,Luwati,0,luv
+4017,,,,Luo (Cameroon),0,luw
+4018,,,,Luyia,0,luy
+4019,,,,Southern Luri,0,luz
+4020,,,,Maku'a,0,lva
+4021,,,,Lavukaleve,0,lvk
+4022,,,,Standard Latvian,0,lvs
+4023,,,,Levuka,0,lvu
+4024,,,,Lwalu,0,lwa
+4025,,,,Lewo Eleng,0,lwe
+4026,,,,Wanga,0,lwg
+4027,,,,White Lachi,0,lwh
+4028,,,,Eastern Lawa,0,lwl
+4029,,,,Laomian,0,lwm
+4030,,,,Luwo,0,lwo
+4031,,,,Lewotobi,0,lwt
+4032,,,,Lewo,0,lww
+4033,,,,Layakha,0,lya
+4034,,,,Lyngngam,0,lyg
+4035,,,,Luyana,0,lyn
+4036,,,,Literary Chinese,0,lzh
+4037,,,,Litzlitz,0,lzl
+4038,,,,Leinong Naga,0,lzn
+4039,,,,Laz,0,lzz
+4040,,,,San Jerónimo Tecóatl Mazatec,0,maa
+4041,,,,Yutanduchi Mixtec,0,mab
+255,mad,mad,,Madurese,1,mad
+4042,,,,Bo-Rukul,0,mae
+4043,,,,Mafa,0,maf
+256,mag,mag,,Magahi,1,mag
+257,mah,mah,mh,Marshallese,1,mah
+258,mai,mai,,Maithili,1,mai
+4044,,,,Jalapa De Díaz Mazatec,0,maj
+259,mak,mak,,Makasar,1,mak
+260,mal,mal,ml,Malayalam,1,mal
+4045,,,,Mam,0,mam
+261,man,man,,Mandingo,1,man
+4046,,,,Chiquihuitlán Mazatec,0,maq
+264,mar,mar,mr,Marathi,1,mar
+265,mas,mas,,Masai,1,mas
+4047,,,,San Francisco Matlatzinca,0,mat
+4048,,,,Huautla Mazatec,0,mau
+4049,,,,Sateré-Mawé,0,mav
+4050,,,,Mampruli,0,maw
+4051,,,,North Moluccan Malay,0,max
+4052,,,,Central Mazahua,0,maz
+4053,,,,Higaonon,0,mba
+4054,,,,Western Bukidnon Manobo,0,mbb
+4055,,,,Macushi,0,mbc
+4056,,,,Dibabawon Manobo,0,mbd
+4057,,,,Molale,0,mbe
+4058,,,,Baba Malay,0,mbf
+4059,,,,Mangseng,0,mbh
+4060,,,,Ilianen Manobo,0,mbi
+4061,,,,Nadëb,0,mbj
+4062,,,,Malol,0,mbk
+4063,,,,Maxakalí,0,mbl
+4064,,,,Ombamba,0,mbm
+4065,,,,Macaguán,0,mbn
+4066,,,,Mbo (Cameroon),0,mbo
+4067,,,,Malayo,0,mbp
+4068,,,,Maisin,0,mbq
+4069,,,,Nukak Makú,0,mbr
+4070,,,,Sarangani Manobo,0,mbs
+4071,,,,Matigsalug Manobo,0,mbt
+4072,,,,Mbula-Bwazza,0,mbu
+4073,,,,Mbulungish,0,mbv
+4074,,,,Maring,0,mbw
+4075,,,,Mari (East Sepik Province),0,mbx
+4076,,,,Memoni,0,mby
+4077,,,,Amoltepec Mixtec,0,mbz
+4078,,,,Maca,0,mca
+4079,,,,Machiguenga,0,mcb
+4080,,,,Bitur,0,mcc
+4081,,,,Sharanahua,0,mcd
+4082,,,,Itundujia Mixtec,0,mce
+4083,,,,Matsés,0,mcf
+4084,,,,Mapoyo,0,mcg
+4085,,,,Maquiritari,0,mch
+4086,,,,Mese,0,mci
+4087,,,,Mvanip,0,mcj
+4088,,,,Mbunda,0,mck
+4089,,,,Macaguaje,0,mcl
+4090,,,,Malaccan Creole Portuguese,0,mcm
+4091,,,,Masana,0,mcn
+4092,,,,Coatlán Mixe,0,mco
+4093,,,,Makaa,0,mcp
+4094,,,,Ese,0,mcq
+4095,,,,Menya,0,mcr
+4096,,,,Mambai,0,mcs
+4097,,,,Mengisa,0,mct
+4098,,,,Cameroon Mambila,0,mcu
+4099,,,,Minanibai,0,mcv
+4100,,,,Mawa (Chad),0,mcw
+4101,,,,Mpiemo,0,mcx
+4102,,,,South Watut,0,mcy
+4103,,,,Mawan,0,mcz
+4104,,,,Mada (Nigeria),0,mda
+4105,,,,Morigi,0,mdb
+4106,,,,Male (Papua New Guinea),0,mdc
+4107,,,,Mbum,0,mdd
+4108,,,,Maba (Chad),0,mde
+267,mdf,mdf,,Moksha,1,mdf
+4109,,,,Massalat,0,mdg
+4110,,,,Maguindanaon,0,mdh
+4111,,,,Mamvu,0,mdi
+4112,,,,Mangbetu,0,mdj
+4113,,,,Mangbutu,0,mdk
+4114,,,,Maltese Sign Language,0,mdl
+4115,,,,Mayogo,0,mdm
+4116,,,,Mbati,0,mdn
+4117,,,,Mbala,0,mdp
+4118,,,,Mbole,0,mdq
+268,mdr,mdr,,Mandar,1,mdr
+4119,,,,Maria (Papua New Guinea),0,mds
+4120,,,,Mbere,0,mdt
+4121,,,,Mboko,0,mdu
+4122,,,,Santa Lucía Monteverde Mixtec,0,mdv
+4123,,,,Mbosi,0,mdw
+4124,,,,Dizin,0,mdx
+4125,,,,Male (Ethiopia),0,mdy
+4126,,,,Suruí Do Pará,0,mdz
+4127,,,,Menka,0,mea
+4128,,,,Ikobi,0,meb
+4129,,,,Mara,0,mec
+4130,,,,Melpa,0,med
+4131,,,,Mengen,0,mee
+4132,,,,Megam,0,mef
+4133,,,,Mea,0,meg
+4134,,,,Southwestern Tlaxiaco Mixtec,0,meh
+4135,,,,Midob,0,mei
+4136,,,,Meyah,0,mej
+4137,,,,Mekeo,0,mek
+4138,,,,Central Melanau,0,mel
+4139,,,,Mangala,0,mem
+269,men,men,,Mende,1,men
+4140,,,,Kedah Malay,0,meo
+4141,,,,Miriwung,0,mep
+4142,,,,Merey,0,meq
+4143,,,,Meru,0,mer
+4144,,,,Masmaje,0,mes
+4145,,,,Mato,0,met
+4146,,,,Motu,0,meu
+4147,,,,Mann,0,mev
+4148,,,,Maaka,0,mew
+4149,,,,Hassaniyya,0,mey
+4150,,,,Menominee,0,mez
+4151,,,,Pattani Malay,0,mfa
+4152,,,,Bangka,0,mfb
+4153,,,,Mba,0,mfc
+4154,,,,Mendankwe-Nkwen,0,mfd
+4155,,,,Morisyen,0,mfe
+4156,,,,Naki,0,mff
+4157,,,,Mixifore,0,mfg
+4158,,,,Matal,0,mfh
+4159,,,,Wandala,0,mfi
+4160,,,,Mefele,0,mfj
+4161,,,,North Mofu,0,mfk
+4162,,,,Putai,0,mfl
+4163,,,,Marghi South,0,mfm
+4164,,,,Cross River Mbembe,0,mfn
+4165,,,,Mbe,0,mfo
+4166,,,,Makassar Malay,0,mfp
+4167,,,,Moba,0,mfq
+4168,,,,Marithiel,0,mfr
+4169,,,,Mexican Sign Language,0,mfs
+4170,,,,Mokerang,0,mft
+4171,,,,Mbwela,0,mfu
+4172,,,,Mandjak,0,mfv
+4173,,,,Mulaha,0,mfw
+4174,,,,Melo,0,mfx
+4175,,,,Mayo,0,mfy
+4176,,,,Mabaan,0,mfz
+270,mga,mga,,"Irish, Middle (900-1200)",0,mga
+4177,,,,Mararit,0,mgb
+4178,,,,Morokodo,0,mgc
+4179,,,,Moru,0,mgd
+4180,,,,Mango,0,mge
+4181,,,,Maklew,0,mgf
+4182,,,,Mpumpong,0,mgg
+4183,,,,Makhuwa-Meetto,0,mgh
+4184,,,,Lijili,0,mgi
+4185,,,,Abureni,0,mgj
+4186,,,,Mawes,0,mgk
+4187,,,,Maleu-Kilenge,0,mgl
+4188,,,,Mambae,0,mgm
+4189,,,,Mbangi,0,mgn
+4190,,,,Meta',0,mgo
+4191,,,,Eastern Magar,0,mgp
+4192,,,,Malila,0,mgq
+4193,,,,Mambwe-Lungu,0,mgr
+4194,,,,Manda (Tanzania),0,mgs
+4195,,,,Mongol,0,mgt
+4196,,,,Mailu,0,mgu
+4197,,,,Matengo,0,mgv
+4198,,,,Matumbi,0,mgw
+4199,,,,Mbunga,0,mgy
+4200,,,,Mbugwe,0,mgz
+4201,,,,Manda (India),0,mha
+4202,,,,Mahongwe,0,mhb
+4203,,,,Mocho,0,mhc
+4204,,,,Mbugu,0,mhd
+4205,,,,Besisi,0,mhe
+4206,,,,Mamaa,0,mhf
+4207,,,,Margu,0,mhg
+4208,,,,Maskoy Pidgin,0,mhh
+4209,,,,Ma'di,0,mhi
+4210,,,,Mogholi,0,mhj
+4211,,,,Mungaka,0,mhk
+4212,,,,Mauwake,0,mhl
+4213,,,,Makhuwa-Moniga,0,mhm
+4214,,,,Mócheno,0,mhn
+4215,,,,Mashi (Zambia),0,mho
+4216,,,,Balinese Malay,0,mhp
+4217,,,,Mandan,0,mhq
+4218,,,,Eastern Mari,0,mhr
+4219,,,,Buru (Indonesia),0,mhs
+4220,,,,Mandahuaca,0,mht
+4221,,,,Digaro-Mishmi,0,mhu
+4222,,,,Mbukushu,0,mhw
+4223,,,,Maru,0,mhx
+4224,,,,Ma'anyan,0,mhy
+4225,,,,Mor (Mor Islands),0,mhz
+4226,,,,Miami,0,mia
+4227,,,,Atatláhuca Mixtec,0,mib
+271,mic,mic,,Mi'kmaq,1,mic
+4228,,,,Mandaic,0,mid
+4229,,,,Ocotepec Mixtec,0,mie
+4230,,,,Mofu-Gudur,0,mif
+4231,,,,San Miguel El Grande Mixtec,0,mig
+4232,,,,Chayuco Mixtec,0,mih
+4233,,,,Chigmecatitlán Mixtec,0,mii
+4234,,,,Abar,0,mij
+4235,,,,Mikasuki,0,mik
+4236,,,,Peñoles Mixtec,0,mil
+4237,,,,Alacatlatzala Mixtec,0,mim
+272,min,min,,Minangkabau,1,min
+4238,,,,Pinotepa Nacional Mixtec,0,mio
+4239,,,,Apasco-Apoala Mixtec,0,mip
+4240,,,,Mískito,0,miq
+4241,,,,Isthmus Mixe,0,mir
+273,mis,mis,,Uncoded languages,0,mis
+4242,,,,Southern Puebla Mixtec,0,mit
+4243,,,,Cacaloxtepec Mixtec,0,miu
+4244,,,,Akoye,0,miw
+4245,,,,Mixtepec Mixtec,0,mix
+4246,,,,Ayutla Mixtec,0,miy
+4247,,,,Coatzospan Mixtec,0,miz
+4248,,,,San Juan Colorado Mixtec,0,mjc
+4249,,,,Northwest Maidu,0,mjd
+4250,,,,Muskum,0,mje
+4251,,,,Tu,0,mjg
+4252,,,,Mwera (Nyasa),0,mjh
+4253,,,,Kim Mun,0,mji
+4254,,,,Mawak,0,mjj
+4255,,,,Matukar,0,mjk
+4256,,,,Mandeali,0,mjl
+4257,,,,Medebur,0,mjm
+4258,,,,Ma (Papua New Guinea),0,mjn
+4259,,,,Malankuravan,0,mjo
+4260,,,,Malapandaram,0,mjp
+4261,,,,Malaryan,0,mjq
+4262,,,,Malavedan,0,mjr
+4263,,,,Miship,0,mjs
+4264,,,,Sauria Paharia,0,mjt
+4265,,,,Manna-Dora,0,mju
+4266,,,,Mannan,0,mjv
+4267,,,,Karbi,0,mjw
+4268,,,,Mahali,0,mjx
+4269,,,,Mahican,0,mjy
+4270,,,,Majhi,0,mjz
+4271,,,,Mbre,0,mka
+4272,,,,Mal Paharia,0,mkb
+4273,,,,Siliput,0,mkc
+254,mkd,mac,mk,Macedonian,1,mkd
+4274,,,,Mawchi,0,mke
+4275,,,,Miya,0,mkf
+4276,,,,Mak (China),0,mkg
+4277,,,,Dhatki,0,mki
+4278,,,,Mokilese,0,mkj
+4279,,,,Byep,0,mkk
+4280,,,,Mokole,0,mkl
+4281,,,,Moklen,0,mkm
+4282,,,,Kupang Malay,0,mkn
+4283,,,,Mingang Doso,0,mko
+4284,,,,Moikodi,0,mkp
+4285,,,,Bay Miwok,0,mkq
+4286,,,,Malas,0,mkr
+4287,,,,Silacayoapan Mixtec,0,mks
+4288,,,,Vamale,0,mkt
+4289,,,,Konyanka Maninka,0,mku
+4290,,,,Mafea,0,mkv
+4291,,,,Kituba (Congo),0,mkw
+4292,,,,Kinamiging Manobo,0,mkx
+4293,,,,East Makian,0,mky
+4294,,,,Makasae,0,mkz
+4295,,,,Malo,0,mla
+4296,,,,Mbule,0,mlb
+4297,,,,Cao Lan,0,mlc
+4298,,,,Malakhel,0,mld
+4299,,,,Manambu,0,mle
+4300,,,,Mal,0,mlf
+275,mlg,mlg,mg,Malagasy,1,mlg
+4301,,,,Mape,0,mlh
+4302,,,,Malimpung,0,mli
+4303,,,,Miltu,0,mlj
+4304,,,,Ilwana,0,mlk
+4305,,,,Malua Bay,0,mll
+4306,,,,Mulam,0,mlm
+4307,,,,Malango,0,mln
+4308,,,,Mlomp,0,mlo
+4309,,,,Bargam,0,mlp
+4310,,,,Western Maninkakan,0,mlq
+4311,,,,Vame,0,mlr
+4312,,,,Masalit,0,mls
+276,mlt,mlt,mt,Maltese,1,mlt
+4313,,,,To'abaita,0,mlu
+4314,,,,Motlav,0,mlv
+4315,,,,Moloko,0,mlw
+4316,,,,Malfaxal,0,mlx
+4317,,,,Malaynon,0,mlz
+4318,,,,Mama,0,mma
+4319,,,,Momina,0,mmb
+4320,,,,Michoacán Mazahua,0,mmc
+4321,,,,Maonan,0,mmd
+4322,,,,Mae,0,mme
+4323,,,,Mundat,0,mmf
+4324,,,,North Ambrym,0,mmg
+4325,,,,Mehináku,0,mmh
+4326,,,,Musar,0,mmi
+4327,,,,Majhwar,0,mmj
+4328,,,,Mukha-Dora,0,mmk
+4329,,,,Man Met,0,mml
+4330,,,,Maii,0,mmm
+4331,,,,Mamanwa,0,mmn
+4332,,,,Mangga Buang,0,mmo
+4333,,,,Siawi,0,mmp
+4334,,,,Musak,0,mmq
+4335,,,,Western Xiangxi Miao,0,mmr
+4336,,,,Malalamai,0,mmt
+4337,,,,Mmaala,0,mmu
+4338,,,,Miriti,0,mmv
+4339,,,,Emae,0,mmw
+4340,,,,Madak,0,mmx
+4341,,,,Migaama,0,mmy
+4342,,,,Mabaale,0,mmz
+4343,,,,Mbula,0,mna
+4344,,,,Muna,0,mnb
+277,mnc,mnc,,Manchu,1,mnc
+4345,,,,Mondé,0,mnd
+4346,,,,Naba,0,mne
+4347,,,,Mundani,0,mnf
+4348,,,,Eastern Mnong,0,mng
+4349,,,,Mono (Democratic Republic of Congo),0,mnh
+278,mni,mni,,Manipuri,1,mni
+4350,,,,Munji,0,mnj
+4351,,,,Mandinka,0,mnk
+4352,,,,Tiale,0,mnl
+4353,,,,Mapena,0,mnm
+4354,,,,Southern Mnong,0,mnn
+4355,,,,Min Bei Chinese,0,mnp
+4356,,,,Minriq,0,mnq
+4357,,,,Mono (USA),0,mnr
+4359,,,,Maykulan,0,mnt
+4360,,,,Mer,0,mnu
+4361,,,,Rennell-Bellona,0,mnv
+4362,,,,Mon,0,mnw
+4363,,,,Manikion,0,mnx
+4364,,,,Manyawa,0,mny
+4365,,,,Moni,0,mnz
+4366,,,,Mwan,0,moa
+4367,,,,Mocoví,0,moc
+4368,,,,Mobilian,0,mod
+4358,,,,Mansi,1,mns
+4370,,,,Mongondow,0,mog
+280,moh,moh,,Mohawk,1,moh
+4371,,,,Mboi,0,moi
+4372,,,,Monzombo,0,moj
+4373,,,,Morori,0,mok
+4374,,,,Mangue,0,mom
+282,mon,mon,mn,Mongolian,1,mon
+4375,,,,Monom,0,moo
+4376,,,,Mopán Maya,0,mop
+4377,,,,Mor (Bomberai Peninsula),0,moq
+4378,,,,Moro,0,mor
+283,mos,mos,,Mossi,1,mos
+4379,,,,Barí,0,mot
+4380,,,,Mogum,0,mou
+4381,,,,Mohave,0,mov
+4382,,,,Moi (Congo),0,mow
+4383,,,,Molima,0,mox
+4384,,,,Shekkacho,0,moy
+4385,,,,Mukulu,0,moz
+4386,,,,Mpoto,0,mpa
+4387,,,,Mullukmulluk,0,mpb
+4388,,,,Mangarayi,0,mpc
+4389,,,,Machinere,0,mpd
+4390,,,,Majang,0,mpe
+4391,,,,Marba,0,mpg
+4392,,,,Maung,0,mph
+4393,,,,Mpade,0,mpi
+4394,,,,Martu Wangka,0,mpj
+4395,,,,Mbara (Chad),0,mpk
+4396,,,,Middle Watut,0,mpl
+4397,,,,Yosondúa Mixtec,0,mpm
+4398,,,,Mindiri,0,mpn
+4399,,,,Miu,0,mpo
+4400,,,,Migabac,0,mpp
+4401,,,,Matís,0,mpq
+4402,,,,Vangunu,0,mpr
+4403,,,,Dadibi,0,mps
+4404,,,,Mian,0,mpt
+4405,,,,Makuráp,0,mpu
+4406,,,,Mungkip,0,mpv
+4407,,,,Mapidian,0,mpw
+4408,,,,Misima-Panaeati,0,mpx
+4409,,,,Mapia,0,mpy
+4410,,,,Mpi,0,mpz
+4411,,,,Maba (Indonesia),0,mqa
+4412,,,,Mbuko,0,mqb
+4413,,,,Mangole,0,mqc
+4414,,,,Matepi,0,mqe
+4415,,,,Momuna,0,mqf
+4416,,,,Kota Bangun Kutai Malay,0,mqg
+4417,,,,Tlazoyaltepec Mixtec,0,mqh
+4418,,,,Mariri,0,mqi
+4419,,,,Mamasa,0,mqj
+4420,,,,Rajah Kabunsuwan Manobo,0,mqk
+4421,,,,Mbelime,0,mql
+4422,,,,South Marquesan,0,mqm
+4423,,,,Moronene,0,mqn
+4424,,,,Modole,0,mqo
+4425,,,,Manipa,0,mqp
+4426,,,,Minokok,0,mqq
+4427,,,,Mander,0,mqr
+4428,,,,West Makian,0,mqs
+4429,,,,Mok,0,mqt
+4430,,,,Mandari,0,mqu
+4431,,,,Mosimo,0,mqv
+4432,,,,Murupi,0,mqw
+4433,,,,Mamuju,0,mqx
+4434,,,,Manggarai,0,mqy
+4435,,,,Pano,0,mqz
+4436,,,,Mlabri,0,mra
+4437,,,,Marino,0,mrb
+4438,,,,Maricopa,0,mrc
+4439,,,,Western Magar,0,mrd
+4440,,,,Martha's Vineyard Sign Language,0,mre
+4441,,,,Elseng,0,mrf
+4442,,,,Mising,0,mrg
+4443,,,,Mara Chin,0,mrh
+262,mri,mao,mi,Maori,1,mri
+4444,,,,Western Mari,0,mrj
+4445,,,,Hmwaveke,0,mrk
+4446,,,,Mortlockese,0,mrl
+4447,,,,Merlav,0,mrm
+4448,,,,Cheke Holo,0,mrn
+4449,,,,Mru,0,mro
+4450,,,,Morouas,0,mrp
+4451,,,,North Marquesan,0,mrq
+4452,,,,Maria (India),0,mrr
+4453,,,,Maragus,0,mrs
+4454,,,,Marghi Central,0,mrt
+4455,,,,Mono (Cameroon),0,mru
+4456,,,,Mangareva,0,mrv
+4457,,,,Maranao,0,mrw
+4458,,,,Maremgi,0,mrx
+4459,,,,Mandaya,0,mry
+4460,,,,Marind,0,mrz
+266,msa,may,ms,Malay,1,msa
+4461,,,,Masbatenyo,0,msb
+4462,,,,Sankaran Maninka,0,msc
+4463,,,,Yucatec Maya Sign Language,0,msd
+4464,,,,Musey,0,mse
+4465,,,,Mekwei,0,msf
+4466,,,,Moraid,0,msg
+4467,,,,Masikoro Malagasy,0,msh
+4468,,,,Sabah Malay,0,msi
+4469,,,,Ma (Democratic Republic of Congo),0,msj
+4470,,,,Mansaka,0,msk
+4471,,,,Molof,0,msl
+4472,,,,Agusan Manobo,0,msm
+4473,,,,Vurës,0,msn
+4474,,,,Mombum,0,mso
+4475,,,,Maritsauá,0,msp
+4476,,,,Caac,0,msq
+4477,,,,Mongolian Sign Language,0,msr
+4478,,,,West Masela,0,mss
+4479,,,,Musom,0,msu
+4480,,,,Maslam,0,msv
+4481,,,,Mansoanka,0,msw
+4482,,,,Moresada,0,msx
+4483,,,,Aruamu,0,msy
+4484,,,,Momare,0,msz
+4485,,,,Cotabato Manobo,0,mta
+4486,,,,Anyin Morofo,0,mtb
+4487,,,,Munit,0,mtc
+4488,,,,Mualang,0,mtd
+4489,,,,Mono (Solomon Islands),0,mte
+4490,,,,Murik (Papua New Guinea),0,mtf
+4491,,,,Una,0,mtg
+4492,,,,Munggui,0,mth
+4493,,,,Maiwa (Papua New Guinea),0,mti
+4494,,,,Moskona,0,mtj
+4495,,,,Mbe',0,mtk
+4496,,,,Montol,0,mtl
+4497,,,,Mator,0,mtm
+4498,,,,Matagalpa,0,mtn
+4499,,,,Totontepec Mixe,0,mto
+4500,,,,Wichí Lhamtés Nocten,0,mtp
+4501,,,,Muong,0,mtq
+4502,,,,Mewari,0,mtr
+4503,,,,Yora,0,mts
+4504,,,,Mota,0,mtt
+4505,,,,Tututepec Mixtec,0,mtu
+4506,,,,Asaro'o,0,mtv
+4507,,,,Southern Binukidnon,0,mtw
+4508,,,,Tidaá Mixtec,0,mtx
+4509,,,,Nabi,0,mty
+4510,,,,Mundang,0,mua
+4511,,,,Mubi,0,mub
+4512,,,,Mbu',0,muc
+4513,,,,Mednyj Aleut,0,mud
+4514,,,,Media Lengua,0,mue
+4515,,,,Musgu,0,mug
+4516,,,,Mündü,0,muh
+4517,,,,Musi,0,mui
+4518,,,,Mabire,0,muj
+4519,,,,Mugom,0,muk
+4520,,,,Maiwala,0,mum
+4521,,,,Nyong,0,muo
+4522,,,,Malvi,0,mup
+4523,,,,Eastern Xiangxi Miao,0,muq
+4524,,,,Murle,0,mur
+286,mus,mus,,Creek,1,mus
+4525,,,,Western Muria,0,mut
+4526,,,,Yaaku,0,muu
+4527,,,,Muthuvan,0,muv
+4528,,,,Bo-Ung,0,mux
+4529,,,,Muyang,0,muy
+4530,,,,Mursi,0,muz
+4531,,,,Manam,0,mva
+4532,,,,Mattole,0,mvb
+4533,,,,Mamboru,0,mvd
+4534,,,,Marwari (Pakistan),0,mve
+4535,,,,Peripheral Mongolian,0,mvf
+4536,,,,Yucuañe Mixtec,0,mvg
+4537,,,,Mulgi,0,mvh
+4538,,,,Miyako,0,mvi
+4539,,,,Mekmek,0,mvk
+4540,,,,Mbara (Australia),0,mvl
+4541,,,,Muya,0,mvm
+4542,,,,Minaveha,0,mvn
+4543,,,,Marovo,0,mvo
+4544,,,,Duri,0,mvp
+4545,,,,Moere,0,mvq
+4546,,,,Marau,0,mvr
+4547,,,,Massep,0,mvs
+4548,,,,Mpotovoro,0,mvt
+4549,,,,Marfa,0,mvu
+4550,,,,Tagal Murut,0,mvv
+4551,,,,Machinga,0,mvw
+4552,,,,Meoswar,0,mvx
+4553,,,,Indus Kohistani,0,mvy
+4554,,,,Mesqan,0,mvz
+4555,,,,Mwatebu,0,mwa
+4556,,,,Juwal,0,mwb
+4557,,,,Are,0,mwc
+4558,,,,Mudbura,0,mwd
+4559,,,,Mwera (Chimwera),0,mwe
+4560,,,,Murrinh-Patha,0,mwf
+4561,,,,Aiklep,0,mwg
+4562,,,,Mouk-Aria,0,mwh
+4563,,,,Labo,0,mwi
+4564,,,,Maligo,0,mwj
+4565,,,,Kita Maninkakan,0,mwk
+287,mwl,mwl,,Mirandese,1,mwl
+4566,,,,Sar,0,mwm
+4567,,,,Nyamwanga,0,mwn
+4568,,,,Central Maewo,0,mwo
+4569,,,,Kala Lagaw Ya,0,mwp
+4570,,,,Mün Chin,0,mwq
+288,mwr,mwr,,Marwari,1,mwr
+4571,,,,Mwimbi-Muthambi,0,mws
+4572,,,,Moken,0,mwt
+4573,,,,Mittu,0,mwu
+4574,,,,Mentawai,0,mwv
+4575,,,,Hmong Daw,0,mww
+4576,,,,Mediak,0,mwx
+4577,,,,Mosiro,0,mwy
+4578,,,,Moingi,0,mwz
+4579,,,,Northwest Oaxaca Mixtec,0,mxa
+4580,,,,Tezoatlán Mixtec,0,mxb
+4581,,,,Manyika,0,mxc
+4582,,,,Modang,0,mxd
+4583,,,,Mele-Fila,0,mxe
+4584,,,,Malgbe,0,mxf
+4585,,,,Mbangala,0,mxg
+4586,,,,Mvuba,0,mxh
+4587,,,,Mozarabic,0,mxi
+4588,,,,Miju-Mishmi,0,mxj
+4589,,,,Monumbo,0,mxk
+4590,,,,Maxi Gbe,0,mxl
+4591,,,,Meramera,0,mxm
+4592,,,,Moi (Indonesia),0,mxn
+4593,,,,Mbowe,0,mxo
+4594,,,,Tlahuitoltepec Mixe,0,mxp
+4595,,,,Juquila Mixe,0,mxq
+4596,,,,Murik (Malaysia),0,mxr
+4597,,,,Huitepec Mixtec,0,mxs
+4598,,,,Jamiltepec Mixtec,0,mxt
+4599,,,,Mada (Cameroon),0,mxu
+4600,,,,Metlatónoc Mixtec,0,mxv
+4601,,,,Namo,0,mxw
+4602,,,,Mahou,0,mxx
+4603,,,,Southeastern Nochixtlán Mixtec,0,mxy
+4604,,,,Central Masela,0,mxz
+63,mya,bur,my,Burmese,1,mya
+4605,,,,Mbay,0,myb
+4606,,,,Mayeka,0,myc
+4607,,,,Maramba,0,myd
+4608,,,,Myene,0,mye
+4609,,,,Bambassi,0,myf
+4610,,,,Manta,0,myg
+4611,,,,Makah,0,myh
+4612,,,,Mina (India),0,myi
+4613,,,,Mangayat,0,myj
+4614,,,,Mamara Senoufo,0,myk
+4615,,,,Moma,0,myl
+4616,,,,Me'en,0,mym
+4617,,,,Anfillo,0,myo
+4618,,,,Pirahã,0,myp
+4619,,,,Forest Maninka,0,myq
+4620,,,,Muniche,0,myr
+4621,,,,Mesmes,0,mys
+4622,,,,Mundurukú,0,myu
+290,myv,myv,,Erzya,1,myv
+4623,,,,Muyuw,0,myw
+4624,,,,Masaaba,0,myx
+4625,,,,Macuna,0,myy
+4626,,,,Classical Mandaic,0,myz
+4627,,,,Santa María Zacatepec Mixtec,0,mza
+4628,,,,Tumzabt,0,mzb
+4629,,,,Madagascar Sign Language,0,mzc
+4630,,,,Malimba,0,mzd
+4631,,,,Morawa,0,mze
+4632,,,,Monastic Sign Language,0,mzg
+4633,,,,Wichí Lhamtés Güisnay,0,mzh
+4634,,,,Ixcatlán Mazatec,0,mzi
+4635,,,,Manya,0,mzj
+4636,,,,Nigeria Mambila,0,mzk
+4637,,,,Mazatlán Mixe,0,mzl
+4638,,,,Mumuye,0,mzm
+4639,,,,Mazanderani,0,mzn
+4640,,,,Matipuhy,0,mzo
+4641,,,,Movima,0,mzp
+4642,,,,Mori Atas,0,mzq
+4643,,,,Marúbo,0,mzr
+4644,,,,Macanese,0,mzs
+4645,,,,Mintil,0,mzt
+4646,,,,Inapang,0,mzu
+4647,,,,Manza,0,mzv
+4648,,,,Deg,0,mzw
+4649,,,,Mawayana,0,mzx
+4650,,,,Mozambican Sign Language,0,mzy
+4651,,,,Maiadomu,0,mzz
+4652,,,,Namla,0,naa
+4653,,,,Southern Nambikuára,0,nab
+4654,,,,Narak,0,nac
+4655,,,,Nijadali,0,nad
+4656,,,,Naka'ela,0,nae
+4657,,,,Nabak,0,naf
+4658,,,,Naga Pidgin,0,nag
+4659,,,,Nalu,0,naj
+4660,,,,Nakanai,0,nak
+4661,,,,Nalik,0,nal
+4662,,,,Ngan'gityemerri,0,nam
+4664,,,,Naaba,0,nao
+293,nap,nap,,Neapolitan,1,nap
+4665,,,,Nama (Namibia),0,naq
+4666,,,,Iguta,0,nar
+4667,,,,Naasioi,0,nas
+4668,,,,Hungworo,0,nat
+294,nau,nau,na,Nauru,1,nau
+295,nav,nav,nv,Navajo,1,nav
+4669,,,,Nawuri,0,naw
+4670,,,,Nakwi,0,nax
+4671,,,,Narrinyeri,0,nay
+4672,,,,Coatepec Nahuatl,0,naz
+4673,,,,Nyemba,0,nba
+4674,,,,Ndoe,0,nbb
+4675,,,,Chang Naga,0,nbc
+4676,,,,Ngbinda,0,nbd
+4677,,,,Konyak Naga,0,nbe
+4678,,,,Nagarchal,0,nbg
+4679,,,,Ngamo,0,nbh
+4680,,,,Mao Naga,0,nbi
+4681,,,,Ngarinman,0,nbj
+4682,,,,Nake,0,nbk
+296,nbl,nbl,nr,"Ndebele, South",1,nbl
+4683,,,,Ngbaka Ma'bo,0,nbm
+4684,,,,Kuri,0,nbn
+4685,,,,Nkukoli,0,nbo
+4686,,,,Nnam,0,nbp
+4687,,,,Nggem,0,nbq
+4688,,,,Numana-Nunku-Gbantu-Numbu,0,nbr
+4689,,,,Namibian Sign Language,0,nbs
+4690,,,,Na,0,nbt
+4691,,,,Rongmei Naga,0,nbu
+4692,,,,Ngamambo,0,nbv
+4693,,,,Southern Ngbandi,0,nbw
+4694,,,,Ngura,0,nbx
+4695,,,,Ningera,0,nby
+4696,,,,Iyo,0,nca
+4697,,,,Central Nicobarese,0,ncb
+4698,,,,Ponam,0,ncc
+4699,,,,Nachering,0,ncd
+4700,,,,Yale,0,nce
+4701,,,,Notsi,0,ncf
+4702,,,,Nisga'a,0,ncg
+4703,,,,Central Huasteca Nahuatl,0,nch
+4704,,,,Classical Nahuatl,0,nci
+4705,,,,Northern Puebla Nahuatl,0,ncj
+4706,,,,Nakara,0,nck
+4707,,,,Michoacán Nahuatl,0,ncl
+4708,,,,Nambo,0,ncm
+4709,,,,Nauna,0,ncn
+4710,,,,Sibe,0,nco
+4711,,,,Ndaktup,0,ncp
+4712,,,,Ncane,0,ncr
+4713,,,,Nicaraguan Sign Language,0,ncs
+4714,,,,Chothe Naga,0,nct
+4715,,,,Chumburung,0,ncu
+4716,,,,Central Puebla Nahuatl,0,ncx
+4717,,,,Natchez,0,ncz
+4718,,,,Ndasa,0,nda
+4719,,,,Kenswei Nsei,0,ndb
+4720,,,,Ndau,0,ndc
+4721,,,,Nde-Nsele-Nta,0,ndd
+297,nde,nde,nd,"Ndebele, North",1,nde
+4722,,,,Nadruvian,0,ndf
+4723,,,,Ndengereko,0,ndg
+4724,,,,Ndali,0,ndh
+4725,,,,Samba Leko,0,ndi
+4726,,,,Ndamba,0,ndj
+4727,,,,Ndaka,0,ndk
+4728,,,,Ndolo,0,ndl
+4729,,,,Ndam,0,ndm
+4730,,,,Ngundi,0,ndn
+298,ndo,ndo,ng,Ndonga,1,ndo
+4731,,,,Ndo,0,ndp
+4732,,,,Ndombe,0,ndq
+4733,,,,Ndoola,0,ndr
+299,nds,nds,,"German, Low",1,nds
+4734,,,,Ndunga,0,ndt
+4735,,,,Dugun,0,ndu
+4736,,,,Ndut,0,ndv
+4737,,,,Ndobo,0,ndw
+4738,,,,Nduga,0,ndx
+4739,,,,Lutos,0,ndy
+4740,,,,Ndogo,0,ndz
+4741,,,,Eastern Ngad'a,0,nea
+4742,,,,Toura (Côte d'Ivoire),0,neb
+4743,,,,Nedebang,0,nec
+4744,,,,Nde-Gbite,0,ned
+4745,,,,Nêlêmwa-Nixumwak,0,nee
+4746,,,,Nefamese,0,nef
+4747,,,,Negidal,0,neg
+4748,,,,Nyenkha,0,neh
+4749,,,,Neo-Hittite,0,nei
+4750,,,,Neko,0,nej
+4751,,,,Neku,0,nek
+4752,,,,Nemi,0,nem
+4753,,,,Nengone,0,nen
+4754,,,,Ná-Meo,0,neo
+300,nep,nep,ne,Nepali,1,nep
+4755,,,,North Central Mixe,0,neq
+4756,,,,Yahadian,0,ner
+4757,,,,Bhoti Kinnauri,0,nes
+4758,,,,Nete,0,net
+4759,,,,Neo,0,neu
+4760,,,,Nyaheun,0,nev
+301,new,new,,Nepal Bhasa,1,new
+4761,,,,Neme,0,nex
+4762,,,,Neyo,0,ney
+4763,,,,Nez Perce,0,nez
+4764,,,,Dhao,0,nfa
+4765,,,,Ahwai,0,nfd
+4766,,,,Ayiwo,0,nfl
+4767,,,,Nafaanra,0,nfr
+4768,,,,Mfumte,0,nfu
+4769,,,,Ngbaka,0,nga
+4770,,,,Northern Ngbandi,0,ngb
+4771,,,,Ngombe (Democratic Republic of Congo),0,ngc
+4772,,,,Ngando (Central African Republic),0,ngd
+4773,,,,Ngemba,0,nge
+4774,,,,Ngbaka Manza,0,ngg
+4775,,,,N/u,0,ngh
+4776,,,,Ngizim,0,ngi
+4777,,,,Ngie,0,ngj
+4778,,,,Ngalkbun,0,ngk
+4779,,,,Lomwe,0,ngl
+4780,,,,Ngatik Men's Creole,0,ngm
+4781,,,,Ngwo,0,ngn
+4782,,,,Ngoni,0,ngo
+4783,,,,Ngulu,0,ngp
+4784,,,,Ngurimi,0,ngq
+4785,,,,Engdewu,0,ngr
+4786,,,,Gvoko,0,ngs
+4787,,,,Ngeq,0,ngt
+4788,,,,Guerrero Nahuatl,0,ngu
+4789,,,,Nagumi,0,ngv
+4790,,,,Ngwaba,0,ngw
+4791,,,,Nggwahyi,0,ngx
+4792,,,,Tibea,0,ngy
+4793,,,,Ngungwel,0,ngz
+4794,,,,Nhanda,0,nha
+4795,,,,Beng,0,nhb
+4796,,,,Tabasco Nahuatl,0,nhc
+4797,,,,Chiripá,0,nhd
+4798,,,,Eastern Huasteca Nahuatl,0,nhe
+4799,,,,Nhuwala,0,nhf
+4800,,,,Tetelcingo Nahuatl,0,nhg
+4801,,,,Nahari,0,nhh
+4802,,,,Zacatlán-Ahuacatlán-Tepetzintla Nahuatl,0,nhi
+4803,,,,Isthmus-Cosoleacaque Nahuatl,0,nhk
+4804,,,,Morelos Nahuatl,0,nhm
+4805,,,,Central Nahuatl,0,nhn
+4806,,,,Takuu,0,nho
+4807,,,,Isthmus-Pajapan Nahuatl,0,nhp
+4808,,,,Huaxcaleca Nahuatl,0,nhq
+4809,,,,Naro,0,nhr
+4810,,,,Ometepec Nahuatl,0,nht
+4811,,,,Noone,0,nhu
+4812,,,,Temascaltepec Nahuatl,0,nhv
+4813,,,,Western Huasteca Nahuatl,0,nhw
+4814,,,,Isthmus-Mecayapan Nahuatl,0,nhx
+4815,,,,Northern Oaxaca Nahuatl,0,nhy
+4816,,,,Santa María La Alta Nahuatl,0,nhz
+302,nia,nia,,Nias,1,nia
+4817,,,,Nakame,0,nib
+4818,,,,Ngandi,0,nid
+4819,,,,Niellim,0,nie
+4820,,,,Nek,0,nif
+4821,,,,Ngalakan,0,nig
+4822,,,,Nyiha (Tanzania),0,nih
+4823,,,,Nii,0,nii
+4824,,,,Ngaju,0,nij
+4825,,,,Southern Nicobarese,0,nik
+4826,,,,Nila,0,nil
+4827,,,,Nilamba,0,nim
+4828,,,,Ninzo,0,nin
+4829,,,,Nganasan,0,nio
+4830,,,,Nandi,0,niq
+4831,,,,Nimboran,0,nir
+4832,,,,Nimi,0,nis
+4833,,,,Southeastern Kolami,0,nit
+304,niu,niu,,Niuean,1,niu
+4834,,,,Gilyak,0,niv
+4835,,,,Nimo,0,niw
+4836,,,,Hema,0,nix
+4837,,,,Ngiti,0,niy
+4838,,,,Ningil,0,niz
+4839,,,,Nzanyi,0,nja
+4840,,,,Nocte Naga,0,njb
+4841,,,,Ndonde Hamba,0,njd
+4842,,,,Lotha Naga,0,njh
+4843,,,,Gudanji,0,nji
+4844,,,,Njen,0,njj
+4845,,,,Njalgulgule,0,njl
+4846,,,,Angami Naga,0,njm
+4847,,,,Liangmai Naga,0,njn
+4848,,,,Ao Naga,0,njo
+4849,,,,Njerep,0,njr
+4850,,,,Nisa,0,njs
+4851,,,,Ndyuka-Trio Pidgin,0,njt
+4852,,,,Ngadjunmaya,0,nju
+4853,,,,Kunyi,0,njx
+4854,,,,Njyem,0,njy
+4855,,,,Nyishi,0,njz
+4856,,,,Nkoya,0,nka
+4857,,,,Khoibu Naga,0,nkb
+4858,,,,Nkongho,0,nkc
+4859,,,,Koireng,0,nkd
+4860,,,,Duke,0,nke
+4861,,,,Inpui Naga,0,nkf
+4862,,,,Nekgini,0,nkg
+4863,,,,Khezha Naga,0,nkh
+4864,,,,Thangal Naga,0,nki
+4865,,,,Nakai,0,nkj
+4866,,,,Nokuku,0,nkk
+4867,,,,Namat,0,nkm
+4868,,,,Nkangala,0,nkn
+4869,,,,Nkonya,0,nko
+4870,,,,Niuatoputapu,0,nkp
+4871,,,,Nkami,0,nkq
+4872,,,,Nukuoro,0,nkr
+4873,,,,North Asmat,0,nks
+4874,,,,Nyika (Tanzania),0,nkt
+4875,,,,Bouna Kulango,0,nku
+4876,,,,Nyika (Malawi and Zambia),0,nkv
+4877,,,,Nkutu,0,nkw
+4878,,,,Nkoroo,0,nkx
+4879,,,,Nkari,0,nkz
+4880,,,,Ngombale,0,nla
+4881,,,,Nalca,0,nlc
+4882,,,,East Nyala,0,nle
+4883,,,,Gela,0,nlg
+4884,,,,Grangali,0,nli
+4885,,,,Nyali,0,nlj
+4886,,,,Ninia Yali,0,nlk
+4887,,,,Nihali,0,nll
+4888,,,,Ngul,0,nlo
+4889,,,,Lao Naga,0,nlq
+4890,,,,Ngarla,0,nlr
+4891,,,,Nchumbulu,0,nlu
+4892,,,,Orizaba Nahuatl,0,nlv
+4893,,,,Nahali,0,nlx
+4894,,,,Nyamal,0,nly
+4895,,,,Nalögo,0,nlz
+4896,,,,Maram Naga,0,nma
+4897,,,,Big Nambas,0,nmb
+4898,,,,Ngam,0,nmc
+4899,,,,Ndumu,0,nmd
+4900,,,,Mzieme Naga,0,nme
+4901,,,,Tangkhul Naga (India),0,nmf
+4902,,,,Kwasio,0,nmg
+4903,,,,Monsang Naga,0,nmh
+4904,,,,Nyam,0,nmi
+4905,,,,Ngombe (Central African Republic),0,nmj
+4906,,,,Namakura,0,nmk
+4907,,,,Ndemli,0,nml
+4908,,,,Manangba,0,nmm
+4909,,,,!Xóõ,0,nmn
+4910,,,,Moyon Naga,0,nmo
+4911,,,,Nimanbur,0,nmp
+4912,,,,Nambya,0,nmq
+4913,,,,Nimbari,0,nmr
+4914,,,,Letemboi,0,nms
+4915,,,,Namonuito,0,nmt
+4916,,,,Northeast Maidu,0,nmu
+4917,,,,Ngamini,0,nmv
+4918,,,,Nimoa,0,nmw
+4919,,,,Nama (Papua New Guinea),0,nmx
+4920,,,,Namuyi,0,nmy
+4921,,,,Nawdm,0,nmz
+4922,,,,Nyangumarta,0,nna
+4923,,,,Nande,0,nnb
+4924,,,,Nancere,0,nnc
+4925,,,,West Ambae,0,nnd
+4926,,,,Ngandyera,0,nne
+4927,,,,Ngaing,0,nnf
+4928,,,,Maring Naga,0,nng
+4929,,,,Ngiemboon,0,nnh
+4930,,,,North Nuaulu,0,nni
+4931,,,,Nyangatom,0,nnj
+4932,,,,Nankina,0,nnk
+4933,,,,Northern Rengma Naga,0,nnl
+4934,,,,Namia,0,nnm
+4935,,,,Ngete,0,nnn
+305,nno,nno,nn,Norwegian Nynorsk,1,nno
+4936,,,,Wancho Naga,0,nnp
+4937,,,,Ngindo,0,nnq
+4938,,,,Narungga,0,nnr
+4939,,,,Ningye,0,nns
+4940,,,,Nanticoke,0,nnt
+4941,,,,Dwang,0,nnu
+4942,,,,Nugunu (Australia),0,nnv
+4943,,,,Southern Nuni,0,nnw
+4944,,,,Ngong,0,nnx
+4945,,,,Nyangga,0,nny
+4946,,,,Nda'nda',0,nnz
+4947,,,,Woun Meu,0,noa
+306,nob,nob,nb,Norwegian Bokmål,1,nob
+4948,,,,Nuk,0,noc
+4949,,,,Northern Thai,0,nod
+4950,,,,Nimadi,0,noe
+4951,,,,Nomane,0,nof
+307,nog,nog,,Nogai,1,nog
+4952,,,,Nomu,0,noh
+4953,,,,Noiri,0,noi
+4954,,,,Nonuya,0,noj
+4955,,,,Nooksack,0,nok
+4956,,,,Nocamán,0,nom
+308,non,non,,"Norse, Old",1,non
+4957,,,,Numanggang,0,nop
+4958,,,,Ngongo,0,noq
+4959,,,,Eastern Nisu,0,nos
+4960,,,,Nomatsiguenga,0,not
+4961,,,,Ewage-Notu,0,nou
+4962,,,,Novial,0,nov
+4963,,,,Nyambo,0,now
+4964,,,,Noy,0,noy
+4965,,,,Nayi,0,noz
+4966,,,,Nar Phu,0,npa
+4967,,,,Nupbikha,0,npb
+4968,,,,Ponyo-Gongwang Naga,0,npg
+4969,,,,Phom Naga,0,nph
+4970,,,,Nepali (individual language),0,npi
+4971,,,,Southeastern Puebla Nahuatl,0,npl
+4972,,,,Mondropolon,0,npn
+4973,,,,Pochuri Naga,0,npo
+4974,,,,Nipsan,0,nps
+4975,,,,Puimei Naga,0,npu
+4976,,,,Napu,0,npy
+4977,,,,Southern Nago,0,nqg
+4978,,,,Kura Ede Nago,0,nqk
+4979,,,,Ndom,0,nqm
+4980,,,,Nen,0,nqn
+478,nqo,nqo,,N'Ko,1,nqo
+4981,,,,Kyan-Karyaw Naga,0,nqq
+4982,,,,Akyaung Ari Naga,0,nqy
+4983,,,,Ngom,0,nra
+4984,,,,Nara,0,nrb
+4985,,,,Noric,0,nrc
+4986,,,,Southern Rengma Naga,0,nre
+4987,,,,Narango,0,nrg
+4988,,,,Chokri Naga,0,nri
+4989,,,,Ngarluma,0,nrl
+4990,,,,Narom,0,nrm
+4991,,,,Norn,0,nrn
+4992,,,,North Picene,0,nrp
+4993,,,,Norra,0,nrr
+4994,,,,Northern Kalapuya,0,nrt
+4995,,,,Narua,0,nru
+4996,,,,Ngurmbur,0,nrx
+4997,,,,Lala,0,nrz
+4998,,,,Sangtam Naga,0,nsa
+4999,,,,Nshi,0,nsc
+5000,,,,Southern Nisu,0,nsd
+5001,,,,Nsenga,0,nse
+5002,,,,Northwestern Nisu,0,nsf
+5003,,,,Ngasa,0,nsg
+5004,,,,Ngoshie,0,nsh
+5005,,,,Nigerian Sign Language,0,nsi
+5006,,,,Naskapi,0,nsk
+5007,,,,Norwegian Sign Language,0,nsl
+5008,,,,Sumi Naga,0,nsm
+5009,,,,Nehan,0,nsn
+310,nso,nso,,"Sotho, Northern",1,nso
+5010,,,,Nepalese Sign Language,0,nsp
+5011,,,,Northern Sierra Miwok,0,nsq
+5012,,,,Maritime Sign Language,0,nsr
+5013,,,,Nali,0,nss
+5014,,,,Tase Naga,0,nst
+5015,,,,Sierra Negra Nahuatl,0,nsu
+5016,,,,Southwestern Nisu,0,nsv
+5017,,,,Navut,0,nsw
+5018,,,,Nsongo,0,nsx
+5019,,,,Nasal,0,nsy
+5020,,,,Nisenan,0,nsz
+5021,,,,Nathembo,0,nte
+5022,,,,Natioro,0,nti
+5023,,,,Ngaanyatjarra,0,ntj
+5024,,,,Ikoma-Nata-Isenye,0,ntk
+5025,,,,Nateni,0,ntm
+5026,,,,Ntomba,0,nto
+5027,,,,Northern Tepehuan,0,ntp
+5028,,,,Delo,0,ntr
+5029,,,,Natagaimas,0,nts
+5030,,,,Natügu,0,ntu
+5031,,,,Nottoway,0,ntw
+5032,,,,Tangkhul Naga (Myanmar),0,ntx
+5033,,,,Mantsi,0,nty
+5034,,,,Natanzi,0,ntz
+5035,,,,Yuaga,0,nua
+5036,,,,Nukuini,0,nuc
+5037,,,,Ngala,0,nud
+5038,,,,Ngundu,0,nue
+5039,,,,Nusu,0,nuf
+5040,,,,Nungali,0,nug
+5041,,,,Ndunda,0,nuh
+5042,,,,Ngumbi,0,nui
+5043,,,,Nyole,0,nuj
+5044,,,,Nuu-chah-nulth,0,nuk
+5045,,,,Nusa Laut,0,nul
+5046,,,,Niuafo'ou,0,num
+5047,,,,Anong,0,nun
+5048,,,,Nguôn,0,nuo
+5049,,,,Nupe-Nupe-Tako,0,nup
+5050,,,,Nukumanu,0,nuq
+5051,,,,Nukuria,0,nur
+5052,,,,Nuer,0,nus
+5053,,,,Nung (Viet Nam),0,nut
+5054,,,,Ngbundu,0,nuu
+5055,,,,Northern Nuni,0,nuv
+5056,,,,Nguluwan,0,nuw
+5057,,,,Mehek,0,nux
+5058,,,,Nunggubuyu,0,nuy
+5059,,,,Tlamacazapa Nahuatl,0,nuz
+5060,,,,Nasarian,0,nvh
+5061,,,,Namiae,0,nvm
+5062,,,,Nyokon,0,nvo
+5063,,,,Nawathinehena,0,nwa
+5064,,,,Nyabwa,0,nwb
+312,nwc,nwc,,Classical Newari,0,nwc
+5065,,,,Ngwe,0,nwe
+5066,,,,Ngayawung,0,nwg
+5067,,,,Southwest Tanna,0,nwi
+5068,,,,Nyamusa-Molo,0,nwm
+5069,,,,Nauo,0,nwo
+5070,,,,Nawaru,0,nwr
+5071,,,,Middle Newar,0,nwx
+5072,,,,Nottoway-Meherrin,0,nwy
+5073,,,,Nauete,0,nxa
+5074,,,,Ngando (Democratic Republic of Congo),0,nxd
+5075,,,,Nage,0,nxe
+5076,,,,Ngad'a,0,nxg
+5077,,,,Nindi,0,nxi
+5078,,,,Koki Naga,0,nxk
+5079,,,,South Nuaulu,0,nxl
+5080,,,,Numidian,0,nxm
+5081,,,,Ngawun,0,nxn
+5082,,,,Naxi,0,nxq
+5083,,,,Ninggerum,0,nxr
+5084,,,,Narau,0,nxu
+5085,,,,Nafri,0,nxx
+313,nya,nya,ny,Chichewa,1,nya
+5086,,,,Nyangbo,0,nyb
+5087,,,,Nyanga-li,0,nyc
+5088,,,,Nyore,0,nyd
+5089,,,,Nyengo,0,nye
+5090,,,,Giryama,0,nyf
+5091,,,,Nyindu,0,nyg
+5092,,,,Nyigina,0,nyh
+5093,,,,Ama (Sudan),0,nyi
+5094,,,,Nyanga,0,nyj
+5095,,,,Nyaneka,0,nyk
+5096,,,,Nyeu,0,nyl
+314,nym,nym,,Nyamwezi,1,nym
+315,nyn,nyn,,Nyankole,1,nyn
+316,nyo,nyo,,Nyoro,1,nyo
+5097,,,,Nyang'i,0,nyp
+5098,,,,Nayini,0,nyq
+5099,,,,Nyiha (Malawi),0,nyr
+5100,,,,Nyunga,0,nys
+5101,,,,Nyawaygi,0,nyt
+5102,,,,Nyungwe,0,nyu
+5103,,,,Nyulnyul,0,nyv
+5104,,,,Nyaw,0,nyw
+5105,,,,Nganyaywana,0,nyx
+5106,,,,Nyakyusa-Ngonde,0,nyy
+5107,,,,Tigon Mbembe,0,nza
+5108,,,,Njebi,0,nzb
+317,nzi,nzi,,Nzima,1,nzi
+5109,,,,Nzakara,0,nzk
+5110,,,,Zeme Naga,0,nzm
+5111,,,,New Zealand Sign Language,0,nzs
+5112,,,,Teke-Nzikou,0,nzu
+5113,,,,Nzakambay,0,nzy
+5114,,,,Nanga Dama Dogon,0,nzz
+5115,,,,Orok,0,oaa
+5116,,,,Oroch,0,oac
+5117,,,,Old Aramaic (up to 700 BCE),0,oar
+5118,,,,Old Avar,0,oav
+5119,,,,Obispeño,0,obi
+5120,,,,Southern Bontok,0,obk
+5121,,,,Oblo,0,obl
+5122,,,,Moabite,0,obm
+5123,,,,Obo Manobo,0,obo
+5124,,,,Old Burmese,0,obr
+5125,,,,Old Breton,0,obt
+5126,,,,Obulom,0,obu
+5127,,,,Ocaina,0,oca
+5128,,,,Old Chinese,0,och
+318,oci,oci,oc,Occitan,1,oci
+5129,,,,Old Cornish,0,oco
+5130,,,,Atzingo Matlatzinca,0,ocu
+5131,,,,Odut,0,oda
+5132,,,,Od,0,odk
+5133,,,,Old Dutch,0,odt
+5134,,,,Odual,0,odu
+5135,,,,Ofo,0,ofo
+5136,,,,Old Frisian,0,ofs
+5137,,,,Efutop,0,ofu
+5138,,,,Ogbia,0,ogb
+5139,,,,Ogbah,0,ogc
+5140,,,,Old Georgian,0,oge
+5141,,,,Ogbogolo,0,ogg
+5142,,,,Khana,0,ogo
+5143,,,,Ogbronuagum,0,ogu
+5144,,,,Old Hittite,0,oht
+5145,,,,Old Hungarian,0,ohu
+5146,,,,Oirata,0,oia
+5147,,,,Inebu One,0,oin
+5148,,,,Northwestern Ojibwa,0,ojb
+5149,,,,Central Ojibwa,0,ojc
+5150,,,,Eastern Ojibwa,0,ojg
+319,oji,oji,oj,Ojibwa,1,oji
+5151,,,,Old Japanese,0,ojp
+5152,,,,Severn Ojibwa,0,ojs
+5153,,,,Ontong Java,0,ojv
+5154,,,,Western Ojibwa,0,ojw
+5155,,,,Okanagan,0,oka
+5156,,,,Okobo,0,okb
+5157,,,,Okodia,0,okd
+5158,,,,Okpe (Southwestern Edo),0,oke
+5159,,,,Koko Babangk,0,okg
+5160,,,,Koresh-e Rostam,0,okh
+5161,,,,Okiek,0,oki
+5162,,,,Oko-Juwoi,0,okj
+5163,,,,Kwamtim One,0,okk
+5164,,,,Old Kentish Sign Language,0,okl
+5165,,,,Middle Korean (10th-16th cent.),0,okm
+5166,,,,Oki-No-Erabu,0,okn
+5167,,,,Old Korean (3rd-9th cent.),0,oko
+5168,,,,Kirike,0,okr
+5169,,,,Oko-Eni-Osayen,0,oks
+5170,,,,Oku,0,oku
+5171,,,,Orokaiva,0,okv
+5172,,,,Okpe (Northwestern Edo),0,okx
+5173,,,,Walungge,0,ola
+5174,,,,Mochi,0,old
+5175,,,,Olekha,0,ole
+5176,,,,Oloma,0,olm
+5177,,,,Livvi,0,olo
+5178,,,,Olrat,0,olr
+5179,,,,Omaha-Ponca,0,oma
+5180,,,,East Ambae,0,omb
+5181,,,,Mochica,0,omc
+5182,,,,Omejes,0,ome
+5183,,,,Omagua,0,omg
+5184,,,,Omi,0,omi
+5185,,,,Omok,0,omk
+5186,,,,Ombo,0,oml
+5187,,,,Minoan,0,omn
+5188,,,,Utarmbung,0,omo
+5189,,,,Old Manipuri,0,omp
+5190,,,,Old Marathi,0,omr
+5191,,,,Omotik,0,omt
+5192,,,,Omurano,0,omu
+5193,,,,South Tairora,0,omw
+5194,,,,Old Mon,0,omx
+5195,,,,Ona,0,ona
+5196,,,,Lingao,0,onb
+5197,,,,Oneida,0,one
+5198,,,,Olo,0,ong
+5199,,,,Onin,0,oni
+5200,,,,Onjob,0,onj
+5201,,,,Kabore One,0,onk
+5202,,,,Onobasulu,0,onn
+5203,,,,Onondaga,0,ono
+5204,,,,Sartang,0,onp
+5205,,,,Northern One,0,onr
+5206,,,,Ono,0,ons
+5207,,,,Ontenu,0,ont
+5208,,,,Unua,0,onu
+5209,,,,Old Nubian,0,onw
+5210,,,,Onin Based Pidgin,0,onx
+5211,,,,Tohono O'odham,0,ood
+5212,,,,Ong,0,oog
+5213,,,,Önge,0,oon
+5214,,,,Oorlams,0,oor
+5215,,,,Old Ossetic,0,oos
+5216,,,,Okpamheri,0,opa
+5217,,,,Kopkaka,0,opk
+5218,,,,Oksapmin,0,opm
+5219,,,,Opao,0,opo
+5220,,,,Opata,0,opt
+5221,,,,Ofayé,0,opy
+5222,,,,Oroha,0,ora
+5223,,,,Orma,0,orc
+5224,,,,Orejón,0,ore
+5225,,,,Oring,0,org
+5226,,,,Oroqen,0,orh
+320,ori,ori,or,Oriya,1,ori
+321,orm,orm,om,Oromo,1,orm
+5227,,,,Orang Kanaq,0,orn
+5228,,,,Orokolo,0,oro
+5229,,,,Oruma,0,orr
+5230,,,,Orang Seletar,0,ors
+5231,,,,Adivasi Oriya,0,ort
+5232,,,,Ormuri,0,oru
+5233,,,,Old Russian,0,orv
+5234,,,,Oro Win,0,orw
+5235,,,,Oro,0,orx
+5236,,,,Oriya (individual language),0,ory
+5237,,,,Ormu,0,orz
+322,osa,osa,,Osage,1,osa
+5238,,,,Oscan,0,osc
+5239,,,,Osing,0,osi
+5240,,,,Ososo,0,oso
+5241,,,,Old Spanish,0,osp
+323,oss,oss,os,Ossetian,1,oss
+5242,,,,Osatu,0,ost
+5243,,,,Southern One,0,osu
+5244,,,,Old Saxon,0,osx
+324,ota,ota,,"Turkish, Ottoman",1,ota
+5245,,,,Old Tibetan,0,otb
+5246,,,,Ot Danum,0,otd
+5247,,,,Mezquital Otomi,0,ote
+5248,,,,Oti,0,oti
+5249,,,,Old Turkish,0,otk
+5250,,,,Tilapa Otomi,0,otl
+5251,,,,Eastern Highland Otomi,0,otm
+5252,,,,Tenango Otomi,0,otn
+5253,,,,Querétaro Otomi,0,otq
+5254,,,,Otoro,0,otr
+5255,,,,Estado de México Otomi,0,ots
+5256,,,,Temoaya Otomi,0,ott
+5257,,,,Otuke,0,otu
+5258,,,,Ottawa,0,otw
+5259,,,,Texcatepec Otomi,0,otx
+5260,,,,Old Tamil,0,oty
+5261,,,,Ixtenco Otomi,0,otz
+5262,,,,Tagargrent,0,oua
+5263,,,,Glio-Oubi,0,oub
+5264,,,,Oune,0,oue
+5265,,,,Old Uighur,0,oui
+5266,,,,Ouma,0,oum
+5267,,,,!O!ung,0,oun
+5268,,,,Owiniga,0,owi
+5269,,,,Old Welsh,0,owl
+5270,,,,Oy,0,oyb
+5271,,,,Oyda,0,oyd
+5272,,,,Wayampi,0,oym
+5273,,,,Oya'oya,0,oyy
+5274,,,,Koonzime,0,ozm
+5275,,,,Parecís,0,pab
+5276,,,,Pacoh,0,pac
+5277,,,,Paumarí,0,pad
+5278,,,,Pagibete,0,pae
+5279,,,,Paranawát,0,paf
+327,pag,pag,,Pangasinan,1,pag
+5280,,,,Tenharim,0,pah
+5281,,,,Pe,0,pai
+5282,,,,Parakanã,0,pak
+328,pal,pal,,Pahlavi,0,pal
+329,pam,pam,,Pampanga,1,pam
+330,pan,pan,pa,Panjabi,1,pan
+5283,,,,Northern Paiute,0,pao
+331,pap,pap,,Papiamento,1,pap
+5284,,,,Parya,0,paq
+5285,,,,Panamint,0,par
+5286,,,,Papasena,0,pas
+5287,,,,Papitalai,0,pat
+332,pau,pau,,Palauan,1,pau
+5288,,,,Pakaásnovos,0,pav
+5289,,,,Pawnee,0,paw
+5290,,,,Pankararé,0,pax
+5291,,,,Pech,0,pay
+5292,,,,Pankararú,0,paz
+5293,,,,Páez,0,pbb
+5294,,,,Patamona,0,pbc
+5295,,,,Mezontla Popoloca,0,pbe
+5296,,,,Coyotepec Popoloca,0,pbf
+5297,,,,Paraujano,0,pbg
+5298,,,,E'ñapa Woromaipu,0,pbh
+5299,,,,Parkwa,0,pbi
+5300,,,,Mak (Nigeria),0,pbl
+5301,,,,Kpasam,0,pbn
+5302,,,,Papel,0,pbo
+5303,,,,Badyara,0,pbp
+5304,,,,Pangwa,0,pbr
+5305,,,,Central Pame,0,pbs
+5306,,,,Southern Pashto,0,pbt
+5307,,,,Northern Pashto,0,pbu
+5308,,,,Pnar,0,pbv
+5309,,,,Pyu,0,pby
+5310,,,,Santa Inés Ahuatempan Popoloca,0,pca
+5311,,,,Pear,0,pcb
+5312,,,,Bouyei,0,pcc
+5313,,,,Picard,0,pcd
+5314,,,,Ruching Palaung,0,pce
+5315,,,,Paliyan,0,pcf
+5316,,,,Paniya,0,pcg
+5317,,,,Pardhan,0,pch
+5318,,,,Duruwa,0,pci
+5319,,,,Parenga,0,pcj
+5320,,,,Paite Chin,0,pck
+5321,,,,Pardhi,0,pcl
+5322,,,,Nigerian Pidgin,0,pcm
+5323,,,,Piti,0,pcn
+5324,,,,Pacahuara,0,pcp
+5325,,,,Panang,0,pcr
+5326,,,,Pyapun,0,pcw
+5327,,,,Anam,0,pda
+5328,,,,Pennsylvania German,0,pdc
+5329,,,,Pa Di,0,pdi
+5330,,,,Podena,0,pdn
+5331,,,,Padoe,0,pdo
+5332,,,,Plautdietsch,0,pdt
+5333,,,,Kayan,0,pdu
+5334,,,,Peranakan Indonesian,0,pea
+5335,,,,Eastern Pomo,0,peb
+5336,,,,Mala (Papua New Guinea),0,ped
+5337,,,,Taje,0,pee
+5338,,,,Northeastern Pomo,0,pef
+5339,,,,Pengo,0,peg
+5340,,,,Bonan,0,peh
+5341,,,,Chichimeca-Jonaz,0,pei
+5342,,,,Northern Pomo,0,pej
+5343,,,,Penchal,0,pek
+5344,,,,Pekal,0,pel
+5345,,,,Phende,0,pem
+333,peo,peo,,"Persian, Old (ca.600-400 B.C.)",0,peo
+5346,,,,Kunja,0,pep
+5347,,,,Southern Pomo,0,peq
+5348,,,,Iranian Persian,0,pes
+5349,,,,Pémono,0,pev
+5350,,,,Petats,0,pex
+5351,,,,Petjo,0,pey
+5352,,,,Eastern Penan,0,pez
+5353,,,,Pááfang,0,pfa
+5354,,,,Peere,0,pfe
+5355,,,,Pfaelzisch,0,pfl
+5356,,,,Sudanese Creole Arabic,0,pga
+5357,,,,Pangwali,0,pgg
+5358,,,,Pagi,0,pgi
+5359,,,,Rerep,0,pgk
+5360,,,,Primitive Irish,0,pgl
+5361,,,,Paelignian,0,pgn
+5362,,,,Pangseng,0,pgs
+5363,,,,Pagu,0,pgu
+5364,,,,Pa-Hng,0,pha
+5365,,,,Phudagi,0,phd
+5366,,,,Phuong,0,phg
+5367,,,,Phukha,0,phh
+5368,,,,Phake,0,phk
+5369,,,,Phalura,0,phl
+5370,,,,Phimbi,0,phm
+336,phn,phn,,Phoenician,0,phn
+5371,,,,Phunoi,0,pho
+5372,,,,Phana',0,phq
+5373,,,,Pahari-Potwari,0,phr
+5374,,,,Phu Thai,0,pht
+5375,,,,Phuan,0,phu
+5376,,,,Pahlavani,0,phv
+5377,,,,Phangduwali,0,phw
+5378,,,,Pima Bajo,0,pia
+5379,,,,Yine,0,pib
+5380,,,,Pinji,0,pic
+5381,,,,Piaroa,0,pid
+5382,,,,Piro,0,pie
+5383,,,,Pingelapese,0,pif
+5384,,,,Pisabo,0,pig
+5385,,,,Pitcairn-Norfolk,0,pih
+5386,,,,Pini,0,pii
+5387,,,,Pijao,0,pij
+5388,,,,Yom,0,pil
+5389,,,,Powhatan,0,pim
+5390,,,,Piame,0,pin
+5391,,,,Piapoco,0,pio
+5392,,,,Pero,0,pip
+5393,,,,Piratapuyo,0,pir
+5394,,,,Pijin,0,pis
+5395,,,,Pitta Pitta,0,pit
+5396,,,,Pintupi-Luritja,0,piu
+5397,,,,Pileni,0,piv
+5398,,,,Pimbwe,0,piw
+5399,,,,Piu,0,pix
+5400,,,,Piya-Kwonci,0,piy
+5401,,,,Pije,0,piz
+5402,,,,Pitjantjatjara,0,pjt
+5403,,,,Ardhamāgadhī Prākrit,0,pka
+5404,,,,Pokomo,0,pkb
+5405,,,,Paekche,0,pkc
+5406,,,,Pak-Tong,0,pkg
+5407,,,,Pankhu,0,pkh
+5408,,,,Pakanha,0,pkn
+5409,,,,Pökoot,0,pko
+5410,,,,Pukapuka,0,pkp
+5411,,,,Attapady Kurumba,0,pkr
+5412,,,,Pakistan Sign Language,0,pks
+5413,,,,Maleng,0,pkt
+5414,,,,Paku,0,pku
+5415,,,,Miani,0,pla
+5416,,,,Polonombauk,0,plb
+5417,,,,Central Palawano,0,plc
+5418,,,,Polari,0,pld
+5419,,,,Palu'e,0,ple
+5420,,,,Pilagá,0,plg
+5421,,,,Paulohi,0,plh
+337,pli,pli,pi,Pali,1,pli
+5422,,,,Polci,0,plj
+5423,,,,Kohistani Shina,0,plk
+5424,,,,Shwe Palaung,0,pll
+5425,,,,Palenquero,0,pln
+5426,,,,Oluta Popoluca,0,plo
+5427,,,,Palpa,0,plp
+5428,,,,Palaic,0,plq
+5429,,,,Palaka Senoufo,0,plr
+5430,,,,San Marcos Tlalcoyalco Popoloca,0,pls
+5431,,,,Plateau Malagasy,0,plt
+5432,,,,Palikúr,0,plu
+5433,,,,Southwest Palawano,0,plv
+5434,,,,Brooke's Point Palawano,0,plw
+5435,,,,Bolyu,0,ply
+5436,,,,Paluan,0,plz
+5437,,,,Paama,0,pma
+5438,,,,Pambia,0,pmb
+5439,,,,Palumata,0,pmc
+5440,,,,Pallanganmiddang,0,pmd
+5441,,,,Pwaamei,0,pme
+5442,,,,Pamona,0,pmf
+5443,,,,Māhārāṣṭri Prākrit,0,pmh
+5444,,,,Northern Pumi,0,pmi
+5445,,,,Southern Pumi,0,pmj
+5446,,,,Pamlico,0,pmk
+5447,,,,Lingua Franca,0,pml
+5448,,,,Pomo,0,pmm
+5449,,,,Pam,0,pmn
+5450,,,,Pom,0,pmo
+5451,,,,Northern Pame,0,pmq
+5452,,,,Paynamar,0,pmr
+5453,,,,Piemontese,0,pms
+5454,,,,Tuamotuan,0,pmt
+5455,,,,Mirpur Panjabi,0,pmu
+5456,,,,Plains Miwok,0,pmw
+5457,,,,Poumei Naga,0,pmx
+5458,,,,Papuan Malay,0,pmy
+5459,,,,Southern Pame,0,pmz
+5460,,,,Punan Bah-Biau,0,pna
+5461,,,,Western Panjabi,0,pnb
+5462,,,,Pannei,0,pnc
+5463,,,,Western Penan,0,pne
+5464,,,,Pongu,0,png
+5465,,,,Penrhyn,0,pnh
+5466,,,,Aoheng,0,pni
+5467,,,,Paunaka,0,pnk
+5468,,,,Punan Batu 1,0,pnm
+5469,,,,Pinai-Hagahai,0,pnn
+5470,,,,Panobo,0,pno
+5471,,,,Pancana,0,pnp
+5472,,,,Pana (Burkina Faso),0,pnq
+5473,,,,Panim,0,pnr
+5474,,,,Ponosakan,0,pns
+5475,,,,Pontic,0,pnt
+5476,,,,Jiongnai Bunu,0,pnu
+5477,,,,Pinigura,0,pnv
+5478,,,,Panytyima,0,pnw
+5479,,,,Phong-Kniang,0,pnx
+5480,,,,Pinyin,0,pny
+5481,,,,Pana (Central African Republic),0,pnz
+5482,,,,Poqomam,0,poc
+5483,,,,Ponares,0,pod
+5484,,,,San Juan Atzingo Popoloca,0,poe
+5485,,,,Poke,0,pof
+5486,,,,Potiguára,0,pog
+5487,,,,Poqomchi',0,poh
+5488,,,,Highland Popoluca,0,poi
+5489,,,,Pokangá,0,pok
+5490,,,,Southeastern Pomo,0,pom
+339,pon,pon,,Pohnpeian,1,pon
+5491,,,,Central Pomo,0,poo
+5492,,,,Pwapwa,0,pop
+5493,,,,Texistepec Popoluca,0,poq
+5494,,,,Sayula Popoluca,0,pos
+5495,,,,Potawatomi,0,pot
+5496,,,,Upper Guinea Crioulo,0,pov
+5497,,,,San Felipe Otlaltepec Popoloca,0,pow
+5498,,,,Polabian,0,pox
+5499,,,,Pogolo,0,poy
+5500,,,,Pao,0,ppa
+5501,,,,Papi,0,ppe
+5502,,,,Paipai,0,ppi
+5503,,,,Uma,0,ppk
+5504,,,,Pipil,0,ppl
+5505,,,,Papuma,0,ppm
+5506,,,,Papapana,0,ppn
+5507,,,,Folopa,0,ppo
+5508,,,,Pelende,0,ppp
+5509,,,,Pei,0,ppq
+5510,,,,Piru,0,ppr
+5511,,,,San Luís Temalacayuca Popoloca,0,pps
+5512,,,,Pare,0,ppt
+5513,,,,Papora,0,ppu
+5514,,,,Pa'a,0,pqa
+5515,,,,Malecite-Passamaquoddy,0,pqm
+5516,,,,Lua',0,prb
+5517,,,,Parachi,0,prc
+5518,,,,Parsi-Dari,0,prd
+5519,,,,Principense,0,pre
+5520,,,,Paranan,0,prf
+5521,,,,Prussian,0,prg
+5522,,,,Porohanon,0,prh
+5523,,,,Paicî,0,pri
+5524,,,,Parauk,0,prk
+5525,,,,Peruvian Sign Language,0,prl
+5526,,,,Kibiri,0,prm
+5527,,,,Prasuni,0,prn
+342,pro,pro,,"Provençal, Old (to 1500)",0,pro
+5528,,,,Parsi,0,prp
+5529,,,,Ashéninka Perené,0,prq
+5530,,,,Puri,0,prr
+5531,,,,Dari,0,prs
+5532,,,,Phai,0,prt
+5533,,,,Puragi,0,pru
+5534,,,,Parawen,0,prw
+5535,,,,Purik,0,prx
+5536,,,,Pray 3,0,pry
+5537,,,,Providencia Sign Language,0,prz
+5538,,,,Asue Awyu,0,psa
+5539,,,,Persian Sign Language,0,psc
+5540,,,,Plains Indian Sign Language,0,psd
+5541,,,,Central Malay,0,pse
+5542,,,,Penang Sign Language,0,psg
+5543,,,,Southwest Pashayi,0,psh
+5544,,,,Southeast Pashayi,0,psi
+5545,,,,Puerto Rican Sign Language,0,psl
+5546,,,,Pauserna,0,psm
+5547,,,,Panasuan,0,psn
+5548,,,,Polish Sign Language,0,pso
+5549,,,,Philippine Sign Language,0,psp
+5550,,,,Pasi,0,psq
+5551,,,,Portuguese Sign Language,0,psr
+5552,,,,Kaulong,0,pss
+5553,,,,Central Pashto,0,pst
+5554,,,,Sauraseni Prākrit,0,psu
+5555,,,,Port Sandwich,0,psw
+5556,,,,Piscataway,0,psy
+5557,,,,Pai Tavytera,0,pta
+5558,,,,Pataxó Hã-Ha-Hãe,0,pth
+5559,,,,Pintiini,0,pti
+5560,,,,Patani,0,ptn
+5561,,,,Zo'é,0,pto
+5562,,,,Patep,0,ptp
+5563,,,,Piamatsina,0,ptr
+5564,,,,Enrekang,0,ptt
+5565,,,,Bambam,0,ptu
+5566,,,,Port Vato,0,ptv
+5567,,,,Pentlatch,0,ptw
+5568,,,,Pathiya,0,pty
+5569,,,,Western Highland Purepecha,0,pua
+5570,,,,Purum,0,pub
+5571,,,,Punan Merap,0,puc
+5572,,,,Punan Aput,0,pud
+5573,,,,Puelche,0,pue
+5574,,,,Punan Merah,0,puf
+5575,,,,Phuie,0,pug
+5576,,,,Puinave,0,pui
+5577,,,,Punan Tubu,0,puj
+5578,,,,Pu Ko,0,puk
+5579,,,,Puma,0,pum
+5580,,,,Puoc,0,puo
+5581,,,,Pulabu,0,pup
+5582,,,,Puquina,0,puq
+5583,,,,Puruborá,0,pur
+343,pus,pus,ps,Pushto,1,pus
+5584,,,,Putoh,0,put
+5585,,,,Punu,0,puu
+5586,,,,Puluwatese,0,puw
+5587,,,,Puare,0,pux
+5588,,,,Purisimeño,0,puy
+5589,,,,Purum Naga,0,puz
+5590,,,,Pawaia,0,pwa
+5591,,,,Panawa,0,pwb
+5592,,,,Gapapaiwa,0,pwg
+5593,,,,Molbog,0,pwm
+5594,,,,Paiwan,0,pwn
+5595,,,,Pwo Western Karen,0,pwo
+5596,,,,Powari,0,pwr
+5597,,,,Pwo Northern Karen,0,pww
+5598,,,,Quetzaltepec Mixe,0,pxm
+5599,,,,Pye Krumen,0,pye
+5600,,,,Fyam,0,pym
+5601,,,,Poyanáwa,0,pyn
+5602,,,,Paraguayan Sign Language,0,pys
+5603,,,,Puyuma,1,pyu
+5604,,,,Pyu (Myanmar),0,pyx
+5605,,,,Pyen,0,pyy
+5606,,,,Para Naga,0,pzn
+5607,,,,Quapaw,0,qua
+5608,,,,Huallaga Huánuco Quechua,0,qub
+5609,,,,K'iche',0,quc
+5610,,,,Calderón Highland Quichua,0,qud
+344,que,que,qu,Quechua,1,que
+5611,,,,Lambayeque Quechua,0,quf
+5612,,,,Chimborazo Highland Quichua,0,qug
+5613,,,,South Bolivian Quechua,0,quh
+5614,,,,Quileute,0,qui
+5615,,,,Chachapoyas Quechua,0,quk
+5616,,,,North Bolivian Quechua,0,qul
+5617,,,,Sipacapense,0,qum
+5618,,,,Quinault,0,qun
+5619,,,,Southern Pastaza Quechua,0,qup
+5620,,,,Quinqui,0,quq
+5621,,,,Yanahuanca Pasco Quechua,0,qur
+5622,,,,Santiago del Estero Quichua,0,qus
+5623,,,,Sacapulteco,0,quv
+5624,,,,Tena Lowland Quichua,0,quw
+5625,,,,Yauyos Quechua,0,qux
+5626,,,,Ayacucho Quechua,0,quy
+5627,,,,Cusco Quechua,0,quz
+5628,,,,Ambo-Pasco Quechua,0,qva
+5629,,,,Cajamarca Quechua,0,qvc
+5630,,,,Eastern Apurímac Quechua,0,qve
+5631,,,,Huamalíes-Dos de Mayo Huánuco Quechua,0,qvh
+5632,,,,Imbabura Highland Quichua,0,qvi
+5633,,,,Loja Highland Quichua,0,qvj
+5634,,,,Cajatambo North Lima Quechua,0,qvl
+5635,,,,Margos-Yarowilca-Lauricocha Quechua,0,qvm
+5636,,,,North Junín Quechua,0,qvn
+5637,,,,Napo Lowland Quechua,0,qvo
+5638,,,,Pacaraos Quechua,0,qvp
+5639,,,,San Martín Quechua,0,qvs
+5640,,,,Huaylla Wanca Quechua,0,qvw
+5641,,,,Queyu,0,qvy
+5642,,,,Northern Pastaza Quichua,0,qvz
+5643,,,,Corongo Ancash Quechua,0,qwa
+5644,,,,Classical Quechua,0,qwc
+5645,,,,Huaylas Ancash Quechua,0,qwh
+5646,,,,Kuman (Russia),0,qwm
+5647,,,,Sihuas Ancash Quechua,0,qws
+5648,,,,Kwalhioqua-Tlatskanai,0,qwt
+5649,,,,Chiquián Ancash Quechua,0,qxa
+5650,,,,Chincha Quechua,0,qxc
+5651,,,,Panao Huánuco Quechua,0,qxh
+5652,,,,Salasaca Highland Quichua,0,qxl
+5653,,,,Northern Conchucos Ancash Quechua,0,qxn
+5654,,,,Southern Conchucos Ancash Quechua,0,qxo
+5655,,,,Puno Quechua,0,qxp
+5656,,,,Qashqa'i,0,qxq
+5657,,,,Cañar Highland Quichua,0,qxr
+5658,,,,Southern Qiang,0,qxs
+5659,,,,Santa Ana de Tusi Pasco Quechua,0,qxt
+5660,,,,Arequipa-La Unión Quechua,0,qxu
+5661,,,,Jauja Wanca Quechua,0,qxw
+5663,,,,Quiripi,0,qyp
+5664,,,,Dungmali,0,raa
+5665,,,,Camling,0,rab
+5666,,,,Rasawa,0,rac
+5667,,,,Rade,0,rad
+5668,,,,Western Meohang,0,raf
+5669,,,,Logooli,0,rag
+5670,,,,Rabha,0,rah
+5671,,,,Ramoaaina,0,rai
+345,raj,raj,,Rajasthani,1,raj
+5672,,,,Tulu-Bohuai,0,rak
+5673,,,,Ralte,0,ral
+5674,,,,Canela,0,ram
+5675,,,,Riantana,0,ran
+5676,,,,Rao,0,rao
+346,rap,rap,,Rapanui,1,rap
+5677,,,,Saam,0,raq
+347,rar,rar,,Rarotongan,1,rar
+5678,,,,Tegali,0,ras
+5679,,,,Razajerdi,0,rat
+5680,,,,Raute,0,rau
+5681,,,,Sampang,0,rav
+5682,,,,Rawang,0,raw
+5683,,,,Rang,0,rax
+5684,,,,Rapa,0,ray
+5685,,,,Rahambuu,0,raz
+5686,,,,Rumai Palaung,0,rbb
+5687,,,,Northern Bontok,0,rbk
+5688,,,,Miraya Bikol,0,rbl
+5689,,,,Barababaraba,0,rbp
+5691,,,,Rudbari,0,rdb
+5692,,,,Rerau,0,rea
+5693,,,,Rembong,0,reb
+5694,,,,Rejang Kayan,0,ree
+5695,,,,Kara (Tanzania),0,reg
+5696,,,,Reli,0,rei
+5697,,,,Rejang,0,rej
+5698,,,,Rendille,0,rel
+5699,,,,Remo,0,rem
+5700,,,,Rengao,0,ren
+5701,,,,Rer Bare,0,rer
+5702,,,,Reshe,0,res
+5703,,,,Retta,0,ret
+5704,,,,Reyesano,0,rey
+5705,,,,Roria,0,rga
+5706,,,,Romano-Greek,0,rge
+5707,,,,Rangkas,0,rgk
+5708,,,,Romagnol,0,rgn
+5709,,,,Resígaro,0,rgr
+5710,,,,Southern Roglai,0,rgs
+5711,,,,Ringgou,0,rgu
+5712,,,,Rohingya,0,rhg
+5713,,,,Yahang,0,rhp
+5714,,,,Riang (India),0,ria
+5715,,,,Rien,0,rie
+5716,,,,Tarifit,0,rif
+5717,,,,Riang (Myanmar),0,ril
+5718,,,,Nyaturu,0,rim
+5719,,,,Nungu,0,rin
+5720,,,,Ribun,0,rir
+5721,,,,Ritarungo,0,rit
+5722,,,,Riung,0,riu
+5723,,,,Rajong,0,rjg
+5724,,,,Raji,0,rji
+5725,,,,Rajbanshi,0,rjs
+5726,,,,Kraol,0,rka
+5727,,,,Rikbaktsa,0,rkb
+5728,,,,Rakahanga-Manihiki,0,rkh
+5729,,,,Rakhine,0,rki
+5730,,,,Marka,0,rkm
+5731,,,,Rangpuri,0,rkt
+5732,,,,Rama,0,rma
+5733,,,,Rembarunga,0,rmb
+5734,,,,Carpathian Romani,0,rmc
+5735,,,,Traveller Danish,0,rmd
+5736,,,,Angloromani,0,rme
+5737,,,,Kalo Finnish Romani,0,rmf
+5738,,,,Traveller Norwegian,0,rmg
+5739,,,,Murkim,0,rmh
+5662,,,,Quenya,1,qya
+5740,,,,Lomavren,0,rmi
+5741,,,,Romkun,0,rmk
+5742,,,,Baltic Romani,0,rml
+5743,,,,Roma,0,rmm
+5744,,,,Balkan Romani,0,rmn
+5745,,,,Sinte Romani,0,rmo
+5746,,,,Rempi,0,rmp
+5747,,,,Caló,0,rmq
+5748,,,,Romanian Sign Language,0,rms
+5749,,,,Domari,0,rmt
+5750,,,,Tavringer Romani,0,rmu
+5751,,,,Romanova,0,rmv
+5752,,,,Welsh Romani,0,rmw
+5753,,,,Romam,0,rmx
+5754,,,,Vlax Romani,0,rmy
+5755,,,,Marma,0,rmz
+5756,,,,Runa,0,rna
+5757,,,,Ruund,0,rnd
+5758,,,,Ronga,0,rng
+5759,,,,Ranglong,0,rnl
+5760,,,,Roon,0,rnn
+5761,,,,Rongpo,0,rnp
+5762,,,,NariNari,0,rnr
+5763,,,,Rungwa,0,rnw
+5764,,,,Tae',0,rob
+5765,,,,Cacgia Roglai,0,roc
+5766,,,,Rogo,0,rod
+5767,,,,Ronji,0,roe
+5768,,,,Rombo,0,rof
+5769,,,,Northern Roglai,0,rog
+349,roh,roh,rm,Romansh,1,roh
+5770,,,,Romblomanon,0,rol
+350,rom,rom,,Romany,1,rom
+351,ron,rum,ro,Romanian,1,ron
+5771,,,,Rotokas,0,roo
+5772,,,,Kriol,0,rop
+5773,,,,Rongga,0,ror
+5774,,,,Runga,0,rou
+5775,,,,Dela-Oenale,0,row
+5776,,,,Repanbitip,0,rpn
+5777,,,,Rapting,0,rpt
+5778,,,,Ririo,0,rri
+5779,,,,Waima,0,rro
+5780,,,,Arritinngithigh,0,rrt
+5781,,,,Romano-Serbian,0,rsb
+5782,,,,Rennellese Sign Language,0,rsi
+5783,,,,Russian Sign Language,0,rsl
+5784,,,,Rungtu Chin,0,rtc
+5785,,,,Ratahan,0,rth
+5786,,,,Rotuman,0,rtm
+5787,,,,Rathawi,0,rtw
+5788,,,,Gungu,0,rub
+5789,,,,Ruuli,0,ruc
+5790,,,,Rusyn,0,rue
+5791,,,,Luguru,0,ruf
+5792,,,,Roviana,0,rug
+5793,,,,Ruga,0,ruh
+5794,,,,Rufiji,0,rui
+5795,,,,Che,0,ruk
+352,run,run,rn,Rundi,1,run
+5796,,,,Istro Romanian,0,ruo
+479,rup,rup,,Aromanian,1,rup
+5797,,,,Megleno Romanian,0,ruq
+5809,,,,Central Okinawan,1,ryu
+5798,,,,Rutul,0,rut
+5799,,,,Lanas Lobu,0,ruu
+5800,,,,Mala (Nigeria),0,ruy
+5801,,,,Ruma,0,ruz
+5802,,,,Rawo,0,rwa
+5803,,,,Rwa,0,rwk
+5804,,,,Amba (Uganda),0,rwm
+5805,,,,Rawa,0,rwo
+5806,,,,Marwari (India),0,rwr
+5807,,,,Northern Amami-Oshima,0,ryn
+5810,,,,Saba,0,saa
+5811,,,,Buglere,0,sab
+5812,,,,Meskwaki,0,sac
+354,sad,sad,,Sandawe,1,sad
+5813,,,,Sabanê,0,sae
+5814,,,,Safaliba,0,saf
+355,sag,sag,sg,Sango,1,sag
+356,sah,sah,,Yakut,1,sah
+5815,,,,Sahu,0,saj
+5816,,,,Sake,0,sak
+359,sam,sam,,Samaritan Aramaic,1,sam
+360,san,san,sa,Sanskrit,1,san
+5817,,,,Sause,0,sao
+5818,,,,Sanapaná,0,sap
+5819,,,,Samburu,0,saq
+5820,,,,Saraveca,0,sar
+361,sas,sas,,Sasak,1,sas
+362,sat,sat,,Santali,1,sat
+5821,,,,Saleman,0,sau
+5822,,,,Saafi-Saafi,0,sav
+5823,,,,Sawi,0,saw
+5824,,,,Sa,0,sax
+5825,,,,Saya,0,say
+5826,,,,Saurashtra,0,saz
+5827,,,,Ngambay,0,sba
+5828,,,,Simbo,0,sbb
+5829,,,,Kele (Papua New Guinea),0,sbc
+5830,,,,Southern Samo,0,sbd
+5831,,,,Saliba,0,sbe
+5832,,,,Shabo,0,sbf
+5833,,,,Seget,0,sbg
+5834,,,,Sori-Harengan,0,sbh
+5835,,,,Seti,0,sbi
+5836,,,,Surbakhal,0,sbj
+5837,,,,Safwa,0,sbk
+5838,,,,Botolan Sambal,0,sbl
+5839,,,,Sagala,0,sbm
+5840,,,,Sindhi Bhil,0,sbn
+5841,,,,Sabüm,0,sbo
+5842,,,,Sangu (Tanzania),0,sbp
+5843,,,,Sileibi,0,sbq
+5844,,,,Sembakung Murut,0,sbr
+5845,,,,Subiya,0,sbs
+5846,,,,Kimki,0,sbt
+5847,,,,Stod Bhoti,0,sbu
+5848,,,,Sabine,0,sbv
+5849,,,,Simba,0,sbw
+5850,,,,Seberuang,0,sbx
+5851,,,,Soli,0,sby
+5852,,,,Sara Kaba,0,sbz
+5853,,,,Chut,0,scb
+5854,,,,Dongxiang,0,sce
+5855,,,,San Miguel Creole French,0,scf
+5856,,,,Sanggau,0,scg
+5857,,,,Sakachep,0,sch
+5858,,,,Sri Lankan Creole Malay,0,sci
+5859,,,,Sadri,0,sck
+5860,,,,Shina,0,scl
+364,scn,scn,,Sicilian,1,scn
+365,sco,sco,,Scots,1,sco
+5861,,,,Helambu Sherpa,0,scp
+5862,,,,Sa'och,0,scq
+5863,,,,North Slavey,0,scs
+5864,,,,Shumcho,0,scu
+5865,,,,Sheni,0,scv
+5866,,,,Sha,0,scw
+5867,,,,Sicel,0,scx
+5868,,,,Toraja-Sa'dan,0,sda
+5869,,,,Shabak,0,sdb
+5870,,,,Sassarese Sardinian,0,sdc
+5871,,,,Surubu,0,sde
+5872,,,,Sarli,0,sdf
+5873,,,,Savi,0,sdg
+5874,,,,Southern Kurdish,0,sdh
+5875,,,,Suundi,0,sdj
+5876,,,,Sos Kundi,0,sdk
+5877,,,,Saudi Arabian Sign Language,0,sdl
+5878,,,,Semandang,0,sdm
+5879,,,,Gallurese Sardinian,0,sdn
+5880,,,,Bukar-Sadung Bidayuh,0,sdo
+5881,,,,Sherdukpen,0,sdp
+5882,,,,Oraon Sadri,0,sdr
+5883,,,,Sened,0,sds
+5884,,,,Shuadit,0,sdt
+5885,,,,Sarudu,0,sdu
+5886,,,,Sibu Melanau,0,sdx
+5887,,,,Sallands,0,sdz
+5888,,,,Semai,0,sea
+5889,,,,Shempire Senoufo,0,seb
+5890,,,,Sechelt,0,sec
+5891,,,,Sedang,0,sed
+5892,,,,Seneca,0,see
+5893,,,,Cebaara Senoufo,0,sef
+5894,,,,Segeju,0,seg
+5895,,,,Sena,0,seh
+5896,,,,Seri,0,sei
+5897,,,,Sene,0,sej
+5898,,,,Sekani,0,sek
+367,sel,sel,,Selkup,1,sel
+5899,,,,Nanerigé Sénoufo,0,sen
+5900,,,,Suarmin,0,seo
+5901,,,,Sìcìté Sénoufo,0,sep
+5902,,,,Senara Sénoufo,0,seq
+5903,,,,Serrano,0,ser
+5904,,,,Koyraboro Senni Songhai,0,ses
+5905,,,,Sentani,0,set
+5906,,,,Serui-Laut,0,seu
+5907,,,,Nyarafolo Senoufo,0,sev
+5908,,,,Sewa Bay,0,sew
+5909,,,,Secoya,0,sey
+5910,,,,Senthang Chin,0,sez
+5911,,,,Langue des signes de Belgique Francophone,0,sfb
+5912,,,,Eastern Subanen,0,sfe
+5913,,,,Small Flowery Miao,0,sfm
+5914,,,,South African Sign Language,0,sfs
+5915,,,,Sehwi,0,sfw
+369,sga,sga,,"Irish, Old (to 900)",0,sga
+5916,,,,Mag-antsi Ayta,0,sgb
+5917,,,,Kipsigis,0,sgc
+5918,,,,Surigaonon,0,sgd
+5919,,,,Segai,0,sge
+5920,,,,Swiss-German Sign Language,0,sgg
+5921,,,,Shughni,0,sgh
+5922,,,,Suga,0,sgi
+5923,,,,Surgujia,0,sgj
+5924,,,,Sangkong,0,sgk
+5925,,,,Singa,0,sgm
+5926,,,,Songa,0,sgo
+5927,,,,Singpho,0,sgp
+5928,,,,Sangisari,0,sgr
+5929,,,,Samogitian,0,sgs
+5930,,,,Brokpake,0,sgt
+5931,,,,Salas,0,sgu
+5932,,,,Sebat Bet Gurage,0,sgw
+5933,,,,Sierra Leone Sign Language,0,sgx
+5934,,,,Sanglechi,0,sgy
+5935,,,,Sursurunga,0,sgz
+5936,,,,Shall-Zwall,0,sha
+5937,,,,Ninam,0,shb
+5938,,,,Sonde,0,shc
+5939,,,,Kundal Shahi,0,shd
+5940,,,,Sheko,0,she
+5941,,,,Shua,0,shg
+5942,,,,Shoshoni,0,shh
+5943,,,,Tachelhit,0,shi
+5944,,,,Shatt,0,shj
+5945,,,,Shilluk,0,shk
+5946,,,,Shendu,0,shl
+5947,,,,Shahrudi,0,shm
+371,shn,shn,,Shan,1,shn
+5948,,,,Shanga,0,sho
+5949,,,,Shipibo-Conibo,0,shp
+5950,,,,Sala,0,shq
+5951,,,,Shi,0,shr
+5952,,,,Shuswap,0,shs
+5953,,,,Shasta,0,sht
+5954,,,,Chadian Arabic,0,shu
+5955,,,,Shehri,0,shv
+5956,,,,Shwai,0,shw
+5957,,,,She,0,shx
+5958,,,,Tachawit,0,shy
+5959,,,,Syenara Senoufo,0,shz
+5960,,,,Akkala Sami,0,sia
+5961,,,,Sebop,0,sib
+372,sid,sid,,Sidamo,1,sid
+5962,,,,Simaa,0,sie
+5963,,,,Siamou,0,sif
+5964,,,,Paasaal,0,sig
+5965,,,,Zire,0,sih
+5966,,,,Shom Peng,0,sii
+5967,,,,Numbami,0,sij
+5968,,,,Sikiana,0,sik
+5969,,,,Tumulung Sisaala,0,sil
+5970,,,,Mende (Papua New Guinea),0,sim
+373,sin,sin,si,Sinhala,1,sin
+5971,,,,Sikkimese,0,sip
+5972,,,,Sonia,0,siq
+5973,,,,Siri,0,sir
+5974,,,,Siuslaw,0,sis
+5975,,,,Sinagen,0,siu
+5976,,,,Sumariup,0,siv
+5977,,,,Siwai,0,siw
+5978,,,,Sumau,0,six
+5979,,,,Sivandi,0,siy
+5980,,,,Siwi,0,siz
+5981,,,,Epena,0,sja
+5982,,,,Sajau Basap,0,sjb
+5983,,,,Kildin Sami,0,sjd
+5984,,,,Pite Sami,0,sje
+5985,,,,Assangori,0,sjg
+5986,,,,Kemi Sami,0,sjk
+5987,,,,Sajalong,0,sjl
+5988,,,,Mapun,0,sjm
+5990,,,,Xibe,0,sjo
+5991,,,,Surjapuri,0,sjp
+5992,,,,Siar-Lak,0,sjr
+5993,,,,Senhaja De Srair,0,sjs
+5994,,,,Ter Sami,0,sjt
+5995,,,,Ume Sami,0,sju
+5996,,,,Shawnee,0,sjw
+5997,,,,Skagit,0,ska
+5998,,,,Saek,0,skb
+5999,,,,Ma Manda,0,skc
+6000,,,,Southern Sierra Miwok,0,skd
+6001,,,,Seke (Vanuatu),0,ske
+6002,,,,Sakirabiá,0,skf
+6003,,,,Sakalava Malagasy,0,skg
+6004,,,,Sikule,0,skh
+6005,,,,Sika,0,ski
+6006,,,,Seke (Nepal),0,skj
+6007,,,,Sok,0,skk
+6008,,,,Kutong,0,skm
+6009,,,,Kolibugan Subanon,0,skn
+6010,,,,Seko Tengah,0,sko
+6011,,,,Sekapan,0,skp
+6012,,,,Sininkere,0,skq
+6013,,,,Seraiki,0,skr
+6014,,,,Maia,0,sks
+6015,,,,Sakata,0,skt
+6016,,,,Sakao,0,sku
+6017,,,,Skou,0,skv
+6018,,,,Skepi Creole Dutch,0,skw
+6019,,,,Seko Padang,0,skx
+6020,,,,Sikaiana,0,sky
+6021,,,,Sekar,0,skz
+6022,,,,Sáliba,0,slc
+6023,,,,Sissala,0,sld
+6024,,,,Sholaga,0,sle
+6025,,,,Swiss-Italian Sign Language,0,slf
+6026,,,,Selungai Murut,0,slg
+6027,,,,Southern Puget Sound Salish,0,slh
+6028,,,,Lower Silesian,0,sli
+6029,,,,Salumá,0,slj
+377,slk,slo,sk,Slovak,1,slk
+6030,,,,Salt-Yui,0,sll
+6031,,,,Pangutaran Sama,0,slm
+6032,,,,Salinan,0,sln
+6033,,,,Lamaholot,0,slp
+6034,,,,Salchuq,0,slq
+6035,,,,Salar,0,slr
+6036,,,,Singapore Sign Language,0,sls
+6037,,,,Sila,0,slt
+6038,,,,Selaru,0,slu
+378,slv,slv,sl,Slovenian,1,slv
+6039,,,,Sialum,0,slw
+6040,,,,Salampasu,0,slx
+6041,,,,Selayar,0,sly
+6042,,,,Ma'ya,0,slz
+379,sma,sma,,"Sami, Southern",1,sma
+6043,,,,Simbari,0,smb
+6044,,,,Som,0,smc
+6045,,,,Sama,0,smd
+380,sme,sme,se,"Sami, Northern",1,sme
+6046,,,,Auwe,0,smf
+6047,,,,Simbali,0,smg
+6048,,,,Samei,0,smh
+382,smj,smj,,"Sami, Lule",1,smj
+6049,,,,Bolinao,0,smk
+6050,,,,Central Sama,0,sml
+6051,,,,Musasa,0,smm
+383,smn,smn,,"Sami, Inari",1,smn
+384,smo,smo,sm,Samoan,1,smo
+6052,,,,Samaritan,0,smp
+6053,,,,Samo,0,smq
+6054,,,,Simeulue,0,smr
+385,sms,sms,,"Sami, Skolt",1,sms
+6055,,,,Simte,0,smt
+6056,,,,Somray,0,smu
+6057,,,,Samvedi,0,smv
+6058,,,,Sumbawa,0,smw
+6059,,,,Samba,0,smx
+6060,,,,Semnani,0,smy
+6061,,,,Simeku,0,smz
+386,sna,sna,sn,Shona,1,sna
+6062,,,,Sebuyau,0,snb
+6063,,,,Sinaugoro,0,snc
+387,snd,snd,sd,Sindhi,1,snd
+6064,,,,Bau Bidayuh,0,sne
+6065,,,,Noon,0,snf
+6066,,,,Sanga (Democratic Republic of Congo),0,sng
+6067,,,,Shinabo,0,snh
+6068,,,,Sensi,0,sni
+6069,,,,Riverain Sango,0,snj
+388,snk,snk,,Soninke,1,snk
+6070,,,,Sangil,0,snl
+6071,,,,Southern Ma'di,0,snm
+6072,,,,Siona,0,snn
+6073,,,,Snohomish,0,sno
+6074,,,,Siane,0,snp
+6075,,,,Sangu (Gabon),0,snq
+6076,,,,Sihan,0,snr
+6077,,,,South West Bay,0,sns
+6078,,,,Senggi,0,snu
+6079,,,,Sa'ban,0,snv
+6080,,,,Selee,0,snw
+6081,,,,Sam,0,snx
+6082,,,,Saniyo-Hiyewe,0,sny
+6083,,,,Sinsauru,0,snz
+6084,,,,Thai Song,0,soa
+6085,,,,Sobei,0,sob
+6086,,,,So (Democratic Republic of Congo),0,soc
+6087,,,,Songoora,0,sod
+6088,,,,Songomeno,0,soe
+389,sog,sog,,Sogdian,0,sog
+6089,,,,Aka,0,soh
+6090,,,,Sonha,0,soi
+6091,,,,Soi,0,soj
+6092,,,,Sokoro,0,sok
+6093,,,,Solos,0,sol
+390,som,som,so,Somali,1,som
+6094,,,,Songo,0,soo
+6095,,,,Songe,0,sop
+6096,,,,Kanasi,0,soq
+6097,,,,Somrai,0,sor
+6098,,,,Seeku,0,sos
+392,sot,sot,st,"Sotho, Southern",1,sot
+6099,,,,Southern Thai,0,sou
+6100,,,,Sonsorol,0,sov
+6101,,,,Sowanda,0,sow
+6102,,,,Swo,0,sox
+6103,,,,Miyobe,0,soy
+6104,,,,Temi,0,soz
+6105,,,,Sepa (Indonesia),0,spb
+6106,,,,Sapé,0,spc
+6107,,,,Saep,0,spd
+6108,,,,Sepa (Papua New Guinea),0,spe
+6109,,,,Sian,0,spg
+6110,,,,Saponi,0,spi
+6111,,,,Sengo,0,spk
+6112,,,,Selepet,0,spl
+6113,,,,Akukem,0,spm
+6114,,,,Spokane,0,spo
+6115,,,,Supyire Senoufo,0,spp
+6116,,,,Loreto-Ucayali Spanish,0,spq
+6117,,,,Saparua,0,spr
+6118,,,,Saposa,0,sps
+6119,,,,Spiti Bhoti,0,spt
+6120,,,,Sapuan,0,spu
+6121,,,,Sambalpuri,0,spv
+6122,,,,South Picene,0,spx
+6123,,,,Sabaot,0,spy
+6124,,,,Shama-Sambuga,0,sqa
+6125,,,,Shau,0,sqh
+12,sqi,alb,sq,Albanian,1,sqi
+6126,,,,Albanian Sign Language,0,sqk
+6127,,,,Suma,0,sqm
+6128,,,,Susquehannock,0,sqn
+6129,,,,Sorkhei,0,sqo
+6130,,,,Sou,0,sqq
+6131,,,,Siculo Arabic,0,sqr
+6132,,,,Sri Lankan Sign Language,0,sqs
+6133,,,,Soqotri,0,sqt
+6134,,,,Squamish,0,squ
+6135,,,,Saruga,0,sra
+6136,,,,Sora,0,srb
+6137,,,,Logudorese Sardinian,0,src
+394,srd,srd,sc,Sardinian,1,srd
+6138,,,,Sara,0,sre
+6139,,,,Nafi,0,srf
+6140,,,,Sulod,0,srg
+6141,,,,Sarikoli,0,srh
+6142,,,,Siriano,0,sri
+6143,,,,Serudung Murut,0,srk
+6144,,,,Isirawa,0,srl
+6145,,,,Saramaccan,0,srm
+480,srn,srn,,Sranan Tongo,1,srn
+6146,,,,Campidanese Sardinian,0,sro
+363,srp,srp,sr,Serbian,1,srp
+6147,,,,Sirionó,0,srq
+395,srr,srr,,Serer,1,srr
+6148,,,,Sarsi,0,srs
+6149,,,,Sauri,0,srt
+6150,,,,Suruí,0,sru
+6151,,,,Southern Sorsoganon,0,srv
+6152,,,,Serua,0,srw
+6153,,,,Sirmauri,0,srx
+6154,,,,Sera,0,sry
+6155,,,,Shahmirzadi,0,srz
+6156,,,,Southern Sama,0,ssb
+6157,,,,Suba-Simbiti,0,ssc
+6158,,,,Siroi,0,ssd
+6159,,,,Balangingi,0,sse
+6160,,,,Thao,0,ssf
+6161,,,,Seimat,0,ssg
+6162,,,,Shihhi Arabic,0,ssh
+6163,,,,Sansi,0,ssi
+6164,,,,Sausi,0,ssj
+6165,,,,Sunam,0,ssk
+6166,,,,Western Sisaala,0,ssl
+6167,,,,Semnam,0,ssm
+6168,,,,Waata,0,ssn
+6169,,,,Sissano,0,sso
+6170,,,,Spanish Sign Language,0,ssp
+6171,,,,So'a,0,ssq
+6172,,,,Swiss-French Sign Language,0,ssr
+6173,,,,Sô,0,sss
+6174,,,,Sinasina,0,sst
+6175,,,,Susuami,0,ssu
+6176,,,,Shark Bay,0,ssv
+397,ssw,ssw,ss,Swati,1,ssw
+6177,,,,Samberigi,0,ssx
+6178,,,,Saho,0,ssy
+6179,,,,Sengseng,0,ssz
+6180,,,,Settla,0,sta
+6181,,,,Northern Subanen,0,stb
+6182,,,,Sentinel,0,std
+6183,,,,Liana-Seti,0,ste
+6184,,,,Seta,0,stf
+6185,,,,Trieng,0,stg
+6186,,,,Shelta,0,sth
+6187,,,,Bulo Stieng,0,sti
+6188,,,,Matya Samo,0,stj
+6189,,,,Arammba,0,stk
+6190,,,,Stellingwerfs,0,stl
+6191,,,,Setaman,0,stm
+6192,,,,Owa,0,stn
+6193,,,,Stoney,0,sto
+6194,,,,Southeastern Tepehuan,0,stp
+6195,,,,Saterfriesisch,0,stq
+6196,,,,Straits Salish,0,str
+6197,,,,Shumashti,0,sts
+6198,,,,Budeh Stieng,0,stt
+6199,,,,Samtao,0,stu
+6200,,,,Silt'e,0,stv
+6201,,,,Satawalese,0,stw
+6202,,,,Sulka,0,sua
+6203,,,,Suku,0,sub
+6204,,,,Western Subanon,0,suc
+6205,,,,Suena,0,sue
+6206,,,,Suganga,0,sug
+6207,,,,Suki,0,sui
+6208,,,,Shubi,0,suj
+398,suk,suk,,Sukuma,1,suk
+399,sun,sun,su,Sundanese,1,sun
+6209,,,,Suri,0,suq
+6210,,,,Mwaghavul,0,sur
+400,sus,sus,,Susu,1,sus
+6211,,,,Subtiaba,0,sut
+6212,,,,Puroik,0,suv
+6213,,,,Sumbwa,0,suw
+401,sux,sux,,Sumerian,0,sux
+6214,,,,Suyá,0,suy
+6215,,,,Sunwar,0,suz
+6216,,,,Svan,0,sva
+6217,,,,Ulau-Suain,0,svb
+6218,,,,Vincentian Creole English,0,svc
+6219,,,,Serili,0,sve
+6220,,,,Slovakian Sign Language,0,svk
+6221,,,,Savara,0,svr
+6222,,,,Savosavo,0,svs
+6223,,,,Skalvian,0,svx
+402,swa,swa,sw,Swahili,1,swa
+6224,,,,Maore Comorian,0,swb
+6225,,,,Congo Swahili,0,swc
+6226,,,,Sere,0,swf
+6227,,,,Swabian,0,swg
+6228,,,,Swahili (individual language),0,swh
+6229,,,,Sui,0,swi
+6230,,,,Sira,0,swj
+6231,,,,Malawi Sena,0,swk
+6232,,,,Swedish Sign Language,0,swl
+6233,,,,Samosa,0,swm
+6234,,,,Sawknah,0,swn
+6235,,,,Shanenawa,0,swo
+6236,,,,Suau,0,swp
+6237,,,,Sharwa,0,swq
+6238,,,,Saweru,0,swr
+6239,,,,Seluwasan,0,sws
+6240,,,,Sawila,0,swt
+6241,,,,Suwawa,0,swu
+6242,,,,Shekhawati,0,swv
+6243,,,,Sowa,0,sww
+6244,,,,Suruahá,0,swx
+6245,,,,Sarua,0,swy
+6246,,,,Suba,0,sxb
+6247,,,,Sicanian,0,sxc
+6248,,,,Sighu,0,sxe
+6249,,,,Shixing,0,sxg
+6250,,,,Southern Kalapuya,0,sxk
+6251,,,,Selian,0,sxl
+6252,,,,Samre,0,sxm
+6253,,,,Sangir,0,sxn
+6254,,,,Sorothaptic,0,sxo
+6255,,,,Saaroa,0,sxr
+6256,,,,Sasaru,0,sxs
+6257,,,,Upper Saxon,0,sxu
+6258,,,,Saxwe Gbe,0,sxw
+6259,,,,Siang,0,sya
+6260,,,,Central Subanen,0,syb
+481,syc,syc,,Classical Syriac,0,syc
+6261,,,,Seki,0,syi
+6262,,,,Sukur,0,syk
+6263,,,,Sylheti,0,syl
+6264,,,,Maya Samo,0,sym
+6265,,,,Senaya,0,syn
+6266,,,,Suoy,0,syo
+404,syr,syr,,Syriac,1,syr
+6267,,,,Sinyar,0,sys
+6268,,,,Kagate,0,syw
+6269,,,,Al-Sayyid Bedouin Sign Language,0,syy
+6270,,,,Semelai,0,sza
+6271,,,,Ngalum,0,szb
+6272,,,,Semaq Beri,0,szc
+6273,,,,Seru,0,szd
+6274,,,,Seze,0,sze
+6275,,,,Sengele,0,szg
+6276,,,,Silesian,0,szl
+6277,,,,Sula,0,szn
+6278,,,,Suabo,0,szp
+6279,,,,Isu (Fako Division),0,szv
+6280,,,,Sawai,0,szw
+6281,,,,Lower Tanana,0,taa
+6282,,,,Tabassaran,0,tab
+6283,,,,Lowland Tarahumara,0,tac
+6284,,,,Tause,0,tad
+6285,,,,Tariana,0,tae
+6286,,,,Tapirapé,0,taf
+6287,,,,Tagoi,0,tag
+405,tah,tah,ty,Tahitian,1,tah
+6288,,,,Eastern Tamang,0,taj
+6289,,,,Tala,0,tak
+6290,,,,Tal,0,tal
+407,tam,tam,ta,Tamil,1,tam
+6291,,,,Tangale,0,tan
+6292,,,,Yami,0,tao
+6293,,,,Taabwa,0,tap
+6294,,,,Tamasheq,0,taq
+6295,,,,Central Tarahumara,0,tar
+6296,,,,Tay Boi,0,tas
+408,tat,tat,tt,Tatar,1,tat
+6297,,,,Upper Tanana,0,tau
+6298,,,,Tatuyo,0,tav
+6299,,,,Tai,0,taw
+6300,,,,Tamki,0,tax
+6301,,,,Atayal,0,tay
+6302,,,,Tocho,0,taz
+6303,,,,Aikanã,0,tba
+6304,,,,Tapeba,0,tbb
+6305,,,,Takia,0,tbc
+6306,,,,Kaki Ae,0,tbd
+6307,,,,Tanimbili,0,tbe
+6308,,,,Mandara,0,tbf
+6309,,,,North Tairora,0,tbg
+6310,,,,Thurawal,0,tbh
+6311,,,,Gaam,0,tbi
+6312,,,,Tiang,0,tbj
+6313,,,,Calamian Tagbanwa,0,tbk
+6314,,,,Tboli,0,tbl
+6315,,,,Tagbu,0,tbm
+6316,,,,Barro Negro Tunebo,0,tbn
+6317,,,,Tawala,0,tbo
+6318,,,,Taworta,0,tbp
+6319,,,,Tumtum,0,tbr
+6320,,,,Tanguat,0,tbs
+6321,,,,Tembo (Kitembo),0,tbt
+6322,,,,Tubar,0,tbu
+6323,,,,Tobo,0,tbv
+6324,,,,Tagbanwa,0,tbw
+6325,,,,Kapin,0,tbx
+6326,,,,Tabaru,0,tby
+6327,,,,Ditammari,0,tbz
+6328,,,,Ticuna,0,tca
+6329,,,,Tanacross,0,tcb
+6330,,,,Datooga,0,tcc
+6331,,,,Tafi,0,tcd
+6332,,,,Southern Tutchone,0,tce
+6333,,,,Malinaltepec Me'phaa,0,tcf
+6334,,,,Tamagario,0,tcg
+6335,,,,Turks And Caicos Creole English,0,tch
+6336,,,,Wára,0,tci
+6337,,,,Tchitchege,0,tck
+6338,,,,Taman (Myanmar),0,tcl
+6339,,,,Tanahmerah,0,tcm
+6340,,,,Tichurong,0,tcn
+6341,,,,Taungyo,0,tco
+6342,,,,Tawr Chin,0,tcp
+6343,,,,Kaiy,0,tcq
+6344,,,,Torres Strait Creole,0,tcs
+6345,,,,T'en,0,tct
+6346,,,,Southeastern Tarahumara,0,tcu
+6347,,,,Tecpatlán Totonac,0,tcw
+6348,,,,Toda,0,tcx
+6349,,,,Tulu,0,tcy
+6350,,,,Thado Chin,0,tcz
+6351,,,,Tagdal,0,tda
+6352,,,,Panchpargania,0,tdb
+6353,,,,Emberá-Tadó,0,tdc
+6354,,,,Tai Nüa,0,tdd
+6355,,,,Tiranige Diga Dogon,0,tde
+6356,,,,Talieng,0,tdf
+6357,,,,Western Tamang,0,tdg
+6358,,,,Thulung,0,tdh
+6359,,,,Tomadino,0,tdi
+6360,,,,Tajio,0,tdj
+6361,,,,Tambas,0,tdk
+6362,,,,Sur,0,tdl
+6363,,,,Tondano,0,tdn
+6364,,,,Teme,0,tdo
+6365,,,,Tita,0,tdq
+6366,,,,Todrah,0,tdr
+6367,,,,Doutai,0,tds
+6368,,,,Tetun Dili,0,tdt
+6369,,,,Tempasuk Dusun,0,tdu
+6370,,,,Toro,0,tdv
+6371,,,,Tandroy-Mahafaly Malagasy,0,tdx
+6372,,,,Tadyawan,0,tdy
+6373,,,,Temiar,0,tea
+6374,,,,Tetete,0,teb
+6375,,,,Terik,0,tec
+6376,,,,Tepo Krumen,0,ted
+6377,,,,Huehuetla Tepehua,0,tee
+6378,,,,Teressa,0,tef
+6379,,,,Teke-Tege,0,teg
+6380,,,,Tehuelche,0,teh
+6381,,,,Torricelli,0,tei
+6382,,,,Ibali Teke,0,tek
+409,tel,tel,te,Telugu,1,tel
+410,tem,tem,,Timne,1,tem
+6383,,,,Tama (Colombia),0,ten
+6384,,,,Teso,0,teo
+6385,,,,Tepecano,0,tep
+6386,,,,Temein,0,teq
+411,ter,ter,,Tereno,1,ter
+6387,,,,Tengger,0,tes
+412,tet,tet,,Tetum,1,tet
+6388,,,,Soo,0,teu
+6389,,,,Teor,0,tev
+6390,,,,Tewa (USA),0,tew
+6391,,,,Tennet,0,tex
+6392,,,,Tulishi,0,tey
+6393,,,,Tofin Gbe,0,tfi
+6394,,,,Tanaina,0,tfn
+6395,,,,Tefaro,0,tfo
+6396,,,,Teribe,0,tfr
+6397,,,,Ternate,0,tft
+6398,,,,Sagalla,0,tga
+6399,,,,Tobilung,0,tgb
+6400,,,,Tigak,0,tgc
+6401,,,,Ciwogai,0,tgd
+6402,,,,Eastern Gorkha Tamang,0,tge
+6403,,,,Chalikha,0,tgf
+6404,,,,Tangga,0,tgg
+6405,,,,Tobagonian Creole English,0,tgh
+6406,,,,Lawunuia,0,tgi
+6407,,,,Tagin,0,tgj
+413,tgk,tgk,tg,Tajik,1,tgk
+414,tgl,tgl,tl,Tagalog,1,tgl
+6408,,,,Tandaganon,0,tgn
+6409,,,,Sudest,0,tgo
+6410,,,,Tangoa,0,tgp
+6411,,,,Tring,0,tgq
+6412,,,,Tareng,0,tgr
+6413,,,,Nume,0,tgs
+6414,,,,Central Tagbanwa,0,tgt
+6415,,,,Tanggu,0,tgu
+6416,,,,Tingui-Boto,0,tgv
+6417,,,,Tagwana Senoufo,0,tgw
+6418,,,,Tagish,0,tgx
+6419,,,,Togoyo,0,tgy
+6420,,,,Tagalaka,0,tgz
+415,tha,tha,th,Thai,1,tha
+6421,,,,Tai Hang Tong,0,thc
+6422,,,,Thayore,0,thd
+6423,,,,Chitwania Tharu,0,the
+6424,,,,Thangmi,0,thf
+6425,,,,Northern Tarahumara,0,thh
+6426,,,,Tai Long,0,thi
+6427,,,,Tharaka,0,thk
+6428,,,,Dangaura Tharu,0,thl
+6429,,,,Aheu,0,thm
+6430,,,,Thachanadan,0,thn
+6431,,,,Thompson,0,thp
+6432,,,,Kochila Tharu,0,thq
+6433,,,,Rana Tharu,0,thr
+6434,,,,Thakali,0,ths
+6435,,,,Tahltan,0,tht
+6436,,,,Thuri,0,thu
+6437,,,,Tahaggart Tamahaq,0,thv
+6438,,,,Thudam,0,thw
+6439,,,,The,0,thx
+6440,,,,Tha,0,thy
+6441,,,,Tayart Tamajeq,0,thz
+6442,,,,Tidikelt Tamazight,0,tia
+6443,,,,Tira,0,tic
+6444,,,,Tidong,0,tid
+6445,,,,Tifal,0,tif
+417,tig,tig,,Tigre,1,tig
+6446,,,,Timugon Murut,0,tih
+6447,,,,Tiene,0,tii
+6448,,,,Tilung,0,tij
+6449,,,,Tikar,0,tik
+6450,,,,Tillamook,0,til
+6451,,,,Timbe,0,tim
+6452,,,,Tindi,0,tin
+6453,,,,Teop,0,tio
+6454,,,,Trimuris,0,tip
+6455,,,,Tiéfo,0,tiq
+418,tir,tir,ti,Tigrinya,1,tir
+6456,,,,Masadiit Itneg,0,tis
+6457,,,,Tinigua,0,tit
+6458,,,,Adasen,0,tiu
+419,tiv,tiv,,Tiv,1,tiv
+6459,,,,Tiwi,0,tiw
+6460,,,,Southern Tiwa,0,tix
+6461,,,,Tiruray,0,tiy
+6462,,,,Tai Hongjin,0,tiz
+6463,,,,Tajuasohn,0,tja
+6464,,,,Tunjung,0,tjg
+6465,,,,Northern Tujia,0,tji
+6466,,,,Tai Laing,0,tjl
+6467,,,,Timucua,0,tjm
+6468,,,,Tonjon,0,tjn
+6469,,,,Temacine Tamazight,0,tjo
+6470,,,,Southern Tujia,0,tjs
+6471,,,,Tjurruru,0,tju
+6472,,,,Truká,0,tka
+6473,,,,Buksa,0,tkb
+6474,,,,Tukudede,0,tkd
+6475,,,,Takwane,0,tke
+6476,,,,Tukumanféd,0,tkf
+6477,,,,Tesaka Malagasy,0,tkg
+420,tkl,tkl,,Tokelau,1,tkl
+6478,,,,Takelma,0,tkm
+6479,,,,Toku-No-Shima,0,tkn
+6480,,,,Tikopia,0,tkp
+6481,,,,Tee,0,tkq
+6482,,,,Tsakhur,0,tkr
+6483,,,,Takestani,0,tks
+6484,,,,Kathoriya Tharu,0,tkt
+6485,,,,Upper Necaxa Totonac,0,tku
+6486,,,,Teanu,0,tkw
+6487,,,,Tangko,0,tkx
+6488,,,,Takua,0,tkz
+6489,,,,Southwestern Tepehuan,0,tla
+6490,,,,Tobelo,0,tlb
+6491,,,,Yecuatla Totonac,0,tlc
+6492,,,,Talaud,0,tld
+6493,,,,Telefol,0,tlf
+6494,,,,Tofanma,0,tlg
+421,tlh,tlh,,Klingon,1,tlh
+422,tli,tli,,Tlingit,1,tli
+6495,,,,Talinga-Bwisi,0,tlj
+6496,,,,Taloki,0,tlk
+6497,,,,Tetela,0,tll
+6498,,,,Tolomako,0,tlm
+6499,,,,Talondo',0,tln
+6500,,,,Talodi,0,tlo
+6501,,,,Filomena Mata-Coahuitlán Totonac,0,tlp
+6502,,,,Tai Loi,0,tlq
+6503,,,,Talise,0,tlr
+6504,,,,Tambotalo,0,tls
+6505,,,,Teluti,0,tlt
+6506,,,,Tulehu,0,tlu
+6507,,,,Taliabu,0,tlv
+6508,,,,Khehek,0,tlx
+6509,,,,Talysh,0,tly
+6510,,,,Tama (Chad),0,tma
+6511,,,,Katbol,0,tmb
+6512,,,,Tumak,0,tmc
+6513,,,,Haruai,0,tmd
+6514,,,,Tremembé,0,tme
+6515,,,,Toba-Maskoy,0,tmf
+6516,,,,Ternateño,0,tmg
+423,tmh,tmh,,Tamashek,1,tmh
+6517,,,,Tutuba,0,tmi
+6518,,,,Samarokena,0,tmj
+6519,,,,Northwestern Tamang,0,tmk
+6520,,,,Tamnim Citak,0,tml
+6521,,,,Tai Thanh,0,tmm
+6522,,,,Taman (Indonesia),0,tmn
+6523,,,,Temoq,0,tmo
+6524,,,,Tai Mène,0,tmp
+6525,,,,Tumleo,0,tmq
+6526,,,,Jewish Babylonian Aramaic (ca. 200-1200 CE),0,tmr
+6527,,,,Tima,0,tms
+6528,,,,Tasmate,0,tmt
+6529,,,,Iau,0,tmu
+6530,,,,Tembo (Motembo),0,tmv
+6531,,,,Temuan,0,tmw
+6532,,,,Tami,0,tmy
+6533,,,,Tamanaku,0,tmz
+6534,,,,Tacana,0,tna
+6535,,,,Western Tunebo,0,tnb
+6536,,,,Tanimuca-Retuarã,0,tnc
+6537,,,,Angosturas Tunebo,0,tnd
+6538,,,,Tinoc Kallahan,0,tne
+6539,,,,Tobanga,0,tng
+6540,,,,Maiani,0,tnh
+6541,,,,Tandia,0,tni
+6542,,,,Kwamera,0,tnk
+6543,,,,Lenakel,0,tnl
+6544,,,,Tabla,0,tnm
+6545,,,,North Tanna,0,tnn
+6546,,,,Toromono,0,tno
+6547,,,,Whitesands,0,tnp
+6548,,,,Taino,0,tnq
+6549,,,,Bedik,0,tnr
+6550,,,,Tenis,0,tns
+6551,,,,Tontemboan,0,tnt
+6552,,,,Tay Khang,0,tnu
+6553,,,,Tangchangya,0,tnv
+6554,,,,Tonsawang,0,tnw
+6555,,,,Tanema,0,tnx
+6556,,,,Tongwe,0,tny
+6557,,,,Tonga (Thailand),0,tnz
+6558,,,,Toba,0,tob
+6559,,,,Coyutla Totonac,0,toc
+6560,,,,Toma,0,tod
+6561,,,,Tomedes,0,toe
+6562,,,,Gizrra,0,tof
+424,tog,tog,,Tonga (Nyasa),1,tog
+6563,,,,Gitonga,0,toh
+6564,,,,Tonga (Zambia),0,toi
+6565,,,,Tojolabal,0,toj
+6566,,,,Tolowa,0,tol
+6567,,,,Tombulu,0,tom
+425,ton,ton,to,Tonga (Tonga Islands),1,ton
+6568,,,,Xicotepec De Juárez Totonac,0,too
+6569,,,,Papantla Totonac,0,top
+6570,,,,Toposa,0,toq
+6571,,,,Togbo-Vara Banda,0,tor
+6572,,,,Highland Totonac,0,tos
+6573,,,,Tho,0,tou
+6574,,,,Upper Taromi,0,tov
+6575,,,,Jemez,0,tow
+6576,,,,Tobian,0,tox
+6577,,,,Topoiyo,0,toy
+6578,,,,To,0,toz
+6579,,,,Taupota,0,tpa
+6580,,,,Azoyú Me'phaa,0,tpc
+6581,,,,Tippera,0,tpe
+6582,,,,Tarpia,0,tpf
+6583,,,,Kula,0,tpg
+426,tpi,tpi,,Tok Pisin,1,tpi
+6584,,,,Tapieté,0,tpj
+6585,,,,Tupinikin,0,tpk
+6586,,,,Tlacoapa Me'phaa,0,tpl
+6587,,,,Tampulma,0,tpm
+6588,,,,Tupinambá,0,tpn
+6589,,,,Tai Pao,0,tpo
+6590,,,,Pisaflores Tepehua,0,tpp
+6591,,,,Tukpa,0,tpq
+6592,,,,Tuparí,0,tpr
+6593,,,,Tlachichilco Tepehua,0,tpt
+6594,,,,Tampuan,0,tpu
+6595,,,,Tanapag,0,tpv
+6596,,,,Tupí,0,tpw
+6597,,,,Acatepec Me'phaa,0,tpx
+6598,,,,Trumai,0,tpy
+6599,,,,Tinputz,0,tpz
+6600,,,,Tembé,0,tqb
+6601,,,,Lehali,0,tql
+6602,,,,Turumsa,0,tqm
+6603,,,,Tenino,0,tqn
+6604,,,,Toaripi,0,tqo
+6605,,,,Tomoip,0,tqp
+6606,,,,Tunni,0,tqq
+6607,,,,Torona,0,tqr
+6608,,,,Western Totonac,0,tqt
+6609,,,,Touo,0,tqu
+6610,,,,Tonkawa,0,tqw
+6611,,,,Tirahi,0,tra
+6612,,,,Terebu,0,trb
+6613,,,,Copala Triqui,0,trc
+6614,,,,Turi,0,trd
+6615,,,,East Tarangan,0,tre
+6616,,,,Trinidadian Creole English,0,trf
+6617,,,,Lishán Didán,0,trg
+6618,,,,Turaka,0,trh
+6619,,,,Trió,0,tri
+6620,,,,Toram,0,trj
+6621,,,,Traveller Scottish,0,trl
+6622,,,,Tregami,0,trm
+6623,,,,Trinitario,0,trn
+6624,,,,Tarao Naga,0,tro
+6625,,,,Kok Borok,0,trp
+6626,,,,San Martín Itunyoso Triqui,0,trq
+6627,,,,Taushiro,0,trr
+6628,,,,Chicahuaxtla Triqui,0,trs
+6629,,,,Tunggare,0,trt
+6630,,,,Turoyo,0,tru
+6631,,,,Taroko,0,trv
+6632,,,,Torwali,0,trw
+6633,,,,Tringgus-Sembaan Bidayuh,0,trx
+6634,,,,Turung,0,try
+6635,,,,Torá,0,trz
+6636,,,,Tsaangi,0,tsa
+6637,,,,Tsamai,0,tsb
+6638,,,,Tswa,0,tsc
+6639,,,,Tsakonian,0,tsd
+6640,,,,Tunisian Sign Language,0,tse
+6641,,,,Southwestern Tamang,0,tsf
+6642,,,,Tausug,0,tsg
+6643,,,,Tsuvan,0,tsh
+427,tsi,tsi,,Tsimshian,1,tsi
+6644,,,,Tshangla,0,tsj
+6645,,,,Tseku,0,tsk
+6646,,,,Ts'ün-Lao,0,tsl
+6647,,,,Turkish Sign Language,0,tsm
+428,tsn,tsn,tn,Tswana,1,tsn
+429,tso,tso,ts,Tsonga,1,tso
+6648,,,,Northern Toussian,0,tsp
+6649,,,,Thai Sign Language,0,tsq
+6650,,,,Akei,0,tsr
+6651,,,,Taiwan Sign Language,0,tss
+6652,,,,Tondi Songway Kiini,0,tst
+6653,,,,Tsou,0,tsu
+6654,,,,Tsogo,0,tsv
+6655,,,,Tsishingini,0,tsw
+6656,,,,Mubami,0,tsx
+6657,,,,Tebul Sign Language,0,tsy
+6658,,,,Purepecha,0,tsz
+6659,,,,Tutelo,0,tta
+6660,,,,Gaa,0,ttb
+6661,,,,Tektiteko,0,ttc
+6662,,,,Tauade,0,ttd
+6663,,,,Bwanabwana,0,tte
+6664,,,,Tuotomb,0,ttf
+6665,,,,Tutong,0,ttg
+6666,,,,Upper Ta'oih,0,tth
+6667,,,,Tobati,0,tti
+6668,,,,Tooro,0,ttj
+6669,,,,Totoro,0,ttk
+6670,,,,Totela,0,ttl
+6671,,,,Northern Tutchone,0,ttm
+6672,,,,Towei,0,ttn
+6673,,,,Lower Ta'oih,0,tto
+6674,,,,Tombelala,0,ttp
+6675,,,,Tawallammat Tamajaq,0,ttq
+6676,,,,Tera,0,ttr
+6677,,,,Northeastern Thai,0,tts
+6678,,,,Muslim Tat,0,ttt
+6679,,,,Torau,0,ttu
+6680,,,,Titan,0,ttv
+6681,,,,Long Wat,0,ttw
+6682,,,,Sikaritai,0,tty
+6683,,,,Tsum,0,ttz
+6684,,,,Wiarumus,0,tua
+6685,,,,Tübatulabal,0,tub
+6686,,,,Mutu,0,tuc
+6687,,,,Tuxá,0,tud
+6688,,,,Tuyuca,0,tue
+6689,,,,Central Tunebo,0,tuf
+6690,,,,Tunia,0,tug
+6691,,,,Taulil,0,tuh
+6692,,,,Tupuri,0,tui
+6693,,,,Tugutil,0,tuj
+430,tuk,tuk,tk,Turkmen,1,tuk
+6694,,,,Tula,0,tul
+431,tum,tum,,Tumbuka,1,tum
+6695,,,,Tunica,0,tun
+6696,,,,Tucano,0,tuo
+6697,,,,Tedaga,0,tuq
+6698,,,,Tuscarora,0,tus
+6699,,,,Tututni,0,tuu
+6700,,,,Turkana,0,tuv
+6701,,,,Tuxináwa,0,tux
+6702,,,,Tugen,0,tuy
+6703,,,,Turka,0,tuz
+6704,,,,Vaghua,0,tva
+6705,,,,Tsuvadi,0,tvd
+6706,,,,Te'un,0,tve
+6707,,,,Southeast Ambrym,0,tvk
+435,tvl,tvl,,Tuvalu,1,tvl
+6708,,,,Tela-Masbuar,0,tvm
+6709,,,,Tavoyan,0,tvn
+6710,,,,Tidore,0,tvo
+6711,,,,Taveta,0,tvs
+6712,,,,Tutsa Naga,0,tvt
+6713,,,,Tunen,0,tvu
+6714,,,,Sedoa,0,tvw
+6715,,,,Timor Pidgin,0,tvy
+6716,,,,Twana,0,twa
+6717,,,,Western Tawbuid,0,twb
+6718,,,,Teshenawa,0,twc
+6719,,,,Twents,0,twd
+6720,,,,Tewa (Indonesia),0,twe
+6721,,,,Northern Tiwa,0,twf
+6722,,,,Tereweng,0,twg
+6723,,,,Tai Dón,0,twh
+436,twi,twi,tw,Twi,1,twi
+6724,,,,Tawara,0,twl
+6725,,,,Tawang Monpa,0,twm
+6726,,,,Twendi,0,twn
+6727,,,,Tswapong,0,two
+6728,,,,Ere,0,twp
+6729,,,,Tasawaq,0,twq
+6730,,,,Southwestern Tarahumara,0,twr
+6731,,,,Turiwára,0,twt
+6732,,,,Termanu,0,twu
+6733,,,,Tuwari,0,tww
+6734,,,,Tewe,0,twx
+6735,,,,Tawoyan,0,twy
+6736,,,,Tombonuo,0,txa
+6737,,,,Tokharian B,0,txb
+6738,,,,Tsetsaut,0,txc
+6739,,,,Totoli,0,txe
+6740,,,,Tangut,0,txg
+6741,,,,Thracian,0,txh
+6742,,,,Ikpeng,0,txi
+6743,,,,Tomini,0,txm
+6744,,,,West Tarangan,0,txn
+6745,,,,Toto,0,txo
+6746,,,,Tii,0,txq
+6747,,,,Tartessian,0,txr
+6748,,,,Tonsea,0,txs
+6749,,,,Citak,0,txt
+6750,,,,Kayapó,0,txu
+6751,,,,Tatana,0,txx
+6752,,,,Tanosy Malagasy,0,txy
+6753,,,,Tauya,0,tya
+6754,,,,Kyenga,0,tye
+6755,,,,O'du,0,tyh
+6756,,,,Teke-Tsaayi,0,tyi
+6757,,,,Tai Do,0,tyj
+6758,,,,Thu Lao,0,tyl
+6759,,,,Kombai,0,tyn
+6760,,,,Thaypan,0,typ
+6761,,,,Tai Daeng,0,tyr
+6762,,,,Tày Sa Pa,0,tys
+6763,,,,Tày Tac,0,tyt
+6764,,,,Kua,0,tyu
+437,tyv,tyv,,Tuvinian,1,tyv
+6765,,,,Teke-Tyee,0,tyx
+6766,,,,Tày,0,tyz
+6767,,,,Tanzanian Sign Language,0,tza
+6768,,,,Tzeltal,0,tzh
+6769,,,,Tz'utujil,0,tzj
+6770,,,,Central Atlas Tamazight,0,tzm
+6771,,,,Tugun,0,tzn
+6772,,,,Tzotzil,0,tzo
+6773,,,,Tabriak,0,tzx
+6774,,,,Uamué,0,uam
+6775,,,,Kuan,0,uan
+6776,,,,Tairuma,0,uar
+6777,,,,Ubang,0,uba
+6778,,,,Ubi,0,ubi
+6779,,,,Buhi'non Bikol,0,ubl
+6780,,,,Ubir,0,ubr
+6781,,,,Umbu-Ungu,0,ubu
+6782,,,,Ubykh,0,uby
+6783,,,,Uda,0,uda
+6784,,,,Udihe,0,ude
+6785,,,,Muduga,0,udg
+6786,,,,Udi,0,udi
+6787,,,,Ujir,0,udj
+6788,,,,Wuzlam,0,udl
+438,udm,udm,,Udmurt,1,udm
+6789,,,,Uduk,0,udu
+6790,,,,Kioko,0,ues
+6791,,,,Ufim,0,ufi
+439,uga,uga,,Ugaritic,0,uga
+6792,,,,Kuku-Ugbanh,0,ugb
+6793,,,,Ughele,0,uge
+6794,,,,Ugandan Sign Language,0,ugn
+6795,,,,Ugong,0,ugo
+6796,,,,Uruguayan Sign Language,0,ugy
+6797,,,,Uhami,0,uha
+6798,,,,Damal,0,uhn
+440,uig,uig,ug,Uighur,1,uig
+6799,,,,Uisai,0,uis
+6800,,,,Iyive,0,uiv
+6801,,,,Tanjijili,0,uji
+6802,,,,Kaburi,0,uka
+6803,,,,Ukuriguma,0,ukg
+6804,,,,Ukhwejo,0,ukh
+6805,,,,Ukrainian Sign Language,0,ukl
+6806,,,,Ukpe-Bayobiri,0,ukp
+6807,,,,Ukwa,0,ukq
+441,ukr,ukr,uk,Ukrainian,1,ukr
+6808,,,,Urubú-Kaapor Sign Language,0,uks
+6809,,,,Ukue,0,uku
+6810,,,,Ukwuani-Aboh-Ndoni,0,ukw
+6811,,,,Kuuk-Yak,0,uky
+6812,,,,Fungwa,0,ula
+6813,,,,Ulukwumi,0,ulb
+6814,,,,Ulch,0,ulc
+6815,,,,Usku,0,ulf
+6816,,,,Ulithian,0,uli
+6817,,,,Meriam,0,ulk
+6818,,,,Ullatan,0,ull
+6819,,,,Ulumanda',0,ulm
+6820,,,,Unserdeutsch,0,uln
+6821,,,,Uma' Lung,0,ulu
+6822,,,,Ulwa,0,ulw
+6823,,,,Umatilla,0,uma
+442,umb,umb,,Umbundu,1,umb
+6824,,,,Marrucinian,0,umc
+6825,,,,Umbindhamu,0,umd
+6826,,,,Umbuygamu,0,umg
+6827,,,,Ukit,0,umi
+6828,,,,Umon,0,umm
+6829,,,,Makyan Naga,0,umn
+6830,,,,Umotína,0,umo
+6831,,,,Umpila,0,ump
+6832,,,,Umbugarla,0,umr
+6833,,,,Pendau,0,ums
+6834,,,,Munsee,0,umu
+6835,,,,North Watut,0,una
+443,und,und,,Undetermined,0,und
+6836,,,,Uneme,0,une
+6837,,,,Ngarinyin,0,ung
+6838,,,,Enawené-Nawé,0,unk
+6839,,,,Unami,0,unm
+6840,,,,Mundari,0,unr
+6841,,,,Munda,0,unx
+6842,,,,Unde Kaili,0,unz
+6843,,,,Uokha,0,uok
+6844,,,,Umeda,0,upi
+6845,,,,Uripiv-Wala-Rano-Atchin,0,upv
+6846,,,,Urarina,0,ura
+6847,,,,Urubú-Kaapor,0,urb
+6848,,,,Urningangg,0,urc
+444,urd,urd,ur,Urdu,1,urd
+6849,,,,Uru,0,ure
+6850,,,,Uradhi,0,urf
+6851,,,,Urigina,0,urg
+6852,,,,Urhobo,0,urh
+6853,,,,Urim,0,uri
+6854,,,,Urak Lawoi',0,urk
+6855,,,,Urali,0,url
+6856,,,,Urapmin,0,urm
+6857,,,,Uruangnirin,0,urn
+6858,,,,Ura (Papua New Guinea),0,uro
+6859,,,,Uru-Pa-In,0,urp
+6860,,,,Lehalurup,0,urr
+6861,,,,Urat,0,urt
+6862,,,,Urumi,0,uru
+6863,,,,Uruava,0,urv
+6864,,,,Sop,0,urw
+6865,,,,Urimo,0,urx
+6866,,,,Orya,0,ury
+6867,,,,Uru-Eu-Wau-Wau,0,urz
+6868,,,,Usarufa,0,usa
+6869,,,,Ushojo,0,ush
+6870,,,,Usui,0,usi
+6871,,,,Usaghade,0,usk
+6872,,,,Uspanteco,0,usp
+6873,,,,Uya,0,usu
+6874,,,,Otank,0,uta
+6875,,,,Ute-Southern Paiute,0,ute
+6876,,,,Amba (Solomon Islands),0,utp
+6877,,,,Etulo,0,utr
+6878,,,,Utu,0,utu
+6879,,,,Urum,0,uum
+6880,,,,Kulon-Pazeh,0,uun
+6881,,,,Ura (Vanuatu),0,uur
+6882,,,,U,0,uuu
+6883,,,,West Uvean,0,uve
+6884,,,,Uri,0,uvh
+6885,,,,Lote,0,uvl
+6886,,,,Kuku-Uwanh,0,uwa
+6887,,,,Doko-Uyanga,0,uya
+445,uzb,uzb,uz,Uzbek,1,uzb
+6888,,,,Northern Uzbek,0,uzn
+6889,,,,Southern Uzbek,0,uzs
+6890,,,,Vaagri Booli,0,vaa
+6891,,,,Vale,0,vae
+6892,,,,Vafsi,0,vaf
+6893,,,,Vagla,0,vag
+6894,,,,Varhadi-Nagpuri,0,vah
+446,vai,vai,,Vai,1,vai
+6895,,,,Vasekela Bushman,0,vaj
+6896,,,,Vehes,0,val
+6897,,,,Vanimo,0,vam
+6898,,,,Valman,0,van
+6899,,,,Vao,0,vao
+6900,,,,Vaiphei,0,vap
+6901,,,,Huarijio,0,var
+6902,,,,Vasavi,0,vas
+6903,,,,Vanuma,0,vau
+6904,,,,Varli,0,vav
+6905,,,,Wayu,0,vay
+6906,,,,Southeast Babar,0,vbb
+6907,,,,Southwestern Bontok,0,vbk
+6908,,,,Venetian,0,vec
+6909,,,,Veddah,0,ved
+6910,,,,Veluws,0,vel
+6911,,,,Vemgo-Mabas,0,vem
+447,ven,ven,ve,Venda,1,ven
+6912,,,,Ventureño,0,veo
+6914,,,,Mom Jango,0,ver
+6915,,,,Vaghri,0,vgr
+6916,,,,Vlaamse Gebarentaal,0,vgt
+6917,,,,Virgin Islands Creole English,0,vic
+6918,,,,Vidunda,0,vid
+448,vie,vie,vi,Vietnamese,1,vie
+6919,,,,Vili,0,vif
+6920,,,,Viemo,0,vig
+6921,,,,Vilela,0,vil
+6922,,,,Vinza,0,vin
+6923,,,,Vishavan,0,vis
+6924,,,,Viti,0,vit
+6925,,,,Iduna,0,viv
+6926,,,,Kariyarra,0,vka
+6927,,,,Ija-Zuba,0,vki
+6928,,,,Kujarge,0,vkj
+6929,,,,Kaur,0,vkk
+6930,,,,Kulisusu,0,vkl
+6931,,,,Kamakan,0,vkm
+6932,,,,Kodeoha,0,vko
+6933,,,,Korlai Creole Portuguese,0,vkp
+6934,,,,Tenggarong Kutai Malay,0,vkt
+6935,,,,Kurrama,0,vku
+6936,,,,Valpei,0,vlp
+6937,,,,Vlaams,0,vls
+6938,,,,Martuyhunira,0,vma
+6939,,,,Mbabaram,0,vmb
+6940,,,,Juxtlahuaca Mixtec,0,vmc
+6941,,,,Mudu Koraga,0,vmd
+6942,,,,East Masela,0,vme
+6943,,,,Mainfränkisch,0,vmf
+6944,,,,Minigir,0,vmg
+6945,,,,Maraghei,0,vmh
+6946,,,,Miwa,0,vmi
+6947,,,,Ixtayutla Mixtec,0,vmj
+6948,,,,Makhuwa-Shirima,0,vmk
+6949,,,,Malgana,0,vml
+6950,,,,Mitlatongo Mixtec,0,vmm
+6951,,,,Soyaltepec Mazatec,0,vmp
+6952,,,,Soyaltepec Mixtec,0,vmq
+6953,,,,Marenje,0,vmr
+6954,,,,Moksela,0,vms
+6955,,,,Muluridyi,0,vmu
+6956,,,,Valley Maidu,0,vmv
+6957,,,,Makhuwa,0,vmw
+6958,,,,Tamazola Mixtec,0,vmx
+6959,,,,Ayautla Mazatec,0,vmy
+6960,,,,Mazatlán Mazatec,0,vmz
+6961,,,,Vano,0,vnk
+6962,,,,Vinmavis,0,vnm
+6963,,,,Vunapu,0,vnp
+449,vol,vol,vo,Volapük,1,vol
+6964,,,,Voro,0,vor
+450,vot,vot,,Votic,1,vot
+6965,,,,Vera'a,0,vra
+6967,,,,Varisi,0,vrs
+6968,,,,Burmbar,0,vrt
+6969,,,,Moldova Sign Language,0,vsi
+6970,,,,Venezuelan Sign Language,0,vsl
+6971,,,,Valencian Sign Language,0,vsv
+6972,,,,Vitou,0,vto
+6973,,,,Vumbu,0,vum
+6974,,,,Vunjo,0,vun
+6975,,,,Vute,0,vut
+6976,,,,Awa (China),0,vwa
+6977,,,,Walla Walla,0,waa
+6978,,,,Wab,0,wab
+6979,,,,Wasco-Wishram,0,wac
+6980,,,,Wandamen,0,wad
+6981,,,,Walser,0,wae
+6982,,,,Wakoná,0,waf
+6983,,,,Wa'ema,0,wag
+6984,,,,Watubela,0,wah
+6985,,,,Wares,0,wai
+6986,,,,Waffa,0,waj
+452,wal,wal,,Wolaitta,1,wal
+6987,,,,Wampanoag,0,wam
+6988,,,,Wan,0,wan
+6989,,,,Wappo,0,wao
+6990,,,,Wapishana,0,wap
+6991,,,,Wageman,0,waq
+453,war,war,,Waray,1,war
+6913,,,,Veps,1,vep
+454,was,was,,Washo,1,was
+6992,,,,Kaninuwa,0,wat
+6993,,,,Waurá,0,wau
+6994,,,,Waka,0,wav
+6995,,,,Waiwai,0,waw
+6996,,,,Watam,0,wax
+6997,,,,Wayana,0,way
+6998,,,,Wampur,0,waz
+6999,,,,Warao,0,wba
+7000,,,,Wabo,0,wbb
+7001,,,,Waritai,0,wbe
+7002,,,,Wara,0,wbf
+7003,,,,Wanda,0,wbh
+7004,,,,Vwanji,0,wbi
+7005,,,,Alagwa,0,wbj
+7006,,,,Waigali,0,wbk
+7007,,,,Wakhi,0,wbl
+7008,,,,Wa,0,wbm
+7009,,,,Warlpiri,0,wbp
+7010,,,,Waddar,0,wbq
+7011,,,,Wagdi,0,wbr
+7012,,,,Wanman,0,wbt
+7013,,,,Wajarri,0,wbv
+7014,,,,Woi,0,wbw
+7015,,,,Yanomámi,0,wca
+7016,,,,Waci Gbe,0,wci
+7017,,,,Wandji,0,wdd
+7018,,,,Wadaginam,0,wdg
+7019,,,,Wadjiginy,0,wdj
+7020,,,,Wadjigu,0,wdu
+7021,,,,Wewaw,0,wea
+7022,,,,Wè Western,0,wec
+7023,,,,Wedau,0,wed
+7024,,,,Weh,0,weh
+7025,,,,Kiunum,0,wei
+7026,,,,Weme Gbe,0,wem
+7027,,,,Wemale,0,weo
+7028,,,,Westphalien,0,wep
+7029,,,,Weri,0,wer
+7030,,,,Cameroon Pidgin,0,wes
+7031,,,,Perai,0,wet
+7032,,,,Rawngtu Chin,0,weu
+7033,,,,Wejewa,0,wew
+7034,,,,Yafi,0,wfg
+7035,,,,Wagaya,0,wga
+7036,,,,Wagawaga,0,wgb
+7037,,,,Wangganguru,0,wgg
+7038,,,,Wahgi,0,wgi
+7039,,,,Waigeo,0,wgo
+7040,,,,Wirangu,0,wgu
+7041,,,,Warrgamay,0,wgy
+7042,,,,Manusela,0,wha
+7043,,,,North Wahgi,0,whg
+7044,,,,Wahau Kenyah,0,whk
+7045,,,,Wahau Kayan,0,whu
+7046,,,,Southern Toussian,0,wib
+7047,,,,Wichita,0,wic
+7048,,,,Wik-Epa,0,wie
+7049,,,,Wik-Keyangan,0,wif
+7050,,,,Wik-Ngathana,0,wig
+7051,,,,Wik-Me'anha,0,wih
+7052,,,,Minidien,0,wii
+7053,,,,Wik-Iiyanh,0,wij
+7054,,,,Wikalkan,0,wik
+7055,,,,Wilawila,0,wil
+7056,,,,Wik-Mungkan,0,wim
+7057,,,,Ho-Chunk,0,win
+7058,,,,Wiraféd,0,wir
+7059,,,,Wintu,0,wit
+7060,,,,Wiru,0,wiu
+7061,,,,Vitu,0,wiv
+7062,,,,Wiyot,0,wiy
+7063,,,,Waja,0,wja
+7064,,,,Warji,0,wji
+7065,,,,Kw'adza,0,wka
+7066,,,,Kumbaran,0,wkb
+7067,,,,Wakde,0,wkd
+7068,,,,Kalanadi,0,wkl
+7069,,,,Kunduvadi,0,wku
+7070,,,,Wakawaka,0,wkw
+7071,,,,Walio,0,wla
+7072,,,,Mwali Comorian,0,wlc
+7073,,,,Wolane,0,wle
+7074,,,,Kunbarlang,0,wlg
+7075,,,,Waioli,0,wli
+7076,,,,Wailaki,0,wlk
+7077,,,,Wali (Sudan),0,wll
+7078,,,,Middle Welsh,0,wlm
+457,wln,wln,wa,Walloon,1,wln
+7079,,,,Wolio,0,wlo
+7080,,,,Wailapa,0,wlr
+7081,,,,Wallisian,0,wls
+7082,,,,Wuliwuli,0,wlu
+7083,,,,Wichí Lhamtés Vejoz,0,wlv
+7084,,,,Walak,0,wlw
+7085,,,,Wali (Ghana),0,wlx
+7086,,,,Waling,0,wly
+7087,,,,Mawa (Nigeria),0,wma
+7088,,,,Wambaya,0,wmb
+7089,,,,Wamas,0,wmc
+7090,,,,Mamaindé,0,wmd
+7091,,,,Wambule,0,wme
+7092,,,,Waima'a,0,wmh
+7093,,,,Wamin,0,wmi
+7094,,,,Maiwa (Indonesia),0,wmm
+7095,,,,Waamwang,0,wmn
+7096,,,,Wom (Papua New Guinea),0,wmo
+7097,,,,Wambon,0,wms
+7098,,,,Walmajarri,0,wmt
+7099,,,,Mwani,0,wmw
+7100,,,,Womo,0,wmx
+7101,,,,Wanambre,0,wnb
+7102,,,,Wantoat,0,wnc
+7103,,,,Wandarang,0,wnd
+7104,,,,Waneci,0,wne
+7105,,,,Wanggom,0,wng
+7106,,,,Ndzwani Comorian,0,wni
+7107,,,,Wanukaka,0,wnk
+7108,,,,Wanggamala,0,wnm
+7109,,,,Wano,0,wno
+7110,,,,Wanap,0,wnp
+7111,,,,Usan,0,wnu
+7112,,,,Wanyi,0,wny
+7113,,,,Tyaraity,0,woa
+7114,,,,Wè Northern,0,wob
+7115,,,,Wogeo,0,woc
+7116,,,,Wolani,0,wod
+7117,,,,Woleaian,0,woe
+7118,,,,Gambian Wolof,0,wof
+7119,,,,Wogamusin,0,wog
+7120,,,,Kamang,0,woi
+7121,,,,Longto,0,wok
+458,wol,wol,wo,Wolof,1,wol
+7122,,,,Wom (Nigeria),0,wom
+7123,,,,Wongo,0,won
+7124,,,,Manombai,0,woo
+7125,,,,Woria,0,wor
+7126,,,,Hanga Hundi,0,wos
+7127,,,,Wawonii,0,wow
+7128,,,,Weyto,0,woy
+7129,,,,Maco,0,wpc
+7130,,,,Warapu,0,wra
+7131,,,,Warluwara,0,wrb
+7132,,,,Warduji,0,wrd
+7133,,,,Warungu,0,wrg
+7134,,,,Wiradhuri,0,wrh
+7135,,,,Wariyangga,0,wri
+7136,,,,Garrwa,0,wrk
+7137,,,,Warlmanpa,0,wrl
+7138,,,,Warumungu,0,wrm
+7139,,,,Warnang,0,wrn
+7140,,,,Worrorra,0,wro
+7141,,,,Waropen,0,wrp
+7142,,,,Wardaman,0,wrr
+7143,,,,Waris,0,wrs
+7144,,,,Waru,0,wru
+7145,,,,Waruna,0,wrv
+7146,,,,Gugu Warra,0,wrw
+7147,,,,Wae Rana,0,wrx
+7148,,,,Merwari,0,wry
+7149,,,,Waray (Australia),0,wrz
+7150,,,,Warembori,0,wsa
+7151,,,,Wusi,0,wsi
+7152,,,,Waskia,0,wsk
+7153,,,,Owenia,0,wsr
+7154,,,,Wasa,0,wss
+7155,,,,Wasu,0,wsu
+7156,,,,Wotapuri-Katarqalai,0,wsv
+7157,,,,Watiwa,0,wtf
+7158,,,,Berta,0,wti
+7159,,,,Watakataui,0,wtk
+7160,,,,Mewati,0,wtm
+7161,,,,Wotu,0,wtw
+7162,,,,Wikngenchera,0,wua
+7163,,,,Wunambal,0,wub
+7164,,,,Wudu,0,wud
+7165,,,,Wutunhua,0,wuh
+7166,,,,Silimo,0,wul
+7167,,,,Wumbvu,0,wum
+7168,,,,Bungu,0,wun
+7169,,,,Wurrugu,0,wur
+7170,,,,Wutung,0,wut
+7171,,,,Wu Chinese,0,wuu
+7172,,,,Wuvulu-Aua,0,wuv
+7173,,,,Wulna,0,wux
+7174,,,,Wauyai,0,wuy
+7175,,,,Waama,0,wwa
+7176,,,,Wakabunga,0,wwb
+7177,,,,Wetamut,0,wwo
+7178,,,,Warrwa,0,wwr
+7179,,,,Wawa,0,www
+7180,,,,Waxianghua,0,wxa
+7181,,,,Wyandot,0,wya
+7182,,,,Wangaaybuwan-Ngiyambaa,0,wyb
+7183,,,,Wymysorys,0,wym
+7184,,,,Wayoró,0,wyr
+7185,,,,Western Fijian,0,wyy
+7186,,,,Andalusian Arabic,0,xaa
+7187,,,,Sambe,0,xab
+7188,,,,Kachari,0,xac
+7189,,,,Adai,0,xad
+7190,,,,Aequian,0,xae
+7191,,,,Aghwan,0,xag
+7192,,,,Kaimbé,0,xai
+459,xal,xal,,Kalmyk,1,xal
+7193,,,,/Xam,0,xam
+7194,,,,Xamtanga,0,xan
+7195,,,,Khao,0,xao
+7196,,,,Apalachee,0,xap
+7197,,,,Aquitanian,0,xaq
+7198,,,,Karami,0,xar
+7199,,,,Kamas,0,xas
+7200,,,,Katawixi,0,xat
+7201,,,,Kauwera,0,xau
+7202,,,,Xavánte,0,xav
+7203,,,,Kawaiisu,0,xaw
+7204,,,,Kayan Mahakam,0,xay
+7205,,,,Kamba (Brazil),0,xba
+7206,,,,Lower Burdekin,0,xbb
+7207,,,,Bactrian,0,xbc
+7208,,,,Kombio,0,xbi
+7209,,,,Middle Breton,0,xbm
+7210,,,,Kenaboi,0,xbn
+7211,,,,Bolgarian,0,xbo
+7212,,,,Kambera,0,xbr
+7213,,,,Kambiwá,0,xbw
+7214,,,,Kabixí,0,xbx
+7215,,,,Cumbric,0,xcb
+7216,,,,Camunic,0,xcc
+7217,,,,Celtiberian,0,xce
+7218,,,,Cisalpine Gaulish,0,xcg
+7219,,,,Chemakum,0,xch
+7220,,,,Classical Armenian,0,xcl
+7221,,,,Comecrudo,0,xcm
+7222,,,,Cotoname,0,xcn
+7223,,,,Chorasmian,0,xco
+7224,,,,Carian,0,xcr
+7225,,,,Classical Tibetan,0,xct
+7226,,,,Curonian,0,xcu
+7227,,,,Chuvantsy,0,xcv
+7228,,,,Coahuilteco,0,xcw
+7229,,,,Cayuse,0,xcy
+7230,,,,Dacian,0,xdc
+7231,,,,Edomite,0,xdm
+7232,,,,Malayic Dayak,0,xdy
+7233,,,,Eblan,0,xeb
+7234,,,,Hdi,0,xed
+7235,,,,//Xegwi,0,xeg
+7236,,,,Kelo,0,xel
+7237,,,,Kembayan,0,xem
+7238,,,,Epi-Olmec,0,xep
+7239,,,,Xerénte,0,xer
+7240,,,,Kesawai,0,xes
+7241,,,,Xetá,0,xet
+7242,,,,Keoru-Ahia,0,xeu
+7243,,,,Faliscan,0,xfa
+7244,,,,Galatian,0,xga
+7245,,,,Gbin,0,xgb
+7246,,,,Gabrielino-Fernandeño,0,xgf
+7247,,,,Galindan,0,xgl
+7248,,,,Garza,0,xgr
+7249,,,,Unggumi,0,xgu
+7250,,,,Harami,0,xha
+7251,,,,Hunnic,0,xhc
+7252,,,,Hadrami,0,xhd
+7253,,,,Khetrani,0,xhe
+460,xho,xho,xh,Xhosa,1,xho
+7254,,,,Hernican,0,xhr
+7255,,,,Hattic,0,xht
+7256,,,,Hurrian,0,xhu
+7257,,,,Khua,0,xhv
+7258,,,,Xiandao,0,xia
+7259,,,,Iberian,0,xib
+7260,,,,Xiri,0,xii
+7261,,,,Illyrian,0,xil
+7262,,,,Xinca,0,xin
+7263,,,,Xipináwa,0,xip
+7264,,,,Xiriâna,0,xir
+7265,,,,Indus Valley Language,0,xiv
+7266,,,,Xipaya,0,xiy
+7267,,,,Kalkoti,0,xka
+7268,,,,Northern Nago,0,xkb
+7269,,,,Kho'ini,0,xkc
+7270,,,,Mendalam Kayan,0,xkd
+7271,,,,Kereho,0,xke
+7272,,,,Khengkha,0,xkf
+7273,,,,Kagoro,0,xkg
+7274,,,,Karahawyana,0,xkh
+7275,,,,Kenyan Sign Language,0,xki
+7276,,,,Kajali,0,xkj
+7277,,,,Kaco',0,xkk
+7278,,,,Mainstream Kenyah,0,xkl
+7279,,,,Kayan River Kayan,0,xkn
+7280,,,,Kiorr,0,xko
+7281,,,,Kabatei,0,xkp
+7282,,,,Koroni,0,xkq
+7283,,,,Xakriabá,0,xkr
+7284,,,,Kumbewaha,0,xks
+7285,,,,Kantosi,0,xkt
+7286,,,,Kaamba,0,xku
+7287,,,,Kgalagadi,0,xkv
+7288,,,,Kembra,0,xkw
+7289,,,,Karore,0,xkx
+7290,,,,Uma' Lasan,0,xky
+7291,,,,Kurtokha,0,xkz
+7292,,,,Kamula,0,xla
+7293,,,,Loup B,0,xlb
+7294,,,,Lycian,0,xlc
+7295,,,,Lydian,0,xld
+7296,,,,Lemnian,0,xle
+7297,,,,Ligurian (Ancient),0,xlg
+7298,,,,Liburnian,0,xli
+7299,,,,Alanic,0,xln
+7300,,,,Loup A,0,xlo
+7301,,,,Lepontic,0,xlp
+7302,,,,Lusitanian,0,xls
+7303,,,,Cuneiform Luwian,0,xlu
+7304,,,,Elymian,0,xly
+7305,,,,Mushungulu,0,xma
+7306,,,,Mbonga,0,xmb
+7307,,,,Makhuwa-Marrevone,0,xmc
+7308,,,,Mbudum,0,xmd
+7309,,,,Median,0,xme
+7310,,,,Mingrelian,0,xmf
+7311,,,,Mengaka,0,xmg
+7312,,,,Kuku-Muminh,0,xmh
+7313,,,,Majera,0,xmj
+7314,,,,Ancient Macedonian,0,xmk
+7315,,,,Malaysian Sign Language,0,xml
+7316,,,,Manado Malay,0,xmm
+7317,,,,Manichaean Middle Persian,0,xmn
+7318,,,,Morerebi,0,xmo
+7319,,,,Kuku-Mu'inh,0,xmp
+7320,,,,Kuku-Mangk,0,xmq
+7321,,,,Meroitic,0,xmr
+7322,,,,Moroccan Sign Language,0,xms
+7323,,,,Matbat,0,xmt
+7324,,,,Kamu,0,xmu
+7325,,,,Antankarana Malagasy,0,xmv
+7326,,,,Tsimihety Malagasy,0,xmw
+7327,,,,Maden,0,xmx
+7328,,,,Mayaguduna,0,xmy
+7329,,,,Mori Bawah,0,xmz
+7330,,,,Ancient North Arabian,0,xna
+7331,,,,Kanakanabu,0,xnb
+7332,,,,Middle Mongolian,0,xng
+7333,,,,Kuanhua,0,xnh
+7334,,,,Northern Kankanay,0,xnn
+7335,,,,Anglo-Norman,0,xno
+7336,,,,Kangri,0,xnr
+7337,,,,Kanashi,0,xns
+7338,,,,Narragansett,0,xnt
+7339,,,,Kenzi,0,xnz
+7340,,,,O'chi'chi',0,xoc
+7341,,,,Kokoda,0,xod
+7342,,,,Soga,0,xog
+7343,,,,Kominimung,0,xoi
+7344,,,,Xokleng,0,xok
+7345,,,,Komo (Sudan),0,xom
+7346,,,,Konkomba,0,xon
+7347,,,,Xukurú,0,xoo
+7348,,,,Kopar,0,xop
+7349,,,,Korubo,0,xor
+7350,,,,Kowaki,0,xow
+7351,,,,Pecheneg,0,xpc
+7352,,,,Liberia Kpelle,0,xpe
+7353,,,,Phrygian,0,xpg
+7354,,,,Pictish,0,xpi
+7355,,,,Mpalitjanh,0,xpj
+7356,,,,Kulina Pano,0,xpk
+7357,,,,Pumpokol,0,xpm
+7358,,,,Kapinawá,0,xpn
+7359,,,,Pochutec,0,xpo
+7360,,,,Puyo-Paekche,0,xpp
+7361,,,,Mohegan-Pequot,0,xpq
+7362,,,,Parthian,0,xpr
+7363,,,,Pisidian,0,xps
+7364,,,,Punic,0,xpu
+7365,,,,Puyo,0,xpy
+7366,,,,Karakhanid,0,xqa
+7367,,,,Qatabanian,0,xqt
+7368,,,,Krahô,0,xra
+7369,,,,Eastern Karaboro,0,xrb
+7370,,,,Kreye,0,xre
+7371,,,,Krikati-Timbira,0,xri
+7372,,,,Armazic,0,xrm
+7373,,,,Arin,0,xrn
+7374,,,,Raetic,0,xrr
+7375,,,,Aranama-Tamique,0,xrt
+7376,,,,Marriammu,0,xru
+7377,,,,Karawa,0,xrw
+7378,,,,Sabaean,0,xsa
+7379,,,,Sambal,0,xsb
+7380,,,,Scythian,0,xsc
+7381,,,,Sidetic,0,xsd
+7382,,,,Sempan,0,xse
+7383,,,,Shamang,0,xsh
+7384,,,,Sio,0,xsi
+7385,,,,Subi,0,xsj
+7386,,,,South Slavey,0,xsl
+7387,,,,Kasem,0,xsm
+7388,,,,Sanga (Nigeria),0,xsn
+7389,,,,Solano,0,xso
+7390,,,,Silopi,0,xsp
+7391,,,,Makhuwa-Saka,0,xsq
+7392,,,,Sherpa,0,xsr
+7393,,,,Assan,0,xss
+7394,,,,Sanumá,0,xsu
+7395,,,,Sudovian,0,xsv
+7396,,,,Saisiyat,0,xsy
+7397,,,,Alcozauca Mixtec,0,xta
+7398,,,,Chazumba Mixtec,0,xtb
+7399,,,,Katcha-Kadugli-Miri,0,xtc
+7400,,,,Diuxi-Tilantongo Mixtec,0,xtd
+7401,,,,Ketengban,0,xte
+7402,,,,Transalpine Gaulish,0,xtg
+7403,,,,Sinicahua Mixtec,0,xti
+7404,,,,San Juan Teita Mixtec,0,xtj
+7405,,,,Tijaltepec Mixtec,0,xtl
+7406,,,,Magdalena Peñasco Mixtec,0,xtm
+7407,,,,Northern Tlaxiaco Mixtec,0,xtn
+7408,,,,Tokharian A,0,xto
+7409,,,,San Miguel Piedras Mixtec,0,xtp
+7410,,,,Tumshuqese,0,xtq
+7411,,,,Early Tripuri,0,xtr
+7412,,,,Sindihui Mixtec,0,xts
+7413,,,,Tacahua Mixtec,0,xtt
+7414,,,,Cuyamecalco Mixtec,0,xtu
+7415,,,,Tawandê,0,xtw
+7416,,,,Yoloxochitl Mixtec,0,xty
+7417,,,,Tasmanian,0,xtz
+7418,,,,Alu Kurumba,0,xua
+7419,,,,Betta Kurumba,0,xub
+7420,,,,Umiida,0,xud
+7421,,,,Kunigami,0,xug
+7422,,,,Jennu Kurumba,0,xuj
+7423,,,,Umbrian,0,xum
+7424,,,,Unggarranggu,0,xun
+7425,,,,Kuo,0,xuo
+7426,,,,Upper Umpqua,0,xup
+7427,,,,Urartian,0,xur
+7428,,,,Kuthant,0,xut
+7429,,,,Kxoe,0,xuu
+7430,,,,Venetic,0,xve
+7431,,,,Kamviri,0,xvi
+7432,,,,Vandalic,0,xvn
+7433,,,,Volscian,0,xvo
+7434,,,,Vestinian,0,xvs
+7435,,,,Kwaza,0,xwa
+7436,,,,Woccon,0,xwc
+7437,,,,Xwela Gbe,0,xwe
+7438,,,,Kwegu,0,xwg
+7439,,,,Western Xwla Gbe,0,xwl
+7440,,,,Written Oirat,0,xwo
+7441,,,,Kwerba Mamberamo,0,xwr
+7442,,,,Boro (Ghana),0,xxb
+7443,,,,Ke'o,0,xxk
+7444,,,,Koropó,0,xxr
+7445,,,,Tambora,0,xxt
+7446,,,,Yalakalore,0,xyl
+7447,,,,Yorta Yorta,0,xyy
+7448,,,,Zhang-Zhung,0,xzh
+7449,,,,Zemgalian,0,xzm
+7450,,,,Ancient Zapotec,0,xzp
+7451,,,,Yaminahua,0,yaa
+7452,,,,Yuhup,0,yab
+7453,,,,Pass Valley Yali,0,yac
+7454,,,,Yagua,0,yad
+7455,,,,Pumé,0,yae
+7456,,,,Yaka (Democratic Republic of Congo),0,yaf
+7457,,,,Yámana,0,yag
+7458,,,,Yazgulyam,0,yah
+7459,,,,Yagnobi,0,yai
+7460,,,,Banda-Yangere,0,yaj
+7461,,,,Yakama,0,yak
+7462,,,,Yalunka,0,yal
+7463,,,,Yamba,0,yam
+7464,,,,Mayangna,0,yan
+461,yao,yao,,Yao,1,yao
+462,yap,yap,,Yapese,1,yap
+7465,,,,Yaqui,0,yaq
+7466,,,,Yabarana,0,yar
+7467,,,,Nugunu (Cameroon),0,yas
+7468,,,,Yambeta,0,yat
+7469,,,,Yuwana,0,yau
+7470,,,,Yangben,0,yav
+7471,,,,Yawalapití,0,yaw
+7472,,,,Yauma,0,yax
+7473,,,,Agwagwune,0,yay
+7474,,,,Lokaa,0,yaz
+7475,,,,Yala,0,yba
+7476,,,,Yemba,0,ybb
+7477,,,,West Yugur,0,ybe
+7478,,,,Yakha,0,ybh
+7479,,,,Yamphu,0,ybi
+7480,,,,Hasha,0,ybj
+7481,,,,Bokha,0,ybk
+7482,,,,Yukuben,0,ybl
+7483,,,,Yaben,0,ybm
+7484,,,,Yabaâna,0,ybn
+7485,,,,Yabong,0,ybo
+7486,,,,Yawiyo,0,ybx
+7487,,,,Yaweyuha,0,yby
+7488,,,,Chesu,0,ych
+7489,,,,Lolopo,0,ycl
+7490,,,,Yucuna,0,ycn
+7491,,,,Chepya,0,ycp
+7492,,,,Eastern Yiddish,0,ydd
+7493,,,,Yangum Dey,0,yde
+7494,,,,Yidgha,0,ydg
+7495,,,,Yoidik,0,ydk
+7496,,,,Yiddish Sign Language,0,yds
+7497,,,,Ravula,0,yea
+7498,,,,Yeniche,0,yec
+7499,,,,Yimas,0,yee
+7500,,,,Yeni,0,yei
+7501,,,,Yevanic,0,yej
+7502,,,,Yela,0,yel
+7503,,,,Tarok,0,yer
+7504,,,,Nyankpa,0,yes
+7505,,,,Yetfa,0,yet
+7506,,,,Yerukula,0,yeu
+7507,,,,Yapunda,0,yev
+7508,,,,Yeyi,0,yey
+7509,,,,Malyangapa,0,yga
+7510,,,,Yangum Gel,0,ygl
+7511,,,,Yagomi,0,ygm
+7512,,,,Gepo,0,ygp
+7513,,,,Yagaria,0,ygr
+7514,,,,Yagwoia,0,ygw
+7515,,,,Baha Buyang,0,yha
+7516,,,,Judeo-Iraqi Arabic,0,yhd
+7517,,,,Hlepho Phowa,0,yhl
+7518,,,,Yinggarda,0,yia
+463,yid,yid,yi,Yiddish,1,yid
+7519,,,,Ache,0,yif
+7520,,,,Wusa Nasu,0,yig
+7521,,,,Western Yiddish,0,yih
+7522,,,,Yidiny,0,yii
+7523,,,,Yindjibarndi,0,yij
+7524,,,,Dongshanba Lalo,0,yik
+7525,,,,Yindjilandji,0,yil
+7526,,,,Yimchungru Naga,0,yim
+7527,,,,Yinchia,0,yin
+7528,,,,Pholo,0,yip
+7529,,,,Miqie,0,yiq
+7530,,,,North Awyu,0,yir
+7531,,,,Yis,0,yis
+7532,,,,Eastern Lalu,0,yit
+7533,,,,Awu,0,yiu
+7534,,,,Northern Nisu,0,yiv
+7535,,,,Axi Yi,0,yix
+7536,,,,Yir Yoront,0,yiy
+7537,,,,Azhe,0,yiz
+7538,,,,Yakan,0,yka
+7539,,,,Northern Yukaghir,0,ykg
+7540,,,,Yoke,0,yki
+7541,,,,Yakaikeke,0,ykk
+7542,,,,Khlula,0,ykl
+7543,,,,Kap,0,ykm
+7544,,,,Kua-nsi,0,ykn
+7545,,,,Yasa,0,yko
+7546,,,,Yekora,0,ykr
+7547,,,,Kathu,0,ykt
+7548,,,,Kuamasi,0,yku
+7549,,,,Yakoma,0,yky
+7550,,,,Yaul,0,yla
+7551,,,,Yaleba,0,ylb
+7552,,,,Yele,0,yle
+7553,,,,Yelogu,0,ylg
+7554,,,,Angguruk Yali,0,yli
+7555,,,,Yil,0,yll
+7556,,,,Limi,0,ylm
+7557,,,,Langnian Buyang,0,yln
+7558,,,,Naluo Yi,0,ylo
+7559,,,,Yalarnnga,0,ylr
+7560,,,,Aribwaung,0,ylu
+7561,,,,Nyâlayu,0,yly
+7562,,,,Yambes,0,ymb
+7563,,,,Southern Muji,0,ymc
+7564,,,,Muda,0,ymd
+7565,,,,Yameo,0,yme
+7566,,,,Yamongeri,0,ymg
+7567,,,,Mili,0,ymh
+7568,,,,Moji,0,ymi
+7569,,,,Makwe,0,ymk
+7570,,,,Iamalele,0,yml
+7571,,,,Maay,0,ymm
+7572,,,,Yamna,0,ymn
+7573,,,,Yangum Mon,0,ymo
+7574,,,,Yamap,0,ymp
+7575,,,,Qila Muji,0,ymq
+7576,,,,Malasar,0,ymr
+7577,,,,Mysian,0,yms
+7578,,,,Mator-Taygi-Karagas,0,ymt
+7579,,,,Northern Muji,0,ymx
+7580,,,,Muzi,0,ymz
+7581,,,,Aluo,0,yna
+7582,,,,Yandruwandha,0,ynd
+7583,,,,Lang'e,0,yne
+7584,,,,Yango,0,yng
+7585,,,,Yangho,0,ynh
+7586,,,,Naukan Yupik,0,ynk
+7587,,,,Yangulam,0,ynl
+7588,,,,Yana,0,ynn
+7589,,,,Yong,0,yno
+7590,,,,Yendang,0,ynq
+7591,,,,Yansi,0,yns
+7592,,,,Yahuna,0,ynu
+7593,,,,Yoba,0,yob
+7594,,,,Yogad,0,yog
+7595,,,,Yonaguni,0,yoi
+7596,,,,Yokuts,0,yok
+7597,,,,Yola,0,yol
+7598,,,,Yombe,0,yom
+7599,,,,Yongkom,0,yon
+464,yor,yor,yo,Yoruba,1,yor
+7600,,,,Yos,0,yos
+7601,,,,Yotti,0,yot
+7602,,,,Yoron,0,yox
+7603,,,,Yoy,0,yoy
+7604,,,,Phala,0,ypa
+7605,,,,Labo Phowa,0,ypb
+7606,,,,Phola,0,ypg
+7607,,,,Phupha,0,yph
+7608,,,,Phuma,0,ypm
+7609,,,,Ani Phowa,0,ypn
+7610,,,,Alo Phola,0,ypo
+7611,,,,Phupa,0,ypp
+7612,,,,Phuza,0,ypz
+7613,,,,Yerakai,0,yra
+7614,,,,Yareba,0,yrb
+7615,,,,Yaouré,0,yre
+7616,,,,Yarí,0,yri
+7617,,,,Nenets,0,yrk
+7618,,,,Nhengatu,0,yrl
+7619,,,,Yerong,0,yrn
+7620,,,,Yarsun,0,yrs
+7621,,,,Yarawata,0,yrw
+7622,,,,Yassic,0,ysc
+7623,,,,Samatao,0,ysd
+7624,,,,Sonaga,0,ysg
+7625,,,,Yugoslavian Sign Language,0,ysl
+7626,,,,Sani,0,ysn
+7627,,,,Nisi (China),0,yso
+7628,,,,Southern Lolopo,0,ysp
+7629,,,,Sirenik Yupik,0,ysr
+7630,,,,Yessan-Mayo,0,yss
+7631,,,,Sanie,0,ysy
+7632,,,,Talu,0,yta
+7633,,,,Tanglang,0,ytl
+7634,,,,Thopho,0,ytp
+7635,,,,Yout Wam,0,ytw
+7636,,,,Yucateco,0,yua
+7637,,,,Yugambal,0,yub
+7638,,,,Yuchi,0,yuc
+7639,,,,Judeo-Tripolitanian Arabic,0,yud
+7641,,,,Havasupai-Walapai-Yavapai,0,yuf
+7642,,,,Yug,0,yug
+7643,,,,Yurutí,0,yui
+7644,,,,Karkar-Yuri,0,yuj
+7645,,,,Yuki,0,yuk
+7646,,,,Yulu,0,yul
+7647,,,,Quechan,0,yum
+7648,,,,Bena (Nigeria),0,yun
+7649,,,,Yukpa,0,yup
+7650,,,,Yuqui,0,yuq
+7651,,,,Yurok,0,yur
+7652,,,,Yopno,0,yut
+7653,,,,Yugh,0,yuu
+7654,,,,Yau (Morobe Province),0,yuw
+7655,,,,Southern Yukaghir,0,yux
+7656,,,,East Yugur,0,yuy
+7657,,,,Yuracare,0,yuz
+7658,,,,Yawa,0,yva
+7659,,,,Yavitero,0,yvt
+7660,,,,Kalou,0,ywa
+7661,,,,Western Lalu,0,ywl
+7662,,,,Yawanawa,0,ywn
+7663,,,,Wuding-Luquan Yi,0,ywq
+7664,,,,Yawuru,0,ywr
+7665,,,,Xishanba Lalo,0,ywt
+7666,,,,Wumeng Nasu,0,ywu
+7667,,,,Yawarawarga,0,yww
+7668,,,,Yagara,0,yxg
+7669,,,,Yabula Yabula,0,yxy
+7670,,,,Yau (Sandaun Province),0,yyu
+7671,,,,Ayizi,0,yyz
+7672,,,,E'ma Buyang,0,yzg
+7673,,,,Zokhuo,0,yzk
+7674,,,,Sierra de Juárez Zapotec,0,zaa
+7675,,,,San Juan Guelavía Zapotec,0,zab
+7676,,,,Ocotlán Zapotec,0,zac
+7677,,,,Cajonos Zapotec,0,zad
+7678,,,,Yareni Zapotec,0,zae
+7679,,,,Ayoquesco Zapotec,0,zaf
+7680,,,,Zaghawa,0,zag
+7681,,,,Zangwal,0,zah
+7682,,,,Isthmus Zapotec,0,zai
+7683,,,,Zaramo,0,zaj
+7684,,,,Zanaki,0,zak
+7685,,,,Zauzou,0,zal
+7686,,,,Miahuatlán Zapotec,0,zam
+7687,,,,Ozolotepec Zapotec,0,zao
+466,zap,zap,,Zapotec,1,zap
+7688,,,,Aloápam Zapotec,0,zaq
+7689,,,,Rincón Zapotec,0,zar
+7690,,,,Santo Domingo Albarradas Zapotec,0,zas
+7691,,,,Tabaa Zapotec,0,zat
+7692,,,,Zangskari,0,zau
+7693,,,,Yatzachi Zapotec,0,zav
+7694,,,,Mitla Zapotec,0,zaw
+7695,,,,Xadani Zapotec,0,zax
+7696,,,,Zayse-Zergulla,0,zay
+7697,,,,Zari,0,zaz
+7698,,,,Central Berawan,0,zbc
+7699,,,,East Berawan,0,zbe
+482,zbl,zbl,,Blissymbols,0,zbl
+7700,,,,Batui,0,zbt
+7701,,,,West Berawan,0,zbw
+7702,,,,Coatecas Altas Zapotec,0,zca
+7703,,,,Central Hongshuihe Zhuang,0,zch
+7704,,,,Ngazidja Comorian,0,zdj
+7705,,,,Zeeuws,0,zea
+7706,,,,Zenag,0,zeg
+7707,,,,Eastern Hongshuihe Zhuang,0,zeh
+467,zen,zen,,Zenaga,1,zen
+7708,,,,Kinga,0,zga
+7709,,,,Guibei Zhuang,0,zgb
+7710,,,,Minz Zhuang,0,zgm
+7711,,,,Guibian Zhuang,0,zgn
+7712,,,,Magori,0,zgr
+468,zha,zha,za,Zhuang,1,zha
+7713,,,,Zhaba,0,zhb
+7714,,,,Dai Zhuang,0,zhd
+7715,,,,Zhire,0,zhi
+7716,,,,Nong Zhuang,0,zhn
+7717,,,,Zhoa,0,zhw
+7718,,,,Zia,0,zia
+7719,,,,Zimbabwe Sign Language,0,zib
+7720,,,,Zimakani,0,zik
+7721,,,,Zialo,0,zil
+7722,,,,Mesme,0,zim
+7723,,,,Zinza,0,zin
+7724,,,,Ziriya,0,zir
+7725,,,,Zigula,0,ziw
+7726,,,,Zizilivakan,0,ziz
+7727,,,,Kaimbulawa,0,zka
+7728,,,,Koibal,0,zkb
+7729,,,,Kadu,0,zkd
+7730,,,,Koguryo,0,zkg
+7731,,,,Khorezmian,0,zkh
+7732,,,,Karankawa,0,zkk
+7733,,,,Kanan,0,zkn
+7734,,,,Kott,0,zko
+7735,,,,São Paulo Kaingáng,0,zkp
+7736,,,,Zakhring,0,zkr
+7737,,,,Kitan,0,zkt
+7738,,,,Kaurna,0,zku
+7739,,,,Krevinian,0,zkv
+7740,,,,Khazar,0,zkz
+7741,,,,Liujiang Zhuang,0,zlj
+7742,,,,Malay (individual language),0,zlm
+7743,,,,Lianshan Zhuang,0,zln
+7744,,,,Liuqian Zhuang,0,zlq
+7745,,,,Manda (Australia),0,zma
+7746,,,,Zimba,0,zmb
+7747,,,,Margany,0,zmc
+7748,,,,Maridan,0,zmd
+7749,,,,Mangerr,0,zme
+7750,,,,Mfinu,0,zmf
+7751,,,,Marti Ke,0,zmg
+7752,,,,Makolkol,0,zmh
+7753,,,,Negeri Sembilan Malay,0,zmi
+7754,,,,Maridjabin,0,zmj
+7755,,,,Mandandanyi,0,zmk
+7756,,,,Madngele,0,zml
+7757,,,,Marimanindji,0,zmm
+7758,,,,Mbangwe,0,zmn
+7759,,,,Molo,0,zmo
+7760,,,,Mpuono,0,zmp
+7761,,,,Mituku,0,zmq
+7762,,,,Maranunggu,0,zmr
+7763,,,,Mbesa,0,zms
+7764,,,,Maringarr,0,zmt
+7765,,,,Muruwari,0,zmu
+7766,,,,Mbariman-Gudhinma,0,zmv
+7767,,,,Mbo (Democratic Republic of Congo),0,zmw
+7768,,,,Bomitaba,0,zmx
+7769,,,,Mariyedi,0,zmy
+7770,,,,Mbandja,0,zmz
+7771,,,,Zan Gula,0,zna
+7772,,,,Zande (individual language),0,zne
+7773,,,,Mang,0,zng
+7774,,,,Manangkari,0,znk
+7775,,,,Mangas,0,zns
+7776,,,,Copainalá Zoque,0,zoc
+7777,,,,Chimalapa Zoque,0,zoh
+7778,,,,Zou,0,zom
+7779,,,,Asunción Mixtepec Zapotec,0,zoo
+7780,,,,Tabasco Zoque,0,zoq
+7781,,,,Rayón Zoque,0,zor
+7782,,,,Francisco León Zoque,0,zos
+7783,,,,Lachiguiri Zapotec,0,zpa
+7784,,,,Yautepec Zapotec,0,zpb
+7785,,,,Choapan Zapotec,0,zpc
+7786,,,,Southeastern Ixtlán Zapotec,0,zpd
+7787,,,,Petapa Zapotec,0,zpe
+7788,,,,San Pedro Quiatoni Zapotec,0,zpf
+7789,,,,Guevea De Humboldt Zapotec,0,zpg
+7790,,,,Totomachapan Zapotec,0,zph
+7791,,,,Santa María Quiegolani Zapotec,0,zpi
+7792,,,,Quiavicuzas Zapotec,0,zpj
+7793,,,,Tlacolulita Zapotec,0,zpk
+7794,,,,Lachixío Zapotec,0,zpl
+7795,,,,Mixtepec Zapotec,0,zpm
+7796,,,,Santa Inés Yatzechi Zapotec,0,zpn
+7797,,,,Amatlán Zapotec,0,zpo
+7798,,,,El Alto Zapotec,0,zpp
+7799,,,,Zoogocho Zapotec,0,zpq
+7800,,,,Santiago Xanica Zapotec,0,zpr
+7801,,,,Coatlán Zapotec,0,zps
+7802,,,,San Vicente Coatlán Zapotec,0,zpt
+7803,,,,Yalálag Zapotec,0,zpu
+7804,,,,Chichicapan Zapotec,0,zpv
+7805,,,,Zaniza Zapotec,0,zpw
+7806,,,,San Baltazar Loxicha Zapotec,0,zpx
+7807,,,,Mazaltepec Zapotec,0,zpy
+7808,,,,Texmelucan Zapotec,0,zpz
+7809,,,,Qiubei Zhuang,0,zqe
+7810,,,,Kara (Korea),0,zra
+7811,,,,Mirgan,0,zrg
+7812,,,,Zerenkel,0,zrn
+7813,,,,Záparo,0,zro
+7814,,,,Zarphatic,0,zrp
+7815,,,,Mairasi,0,zrs
+7816,,,,Sarasira,0,zsa
+7817,,,,Kaskean,0,zsk
+7818,,,,Zambian Sign Language,0,zsl
+7819,,,,Standard Malay,0,zsm
+7820,,,,Southern Rincon Zapotec,0,zsr
+7821,,,,Sukurum,0,zsu
+7822,,,,Elotepec Zapotec,0,zte
+7823,,,,Xanaguía Zapotec,0,ztg
+7824,,,,Lapaguía-Guivini Zapotec,0,ztl
+7825,,,,San Agustín Mixtepec Zapotec,0,ztm
+7826,,,,Santa Catarina Albarradas Zapotec,0,ztn
+7827,,,,Loxicha Zapotec,0,ztp
+7828,,,,Quioquitani-Quierí Zapotec,0,ztq
+7829,,,,Tilquiapan Zapotec,0,zts
+7830,,,,Tejalapan Zapotec,0,ztt
+7831,,,,Güilá Zapotec,0,ztu
+7832,,,,Zaachila Zapotec,0,ztx
+7833,,,,Yatee Zapotec,0,zty
+7834,,,,Zeem,0,zua
+7835,,,,Tokano,0,zuh
+470,zul,zul,zu,Zulu,1,zul
+7836,,,,Kumzari,0,zum
+471,zun,zun,,Zuni,1,zun
+7837,,,,Zumaya,0,zuy
+7838,,,,Zay,0,zwa
+486,zxx,zxx,,No linguistic content,1,zxx
+7839,,,,Yongbei Zhuang,0,zyb
+7840,,,,Yang Zhuang,0,zyg
+7841,,,,Youjiang Zhuang,0,zyj
+7842,,,,Yongnan Zhuang,0,zyn
+7843,,,,Zyphe,0,zyp
+483,zza,zza,,Zaza,1,zza
+7844,,,,Zuojiang Zhuang,0,zzj
+281,mol,mol,mo,Moldavian,0,
+35,bad,bad,,Banda languages,0,
+59,btk,btk,,Batak languages,0,
+102,day,day,,Land Dayak languages,0,
+183,ijo,ijo,,Ijo languages,0,
+14,alg,alg,,Algonquian languages,0,
+17,apa,apa,,Apache languages,0,
+207,kar,kar,,Karen languages,0,
+228,kro,kro,,Kru languages,0,
+291,nah,nah,,Nahuatl languages,0,
+28,ath,ath,,Athapascan languages,0,
+29,aus,aus,,Australian languages,0,
+391,son,son,,Songhai languages,0,
+36,bai,bai,,Bamileke languages,0,
+86,cmc,cmc,,Chamic languages,0,
+194,iro,iro,,Iroquoian languages,0,
+279,mno,mno,,Manobo languages,0,
+285,mun,mun,,Munda languages,0,
+289,myn,myn,,Mayan languages,0,
+311,nub,nub,,Nubian languages,0,
+325,oto,oto,,Otomian languages,0,
+341,pra,pra,,Prakrit languages,0,
+358,sal,sal,,Salishan languages,0,
+370,sgn,sgn,,Sign Languages,0,
+374,sio,sio,,Siouan languages,0,
+396,ssa,ssa,,Nilo-Saharan languages,0,
+406,tai,tai,,Tai languages,0,
+432,tup,tup,,Tupi languages,0,
+434,tut,tut,,Altaic languages,0,
+451,wak,wak,,Wakashan languages,0,
+456,wen,wen,,Sorbian languages,0,
+465,ypk,ypk,,Yupik languages,0,
+469,znd,znd,,Zande languages,0,
+50,bih,bih,bh,Bihari languages,0,
+170,him,him,,Himachali languages,0,
+7,afa,afa,,Afro-Asiatic languages,0,
+43,bat,bat,,Baltic languages,0,
+48,ber,ber,,Berber languages,0,
+55,bnt,bnt,,Bantu languages,0,
+66,cai,cai,,Central American Indian languages,0,
+69,cau,cau,,Caucasian languages,0,
+71,cel,cel,,Celtic languages,0,
+90,cpe,cpe,,"Creoles and pidgins, English based",0,
+91,cpf,cpf,,"Creoles and pidgins, French-based",0,
+92,cpp,cpp,,"Creoles and pidgins, Portuguese-based",0,
+95,crp,crp,,Creoles and pidgins,0,
+97,cus,cus,,Cushitic languages,0,
+109,dra,dra,,Dravidian languages,0,
+132,fiu,fiu,,Finno-Ugrian languages,0,
+143,gem,gem,,Germanic languages,0,
+188,inc,inc,,Indic languages,0,
+190,ine,ine,,Indo-European languages,0,
+193,ira,ira,,Iranian languages,0,
+214,khi,khi,,Khoisan languages,0,
+263,map,map,,Austronesian languages,0,
+274,mkh,mkh,,Mon-Khmer languages,0,
+292,nai,nai,,North American Indian languages,0,
+303,nic,nic,,Niger-Kordofanian languages,0,
+326,paa,paa,,Papuan languages,0,
+335,phi,phi,,Philippine languages,0,
+348,roa,roa,,Romance languages,0,
+357,sai,sai,,South American Indian languages,0,
+368,sem,sem,,Semitic languages,0,
+375,sit,sit,,Sino-Tibetan languages,0,
+376,sla,sla,,Slavic languages,0,
+381,smi,smi,,Sami languages,0,

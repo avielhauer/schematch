@@ -1,0 +1,25 @@
+[] --> artist_alias.csv.edits_pending
+[artist_alias.csv.artist, artist_alias.csv.end_date_day, artist_alias.csv.type] --> artist_alias.csv.begin_date_day, artist_alias.csv.begin_date_month, artist_alias.csv.begin_date_year
+[artist_alias.csv.artist, artist_alias.csv.end_date_month, artist_alias.csv.type] --> artist_alias.csv.begin_date_day, artist_alias.csv.begin_date_month, artist_alias.csv.begin_date_year
+[artist_alias.csv.artist, artist_alias.csv.end_date_year, artist_alias.csv.type] --> artist_alias.csv.begin_date_day, artist_alias.csv.begin_date_month, artist_alias.csv.begin_date_year
+[artist_alias.csv.artist, artist_alias.csv.ended, artist_alias.csv.type] --> artist_alias.csv.begin_date_day, artist_alias.csv.begin_date_month, artist_alias.csv.begin_date_year
+[artist_alias.csv.artist, artist_alias.csv.locale] --> artist_alias.csv.begin_date_day, artist_alias.csv.begin_date_month, artist_alias.csv.begin_date_year, artist_alias.csv.end_date_day, artist_alias.csv.end_date_month, artist_alias.csv.end_date_year, artist_alias.csv.ended
+[artist_alias.csv.begin_date_day, artist_alias.csv.primary_for_locale, artist_alias.csv.sort_name] --> artist_alias.csv.type
+[artist_alias.csv.begin_date_day] --> artist_alias.csv.begin_date_month, artist_alias.csv.begin_date_year, artist_alias.csv.end_date_day, artist_alias.csv.end_date_month, artist_alias.csv.end_date_year, artist_alias.csv.ended
+[artist_alias.csv.begin_date_month, artist_alias.csv.primary_for_locale, artist_alias.csv.sort_name] --> artist_alias.csv.type
+[artist_alias.csv.begin_date_month] --> artist_alias.csv.begin_date_day, artist_alias.csv.begin_date_year, artist_alias.csv.end_date_day, artist_alias.csv.end_date_month, artist_alias.csv.end_date_year, artist_alias.csv.ended
+[artist_alias.csv.begin_date_year, artist_alias.csv.primary_for_locale, artist_alias.csv.sort_name] --> artist_alias.csv.type
+[artist_alias.csv.begin_date_year] --> artist_alias.csv.begin_date_day, artist_alias.csv.begin_date_month, artist_alias.csv.end_date_day, artist_alias.csv.end_date_month, artist_alias.csv.end_date_year, artist_alias.csv.ended
+[artist_alias.csv.end_date_day] --> artist_alias.csv.end_date_month, artist_alias.csv.end_date_year, artist_alias.csv.ended
+[artist_alias.csv.end_date_month] --> artist_alias.csv.end_date_day, artist_alias.csv.end_date_year, artist_alias.csv.ended
+[artist_alias.csv.end_date_year] --> artist_alias.csv.end_date_day, artist_alias.csv.end_date_month, artist_alias.csv.ended
+[artist_alias.csv.ended] --> artist_alias.csv.end_date_day, artist_alias.csv.end_date_month, artist_alias.csv.end_date_year
+[artist_alias.csv.id] --> artist_alias.csv.artist, artist_alias.csv.begin_date_day, artist_alias.csv.begin_date_month, artist_alias.csv.begin_date_year, artist_alias.csv.end_date_day, artist_alias.csv.end_date_month, artist_alias.csv.end_date_year, artist_alias.csv.ended, artist_alias.csv.last_updated, artist_alias.csv.locale, artist_alias.csv.name, artist_alias.csv.primary_for_locale, artist_alias.csv.sort_name, artist_alias.csv.type
+[artist_alias.csv.last_updated, artist_alias.csv.name] --> artist_alias.csv.id, artist_alias.csv.locale
+[artist_alias.csv.last_updated, artist_alias.csv.sort_name] --> artist_alias.csv.id, artist_alias.csv.locale, artist_alias.csv.name, artist_alias.csv.primary_for_locale
+[artist_alias.csv.last_updated] --> artist_alias.csv.begin_date_day, artist_alias.csv.begin_date_month, artist_alias.csv.begin_date_year, artist_alias.csv.end_date_day, artist_alias.csv.end_date_month, artist_alias.csv.end_date_year, artist_alias.csv.ended, artist_alias.csv.type
+[artist_alias.csv.locale, artist_alias.csv.sort_name] --> artist_alias.csv.begin_date_day, artist_alias.csv.begin_date_month, artist_alias.csv.begin_date_year, artist_alias.csv.end_date_day, artist_alias.csv.end_date_month, artist_alias.csv.end_date_year, artist_alias.csv.ended, artist_alias.csv.primary_for_locale, artist_alias.csv.type
+[artist_alias.csv.locale, artist_alias.csv.type] --> artist_alias.csv.end_date_day, artist_alias.csv.end_date_month, artist_alias.csv.end_date_year, artist_alias.csv.ended
+[artist_alias.csv.name] --> artist_alias.csv.artist, artist_alias.csv.begin_date_day, artist_alias.csv.begin_date_month, artist_alias.csv.begin_date_year, artist_alias.csv.end_date_day, artist_alias.csv.end_date_month, artist_alias.csv.end_date_year, artist_alias.csv.ended, artist_alias.csv.primary_for_locale, artist_alias.csv.sort_name, artist_alias.csv.type
+[artist_alias.csv.sort_name, artist_alias.csv.type] --> artist_alias.csv.begin_date_day, artist_alias.csv.begin_date_month, artist_alias.csv.begin_date_year, artist_alias.csv.end_date_day, artist_alias.csv.end_date_month, artist_alias.csv.end_date_year, artist_alias.csv.ended
+[artist_alias.csv.sort_name] --> artist_alias.csv.artist

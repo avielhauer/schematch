@@ -1,0 +1,11 @@
+[] --> release.csv.comment, release.csv.edits_pending, release.csv.quality, release.csv.status
+[release.csv.artist_credit, release.csv.barcode] --> release.csv.gid, release.csv.id, release.csv.last_updated, release.csv.name, release.csv.release_group
+[release.csv.artist_credit, release.csv.last_updated] --> release.csv.gid, release.csv.id, release.csv.name, release.csv.release_group
+[release.csv.artist_credit] --> release.csv.language, release.csv.packaging, release.csv.script
+[release.csv.gid] --> release.csv.artist_credit, release.csv.barcode, release.csv.id, release.csv.language, release.csv.last_updated, release.csv.name, release.csv.packaging, release.csv.release_group, release.csv.script
+[release.csv.id] --> release.csv.artist_credit, release.csv.barcode, release.csv.gid, release.csv.language, release.csv.last_updated, release.csv.name, release.csv.packaging, release.csv.release_group, release.csv.script
+[release.csv.language] --> release.csv.script
+[release.csv.last_updated, release.csv.script] --> release.csv.language
+[release.csv.last_updated] --> release.csv.barcode, release.csv.packaging
+[release.csv.name] --> release.csv.artist_credit, release.csv.barcode, release.csv.gid, release.csv.id, release.csv.language, release.csv.last_updated, release.csv.packaging, release.csv.release_group, release.csv.script
+[release.csv.release_group] --> release.csv.artist_credit, release.csv.barcode, release.csv.gid, release.csv.id, release.csv.language, release.csv.last_updated, release.csv.name, release.csv.packaging, release.csv.script

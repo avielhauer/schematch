@@ -1,0 +1,5 @@
+[stores.csv.city] --> stores.csv.state, stores.csv.stor_address, stores.csv.stor_id, stores.csv.stor_name, stores.csv.zip
+[stores.csv.stor_address] --> stores.csv.city, stores.csv.state, stores.csv.stor_id, stores.csv.stor_name, stores.csv.zip
+[stores.csv.stor_id] --> stores.csv.city, stores.csv.state, stores.csv.stor_address, stores.csv.stor_name, stores.csv.zip
+[stores.csv.stor_name] --> stores.csv.city, stores.csv.state, stores.csv.stor_address, stores.csv.stor_id, stores.csv.zip
+[stores.csv.zip] --> stores.csv.city, stores.csv.state, stores.csv.stor_address, stores.csv.stor_id, stores.csv.stor_name

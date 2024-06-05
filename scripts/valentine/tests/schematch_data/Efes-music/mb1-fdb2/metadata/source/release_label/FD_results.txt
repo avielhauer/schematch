@@ -1,0 +1,4 @@
+[release_label.csv.catalog_number] --> release_label.csv.last_updated
+[release_label.csv.id] --> release_label.csv.catalog_number, release_label.csv.label, release_label.csv.last_updated, release_label.csv.release
+[release_label.csv.label] --> release_label.csv.catalog_number, release_label.csv.id, release_label.csv.last_updated, release_label.csv.release
+[release_label.csv.release] --> release_label.csv.catalog_number, release_label.csv.id, release_label.csv.label, release_label.csv.last_updated

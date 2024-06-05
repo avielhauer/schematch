@@ -1,0 +1,4 @@
+[discs.csv.discid] --> [tracks.csv.discid]
+[tracks.csv.discid, tracks.csv.n] --> [discs.csv.discid, discs.csv.revision]
+[tracks.csv.discid] --> [discs.csv.discid]
+[tracks.csv.n] --> [discs.csv.revision]

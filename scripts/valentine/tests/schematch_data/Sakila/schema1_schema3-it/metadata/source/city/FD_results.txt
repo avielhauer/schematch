@@ -1,0 +1,8 @@
+[city.csv.city_id] --> city.csv.city
+[city.csv.city_id] --> city.csv.country_id
+[city.csv.city_id] --> city.csv.country
+[city.csv.city] --> city.csv.city_id
+[city.csv.city] --> city.csv.country_id
+[city.csv.city] --> city.csv.country
+[city.csv.country_id] --> city.csv.country
+[city.csv.country] --> city.csv.country_id

@@ -1,0 +1,2 @@
+[journal.csv.jrnlnm]
+[journal.csv.jrnlid]

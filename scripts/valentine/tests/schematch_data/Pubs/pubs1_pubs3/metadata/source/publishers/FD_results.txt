@@ -1,0 +1,4 @@
+[publishers.csv.city] --> publishers.csv.country, publishers.csv.pub_id, publishers.csv.pub_name, publishers.csv.state
+[publishers.csv.country, publishers.csv.state] --> publishers.csv.city, publishers.csv.pub_id, publishers.csv.pub_name
+[publishers.csv.pub_id] --> publishers.csv.city, publishers.csv.country, publishers.csv.pub_name, publishers.csv.state
+[publishers.csv.pub_name] --> publishers.csv.city, publishers.csv.country, publishers.csv.pub_id, publishers.csv.state

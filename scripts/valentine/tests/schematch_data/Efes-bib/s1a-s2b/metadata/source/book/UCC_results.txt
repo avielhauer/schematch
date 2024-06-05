@@ -1,0 +1,5 @@
+[book.csv.bookid]
+[book.csv.title]
+[book.csv.publisher]
+[book.csv.class]
+[book.csv.annote, book.csv.year]

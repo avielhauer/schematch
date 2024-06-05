@@ -1,0 +1,3 @@
+[] --> labels.csv.contactinfo
+[labels.csv.id] --> labels.csv.data_quality, labels.csv.name, labels.csv.parentlabel, labels.csv.profile
+[labels.csv.name] --> labels.csv.data_quality, labels.csv.id, labels.csv.parentlabel, labels.csv.profile

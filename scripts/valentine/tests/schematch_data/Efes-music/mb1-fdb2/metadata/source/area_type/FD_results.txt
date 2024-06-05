@@ -1,0 +1,2 @@
+[area_type.csv.id] --> area_type.csv.name
+[area_type.csv.name] --> area_type.csv.id

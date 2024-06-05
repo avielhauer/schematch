@@ -1,0 +1,5 @@
+[customer.csv.customer_id]
+[customer.csv.last_name]
+[customer.csv.email]
+[customer.csv.address_id]
+[customer.csv.create_date, customer.csv.first_name]

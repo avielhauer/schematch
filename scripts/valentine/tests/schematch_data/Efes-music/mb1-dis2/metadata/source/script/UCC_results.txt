@@ -1,0 +1,4 @@
+[script.csv.id]
+[script.csv.iso_code]
+[script.csv.iso_number]
+[script.csv.name]

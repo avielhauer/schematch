@@ -1,0 +1,6 @@
+[] --> release_group.csv.comment, release_group.csv.edits_pending
+[release_group.csv.artist_credit, release_group.csv.last_updated] --> release_group.csv.gid, release_group.csv.id, release_group.csv.name
+[release_group.csv.artist_credit] --> release_group.csv.type
+[release_group.csv.gid] --> release_group.csv.artist_credit, release_group.csv.id, release_group.csv.last_updated, release_group.csv.name, release_group.csv.type
+[release_group.csv.id] --> release_group.csv.artist_credit, release_group.csv.gid, release_group.csv.last_updated, release_group.csv.name, release_group.csv.type
+[release_group.csv.name] --> release_group.csv.artist_credit, release_group.csv.gid, release_group.csv.id, release_group.csv.last_updated, release_group.csv.type

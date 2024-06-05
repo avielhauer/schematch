@@ -1,0 +1,2 @@
+[release_group_tag.csv.count, release_group_tag.csv.tag] --> release_group_tag.csv.last_updated
+[release_group_tag.csv.release_group, release_group_tag.csv.tag] --> release_group_tag.csv.count, release_group_tag.csv.last_updated

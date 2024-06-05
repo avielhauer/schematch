@@ -1,0 +1,3 @@
+[annotation.csv.id]
+[annotation.csv.created]
+[annotation.csv.changelog, annotation.csv.editor, annotation.csv.text]

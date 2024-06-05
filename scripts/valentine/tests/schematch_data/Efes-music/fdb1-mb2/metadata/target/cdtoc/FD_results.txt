@@ -1,0 +1,6 @@
+[] --> cdtoc.csv.degraded
+[cdtoc.csv.discid] --> cdtoc.csv.created, cdtoc.csv.freedb_id, cdtoc.csv.id, cdtoc.csv.leadout_offset, cdtoc.csv.track_count, cdtoc.csv.track_offset
+[cdtoc.csv.freedb_id] --> cdtoc.csv.created, cdtoc.csv.track_count
+[cdtoc.csv.id] --> cdtoc.csv.created, cdtoc.csv.discid, cdtoc.csv.freedb_id, cdtoc.csv.leadout_offset, cdtoc.csv.track_count, cdtoc.csv.track_offset
+[cdtoc.csv.leadout_offset] --> cdtoc.csv.created, cdtoc.csv.freedb_id, cdtoc.csv.track_count
+[cdtoc.csv.track_offset] --> cdtoc.csv.created, cdtoc.csv.discid, cdtoc.csv.freedb_id, cdtoc.csv.id, cdtoc.csv.leadout_offset, cdtoc.csv.track_count

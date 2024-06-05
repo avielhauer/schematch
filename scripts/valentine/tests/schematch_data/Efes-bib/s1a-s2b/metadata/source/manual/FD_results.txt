@@ -1,0 +1,11 @@
+[] --> manual.csv.annote, manual.csv.num
+[manual.csv.class] --> manual.csv.loc, manual.csv.manid, manual.csv.month, manual.csv.note, manual.csv.org, manual.csv.pages, manual.csv.title, manual.csv.vol, manual.csv.year
+[manual.csv.loc] --> manual.csv.class, manual.csv.manid, manual.csv.month, manual.csv.note, manual.csv.org, manual.csv.pages, manual.csv.title, manual.csv.vol, manual.csv.year
+[manual.csv.manid] --> manual.csv.class, manual.csv.loc, manual.csv.month, manual.csv.note, manual.csv.org, manual.csv.pages, manual.csv.title, manual.csv.vol, manual.csv.year
+[manual.csv.month] --> manual.csv.class, manual.csv.loc, manual.csv.manid, manual.csv.note, manual.csv.org, manual.csv.pages, manual.csv.title, manual.csv.vol, manual.csv.year
+[manual.csv.note] --> manual.csv.class, manual.csv.loc, manual.csv.manid, manual.csv.month, manual.csv.org, manual.csv.pages, manual.csv.title, manual.csv.vol, manual.csv.year
+[manual.csv.org] --> manual.csv.class, manual.csv.loc, manual.csv.manid, manual.csv.month, manual.csv.note, manual.csv.pages, manual.csv.title, manual.csv.vol, manual.csv.year
+[manual.csv.pages] --> manual.csv.class, manual.csv.loc, manual.csv.manid, manual.csv.month, manual.csv.note, manual.csv.org, manual.csv.title, manual.csv.vol, manual.csv.year
+[manual.csv.title] --> manual.csv.class, manual.csv.loc, manual.csv.manid, manual.csv.month, manual.csv.note, manual.csv.org, manual.csv.pages, manual.csv.vol, manual.csv.year
+[manual.csv.vol] --> manual.csv.class, manual.csv.loc, manual.csv.manid, manual.csv.month, manual.csv.note, manual.csv.org, manual.csv.pages, manual.csv.title, manual.csv.year
+[manual.csv.year] --> manual.csv.class, manual.csv.loc, manual.csv.manid, manual.csv.month, manual.csv.note, manual.csv.org, manual.csv.pages, manual.csv.title, manual.csv.vol

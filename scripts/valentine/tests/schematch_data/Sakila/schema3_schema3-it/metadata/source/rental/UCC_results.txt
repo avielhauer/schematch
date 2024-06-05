@@ -1,0 +1,6 @@
+[rental.csv.rental_id]
+[rental.csv.inventory_id, rental.csv.return_date]
+[rental.csv.customer_id, rental.csv.film_id, rental.csv.return_date]
+[rental.csv.inventory_id, rental.csv.rental_date]
+[rental.csv.customer_id, rental.csv.film_id, rental.csv.rental_date]
+[rental.csv.customer_id, rental.csv.inventory_id]

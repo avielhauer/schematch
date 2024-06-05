@@ -1,0 +1,10 @@
+[] --> record.csv.isbn, record.csv.notes
+[record.csv.accessionnum] --> record.csv.availability, record.csv.contractnum, record.csv.issn, record.csv.numref, record.csv.series, record.csv.source, record.csv.subfile, record.csv.updatecode
+[record.csv.availability, record.csv.issn, record.csv.numref] --> record.csv.subfile
+[record.csv.availability, record.csv.numref, record.csv.series, record.csv.source] --> record.csv.updatecode
+[record.csv.availability, record.csv.numref, record.csv.source] --> record.csv.contractnum
+[record.csv.issn, record.csv.updatecode] --> record.csv.subfile
+[record.csv.numref, record.csv.updatecode] --> record.csv.contractnum, record.csv.series
+[record.csv.rid] --> record.csv.accessionnum, record.csv.availability, record.csv.contractnum, record.csv.issn, record.csv.numref, record.csv.series, record.csv.source, record.csv.subfile, record.csv.updatecode
+[record.csv.source] --> record.csv.issn, record.csv.subfile
+[record.csv.updatecode] --> record.csv.availability

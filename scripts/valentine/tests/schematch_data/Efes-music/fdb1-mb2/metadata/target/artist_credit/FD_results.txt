@@ -1,0 +1,3 @@
+[artist_credit.csv.id] --> artist_credit.csv.artist_count, artist_credit.csv.created, artist_credit.csv.name, artist_credit.csv.ref_count
+[artist_credit.csv.name, artist_credit.csv.ref_count] --> artist_credit.csv.created, artist_credit.csv.id
+[artist_credit.csv.name] --> artist_credit.csv.artist_count

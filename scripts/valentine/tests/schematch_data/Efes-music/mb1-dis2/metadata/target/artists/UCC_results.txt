@@ -1,0 +1,2 @@
+[artists.csv.id]
+[artists.csv.name]

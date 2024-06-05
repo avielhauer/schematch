@@ -1,0 +1,8 @@
+[città.csv.città_id] --> città.csv.città
+[città.csv.città_id] --> città.csv.stato_id
+[città.csv.città_id] --> città.csv.stato
+[città.csv.città] --> città.csv.città_id
+[città.csv.città] --> città.csv.stato_id
+[città.csv.città] --> città.csv.stato
+[città.csv.stato_id] --> città.csv.stato
+[città.csv.stato] --> città.csv.stato_id

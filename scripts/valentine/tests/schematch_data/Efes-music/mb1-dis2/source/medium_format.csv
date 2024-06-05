@@ -1,0 +1,35 @@
+id,name,parent,child_order,year,has_discids
+1,CD,,0,1982,t
+2,DVD,,4,1995,f
+3,SACD,,5,1999,t
+4,DualDisc,,6,2004,t
+6,MiniDisc,,7,1992,f
+7,Vinyl,,1,1895,f
+8,Cassette,,3,1964,f
+12,Digital Media,,2,,f
+13,Other,,13,,t
+17,HD-DVD,,9,,f
+20,Blu-ray,,8,,f
+22,VCD,,11,,f
+28,UMD,,12,,f
+32,Videotape,,10,,f
+5,LaserDisc,13,0,1978,f
+9,Cartridge,13,0,1962,f
+10,Reel-to-reel,13,0,1935,f
+11,DAT,13,0,1976,f
+14,Wax Cylinder,13,0,1877,f
+15,Piano Roll,13,0,1883,f
+16,DCC,13,0,1992,f
+21,VHS,32,0,,f
+23,SVCD,22,0,,f
+24,Betamax,32,1,,f
+25,HDCD,1,0,,t
+29,"7"" Vinyl",7,0,,f
+30,"10"" Vinyl",7,1,,f
+31,"12"" Vinyl",7,2,,f
+26,USB Flash Drive,12,0,,f
+27,slotMusic,12,1,,f
+18,DVD-Audio,2,0,,f
+19,DVD-Video,2,1,,f
+33,CD-R,1,1,,t
+34,8cm CD,1,2,1982,t

@@ -1,0 +1,8 @@
+[] --> discs.csv.playorder
+[discs.csv.dgenre, discs.csv.dyear, discs.csv.revision] --> discs.csv.extd
+[discs.csv.dgenre, discs.csv.extd, discs.csv.revision] --> discs.csv.dyear
+[discs.csv.dgenre, discs.csv.submitted_via] --> discs.csv.disc_length, discs.csv.discid, discs.csv.dtitle, discs.csv.dyear, discs.csv.extd, discs.csv.revision
+[discs.csv.disc_length] --> discs.csv.dgenre, discs.csv.discid, discs.csv.dtitle, discs.csv.dyear, discs.csv.extd, discs.csv.revision, discs.csv.submitted_via
+[discs.csv.discid] --> discs.csv.dgenre, discs.csv.disc_length, discs.csv.dtitle, discs.csv.dyear, discs.csv.extd, discs.csv.revision, discs.csv.submitted_via
+[discs.csv.dtitle] --> discs.csv.dgenre, discs.csv.disc_length, discs.csv.discid, discs.csv.dyear, discs.csv.extd, discs.csv.revision, discs.csv.submitted_via
+[discs.csv.dyear, discs.csv.submitted_via] --> discs.csv.dgenre, discs.csv.disc_length, discs.csv.discid, discs.csv.dtitle, discs.csv.extd, discs.csv.revision

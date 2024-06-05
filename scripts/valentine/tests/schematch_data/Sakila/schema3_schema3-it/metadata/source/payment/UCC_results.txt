@@ -1,0 +1,3 @@
+[payment.csv.payment_id]
+[payment.csv.rental_id]
+[payment.csv.amount, payment.csv.customer_id, payment.csv.payment_date, payment.csv.staff_id]

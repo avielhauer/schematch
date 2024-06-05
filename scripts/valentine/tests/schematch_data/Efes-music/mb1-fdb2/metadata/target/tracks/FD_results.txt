@@ -1,0 +1,3 @@
+[tracks.csv.discid, tracks.csv.n] --> tracks.csv.extt, tracks.csv.ttitle
+[tracks.csv.n, tracks.csv.ttitle] --> tracks.csv.discid
+[tracks.csv.ttitle] --> tracks.csv.extt

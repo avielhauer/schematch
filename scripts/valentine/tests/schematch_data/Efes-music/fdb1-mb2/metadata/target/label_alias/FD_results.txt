@@ -1,0 +1,5 @@
+[] --> label_alias.csv.begin_date_day, label_alias.csv.begin_date_month, label_alias.csv.begin_date_year, label_alias.csv.edits_pending, label_alias.csv.end_date_day, label_alias.csv.end_date_month, label_alias.csv.end_date_year, label_alias.csv.ended, label_alias.csv.primary_for_locale
+[label_alias.csv.id] --> label_alias.csv.label, label_alias.csv.last_updated, label_alias.csv.locale, label_alias.csv.name, label_alias.csv.sort_name, label_alias.csv.type
+[label_alias.csv.last_updated] --> label_alias.csv.locale, label_alias.csv.type
+[label_alias.csv.name] --> label_alias.csv.id, label_alias.csv.label, label_alias.csv.last_updated, label_alias.csv.locale, label_alias.csv.sort_name, label_alias.csv.type
+[label_alias.csv.sort_name] --> label_alias.csv.id, label_alias.csv.label, label_alias.csv.last_updated, label_alias.csv.locale, label_alias.csv.name, label_alias.csv.type

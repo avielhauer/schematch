@@ -1,0 +1,4 @@
+*.noun text eol=lf
+*.adv text eol=lf
+*.adv text eol=lf
+*.verb text eol=lf

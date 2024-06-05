@@ -1,0 +1,8 @@
+[] --> medium.csv.edits_pending
+[medium.csv.id] --> medium.csv.format, medium.csv.last_updated, medium.csv.name, medium.csv.position, medium.csv.release, medium.csv.track_count
+[medium.csv.last_updated, medium.csv.position] --> medium.csv.name
+[medium.csv.last_updated, medium.csv.track_count] --> medium.csv.name
+[medium.csv.position, medium.csv.release] --> medium.csv.id, medium.csv.last_updated, medium.csv.name, medium.csv.track_count
+[medium.csv.position, medium.csv.track_count] --> medium.csv.name
+[medium.csv.release, medium.csv.track_count] --> medium.csv.last_updated, medium.csv.name
+[medium.csv.release] --> medium.csv.format

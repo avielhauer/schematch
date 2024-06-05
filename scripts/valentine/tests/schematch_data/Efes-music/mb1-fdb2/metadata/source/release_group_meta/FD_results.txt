@@ -1,0 +1,4 @@
+[] --> release_group_meta.csv.rating, release_group_meta.csv.rating_count, release_group_meta.csv.release_count
+[release_group_meta.csv.first_release_date_day] --> release_group_meta.csv.first_release_date_month
+[release_group_meta.csv.first_release_date_month] --> release_group_meta.csv.first_release_date_day
+[release_group_meta.csv.id] --> release_group_meta.csv.first_release_date_day, release_group_meta.csv.first_release_date_month, release_group_meta.csv.first_release_date_year

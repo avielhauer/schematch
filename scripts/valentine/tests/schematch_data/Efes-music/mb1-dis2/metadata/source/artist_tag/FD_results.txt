@@ -1,0 +1,1 @@
+[artist_tag.csv.artist, artist_tag.csv.tag] --> artist_tag.csv.count, artist_tag.csv.last_updated

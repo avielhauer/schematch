@@ -1,0 +1,4 @@
+[discs.csv.discid]
+[discs.csv.dtitle]
+[discs.csv.disc_length]
+[discs.csv.dgenre, discs.csv.dyear, discs.csv.submitted_via]

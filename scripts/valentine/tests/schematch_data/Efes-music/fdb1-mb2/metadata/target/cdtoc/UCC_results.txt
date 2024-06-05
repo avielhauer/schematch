@@ -1,0 +1,3 @@
+[cdtoc.csv.id]
+[cdtoc.csv.discid]
+[cdtoc.csv.track_offset]

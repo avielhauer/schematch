@@ -1,0 +1,2 @@
+[image_type.csv.mime_type]
+[image_type.csv.suffix]

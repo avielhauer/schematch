@@ -13,7 +13,7 @@ If you encounter any problems or have any questions, do not hesitate to write a 
 
 ### UMR | StructureMatch: Schema Matching with Data Profiling (Seminar)
 #### Topic 1: State-of-the-Art Matchers
-Team members: TODO
+Team members: Jonathan Püschel, Julius Scheffler, Lukas Junk
 #### Topic 2: Metadata Matchers
 Team members: Leif Reuter, Lars Reuter
 #### Topic 3: Similarity Matrix Boosting (Similarity Flooding)

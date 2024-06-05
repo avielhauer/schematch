@@ -1,0 +1,4 @@
+[article.csv.articleid] --> [articleauthor.csv.articleid]
+[articleauthor.csv.articleid] --> [article.csv.articleid]
+[author.csv.authorid] --> [articleauthor.csv.authorid], [unpubauthor.csv.authorid]
+[unpublished.csv.unpubid] --> [unpubauthor.csv.unpubid]

@@ -1,0 +1,62 @@
+[] --> address.csv.address2
+[address.csv.address_id] --> address.csv.address
+[address.csv.address_id] --> address.csv.phone
+[address.csv.address_id] --> address.csv.city_id
+[address.csv.address_id] --> address.csv.city
+[address.csv.address_id] --> address.csv.postal_code
+[address.csv.address_id] --> address.csv.district
+[address.csv.address_id] --> address.csv.country_id
+[address.csv.address_id] --> address.csv.country
+[address.csv.address] --> address.csv.address_id
+[address.csv.address] --> address.csv.phone
+[address.csv.address] --> address.csv.city_id
+[address.csv.address] --> address.csv.city
+[address.csv.address] --> address.csv.postal_code
+[address.csv.address] --> address.csv.district
+[address.csv.address] --> address.csv.country_id
+[address.csv.address] --> address.csv.country
+[address.csv.phone] --> address.csv.postal_code
+[address.csv.city_id, address.csv.phone] --> address.csv.address_id
+[address.csv.city_id, address.csv.phone] --> address.csv.address
+[address.csv.city_id, address.csv.phone] --> address.csv.district
+[address.csv.city, address.csv.phone] --> address.csv.address_id
+[address.csv.city, address.csv.phone] --> address.csv.address
+[address.csv.city, address.csv.phone] --> address.csv.district
+[address.csv.district, address.csv.phone] --> address.csv.address_id
+[address.csv.district, address.csv.phone] --> address.csv.address
+[address.csv.district, address.csv.phone] --> address.csv.city_id
+[address.csv.district, address.csv.phone] --> address.csv.city
+[address.csv.district, address.csv.phone] --> address.csv.country_id
+[address.csv.district, address.csv.phone] --> address.csv.country
+[address.csv.country_id, address.csv.phone] --> address.csv.address_id
+[address.csv.country_id, address.csv.phone] --> address.csv.address
+[address.csv.country_id, address.csv.phone] --> address.csv.city_id
+[address.csv.country_id, address.csv.phone] --> address.csv.city
+[address.csv.country_id, address.csv.phone] --> address.csv.district
+[address.csv.country, address.csv.phone] --> address.csv.address_id
+[address.csv.country, address.csv.phone] --> address.csv.address
+[address.csv.country, address.csv.phone] --> address.csv.city_id
+[address.csv.country, address.csv.phone] --> address.csv.city
+[address.csv.country, address.csv.phone] --> address.csv.district
+[address.csv.city_id] --> address.csv.city
+[address.csv.city_id] --> address.csv.country_id
+[address.csv.city_id] --> address.csv.country
+[address.csv.city_id, address.csv.postal_code] --> address.csv.district
+[address.csv.city_id, address.csv.district] --> address.csv.postal_code
+[address.csv.city] --> address.csv.city_id
+[address.csv.city] --> address.csv.country_id
+[address.csv.city] --> address.csv.country
+[address.csv.city, address.csv.postal_code] --> address.csv.district
+[address.csv.city, address.csv.district] --> address.csv.postal_code
+[address.csv.district, address.csv.postal_code] --> address.csv.city_id
+[address.csv.district, address.csv.postal_code] --> address.csv.city
+[address.csv.district, address.csv.postal_code] --> address.csv.country_id
+[address.csv.district, address.csv.postal_code] --> address.csv.country
+[address.csv.country_id, address.csv.postal_code] --> address.csv.city_id
+[address.csv.country_id, address.csv.postal_code] --> address.csv.city
+[address.csv.country_id, address.csv.postal_code] --> address.csv.district
+[address.csv.country, address.csv.postal_code] --> address.csv.city_id
+[address.csv.country, address.csv.postal_code] --> address.csv.city
+[address.csv.country, address.csv.postal_code] --> address.csv.district
+[address.csv.country_id] --> address.csv.country
+[address.csv.country] --> address.csv.country_id

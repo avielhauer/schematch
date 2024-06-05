@@ -1,0 +1,3 @@
+[releases_artists.csv.id]
+[releases_artists.csv.name]
+[releases_artists.csv.join_, releases_artists.csv.release_id]

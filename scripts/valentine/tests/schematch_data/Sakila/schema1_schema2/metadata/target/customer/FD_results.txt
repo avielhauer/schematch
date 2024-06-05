@@ -1,0 +1,34 @@
+[customer.csv.customer_id] --> customer.csv.last_name
+[customer.csv.customer_id] --> customer.csv.email
+[customer.csv.customer_id] --> customer.csv.address_id
+[customer.csv.customer_id] --> customer.csv.first_name
+[customer.csv.customer_id] --> customer.csv.store_id
+[customer.csv.customer_id] --> customer.csv.active
+[customer.csv.customer_id] --> customer.csv.create_date
+[customer.csv.last_name] --> customer.csv.customer_id
+[customer.csv.last_name] --> customer.csv.email
+[customer.csv.last_name] --> customer.csv.address_id
+[customer.csv.last_name] --> customer.csv.first_name
+[customer.csv.last_name] --> customer.csv.store_id
+[customer.csv.last_name] --> customer.csv.active
+[customer.csv.last_name] --> customer.csv.create_date
+[customer.csv.email] --> customer.csv.customer_id
+[customer.csv.email] --> customer.csv.last_name
+[customer.csv.email] --> customer.csv.address_id
+[customer.csv.email] --> customer.csv.first_name
+[customer.csv.email] --> customer.csv.store_id
+[customer.csv.email] --> customer.csv.active
+[customer.csv.email] --> customer.csv.create_date
+[customer.csv.address_id] --> customer.csv.customer_id
+[customer.csv.address_id] --> customer.csv.last_name
+[customer.csv.address_id] --> customer.csv.email
+[customer.csv.address_id] --> customer.csv.first_name
+[customer.csv.address_id] --> customer.csv.store_id
+[customer.csv.address_id] --> customer.csv.active
+[customer.csv.address_id] --> customer.csv.create_date
+[customer.csv.first_name] --> customer.csv.active
+[customer.csv.create_date, customer.csv.first_name] --> customer.csv.customer_id
+[customer.csv.create_date, customer.csv.first_name] --> customer.csv.last_name
+[customer.csv.create_date, customer.csv.first_name] --> customer.csv.email
+[customer.csv.create_date, customer.csv.first_name] --> customer.csv.address_id
+[customer.csv.create_date, customer.csv.first_name] --> customer.csv.store_id

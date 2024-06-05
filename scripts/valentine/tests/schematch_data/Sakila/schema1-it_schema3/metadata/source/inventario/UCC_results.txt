@@ -1,0 +1,1 @@
+[inventario.csv.inventario_id]

@@ -1,0 +1,3 @@
+[artist_alias.csv.id]
+[artist_alias.csv.last_updated, artist_alias.csv.name]
+[artist_alias.csv.last_updated, artist_alias.csv.sort_name]

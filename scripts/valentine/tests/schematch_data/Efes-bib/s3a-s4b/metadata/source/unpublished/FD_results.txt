@@ -1,0 +1,4 @@
+[unpublished.csv.references_] --> unpublished.csv.note, unpublished.csv.preliminary, unpublished.csv.refkey, unpublished.csv.title, unpublished.csv.unpubid
+[unpublished.csv.refkey] --> unpublished.csv.note, unpublished.csv.preliminary, unpublished.csv.references_, unpublished.csv.title, unpublished.csv.unpubid
+[unpublished.csv.title] --> unpublished.csv.note, unpublished.csv.preliminary, unpublished.csv.references_, unpublished.csv.refkey, unpublished.csv.unpubid
+[unpublished.csv.unpubid] --> unpublished.csv.note, unpublished.csv.preliminary, unpublished.csv.references_, unpublished.csv.refkey, unpublished.csv.title

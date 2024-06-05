@@ -1,0 +1,34 @@
+id,gid,name,sort_name,begin_date_year,begin_date_month,begin_date_day,end_date_year,end_date_month,end_date_day,label_code,type,area,comment,edits_pending,last_updated,ended
+467,1ca5ed29-e00b-4ea5-b817-0bcca0e04946,RCA,RCA,1901,10,3,,,,316,4,222,has logo with just “RCA”,1,2013-10-19 01:24:24.578429+02,f
+647,b6d68d43-4939-4d76-b0d7-ef855d9f3e6e,Ariola,Ariola,1958,,,,,,116,4,81,"",0,2010-02-18 15:25:03.47623+01,f
+4718,6b7649da-463e-426d-8bdf-aac109fc006a,Dacapo,Dacapo,1989,,,,,,9158,4,57,"Danish classical label, DCCD or X.XXXXXX catalog numbers",0,2013-02-07 11:36:09.935408+01,f
+4143,d2b972e0-9d6e-432d-b03d-c274fd0438f6,raum…musik,raum…musik,1998,,,,,,10310,4,81,"",0,2012-07-18 02:00:43.883702+02,f
+30551,ac721e17-adba-47f9-8d1c-ffd97ff4bdb3,FM Musik,FM Musik,,,,,,,,4,81,"",0,,f
+3267,157afde4-4bf5-4039-8ad2-5a15acc85176,[no label],[no label],,,,,,,,3,,"Special purpose label - white labels, self-published releases and other “no label” releases",1,2013-10-13 05:17:43.494676+02,f
+16594,7f891972-ae94-470d-98e4-4f26c65a43e1,Antone's Records,Antone's Records,,,,,,,,,222,"",0,2013-07-21 16:01:46.454578+02,f
+3598,447147a3-c947-4422-9993-db1254234110,BIS,BIS,1973,,,,,,,4,202,Swedish classical music label,0,2011-07-21 23:01:49.348843+02,f
+5959,0b188c03-0909-4d18-b8b6-4eb93ca1471c,Sanctuary Records,Sanctuary Records,2000,,,2007,,,,3,222,"US, 2000-2007",0,2012-05-15 21:04:49.109476+02,t
+330,8e479e57-ef44-490c-b75d-cd28df89bf1b,Motown Records,Motown Records,1959,9,,,,,881,4,222,"",0,2012-10-02 05:05:55.876107+02,f
+1511,0819f633-9f47-4a69-8ce2-408b87e0a0af,Klubbstyle,Klubbstyle,,,,,,,,3,81,"",0,2011-12-03 17:00:11.964688+01,f
+25,873f9f75-af68-4872-98e2-431058e4c9a9,Elektra,Elektra,1950,,,,,,192,4,222,"1950–1989, revived 2009–06-01; read annotations before use",0,2013-08-20 05:47:19.505971+02,f
+1012,f1b83107-23e5-41a3-ab1b-2a36965cf77b,Stones Throw Records,Stones Throw Records,1996,,,,,,,4,222,"",0,2013-08-19 23:00:40.639127+02,f
+6725,f49e144a-decf-478c-8634-d540f109cc09,Herb Recordings,Herb Recordings,,,,,,,,,221,"",0,,f
+3032,7f87e14e-eb85-4a7e-957a-77465f869cb5,Tamla,Tamla,1959,1,12,,,,,4,222,"",0,,f
+3284,45ffe1d8-92da-4750-9a4a-f42861f46e2c,Legacy,Legacy,1990,,,,,,2361,6,222,catalog/reissue division of Sony Music Entertainment,0,2012-06-08 13:00:11.736455+02,f
+16826,17a726ae-0989-4c77-b0f2-ce356b28acf6,YG Entertainment,YG Entertainment,,,,,,,,4,113,"",0,2013-04-09 00:00:20.97114+02,f
+51648,4c501638-3274-4157-abd4-aefc41539904,Joint Recording Company,Joint Recording Company,1998,,,,,,,4,219,"record company based in Kiev, Ukraine",0,2013-07-08 16:11:57.444857+02,f
+23475,2d076b41-01d8-4ab0-9472-28e95c387059,Fluid Records,Fluid Records,,,,,,,5865,4,202,"",0,2009-08-15 16:02:08.646795+02,f
+6847,f9ada3ae-3081-44df-8581-ca27a3462b68,Sony BMG Music Entertainment,Sony BMG Music Entertainment,2004,8,5,2008,10,1,13989,4,240,"Aug 5, 2004 - Oct 1, 2008; do not use if a specific sub-label is available",0,2013-08-15 23:06:59.700337+02,t
+241,193ad58f-5e6b-4a86-8038-c03501565869,Capricorn Records,Capricorn Records,1969,,,,,,,4,222,US label,0,2009-08-15 16:51:28.577854+02,f
+7656,57acbc41-e32b-43f6-954f-f006efd2b140,Flying Rhino Records,Flying Rhino Records,1994,,,2002,,,,4,221,"",0,2012-05-15 21:04:49.109476+02,t
+5512,2b78ecf4-88a3-43ff-840a-1c5898e009ad,Legend,Legend,,,,,,,,3,84,Greek label,0,,f
+33,50c384a2-0b44-401b-b893-8181173339c7,Atlantic,Atlantic,1947,,,,,,121,4,222,Atlantic Recording Corporation,0,2012-03-29 20:00:07.592485+02,f
+25905,09597c18-f789-4e06-bcc6-9388e5cdb18b,Refune Records,Refune Records,,,,,,,,,202,"",0,,f
+16279,3b96a851-c435-48df-91d9-b45d69380c5f,Texas Music Group,Texas Music Group,,,,,,,,3,222,"",0,,f
+2798,f37d9733-5a97-4d56-9628-d33280632e90,Versailles,Versailles,,,,,,,,3,73,"",0,2012-09-18 20:04:23.371345+02,f
+21289,d42983a4-0d55-4218-849c-36465cdb6ea9,Sativae,Sativae,1994,,,,,,,4,221,"",0,,f
+6403,47921002-176f-494a-947d-fc8e7221807b,Sinedín Music,Sinedín Music,,,,,,,,3,194,"",0,,f
+3031,7cff3c82-a798-4aad-a280-939167879dd9,K617,K617,,,,,,,,4,73,"",0,2009-01-16 14:54:48.404379+01,f
+1555,e796d01f-eac0-40aa-b1b8-e92f6b02c78f,הד ארצי,Hed Arzi Music,,,,,,,,3,104,"",0,,f
+41,a9de694a-2e5b-4a1d-8d7a-a7ca620e3f80,ATCO Records,ATCO Records,1955,,,,,,120,4,222,"",0,2011-11-27 03:36:07.554038+01,f
+9144,d1208b98-107f-4052-954d-a65af60d0612,CAM Jazz,CAM Jazz,2000,,,,,,,4,105,"",0,,f

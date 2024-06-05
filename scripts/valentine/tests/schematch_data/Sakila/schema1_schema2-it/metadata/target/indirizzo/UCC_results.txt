@@ -1,0 +1,7 @@
+[indirizzo.csv.indirizzo_id]
+[indirizzo.csv.indirizzo]
+[indirizzo.csv.città_id, indirizzo.csv.telefono]
+[indirizzo.csv.città, indirizzo.csv.telefono]
+[indirizzo.csv.distretto, indirizzo.csv.telefono]
+[indirizzo.csv.stato_id, indirizzo.csv.telefono]
+[indirizzo.csv.stato, indirizzo.csv.telefono]

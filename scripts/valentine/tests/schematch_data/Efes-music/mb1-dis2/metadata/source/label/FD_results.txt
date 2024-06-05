@@ -1,0 +1,24 @@
+[] --> label.csv.begin_date_day, label.csv.begin_date_month, label.csv.end_date_day, label.csv.end_date_month
+[label.csv.area, label.csv.begin_date_year] --> label.csv.gid, label.csv.id, label.csv.name, label.csv.sort_name, label.csv.type
+[label.csv.area, label.csv.type] --> label.csv.begin_date_year, label.csv.gid, label.csv.id, label.csv.name, label.csv.sort_name
+[label.csv.area] --> label.csv.comment, label.csv.edits_pending, label.csv.end_date_year, label.csv.ended, label.csv.label_code, label.csv.last_updated
+[label.csv.begin_date_year, label.csv.comment] --> label.csv.last_updated
+[label.csv.begin_date_year, label.csv.edits_pending] --> label.csv.last_updated
+[label.csv.begin_date_year, label.csv.type] --> label.csv.comment, label.csv.edits_pending, label.csv.last_updated
+[label.csv.begin_date_year] --> label.csv.end_date_year, label.csv.ended, label.csv.label_code
+[label.csv.comment, label.csv.end_date_year] --> label.csv.last_updated
+[label.csv.comment, label.csv.ended] --> label.csv.last_updated
+[label.csv.comment, label.csv.label_code] --> label.csv.last_updated
+[label.csv.comment] --> label.csv.edits_pending
+[label.csv.edits_pending, label.csv.end_date_year] --> label.csv.last_updated
+[label.csv.edits_pending, label.csv.ended] --> label.csv.last_updated
+[label.csv.edits_pending, label.csv.label_code] --> label.csv.last_updated
+[label.csv.edits_pending] --> label.csv.comment
+[label.csv.end_date_year] --> label.csv.ended, label.csv.label_code
+[label.csv.ended] --> label.csv.end_date_year, label.csv.label_code
+[label.csv.gid] --> label.csv.area, label.csv.begin_date_year, label.csv.comment, label.csv.edits_pending, label.csv.end_date_year, label.csv.ended, label.csv.id, label.csv.label_code, label.csv.last_updated, label.csv.name, label.csv.sort_name, label.csv.type
+[label.csv.id] --> label.csv.area, label.csv.begin_date_year, label.csv.comment, label.csv.edits_pending, label.csv.end_date_year, label.csv.ended, label.csv.gid, label.csv.label_code, label.csv.last_updated, label.csv.name, label.csv.sort_name, label.csv.type
+[label.csv.label_code] --> label.csv.end_date_year, label.csv.ended
+[label.csv.last_updated] --> label.csv.comment, label.csv.edits_pending, label.csv.end_date_year, label.csv.ended, label.csv.label_code
+[label.csv.name] --> label.csv.area, label.csv.begin_date_year, label.csv.comment, label.csv.edits_pending, label.csv.end_date_year, label.csv.ended, label.csv.gid, label.csv.id, label.csv.label_code, label.csv.last_updated, label.csv.sort_name, label.csv.type
+[label.csv.sort_name] --> label.csv.area, label.csv.begin_date_year, label.csv.comment, label.csv.edits_pending, label.csv.end_date_year, label.csv.ended, label.csv.gid, label.csv.id, label.csv.label_code, label.csv.last_updated, label.csv.name, label.csv.type

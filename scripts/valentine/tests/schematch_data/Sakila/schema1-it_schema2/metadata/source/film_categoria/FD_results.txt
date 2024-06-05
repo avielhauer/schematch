@@ -1,0 +1,4 @@
+[film_categoria.csv.film_id] --> film_categoria.csv.categoria_id
+[film_categoria.csv.film_id] --> film_categoria.csv.nome_categoria
+[film_categoria.csv.categoria_id] --> film_categoria.csv.nome_categoria
+[film_categoria.csv.nome_categoria] --> film_categoria.csv.categoria_id

@@ -1,0 +1,8 @@
+CustomerID,CustomerName,Age,ProductID,ProductName,Category,Manufacturer,Price
+2001,Mary Johnson,30,601,Laptop,Electronics,HP,1200
+2002,Robert Smith,45,602,Refrigerator,Appliances,Samsung,800
+2003,Emily Brown,28,603,Running Shoes,Footwear,Nike,100
+2004,David White,35,601,Laptop,Electronics,HP,1100
+2005,Olivia Green,40,604,Coffee Maker,Appliances,Philips,150
+2001,Mary Johnson,30,623,Phone,Electronics,HP,1300
+2003,Emily Brown,28,623,Phone,Electronics,Apple,999999

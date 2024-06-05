@@ -1,0 +1,2 @@
+[area_alias_type.csv.id]
+[area_alias_type.csv.name]
