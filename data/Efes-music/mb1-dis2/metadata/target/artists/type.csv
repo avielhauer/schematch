@@ -1,0 +1,2 @@
+,data_quality,name,realname,profile,id
+datatype,STRING,STRING,STRING,TEXT,INTEGER

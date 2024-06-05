@@ -1,0 +1,2 @@
+,release_id,qty,format_id,name,text
+datatype,INTEGER,INTEGER,INTEGER,STRING,STRING

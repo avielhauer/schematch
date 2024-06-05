@@ -1,0 +1,2 @@
+,leadout_offset,track_offset,freedb_id,created,track_count,id,discid,degraded
+datatype,INTEGER,TEXT,STRING,STRING,INTEGER,INTEGER,STRING,STRING

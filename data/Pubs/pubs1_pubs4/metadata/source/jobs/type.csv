@@ -1,0 +1,2 @@
+,job_desc,max_lvl,job_id,min_lvl
+datatype,STRING,INTEGER,INTEGER,INTEGER

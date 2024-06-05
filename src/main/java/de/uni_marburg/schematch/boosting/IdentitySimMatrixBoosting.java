@@ -13,6 +13,7 @@ public class IdentitySimMatrixBoosting implements SimMatrixBoosting {
 
     @Override
     public float[][] run(MatchTask matchTask, SimMatrixBoostingStep matchStep, float[][] simMatrix) {
+        log.trace("Matrix: " + simMatrix.length + " x " + simMatrix[0].length);
         return simMatrix;
     }
 }

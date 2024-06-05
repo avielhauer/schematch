@@ -1,0 +1,2 @@
+,master_id,status,title,released,id,data_quality,notes,country
+datatype,INTEGER,STRING,STRING,STRING,INTEGER,STRING,TEXT,STRING

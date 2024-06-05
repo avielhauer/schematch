@@ -1,0 +1,5 @@
+,name,locale,id,begin_date_year,begin_date_day,end_date_day,begin_date_month,sort_name,primary_for_locale,edits_pending,end_date_year,end_date_month,ended,label,last_updated,type
+mean,,,5399.825,,,,,,,0.0,,,,3057.15,,
+mean_length,11.225,0.15,,0.0,0.0,0.0,0.0,11.175,1.0,,0.0,0.0,1.0,,28.9,0.725
+maximum,,,15672.0,,,,,,,1.4E-45,,,,7512.0,,
+minimum,,,109.0,,,,,,,0.0,,,,132.0,,

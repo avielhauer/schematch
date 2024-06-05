@@ -1,0 +1,2 @@
+,artist_credit,last_updated,edits_pending,comment,gid,id,video,name,length
+datatype,INTEGER,STRING,INTEGER,STRING,STRING,INTEGER,STRING,TEXT,STRING

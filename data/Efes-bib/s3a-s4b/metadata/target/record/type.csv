@@ -1,0 +1,2 @@
+,numref,updatecode,notes,subfile,series,rid,contractnum,issn,availability,isbn,source,accessionnum
+datatype,STRING,INTEGER,STRING,STRING,STRING,INTEGER,STRING,STRING,STRING,STRING,STRING,STRING

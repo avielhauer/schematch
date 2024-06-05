@@ -1,0 +1,2 @@
+,artist_credit,script,quality,barcode,last_updated,status,release_group,id,gid,language,edits_pending,packaging,comment,name
+datatype,INTEGER,INTEGER,INTEGER,STRING,STRING,INTEGER,INTEGER,INTEGER,STRING,STRING,INTEGER,STRING,STRING,STRING

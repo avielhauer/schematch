@@ -1,0 +1,2 @@
+,date_month,date_day,release,date_year
+datatype,STRING,STRING,INTEGER,INTEGER

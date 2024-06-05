@@ -1,0 +1,2 @@
+,rating_count,release_count,first_release_date_month,first_release_date_year,first_release_date_day,id,rating
+datatype,STRING,INTEGER,STRING,STRING,STRING,INTEGER,STRING

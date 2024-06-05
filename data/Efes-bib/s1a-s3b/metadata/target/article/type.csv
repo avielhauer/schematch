@@ -1,0 +1,2 @@
+,remarks,refkey,xxxreferences,number,note,month,volume,year,fullxxxreferences,title,abstract,preliminary,articleid,pages,oldkey,references_
+datatype,STRING,STRING,TEXT,STRING,STRING,STRING,INTEGER,INTEGER,STRING,STRING,TEXT,STRING,STRING,STRING,STRING,TEXT
