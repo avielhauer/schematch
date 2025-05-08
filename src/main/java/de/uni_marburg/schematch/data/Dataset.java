@@ -21,7 +21,7 @@ public class Dataset {
         this.scenarioNames = new ArrayList<>();
 
         File dir = new File(this.path);
-
+        System.out.println(path);
         for (File subdir : dir.listFiles()) {
             if (subdir.isDirectory()) {
                 this.scenarioNames.add(subdir.getName());

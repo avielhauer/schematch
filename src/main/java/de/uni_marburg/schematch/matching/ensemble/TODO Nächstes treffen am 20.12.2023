@@ -1,0 +1,26 @@
+definieren:
+    Featuresit ba
+    Heuristiken
+    Einmal Average Ensamble Mathcer implementieren
+    #mehr über Datengenerierung
+    #dürfen wir weka einbinden: ja wir dürfen es einbinden
+    #wie sollen wir mit zu wenigen Matchern umgehen?
+
+Fragen:
+    wie sollen wir die Matcher codieren (0,1) oder was besseres?
+    ist es ok das CMC persistent angelernt wird?
+    CMC-Model in rescoures speichern?
+    Fürs anlernen gibt es dann ein Klasse, welche wieder angestoßen werden muss, damit das Model wieder neu generiert wird.
+
+TODO:
+    kleinteilig vorgehen
+    wenn die Labelfeatures gut ausfallen, dann viel credit zu Labels
+    Leichte regeln überlegt durch domain wissen (POC)
+    Cardinalität Matcher o.ä. die vielleicht kommen werden
+    länge von label und instanz
+    heuristik: Daten die in einem Feature gut ausgeprägt sind viel credit (empirisch) matcher laufen lassen(schauen welcher gut ist)
+    Literatur Recherche :D
+
+TODO: (verfasst am 20.12.2023)
+    Manche Matcher haben auch verschiedene best Threshholds, also bei manchen ist 0.3 viel bei manchen ist es sehr schlecht, kommt hlat wirklich auf den Matcher drauf an
+    schauen ob weighted average sinn macht, oder weighted Max verwenden, villeicht Matcher basiert einbauen
