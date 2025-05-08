@@ -1,12 +1,10 @@
 package de.uni_marburg.schematch;
 
-import de.uni_marburg.schematch.boosting.IdentitySimMatrixBoosting;
+import de.uni_marburg.schematch.boosting.SimFloodingSimMatrixBoosting;
 import de.uni_marburg.schematch.boosting.SimMatrixBoosting;
 import de.uni_marburg.schematch.evaluation.metric.Metric;
 import de.uni_marburg.schematch.evaluation.metric.MetricFactory;
-import de.uni_marburg.schematch.matching.ensemble.RandomEnsembleMatcher;
 import de.uni_marburg.schematch.matchtask.matchstep.*;
-import de.uni_marburg.schematch.matchtask.tablepair.generators.GroundTruthTablePairsGenerator;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.NaiveTablePairsGenerator;
 import de.uni_marburg.schematch.matchtask.tablepair.generators.TablePairsGenerator;
 import de.uni_marburg.schematch.data.*;
@@ -33,8 +31,12 @@ public class Main {
         MatcherFactory matcherFactory = new MatcherFactory();
         // FIXME: make sim matrix boosting configurable via .yaml files
         // Configure similarity matrix boosting here for now
-        SimMatrixBoosting firstLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
-        SimMatrixBoosting secondLineSimMatrixBoosting = new IdentitySimMatrixBoosting();
+        SimMatrixBoosting firstLineSimMatrixBoosting = new SimFloodingSimMatrixBoosting();
+        SimMatrixBoosting secondLineSimMatrixBoosting = new SimFloodingSimMatrixBoosting();
+
+        log.info("Instantiating metrics");
+        MetricFactory metricFactory = new MetricFactory();
+        List<Metric> metrics = metricFactory.createMetricsFromConfig();
 
         log.info("Setting up matching steps as specified in config");
         List<MatchStep> matchSteps = new ArrayList<>();
@@ -82,9 +84,6 @@ public class Main {
             }
         }
 
-        log.info("Instantiating metrics");
-        MetricFactory metricFactory = new MetricFactory();
-        List<Metric> metrics = metricFactory.createMetricsFromConfig();
 
         EvalWriter evalWriter = null;
         if (ConfigUtils.anyEvaluate()) {

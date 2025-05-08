@@ -1,0 +1,2 @@
+,begin_area,name,sort_name,begin_date_month,ended,type,comment,id,area,gender,edits_pending,end_area,gid,end_date_year,begin_date_year,end_date_month,end_date_day,last_updated,begin_date_day
+datatype,STRING,STRING,STRING,STRING,STRING,STRING,STRING,INTEGER,STRING,STRING,INTEGER,STRING,STRING,STRING,STRING,STRING,STRING,STRING,STRING

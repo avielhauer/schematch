@@ -1,0 +1,2 @@
+,stor_id,ord_date,qty,title_id,payterms,ord_num
+datatype,INTEGER,STRING,INTEGER,STRING,STRING,STRING

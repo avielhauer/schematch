@@ -1,0 +1,2 @@
+,num,title,class,annote,articleid,journal,loc,pages,note,month,year,vol
+datatype,STRING,TEXT,TEXT,TEXT,STRING,TEXT,STRING,STRING,STRING,STRING,STRING,STRING

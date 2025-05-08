@@ -1,0 +1,2 @@
+,id,iso_number,iso_code,name,frequency
+datatype,INTEGER,INTEGER,STRING,STRING,INTEGER

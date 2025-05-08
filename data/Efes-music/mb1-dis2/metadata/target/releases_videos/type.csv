@@ -1,0 +1,2 @@
+,embed,title,description,src,duration,release_id
+datatype,STRING,STRING,STRING,STRING,INTEGER,INTEGER

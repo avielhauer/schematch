@@ -1,0 +1,2 @@
+,dgenre,discid,extd,disc_length,dtitle,dyear,playorder,revision,submitted_via
+datatype,STRING,STRING,TEXT,INTEGER,STRING,INTEGER,STRING,INTEGER,STRING

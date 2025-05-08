@@ -1,0 +1,2 @@
+,annote,vol,note,pages,num,miscid,year,title,confloc,class,howpub,month,loc
+datatype,STRING,STRING,STRING,STRING,STRING,STRING,INTEGER,STRING,STRING,STRING,STRING,STRING,STRING

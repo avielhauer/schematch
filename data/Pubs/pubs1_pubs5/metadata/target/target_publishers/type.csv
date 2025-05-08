@@ -1,0 +1,2 @@
+,country,pub_name,pub_id,state,city
+datatype,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER

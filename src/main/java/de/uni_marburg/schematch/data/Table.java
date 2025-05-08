@@ -1,5 +1,6 @@
 package de.uni_marburg.schematch.data;
 
+import de.uni_marburg.schematch.data.metadata.dependency.FunctionalDependency;
 import lombok.Data;
 
 import java.util.List;
@@ -12,11 +13,14 @@ public class Table {
     private String path;
     private int offset;
 
+    private List<FunctionalDependency> functionalDependencies;
+
     public Table(String name, List<String> labels, List<Column> columns, String path) {
         this.name = name;
         this.labels = labels;
         this.columns = columns;
         this.path = path;
+
 
         for (Column column : this.columns) {
             column.setTable(this);
@@ -30,4 +34,9 @@ public class Table {
     public Column getColumn(int n) {
         return this.columns.get(n);
     }
+
+    public List<FunctionalDependency> getFunctionalDependencies() {
+        return functionalDependencies;
+    }
+
 }

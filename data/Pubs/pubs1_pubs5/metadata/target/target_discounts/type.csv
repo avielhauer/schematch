@@ -1,0 +1,2 @@
+,discounttype,discount,stor_id,lowqty,highqty
+datatype,INTEGER,FLOAT,STRING,STRING,STRING

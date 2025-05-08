@@ -189,6 +189,7 @@ public class InputReader {
             Collection<FunctionalDependency> fds = new ArrayList<>();
             Collection<UniqueColumnCombination> uccs = new ArrayList<>();
 
+
             for (Table table : database.getTables()) {
                 Path fdFilePath = metadataFolderPath.resolve(table.getName()).resolve("FD_results.txt");
                 Path uccFilePath = metadataFolderPath.resolve(table.getName()).resolve("UCC_results.txt");

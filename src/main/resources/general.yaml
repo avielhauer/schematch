@@ -65,8 +65,8 @@ readCacheSecondLineMatchers: False
 writeCacheSecondLineMatchers: False
 # Step 5: run similarity matrix boosting on the output of second line matchers
 runSimMatrixBoostingOnSecondLineMatchers: True
-saveOutputSimMatrixBoostingOnSecondLineMatchers: True
-evaluateSimMatrixBoostingOnSecondLineMatchers: True
+saveOutputSimMatrixBoostingOnSecondLineMatchers: False
+evaluateSimMatrixBoostingOnSecondLineMatchers: False
 readCacheSimMatrixBoostingOnSecondLineMatchers: False
 writeCacheSimMatrixBoostingOnSecondLineMatchers: False
 

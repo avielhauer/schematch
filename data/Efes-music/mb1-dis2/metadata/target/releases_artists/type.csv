@@ -1,0 +1,2 @@
+,join_,id,tracks,anv,release_id,role,name
+datatype,STRING,INTEGER,STRING,STRING,INTEGER,STRING,STRING

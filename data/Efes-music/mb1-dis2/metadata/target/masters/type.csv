@@ -1,0 +1,2 @@
+,notes,year,title,data_quality,id,main_release
+datatype,STRING,INTEGER,STRING,STRING,INTEGER,INTEGER

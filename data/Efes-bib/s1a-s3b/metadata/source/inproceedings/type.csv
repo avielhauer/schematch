@@ -1,0 +1,2 @@
+,note,bktitle,inprocid,title,pages,class,vol,num,month,annote,year,loc
+datatype,STRING,TEXT,STRING,STRING,STRING,STRING,STRING,STRING,STRING,TEXT,INTEGER,STRING

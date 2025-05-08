@@ -1,0 +1,2 @@
+,id,ordering,release,edits_pending,comment,mime_type,date_uploaded,edit
+datatype,FLOAT,INTEGER,INTEGER,INTEGER,STRING,STRING,STRING,INTEGER

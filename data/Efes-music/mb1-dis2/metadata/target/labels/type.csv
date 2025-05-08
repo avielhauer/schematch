@@ -1,0 +1,2 @@
+,parentlabel,id,name,profile,contactinfo,data_quality
+datatype,STRING,INTEGER,STRING,TEXT,STRING,STRING

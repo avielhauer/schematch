@@ -1,0 +1,2 @@
+,pub_id,city,country,state,pub_name
+datatype,INTEGER,STRING,STRING,STRING,STRING

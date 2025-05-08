@@ -1,0 +1,2 @@
+,fname,emp_id,job_id,pub_id,job_lvl,lname,hire_date,minit
+datatype,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER,INTEGER

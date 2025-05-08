@@ -1,0 +1,2 @@
+,abstract,abstractind,language,pid,title,titleext,journalann,category,journal,confinfo,book
+datatype,TEXT,STRING,STRING,INTEGER,TEXT,STRING,STRING,STRING,STRING,TEXT,TEXT

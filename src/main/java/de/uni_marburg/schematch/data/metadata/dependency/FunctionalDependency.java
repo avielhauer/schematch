@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Collection;
+import java.util.List;
 
 @Data
 public class FunctionalDependency implements Dependency{
@@ -31,5 +32,17 @@ public class FunctionalDependency implements Dependency{
         sb.append(" --> ");
         sb.append(dependant.getLabel());
         return sb.toString();
+    }
+
+    public static int getSortingCriteria(FunctionalDependency fd) {
+        return fd.getDeterminant().size();
+    }
+
+    public Collection<Column> getDependentColumns() {
+        return List.of(dependant);
+    }
+
+    public Collection<Collection<Column>> getDeterminantColumn() {
+        return List.of(determinant);
     }
 }

@@ -1,0 +1,2 @@
+,inst,loc,class,note,techid,month,pages,title,year,annote,vol,num
+datatype,STRING,STRING,STRING,STRING,STRING,STRING,STRING,STRING,INTEGER,STRING,STRING,STRING
